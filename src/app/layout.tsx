@@ -2,6 +2,7 @@ import { cx } from 'cva'
 import type { Metadata } from 'next'
 import { Inter, Lora } from 'next/font/google'
 import './globals.css'
+import { Navbar } from '~components/nav-bar'
 
 const lora = Lora({
   variable: '--font-lora',
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: Props) {
           'bg-dark-100 font-inter text-white-100 antialiased',
         )}
       >
+        <Navbar />
         {children}
       </body>
     </html>
