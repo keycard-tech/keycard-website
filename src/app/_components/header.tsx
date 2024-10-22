@@ -1,8 +1,8 @@
 'use client'
 
-import { cx } from 'cva'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { ButtonLink } from './button-link'
 import { Logo } from './logo'
 
 const Header = () => {
@@ -26,17 +26,11 @@ const Header = () => {
           href="/keycard-pro"
           className="rounded-12 border border-[transparent] px-[14px] pb-[10px] pt-2 backdrop-blur-[20px] transition-colors hover:border-white-6 hover:bg-white-6"
         >
-          Keycard pro
+          Keycard Pro
         </Link>
-        <Link
-          href="/buy-keycard"
-          className={cx([
-            'flex cursor-pointer select-none items-center rounded-12 border border-white-6 bg-white-6 px-[14px] pb-[10px] pt-2 backdrop-blur-[20px] transition-colors hover:bg-white-12',
-            active && 'bg-dark-60',
-          ])}
-        >
-          <p className="text-16 font-500 text-white-95">Buy Keycard</p>
-        </Link>
+        <ButtonLink href="/buy-keycard" variant="secondary" active={active}>
+          Buy Keycard
+        </ButtonLink>
       </div>
     </nav>
   )

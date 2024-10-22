@@ -1,14 +1,15 @@
 import Image from 'next/image'
+import { ButtonLink } from './button-link'
 
 const KeycardProSection = () => {
   return (
     <section className="relative flex items-center overflow-hidden rounded-b-[28px] border border-t-0 border-white-6 bg-white-3 backdrop-blur-[20px]">
       {/* Hardware wallet image */}
-      <div className="flex h-full flex-1 items-center justify-center">
+      <div className="flex max-h-[510px] flex-1 items-start justify-center overflow-hidden">
         <Image
-          src="/assets/keycard-pro-section.png"
+          src="/assets/keycard-pro.png"
           alt="Keycard Pro Hardware Wallet"
-          width="1000"
+          width="900"
           height="600"
           className="h-full object-contain"
         />
@@ -27,12 +28,10 @@ const KeycardProSection = () => {
           Certainly you don&apos;t want to miss it
         </p>
         <div className="flex space-x-4">
-          <button className="flex rounded-12 bg-orange px-6 py-3 text-white-95">
-            Get notified
-          </button>
-          <button className="rounded-12 border border-white-12 px-6 py-3 backdrop-blur-2xl">
+          <ButtonLink href="/">Get notified</ButtonLink>
+          <ButtonLink href="/" variant="secondary">
             Learn more
-          </button>
+          </ButtonLink>
         </div>
         <p className="pt-6 text-16 font-300 text-white-60">Coming 25</p>
       </div>
