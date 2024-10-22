@@ -2,38 +2,39 @@ import Image from 'next/image'
 
 const KeycardProSection = () => {
   return (
-    <section className="relative flex items-center overflow-hidden bg-white-3 px-6 backdrop-blur-[20px]">
+    <section className="relative flex items-center overflow-hidden rounded-b-[28px] border border-t-0 border-white-6 bg-white-3 backdrop-blur-[20px]">
       {/* Hardware wallet image */}
-      <Image
-        src="/assets/keycard-pro-section.png"
-        alt="Keycard Pro Hardware Wallet"
-        width={400}
-        height={600}
-        className="size-full object-contain"
-      />
+      <div className="flex h-full flex-1 items-center justify-center">
+        <Image
+          src="/assets/keycard-pro-section.png"
+          alt="Keycard Pro Hardware Wallet"
+          width="1000"
+          height="600"
+          className="h-full object-contain"
+        />
+      </div>
 
       {/* Content */}
-      <div className="relative z-10 py-20 pr-[72px]">
-        <h2 className="mb-4 text-48 font-500 text-white-100">keycard pro</h2>
-        <h1 className="mb-4 text-48 font-500">
+      <div className="container relative z-10 flex max-w-[434px] flex-col py-20">
+        <h1 className="flex pb-4 font-lora text-48 font-400">
           A modular
           <br />
           hardware wallet
         </h1>
-        <p className="mb-8 text-16 text-white-60">
-          Something will say here about thi product
+        <p className="pb-8 text-20 font-300 text-white-80">
+          Something will say here about this product.
           <br />
-          certainly you don&apos;t want to miss it
+          Certainly you don&apos;t want to miss it
         </p>
-        <div className="mb-6 flex space-x-4">
-          <button className="rounded-12 bg-orange px-6 py-3 text-16 font-500 text-white-100 transition-colors hover:bg-dark-60">
+        <div className="flex space-x-4">
+          <button className="flex rounded-12 bg-orange px-6 py-3 text-white-95">
             Get notified
           </button>
-          <button className="rounded-12 bg-[#FFFFFF14] px-6 py-3 text-16 font-500 text-white-100 transition-colors hover:bg-orange">
+          <button className="rounded-12 border border-white-12 px-6 py-3 backdrop-blur-2xl">
             Learn more
           </button>
         </div>
-        <p className="text-[#FFFFFF99]">Coming 2025</p>
+        <p className="pt-6 text-16 font-300 text-white-60">Coming 25</p>
       </div>
     </section>
   )

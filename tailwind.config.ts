@@ -18,6 +18,7 @@ export default {
       300: '300',
       400: '400',
       500: '500',
+      600: '600',
     },
 
     fontSize: {
@@ -26,6 +27,20 @@ export default {
         {
           lineHeight: '3.5rem',
           letterSpacing: '-0.06rem',
+        },
+      ],
+      24: [
+        '1.5rem',
+        {
+          lineHeight: '2.25rem',
+          letterSpacing: '-0.045rem',
+        },
+      ],
+      20: [
+        '1.25rem',
+        {
+          lineHeight: '1.75rem',
+          letterSpacing: '-0.02rem',
         },
       ],
       16: [
