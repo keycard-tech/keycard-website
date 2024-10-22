@@ -1,6 +1,6 @@
 const Hero = () => {
   return (
-    <section className="flex w-full bg-dark-100 px-[72px] py-20">
+    <section className="relative flex w-full bg-dark-100 px-[72px] py-20">
       {/* Image background */}
       <div
         className="absolute inset-0 z-0 bg-cover bg-center"

@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import { Logo } from './logo'
 
-const Navbar = () => {
+const Header = () => {
   return (
-    <nav className="flex items-center justify-between bg-dark-100 px-6 py-4 text-white-100">
+    <nav className="sticky top-0 z-20 flex items-center justify-between bg-dark-100 px-6 py-4 text-white-100">
       <Logo />
       <div className="flex items-center space-x-6">
         <Link href="#">Products</Link>
@@ -15,4 +15,4 @@ const Navbar = () => {
   )
 }
 
-export { Navbar }
+export { Header }
