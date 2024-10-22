@@ -3,7 +3,7 @@ import { ButtonLink } from './button-link'
 
 const KeycardProSection = () => {
   return (
-    <section className="relative flex items-center overflow-hidden rounded-b-[28px] border border-t-0 border-white-6 bg-white-3 backdrop-blur-[20px]">
+    <section className="relative flex items-center overflow-hidden rounded-b-28 border border-t-0 border-white-6 bg-white-3 backdrop-blur-[20px]">
       {/* Hardware wallet image */}
       <div className="flex max-h-[510px] flex-1 items-start justify-center overflow-hidden">
         <Image
@@ -33,7 +33,7 @@ const KeycardProSection = () => {
             Learn more
           </ButtonLink>
         </div>
-        <p className="pt-6 text-16 font-300 text-white-60">Coming 25</p>
+        <p className="pt-6 text-16 font-300 text-white-60">Coming 2025</p>
       </div>
     </section>
   )

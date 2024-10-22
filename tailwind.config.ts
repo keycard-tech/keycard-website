@@ -29,6 +29,13 @@ export default {
           letterSpacing: '-0.06rem',
         },
       ],
+      32: [
+        '2rem',
+        {
+          lineHeight: '2.75rem',
+          letterSpacing: '-0.06rem',
+        },
+      ],
       24: [
         '1.5rem',
         {
@@ -75,6 +82,8 @@ export default {
 
     borderRadius: {
       12: '12px',
+      28: '28px',
+      full: '9999px',
     },
 
     opacity: {},
