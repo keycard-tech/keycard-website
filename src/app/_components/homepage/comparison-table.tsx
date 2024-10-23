@@ -1,6 +1,6 @@
 import { cx } from 'cva'
 import React from 'react'
-import { Tooltip } from './tooltip'
+import { Tooltip } from '../tooltip'
 
 const Shield = () => (
   <svg

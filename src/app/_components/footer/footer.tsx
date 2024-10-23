@@ -6,7 +6,7 @@ import { Section } from './section'
 export const Footer = () => {
   return (
     <footer className="rounded-28 bg-orange pt-8">
-      <div className="hidden grid-cols-4 divide-x divide-dashed divide-white-20 lg:grid 2xl:grid-cols-6">
+      <div className="hidden grid-cols-4 divide-x divide-dashed divide-white-20 lg:grid lg:grid-cols-6">
         <div className="flex items-start border-b border-dashed border-white-20 p-6 pr-0 pt-0">
           <Link href="/">
             <Logo />

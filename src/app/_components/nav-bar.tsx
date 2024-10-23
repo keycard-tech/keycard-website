@@ -14,12 +14,12 @@ const Navbar = () => {
 
   return (
     <animated.nav
-      className="sticky top-0 z-20 flex items-center justify-between p-6 text-white-95"
+      className="sticky top-0 z-30 flex items-center justify-between p-6 text-white-95"
       style={{
-        // backgroundColor: scrollYProgress.to(
-        //   [0, 1],
-        //   ['transparent', 'rgba(255, 255, 255, 0.03)'],
-        // ),
+        backgroundColor: scrollYProgress.to(
+          [0, 1],
+          ['transparent', 'rgba(255, 255, 255, 0.03)'],
+        ),
         backdropFilter: scrollYProgress.to([0, 1], ['blur(0px)', 'blur(20px)']),
       }}
     >

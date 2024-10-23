@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { ButtonLink } from './button-link'
+import { ButtonLink } from '../button-link'
 
 const KeycardProSection = () => {
   return (
