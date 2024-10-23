@@ -1,5 +1,6 @@
 'use client'
 
+import { animated, useScroll } from '@react-spring/web'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { ButtonLink } from './button-link'
@@ -9,8 +10,19 @@ const Header = () => {
   const pathname = usePathname()
   const active = pathname!.includes('/buy-keycard')
 
+  const { scrollYProgress } = useScroll()
+
   return (
-    <nav className="sticky top-0 z-20 flex items-center justify-between p-6 text-white-95">
+    <animated.nav
+      className="sticky top-0 z-20 flex items-center justify-between p-6 text-white-95"
+      style={{
+        // backgroundColor: scrollYProgress.to(
+        //   [0, 1],
+        //   ['transparent', 'rgba(255, 255, 255, 0.03)'],
+        // ),
+        backdropFilter: scrollYProgress.to([0, 1], ['blur(0px)', 'blur(20px)']),
+      }}
+    >
       <Link href="/">
         <Logo />
       </Link>
@@ -32,7 +44,7 @@ const Header = () => {
           Buy Keycard
         </ButtonLink>
       </div>
-    </nav>
+    </animated.nav>
   )
 }
 

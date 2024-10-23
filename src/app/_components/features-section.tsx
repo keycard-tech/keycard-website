@@ -124,7 +124,7 @@ const UnderlinedWord = ({ children }: { children: React.ReactNode }) => (
 
 export default function KeycardFeatures() {
   return (
-    <div className="mx-auto max-w-[1352px] pt-[200px]">
+    <section className="mx-auto max-w-[1352px] pt-[200px]">
       <h1 className="max-w-[665px] font-lora text-32 text-white-95">
         Join the <UnderlinedWord>open source</UnderlinedWord> revolution of the
         most <UnderlinedWord>modular</UnderlinedWord> and{' '}
@@ -187,6 +187,6 @@ export default function KeycardFeatures() {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   )
 }
