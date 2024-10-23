@@ -85,11 +85,11 @@ const faqs = [
   },
 ]
 
-export default function FAQSection() {
+const Faqs = () => {
   return (
     <section className="mx-auto max-w-[1352px]">
       <div className="flex items-start justify-between pt-[200px]">
-        <div>
+        <div className="flex flex-1 flex-col">
           <h1 className="font-lora text-32 text-white-95">
             Something about faqs
           </h1>
@@ -173,3 +173,5 @@ export default function FAQSection() {
     </section>
   )
 }
+
+export { Faqs }

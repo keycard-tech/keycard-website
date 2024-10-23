@@ -122,7 +122,7 @@ const UnderlinedWord = ({ children }: { children: React.ReactNode }) => (
   </div>
 )
 
-export default function KeycardFeatures() {
+const KeycardFeatures = () => {
   return (
     <section className="mx-auto max-w-[1352px] pt-[200px]">
       <h1 className="max-w-[665px] font-lora text-32 text-white-95">
@@ -190,3 +190,5 @@ export default function KeycardFeatures() {
     </section>
   )
 }
+
+export { KeycardFeatures }

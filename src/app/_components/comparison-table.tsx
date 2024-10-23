@@ -459,4 +459,4 @@ const ComparisonTable = () => {
   )
 }
 
-export default ComparisonTable
+export { ComparisonTable }

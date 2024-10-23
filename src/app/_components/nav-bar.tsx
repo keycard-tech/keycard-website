@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation'
 import { ButtonLink } from './button-link'
 import { Logo } from './logo'
 
-const Header = () => {
+const Navbar = () => {
   const pathname = usePathname()
   const active = pathname!.includes('/buy-keycard')
 
@@ -48,4 +48,4 @@ const Header = () => {
   )
 }
 
-export { Header }
+export { Navbar }
