@@ -27,6 +27,49 @@ const Shield = () => (
   </svg>
 )
 
+const Check = () => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" fill="none">
+      <path
+        fill="#FF6400"
+        d="m10.7 17.4-.392.454.49.424.385-.522-.483-.356Zm4.2-5.7-.483-.356.483.356Zm-6.4 3.8-.398.45.006.004.392-.454Zm2.683 2.256 4.2-5.7-.966-.712-4.2 5.7.966.712Zm4.2-5.7 4.2-5.7-.966-.712-4.2 5.7.966.712Zm-9.88 1.593 2.6 2.3.795-.898-2.6-2.3-.796.898Zm2.605 2.305 2.2 1.9.784-.908-2.2-1.9-.784.908Z"
+      />
+    </svg>
+  )
+}
+
+const Minus = () => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" fill="none">
+      <path
+        stroke="#fff"
+        strokeOpacity=".4"
+        strokeWidth="1.2"
+        d="m8.5 11.85 8-0"
+      />
+    </svg>
+  )
+}
+const Info = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      fill="none"
+      className="ml-2 flex-shrink-0 text-dark-60"
+    >
+      <path
+        fill="#fff"
+        fillOpacity=".4"
+        fillRule="evenodd"
+        d="M3.6 10a6.4 6.4 0 1 1 12.8 0 6.4 6.4 0 0 1-12.8 0ZM10 2.4a7.6 7.6 0 1 0 0 15.2 7.6 7.6 0 0 0 0-15.2Zm-.55 6.1-.2 6h1.5l-.2-6h-1.1Zm-.2-2.25a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"
+        clipRule="evenodd"
+      />
+    </svg>
+  )
+}
+
 const features: Array<Feature> = [
   {
     name: 'Competitive pricing',
@@ -317,49 +360,6 @@ const features: Array<Feature> = [
     },
   },
 ]
-
-const Check = () => {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" fill="none">
-      <path
-        fill="#FF6400"
-        d="m10.7 17.4-.392.454.49.424.385-.522-.483-.356Zm4.2-5.7-.483-.356.483.356Zm-6.4 3.8-.398.45.006.004.392-.454Zm2.683 2.256 4.2-5.7-.966-.712-4.2 5.7.966.712Zm4.2-5.7 4.2-5.7-.966-.712-4.2 5.7.966.712Zm-9.88 1.593 2.6 2.3.795-.898-2.6-2.3-.796.898Zm2.605 2.305 2.2 1.9.784-.908-2.2-1.9-.784.908Z"
-      />
-    </svg>
-  )
-}
-
-const Minus = () => {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" fill="none">
-      <path
-        stroke="#fff"
-        strokeOpacity=".4"
-        strokeWidth="1.2"
-        d="m8.5 11.85 8-0"
-      />
-    </svg>
-  )
-}
-const Info = () => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="20"
-      height="20"
-      fill="none"
-      className="ml-2 flex-shrink-0 text-dark-60"
-    >
-      <path
-        fill="#fff"
-        fillOpacity=".4"
-        fillRule="evenodd"
-        d="M3.6 10a6.4 6.4 0 1 1 12.8 0 6.4 6.4 0 0 1-12.8 0ZM10 2.4a7.6 7.6 0 1 0 0 15.2 7.6 7.6 0 0 0 0-15.2Zm-.55 6.1-.2 6h1.5l-.2-6h-1.1Zm-.2-2.25a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"
-        clipRule="evenodd"
-      />
-    </svg>
-  )
-}
 
 type FeatureVariant = {
   label?: string

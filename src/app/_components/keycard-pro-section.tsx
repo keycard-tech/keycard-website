@@ -4,7 +4,6 @@ import { ButtonLink } from './button-link'
 const KeycardProSection = () => {
   return (
     <section className="relative flex items-center overflow-hidden rounded-b-28 border border-t-0 border-white-6 bg-white-3 backdrop-blur-[20px]">
-      {/* Hardware wallet image */}
       <div className="flex max-h-[510px] flex-1 items-start justify-center overflow-hidden">
         <Image
           src="/assets/keycard-pro.png"
@@ -15,7 +14,6 @@ const KeycardProSection = () => {
         />
       </div>
 
-      {/* Content */}
       <div className="container relative z-10 flex max-w-[434px] flex-col py-20">
         <h1 className="flex pb-4 font-lora text-48 font-400">
           A modular
