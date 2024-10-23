@@ -118,7 +118,7 @@ const UnderlinedWord = ({ children }: { children: React.ReactNode }) => (
     <span className="relative z-10 [text-shadow:_-3px_2px_black,_4px_1px_black,_2px_0px_black,_3px_2px_black]">
       {children}
     </span>
-    <div className="-z-10' absolute bottom-1 left-0 h-px w-full bg-orange" />
+    <div className="absolute bottom-1 left-0 -z-10 h-px w-full bg-orange" />
   </div>
 )
 
