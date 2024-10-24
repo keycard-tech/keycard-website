@@ -1,5 +1,6 @@
 {
   "name": "keycard-website",
+  "private": true,
   "scripts": {
     "prepare": "husky",
     "dev": "pnpm install && next dev",
