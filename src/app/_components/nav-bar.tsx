@@ -1,8 +1,14 @@
 'use client'
 
-import { animated, useScroll } from '@react-spring/web'
+import {
+  motion,
+  useMotionValueEvent,
+  useScroll,
+  useTransform,
+} from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useState } from 'react'
 import { ButtonLink } from './button-link'
 import { Logo } from './logo'
 
@@ -11,22 +17,34 @@ const NAV_BAR_HEIGHT = 92
 const Navbar = () => {
   const pathname = usePathname()
   const active = pathname!.includes('/buy-keycard')
+  const [variant, setVariant] = useState<'primary' | 'secondary'>('secondary')
 
   const { scrollY } = useScroll()
 
-  const clampedScroll = scrollY.to(
-    scrollValue => Math.min(scrollValue, NAV_BAR_HEIGHT) / NAV_BAR_HEIGHT,
+  const backgroundColor = useTransform(
+    scrollY,
+    [0, NAV_BAR_HEIGHT],
+    ['transparent', 'rgba(255, 255, 255, 0.03)'],
+  )
+  const backdropFilter = useTransform(
+    scrollY,
+    [0, NAV_BAR_HEIGHT],
+    ['blur(0px)', 'blur(20px)'],
   )
 
+  useMotionValueEvent(scrollY, 'change', latest => {
+    if (latest > NAV_BAR_HEIGHT) {
+      return setVariant('primary')
+    }
+    return setVariant('secondary')
+  })
+
   return (
-    <animated.nav
+    <motion.nav
       className="sticky top-0 z-30 flex items-center justify-between p-6 text-white-95"
       style={{
-        backgroundColor: clampedScroll.to(
-          [0, 1],
-          ['transparent', 'rgba(255, 255, 255, 0.03)'],
-        ),
-        backdropFilter: clampedScroll.to([0, 1], ['blur(0px)', 'blur(20px)']),
+        backgroundColor,
+        backdropFilter,
       }}
     >
       <Link href="/">
@@ -46,11 +64,11 @@ const Navbar = () => {
         >
           Keycard Pro
         </Link>
-        <ButtonLink href="/buy-keycard" variant="secondary" active={active}>
+        <ButtonLink href="/buy-keycard" variant={variant} active={active}>
           Buy Keycard
         </ButtonLink>
       </div>
-    </animated.nav>
+    </motion.nav>
   )
 }
 
