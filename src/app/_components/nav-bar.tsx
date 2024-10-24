@@ -6,21 +6,27 @@ import { usePathname } from 'next/navigation'
 import { ButtonLink } from './button-link'
 import { Logo } from './logo'
 
+const NAV_BAR_HEIGHT = 92
+
 const Navbar = () => {
   const pathname = usePathname()
   const active = pathname!.includes('/buy-keycard')
 
-  const { scrollYProgress } = useScroll()
+  const { scrollY } = useScroll()
+
+  const clampedScroll = scrollY.to(scrollValue => {
+    return Math.min(scrollValue, NAV_BAR_HEIGHT) / NAV_BAR_HEIGHT
+  })
 
   return (
     <animated.nav
       className="sticky top-0 z-30 flex items-center justify-between p-6 text-white-95"
       style={{
-        backgroundColor: scrollYProgress.to(
+        backgroundColor: clampedScroll.to(
           [0, 1],
           ['transparent', 'rgba(255, 255, 255, 0.03)'],
         ),
-        backdropFilter: scrollYProgress.to([0, 1], ['blur(0px)', 'blur(20px)']),
+        backdropFilter: clampedScroll.to([0, 1], ['blur(0px)', 'blur(20px)']),
       }}
     >
       <Link href="/">
