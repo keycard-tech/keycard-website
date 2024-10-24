@@ -88,8 +88,8 @@ const faqs = [
 const Faqs = () => {
   return (
     <section className="mx-auto max-w-[1352px]">
-      <div className="flex items-start justify-between pt-[200px]">
-        <div className="flex flex-1 flex-col">
+      <div className="flex items-start justify-between">
+        <div className="flex flex-1 flex-col pt-[200px]">
           <h1 className="font-lora text-32 text-white-95">
             Something about faqs
           </h1>
@@ -130,7 +130,7 @@ const Faqs = () => {
             ))}
           </Accordion.Root>
         </div>
-        <div className="flex flex-col items-end">
+        <div className="flex flex-col items-end pt-[100px]">
           <Image
             src="/assets/faqs.png"
             alt="FAQ Background"

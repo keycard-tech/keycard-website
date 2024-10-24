@@ -359,7 +359,7 @@ const features: Array<Feature> = [
       featured: false,
     },
   },
-]
+] as const
 
 type FeatureVariant = {
   label?: string
@@ -381,7 +381,59 @@ type Feature = {
   ledger: FeatureVariant
 }
 
+const FeatureInfo = ({
+  variant,
+}: {
+  variant: FeatureVariant | undefined | string
+}) => {
+  if (!variant || typeof variant === 'string') return null
+
+  if (variant.featured === true) return <Check />
+  if (variant.featured === false) return <Minus />
+  if (variant.featured === 'n/a') return <p className="text-white-60">n/a</p>
+  if (variant.label) return <p className="text-white-95">{variant.label}</p>
+  if (variant.badge) {
+    return (
+      <div
+        className={cx([
+          'flex w-fit items-center gap-[6px] rounded-[32px] py-1 pl-3 pr-2 text-16 text-white-95 outline outline-white-12',
+          variant.badge.gradient &&
+            'bg-gradient-to-b from-[transparent] to-white-12 pl-2',
+        ])}
+      >
+        {variant.badge.icon && React.createElement(variant.badge.icon)}
+        <span>{variant.badge.text}</span>
+      </div>
+    )
+  }
+}
+
+const TooltipInfo = ({
+  variant,
+}: {
+  variant: FeatureVariant | undefined | string
+}) => {
+  if (typeof variant === 'string') return null
+
+  if (!variant || !variant.tooltip) return null
+
+  return (
+    <Tooltip label={variant.tooltip || ''}>
+      <div className="absolute left-[calc(50%+10px)] flex">
+        <Info />
+      </div>
+    </Tooltip>
+  )
+}
+
 const ComparisonTable = () => {
+  const products: Array<keyof Feature> = [
+    'keycardPro',
+    'keycard',
+    'tangem',
+    'ledger',
+  ]
+
   return (
     <section className="mx-auto max-w-[1352px] overflow-x-auto rounded-12 pt-[200px] text-white-95">
       <h1 className="font-lora text-32 text-white-95">
@@ -396,63 +448,33 @@ const ComparisonTable = () => {
           <div className="p-4 pb-5">Ledger</div>
         </div>
 
-        <div className="rounded-12 border border-white-12">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="grid grid-cols-[2fr,1fr,1fr,1fr,1fr] border-b border-dashed border-white-12 last:border-b-0"
-            >
-              <div className="flex items-center p-4">
-                {feature.name}
-                {feature.tooltip && (
-                  <Tooltip label={feature.tooltip}>
-                    <Info />
-                  </Tooltip>
-                )}
-              </div>
-              {(
-                ['keycardPro', 'keycard', 'tangem', 'ledger'] as Array<
-                  keyof Feature
-                >
-              ).map((product, index) => (
-                <div
-                  key={index}
-                  className="relative flex items-center justify-center p-4"
-                >
-                  {typeof feature[product] === 'object' &&
-                    feature[product]?.featured === true && <Check />}
-                  {typeof feature[product] === 'object' &&
-                    feature[product]?.featured === false && <Minus />}
-                  {typeof feature[product] === 'object' &&
-                    feature[product]?.featured === 'n/a' && (
-                      <p className="text-white-60">n/a</p>
-                    )}
-                  {typeof feature[product] === 'object' &&
-                    feature[product]?.badge && (
-                      <div
-                        className={cx([
-                          'flex w-fit items-center gap-[6px] rounded-[32px] border border-white-12 py-1 pl-3 pr-2 text-16 text-white-95',
-                          feature[product]?.badge?.gradient &&
-                            'bg-gradient-to-b from-[transparent] to-white-12 pl-2',
-                        ])}
-                      >
-                        {feature[product]?.badge?.icon &&
-                          React.createElement(feature[product]?.badge?.icon)}
-                        <span>{feature[product]?.badge?.text}</span>
-                      </div>
-                    )}
-                  {typeof feature[product] === 'object' &&
-                    feature[product]?.tooltip && (
-                      <Tooltip label={feature[product]?.tooltip || ''}>
-                        <div className="absolute left-[calc(50%+10px)] flex">
-                          <Info />
-                        </div>
-                      </Tooltip>
-                    )}
+        <div className="rounded-12 border border-white-12 bg-white-3 px-6">
+          {features.map((feature, index) => {
+            return (
+              <div
+                key={index}
+                className="grid grid-cols-[2fr,1fr,1fr,1fr,1fr] border-b border-dashed border-white-12 first:pt-2 last:border-b-0 last:pb-2"
+              >
+                <div className="flex items-center p-4">
+                  {feature.name}
+                  {feature.tooltip && (
+                    <Tooltip label={feature.tooltip}>
+                      <Info />
+                    </Tooltip>
+                  )}
                 </div>
-              ))}
-            </div>
-          ))}
+                {products.map(product => (
+                  <div
+                    key={product}
+                    className="relative flex items-center justify-center p-4"
+                  >
+                    <FeatureInfo variant={feature[product]} />
+                    <TooltipInfo variant={feature[product]} />
+                  </div>
+                ))}
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>

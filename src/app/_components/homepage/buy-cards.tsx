@@ -27,7 +27,6 @@ const Section = (props: Props) => {
   } = props
   return (
     <div className="relative w-full overflow-clip">
-      {/* overaly gradient from top dark-100 to transparent */}
       <div className="absolute inset-0 z-10 h-1/2 w-full bg-gradient-to-b from-dark-100 to-[transparent]" />
       <Image
         src={image}

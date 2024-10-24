@@ -29,7 +29,7 @@ const Section = (props: Props) => {
 
   return (
     <div className="relative border-b border-dashed border-white-20">
-      <div className="relative grid gap-6 pb-6 pl-5">
+      <div className="relative grid gap-6 px-6 pb-12">
         <p className="text-12 uppercase text-white-80">{title}</p>
         <ul className="grid gap-1">
           {routes.map(route => {

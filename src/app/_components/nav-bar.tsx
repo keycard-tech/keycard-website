@@ -54,13 +54,13 @@ const Navbar = () => {
       <div className="flex items-center space-x-6">
         <Link
           href="/keycard"
-          className="rounded-12 border border-[transparent] px-[14px] pb-[10px] pt-2 backdrop-blur-[20px] transition-colors hover:border-white-6 hover:bg-white-6"
+          className="rounded-12 border border-[transparent] px-[14px] pb-[10px] pt-2 transition-colors hover:border-white-6 hover:bg-white-6"
         >
           Keycard
         </Link>
         <Link
           href="/keycard-pro"
-          className="rounded-12 border border-[transparent] px-[14px] pb-[10px] pt-2 backdrop-blur-[20px] transition-colors hover:border-white-6 hover:bg-white-6"
+          className="rounded-12 border border-[transparent] px-[14px] pb-[10px] pt-2 transition-colors hover:border-white-6 hover:bg-white-6"
         >
           Keycard Pro
         </Link>
