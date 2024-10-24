@@ -57,11 +57,10 @@ const Info = () => {
       width="20"
       height="20"
       fill="none"
-      className="ml-2 flex-shrink-0 text-dark-60"
+      className="ml-2 flex-shrink-0 text-white-40 transition-colors hover:text-white-60"
     >
       <path
-        fill="#fff"
-        fillOpacity=".4"
+        fill="currentColor"
         fillRule="evenodd"
         d="M3.6 10a6.4 6.4 0 1 1 12.8 0 6.4 6.4 0 0 1-12.8 0ZM10 2.4a7.6 7.6 0 1 0 0 15.2 7.6 7.6 0 0 0 0-15.2Zm-.55 6.1-.2 6h1.5l-.2-6h-1.1Zm-.2-2.25a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"
         clipRule="evenodd"
@@ -396,7 +395,7 @@ const FeatureInfo = ({
     return (
       <div
         className={cx([
-          'flex w-fit items-center gap-[6px] rounded-[32px] py-1 pl-3 pr-2 text-16 text-white-95 outline outline-white-12',
+          'flex w-fit items-center gap-[6px] rounded-[32px] py-[5px] pl-3 pr-2 text-16 text-white-95 outline outline-white-12',
           variant.badge.gradient &&
             'bg-gradient-to-b from-[transparent] to-white-12 pl-2',
         ])}
@@ -435,27 +434,27 @@ const ComparisonTable = () => {
   ]
 
   return (
-    <section className="mx-auto max-w-[1352px] overflow-x-auto rounded-12 pt-[200px] text-white-95">
+    <section className="mx-auto max-w-[1352px] overflow-x-auto pt-[200px] text-white-95">
       <h1 className="font-lora text-32 text-white-95">
         Going one step further.
       </h1>
       <div className="overflow-hidden pt-20">
-        <div className="grid grid-cols-[2fr,1fr,1fr,1fr,1fr] justify-items-center font-lora text-24 font-400">
-          <div className="justify-self-start p-4 pb-5">Feature</div>
+        <div className="text-white-90 grid grid-cols-[2fr,1fr,1fr,1fr,1fr] justify-items-center font-lora text-24 font-400">
+          <div className="justify-self-start p-4 pb-5 pl-6">Feature</div>
           <div className="p-4 pb-5">Keycard Pro</div>
           <div className="p-4 pb-5">Keycard</div>
           <div className="p-4 pb-5">Tangem</div>
           <div className="p-4 pb-5">Ledger</div>
         </div>
 
-        <div className="rounded-12 border border-white-12 bg-white-3 px-6">
+        <div className="rounded-28 border border-white-12 bg-white-3 px-6">
           {features.map((feature, index) => {
             return (
               <div
                 key={index}
-                className="grid grid-cols-[2fr,1fr,1fr,1fr,1fr] border-b border-dashed border-white-12 first:pt-2 last:border-b-0 last:pb-2"
+                className="grid grid-cols-[2fr,1fr,1fr,1fr,1fr] border-b border-dashed border-white-12 font-300 first:pt-2 last:border-b-0 last:pb-2"
               >
-                <div className="flex items-center p-4">
+                <div className="flex items-center p-5 first:pl-0">
                   {feature.name}
                   {feature.tooltip && (
                     <Tooltip label={feature.tooltip}>
@@ -466,7 +465,7 @@ const ComparisonTable = () => {
                 {products.map(product => (
                   <div
                     key={product}
-                    className="relative flex items-center justify-center p-4"
+                    className="relative flex items-center justify-center last:pr-0"
                   >
                     <FeatureInfo variant={feature[product]} />
                     <TooltipInfo variant={feature[product]} />

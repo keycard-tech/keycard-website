@@ -103,14 +103,14 @@ const Faqs = () => {
               <Accordion.Item
                 key={index}
                 className={cx(
-                  'overflow-hidden border-b border-dashed border-white-20 py-6 first:mt-0 last:border-b-0',
+                  'overflow-hidden border-b border-dashed border-white-20 py-6 first:mt-0',
                 )}
                 value={`item-${index + 1}`}
               >
                 <Accordion.Header className="flex">
                   <Accordion.Trigger
                     className={cx(
-                      'group flex flex-1 cursor-default justify-between text-left font-lora text-24 leading-none text-white-95 outline-none',
+                      'group flex flex-1 cursor-default items-center justify-between text-left font-lora text-24 leading-none text-white-95 outline-none',
                     )}
                   >
                     {faq.question}
@@ -138,17 +138,17 @@ const Faqs = () => {
             height="516"
           />
 
-          <div className="flex max-w-[320px] flex-col gap-6 rounded-12 border border-white-6 bg-white-3 p-6 pt-5">
-            <div>
+          <div className="flex max-w-[320px] flex-col gap-6 rounded-28 border border-white-6 bg-white-3 p-6 pt-5">
+            <div className="flex flex-col gap-[6px]">
               <p className="font-lora text-24 font-400 text-white-95">
                 Still have questions?
               </p>
-              <p className="text-16 text-white-80">
+              <p className="text-16 font-300 text-white-80">
                 Reach out to our team or engage with our community on Discord or
                 X.
               </p>
             </div>
-            <div className="flex gap-1">
+            <div className="flex gap-3">
               <ButtonLink href="/" variant="secondary">
                 Get in touch
               </ButtonLink>

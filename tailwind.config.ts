@@ -40,8 +40,8 @@ export default {
       24: [
         '1.5rem',
         {
-          lineHeight: '2.25rem',
-          letterSpacing: '-0.045rem',
+          lineHeight: '2rem',
+          letterSpacing: '-0.02rem',
         },
       ],
       20: [
