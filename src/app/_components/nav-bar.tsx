@@ -14,9 +14,9 @@ const Navbar = () => {
 
   const { scrollY } = useScroll()
 
-  const clampedScroll = scrollY.to(scrollValue => {
-    return Math.min(scrollValue, NAV_BAR_HEIGHT) / NAV_BAR_HEIGHT
-  })
+  const clampedScroll = scrollY.to(
+    scrollValue => Math.min(scrollValue, NAV_BAR_HEIGHT) / NAV_BAR_HEIGHT,
+  )
 
   return (
     <animated.nav

@@ -69,6 +69,7 @@ export default {
 
     colors: {
       orange: 'rgba(255, 100, 0, 1)',
+      'orange-dark': 'rgba(225, 88, 0, 1)',
       dark: {
         100: 'rgba(1, 1, 1, 1)',
         60: 'rgba(1, 1, 1, 0.6)',

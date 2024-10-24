@@ -10,7 +10,8 @@ const KeycardProSection = () => {
           alt="Keycard Pro Hardware Wallet"
           width="900"
           height="600"
-          className="h-full object-contain"
+          className="h-full w-auto object-contain"
+          priority
         />
       </div>
 
