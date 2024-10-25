@@ -1,4 +1,4 @@
-import { ButtonLink } from '../../_components/button-link'
+import { ButtonLink } from '~components/button-link'
 
 const Hero = () => {
   return (
