@@ -1,7 +1,7 @@
 import { cx } from 'cva'
 import type { Metadata } from 'next'
 import { Inter, Lora } from 'next/font/google'
-import '../globals.css'
+import './globals.css'
 import { Footer } from '~components/footer/footer'
 import { Navbar } from '~components/nav-bar'
 
