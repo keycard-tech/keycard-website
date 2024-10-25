@@ -14,7 +14,7 @@ const buttonStyles = cva({
       primary:
         'bg-orange border-[transparent] hover:bg-orange-dark backdrop-blur-[20px] text-white-95',
       secondary:
-        'bg-white-6 border-white-12 hover:bg-white-12 backdrop-blur-[20px] text-white-95',
+        'bg-white-8 border-white-12 hover:bg-white-12 backdrop-blur-[20px] text-white-95',
       white: 'bg-white-100 hover:bg-white-95 text-dark-100',
     },
     active: {

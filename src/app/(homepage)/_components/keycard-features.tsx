@@ -76,7 +76,7 @@ const KeycardFeatures = () => {
           <div
             key={index}
             className={cx([
-              'relative flex flex-col justify-between overflow-clip rounded-28 bg-white-3 outline outline-white-6',
+              'relative flex flex-col justify-between overflow-clip rounded-28 bg-white-3 outline outline-white-8',
               feature.className,
             ])}
           >
@@ -92,7 +92,7 @@ const KeycardFeatures = () => {
               </div>
             )}
             {feature.gradient && (
-              <div className="absolute -bottom-10 left-0 h-1/2 w-full rounded-12 bg-gradient-to-b from-[transparent] to-white-6" />
+              <div className="absolute -bottom-10 left-0 h-1/2 w-full rounded-12 bg-gradient-to-b from-[transparent] to-white-8" />
             )}
             <div className="p-6">
               <div>

@@ -39,7 +39,7 @@ const Section = (props: Props) => {
           imageClassName,
         ])}
       />
-      <div className="flex size-full flex-col items-center justify-end rounded-28 border border-white-6 bg-white-3 px-[98px] pb-[120px] pt-[300px]">
+      <div className="flex size-full flex-col items-center justify-end rounded-28 border border-white-8 bg-white-3 px-[98px] pb-[120px] pt-[300px]">
         <div className="container relative z-10 flex max-w-[434px] flex-col items-center justify-center px-4">
           <p className="pb-2 text-24 font-600 text-white-95">
             {name} <span className="font-200">{secondName}</span>

@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const KeycardProSection = () => {
   return (
-    <section className="relative flex items-center overflow-hidden rounded-b-28 border border-t-0 border-white-6 bg-white-3 backdrop-blur-[20px]">
+    <section className="relative flex items-center overflow-hidden rounded-b-28 border border-t-0 border-white-8 bg-white-3 backdrop-blur-[20px]">
       <div className="flex max-h-[510px] flex-1 items-start justify-center overflow-hidden">
         <Image
           src="/assets/keycard-pro.png"

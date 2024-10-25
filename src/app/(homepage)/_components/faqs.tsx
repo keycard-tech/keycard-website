@@ -114,7 +114,7 @@ const Faqs = () => {
                     )}
                   >
                     {faq.question}
-                    <div className="rounded-[10px] border border-white-12 bg-white-6 p-[6px]">
+                    <div className="rounded-[10px] border border-white-12 bg-white-8 p-[6px]">
                       <ChevronDownIcon className="text-white-95 transition-transform duration-300 ease-[cubic-bezier(0.87,_0,_0.13,_1)] group-data-[state=open]:rotate-180" />
                     </div>
                   </Accordion.Trigger>
@@ -138,7 +138,7 @@ const Faqs = () => {
             height="516"
           />
 
-          <div className="flex max-w-[320px] flex-col gap-6 rounded-28 border border-white-6 bg-white-3 p-6 pt-5">
+          <div className="flex max-w-[320px] flex-col gap-6 rounded-28 border border-white-8 bg-white-3 p-6 pt-5">
             <div className="flex flex-col gap-[6px]">
               <p className="font-lora text-24 font-400 text-white-95">
                 Still have questions?
