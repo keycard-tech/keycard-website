@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <section className="relative flex h-screen">
       <div
-        className="absolute inset-0 left-1/2 z-0 w-screen -translate-x-1/2 bg-contain bg-center bg-no-repeat"
+        className="absolute inset-0 left-1/2 z-0 w-screen -translate-x-1/2 bg-cover bg-top bg-no-repeat"
         style={{ backgroundImage: 'url(/assets/keycard/hero-keycard.png)' }}
       />
       <div className="relative z-10 flex flex-1 justify-between px-20 pb-11 align-bottom">

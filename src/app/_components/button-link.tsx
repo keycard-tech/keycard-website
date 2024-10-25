@@ -2,17 +2,20 @@ import { cva, cx } from 'cva'
 import { Link } from './link'
 
 type Props = {
-  variant?: 'primary' | 'secondary'
+  variant?: 'primary' | 'secondary' | 'white'
   children: React.ReactNode
   active?: boolean
 } & React.ComponentProps<typeof Link>
 
 const buttonStyles = cva({
-  base: 'flex cursor-pointer select-none items-center rounded-12 border text-white-95  px-[14px] pb-[10px] pt-2 backdrop-blur-[20px] transition-colors',
+  base: 'inline-flex cursor-pointer gap-[6px] select-none items-center rounded-12 border px-4 py-2 transition-colors',
   variants: {
     variant: {
-      primary: 'bg-orange border-[transparent] hover:bg-orange-dark',
-      secondary: 'bg-white-6 border-white-12 hover:bg-white-12',
+      primary:
+        'bg-orange border-[transparent] hover:bg-orange-dark backdrop-blur-[20px] text-white-95',
+      secondary:
+        'bg-white-6 border-white-12 hover:bg-white-12 backdrop-blur-[20px] text-white-95',
+      white: 'bg-white-100 hover:bg-white-95 text-dark-100',
     },
     active: {
       true: '',

@@ -16,10 +16,10 @@ import { Logo } from './logo'
 const NAV_BAR_HEIGHT = 92
 
 const navStyles = cva({
-  base: 'top-0 z-30 flex items-center justify-between p-6 text-white-95',
+  base: 'top-0 left-0 z-30 flex items-center justify-between p-6 text-white-95',
   variants: {
     isFixed: {
-      true: 'fixed w-full',
+      true: 'fixed w-full pt-8 px-8',
       false: 'sticky',
     },
   },
@@ -31,8 +31,6 @@ const Navbar = () => {
   const [variant, setVariant] = useState<'primary' | 'secondary'>('secondary')
 
   const isFixed = pathname!.includes('/keycard')
-
-  console.log('isFixed', isFixed)
 
   const { scrollY } = useScroll()
 

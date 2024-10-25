@@ -1,0 +1,6 @@
+export { Check } from './check'
+export { Github } from './github'
+export { Infinity } from './infinity'
+export { Info } from './info'
+export { Minus } from './minus'
+export { Shield } from './shield'
