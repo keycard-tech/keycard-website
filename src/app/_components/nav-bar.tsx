@@ -1,5 +1,6 @@
 'use client'
 
+import { cva } from 'cva'
 import {
   motion,
   useMotionValueEvent,
@@ -14,10 +15,24 @@ import { Logo } from './logo'
 
 const NAV_BAR_HEIGHT = 92
 
+const navStyles = cva({
+  base: 'top-0 z-30 flex items-center justify-between p-6 text-white-95',
+  variants: {
+    isFixed: {
+      true: 'fixed w-full',
+      false: 'sticky',
+    },
+  },
+})
+
 const Navbar = () => {
   const pathname = usePathname()
   const active = pathname!.includes('/buy-keycard')
   const [variant, setVariant] = useState<'primary' | 'secondary'>('secondary')
+
+  const isFixed = pathname!.includes('/keycard')
+
+  console.log('isFixed', isFixed)
 
   const { scrollY } = useScroll()
 
@@ -41,7 +56,7 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      className="sticky top-0 z-30 flex items-center justify-between p-6 text-white-95"
+      className={navStyles({ isFixed })}
       style={{
         backgroundColor,
         backdropFilter,
