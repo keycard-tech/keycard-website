@@ -87,6 +87,7 @@ export default {
         8: 'rgba(255, 255, 255, 0.08)',
         3: 'rgba(255, 255, 255, 0.03)',
       },
+      'white-dark': 'rgba(206, 206, 206, 1)',
     },
 
     borderRadius: {
