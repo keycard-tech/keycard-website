@@ -1,7 +1,7 @@
 import { cx } from 'cva'
 import Image from 'next/image'
 import React from 'react'
-import { ButtonLink } from '../button-link'
+import { ButtonLink } from '../../_components/button-link'
 
 type Props = {
   image: string

@@ -1,7 +1,7 @@
 import * as Accordion from '@radix-ui/react-accordion'
 import { cx } from 'cva'
 import Image from 'next/image'
-import { ButtonLink } from '../button-link'
+import { ButtonLink } from '../../_components/button-link'
 
 type IconProps = {
   className?: string
