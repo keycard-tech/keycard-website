@@ -135,7 +135,7 @@ const FeaturesAccordion = (props: Props) => {
             )
           })}
         </Accordion.Root>
-        <div className="relative flex flex-1 translate-y-[-45%] flex-col items-end">
+        <div className="relative mt-[-35%] flex flex-1 flex-col items-end">
           <Image
             src={selected.image}
             width={664}
@@ -149,7 +149,7 @@ const FeaturesAccordion = (props: Props) => {
               <p className="font-lora text-24 font-400 text-white-95">
                 Download Status for Mobile
               </p>
-              <p className="text-whit-80 font-300">
+              <p className="font-300 text-white-80">
                 Available for iOS or Android
               </p>
             </div>
