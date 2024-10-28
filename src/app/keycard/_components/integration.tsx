@@ -166,7 +166,9 @@ const Integration = () => {
             </div>
             <div className="flex gap-3">
               <ButtonLink href="/">Read docs</ButtonLink>
-              <ButtonLink href="/">Get in touch</ButtonLink>
+              <ButtonLink href="/" variant="secondary">
+                Get in touch
+              </ButtonLink>
             </div>
           </div>
         </div>
