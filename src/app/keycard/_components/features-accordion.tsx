@@ -1,6 +1,12 @@
 'use client'
 
 import * as Accordion from '@radix-ui/react-accordion'
+import {
+  STATUS_MOBILE_APP_STORE_URL,
+  STATUS_MOBILE_F_DROID_URL,
+  STATUS_MOBILE_GOOGLE_PLAY_URL,
+} from '~/config/routes'
+import { Link } from '~components/link'
 import { cx } from 'cva'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
@@ -10,7 +16,7 @@ type Props = {
     title: string
     description: string
     image: string
-    icons?: Array<string>
+    tokens?: string
   }>
 }
 
@@ -26,7 +32,7 @@ const LineDivider = () => (
 )
 
 // Interval in milliseconds
-const TIME_INTERVAL = 3000
+const TIME_INTERVAL = 16000
 const TIME_INTERVAL_STEP = 50
 
 const FeaturesAccordion = (props: Props) => {
@@ -61,13 +67,11 @@ const FeaturesAccordion = (props: Props) => {
     return () => clearInterval(interval)
   }, [items, value])
 
-  console.log('Width: ', width)
-
   return (
-    <div className="flex w-full flex-1 items-center justify-between px-[84px]">
+    <div className="flex flex-1 items-center justify-between pt-20">
       <div
         className={cx([
-          'flex flex-col items-center justify-center gap-12 xl:flex-row',
+          'flex flex-1 flex-col items-start justify-center xl:flex-row',
         ])}
       >
         <Accordion.Root
@@ -76,7 +80,7 @@ const FeaturesAccordion = (props: Props) => {
           onValueChange={val => {
             setValue(val)
           }}
-          className="flex flex-col gap-5 pt-24 xl:flex-1 xl:gap-5 xl:pt-0"
+          className="flex max-w-[664px] flex-col gap-5 pt-24 xl:flex-1 xl:gap-5 xl:pt-0"
         >
           {items.map(item => {
             const isOpen = value === item.title
@@ -101,17 +105,14 @@ const FeaturesAccordion = (props: Props) => {
                     <p className="text-20 font-300 text-white-60">
                       {item.description}
                     </p>
-                    {item.icons && (
+                    {item.tokens && (
                       <div className="flex gap-4 pt-4">
-                        {item.icons.map((icon, index) => (
-                          <Image
-                            key={index}
-                            src={icon}
-                            width={24}
-                            height={24}
-                            alt="icon"
-                          />
-                        ))}
+                        <Image
+                          alt="Tokens"
+                          src={item.tokens}
+                          width={265}
+                          height={32}
+                        />
                       </div>
                     )}
                   </div>
@@ -134,14 +135,55 @@ const FeaturesAccordion = (props: Props) => {
             )
           })}
         </Accordion.Root>
-        <div className="w-full flex-1 p-6 2xl:py-12">
+        <div className="relative flex flex-1 translate-y-[-45%] flex-col items-end">
           <Image
             src={selected.image}
             width={664}
             height={746}
             alt={selected.title}
-            className="w-full max-w-[664px]"
+            className="w-full max-w-[664px] pb-20"
           />
+          {/* TODO: Add desktop download version when design is ready */}
+          <div className="flex max-w-[549px] flex-col gap-6 rounded-28 border border-white-8 bg-white-3 p-6 pt-5">
+            <div className="flex flex-col gap-[6px]">
+              <p className="font-lora text-24 font-400 text-white-95">
+                Download Status for Mobile
+              </p>
+              <p className="text-whit-80 font-300">
+                Available for iOS or Android
+              </p>
+            </div>
+
+            <div className="flex gap-3">
+              <Link href={STATUS_MOBILE_APP_STORE_URL}>
+                <Image
+                  src="/assets/keycard/appstore.png"
+                  width={140}
+                  height={40}
+                  alt="Download on App Store"
+                  className="h-10 w-auto"
+                />
+              </Link>
+              <Link href={STATUS_MOBILE_GOOGLE_PLAY_URL}>
+                <Image
+                  src="/assets/keycard/googleplay.png"
+                  width={142}
+                  height={40}
+                  className="h-10 w-auto"
+                  alt="Get it on Google Play"
+                />
+              </Link>
+              <Link href={STATUS_MOBILE_F_DROID_URL}>
+                <Image
+                  src="/assets/keycard/fdroid.png"
+                  width={120}
+                  height={40}
+                  className="h-10 w-auto"
+                  alt="Get it on F-Droid"
+                />
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>

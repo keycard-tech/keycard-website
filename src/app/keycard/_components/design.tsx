@@ -27,7 +27,7 @@ const features = [
 const Design = () => {
   return (
     <div className="px-6 pt-20 text-white-95 md:px-20 md:pt-[200px]">
-      <div className="mx-auto max-w-7xl">
+      <div>
         <h2 className="pb-14 font-lora text-32 font-400">Simple by design</h2>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {features.map((feature, index) => (
