@@ -12,9 +12,9 @@ const Prefooter = () => {
           A principle-based hardware wallet that relieson Keycard as a modular
           secure element.
         </p>
-        <div className="flex space-x-4">
+        <div className="flex items-center gap-5">
           <ButtonLink href="/">Buy Keycard</ButtonLink>
-          <p className="pt-6 text-16 font-300 text-white-60">Starts at $25</p>
+          <p className="text-16 font-300 text-white-60">Starts at $25</p>
         </div>
       </div>
     </section>
