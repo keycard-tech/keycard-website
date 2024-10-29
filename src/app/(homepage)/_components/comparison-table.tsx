@@ -395,7 +395,7 @@ const FeatureInfo = ({
     return (
       <div
         className={cx([
-          'flex w-fit items-center gap-[6px] rounded-[32px] py-[5px] pl-3 pr-2 text-16 text-white-95 outline outline-white-12',
+          'flex w-fit items-center gap-[6px] rounded-[32px] py-[5px] pl-3 pr-2 text-16 text-white-95 outline outline-1 outline-white-12',
           variant.badge.gradient &&
             'bg-gradient-to-b from-[transparent] to-white-12 pl-2',
         ])}
@@ -439,7 +439,7 @@ const ComparisonTable = () => {
         Going one step further.
       </h1>
       <div className="overflow-hidden pt-20">
-        <div className="text-white-90 grid grid-cols-[2fr,1fr,1fr,1fr,1fr] justify-items-center font-lora text-24 font-400">
+        <div className="grid grid-cols-[2fr,1fr,1fr,1fr,1fr] justify-items-center font-lora text-24 font-400 text-white-90">
           <div className="justify-self-start p-4 pb-5 pl-6">Feature</div>
           <div className="p-4 pb-5">Keycard Pro</div>
           <div className="p-4 pb-5">Keycard</div>

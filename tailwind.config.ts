@@ -41,7 +41,7 @@ export default {
         '1.5rem',
         {
           lineHeight: '2rem',
-          letterSpacing: '-0.02rem',
+          letterSpacing: '-0.03rem',
         },
       ],
       20: [
@@ -78,6 +78,7 @@ export default {
       white: {
         100: 'rgba(255, 255, 255, 1)',
         95: 'rgba(255, 255, 255, 0.95)',
+        90: 'rgba(255, 255, 255, 0.9)',
         80: 'rgba(255, 255, 255, 0.8)',
         60: 'rgba(255, 255, 255, 0.6)',
         40: 'rgba(255, 255, 255, 0.4)',

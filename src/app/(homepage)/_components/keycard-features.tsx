@@ -136,7 +136,7 @@ const KeycardFeatures = () => {
           <div
             key={index}
             className={cx([
-              'relative flex flex-col justify-between overflow-clip rounded-28 bg-white-3 outline outline-white-6',
+              'relative flex flex-col justify-between overflow-clip rounded-28 bg-white-3 outline outline-1 outline-white-6',
               feature.className,
             ])}
           >
@@ -167,7 +167,7 @@ const KeycardFeatures = () => {
                 {feature.badge && (
                   <div
                     className={cx([
-                      'flex w-fit items-center gap-[6px] rounded-[32px] py-2 pl-[14px] pr-4 text-16 font-300 text-white-95 outline outline-white-12',
+                      'flex w-fit items-center gap-[6px] rounded-[32px] py-2 pl-[14px] pr-4 text-16 font-300 text-white-95 outline outline-1 outline-white-12',
                       feature.badge.gradient &&
                         'bg-gradient-to-b from-[transparent] to-white-12',
                     ])}
