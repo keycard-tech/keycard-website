@@ -18,7 +18,9 @@ export const Footer = () => {
       </div>
 
       <div className="flex items-center justify-between px-6 py-4">
-        <span className="text-16 font-300 text-white-80">© Keycard 2024</span>
+        <span className="text-16 font-300 text-white-80">
+          © Keycard {new Date().getFullYear()}
+        </span>
         <p className="text-16 font-300 text-white-80">
           Keycard is part of the Institute of Free Technology
         </p>
