@@ -80,8 +80,8 @@ const Faqs = () => {
           <Image
             src="/assets/faqs.png"
             alt="FAQ Background"
-            width="516"
-            height="516"
+            width={516}
+            height={516}
           />
 
           <div className="flex max-w-[320px] flex-col gap-6 rounded-28 border border-white-8 bg-white-3 p-6 pt-5">

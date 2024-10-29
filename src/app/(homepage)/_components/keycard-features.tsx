@@ -85,9 +85,9 @@ const KeycardFeatures = () => {
                 <Image
                   src={feature.image}
                   alt={feature.title}
-                  className="size-full rounded-12 object-cover"
-                  width="500"
-                  height="500"
+                  className="rounded-12 object-cover"
+                  width={500}
+                  height={500}
                 />
               </div>
             )}

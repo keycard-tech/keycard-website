@@ -42,7 +42,6 @@ const Design = () => {
                   alt={feature.title}
                   width={160}
                   height={160}
-                  className="size-40"
                 />
               </div>
               <h3 className="pb-2 font-lora text-24 font-400">

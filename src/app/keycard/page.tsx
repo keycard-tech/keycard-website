@@ -1,3 +1,4 @@
+import { Customisation } from './_components/customisation'
 import { Design } from './_components/design'
 import { Hero } from './_components/hero'
 import { Integration } from './_components/integration'
@@ -14,6 +15,7 @@ export default async function KeycardPage() {
       <Integration />
       <UseCases />
       <KeycardPro />
+      <Customisation />
     </>
   )
 }

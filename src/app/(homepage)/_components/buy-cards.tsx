@@ -31,8 +31,8 @@ const Section = (props: Props) => {
       <Image
         src={image}
         alt={name}
-        width="900"
-        height="600"
+        width={900}
+        height={600}
         draggable={false}
         className={cx([
           'pointer-events-none absolute left-1/2 top-6 z-20 max-w-[549px] -translate-x-1/2 select-none',

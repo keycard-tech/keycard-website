@@ -10,7 +10,7 @@ const KeycardPro = () => {
           alt="Keycard Pro Hardware Wallet"
           width="900"
           height="600"
-          className="h-full w-auto object-contain"
+          className="object-contain"
           priority
         />
       </div>

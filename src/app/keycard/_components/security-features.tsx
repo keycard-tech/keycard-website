@@ -13,7 +13,6 @@ const SecurityFeatures = () => {
             alt="Keycard security"
             width={680}
             height={695}
-            className="h-auto w-full max-w-[680px]"
           />
         </div>
         <div className="py-20 md:pr-[72px] lg:w-1/2">
