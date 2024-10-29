@@ -4,7 +4,9 @@ const Prefooter = () => {
   return (
     <section className="relative px-6 py-[200px] md:px-[195px]">
       <div className="container relative z-10 flex flex-col px-4">
-        <p className="pb-2 text-24 font-600 text-white-95">keycard</p>
+        <p className="pb-2 text-24 font-600 text-white-95">
+          keycard <span className="font-200">pro</span>
+        </p>
         <h1 className="flex pb-4 font-lora text-48 font-400">
           Something exciting <br /> must be here to finish
         </h1>
@@ -13,8 +15,8 @@ const Prefooter = () => {
           secure element.
         </p>
         <div className="flex items-center gap-5">
-          <ButtonLink href="/">Buy Keycard</ButtonLink>
-          <p className="text-16 font-300 text-white-60">Starts at $25</p>
+          <ButtonLink href="/">Get notified</ButtonLink>
+          <p className="text-16 font-300 text-white-60">Coming 2025</p>
         </div>
       </div>
     </section>
