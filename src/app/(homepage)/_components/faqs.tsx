@@ -56,7 +56,7 @@ const Faqs = () => {
                 <Accordion.Header className="flex">
                   <Accordion.Trigger
                     className={cx(
-                      'group flex flex-1 cursor-default items-center justify-between text-left font-lora text-24 leading-none text-white-95 outline-none',
+                      'group flex flex-1 cursor-pointer items-center justify-between text-left font-lora text-24 leading-none text-white-95 outline-none',
                     )}
                   >
                     {faq.question}

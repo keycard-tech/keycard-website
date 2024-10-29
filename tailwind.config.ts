@@ -41,7 +41,7 @@ export default {
         '1.5rem',
         {
           lineHeight: '2rem',
-          letterSpacing: '-0.02rem',
+          letterSpacing: '-0.03rem',
         },
       ],
       20: [
