@@ -2,6 +2,8 @@ import { cx } from 'cva'
 import type { Metadata } from 'next'
 import { Inter, Lora } from 'next/font/google'
 import './globals.css'
+import { Footer } from '~components/footer/footer'
+import { Navbar } from '~components/nav-bar'
 
 const lora = Lora({
   variable: '--font-lora',
@@ -34,10 +36,14 @@ export default function RootLayout({ children }: Props) {
         className={cx(
           lora.variable,
           inter.variable,
-          'bg-dark-100 font-inter text-white-100 antialiased',
+          'bg-dark-100 p-2 font-inter text-white-100 antialiased',
         )}
       >
-        {children}
+        <Navbar />
+        <div className="flex justify-center">
+          <div className="w-full max-w-[1512px]">{children}</div>
+        </div>
+        <Footer />
       </body>
     </html>
   )
