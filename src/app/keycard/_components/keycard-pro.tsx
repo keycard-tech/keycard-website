@@ -9,7 +9,7 @@ const KeycardPro = () => {
         alt="Keycard Pro Hardware Wallet"
         width="900"
         height="600"
-        className="absolute left-0 top-0 size-full object-cover"
+        className="absolute left-0 top-0 size-full scale-[101%] object-cover"
       />
 
       <div className="relative z-10 flex flex-col p-8 md:py-[200px] md:pl-[229px]">
