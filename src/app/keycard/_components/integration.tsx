@@ -149,7 +149,7 @@ const Integration = () => {
                 {integration.description}
               </p>
 
-              <ButtonLink href="/" variant="secondary" className="group w-fit">
+              <ButtonLink href="/" variant="secondary" className="group">
                 <span className="text-white-95">{integration.buttonText}</span>
                 <External />
               </ButtonLink>
