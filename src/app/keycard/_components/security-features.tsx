@@ -64,7 +64,7 @@ const SecurityFeatures = () => {
                 </p>
                 <ButtonLink
                   href="https://github.com"
-                  className="font-500"
+                  className="font-500 [&_path]:hover:fill-white-dark"
                   variant="white"
                 >
                   <span>View on Github</span>

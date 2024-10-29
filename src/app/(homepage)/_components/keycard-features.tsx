@@ -117,7 +117,7 @@ const KeycardFeatures = () => {
                 {feature.button && (
                   <ButtonLink
                     href="https://github.com"
-                    className="mt-4 font-500"
+                    className="mt-4 font-500 [&_path]:hover:fill-white-dark"
                     variant="white"
                   >
                     <span>{feature.button.text}</span>
