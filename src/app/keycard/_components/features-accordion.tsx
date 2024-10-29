@@ -77,6 +77,7 @@ const FeaturesAccordion = (props: Props) => {
         <Accordion.Root
           type="single"
           value={value}
+          collapsible
           onValueChange={val => {
             setValue(val)
           }}
@@ -87,20 +88,26 @@ const FeaturesAccordion = (props: Props) => {
 
             return (
               <Accordion.Item key={item.title} value={item.title}>
-                <Accordion.Trigger disabled={isOpen}>
-                  <div className="relative flex items-center justify-center">
-                    <p
-                      className={cx(
-                        'open:bg-white-40',
-                        'pb-6 text-left font-lora text-32 font-500',
-                        !isOpen && 'hover:opacity-[50%]',
-                      )}
-                    >
-                      {item.title}
-                    </p>
-                  </div>
-                </Accordion.Trigger>
-                <Accordion.Content>
+                <Accordion.Header className="flex">
+                  <Accordion.Trigger disabled={isOpen}>
+                    <div className="relative flex items-center justify-center">
+                      <p
+                        className={cx(
+                          'open:bg-white-40',
+                          'pb-6 text-left font-lora text-32 font-500',
+                          !isOpen && 'hover:opacity-[50%]',
+                        )}
+                      >
+                        {item.title}
+                      </p>
+                    </div>
+                  </Accordion.Trigger>
+                </Accordion.Header>
+                <Accordion.Content
+                  className={cx(
+                    'overflow-hidden text-16 font-300 text-white-80 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown',
+                  )}
+                >
                   <div className="pb-5 pt-1 lg:pb-8">
                     <p className="text-20 font-300 text-white-60">
                       {item.description}
