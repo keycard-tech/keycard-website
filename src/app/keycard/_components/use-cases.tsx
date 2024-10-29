@@ -32,7 +32,7 @@ const useCases: Array<CardProps['data']> = [
 
 const UseCases = () => {
   return (
-    <div className="overflow-hidden pt-[200px] text-white-95">
+    <div className="pt-[200px] text-white-95">
       <div className="text-center">
         <h2 className="mb-1 font-lora text-32 font-400">
           Many use cases, multiple Keycards
