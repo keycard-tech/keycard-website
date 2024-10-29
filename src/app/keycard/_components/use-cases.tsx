@@ -4,8 +4,8 @@ import Image from 'next/image'
 
 const cardSets = [
   { count: 3, price: 64, recommended: true },
-  { count: 2, price: 48, recommended: false },
-  { count: 1, price: 25, recommended: false },
+  { count: 2, price: 48 },
+  { count: 1, price: 25 },
 ]
 
 const useCases: Array<CardProps['data']> = [
@@ -13,20 +13,20 @@ const useCases: Array<CardProps['data']> = [
     name: 'Memecoins',
     description: 'Have peace of mind trading memecoins',
     cardClassName: 'z-20',
-    captionClassName: 'left-12 top-20',
+    captionClassName: 'left-16 top-[92px]',
   },
   {
     name: 'Backup',
     description: 'Never worry about losing your Keycards',
     cardClassName: 'z-10 -mt-36',
-    captionClassName: 'right-10 top-10',
+    captionClassName: 'right-16 top-10',
     inverted: true,
   },
   {
     name: 'Vault',
     description: 'Your most precious tokens in a single card',
     cardClassName: '-mt-40',
-    captionClassName: 'left-12 top-20',
+    captionClassName: 'left-16 top-[92px]',
   },
 ]
 
