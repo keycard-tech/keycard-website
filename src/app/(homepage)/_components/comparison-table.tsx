@@ -385,11 +385,11 @@ const ComparisonTable = () => {
                 key={index}
                 className="grid grid-cols-[2fr,1fr,1fr,1fr,1fr] border-b border-dashed border-white-12 font-300 first:pt-2 last:border-b-0 last:pb-2"
               >
-                <div className="flex items-center p-5 first:pl-0">
+                <div className="flex items-center gap-1 p-5 first:pl-0">
                   {feature.name}
                   {feature.tooltip && (
                     <Tooltip label={feature.tooltip}>
-                      <Info />
+                      <Info className="flex-shrink-0 text-white-40 transition-colors hover:text-white-60" />
                     </Tooltip>
                   )}
                 </div>
