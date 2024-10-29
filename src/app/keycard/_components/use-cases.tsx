@@ -1,4 +1,5 @@
 import { ButtonLink } from '~components/button-link'
+import { Recommended } from '~icons'
 import { cx } from 'cva'
 import Image from 'next/image'
 
@@ -56,7 +57,7 @@ const UseCases = () => {
                 ${set.price}
                 {set.recommended && (
                   <span className="flex size-5 items-center justify-center rounded-full bg-orange">
-                    <RecommendedIcon />
+                    <Recommended />
                   </span>
                 )}
               </div>
@@ -97,27 +98,6 @@ const LineGradient = () => {
           <stop stopColor="#fff" stopOpacity="0" />
           <stop offset="1" stopColor="#fff" />
         </linearGradient>
-      </defs>
-    </svg>
-  )
-}
-
-const RecommendedIcon = () => {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none">
-      <g clip-path="url(#recommended)">
-        <path
-          fill="#fff"
-          fillOpacity=".95"
-          fillRule="evenodd"
-          d="M6.39.61 6 .223 5.611.61 3.368 2.854 1.204 1.99.45 1.687V6c0 1.997.236 3.465 1.161 4.39.925.924 2.393 1.16 4.39 1.16 1.995 0 3.463-.236 4.388-1.16.925-.925 1.161-2.393 1.161-4.39V1.688l-.754.302-2.163.865L6.389.611Zm-2.5 3.278L6 1.778l2.111 2.11.257.257.336-.135 1.746-.698V6a13.1 13.1 0 0 1-.102 1.794 3.475 3.475 0 0 0-.254-.224c-.745-.596-2-1.12-4.094-1.12-2.093 0-3.349.524-4.093 1.12-.094.075-.178.15-.254.224-.07-.49-.103-1.08-.103-1.794V3.312l1.746.698.337.135.256-.257ZM2.036 9.127a1.963 1.963 0 0 1 .557-.698c.505-.404 1.5-.88 3.406-.88 1.907 0 2.901.476 3.407.88.255.204.4.401.477.535a1.11 1.11 0 0 1 .08.163c-.101.19-.219.35-.353.484-.575.575-1.607.838-3.61.838-2.005 0-3.037-.263-3.612-.838a1.997 1.997 0 0 1-.352-.484Z"
-          clip-rule="evenodd"
-        />
-      </g>
-      <defs>
-        <clipPath id="recommended">
-          <path fill="#fff" d="M0 0h12v12H0z" />
-        </clipPath>
       </defs>
     </svg>
   )

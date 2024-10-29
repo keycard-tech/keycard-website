@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const KeycardPro = () => {
   return (
-    <section className="relative mt-[200px] flex items-center overflow-hidden rounded-28 border border-white-12 backdrop-blur-[20px]">
+    <section className="relative mx-6 mt-[200px] flex items-center overflow-hidden rounded-28 border border-white-12 backdrop-blur-[20px] md:mx-20">
       <Image
         src="/assets/keycard/bg-keycard-pro.png"
         alt="Keycard Pro Hardware Wallet"

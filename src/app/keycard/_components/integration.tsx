@@ -124,7 +124,7 @@ const Integration = () => {
         </div>
       </div>
 
-      <div className="mx-auto pt-20">
+      <div className="px-6 pt-20 md:px-20">
         <h2 className="mb-4 text-12 font-400 text-white-80">
           ALSO INTEGRATED WITH
         </h2>
