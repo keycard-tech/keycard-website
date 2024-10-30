@@ -39,6 +39,23 @@ const features = [
     description: 'Easily identify your cards by giving them a unique name.',
     image: '/assets/keycard-pro/keycard-pro-feature-card-6.png',
   },
+  {
+    name: 'Compatible QR wallets',
+    description:
+      'Its embedded camera allows Keycard Pro to be used fully airgapped.',
+    image: '/assets/keycard-pro/keycard-pro-feature-card-4.png',
+  },
+  {
+    name: 'Block USB data transfer',
+    description:
+      'Add an extra layer of security by preventing unwanted data transfers.',
+    image: '/assets/keycard-pro/keycard-pro-feature-card-5.png',
+  },
+  {
+    name: 'Name your cards',
+    description: 'Easily identify your cards by giving them a unique name.',
+    image: '/assets/keycard-pro/keycard-pro-feature-card-6.png',
+  },
 ]
 
 const CARD_WIDTH = 320 + 24
@@ -131,7 +148,7 @@ const FeaturesSlider = () => {
 
       <div
         ref={containerRef}
-        className="flex snap-x snap-mandatory gap-6 overflow-x-auto px-20 pt-14 scrollbar-none"
+        className="flex snap-x snap-mandatory snap-center gap-6 overflow-x-auto px-20 pt-14 scrollbar-none"
         style={{ scrollBehavior: 'smooth' }}
       >
         {features.map((feature, index) => (
