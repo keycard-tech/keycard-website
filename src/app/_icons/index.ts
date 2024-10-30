@@ -1,3 +1,4 @@
+export { Arrow } from './arrow'
 export { Check } from './check'
 export { ChevronDown } from './chevron-down'
 export { Discord } from './discord'

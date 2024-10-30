@@ -1,6 +1,6 @@
 'use client'
 
-import { cx } from 'cva'
+import { Arrow } from '~icons'
 import Image from 'next/image'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
@@ -117,14 +117,14 @@ const FeaturesSlider = () => {
             disabled={selectedIndex === 0}
             className="rounded-12 border border-white-12 bg-white-8 p-[10px] text-white-95 opacity-[100%] transition-all hover:text-white-100 disabled:opacity-[40%]"
           >
-            <Arrow direction="left" />
+            <Arrow className="-scale-x-100 transform" />
           </button>
           <button
             onClick={handleNext}
             disabled={selectedIndex >= features.length - visibleItemsCount}
             className="rounded-12 border border-white-12 bg-white-8 p-[10px] text-white-95 opacity-[100%] transition-all hover:text-white-100 disabled:opacity-[40%]"
           >
-            <Arrow direction="right" />
+            <Arrow />
           </button>
         </div>
       </div>
@@ -164,23 +164,3 @@ const FeaturesSlider = () => {
 }
 
 export { FeaturesSlider }
-
-const Arrow = ({ direction }: { direction: 'left' | 'right' }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="20"
-    height="20"
-    fill="none"
-    className={cx('size-5', {
-      '-scale-x-100 transform': direction === 'left',
-    })}
-  >
-    <path
-      fill="currentColor"
-      fillOpacity=".95"
-      fillRule="evenodd"
-      d="m16.944 10.404.367-.404-.367-.403-5-5.5-.888.807L15.144 9.4H4v1.2h11.144l-4.088 4.497.888.807 5-5.5Z"
-      clipRule="evenodd"
-    />
-  </svg>
-)
