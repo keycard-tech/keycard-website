@@ -3,6 +3,7 @@ import { Tooltip } from '~components/tooltip'
 import { cx } from 'cva'
 import Image from 'next/image'
 
+// TODO: Replace wallet icons with correct images and names when design has them.
 const features = [
   {
     title: 'Runs forever',
@@ -10,7 +11,7 @@ const features = [
       'With the use of a very common replaceable Nokia BL-4C battery.',
     image: '/assets/keycard-pro/keycard-pro-feature-1.png',
     badge: { text: '18 hours+' },
-    className: 'row-span-2 col-span-1',
+    className: 'row-span-2 col-span-1 [&_img]:w-fit gap-0',
   },
   {
     title: 'Ethereum support',
@@ -42,7 +43,7 @@ const features = [
       'Something here about how it’s really super cool and a great feature.',
     image: '/assets/keycard-pro/keycard-pro-feature-2.png',
     badge: { text: '2 inches' },
-    className: 'row-span-2 col-span-1 flex-col-reverse',
+    className: 'row-span-2 col-span-1 flex-col-reverse gap-0',
   },
   {
     title: 'Something',
@@ -100,15 +101,13 @@ const FeaturesGrid = () => {
             ])}
           >
             {feature.image && (
-              <div className="flex items-center justify-center">
-                <Image
-                  src={feature.image}
-                  alt={feature.title}
-                  className="rounded-12 object-cover"
-                  width={500}
-                  height={500}
-                />
-              </div>
+              <Image
+                src={feature.image}
+                alt={feature.title}
+                className="w-full rounded-12"
+                width={500}
+                height={500}
+              />
             )}
 
             <div className="p-6">
@@ -123,14 +122,14 @@ const FeaturesGrid = () => {
 
                 {feature.badge && <Tag>{feature.badge.text}</Tag>}
                 {feature.icons && (
-                  <div className="mt-4 flex items-center gap-3">
+                  <div className="flex items-center gap-3">
                     {feature.icons?.map((icon, index) => (
                       <Tooltip key={index} label={icon.name}>
                         <Image
                           src={icon.image}
                           alt={icon.name}
-                          width={50}
-                          height={50}
+                          width={40}
+                          height={40}
                         />
                       </Tooltip>
                     ))}

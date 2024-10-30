@@ -3,7 +3,7 @@ import { ButtonLink } from '~components/button-link'
 const Prefooter = () => {
   return (
     <section className="relative px-6 py-[200px] md:px-[195px]">
-      <div className="container relative z-10 flex flex-col px-4">
+      <div className="relative z-10 flex flex-col">
         <p className="pb-2 text-24 font-600 text-white-95">
           keycard <span className="font-200">pro</span>
         </p>
