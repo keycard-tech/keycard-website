@@ -3,7 +3,6 @@ import { Tooltip } from '~components/tooltip'
 import { cx } from 'cva'
 import Image from 'next/image'
 
-// TODO: Replace wallet icons with correct images and names when design has them.
 const features = [
   {
     title: 'Runs forever',
@@ -25,15 +24,15 @@ const features = [
       },
       {
         name: 'Rabbit',
-        image: '/assets/keycard-pro/wallets/rabby.png',
+        image: '/assets/keycard-pro/wallets/rabbit.png',
       },
       {
-        name: 'Bird',
-        image: '/assets/keycard-pro/wallets/bird-wallet.png',
+        name: 'imToken',
+        image: '/assets/keycard-pro/wallets/im-token.png',
       },
       {
-        name: 'ImToken',
-        image: '/assets/keycard-pro/wallets/imtoken.png',
+        name: 'Backpack',
+        image: '/assets/keycard-pro/wallets/back-pack.png',
       },
     ],
   },
@@ -66,20 +65,20 @@ const features = [
     className: 'col-span-1',
     icons: [
       {
-        name: 'Backpack',
-        image: '/assets/keycard-pro/wallets/backpack.png',
+        name: 'Unisat',
+        image: '/assets/keycard-pro/wallets/uni-sat.png',
+      },
+      {
+        name: 'Sparrow',
+        image: '/assets/keycard-pro/wallets/sparrow.png',
+      },
+      {
+        name: 'Specter',
+        image: '/assets/keycard-pro/wallets/specter.png',
       },
       {
         name: 'Blue',
-        image: '/assets/keycard-pro/wallets/blue-wallet.png',
-      },
-      {
-        name: 'Safe pale',
-        image: '/assets/keycard-pro/wallets/safepal.png',
-      },
-      {
-        name: 'Phantom',
-        image: '/assets/keycard-pro/wallets/phantom.png',
+        image: '/assets/keycard-pro/wallets/blue.png',
       },
     ],
   },
@@ -88,9 +87,9 @@ const features = [
 const FeaturesGrid = () => {
   return (
     <section className="mx-auto max-w-[1352px] pt-[200px]">
-      <h1 className="max-w-[665px] font-lora text-32 text-white-95">
+      <h2 className="max-w-[665px] font-lora text-32 text-white-95">
         Convenient, robust and made to last
-      </h1>
+      </h2>
       <div className="grid grid-cols-4 gap-6 pt-20">
         {features.map((feature, index) => (
           <div
@@ -109,7 +108,6 @@ const FeaturesGrid = () => {
                 height={500}
               />
             )}
-
             <div className="p-6">
               <div>
                 <h3 className="mb-[6px] font-lora text-24 font-400">
