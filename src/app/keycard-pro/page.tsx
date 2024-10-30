@@ -1,3 +1,4 @@
+import { AirGapped } from './_components/air-gapped'
 import { Comparision } from './_components/comparision'
 import { FeaturesCard } from './_components/features-card'
 import { FeaturesGrid } from './_components/features-grid'
@@ -13,6 +14,7 @@ export default async function KeycardProPage() {
       <FeaturesGrid />
       <FeaturesSlider />
       <Comparision />
+      <AirGapped />
       <Prefooter />
     </>
   )
