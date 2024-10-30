@@ -106,7 +106,7 @@ const FeaturesSlider = () => {
   }, [updateVisibleItemsCount])
 
   return (
-    <div className="relative pt-[200px]">
+    <section className="relative pt-[200px]">
       <div className="flex items-center justify-between">
         <h2 className="mb-6 max-w-[665px] px-20 font-lora text-32 text-white-95">
           Powered by KeycardOS
@@ -159,7 +159,7 @@ const FeaturesSlider = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   )
 }
 
