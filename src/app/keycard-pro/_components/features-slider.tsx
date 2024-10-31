@@ -1,8 +1,11 @@
 'use client'
 
 import { Arrow } from '~icons'
+import { EmblaOptionsType } from 'embla-carousel'
+import useEmblaCarousel from 'embla-carousel-react'
+import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures'
 import Image from 'next/image'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 const features = [
   {
@@ -41,125 +44,97 @@ const features = [
   },
 ]
 
-const CARD_WIDTH = 320 + 24
-
 const FeaturesSlider = () => {
-  const [selectedIndex, setSelectedIndex] = useState(0)
-  const [visibleItemsCount, setVisibleItemsCount] = useState(1)
-  const containerRef = useRef<HTMLDivElement>(null)
-
-  const updateVisibleItemsCount = useCallback(() => {
-    if (containerRef.current) {
-      const containerWidth = containerRef.current.offsetWidth
-      const itemsInView = Math.floor(containerWidth / CARD_WIDTH)
-      setVisibleItemsCount(itemsInView)
-    }
-  }, [])
-
-  const scrollToIndex = (index: number) => {
-    if (!containerRef.current) return
-    const scrollPosition = index * CARD_WIDTH
-    containerRef.current.scrollTo({
-      left: scrollPosition,
-      behavior: 'smooth',
-    })
-    setSelectedIndex(index)
+  const options: EmblaOptionsType = {
+    align: 'start',
+    containScroll: false,
+    dragFree: true,
   }
 
-  const handlePrev = () => {
-    if (selectedIndex > 0) {
-      scrollToIndex(selectedIndex - 1)
-    }
-  }
+  const [emblaRef, emblaApi] = useEmblaCarousel(options, [
+    WheelGesturesPlugin(),
+  ])
+  const [prevBtnEnabled, setPrevBtnEnabled] = useState(false)
+  const [nextBtnEnabled, setNextBtnEnabled] = useState(false)
 
-  const handleNext = () => {
-    if (selectedIndex < features.length - visibleItemsCount) {
-      scrollToIndex(selectedIndex + 1)
-    }
-  }
+  const scrollPrev = useCallback(
+    () => emblaApi && emblaApi.scrollPrev(),
+    [emblaApi],
+  )
+  const scrollNext = useCallback(
+    () => emblaApi && emblaApi.scrollNext(),
+    [emblaApi],
+  )
 
-  const handleScroll = useCallback(() => {
-    if (!containerRef.current) return
-    const scrollLeft = containerRef.current.scrollLeft
-    const newIndex = Math.round(scrollLeft / CARD_WIDTH)
-    if (newIndex !== selectedIndex) {
-      setSelectedIndex(newIndex)
-    }
-  }, [selectedIndex])
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return
+    setPrevBtnEnabled(emblaApi.canScrollPrev())
+    setNextBtnEnabled(emblaApi.canScrollNext())
+  }, [emblaApi])
 
   useEffect(() => {
-    const container = containerRef.current
-    if (container) {
-      container.addEventListener('scroll', handleScroll, {
-        passive: true,
-      })
-      return () => container.removeEventListener('scroll', handleScroll)
-    }
-  }, [handleScroll, selectedIndex])
+    if (!emblaApi) return
+    onSelect()
+    emblaApi.on('select', onSelect)
+    emblaApi.on('reInit', onSelect)
 
-  useEffect(() => {
-    updateVisibleItemsCount()
-    window.addEventListener('resize', updateVisibleItemsCount, {
-      passive: true,
-    })
-    return () => window.removeEventListener('resize', updateVisibleItemsCount)
-  }, [updateVisibleItemsCount])
+    return () => {
+      emblaApi.off('select', onSelect)
+      emblaApi.off('reInit', onSelect)
+    }
+  }, [emblaApi, onSelect])
 
   return (
-    <section className="relative pt-[200px]">
+    <div className="relative w-full pt-[200px]">
       <div className="flex items-center justify-between">
-        <h2 className="mb-6 max-w-[665px] px-20 font-lora text-32 text-white-95">
+        <h2 className="max-w-[665px] px-20 font-lora text-32 text-white-95">
           Powered by KeycardOS
         </h2>
         <div className="flex items-center gap-3 pr-20">
           <button
-            onClick={handlePrev}
-            disabled={selectedIndex === 0}
             className="rounded-12 border border-white-12 bg-white-8 p-[10px] text-white-95 opacity-[100%] transition-all hover:text-white-100 disabled:opacity-[40%]"
+            disabled={!prevBtnEnabled}
+            onClick={scrollPrev}
           >
             <Arrow className="-scale-x-100 transform" />
           </button>
           <button
-            onClick={handleNext}
-            disabled={selectedIndex >= features.length - visibleItemsCount}
             className="rounded-12 border border-white-12 bg-white-8 p-[10px] text-white-95 opacity-[100%] transition-all hover:text-white-100 disabled:opacity-[40%]"
+            disabled={!nextBtnEnabled}
+            onClick={scrollNext}
           >
             <Arrow />
           </button>
         </div>
       </div>
-
-      <div
-        ref={containerRef}
-        className="flex snap-x snap-mandatory snap-center gap-6 overflow-x-auto px-20 pt-14 scrollbar-none"
-        style={{ scrollBehavior: 'smooth' }}
-      >
-        {features.map((feature, index) => (
-          <div
-            key={index}
-            className="w-[320px] flex-shrink-0 snap-center flex-col transition-opacity duration-300"
-          >
-            <div className="rounded-28 border border-white-8 bg-white-3 p-10">
-              <Image
-                src={feature.image}
-                alt={feature.name}
-                width={500}
-                height={500}
-              />
+      <div className="relative w-full px-20 pt-14" ref={emblaRef}>
+        <div className="flex justify-start gap-6">
+          {features.map((feature, index) => (
+            <div
+              key={index}
+              className="min-w-0 flex-[0_0_100%] select-none sm:flex-[0_0_50%] lg:flex-[0_0_320px]"
+            >
+              <div className="rounded-28 border border-white-8 bg-white-3 p-10">
+                <Image
+                  src={feature.image}
+                  alt={feature.name}
+                  width={500}
+                  height={500}
+                />
+              </div>
+              <div className="pb-5 pt-8 lg:pb-8">
+                <p className="pb-6 text-left text-24 font-500 text-white-95">
+                  {feature.name}
+                </p>
+                <p className="text-16 font-300 text-white-60">
+                  {feature.description}
+                </p>
+              </div>
             </div>
-
-            <div className="pb-5 pt-8 lg:pb-8">
-              <p className="pb-6 text-left text-24 font-500 text-white-95">
-                {feature.name}
-              </p>
-              <p className="text-16 font-300 text-white-60">
-                {feature.description}
-              </p>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </section>
+    </div>
   )
 }
 
