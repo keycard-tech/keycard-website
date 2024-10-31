@@ -45,15 +45,18 @@ const AirGapped = () => {
   ]
 
   return (
-    <section className="grid items-center pt-[120px] lg:grid-cols-2">
-      <div className="relative size-full">
-        <Image
-          alt="Hardware wallet device with QR display"
-          className="w-full max-w-[600px] object-cover"
-          height={800}
-          width={600}
-          src="/assets/keycard-pro/bg-airgapped.png"
-        />
+    <section className="relative mb-[100px] grid items-center overflow-y-clip px-5 pb-[100px] pt-[120px] lg:grid-cols-2">
+      <div className="relative">
+        <div className="relative right-0 lg:absolute lg:h-[678px] lg:-translate-y-60">
+          <div className="absolute bottom-0 z-10 h-96 w-full bg-gradient-to-b from-[transparent] to-dark-100 lg:bottom-28" />
+          <Image
+            alt="Hardware wallet device with QR display"
+            height={800}
+            width={1600}
+            className="w-full max-w-max lg:w-[1000px] lg:max-w-[1000px]"
+            src="/assets/keycard-pro/keycard-with-macbook.png"
+          />
+        </div>
       </div>
 
       <div>

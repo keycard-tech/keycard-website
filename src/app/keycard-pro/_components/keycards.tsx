@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const Keycards = () => {
   return (
-    <section className="relative mx-auto mt-[100px] min-h-[840px] max-w-[1352px] overflow-clip rounded-28 border border-white-12">
+    <section className="relative mx-auto min-h-[840px] max-w-[1352px] overflow-clip rounded-28 border border-white-12">
       <Image
         src="/assets/keycard-pro/bg-keycards.png"
         alt="Keycards scattered around"
