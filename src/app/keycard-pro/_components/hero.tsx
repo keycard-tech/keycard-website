@@ -3,18 +3,18 @@ import Image from 'next/image'
 
 const Hero = () => {
   return (
-    <section className="relative flex h-screen overflow-y-clip">
+    <section className="relative flex h-screen overflow-y-clip lg:h-[986px]">
       <Image
         alt="Keycard Pro"
-        src="/assets/keycard-pro.png"
+        src="/assets/keycard-pro/bg-hero-keycard-pro.png"
         width={986}
         height={986}
-        className="absolute bottom-0 left-1/3 top-1/3 z-0 -translate-x-1/2 -translate-y-1/4 bg-contain bg-top bg-no-repeat 2xl:h-auto 2xl:w-full"
+        className="absolute bottom-0 left-1/3 top-1/3 z-0 -translate-x-1/2 -translate-y-1/4 bg-contain bg-top bg-no-repeat lg:left-1/3 lg:top-1/3 lg:h-auto lg:w-fit lg:-translate-x-1/2 lg:-translate-y-1/2"
       />
-      <div className="absolute bottom-0 left-0 z-10 h-1/3 w-full bg-gradient-to-b from-[transparent] to-dark-100" />
-      <div className="relative z-20 flex flex-1 justify-between px-20 pb-11 align-bottom">
+      <div className="absolute bottom-0 left-0 z-10 h-1/3 w-full bg-gradient-to-b from-[transparent] to-dark-100 lg:bottom-40 lg:left-1/2 lg:-translate-x-1/2" />
+      <div className="relative z-20 flex flex-1 justify-between px-20 pb-11 align-bottom lg:pb-[270px]">
         <div className="flex max-w-[664px] flex-col self-end">
-          <p className="pb-2 text-24 font-600">
+          <p className="text-24 font-600">
             keycard <span className="font-200">pro</span>
           </p>
           <h1 className="flex font-lora text-48 font-400 text-white-95">

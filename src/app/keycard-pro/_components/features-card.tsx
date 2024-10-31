@@ -22,52 +22,50 @@ const features = [
 
 const FeaturesCard = () => {
   return (
-    <section>
-      <div className="px-6 pt-20 md:px-11">
-        <div className="grid grid-cols-1 gap-6 rounded-28 border border-white-8 bg-white-3 p-8 pt-7 text-white-95 md:grid-cols-2 lg:grid-cols-4">
-          {features.map((feature, index) => (
-            <div key={index} className="flex flex-col">
-              <h3 className="pb-[6px] font-lora text-24 font-400">
-                {feature.name}
-              </h3>
+    <section className="px-6 pt-20 md:px-11 2xl:pt-0">
+      <div className="grid grid-cols-1 gap-6 rounded-28 border border-white-8 bg-white-3 p-8 pt-7 text-white-95 md:grid-cols-2 lg:grid-cols-4">
+        {features.map((feature, index) => (
+          <div key={index} className="flex flex-col">
+            <h3 className="pb-[6px] font-lora text-24 font-400">
+              {feature.name}
+            </h3>
 
-              <p className="pb-6 text-16 font-300 text-white-80">
-                {feature.description}
-              </p>
+            <p className="pb-6 text-16 font-300 text-white-80">
+              {feature.description}
+            </p>
 
-              {Boolean(feature.badge) && (
-                <Tag gradient icon={<Shield />}>
-                  {feature.badge}
-                </Tag>
-              )}
-              {feature.tags && (
-                <div className="flex gap-2">
-                  {feature.tags.map((tag, index) => (
-                    <Tag key={index}>{tag}</Tag>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
-          <div className="flex flex-col gap-6">
-            <div>
-              <h2 className="font-lora text-24 font-400 text-white-95">
-                Open source security
-              </h2>
-              <p className="text-16 text-white-80">
-                Our software, hardware and construction are fully open source.
-              </p>
-            </div>
-
-            <ButtonLink
-              href="https://github.com"
-              className="font-500 [&_path]:hover:fill-white-dark"
-              variant="white"
-            >
-              <span>View on Github</span>
-              <Github />
-            </ButtonLink>
+            {Boolean(feature.badge) && (
+              <Tag gradient icon={<Shield />}>
+                {feature.badge}
+              </Tag>
+            )}
+            {feature.tags && (
+              <div className="flex gap-2">
+                {feature.tags.map((tag, index) => (
+                  <Tag key={index}>{tag}</Tag>
+                ))}
+              </div>
+            )}
           </div>
+        ))}
+        <div className="flex flex-col gap-6">
+          <div>
+            <h2 className="font-lora text-24 font-400 text-white-95">
+              Open source security
+            </h2>
+            <p className="text-16 text-white-80">
+              Our software, hardware and construction are fully open source.
+            </p>
+          </div>
+
+          <ButtonLink
+            href="https://github.com"
+            className="font-500 [&_path]:hover:fill-white-dark"
+            variant="white"
+          >
+            <span>View on Github</span>
+            <Github />
+          </ButtonLink>
         </div>
       </div>
     </section>
