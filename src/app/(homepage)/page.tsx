@@ -7,7 +7,7 @@ import { KeycardProSection } from '~/app/(homepage)/_components/keycard-pro-sect
 
 export default async function HomePage() {
   return (
-    <div className="relative w-full">
+    <div className="relative w-full max-w-[1512px]">
       <Hero />
       <KeycardProSection />
       <KeycardFeatures />

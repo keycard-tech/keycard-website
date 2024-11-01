@@ -41,7 +41,7 @@ export default function RootLayout({ children }: Props) {
       >
         <Navbar />
         <div className="flex justify-center">
-          <div className="w-full max-w-[1512px]">{children}</div>
+          <div className="w-full">{children}</div>
         </div>
         <Footer />
       </body>

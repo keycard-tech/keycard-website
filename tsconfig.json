@@ -33,9 +33,12 @@
         "name": "next"
       }
     ],
+    "baseUrl": ".",
     "paths": {
       "~components/*": ["./src/app/_components/*"],
-      "~/*": ["./src/*"]
+      "~/*": ["./src/*"],
+      "~content": ["./.contentlayer/generated"],
+      "~content/metadata/*": ["./.contentlayer/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

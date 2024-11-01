@@ -1,0 +1,9 @@
+node_modules/
+
+.contentlayer/
+.next/
+
+public/
+
+*.mdx
+*.md
