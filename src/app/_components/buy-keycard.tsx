@@ -1,7 +1,6 @@
 'use client'
 
 import { ButtonLink } from '~components/button-link'
-import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 type Props = {
@@ -28,7 +27,6 @@ export function BuyKeycard({ variant, active }: Props) {
 }
 
 export function useShopifyUTMParams() {
-  const searchParams = useSearchParams()
   const [utmParams, setUtmParams] = useState(new URLSearchParams())
 
   useEffect(() => {
@@ -42,7 +40,9 @@ export function useShopifyUTMParams() {
 
     const params = new URLSearchParams()
 
-    for (const [key, value] of searchParams.entries()) {
+    for (const [key, value] of new URL(
+      window.location.href,
+    ).searchParams.entries()) {
       if (key.startsWith('utm_')) {
         params.append(key, value)
       }
@@ -54,7 +54,7 @@ export function useShopifyUTMParams() {
 
     sessionStorage.setItem(SHOPIFY_UTM_PARAMS_KEY, params.toString())
     setUtmParams(params)
-  }, [searchParams])
+  }, [])
 
   return utmParams
 }
