@@ -1,4 +1,5 @@
 import { ButtonLink } from '~components/button-link'
+import { BuyKeycard } from '~components/buy-keycard'
 
 const Hero = () => {
   return (
@@ -17,7 +18,7 @@ const Hero = () => {
           want to miss it.
         </p>
         <div className="flex space-x-4">
-          <ButtonLink href="/">Buy Keycard</ButtonLink>
+          <BuyKeycard />
           <ButtonLink href="/" variant="secondary">
             Learn more
           </ButtonLink>

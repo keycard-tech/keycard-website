@@ -1,4 +1,4 @@
-import { ButtonLink } from '~components/button-link'
+import { BuyKeycard } from '~components/buy-keycard'
 
 const Prefooter = () => {
   return (
@@ -13,7 +13,7 @@ const Prefooter = () => {
           wallet.
         </p>
         <div className="flex items-center gap-5">
-          <ButtonLink href="/">Buy Keycard</ButtonLink>
+          <BuyKeycard />
           <p className="text-16 font-300 text-white-60">From $25</p>
         </div>
       </div>

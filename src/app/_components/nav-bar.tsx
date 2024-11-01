@@ -10,7 +10,7 @@ import {
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import { ButtonLink } from './button-link'
+import { BuyKeycard } from './buy-keycard'
 import { Logo } from './logo'
 
 const NAV_BAR_HEIGHT = 92
@@ -26,7 +26,7 @@ const navStyles = cva({
 })
 
 const internalLinkStyles = cva({
-  base: 'rounded-12 border border-[transparent] px-[14px] pb-[10px] pt-2 transition-colors hover:border-white-8 hover:bg-white-8',
+  base: 'rounded-12 border border-transparent px-[14px] pb-[10px] pt-2 transition-colors hover:border-white-8 hover:bg-white-8',
   variants: {
     isActive: {
       true: 'bg-white-12',
@@ -91,14 +91,7 @@ const Navbar = () => {
             {label}
           </Link>
         ))}
-        {/* TODO This has to be changed since get notified and buy keycard will trigger twi different modals and are not links */}
-        <ButtonLink
-          href="/"
-          variant={variant}
-          active={pathname === '/get-notified'}
-        >
-          Get Keycard
-        </ButtonLink>
+        <BuyKeycard variant={variant} />
       </div>
     </motion.nav>
   )

@@ -1,4 +1,4 @@
-import { ButtonLink } from '~components/button-link'
+import { BuyKeycard } from '~components/buy-keycard'
 import { Recommended } from '~icons'
 import { cx } from 'cva'
 import Image from 'next/image'
@@ -43,7 +43,7 @@ const UseCases = () => {
           By having different Keycards you can store your most valuable card at
           home while taking your hot wallet with you.
         </p>
-        <ButtonLink href="/">Buy Keycard</ButtonLink>
+        <BuyKeycard />
 
         <div className="flex justify-center gap-3 pb-20 pt-14">
           {cardSets.map((set, index) => (
