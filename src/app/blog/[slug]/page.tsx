@@ -1,5 +1,7 @@
 // import { Metadata } from '~app/_metadata'
 // import { Breadcrumbs } from '~components/breadcrumbs'
+import { Metadata } from '~/app/_metadata'
+import { Breadcrumbs } from '~/app/docs/_components/breadcrumbs'
 import { notFound } from 'next/navigation'
 import { createElement, Fragment } from 'react'
 import rehypeParse from 'rehype-parse'
@@ -19,20 +21,20 @@ export async function generateStaticParams() {
   return slugs.map(slug => ({ slug })) satisfies Array<Props['params']>
 }
 
-// export async function generateMetadata({ params }: Props) {
-//   const post = (await getPostBySlug(params.slug))!
+export async function generateMetadata({ params }: Props) {
+  const post = (await getPostBySlug(params.slug))!
 
-//   return Metadata({
-//     title: post.title!,
-//     description: post.excerpt,
-//     openGraph: {
-//       type: 'article',
-//       title: post.og_title ?? undefined,
-//       description: post.og_description ?? undefined,
-//       images: [post.og_image ?? post.feature_image!],
-//     },
-//   })
-// }
+  return Metadata({
+    title: post.title!,
+    description: post.excerpt,
+    openGraph: {
+      type: 'article',
+      title: post.og_title ?? undefined,
+      description: post.og_description ?? undefined,
+      images: [post.og_image ?? post.feature_image!],
+    },
+  })
+}
 
 type Props = {
   params: { slug: string }
@@ -79,31 +81,34 @@ export default async function BlogDetailPage(props: Props) {
   const tag = post.primary_tag
 
   return (
-    <div className="m-auto max-w-[664px] px-5">
-      <div className="gap-3 pb-6 pt-12 xl:pt-20">
-        {tag && <PostTag size="32" tag={tag} />}
+    <>
+      <Breadcrumbs items={breadcrumbs} />
+      <div className="m-auto max-w-[664px] px-5 py-8 xl:py-12">
+        <div className="gap-3">
+          {tag && <PostTag size="32" tag={tag} />}
 
-        <h1 className="my-4 font-lora text-32 font-600 xl:text-48">
-          {post.title!}
-        </h1>
+          <h1 className="my-4 font-lora text-32 font-600 xl:text-48">
+            {post.title!}
+          </h1>
 
-        <div className="mt-auto flex h-5 items-center gap-1">
-          <PostAuthor author={author} />
-          <div className="text-14 text-white-95">
-            on {formatDate(new Date(post.published_at!))}
+          <div className="mt-auto flex h-5 items-center gap-1">
+            <PostAuthor author={author} />
+            <div className="text-14 text-white-95">
+              on {formatDate(new Date(post.published_at!))}
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="mx-auto w-full max-w-[1504px] px-0 py-6 xl:py-10">
-        <img
-          src={post.feature_image!}
-          className="aspect-[374/182] size-full rounded-28 object-cover xl:aspect-[1456/470]"
-          alt={post.feature_image_alt!}
-        />
-      </div>
+        <div className="mx-auto w-full max-w-[1504px] px-0 py-6 xl:py-10">
+          <img
+            src={post.feature_image!}
+            className="aspect-[374/182] size-full rounded-28 object-cover xl:aspect-[1456/470]"
+            alt={post.feature_image_alt!}
+          />
+        </div>
 
-      <div className="py-6">{result}</div>
-    </div>
+        <div className="py-6">{result}</div>
+      </div>
+    </>
   )
 }

@@ -10,7 +10,7 @@ export default async function BlogPage() {
   const highlightedPost = initialPosts[0]
 
   return (
-    <div className="mx-auto max-w-[1184px] px-5 pb-24 pt-12 xl:pb-32 xl:pt-20">
+    <div className="mx-auto max-w-[1184px] px-5 py-12 xl:py-24">
       <div className="mb-10 grid gap-2">
         <h1 className="font-lora text-48 font-600">Keycard News</h1>
         <div className="text-20">Thoughts, stories and ideas.</div>

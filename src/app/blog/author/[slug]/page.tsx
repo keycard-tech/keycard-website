@@ -1,3 +1,4 @@
+import { Breadcrumbs } from '~/app/docs/_components/breadcrumbs'
 import { notFound } from 'next/navigation'
 import { Avatar } from '../../_components/avatar'
 import { InfinitePostGrid } from '../../_components/infinite-post-grid'
@@ -26,30 +27,46 @@ export default async function BlogAuthorPage(props: Props) {
 
   const { posts, author, meta } = response
 
+  const breadcrumbs = [
+    {
+      label: 'Blog',
+      href: '/blog',
+    },
+    {
+      label: author.name ?? author.slug,
+      href: `/blog/author/${author.slug}`,
+    },
+  ]
+
   return (
-    <div className="mx-auto max-w-[1184px] px-5 pb-24 pt-12 lg:pb-32 lg:pt-20">
-      <div className="mb-4">
-        <Avatar
-          size="56"
-          name={author.name ?? author.slug}
-          src={author.profile_image ?? undefined}
+    <>
+      <Breadcrumbs items={breadcrumbs} />
+      <div className="mx-auto max-w-[1184px] px-5 py-8 lg:py-12">
+        <div className="mb-4">
+          <Avatar
+            size="56"
+            name={author.name ?? author.slug}
+            src={author.profile_image ?? undefined}
+          />
+        </div>
+        <div className="mb-12 grid gap-2">
+          <h1 className="font-lora text-32 font-600 lg:text-48">
+            {author.name}
+          </h1>
+          {author.meta_description && (
+            <p className="text-24 font-600 text-white-95">
+              {author.meta_description}
+            </p>
+          )}
+        </div>
+
+        <InfinitePostGrid
+          type="author"
+          initialPosts={posts}
+          meta={meta}
+          queryKey={author.slug}
         />
       </div>
-      <div className="mb-12 grid gap-2">
-        <h1 className="font-lora text-32 font-600 lg:text-48">{author.name}</h1>
-        {author.meta_description && (
-          <p className="text-24 font-600 text-white-95">
-            {author.meta_description}
-          </p>
-        )}
-      </div>
-
-      <InfinitePostGrid
-        type="author"
-        initialPosts={posts}
-        meta={meta}
-        queryKey={author.slug}
-      />
-    </div>
+    </>
   )
 }

@@ -21,7 +21,7 @@ export const HighlightedPostCard = (props: Props) => {
       <div className="col-span-2 w-full flex-[2] shrink-0">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          className="rounded-16 aspect-[366/206] size-full object-cover"
+          className="aspect-[366/206] size-full rounded-16 object-cover"
           src={post.feature_image!}
           alt={post.feature_image_alt!}
         />
@@ -33,9 +33,7 @@ export const HighlightedPostCard = (props: Props) => {
         </div>
 
         <div>
-          <span className="font-lora text-32 font-600 xl:text-48">
-            {post.title}
-          </span>
+          <span className="font-lora text-32 font-600">{post.title}</span>
         </div>
 
         <div>

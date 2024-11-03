@@ -1,3 +1,4 @@
+import { Breadcrumbs } from '~/app/docs/_components/breadcrumbs'
 import { notFound } from 'next/navigation'
 import { InfinitePostGrid } from '../../_components/infinite-post-grid'
 import { getPostsByTagSlug, getTagSlugs } from '../../../_lib/ghost'
@@ -26,19 +27,33 @@ export default async function BlogTagPage(props: Props) {
 
   const { posts, tag, meta } = response
 
-  return (
-    <div className="mx-auto max-w-[1184px] px-5 pb-24 pt-12 lg:pb-32 lg:pt-20">
-      <div className="mb-12 grid gap-2">
-        <h1 className="font-lora text-32 font-600 lg:text-48">{tag.name}</h1>
-        {tag.description && <div className="text-16">{tag.description}</div>}
-      </div>
+  const breadcrumbs = [
+    {
+      label: 'Blog',
+      href: '/blog',
+    },
+    {
+      label: tag.name ?? tag.slug,
+      href: `/blog/tag/${tag.slug}`,
+    },
+  ]
 
-      <InfinitePostGrid
-        type="tag"
-        initialPosts={posts}
-        meta={meta}
-        queryKey={tag.slug}
-      />
-    </div>
+  return (
+    <>
+      <Breadcrumbs items={breadcrumbs} />
+      <div className="mx-auto max-w-[1184px] px-5 py-8 lg:py-12">
+        <div className="mb-12 grid gap-2">
+          <h1 className="font-lora text-32 font-600 lg:text-48">{tag.name}</h1>
+          {tag.description && <div className="text-16">{tag.description}</div>}
+        </div>
+
+        <InfinitePostGrid
+          type="tag"
+          initialPosts={posts}
+          meta={meta}
+          queryKey={tag.slug}
+        />
+      </div>
+    </>
   )
 }
