@@ -1,3 +1,4 @@
+import { Metadata } from '~/app/_metadata'
 import { Link } from '~components/link'
 import { allDocuments } from '~content'
 import { getMDXComponent } from 'next-contentlayer/hooks'
@@ -6,6 +7,17 @@ import React from 'react'
 import { Breadcrumbs } from '../_components/breadcrumbs'
 import { baseComponents } from '../_components/content'
 import { generateBreadcrumbs } from '../_utils/generate-breadcrumbs'
+
+export function generateMetadata({ params }: Props) {
+  const doc = allDocuments.find(
+    d => (d.slug as unknown as string[]).join('/') === params.slug.join('/'),
+  )!
+
+  return Metadata({
+    title: doc.title,
+    description: 'Technical guides for Keycard.',
+  })
+}
 
 type Props = {
   params: {
