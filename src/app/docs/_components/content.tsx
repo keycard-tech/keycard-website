@@ -98,7 +98,7 @@ export const baseComponents = {
         className={cx(
           mb,
           mt,
-          'group relative scroll-m-[100px] font-lora text-32 font-400 leading-[1.25] tracking-[-0.04rem]',
+          'group relative scroll-m-[100px] font-lora text-32 font-400 leading-tight tracking-[-0.04rem]',
         )}
       >
         <AnchorLink id={id!}>{children}</AnchorLink>
@@ -152,6 +152,7 @@ export const baseComponents = {
           'mt-5 border-l border-dashed border-white-3 !pt-0 pl-6',
         )}
       >
+        {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
         {Children.map(blockquoteChildren, (item: any) => {
           if (typeof item === 'string') {
             return renderText({ children: item, size: paragraphTextSize[size] })
@@ -185,6 +186,7 @@ export const baseComponents = {
 
     return (
       <Link
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         {...(props as any)}
         href={props.href}
         className={cx('text-orange', paragraphTextSize[props.size ?? 16])}
@@ -201,7 +203,9 @@ export const baseComponents = {
     const { children, size = 16 } = props
 
     if (
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (props as any).children?.type?.name === 'img' ||
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (props as any).parent === 'li'
     ) {
       return <>{props.children}</>
@@ -228,6 +232,7 @@ export const baseComponents = {
       </ul>
     )
   },
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ol: (props: any & { parent?: string }) => {
     const listItems = Children.toArray(props.children).filter(
       child => typeof child === 'object',
@@ -239,6 +244,7 @@ export const baseComponents = {
         className="group flex flex-col gap-3 [:is(ol)+&]:mt-5 [ol_&]:mt-3"
         {...props}
       >
+        {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
         {Children.map(listItems, (item: any, index) =>
           cloneElement(item, {
             order: index + 1,
@@ -276,15 +282,17 @@ export const baseComponents = {
   hr: () => {
     return <></>
   },
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   img: (props: any) => {
     return <img {...props} className="rounded-28" />
   },
   pre: (props: ComponentProps<'pre'>) => (
     <pre
       {...props}
-      className="rounded-16 w-full overflow-scroll border border-white-12 bg-white-8 px-6 py-5 font-inter text-16 font-400 text-white-100"
+      className="w-full overflow-scroll rounded-16 border border-white-12 bg-white-8 px-6 py-5 font-inter text-16 font-400 text-white-100"
     />
   ),
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   code: (props: any) => {
     const multiline = Children.toArray(props.children).length > 1
 
@@ -298,7 +306,7 @@ export const baseComponents = {
         // note: https://www.figma.com/file/qSIh8wh9EVdY8S2sZce15n/Composer-for-Desktop?type=design&node-id=7850-672452&mode=design&t=V9tDjCw6RLuPF4F6-4
         <code
           {...props}
-          className="rounded-16 inline-block border border-white-12 bg-white-8 px-2 font-inter font-400 text-white-100"
+          className="inline-block rounded-16 border border-white-12 bg-white-8 px-2 font-inter font-400 text-white-100"
         />
       )
     }
