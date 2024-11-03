@@ -53,7 +53,6 @@ export const Doc = defineDocumentType(() => ({
       // @ts-expect-error TODO
       type: '{ level: 1 | 2; value: string, slug: string }[]',
       resolve: async doc => {
-        // @ts-expect-error TODO
         const processor = unified().use(remarkParse).use(remarkHeadings)
         const tree = await processor.parse(doc.body.raw)
         const file = await new Promise<VFile | undefined>(resolve => {

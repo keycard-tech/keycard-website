@@ -4,6 +4,9 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  vfile: 6.0.3
+
 importers:
 
   .:
@@ -139,7 +142,7 @@ importers:
         specifier: ^5.0.0
         version: 5.0.0
       vfile:
-        specifier: ^6.0.3
+        specifier: 6.0.3
         version: 6.0.3
 
 packages:
@@ -3516,9 +3519,6 @@ packages:
   vfile-message@4.0.2:
     resolution: {integrity: sha512-jRDZ1IMLttGj41KcZvlrYAaI3CfqpLpfpf+Mfig13viT6NKvRzWZ+lXz0Y5D60w6uJIBAOGq9mSHf0gktF0duw==}
 
-  vfile@5.3.7:
-    resolution: {integrity: sha512-r7qlzkgErKjobAmyNIkkSpizsFPYiUPuJb5pNW1RB4JcYVZhs4lIbVqk8XPk033CV/1z8ss5pkax8SuhGpcG8g==}
-
   vfile@6.0.3:
     resolution: {integrity: sha512-KzIbH/9tXat2u30jf+smMwFCsno4wHVdNmzFyL+T/L3UGqqk6JKfVqOFOZEpZSHADH1k40ab6NUIXZq422ov3Q==}
 
@@ -4044,7 +4044,7 @@ snapshots:
       '@mdx-js/mdx': 2.3.0
       esbuild: 0.18.20
       node-fetch: 3.3.2
-      vfile: 5.3.7
+      vfile: 6.0.3
     transitivePeerDependencies:
       - supports-color
 
@@ -4066,7 +4066,7 @@ snapshots:
       unist-util-position-from-estree: 1.1.2
       unist-util-stringify-position: 3.0.3
       unist-util-visit: 4.1.2
-      vfile: 5.3.7
+      vfile: 6.0.3
     transitivePeerDependencies:
       - supports-color
 
@@ -5672,7 +5672,7 @@ snapshots:
       '@types/unist': 2.0.11
       hastscript: 7.2.0
       property-information: 6.5.0
-      vfile: 5.3.7
+      vfile: 6.0.3
       vfile-location: 4.1.0
       web-namespaces: 2.0.1
 
@@ -5709,7 +5709,7 @@ snapshots:
       parse5: 6.0.1
       unist-util-position: 4.0.4
       unist-util-visit: 4.1.2
-      vfile: 5.3.7
+      vfile: 6.0.3
       web-namespaces: 2.0.1
       zwitch: 2.0.4
 
@@ -6393,7 +6393,7 @@ snapshots:
       remark-frontmatter: 4.0.1
       remark-mdx-frontmatter: 1.1.1
       uuid: 8.3.2
-      vfile: 5.3.7
+      vfile: 6.0.3
     transitivePeerDependencies:
       - supports-color
 
@@ -7746,7 +7746,7 @@ snapshots:
       is-buffer: 2.0.5
       is-plain-obj: 4.1.0
       trough: 2.2.0
-      vfile: 5.3.7
+      vfile: 6.0.3
 
   unified@11.0.5:
     dependencies:
@@ -7845,7 +7845,7 @@ snapshots:
   vfile-location@4.1.0:
     dependencies:
       '@types/unist': 2.0.11
-      vfile: 5.3.7
+      vfile: 6.0.3
 
   vfile-location@5.0.3:
     dependencies:
@@ -7866,13 +7866,6 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.3
       unist-util-stringify-position: 4.0.0
-
-  vfile@5.3.7:
-    dependencies:
-      '@types/unist': 2.0.11
-      is-buffer: 2.0.5
-      unist-util-stringify-position: 3.0.3
-      vfile-message: 3.1.4
 
   vfile@6.0.3:
     dependencies:
