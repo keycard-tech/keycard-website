@@ -1,18 +1,15 @@
-import * as fs from 'node:fs/promises'
-import path from 'node:path'
 import { defineDocumentType, makeSource } from '@contentlayer/source-files'
+import remarkHeadings from '@vcarl/remark-headings'
+import { slug as slugify } from 'github-slugger'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
-import remarkComment from 'remark-comment'
 import remarkDirective from 'remark-directive'
 import remarkGfm from 'remark-gfm'
-import remarkMdx from 'remark-mdx'
 import remarkParse from 'remark-parse'
-import strip from 'strip-markdown'
 import { unified } from 'unified'
-import type { VFile } from 'vfile'
+import { VFile } from 'vfile'
 
-const CONTENT_DIR_PATH = 'src/docs'
+const CONTENT_DIR_PATH = 'src'
 
 export type DocHeading = {
   level: 1 | 2
@@ -27,12 +24,13 @@ export type DocIndex = {
   }
 }
 
-export const article = defineDocumentType(() => ({
+export const Doc = defineDocumentType(() => ({
   name: 'Doc',
-  filePathPattern: 'src/docs/**/*.md',
+  filePathPattern: 'docs/**/*.mdx',
   contentType: 'mdx',
 
   fields: {
+    id: { type: 'string', required: true },
     title: { type: 'string', required: true },
   },
 
@@ -51,36 +49,66 @@ export const article = defineDocumentType(() => ({
       type: '{ order: number; pathName: string }[]',
       resolve: doc => getPathSegments(doc._raw.flattenedPath),
     },
+    headings: {
+      // @ts-expect-error TODO
+      type: '{ level: 1 | 2; value: string, slug: string }[]',
+      resolve: async doc => {
+        // @ts-expect-error TODO
+        const processor = unified().use(remarkParse).use(remarkHeadings)
+        const tree = await processor.parse(doc.body.raw)
+        const file = await new Promise<VFile | undefined>(resolve => {
+          processor.run(tree, (_error, _tree, file) => {
+            resolve(file)
+          })
+        })
+
+        return (file!.data['headings'] as { depth: number; value: string }[])
+          .filter(({ depth }) => [2].includes(depth))
+          .map<DocHeading>(({ depth, value }) => ({
+            level: depth as 2,
+            value,
+            slug: slugify(value),
+          }))
+      },
+    },
   },
 }))
 
 function getPathSegments(filePath: string) {
-  return (
-    filePath
-      .split('/')
-      // .slice(1) // skip content dir path – `/help`
-      .map(fileName => {
-        const re = /^((\d+)-)?(.*)$/
-        const [, , orderStr, pathName] = fileName.match(re) ?? []
-        const order = orderStr ? parseInt(orderStr) : 0
-        return { order, pathName }
-      })
-  )
+  return filePath.split('/').map(fileName => {
+    const re = /^((\d+)-)?(.*)$/
+    const [, , orderStr, pathName] = fileName.match(re) ?? []
+    const order = orderStr ? parseInt(orderStr) : 0
+    return { order, pathName }
+  })
+}
+
+export function resolvePathname(
+  relativePath: string,
+  fromPathname: string,
+): string {
+  const segments = fromPathname.replace(/\/+$/, '').split('/')
+  const relativeSegments = relativePath.split('/')
+
+  relativeSegments.forEach(segment => {
+    if (segment === '..') {
+      // Keep the root "" segment so the pathname starts at /
+      if (segments.length > 1) segments.pop()
+    } else if (segment !== '.') {
+      segments.push(segment)
+    }
+  })
+
+  return segments.length > 1 ? segments.join('/') : '/'
 }
 
 export default makeSource({
   onMissingOrIncompatibleData: 'fail',
   contentDirPath: CONTENT_DIR_PATH,
   contentDirInclude: ['docs'],
-  documentTypes: [article],
+  documentTypes: [Doc],
   mdx: {
-    remarkPlugins: [
-      // note: https://github.com/mdx-js/mdx/issues/1042#issuecomment-1027059063
-      remarkComment,
-      remarkGfm,
-      remarkDirective,
-      // [remarkMessageControl, { name: 'hello' }],
-    ],
+    remarkPlugins: [remarkGfm, remarkDirective],
     rehypePlugins: [
       rehypeSlug,
       [
@@ -96,43 +124,5 @@ export default makeSource({
   markdown: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [rehypeSlug],
-  },
-  onSuccess: async importData => {
-    const { allDocuments } = await importData()
-
-    const index: DocIndex[] = []
-
-    for (const doc of allDocuments) {
-      // todo?: use mdx and markdown fields instead
-      const processor = unified()
-        .use(remarkParse)
-        // .use(remarkComment)
-        .use(remarkMdx)
-        .use(strip, {
-          keep: ['heading'],
-        })
-        .use(remarkGfm)
-
-      const tree = await processor.parse(doc.body.raw)
-      const file = await new Promise<VFile | undefined>(resolve => {
-        processor.run(tree, (_error, _tree, file) => {
-          resolve(file)
-        })
-      })
-
-      if (doc._raw.sourceFileName === 'index.md') {
-        continue
-      }
-
-      index.push({
-        title: doc.title,
-        path: '/' + doc._raw.flattenedPath,
-        content: file!.data['index'] as DocIndex['content'],
-      })
-    }
-
-    const filePath = path.resolve('./.contentlayer/en.json')
-
-    fs.writeFile(filePath, JSON.stringify(index))
   },
 })
