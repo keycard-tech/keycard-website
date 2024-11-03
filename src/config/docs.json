@@ -1,5 +1,9 @@
 [
   {
+    "title": "Overview",
+    "link": "/docs/overview"
+  },
+  {
     "title": "Card Setup",
     "link": "/docs/applet_installation"
   },
@@ -8,7 +12,7 @@
     "link": "/docs/resources"
   },
   {
-    "title": "Java Sdk",
+    "title": "Java SDK",
     "link": "/docs/sdk",
     "subItems": [
       {
@@ -54,99 +58,99 @@
     ]
   },
   {
-    "title": "Web3 Api Extensions",
+    "title": "Web3 API Extensions",
     "link": "/docs/web3"
   },
   {
-    "title": "Apdu Api",
+    "title": "APDU API",
     "link": "/docs/apdu",
     "subItems": [
       {
-        "title": "Changelog",
+        "title": "CHANGELOG",
         "link": "/docs/apdu/changelog"
       },
       {
-        "title": "Select",
+        "title": "SELECT",
         "link": "/docs/apdu/select"
       },
       {
-        "title": "Init",
+        "title": "INIT",
         "link": "/docs/apdu/init"
       },
       {
-        "title": "Ident",
+        "title": "IDENT",
         "link": "/docs/apdu/ident"
       },
       {
-        "title": "Open Secure Channel",
+        "title": "OPEN SECURE CHANNEL",
         "link": "/docs/apdu/opensecurechannel"
       },
       {
-        "title": "Mutually Authenticate",
+        "title": "MUTUALLY AUTHENTICATE",
         "link": "/docs/apdu/mutuallyauthenticate"
       },
       {
-        "title": "Pair",
+        "title": "PAIR",
         "link": "/docs/apdu/pair"
       },
       {
-        "title": "Unpair",
+        "title": "UNPAIR",
         "link": "/docs/apdu/unpair"
       },
       {
-        "title": "Get Status",
+        "title": "GET STATUS",
         "link": "/docs/apdu/getstatus"
       },
       {
-        "title": "Verify Pin",
+        "title": "VERIFY PIN",
         "link": "/docs/apdu/verifypin"
       },
       {
-        "title": "Change Pin",
+        "title": "CHANGE PIN",
         "link": "/docs/apdu/changepin"
       },
       {
-        "title": "Unblock Pin",
+        "title": "UNBLOCK PIN",
         "link": "/docs/apdu/unblockpin"
       },
       {
-        "title": "Load Key",
+        "title": "LOAD KEY",
         "link": "/docs/apdu/loadkey"
       },
       {
-        "title": "Derive Key",
+        "title": "DERIVE KEY",
         "link": "/docs/apdu/derivekey"
       },
       {
-        "title": "Generate Mnemonic",
+        "title": "GENERATE MNEMONIC",
         "link": "/docs/apdu/generatemnemonic"
       },
       {
-        "title": "Remove Key",
+        "title": "REMOVE KEY",
         "link": "/docs/apdu/removekey"
       },
       {
-        "title": "Generate Key",
+        "title": "GENERATE KEY",
         "link": "/docs/apdu/generatekey"
       },
       {
-        "title": "Sign",
+        "title": "SIGN",
         "link": "/docs/apdu/sign"
       },
       {
-        "title": "Set Pinless Path",
+        "title": "SET PINLESS PATH",
         "link": "/docs/apdu/setpinlesspath"
       },
       {
-        "title": "Export Key",
+        "title": "EXPORT KEY",
         "link": "/docs/apdu/exportkey"
       },
       {
-        "title": "Store Data",
+        "title": "STORE DATA",
         "link": "/docs/apdu/storedata"
       },
       {
-        "title": "Get Data",
+        "title": "GET DATA",
         "link": "/docs/apdu/getdata"
       }
     ]
