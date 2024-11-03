@@ -10,7 +10,7 @@ const BulletIcon = () => {
       <path
         d="M6.5 10C6.5 7.5 7.5 6.5 10 6.5C12.5 6.5 13.5 7.5 13.5 10C13.5 12.5 12.5 13.5 10 13.5C7.5 13.5 6.5 12.5 6.5 10Z"
         fill="white"
-        fill-opacity="0.6"
+        fillOpacity="0.6"
       />
     </svg>
   )
