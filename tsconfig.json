@@ -38,7 +38,8 @@
       "~components/*": ["./src/app/_components/*"],
       "~/*": ["./src/*"],
       "~content": ["./.contentlayer/generated"],
-      "~content/metadata/*": ["./.contentlayer/*"]
+      "~content/metadata/*": ["./.contentlayer/*"],
+      "~config/*": ["./src/config/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
