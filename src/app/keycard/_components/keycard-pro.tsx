@@ -21,8 +21,9 @@ const KeycardPro = () => {
           <br />
           One device.
         </p>
-        <p className="max-w-[320px] pb-8 text-16 font-300 text-white-80">
-          Something here about how you can keep the device safe at home.
+        <p className="max-w-[320px] pb-6 text-16 font-300 text-white-80">
+          Use the same device for all your Keycards. It’s airgaped, stateless
+          and modular.
         </p>
         <div className="flex space-x-4">
           <ButtonLink href="/">Get notified</ButtonLink>

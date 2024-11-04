@@ -40,8 +40,8 @@ const UseCases = () => {
           Many use cases, multiple Keycards
         </h2>
         <p className="mx-auto max-w-[549px] pb-8 text-20 font-300 text-white-60">
-          Create your own cards with your design. We support with design,
-          manufacturing, and fulfilment of your cards.
+          By having different Keycards you can store your most valuable card at
+          home while taking your hot wallet with you.
         </p>
         <ButtonLink href="/">Buy Keycard</ButtonLink>
 

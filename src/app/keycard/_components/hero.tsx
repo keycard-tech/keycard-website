@@ -21,7 +21,7 @@ const Hero = () => {
             With a best in class security system and the convenience of its card
             format
           </p>
-          <div className="flex items-center justify-end space-x-4">
+          <div className="flex items-center justify-end gap-7">
             <p className="text-16 font-300 text-white-60">From $25</p>
             <ButtonLink href="/">Buy Keycard</ButtonLink>
           </div>
