@@ -25,9 +25,29 @@ const navStyles = cva({
   },
 })
 
+const internalLinkStyles = cva({
+  base: 'rounded-12 border border-[transparent] px-[14px] pb-[10px] pt-2 transition-colors hover:border-white-8 hover:bg-white-8',
+  variants: {
+    active: {
+      true: 'bg-white-12',
+      false: '',
+    },
+  },
+})
+
+const links = [
+  { href: '/keycard', label: 'Keycard', component: Link, customStyles: true },
+  {
+    href: '/keycard-pro',
+    label: 'Keycard Pro',
+    component: Link,
+    customStyles: true,
+  },
+  { href: '/buy-keycard', label: 'Buy Keycard', component: ButtonLink },
+]
+
 const Navbar = () => {
   const pathname = usePathname()
-  const active = pathname!.includes('/buy-keycard')
   const [variant, setVariant] = useState<'primary' | 'secondary'>('secondary')
 
   const isFixed = pathname!.includes('/keycard')
@@ -65,21 +85,19 @@ const Navbar = () => {
       </Link>
 
       <div className="flex items-center space-x-6">
-        <Link
-          href="/keycard"
-          className="rounded-12 border border-[transparent] px-[14px] pb-[10px] pt-2 transition-colors hover:border-white-8 hover:bg-white-8"
-        >
-          Keycard
-        </Link>
-        <Link
-          href="/keycard-pro"
-          className="rounded-12 border border-[transparent] px-[14px] pb-[10px] pt-2 transition-colors hover:border-white-8 hover:bg-white-8"
-        >
-          Keycard Pro
-        </Link>
-        <ButtonLink href="/buy-keycard" variant={variant} active={active}>
-          Buy Keycard
-        </ButtonLink>
+        {links.map(({ href, label, component: Component, customStyles }) => (
+          <Component
+            key={href}
+            href={href}
+            variant={variant}
+            active={pathname === href}
+            {...(customStyles
+              ? { className: internalLinkStyles({ active: pathname === href }) }
+              : {})}
+          >
+            {label}
+          </Component>
+        ))}
       </div>
     </motion.nav>
   )

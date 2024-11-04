@@ -7,8 +7,8 @@ const KeycardPro = () => {
       <Image
         src="/assets/keycard/bg-keycard-pro.png"
         alt="Keycard Pro Hardware Wallet"
-        width="900"
-        height="600"
+        width={1400}
+        height={800}
         className="absolute left-0 top-0 size-full scale-[101%] object-cover"
       />
 
