@@ -33,7 +33,7 @@ const LineDivider = () => (
 )
 
 // Interval in milliseconds
-const TIME_INTERVAL = 160000
+const TIME_INTERVAL = 16000
 const TIME_INTERVAL_STEP = 50
 
 const FeaturesAccordion = (props: Props) => {
