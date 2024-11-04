@@ -28,7 +28,7 @@ const navStyles = cva({
 const internalLinkStyles = cva({
   base: 'rounded-12 border border-[transparent] px-[14px] pb-[10px] pt-2 transition-colors hover:border-white-8 hover:bg-white-8',
   variants: {
-    active: {
+    isActive: {
       true: 'bg-white-12',
       false: '',
     },
@@ -36,14 +36,11 @@ const internalLinkStyles = cva({
 })
 
 const links = [
-  { href: '/keycard', label: 'Keycard', component: Link, customStyles: true },
+  { href: '/keycard', label: 'Keycard' },
   {
     href: '/keycard-pro',
     label: 'Keycard Pro',
-    component: Link,
-    customStyles: true,
   },
-  { href: '/buy-keycard', label: 'Buy Keycard', component: ButtonLink },
 ]
 
 const Navbar = () => {
@@ -85,19 +82,23 @@ const Navbar = () => {
       </Link>
 
       <div className="flex items-center space-x-6">
-        {links.map(({ href, label, component: Component, customStyles }) => (
-          <Component
+        {links.map(({ href, label }) => (
+          <Link
             key={href}
             href={href}
-            variant={variant}
-            active={pathname === href}
-            {...(customStyles
-              ? { className: internalLinkStyles({ active: pathname === href }) }
-              : {})}
+            className={internalLinkStyles({ isActive: pathname === href })}
           >
             {label}
-          </Component>
+          </Link>
         ))}
+        {/* TODO This has to be changed since get notified and buy keycard will trigger twi different modals and are not links */}
+        <ButtonLink
+          href="/"
+          variant={variant}
+          active={pathname === '/get-notified'}
+        >
+          Get Keycard
+        </ButtonLink>
       </div>
     </motion.nav>
   )
