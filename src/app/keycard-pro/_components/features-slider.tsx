@@ -122,8 +122,8 @@ const FeaturesSlider = () => {
                   height={500}
                 />
               </div>
-              <div className="pb-5 pt-8 lg:pb-8">
-                <p className="pb-6 text-left text-24 font-500 text-white-95">
+              <div className="pt-8">
+                <p className="pb-[6px] text-left text-24 font-500 text-white-95">
                   {feature.name}
                 </p>
                 <p className="text-16 font-300 text-white-60">

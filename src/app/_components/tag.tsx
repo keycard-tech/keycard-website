@@ -12,7 +12,7 @@ const styles = cva({
   variants: {
     size: {
       small: 'py-[5px] pl-3 pr-2',
-      medium: 'py-2 pl-[14px] pr-4',
+      medium: 'py-[9px] pl-[14px] pr-4',
     },
   },
 })

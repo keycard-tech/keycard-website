@@ -75,7 +75,7 @@ const AirGapped = () => {
             {wallets.map((wallet, index) => (
               <div
                 key={index}
-                className="flex items-center space-x-3 border-b border-dashed border-white-20 py-3 even:border-l even:border-white-20 even:pl-3 [&:nth-first-child(-n+2)]:pt-0 [&:nth-last-child(-n+2)]:border-b-0 [&:nth-last-child(-n+2)]:pb-0"
+                className="flex items-center space-x-3 border-b border-dashed border-white-20 py-3 even:border-l even:border-white-20 even:pl-3 [&:nth-child(-n+2)]:pt-0 [&:nth-last-child(-n+2)]:border-b-0 [&:nth-last-child(-n+2)]:pb-0"
               >
                 <div className="flex size-10 items-center justify-center rounded-28 bg-dark-60">
                   <Image

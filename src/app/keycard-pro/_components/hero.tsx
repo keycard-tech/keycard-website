@@ -30,7 +30,7 @@ const Hero = () => {
               A principle-based hardware wallet that relies on Keycard as a
               modular secure element
             </p>
-            <div className="flex items-center justify-end space-x-4">
+            <div className="flex items-center justify-end gap-7">
               <p className="text-16 font-300 text-white-60">Coming 2025</p>
               <ButtonLink href="/">Get notified</ButtonLink>
             </div>

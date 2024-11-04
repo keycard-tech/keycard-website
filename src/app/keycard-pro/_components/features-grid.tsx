@@ -1,7 +1,10 @@
+import { ButtonLink } from '~components/button-link'
 import { Tag } from '~components/tag'
 import { Tooltip } from '~components/tooltip'
+import { Github, Shield } from '~icons'
 import { cx } from 'cva'
 import Image from 'next/image'
+import { createElement } from 'react'
 
 const features = [
   {
@@ -14,8 +17,7 @@ const features = [
   },
   {
     title: 'Ethereum support',
-    description:
-      'Something here about how it’s really super cool and a great feature.',
+    description: 'Works out of the box with your favourite Ethereum wallets.',
     className: 'col-span-1',
     icons: [
       {
@@ -37,25 +39,25 @@ const features = [
     ],
   },
   {
-    title: 'Large screen',
+    title: 'Large display',
     description:
-      'Something here about how it’s really super cool and a great feature.',
+      'Enjoy full visibility of sensitive information like your seed phrase.',
     image: '/assets/keycard-pro/keycard-pro-feature-2.png',
     badge: { text: '2 inches' },
     className: 'row-span-2 col-span-1 flex-col-reverse gap-0',
   },
   {
-    title: 'Something',
+    title: 'Open source security',
     description:
-      'Something here about how it’s really super cool and a great feature.',
-    badge: { text: 'Amazing' },
+      'Our software, hardware and construction is fully open source.',
+    button: { icon: Github, text: 'View on GitHub' },
     className: 'col-span-1',
   },
   {
-    title: 'Something',
+    title: 'Unparalleled security',
     description:
-      'Something here about how it’s really super cool and a great feature.',
-    badge: { text: 'Super' },
+      'Keycard’s secure element has passed Common Criteria EAL6+ certification.',
+    badge: { icon: Shield, text: 'EAL 6+', gradient: true },
     className: 'col-span-1',
   },
   {
@@ -118,7 +120,16 @@ const FeaturesGrid = () => {
                   {feature.description}
                 </p>
 
-                {feature.badge && <Tag>{feature.badge.text}</Tag>}
+                {feature.badge && (
+                  <Tag
+                    gradient={feature.badge.gradient}
+                    icon={
+                      feature.badge.icon && createElement(feature.badge.icon)
+                    }
+                  >
+                    {feature.badge.text}
+                  </Tag>
+                )}
                 {feature.icons && (
                   <div className="flex items-center gap-3">
                     {feature.icons?.map((icon, index) => (
@@ -132,6 +143,17 @@ const FeaturesGrid = () => {
                       </Tooltip>
                     ))}
                   </div>
+                )}
+                {feature.button && (
+                  <ButtonLink
+                    href="https://github.com"
+                    className="font-500 [&_path]:hover:fill-white-dark"
+                    variant="white"
+                    size="small"
+                  >
+                    <span>{feature.button.text}</span>
+                    <feature.button.icon />
+                  </ButtonLink>
                 )}
               </div>
             </div>

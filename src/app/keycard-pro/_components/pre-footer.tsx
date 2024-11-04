@@ -7,10 +7,10 @@ const Prefooter = () => {
         <p className="pb-2 text-24 font-600 text-white-95">
           keycard <span className="font-200">pro</span>
         </p>
-        <h1 className="flex pb-4 font-lora text-48 font-400">
+        <h1 className="flex pb-4 font-lora text-48 font-400 text-white-95">
           One device for all <br /> your Keycards
         </h1>
-        <p className="max-w-[435px] pb-8 text-20 font-300 text-white-80">
+        <p className="max-w-[435px] pb-10 text-20 font-300 text-white-80">
           A principle-based hardware wallet that relies on Keycard as a modular
           secure element.
         </p>

@@ -11,7 +11,7 @@ const features = [
   {
     name: 'Stateless',
     description: 'Your info and private keys are never stored on the device.',
-    badge: 'EAL 6+',
+    tags: ['Keys stored on Keycard'],
   },
   {
     name: 'Clear security model',
@@ -50,10 +50,10 @@ const FeaturesCard = () => {
         ))}
         <div className="flex flex-col gap-6">
           <div>
-            <h2 className="font-lora text-24 font-400 text-white-95">
+            <h2 className="pb-[6px] font-lora text-24 font-400 text-white-95">
               Open source security
             </h2>
-            <p className="text-16 text-white-80">
+            <p className="text-16 font-300 text-white-60">
               Our software, hardware and construction are fully open source.
             </p>
           </div>
@@ -62,6 +62,7 @@ const FeaturesCard = () => {
             href="https://github.com"
             className="font-500 [&_path]:hover:fill-white-dark"
             variant="white"
+            size="small"
           >
             <span>View on Github</span>
             <Github />
