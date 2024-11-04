@@ -8,7 +8,7 @@ type Props = {
 } & React.ComponentProps<typeof Link>
 
 const buttonStyles = cva({
-  base: 'inline-flex cursor-pointer gap-[6px] select-none items-center rounded-12 border px-4 py-2 transition-colors w-fit',
+  base: 'inline-flex cursor-pointer gap-[6px] select-none items-center rounded-12 border px-[14px] py-2 pb-[10px] transition-colors w-fit',
   variants: {
     variant: {
       primary:

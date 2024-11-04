@@ -7,9 +7,9 @@ const KeycardPro = () => {
       <Image
         src="/assets/keycard/bg-keycard-pro.png"
         alt="Keycard Pro Hardware Wallet"
-        width="900"
-        height="600"
-        className="absolute left-0 top-0 size-full scale-[101%] object-cover"
+        width={1400}
+        height={800}
+        className="absolute left-0 top-0 size-full object-cover"
       />
 
       <div className="relative z-10 flex flex-col p-8 md:py-[200px] md:pl-[229px]">
@@ -21,8 +21,9 @@ const KeycardPro = () => {
           <br />
           One device.
         </p>
-        <p className="max-w-[320px] pb-8 text-16 font-300 text-white-80">
-          Something here about how you can keep the device safe at home.
+        <p className="max-w-[320px] pb-6 text-16 font-300 text-white-80">
+          Use the same device for all your Keycards. It’s airgaped, stateless
+          and modular.
         </p>
         <div className="flex space-x-4">
           <ButtonLink href="/">Get notified</ButtonLink>

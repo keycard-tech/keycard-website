@@ -17,6 +17,7 @@ type Props = {
     description: string
     image: string
     tokens?: string
+    tag?: string
   }>
 }
 
@@ -42,7 +43,7 @@ const FeaturesAccordion = (props: Props) => {
 
   const selected = items.find(item => item.title === value)!
 
-  // Make the accordion change the selected item with a time interval of 5 seconds
+  // Make the accordion change the selected item with a time interval of TIME_INTERVAL value
   useEffect(() => {
     let counter = 0
 
@@ -68,7 +69,7 @@ const FeaturesAccordion = (props: Props) => {
   }, [items, value])
 
   return (
-    <div className="flex flex-1 items-center justify-between pt-20">
+    <div className="flex flex-1 items-center justify-between pt-[60px]">
       <div
         className={cx([
           'flex flex-1 flex-col items-start justify-center xl:flex-row',
@@ -81,7 +82,7 @@ const FeaturesAccordion = (props: Props) => {
           onValueChange={val => {
             setValue(val)
           }}
-          className="flex max-w-[664px] flex-col gap-5 pt-24 xl:flex-1 xl:gap-5 xl:pt-0"
+          className="flex max-w-[549px] flex-col gap-0 pt-24 xl:flex-1 xl:pt-0"
         >
           {items.map(item => {
             const isOpen = value === item.title
@@ -90,16 +91,21 @@ const FeaturesAccordion = (props: Props) => {
               <Accordion.Item key={item.title} value={item.title}>
                 <Accordion.Header className="flex">
                   <Accordion.Trigger disabled={isOpen}>
-                    <div className="relative flex items-center justify-center">
+                    <div className="relative mt-5 flex items-center justify-center gap-2">
                       <p
                         className={cx(
                           'open:bg-white-40',
-                          'pb-6 text-left font-lora text-32 font-500',
+                          'flex items-center text-left font-lora text-32 font-500',
                           !isOpen && 'hover:opacity-[50%]',
                         )}
                       >
                         {item.title}
                       </p>
+                      {item.tag && (
+                        <span className="mt-2 rounded-[32px] border border-dark-8 bg-white-95 px-2 py-0.5 text-12 font-500 text-dark-100">
+                          {item.tag}
+                        </span>
+                      )}
                     </div>
                   </Accordion.Trigger>
                 </Accordion.Header>
@@ -108,8 +114,8 @@ const FeaturesAccordion = (props: Props) => {
                     'overflow-hidden text-16 font-300 text-white-80 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown',
                   )}
                 >
-                  <div className="pb-5 pt-1 lg:pb-8">
-                    <p className="text-20 font-300 text-white-60">
+                  <div className="pt-1">
+                    <p className="text-16 font-300 text-white-60">
                       {item.description}
                     </p>
                     {item.tokens && (
@@ -125,7 +131,7 @@ const FeaturesAccordion = (props: Props) => {
                   </div>
                 </Accordion.Content>
 
-                <div className="relative w-full">
+                <div className="relative mt-6 w-full">
                   <div
                     className="absolute left-0 top-0 z-[2] h-px bg-orange text-white-100"
                     style={{
@@ -151,7 +157,7 @@ const FeaturesAccordion = (props: Props) => {
             className="w-full max-w-[664px] pb-20"
           />
           {/* TODO: Add desktop download version when design is ready */}
-          <div className="flex max-w-[549px] flex-col gap-6 rounded-28 border border-white-8 bg-white-3 p-6 pt-5">
+          <div className="flex w-full max-w-[549px] flex-col gap-6 rounded-28 border border-white-8 bg-white-3 p-6 pt-5">
             <div className="flex flex-col gap-[6px]">
               <p className="font-lora text-24 font-400 text-white-95">
                 Download Status for Mobile

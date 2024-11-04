@@ -36,7 +36,7 @@ const Design = () => {
               className="flex flex-col rounded-28 border border-white-8 bg-white-3 p-6"
             >
               <div className="text-12 font-400 text-white-80">BY DESIGN</div>
-              <div className="translate-x-6 translate-y-[-20px] self-end pb-4">
+              <div className="translate-x-6 translate-y-[-20px] self-end pb-[6px]">
                 <Image
                   src={feature.image}
                   alt={feature.title}
@@ -47,7 +47,9 @@ const Design = () => {
               <h3 className="pb-2 font-lora text-24 font-400">
                 {feature.title}
               </h3>
-              <p className="font-300 text-white-60">{feature.description}</p>
+              <p className="text-16 font-300 text-white-60">
+                {feature.description}
+              </p>
             </div>
           ))}
         </div>

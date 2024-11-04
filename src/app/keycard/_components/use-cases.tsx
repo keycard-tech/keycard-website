@@ -11,8 +11,9 @@ const cardSets = [
 
 const useCases: Array<CardProps['data']> = [
   {
-    name: 'Memecoins',
-    description: 'Have peace of mind trading memecoins',
+    name: 'Vault',
+    description: 'Your most precious tokens in a single card',
+
     cardClassName: 'z-20',
     captionClassName: 'left-16 top-[92px]',
   },
@@ -24,8 +25,8 @@ const useCases: Array<CardProps['data']> = [
     inverted: true,
   },
   {
-    name: 'Vault',
-    description: 'Your most precious tokens in a single card',
+    name: 'Memecoins',
+    description: 'Have peace of mind trading memecoins',
     cardClassName: '-mt-40',
     captionClassName: 'left-16 top-[92px]',
   },
@@ -38,9 +39,9 @@ const UseCases = () => {
         <h2 className="mb-1 font-lora text-32 font-400">
           Many use cases, multiple Keycards
         </h2>
-        <p className="mx-auto max-w-[549px] pb-8 font-300 text-white-60">
-          Create your own cards with your design. We support with design,
-          manufacturing, and fulfilment of your cards.
+        <p className="mx-auto max-w-[549px] pb-8 text-20 font-300 text-white-60">
+          By having different Keycards you can store your most valuable card at
+          home while taking your hot wallet with you.
         </p>
         <ButtonLink href="/">Buy Keycard</ButtonLink>
 
@@ -122,6 +123,10 @@ const Card = (props: CardProps) => {
         'group relative flex w-full transform justify-center drop-shadow-[0_35px_35px_rgba(0,0,0,0.65)]',
         data.cardClassName,
       ])}
+      style={{
+        // https://github.com/mdn/browser-compat-data/issues/17726 fixes drop-shadow bug on Safari
+        transform: 'translateZ(0)',
+      }}
     >
       <Image
         src="/assets/keycard/card.png"

@@ -34,8 +34,8 @@ export default {
       32: [
         '2rem',
         {
-          lineHeight: '2.75rem',
-          letterSpacing: '-0.06rem',
+          lineHeight: '2.5rem',
+          letterSpacing: '-0.04rem',
         },
       ],
       24: [
@@ -49,7 +49,7 @@ export default {
         '1.25rem',
         {
           lineHeight: '1.75rem',
-          letterSpacing: '-0.02rem',
+          letterSpacing: '-0.025rem',
         },
       ],
       16: [

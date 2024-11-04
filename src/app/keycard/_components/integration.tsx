@@ -124,8 +124,8 @@ const Integration = () => {
         </div>
       </div>
 
-      <div className="px-6 pt-20 md:px-20">
-        <h2 className="mb-4 text-12 font-400 text-white-80">
+      <div className="px-6 pt-20 md:px-12">
+        <h2 className="pb-4 pl-8 text-12 font-400 text-white-80">
           ALSO INTEGRATED WITH
         </h2>
         <div className="grid grid-cols-1 gap-6 rounded-28 border border-white-8 bg-white-3 p-8 pt-9 text-white-95 md:grid-cols-2 lg:grid-cols-4">
@@ -149,7 +149,7 @@ const Integration = () => {
                 {integration.description}
               </p>
 
-              <ButtonLink href="/" variant="secondary" className="group">
+              <ButtonLink href="/" variant="secondary" className="group w-fit">
                 <span className="text-white-95">{integration.buttonText}</span>
                 <External />
               </ButtonLink>
