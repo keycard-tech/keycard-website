@@ -90,7 +90,7 @@ const FeaturesGrid = () => {
       <h2 className="max-w-[665px] font-lora text-32 text-white-95">
         Convenient, robust and made to last
       </h2>
-      <div className="grid grid-cols-4 gap-6 pt-20">
+      <div className="grid grid-cols-4 gap-6 pt-14">
         {features.map((feature, index) => (
           <div
             key={index}
@@ -104,11 +104,11 @@ const FeaturesGrid = () => {
                 src={feature.image}
                 alt={feature.title}
                 className="w-full rounded-12"
-                width={500}
-                height={500}
+                width={140}
+                height={140}
               />
             )}
-            <div className="p-6">
+            <div className="p-6 pt-5">
               <div>
                 <h3 className="mb-[6px] font-lora text-24 font-400">
                   {feature.title}

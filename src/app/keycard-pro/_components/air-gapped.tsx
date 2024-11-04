@@ -59,7 +59,7 @@ const AirGapped = () => {
         </div>
       </div>
 
-      <div>
+      <div className="flex w-full max-w-[549px] flex-col justify-self-start pl-3">
         <div>
           <h2 className="mb-2 font-lora text-32">Something about airgapped</h2>
           <p className="text-16 font-300 text-white-60">

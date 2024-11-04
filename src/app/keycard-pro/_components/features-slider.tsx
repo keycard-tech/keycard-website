@@ -88,7 +88,7 @@ const FeaturesSlider = () => {
     <div className="relative w-full pt-[200px]">
       <div className="flex items-center justify-between">
         <h2 className="max-w-[665px] px-20 font-lora text-32 text-white-95">
-          Powered by KeycardOS
+          Running on open source software{' '}
         </h2>
         <div className="flex items-center gap-3 pr-20">
           <button

@@ -8,7 +8,7 @@ const Prefooter = () => {
           keycard <span className="font-200">pro</span>
         </p>
         <h1 className="flex pb-4 font-lora text-48 font-400">
-          Something exciting <br /> must be here to finish
+          One device for all <br /> your Keycards
         </h1>
         <p className="max-w-[435px] pb-8 text-20 font-300 text-white-80">
           A principle-based hardware wallet that relies on Keycard as a modular

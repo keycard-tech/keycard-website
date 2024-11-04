@@ -30,7 +30,7 @@ const FeaturesCard = () => {
               {feature.name}
             </h3>
 
-            <p className="pb-6 text-16 font-300 text-white-80">
+            <p className="pb-6 text-16 font-300 text-white-60">
               {feature.description}
             </p>
 
