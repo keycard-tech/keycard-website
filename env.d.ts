@@ -1,9 +1,12 @@
 declare global {
   namespace NodeJS {
     interface ProcessEnv extends Env {
-      NEXT_PUBLIC_STORE_DOMAIN: string
-      NEXT_PUBLIC_STOREFRONT_API_TOKEN: string
-      NEXT_PRIVATE_STOREFRONT_API_TOKEN: string
+      SHOPIFY_STORE_DOMAIN: string
+      SHOPIFY_STOREFRONT_API_PUBLIC_ACCESS_TOKEN: string
+      SHOPIFY_STOREFRONT_API_PRIVATE_ACCESS_TOKEN: string
+      SHOPIFY_ADMIN_API_PRIVATE_ACCESS_TOKEN: string
     }
   }
 }
+
+export {}
