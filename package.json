@@ -3,7 +3,8 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky",
-    "dev": "pnpm install && next dev --turbo",
+    "predev": "pnpm install",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
