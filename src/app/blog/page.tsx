@@ -16,19 +16,23 @@ export default async function BlogPage() {
         <div className="text-20">Thoughts, stories and ideas.</div>
       </div>
 
-      <div>
-        <div className="mb-[44px] 2xl:mb-12">
-          {highlightedPost && <HighlightedPostCard post={highlightedPost} />}
-        </div>
+      {initialPosts.length > 0 ? (
+        <div>
+          <div className="mb-[44px] 2xl:mb-12">
+            {highlightedPost && <HighlightedPostCard post={highlightedPost} />}
+          </div>
 
-        <InfinitePostGrid
-          type="posts"
-          initialPosts={initialPosts}
-          meta={meta}
-          queryKey="all"
-          skip={1}
-        />
-      </div>
+          <InfinitePostGrid
+            type="posts"
+            initialPosts={initialPosts}
+            meta={meta}
+            queryKey="all"
+            skip={1}
+          />
+        </div>
+      ) : (
+        <div className="my-12 text-20">No posts found</div>
+      )}
     </div>
   )
 }

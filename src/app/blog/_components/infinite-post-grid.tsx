@@ -2,9 +2,9 @@
 
 import { useInfiniteQuery } from '@tanstack/react-query'
 import type { PostOrPage, PostsOrPages } from '@tryghost/content-api'
-import { useEffect, useMemo, useRef } from 'react'
+import { useMemo } from 'react'
 import { match } from 'ts-pattern'
-import { useIntersectionObserver } from '../_hooks/use-intersection-observer'
+import { useInfiniteLoading } from '../_hooks/use-infinite-loading'
 import {
   getPosts,
   getPostsByAuthorSlug,
@@ -18,37 +18,6 @@ type Props = {
   meta: PostsOrPages['meta']
   queryKey: string
   skip?: number
-}
-
-function useInfiniteLoading({
-  rootMargin,
-  fetchNextPage,
-  isFetchingNextPage,
-  hasNextPage,
-}: {
-  rootMargin: string
-  fetchNextPage: () => void
-  isFetchingNextPage: boolean
-  hasNextPage?: boolean
-}) {
-  const endOfPageRef = useRef<HTMLDivElement | null>(null)
-  const entry = useIntersectionObserver(endOfPageRef, {
-    rootMargin,
-  })
-
-  const isVisible = !!entry?.isIntersecting
-  const isLoading = (hasNextPage && isVisible) || isFetchingNextPage
-
-  useEffect(() => {
-    if (isVisible && !isFetchingNextPage && hasNextPage) {
-      fetchNextPage()
-    }
-  }, [fetchNextPage, hasNextPage, isFetchingNextPage, isVisible])
-
-  return {
-    endOfPageRef,
-    isLoading,
-  }
 }
 
 export const InfinitePostGrid = (props: Props) => {

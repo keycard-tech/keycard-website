@@ -1,4 +1,5 @@
 import { cva } from 'cva'
+import Image from 'next/image'
 
 type Props = {
   size: '56' | '32' | '20'
@@ -15,10 +16,12 @@ const Avatar = (props: Props) => {
       })}
     >
       {src ? (
-        <img
+        <Image
           src={src}
           alt={name}
           className="size-full rounded-full object-cover"
+          height={Number(size)}
+          width={Number(size)}
         />
       ) : (
         <div className="flex size-full select-none items-center justify-center rounded-full bg-white-95">

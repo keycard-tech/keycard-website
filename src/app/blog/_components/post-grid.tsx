@@ -1,7 +1,8 @@
 'use client'
 
 import type { PostOrPage } from '@tryghost/content-api'
-import { useEffect, useRef, useState } from 'react'
+import { useRef } from 'react'
+import { useResizeObserver } from '../_hooks/use-resize-observer'
 import { PostCard, PostCardSkeleton } from './post-card'
 
 export function PostGrid({
@@ -14,36 +15,7 @@ export function PostGrid({
   hasNextPage?: boolean
 }) {
   const gridRef = useRef<HTMLDivElement | null>(null)
-  const [columnCount, setColumnCount] = useState(1)
-
-  useEffect(() => {
-    const ref = gridRef.current!
-
-    const resizeObserver = new ResizeObserver(() => {
-      const gridSize = ref.clientWidth
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      // const itemSize = ref.firstChild.offsetWidth
-      // const itemSize = ref.firstChild.clientWidth
-      const itemSize = parseFloat(window.getComputedStyle(ref.firstChild).width)
-      // const gapSize = parseInt(window.getComputedStyle(ref).gap, 10)
-      const gapSize = parseFloat(window.getComputedStyle(ref).gap)
-
-      // example: Math.floor((719-(350*Math.floor(719/350)))/20) + 1
-      const gapCount = Math.floor(
-        (gridSize - itemSize * Math.floor(gridSize / itemSize)) / gapSize,
-      )
-      const columnCount = gapCount + 1
-
-      setColumnCount(columnCount)
-    })
-
-    resizeObserver.observe(ref)
-
-    return () => {
-      resizeObserver.unobserve(ref)
-    }
-  }, [])
+  const columnCount = useResizeObserver(gridRef)
 
   let visiblePosts
   if (hasNextPage) {
