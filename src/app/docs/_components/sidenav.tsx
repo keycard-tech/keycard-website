@@ -39,7 +39,7 @@ const Sidenav: React.FC<SidenavProps> = ({ items }) => {
   }, [pathname, items])
 
   return (
-    <nav className="flex w-[255px] flex-col items-start justify-start px-8 py-6">
+    <nav className="flex w-[255px] flex-col items-start justify-start border-r border-white-12 px-8 py-6">
       <Accordion.Root
         type="single"
         collapsible
@@ -56,7 +56,8 @@ const Sidenav: React.FC<SidenavProps> = ({ items }) => {
             <Accordion.Item key={item.title} value={item.title}>
               <Link
                 href={item.link}
-                className="pl-6 text-16 font-500 text-white-95 transition-colors hover:text-orange"
+                className="pl-[22px] text-16 font-500 text-white-95 transition-colors hover:text-orange aria-[current=true]:text-orange hover:aria-[current=true]:text-orange-dark"
+                aria-current={pathname === item.link}
                 onClick={() => setLabel(undefined)}
               >
                 {item.title}
@@ -77,11 +78,12 @@ type SidenavItemProps = {
 
 const SidenavItem = (props: SidenavItemProps) => {
   const { title, link, subItems } = props
+  const pathname = usePathname()
 
   return (
     <Accordion.Item value={title}>
       <div>
-        <div className="flex gap-1">
+        <div className="flex gap-0.5">
           <Accordion.Trigger className="group flex items-center gap-0.5">
             <div className="transition-transform group-aria-expanded:rotate-90">
               <ChevronRightIcon />
@@ -89,21 +91,25 @@ const SidenavItem = (props: SidenavItemProps) => {
           </Accordion.Trigger>
           <Link
             href={link}
-            className="flex shrink-0 font-500 text-white-95 transition-colors hover:text-orange"
+            className="flex shrink-0 font-500 text-white-95 transition-colors hover:text-orange aria-[current=true]:text-orange hover:aria-[current=true]:text-orange-dark"
+            aria-current={pathname === link}
           >
             {title}
           </Link>
         </div>
         <Accordion.Content className="data-[state=closed]:animate-accordion-hide data-[state=open]:animate-accordion-reveal overflow-hidden">
-          <div className="overflow-hidden pl-6">
+          <div className="overflow-hidden pl-[22px]">
             {subItems &&
               subItems.length > 0 &&
               subItems.map(subItem => {
+                console.log(pathname, subItem.link)
+                console.log(pathname === subItem.link)
                 return (
                   <div key={subItem.link} className="pt-2 first:pt-5 last:pb-8">
                     <Link
                       href={subItem.link}
-                      className="text-14 font-500 text-white-95 transition-colors hover:text-orange"
+                      className="text-14 font-500 text-white-95 transition-colors hover:text-orange aria-[current=true]:text-orange hover:aria-[current=true]:text-orange-dark"
+                      aria-current={pathname === subItem.link}
                     >
                       {subItem.title}
                     </Link>

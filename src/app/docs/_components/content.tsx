@@ -5,6 +5,7 @@ import { match } from 'ts-pattern'
 import { BulletIcon } from '../_icons/bullet-icon'
 import { renderText } from '../_utils/render-text'
 import { AnchorLink } from './anchor-link'
+import { CodeBlock } from './code-block'
 import { Step } from './step'
 
 const paragraphMarginTop: Record<48 | 32 | 24 | 20 | 16 | 12, string> = {
@@ -292,6 +293,13 @@ export const baseComponents = {
       className="w-full overflow-scroll rounded-16 border border-white-12 bg-white-8 px-6 py-5 font-inter text-16 font-400 text-white-100"
     />
   ),
+  div: (props: ComponentProps<'div'>) => {
+    // note: style parent elements of `code` wrapped by `rehype-pretty-code` plugin
+    if (Object.hasOwn(props, 'data-rehype-pretty-code-fragment')) {
+      return <CodeBlock {...props} />
+    }
+    return <div {...props} />
+  },
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   code: (props: any) => {
     const multiline = Children.toArray(props.children).length > 1
@@ -306,7 +314,7 @@ export const baseComponents = {
         // note: https://www.figma.com/file/qSIh8wh9EVdY8S2sZce15n/Composer-for-Desktop?type=design&node-id=7850-672452&mode=design&t=V9tDjCw6RLuPF4F6-4
         <code
           {...props}
-          className="inline-block rounded-16 border border-white-12 bg-white-8 px-2 font-inter font-400 text-white-100"
+          className="relative inline-block rounded-16 border border-white-12 bg-white-8 px-2 font-inter font-400 text-white-100"
         />
       )
     }
@@ -315,7 +323,7 @@ export const baseComponents = {
     // note: http://localhost:3000/help/getting-started/download-status-for-linux example for scrolling
     return <code className="w-fit" {...props} />
   },
-  figure: (props: ComponentProps<'figure'>) => (
-    <figure {...props} className="my-5" />
-  ),
+  figure: (props: ComponentProps<'figure'>) => {
+    return <figure {...props} className="my-5" />
+  },
 }
