@@ -7,7 +7,7 @@ import { KeycardPro } from '~/app/(homepage)/_components/keycard-pro'
 
 export default async function HomePage() {
   return (
-    <div className="relative w-full">
+    <div className="relative mt-20 w-full lg:mt-[92px]">
       <Hero />
       <KeycardPro />
       <KeycardFeatures />

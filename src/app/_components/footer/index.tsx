@@ -3,7 +3,7 @@ import { Logo } from '~components/logo'
 import Link from 'next/link'
 import { Section } from './section'
 
-export const Footer = () => {
+const Footer = () => {
   return (
     <footer className="rounded-28 bg-orange pt-8">
       <div className="hidden grid-cols-4 divide-x divide-dashed divide-white-20 lg:grid lg:grid-cols-6">
@@ -28,3 +28,5 @@ export const Footer = () => {
     </footer>
   )
 }
+
+export { Footer }

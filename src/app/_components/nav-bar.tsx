@@ -15,16 +15,6 @@ import { Logo } from './logo'
 
 const NAV_BAR_HEIGHT = 92
 
-const navStyles = cva({
-  base: 'top-0 left-0 z-30 flex items-center justify-between p-6 text-white-95',
-  variants: {
-    isFixed: {
-      true: 'fixed w-full pt-8 px-8',
-      false: 'sticky',
-    },
-  },
-})
-
 const internalLinkStyles = cva({
   base: 'rounded-12 border border-[transparent] px-[14px] pb-[10px] pt-2 transition-colors hover:border-white-8 hover:bg-white-8',
   variants: {
@@ -43,11 +33,9 @@ const links = [
   },
 ]
 
-const Navbar = () => {
+const NavBar = () => {
   const pathname = usePathname()
   const [variant, setVariant] = useState<'primary' | 'secondary'>('secondary')
-
-  const isFixed = pathname!.includes('/keycard')
 
   const { scrollY } = useScroll()
 
@@ -71,10 +59,11 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      className={navStyles({ isFixed })}
+      className="fixed left-0 top-0 z-30 hidden w-full items-center justify-between p-6 px-8 pt-8 text-white-95 lg:flex"
       style={{
         backgroundColor,
         backdropFilter,
+        WebkitBackdropFilter: backdropFilter,
       }}
     >
       <Link href="/">
@@ -104,4 +93,4 @@ const Navbar = () => {
   )
 }
 
-export { Navbar }
+export { NavBar }

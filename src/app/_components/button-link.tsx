@@ -9,22 +9,22 @@ type Props = {
 } & React.ComponentProps<typeof Link>
 
 const buttonStyles = cva({
-  base: 'inline-flex cursor-pointer gap-[6px] text-16 select-none items-center rounded-12 border  transition-colors w-fit',
+  base: 'inline-flex cursor-pointer gap-[6px] py-2 text-16 select-none items-center rounded-12 border transition-colors w-fit',
   variants: {
     variant: {
       primary:
         'bg-orange border-[transparent] hover:bg-orange-dark backdrop-blur-[20px] text-white-95',
       secondary:
         'bg-white-8 border-white-12 hover:bg-white-12 backdrop-blur-[20px] text-white-95',
-      white: 'bg-white-100 hover:bg-white-dark text-dark-100',
+      white: 'bg-white-100 border-dark-8 hover:bg-white-dark text-dark-100',
     },
     active: {
       true: '',
       false: '',
     },
     size: {
-      small: 'px-[12px] py-[9px]',
-      medium: 'px-[14px] py-2 pb-[10px]',
+      small: 'px-[12px]',
+      medium: 'px-[14px]',
     },
   },
   compoundVariants: [

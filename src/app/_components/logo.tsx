@@ -1,6 +1,14 @@
-const Logo = () => {
+import React from 'react'
+
+const Logo = (props: React.SVGProps<SVGSVGElement>) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="23" height="40" fill="none">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="23"
+      height="40"
+      fill="none"
+      {...props}
+    >
       <path
         fill="#fff"
         fillOpacity=".95"
