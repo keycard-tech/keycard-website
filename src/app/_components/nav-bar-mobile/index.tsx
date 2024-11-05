@@ -6,79 +6,8 @@ import Link from 'next/link'
 import { useLayoutEffect, useState } from 'react'
 import { ButtonLink } from '../button-link'
 import { Logo } from '../logo'
+import { MenuIcon } from './menu-icon'
 import { Section } from './section'
-
-const MenuIcon = ({ isOpen }: { isOpen: boolean }) => (
-  <svg
-    width="38"
-    height="38"
-    viewBox="0 0 38 38"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <rect width="38" height="38" rx="12" fill="white" fillOpacity="0" />
-    <rect
-      x="1"
-      y="1"
-      width="37"
-      height="37"
-      rx="11.5"
-      stroke="transparent"
-      strokeOpacity="0"
-    />
-    <motion.line
-      x1="12"
-      y1="14"
-      x2="26"
-      y2="14"
-      stroke="white"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      animate={{
-        rotateZ: isOpen ? 45 : 0,
-        y: isOpen ? 6 : 0,
-      }}
-      style={{
-        originX: 0.5,
-        originY: 0.5,
-      }}
-      transition={{ duration: 0.3, ease: 'easeInOut' }}
-    />
-    <motion.line
-      x1="12"
-      y1="20"
-      x2="26"
-      y2="20"
-      stroke="white"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      animate={{
-        opacity: isOpen ? 0 : 1,
-        x: isOpen ? 20 : 0,
-      }}
-      transition={{ duration: 0.3, ease: 'easeInOut' }}
-    />
-
-    <motion.line
-      x1="12"
-      y1="26"
-      x2="26"
-      y2="26"
-      stroke="white"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      animate={{
-        rotateZ: isOpen ? -45 : 0,
-        y: isOpen ? -6 : 0,
-      }}
-      style={{
-        originX: 0.5,
-        originY: 0.5,
-      }}
-      transition={{ duration: 0.3, ease: 'easeInOut' }}
-    />
-  </svg>
-)
 
 const NAV_BAR_HEIGHT = 80
 
@@ -101,23 +30,48 @@ const NavBarMobile = () => {
   const finalBackgroundColor = isOpen
     ? 'rgba(255, 255, 255, 0.03)'
     : backgroundColor
+
   const finalBackdropFilter = isOpen ? 'blur(20px)' : backdropFilter
 
   useLayoutEffect(() => {
     if (isOpen) {
-      document.body.style.overflowY = 'hidden'
+      const scrollY = window.scrollY
+
+      document.body.style.position = 'fixed'
+      document.body.style.top = `-${scrollY}px`
+      document.body.style.width = '100%'
+
+      document.documentElement.style.position = 'fixed'
+      document.documentElement.style.width = '100%'
+
+      document.body.setAttribute('data-scroll-position', scrollY.toString())
     } else {
-      document.body.style.overflowY = 'auto'
+      const scrollY = parseInt(
+        document.body.getAttribute('data-scroll-position') || '0',
+        10,
+      )
+
+      document.body.style.position = ''
+      document.body.style.top = ''
+      document.body.style.width = ''
+      document.documentElement.style.position = ''
+      document.documentElement.style.width = ''
+
+      window.scrollTo(0, scrollY)
     }
 
     return () => {
-      document.body.style.overflowY = 'auto'
+      document.body.style.position = ''
+      document.body.style.top = ''
+      document.body.style.width = ''
+      document.documentElement.style.position = ''
+      document.documentElement.style.width = ''
     }
   }, [isOpen])
 
   return (
     <motion.nav
-      className="fixed left-0 top-0 z-[60] block w-full transition-all lg:hidden"
+      className="fixed inset-0 z-[60] block w-full transition-all lg:hidden"
       animate={{
         height: isOpen ? '100%' : '80px',
       }}
@@ -159,7 +113,7 @@ const NavBarMobile = () => {
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'calc(100vh - 80px)' }}
+            animate={{ opacity: 1, height: 'calc(100% - 80px)' }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2, ease: 'easeInOut' }}
             className="fixed inset-x-0 top-20 z-50 overflow-hidden"
