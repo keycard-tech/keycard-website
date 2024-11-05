@@ -1,6 +1,7 @@
 {
   "name": "keycard-website",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "prepare": "husky",
     "dev": "pnpm install && next dev",
     "build": "next build",

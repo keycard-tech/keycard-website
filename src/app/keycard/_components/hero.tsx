@@ -1,4 +1,4 @@
-import { ButtonLink } from '~components/button-link'
+import { BuyKeycard } from '~components/buy-keycard'
 import Image from 'next/image'
 
 const Hero = () => {
@@ -29,7 +29,7 @@ const Hero = () => {
             </p>
             <div className="flex items-center justify-end space-x-4">
               <p className="text-16 font-300 text-white-60">Starts from $25</p>
-              <ButtonLink href="/">Buy Keycard</ButtonLink>
+              <BuyKeycard />
             </div>
           </div>
         </div>

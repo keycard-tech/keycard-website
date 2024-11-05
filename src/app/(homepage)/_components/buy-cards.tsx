@@ -1,4 +1,5 @@
 import { ButtonLink } from '~components/button-link'
+import { BuyKeycard } from '~components/buy-keycard'
 import { cx } from 'cva'
 import Image from 'next/image'
 import React from 'react'
@@ -69,7 +70,7 @@ const BuyCards = () => {
         description="Something will say here about this product. Certainly, you don't want to miss it."
         buttons={
           <>
-            <ButtonLink href="/">Buy Keycard</ButtonLink>
+            <BuyKeycard />
             <ButtonLink href="/" variant="secondary">
               Learn more
             </ButtonLink>
