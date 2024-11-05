@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write . --ignore-path .gitignore",
-    "check": "tsc --noEmit"
+    "check": "tsc --noEmit",
+    "graphql-codegen": "graphql-codegen --config codegen.ts"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.1",
@@ -23,9 +24,14 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "server-only": "^0.0.1",
-    "ts-pattern": "^5.5.0"
+    "ts-pattern": "^5.5.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@0no-co/graphqlsp": "^1.12.16",
+    "@graphql-codegen/cli": "^5.0.3",
+    "@graphql-codegen/schema-ast": "^4.1.0",
+    "@graphql-typed-document-node/core": "^3.2.0",
     "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
     "@types/node": "^20",
     "@types/react": "^18.3.11",
