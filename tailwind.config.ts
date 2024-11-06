@@ -1,6 +1,7 @@
 import { scrollbarWidth } from 'tailwind-scrollbar-utilities'
 import type { Config } from 'tailwindcss'
 import { fontFamily } from 'tailwindcss/defaultTheme'
+import plugin from 'tailwindcss/plugin'
 
 export default {
   future: {
@@ -123,5 +124,19 @@ export default {
     },
   },
 
-  plugins: [scrollbarWidth()],
+  plugins: [
+    scrollbarWidth(),
+    plugin(({ addUtilities }) => {
+      addUtilities({
+        '.full-view-port': {
+          marginLeft: 'calc(calc((100vw - 100%) / 2) * -1)',
+          width: '100vw',
+        },
+        '.remove-full-view-port': {
+          marginLeft: '0',
+          width: '100%',
+        },
+      })
+    }),
+  ],
 } satisfies Config
