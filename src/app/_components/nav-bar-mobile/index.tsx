@@ -3,7 +3,8 @@
 import { ROUTES } from '~/config/routes'
 import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion'
 import Link from 'next/link'
-import { useLayoutEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
+import { useEffect, useLayoutEffect, useState } from 'react'
 import { ButtonLink } from '../button-link'
 import { Logo } from '../logo'
 import { MenuIcon } from './menu-icon'
@@ -13,6 +14,7 @@ const NAV_BAR_HEIGHT = 80
 
 const NavBarMobile = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const pathname = usePathname()
 
   const { scrollY } = useScroll()
 
@@ -69,6 +71,8 @@ const NavBarMobile = () => {
     }
   }, [isOpen])
 
+  useEffect(() => setIsOpen(false), [pathname])
+
   return (
     <motion.nav
       className="fixed inset-0 z-[60] block w-full transition-all lg:hidden"
@@ -90,7 +94,7 @@ const NavBarMobile = () => {
           <AnimatePresence>
             {!isOpen && (
               <motion.div
-                initial={{ opacity: 0 }}
+                initial={{ opacity: 1 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
@@ -151,7 +155,9 @@ const NavBarMobile = () => {
                   transition={{ delay: 0.2 + 3 * 0.05, duration: 0.3 }}
                   className="pt-2 text-center"
                 >
-                  <ButtonLink href="/">Buy Keycard</ButtonLink>
+                  <ButtonLink href="/" backdropFilter>
+                    Buy Keycard
+                  </ButtonLink>
                 </motion.li>
               </ul>
               <motion.div

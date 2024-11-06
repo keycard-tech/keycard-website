@@ -3,6 +3,7 @@ import { Link } from './link'
 
 type Props = {
   variant?: 'primary' | 'secondary' | 'white'
+  backdropFilter?: boolean
   size?: 'small' | 'medium'
   children: React.ReactNode
   active?: boolean
@@ -19,6 +20,10 @@ const buttonStyles = cva({
     },
     active: {
       true: '',
+      false: '',
+    },
+    backdropFilter: {
+      true: 'backdrop-blur-[20px]',
       false: '',
     },
     size: {
@@ -41,11 +46,15 @@ const ButtonLink = (props: Props) => {
     className,
     active,
     size = 'medium',
+    backdropFilter,
     ...rest
   } = props
   return (
     <Link
-      className={cx([buttonStyles({ variant, active, size }), className])}
+      className={cx([
+        buttonStyles({ variant, active, size, backdropFilter }),
+        className,
+      ])}
       {...rest}
     >
       {children}
