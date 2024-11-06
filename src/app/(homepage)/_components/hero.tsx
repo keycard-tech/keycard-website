@@ -9,7 +9,7 @@ const Hero = () => {
         src="/assets/hero-bg.png"
         width={1600}
         height={1600}
-        className="absolute inset-0 z-0 hidden bg-cover bg-center lg:block"
+        className="absolute bottom-0 right-0 z-0 hidden w-auto bg-cover bg-center lg:block"
         priority
       />
       <Image

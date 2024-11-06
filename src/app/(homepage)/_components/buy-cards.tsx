@@ -8,7 +8,7 @@ type Props = {
   imageClassName: string
   name: string
   secondName?: string
-  title: string
+  title: React.ReactNode
   description: string
   buttons: React.ReactNode
   info: string
@@ -35,16 +35,16 @@ const Section = (props: Props) => {
         height={600}
         draggable={false}
         className={cx([
-          'pointer-events-none absolute left-1/2 top-6 z-20 max-w-[549px] -translate-x-1/2 select-none',
+          'pointer-events-none absolute left-1/2 z-20 max-w-[549px] -translate-x-1/2 select-none lg:top-6',
           imageClassName,
         ])}
       />
-      <div className="flex size-full flex-col items-center justify-end rounded-28 border border-white-8 bg-white-3 px-[98px] pb-[120px] pt-[300px]">
+      <div className="flex size-full flex-col items-center justify-end rounded-28 border border-white-8 bg-white-3 px-5 pb-20 pt-[300px] lg:px-10 lg:pb-[120px] xl:px-[98px]">
         <div className="container relative z-10 flex max-w-[434px] flex-col items-center justify-center px-4">
           <p className="pb-2 text-24 font-600 text-white-95">
             {name} <span className="font-200">{secondName}</span>
           </p>
-          <h1 className="flex pb-4 text-center font-lora text-48 font-400">
+          <h1 className="flex pb-4 text-center font-lora text-32 font-400 lg:text-48">
             {title}
           </h1>
           <p className="pb-8 text-center text-20 font-300 text-white-80">
@@ -60,12 +60,16 @@ const Section = (props: Props) => {
 
 const BuyCards = () => {
   return (
-    <section className="flex flex-col gap-2 overflow-clip pb-2 pt-[200px] lg:flex-row">
+    <section className="ml-[calc(calc((100vw-100%)/2)*-1)] grid w-screen grid-cols-1 gap-40 overflow-clip pb-2 pt-[160px] lg:ml-0 lg:w-auto lg:grid-cols-2 lg:flex-row lg:gap-2 lg:pt-[200px]">
       <Section
         image="/assets/bottom-keycard.png"
-        imageClassName="-mb-72 w-full"
+        imageClassName="-mb-30 lg:-mb-72 lg:w-full"
         name="keycard"
-        title="Best in class secure element"
+        title={
+          <>
+            A card shaped <br /> hardware wallet
+          </>
+        }
         description="Something will say here about this product. Certainly, you don't want to miss it."
         buttons={
           <>
@@ -79,10 +83,14 @@ const BuyCards = () => {
       />
       <Section
         image="/assets/bottom-keycard-pro.png"
-        imageClassName="-mb-20 w-full"
+        imageClassName="pt-8 lg:pt-0 lg:-mb-20 lg:w-full"
         name="keycard"
         secondName="pro"
-        title="A modular hardware wallet"
+        title={
+          <>
+            One device for all <br /> your keycards
+          </>
+        }
         description="Something will say here about this product. Certainly you don't want to miss it"
         buttons={
           <>
