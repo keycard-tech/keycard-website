@@ -324,6 +324,10 @@ export const baseComponents = {
     return <code className="w-fit" {...props} />
   },
   figure: (props: ComponentProps<'figure'>) => {
+    if (Object.hasOwn(props, 'data-rehype-pretty-code-figure')) {
+      return <CodeBlock {...props} />
+    }
+
     return <figure {...props} className="my-5" />
   },
 }

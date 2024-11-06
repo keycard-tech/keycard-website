@@ -60,7 +60,16 @@ export async function getDocumentationArticle(slug: string[]) {
       options: {
         parseFrontmatter: true,
         mdxOptions: {
-          rehypePlugins: [rehypeSlug, rehypePrettyCode],
+          rehypePlugins: [
+            rehypeSlug,
+            [
+              rehypePrettyCode,
+              {
+                theme: 'github-dark',
+                keepBackground: false,
+              },
+            ],
+          ],
           remarkPlugins: [
             () => (tree: Node) => {
               const headings: Heading[] = []
