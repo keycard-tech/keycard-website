@@ -3,14 +3,14 @@ import Image from 'next/image'
 
 const Hero = () => {
   return (
-    <section className="relative flex h-[986px] overflow-y-clip">
+    <section className="relative flex h-screen overflow-y-clip lg:h-[986px]">
       <Image
         alt="Keycard Pro"
         src="/assets/keycard/hero-keycard.png"
         width={1600}
         height={1600}
         priority
-        className="absolute left-1/2 top-1/3 z-0 w-full -translate-x-1/2 -translate-y-1/2 bg-contain bg-center bg-no-repeat"
+        className="absolute z-0 w-[1600px] bg-contain bg-center bg-no-repeat lg:left-1/2 lg:top-1/3 lg:w-full lg:-translate-x-1/2 lg:-translate-y-1/2"
       />
       <div className="relative z-10 flex flex-1 flex-col justify-end px-20 pb-11 align-bottom lg:pb-[270px]">
         <p className="pb-2 text-24 font-600 text-orange">keycard</p>
