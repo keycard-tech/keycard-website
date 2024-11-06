@@ -10,6 +10,20 @@ const ghost = GhostContentAPI({
 
 type Params = { page?: number; limit?: number; tag?: string }
 
+const defaultResponse = {
+  posts: [],
+  meta: {
+    pagination: {
+      page: 1,
+      limit: 0,
+      pages: 0,
+      total: 0,
+      next: null,
+      prev: null,
+    },
+  },
+}
+
 export const getPosts = async (params: Params = {}) => {
   const { page = 1, limit = 7, tag } = params
 
@@ -27,7 +41,7 @@ export const getPosts = async (params: Params = {}) => {
     return { posts: [...response], meta: response.meta }
   } catch (error) {
     console.error('Error fetching getPosts: ', error)
-    return
+    return defaultResponse
   }
 }
 
