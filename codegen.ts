@@ -33,6 +33,7 @@ const config: CodegenConfig = {
   generates: {
     './src/graphql/shopify/storefront/': {
       schema: shopifyStorefrontSchema,
+      plugins: ['typescript'],
       preset: 'client',
       config: {
         documentMode: 'string',
@@ -41,6 +42,7 @@ const config: CodegenConfig = {
     },
     './src/graphql/shopify/admin/': {
       schema: shopifyAdminSchema,
+      plugins: ['typescript'],
       preset: 'client',
       config: {
         documentMode: 'string',
