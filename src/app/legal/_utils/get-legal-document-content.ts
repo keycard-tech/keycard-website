@@ -10,7 +10,7 @@ const frontmatterSchema = z.object({
 })
 
 export async function getLegalDocumentContent(
-  documentName: 'privacy-policy' | 'terms-of-use' | 'privacy-notice',
+  documentName: 'privacy-policy' | 'terms-of-use',
 ) {
   const filePath = path.resolve(`content/legal/${documentName}.md`)
 
