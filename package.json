@@ -29,7 +29,6 @@
     "react-children-utilities": "^2.10.0",
     "react-dom": "^18.3.1",
     "ts-pattern": "^5.5.0",
-    "unified": "^11.0.5",
     "zod": "^3.23.8"
   },
   "devDependencies": {
@@ -60,6 +59,7 @@
     "tailwindcss": "^3.4.1",
     "typescript": "^5.6.3",
     "typescript-eslint": "^8.10.0",
+    "unified": "^10.1.2",
     "unist-util-visit": "^5.0.0"
   },
   "lint-staged": {

@@ -13,17 +13,22 @@ type Params = { page?: number; limit?: number; tag?: string }
 export const getPosts = async (params: Params = {}) => {
   const { page = 1, limit = 7, tag } = params
 
-  const response = await ghost.posts.browse({
-    include: ['tags', 'authors'],
-    order: 'published_at DESC',
-    limit,
-    page,
-    ...(tag
-      ? { filter: `tag:${tag}+visibility:public` }
-      : { filter: 'visibility:public' }),
-  })
+  try {
+    const response = await ghost.posts.browse({
+      include: ['tags', 'authors'],
+      order: 'published_at DESC',
+      limit,
+      page,
+      ...(tag
+        ? { filter: `tag:${tag}+visibility:public` }
+        : { filter: 'visibility:public' }),
+    })
 
-  return { posts: [...response], meta: response.meta }
+    return { posts: [...response], meta: response.meta }
+  } catch (error) {
+    console.error('Error fetching getPosts: ', error)
+    return
+  }
 }
 
 export const getPostBySlug = async (slug: string) => {
@@ -34,7 +39,8 @@ export const getPostBySlug = async (slug: string) => {
         include: ['tags', 'authors'],
       },
     )
-  } catch {
+  } catch (error) {
+    console.error('Error fetching getPostBySlug: ', error)
     return
   }
 }
@@ -54,7 +60,8 @@ export const getPostsByTagSlug = async (slug: string, page = 1) => {
       tag: response[0].tags!.find(tag => tag.slug === slug)!,
       meta: response.meta,
     }
-  } catch {
+  } catch (error) {
+    console.error('Error fetching getPostsByTagSlug: ', error)
     return
   }
 }
@@ -74,37 +81,53 @@ export const getPostsByAuthorSlug = async (slug: string, page = 1) => {
       author: response[0].authors!.find(author => author.slug === slug)!,
       meta: response.meta,
     }
-  } catch {
+  } catch (error) {
+    console.error('Error fetching getPostsByAuthorSlug: ', error)
     return
   }
 }
 
 export const getPostSlugs = async (): Promise<string[]> => {
-  const posts = await ghost.posts.browse({
-    limit: 7,
-    fields: 'slug',
-    filter: 'visibility:public',
-  })
+  try {
+    const posts = await ghost.posts.browse({
+      limit: 7,
+      fields: 'slug',
+      filter: 'visibility:public',
+    })
 
-  return posts.map(post => post.slug)
+    return posts.map(post => post.slug)
+  } catch (error) {
+    console.error('Error fetching getPostSlugs: ', error)
+    return []
+  }
 }
 
 export const getTagSlugs = async (): Promise<string[]> => {
-  const tags = await ghost.tags.browse({
-    limit: clientEnv.NEXT_PUBLIC_VERCEL_ENV === 'production' ? 'all' : 6,
-    fields: 'slug',
-    filter: 'visibility:public',
-  })
+  try {
+    const tags = await ghost.tags.browse({
+      limit: clientEnv.NEXT_PUBLIC_VERCEL_ENV === 'production' ? 'all' : 6,
+      fields: 'slug',
+      filter: 'visibility:public',
+    })
 
-  return tags.map(tag => tag.slug)
+    return tags.map(tag => tag.slug)
+  } catch (error) {
+    console.error('Error fetching getTagSlugs: ', error)
+    return []
+  }
 }
 
 export const getAuthorSlugs = async (): Promise<string[]> => {
-  const authors = await ghost.authors.browse({
-    limit: clientEnv.NEXT_PUBLIC_VERCEL_ENV === 'production' ? 'all' : 6,
-    fields: 'slug',
-    filter: 'visibility:public',
-  })
+  try {
+    const authors = await ghost.authors.browse({
+      limit: clientEnv.NEXT_PUBLIC_VERCEL_ENV === 'production' ? 'all' : 6,
+      fields: 'slug',
+      filter: 'visibility:public',
+    })
 
-  return authors.map(author => author.slug)
+    return authors.map(author => author.slug)
+  } catch (error) {
+    console.error('Error fetching getAuthorSlugs: ', error)
+    return []
+  }
 }

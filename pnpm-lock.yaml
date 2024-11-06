@@ -62,9 +62,6 @@ importers:
       ts-pattern:
         specifier: ^5.5.0
         version: 5.5.0
-      unified:
-        specifier: ^11.0.5
-        version: 11.0.5
       zod:
         specifier: ^3.23.8
         version: 3.23.8
@@ -147,6 +144,9 @@ importers:
       typescript-eslint:
         specifier: ^8.10.0
         version: 8.10.0(eslint@8.57.1)(typescript@5.6.3)
+      unified:
+        specifier: ^10.1.2
+        version: 10.1.2
       unist-util-visit:
         specifier: ^5.0.0
         version: 5.0.0
