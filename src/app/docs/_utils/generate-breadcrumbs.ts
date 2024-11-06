@@ -1,26 +1,44 @@
 import config from '~/config/docs.json'
-import { Doc } from '~content'
 
-export const generateBreadcrumbs = (doc: Doc) => {
-  const breadcrumbs = [
+type Breadcrumb = {
+  label: string
+  href: string
+}
+
+export const generateBreadcrumbs = (
+  slug: string[],
+  title: string,
+): Breadcrumb[] => {
+  const breadcrumbs: Breadcrumb[] = [
     {
       label: 'Documentation',
-      href: '/docs',
+      href: '/docs/overview',
     },
   ]
 
-  for (const parentSlug of doc.slug.slice(0, -1)) {
-    breadcrumbs.push({
-      label:
-        config.find(c => c.link === `/docs/${parentSlug}`)?.title ??
-        'Not found',
-      href: `/docs/${parentSlug}`,
-    })
-  }
+  let accumulatedPath = '/docs'
 
-  breadcrumbs.push({
-    label: doc.title,
-    href: doc.url,
+  slug.forEach((part, index) => {
+    accumulatedPath += `/${part}`
+    const configItem = config.find(c => c.link === accumulatedPath)
+
+    if (configItem) {
+      breadcrumbs.push({
+        label: configItem.title,
+        href: accumulatedPath,
+      })
+    } else if (index === slug.length - 1) {
+      // Poslední část slugu, pokusíme se získat titulek aktuálního dokumentu
+      breadcrumbs.push({
+        label: title,
+        href: accumulatedPath,
+      })
+    } else {
+      breadcrumbs.push({
+        label: 'Not found',
+        href: accumulatedPath,
+      })
+    }
   })
 
   return breadcrumbs

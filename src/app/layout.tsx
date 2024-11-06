@@ -14,7 +14,7 @@ const lora = Lora({
 
 const inter = Inter({
   variable: '--font-inter',
-  weight: ['300', '400', '500'],
+  weight: ['200', '300', '400', '500'],
   subsets: ['latin'],
   preload: true,
 })
@@ -36,7 +36,7 @@ export default function RootLayout({ children }: Props) {
         className={cx(
           lora.variable,
           inter.variable,
-          'bg-dark-100 p-2 font-inter text-white-100 antialiased',
+          'overflow-x-hidden bg-dark-100 p-2 font-inter text-white-100 antialiased',
         )}
       >
         <Navbar />

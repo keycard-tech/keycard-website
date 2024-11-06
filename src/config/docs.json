@@ -66,6 +66,10 @@
     "link": "/docs/apdu",
     "subItems": [
       {
+        "title": "Overview",
+        "link": "/docs/apdu/overview"
+      },
+      {
         "title": "CHANGELOG",
         "link": "/docs/apdu/changelog"
       },

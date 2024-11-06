@@ -1,62 +1,8 @@
 import * as Accordion from '@radix-ui/react-accordion'
 import { ButtonLink } from '~components/button-link'
+import { ChevronDown, Discord, X } from '~icons'
 import { cx } from 'cva'
 import Image from 'next/image'
-
-type IconProps = {
-  className?: string
-}
-
-const ChevronDownIcon = (props: IconProps) => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="20"
-      height="20"
-      fill="none"
-      aria-hidden
-      className={props.className}
-    >
-      <path
-        stroke="#fff"
-        strokeOpacity=".95"
-        strokeWidth="1.2"
-        d="m5.5 8 4.5 4.5L14.5 8"
-      />
-    </svg>
-  )
-}
-
-const DiscordIcon = () => {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
-      <path
-        fill="#fff"
-        fillOpacity=".95"
-        d="M16.248 3.839a14.66 14.66 0 0 0-3.714-1.167c-.16.29-.347.678-.476.988a13.635 13.635 0 0 0-4.115 0c-.129-.31-.32-.699-.481-.988a14.611 14.611 0 0 0-3.717 1.17C1.395 7.393.758 10.856 1.076 14.27a14.845 14.845 0 0 0 4.555 2.334c.367-.505.694-1.04.975-1.606a9.592 9.592 0 0 1-1.536-.748c.13-.095.255-.195.377-.298 2.962 1.386 6.18 1.386 9.106 0 .123.103.25.203.377.298a9.566 9.566 0 0 1-1.54.75c.282.563.608 1.101.976 1.606a14.818 14.818 0 0 0 4.558-2.336c.373-3.957-.639-7.389-2.676-10.431ZM7.01 12.17c-.89 0-1.618-.83-1.618-1.841 0-1.01.713-1.842 1.618-1.842.905 0 1.634.83 1.618 1.842.002 1.01-.713 1.84-1.618 1.84Zm5.98 0c-.889 0-1.618-.83-1.618-1.841 0-1.01.713-1.842 1.618-1.842.905 0 1.634.83 1.618 1.842 0 1.01-.713 1.84-1.618 1.84Z"
-      />
-    </svg>
-  )
-}
-
-const XIcon = () => {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
-      <path
-        fill="#fff"
-        fillOpacity=".95"
-        fillRule="evenodd"
-        d="M8.428 10.797 3.02 3h4.183L17 16.984h-4.28l-3.673-5.295L4.407 17H3l5.428-6.203Zm4.785 5.256L4.804 3.93h1.909l8.492 12.122h-1.992Z"
-        clipRule="evenodd"
-      />
-      <path
-        fill="#fff"
-        fillOpacity=".95"
-        d="m16.625 3.014-5.223 5.98-.62-.887 4.456-5.094 1.387.001Z"
-      />
-    </svg>
-  )
-}
 
 const faqs = [
   {
@@ -87,8 +33,8 @@ const faqs = [
 
 const Faqs = () => {
   return (
-    <section className="mx-auto max-w-[1352px]">
-      <div className="flex items-start justify-between">
+    <section className="mx-auto max-w-[1352px] overflow-y-clip">
+      <div className="item-start px- flex flex-col justify-between lg:flex-row lg:items-end lg:px-0">
         <div className="flex flex-1 flex-col pt-[200px]">
           <h1 className="font-lora text-32 text-white-95">
             Something about faqs
@@ -114,8 +60,8 @@ const Faqs = () => {
                     )}
                   >
                     {faq.question}
-                    <div className="rounded-[10px] border border-white-12 bg-white-6 p-[6px]">
-                      <ChevronDownIcon className="text-white-95 transition-transform duration-300 ease-[cubic-bezier(0.87,_0,_0.13,_1)] group-data-[state=open]:rotate-180" />
+                    <div className="rounded-[10px] border border-white-12 bg-white-8 p-[6px]">
+                      <ChevronDown className="text-white-95 transition-transform duration-300 ease-[cubic-bezier(0.87,_0,_0.13,_1)] group-data-[state=open]:rotate-180" />
                     </div>
                   </Accordion.Trigger>
                 </Accordion.Header>
@@ -131,14 +77,17 @@ const Faqs = () => {
           </Accordion.Root>
         </div>
         <div className="flex flex-col items-end pt-[100px]">
-          <Image
-            src="/assets/faqs.png"
-            alt="FAQ Background"
-            width="516"
-            height="516"
-          />
+          <div className="relative -right-1/4 -mt-48 translate-x-[156px] translate-y-10">
+            <div className="absolute top-32 z-10 h-1/2 w-full bg-gradient-to-t from-[transparent] to-dark-100" />
+            <Image
+              src="/assets/faqs.png"
+              alt="FAQ Background"
+              width={736}
+              height={736}
+            />
+          </div>
 
-          <div className="flex max-w-[320px] flex-col gap-6 rounded-28 border border-white-6 bg-white-3 p-6 pt-5">
+          <div className="flex max-w-[320px] flex-col gap-6 rounded-28 border border-white-8 bg-white-3 p-6 pt-5">
             <div className="flex flex-col gap-[6px]">
               <p className="font-lora text-24 font-400 text-white-95">
                 Still have questions?
@@ -157,14 +106,14 @@ const Faqs = () => {
                 variant="secondary"
                 className="inline-flex"
               >
-                <DiscordIcon />
+                <Discord />
               </ButtonLink>
               <ButtonLink
                 href="https://x.com"
                 variant="secondary"
                 className="inline-flex"
               >
-                <XIcon />
+                <X />
               </ButtonLink>
             </div>
           </div>

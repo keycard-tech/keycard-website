@@ -10,8 +10,8 @@ const Step = (props: Props) => {
   return (
     <span
       className={cx(
-        'rounded-6 inline-flex basis-[fit-content] items-center justify-center text-12 font-400',
-        'border-transparent min-w-[20px] bg-orange p-0 text-white-95',
+        'inline-flex basis-[fit-content] items-center justify-center rounded-6 text-12 font-400',
+        'min-w-[20px] bg-orange p-0 text-white-95',
       )}
     >
       {value}

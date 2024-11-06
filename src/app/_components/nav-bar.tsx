@@ -1,5 +1,6 @@
 'use client'
 
+import { cva } from 'cva'
 import {
   motion,
   useMotionValueEvent,
@@ -9,15 +10,44 @@ import {
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import { ButtonLink } from './button-link'
+import { BuyKeycard } from './buy-keycard'
 import { Logo } from './logo'
 
 const NAV_BAR_HEIGHT = 92
 
+const navStyles = cva({
+  base: 'top-0 left-0 z-30 flex items-center justify-between p-6 text-white-95',
+  variants: {
+    isFixed: {
+      true: 'fixed w-full pt-8 px-8',
+      false: 'sticky',
+    },
+  },
+})
+
+const internalLinkStyles = cva({
+  base: 'rounded-12 border border-[transparent] px-[14px] pb-[10px] pt-2 transition-colors hover:border-white-8 hover:bg-white-8',
+  variants: {
+    isActive: {
+      true: 'bg-white-12',
+      false: '',
+    },
+  },
+})
+
+const links = [
+  { href: '/keycard', label: 'Keycard' },
+  {
+    href: '/keycard-pro',
+    label: 'Keycard Pro',
+  },
+]
+
 const Navbar = () => {
   const pathname = usePathname()
-  const active = pathname!.includes('/buy-keycard')
   const [variant, setVariant] = useState<'primary' | 'secondary'>('secondary')
+
+  const isFixed = pathname!.includes('/keycard')
 
   const { scrollY } = useScroll()
 
@@ -41,7 +71,7 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      className="sticky top-0 z-30 flex items-center justify-between p-6 text-white-95"
+      className={navStyles({ isFixed })}
       style={{
         backgroundColor,
         backdropFilter,
@@ -52,21 +82,16 @@ const Navbar = () => {
       </Link>
 
       <div className="flex items-center space-x-6">
-        <Link
-          href="/keycard"
-          className="rounded-12 border border-[transparent] px-[14px] pb-[10px] pt-2 transition-colors hover:bg-white-6"
-        >
-          Keycard
-        </Link>
-        <Link
-          href="/keycard-pro"
-          className="rounded-12 border border-[transparent] px-[14px] pb-[10px] pt-2 transition-colors hover:bg-white-6"
-        >
-          Keycard Pro
-        </Link>
-        <ButtonLink href="/buy-keycard" variant={variant} active={active}>
-          Buy Keycard
-        </ButtonLink>
+        {links.map(({ href, label }) => (
+          <Link
+            key={href}
+            href={href}
+            className={internalLinkStyles({ isActive: pathname === href })}
+          >
+            {label}
+          </Link>
+        ))}
+        <BuyKeycard variant={variant} />
       </div>
     </motion.nav>
   )

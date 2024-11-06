@@ -1,4 +1,5 @@
 import { ButtonLink } from '~components/button-link'
+import { BuyKeycard } from '~components/buy-keycard'
 import { cx } from 'cva'
 import Image from 'next/image'
 import React from 'react'
@@ -31,15 +32,15 @@ const Section = (props: Props) => {
       <Image
         src={image}
         alt={name}
-        width="900"
-        height="600"
+        width={900}
+        height={600}
         draggable={false}
         className={cx([
           'pointer-events-none absolute left-1/2 top-6 z-20 max-w-[549px] -translate-x-1/2 select-none',
           imageClassName,
         ])}
       />
-      <div className="flex size-full flex-col items-center justify-end rounded-28 border border-white-6 bg-white-3 px-[98px] pb-[120px] pt-[300px]">
+      <div className="flex size-full flex-col items-center justify-end rounded-28 border border-white-8 bg-white-3 px-[98px] pb-[120px] pt-[300px]">
         <div className="container relative z-10 flex max-w-[434px] flex-col items-center justify-center px-4">
           <p className="pb-2 text-24 font-600 text-white-95">
             {name} <span className="font-200">{secondName}</span>
@@ -69,7 +70,7 @@ const BuyCards = () => {
         description="Something will say here about this product. Certainly, you don't want to miss it."
         buttons={
           <>
-            <ButtonLink href="/">Buy Keycard</ButtonLink>
+            <BuyKeycard />
             <ButtonLink href="/" variant="secondary">
               Learn more
             </ButtonLink>

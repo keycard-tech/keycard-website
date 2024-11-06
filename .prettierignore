@@ -7,3 +7,4 @@ public/
 
 *.mdx
 *.md
+pnpm-lock.yaml
