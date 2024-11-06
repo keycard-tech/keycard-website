@@ -46,7 +46,7 @@ const Faqs = () => {
             />
           </div>
           <h1 className="font-lora text-32 text-white-95">
-            Something about faqs
+            Frequently asked questions
           </h1>
           <Accordion.Root
             className="flex-1 pt-8 lg:max-w-[549px] lg:pt-14"
@@ -96,7 +96,7 @@ const Faqs = () => {
             />
           </div>
 
-          <div className="mt-14 w-full flex-col gap-6 rounded-28 border border-white-8 bg-white-3 p-6 pt-5 lg:mt-0 lg:max-w-[320px]">
+          <div className="mt-14 flex w-full flex-col gap-6 rounded-28 border border-white-8 bg-white-3 p-6 pt-5 lg:mt-0 lg:max-w-[320px]">
             <div className="flex flex-col gap-[6px]">
               <p className="font-lora text-24 font-400 text-white-95">
                 Still have questions?

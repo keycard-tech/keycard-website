@@ -11,7 +11,7 @@ const Section = (props: Props) => {
   const { title, routes } = props
 
   return (
-    <div className="relative grid gap-6 border-b border-dashed border-white-20 p-6 first:bg-white-80 lg:pb-12 lg:pt-0">
+    <div className="relative flex flex-col gap-6 border-b border-dashed border-white-20 p-6 lg:pb-12 lg:pt-0 [&:nth-child(2)]:pt-0">
       <p className="text-12 uppercase text-white-80">{title}</p>
       <ul className="grid gap-1">
         {routes.map(route => {
