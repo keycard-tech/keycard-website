@@ -21,7 +21,7 @@ const Hero = () => {
         priority
       />
 
-      <div className="container relative z-10 flex max-w-[434px] flex-col px-4 lg:pt-0">
+      <div className="relative z-10 flex max-w-[434px] flex-col px-4 lg:pt-0">
         <p className="pb-2 text-24 font-600 text-white-95">keycard</p>
         <h1 className="flex pb-4 font-lora text-32 font-400 lg:text-48">
           A card shaped <br /> hardware wallet
@@ -30,7 +30,7 @@ const Hero = () => {
           Store and trade your crypto with a simple, secure and slim hardware
           wallet.
         </p>
-        <div className="flex space-x-4">
+        <div className="flex gap-4">
           <ButtonLink href="/">Buy Keycard</ButtonLink>
           <ButtonLink href="/" variant="secondary">
             Learn more
