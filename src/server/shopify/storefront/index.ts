@@ -1,10 +1,10 @@
 import { z } from 'zod'
 import 'server-only'
-import type { TypedDocumentString } from '../../../graphql/shopify/storefront/graphql'
 import { CartMutation, ProductsQuery } from './operations'
+import { CartResponseBody, ProductsResponseBody } from './types'
 
 export async function experimental_getProducts() {
-  const response = await _fetch(ProductsQuery)
+  const response = await _fetch<ProductsResponseBody>(ProductsQuery)
 
   const products = response.products.edges.map(({ node }) => {
     return {
@@ -34,7 +34,7 @@ export async function createCart(
 ): Promise<string> {
   const { productId, quantity } = cartSchema.parse(input)
 
-  const response = await _fetch(CartMutation, {
+  const response = await _fetch<CartResponseBody>(CartMutation, {
     merchandiseId: productId,
     quantity,
   })
@@ -48,10 +48,10 @@ export async function createCart(
   return checkoutUrl
 }
 
-export async function _fetch<TResult, TVariables>(
-  query: TypedDocumentString<TResult, TVariables>,
-  ...[variables]: TVariables extends Record<string, never> ? [] : [TVariables]
-) {
+export async function _fetch<T extends ProductsResponseBody | CartResponseBody>(
+  query: string,
+  variables?: Record<string, unknown>,
+): Promise<T> {
   const response = await fetch(
     `https://${process.env.SHOPIFY_STORE_DOMAIN}/api/2024-10/graphql.json`,
     {
@@ -75,5 +75,5 @@ export async function _fetch<TResult, TVariables>(
 
   const body = await response.json()
 
-  return body.data as TResult
+  return body.data as T
 }

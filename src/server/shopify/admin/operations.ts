@@ -1,6 +1,4 @@
-import { graphql } from '../../../graphql/shopify/admin'
-
-export const DiscountsQuery = graphql(`
+export const DiscountsQuery = /* GraphQL */ `
   query Discounts {
     discountNodes(first: 10) {
       edges {
@@ -111,4 +109,4 @@ export const DiscountsQuery = graphql(`
       }
     }
   }
-`)
+`

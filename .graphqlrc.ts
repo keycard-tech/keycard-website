@@ -1,4 +1,0 @@
-export default {
-  schema: './src/**/*.graphql',
-  documents: 'src/**/*.{graphql,js,ts,jsx,tsx}',
-}

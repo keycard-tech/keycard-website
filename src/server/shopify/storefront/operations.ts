@@ -1,6 +1,4 @@
-import { graphql } from '../../../graphql/shopify/storefront'
-
-export const ProductsQuery = graphql(`
+export const ProductsQuery = /* GraphQL */ `
   query Products {
     products(first: 10) {
       edges {
@@ -33,9 +31,9 @@ export const ProductsQuery = graphql(`
       }
     }
   }
-`)
+`
 
-export const CartMutation = graphql(`
+export const CartMutation = /* GraphQL */ `
   mutation Cart($merchandiseId: ID!, $quantity: Int!) {
     cartCreate(
       input: { lines: [{ merchandiseId: $merchandiseId, quantity: $quantity }] }
@@ -82,4 +80,4 @@ export const CartMutation = graphql(`
       }
     }
   }
-`)
+`

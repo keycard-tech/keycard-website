@@ -1,17 +1,17 @@
 import 'server-only'
-import type { TypedDocumentString } from '../../../graphql/shopify/admin/graphql'
 import { DiscountsQuery } from './operations'
+import { DiscountsResponseBody } from './types'
 
 export async function experimental_getDiscounts() {
-  const response = await _fetch(DiscountsQuery)
+  const response = await _fetch<DiscountsResponseBody>(DiscountsQuery)
 
   return response
 }
 
-export async function _fetch<TResult, TVariables>(
-  query: TypedDocumentString<TResult, TVariables>,
-  ...[variables]: TVariables extends Record<string, never> ? [] : [TVariables]
-) {
+export async function _fetch<T extends DiscountsResponseBody>(
+  query: string,
+  variables?: Record<string, unknown>,
+): Promise<T> {
   const response = await fetch(
     `https://${process.env.SHOPIFY_STORE_DOMAIN}/admin/api/2024-10/graphql.json`,
     {
@@ -35,5 +35,5 @@ export async function _fetch<TResult, TVariables>(
 
   const body = await response.json()
 
-  return body.data as TResult
+  return body.data as T
 }
