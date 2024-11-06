@@ -1,8 +1,9 @@
 import { ButtonLink } from '~components/button-link'
+import { BuyKeycard } from '~components/buy-keycard'
 
 const Hero = () => {
   return (
-    <section className="relative flex w-full overflow-clip rounded-t-28 border border-white-6 bg-white-3 px-[72px] py-20">
+    <section className="relative flex w-full overflow-clip rounded-t-28 border border-white-8 bg-white-3 px-[72px] py-20">
       <div
         className="absolute inset-0 z-0 bg-cover bg-center"
         style={{ backgroundImage: 'url(/assets/hero-bg.png)' }}
@@ -17,7 +18,7 @@ const Hero = () => {
           want to miss it.
         </p>
         <div className="flex space-x-4">
-          <ButtonLink href="/">Buy Keycard</ButtonLink>
+          <BuyKeycard />
           <ButtonLink href="/" variant="secondary">
             Learn more
           </ButtonLink>

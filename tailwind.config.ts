@@ -1,3 +1,4 @@
+import { scrollbarWidth } from 'tailwind-scrollbar-utilities'
 import type { Config } from 'tailwindcss'
 import { fontFamily } from 'tailwindcss/defaultTheme'
 
@@ -33,8 +34,8 @@ export default {
       32: [
         '2rem',
         {
-          lineHeight: '2.75rem',
-          letterSpacing: '-0.06rem',
+          lineHeight: '2.5rem',
+          letterSpacing: '-0.04rem',
         },
       ],
       24: [
@@ -48,7 +49,7 @@ export default {
         '1.25rem',
         {
           lineHeight: '1.75rem',
-          letterSpacing: '-0.02rem',
+          letterSpacing: '-0.025rem',
         },
       ],
       16: [
@@ -93,9 +94,9 @@ export default {
         20: 'rgba(255, 255, 255, 0.2)',
         12: 'rgba(255, 255, 255, 0.12)',
         8: 'rgba(255, 255, 255, 0.08)',
-        6: 'rgba(255, 255, 255, 0.06)',
         3: 'rgba(255, 255, 255, 0.03)',
       },
+      'white-dark': 'rgba(206, 206, 206, 1)',
     },
 
     borderRadius: {
@@ -132,5 +133,5 @@ export default {
     },
   },
 
-  plugins: [],
+  plugins: [scrollbarWidth()],
 } satisfies Config
