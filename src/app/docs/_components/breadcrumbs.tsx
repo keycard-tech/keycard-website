@@ -13,7 +13,7 @@ const Breadcrumbs = (props: Props) => {
   const { items } = props
 
   return (
-    <div className="ml-[-8px] mr-[-8px] border-y border-white-12 px-10 py-3">
+    <div className="mx-[-8px] border-y border-white-12 px-10 py-3">
       <div className="flex items-center gap-2">
         <div className="scrollbar-none flex items-center gap-2 overflow-x-scroll whitespace-nowrap">
           {items.map((item, index) => {

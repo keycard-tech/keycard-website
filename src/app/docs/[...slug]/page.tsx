@@ -49,11 +49,7 @@ export const dynamicParams = false
 export async function generateStaticParams() {
   const docsPath = path.resolve('content/docs')
   const slugs = await getAllSlugs(docsPath)
-  return slugs.map(slug => {
-    console.log(`Slug: ${slug}`)
-
-    return { slug }
-  })
+  return slugs.map(slug => ({ slug }))
 }
 
 type Props = {

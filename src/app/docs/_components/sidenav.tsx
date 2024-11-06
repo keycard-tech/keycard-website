@@ -97,13 +97,11 @@ const SidenavItem = (props: SidenavItemProps) => {
             {title}
           </Link>
         </div>
-        <Accordion.Content className="data-[state=closed]:animate-accordion-hide data-[state=open]:animate-accordion-reveal overflow-hidden">
+        <Accordion.Content className="overflow-hidden">
           <div className="overflow-hidden pl-[22px]">
             {subItems &&
               subItems.length > 0 &&
               subItems.map(subItem => {
-                console.log(pathname, subItem.link)
-                console.log(pathname === subItem.link)
                 return (
                   <div key={subItem.link} className="pt-2 first:pt-5 last:pb-8">
                     <Link

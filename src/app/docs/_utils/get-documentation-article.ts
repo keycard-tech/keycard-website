@@ -37,13 +37,11 @@ export async function getDocumentationArticle(slug: string[]) {
 
   try {
     const stat = await fs.stat(basePath)
-    console.log(`Stat: ${stat}`)
     if (stat.isDirectory()) {
-      console.log(`Directory found, generating ${slug}/index.mdx file`)
       filePath = path.join(basePath, 'index.mdx')
     }
-  } catch (err) {
-    console.log(`Not an index file, generating ${slug}.mdx file`, err)
+  } catch {
+    // not an error, just undetected index file
   }
 
   try {

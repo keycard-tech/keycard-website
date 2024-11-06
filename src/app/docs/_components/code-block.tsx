@@ -20,7 +20,7 @@ export function CodeBlock(props: React.ComponentProps<'figure'>) {
 
   return (
     <div>
-      <div className="scrollbar-none [&>pre]:bg-neutral-90 relative my-5 grid [&>pre]:max-h-[624px] [&>pre]:rounded-12 [&>pre]:p-6">
+      <div className="scrollbar-none relative my-5 grid [&>pre]:max-h-[624px] [&>pre]:rounded-12 [&>pre]:bg-white-3 [&>pre]:p-6">
         <div className="absolute right-3 top-3 block" data-theme="dark">
           <button
             onClick={() => {
@@ -30,7 +30,7 @@ export function CodeBlock(props: React.ComponentProps<'figure'>) {
             className={cx(
               'inline-flex shrink-0 cursor-pointer select-none items-center justify-center gap-1 text-center outline-none transition-all',
               'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:cursor-default',
-              success ? 'text-green' : 'text-white-95',
+              success ? 'text-orange' : 'text-white-95',
             )}
             aria-label="Copy code"
           >
