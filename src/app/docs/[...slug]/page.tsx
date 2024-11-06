@@ -1,6 +1,7 @@
 import fs from 'fs/promises'
 import path from 'path'
-// import { Metadata } from '~/app/_metadata'
+import { Metadata } from '~/app/_metadata'
+import config from '~/config/docs.json'
 import { Link } from '~components/link'
 import { timeFormat } from 'd3-time-format'
 import { notFound } from 'next/navigation'
@@ -16,13 +17,11 @@ async function getAllSlugs(
   const entries = await fs.readdir(dir, { withFileTypes: true })
   let slugs: string[][] = []
 
-  // Zkontrolujte, zda složka obsahuje index soubor
   const hasIndex = entries.some(
     entry => entry.isFile() && /^index\.mdx?$/.test(entry.name),
   )
 
   if (hasIndex) {
-    // Přidejte slug bez 'index'
     slugs.push(parentSlug)
   }
 
@@ -50,6 +49,36 @@ export async function generateStaticParams() {
   const docsPath = path.resolve('content/docs')
   const slugs = await getAllSlugs(docsPath)
   return slugs.map(slug => ({ slug }))
+}
+
+export async function generateMetadata({ params }: Props) {
+  const findTitle = (slug: string[], docs: typeof config): string | null => {
+    for (const doc of docs) {
+      if (doc.link.split('/').slice(2).join('/') === slug.join('/')) {
+        return doc.title
+      }
+      if (doc.subItems) {
+        const title = findTitle(slug, doc.subItems)
+        if (title) {
+          return title
+        }
+      }
+    }
+    return null
+  }
+
+  const title = findTitle(params.slug, config)
+  if (!title) {
+    throw new Error(
+      'Title not found, article probably missing in config/sidenav.',
+    )
+  }
+
+  return Metadata({
+    title,
+    description:
+      'Technical, short-form guides on how to set up and use the app.',
+  })
 }
 
 type Props = {

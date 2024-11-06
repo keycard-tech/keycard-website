@@ -311,7 +311,6 @@ export const baseComponents = {
           typeof props.children[0] === 'string'))
     ) {
       return (
-        // note: https://www.figma.com/file/qSIh8wh9EVdY8S2sZce15n/Composer-for-Desktop?type=design&node-id=7850-672452&mode=design&t=V9tDjCw6RLuPF4F6-4
         <code
           {...props}
           className="relative inline-block rounded-16 border border-white-12 bg-white-8 px-2 font-inter font-400 text-white-100"
@@ -319,11 +318,10 @@ export const baseComponents = {
       )
     }
 
-    // todo?: https://www.figma.com/file/IBmFKgGL1B4GzqD8LQTw6n/Design-System-for-Desktop%2FWeb?type=design&node-id=5626-159428&mode=design&t=stTlBeUAUUi4JR0v-4
-    // note: http://localhost:3000/help/getting-started/download-status-for-linux example for scrolling
     return <code className="w-fit" {...props} />
   },
   figure: (props: ComponentProps<'figure'>) => {
+    // note: style parent elements of `code` wrapped by `rehype-pretty-code` plugin
     if (Object.hasOwn(props, 'data-rehype-pretty-code-figure')) {
       return <CodeBlock {...props} />
     }
