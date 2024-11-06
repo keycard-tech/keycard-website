@@ -12,7 +12,7 @@ export const generateBreadcrumbs = (
   const breadcrumbs: Breadcrumb[] = [
     {
       label: 'Documentation',
-      href: '/docs',
+      href: '/docs/overview',
     },
   ]
 
