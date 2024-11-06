@@ -20,7 +20,7 @@ const KeycardPro = () => {
         alt="Keycard Pro Hardware Wallet"
         width="900"
         height="600"
-        className="lg:hidden"
+        className="self-end lg:hidden"
         priority
       />
 

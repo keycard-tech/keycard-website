@@ -37,12 +37,12 @@ export default function RootLayout({ children }: Props) {
         className={cx(
           lora.variable,
           inter.variable,
-          'overflow-x-hidden bg-dark-100 p-2 font-inter text-white-100 antialiased',
+          'bg-dark-100 p-2 font-inter text-white-100 antialiased',
         )}
       >
         <NavBar />
         <NavBarMobile />
-        <div className="flex justify-center">
+        <div className="flex w-full justify-center overflow-x-hidden">
           <div className="w-full max-w-[1512px]">{children}</div>
         </div>
         <Footer />
