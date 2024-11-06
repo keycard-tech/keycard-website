@@ -1,9 +1,9 @@
 import fs from 'fs/promises'
 import path from 'path'
 import { Metadata } from '~/app/_metadata'
+import { formatDate } from '~/app/_utils/format-date'
 import config from '~/config/docs.json'
 import { Link } from '~components/link'
-import { timeFormat } from 'd3-time-format'
 import { notFound } from 'next/navigation'
 import React from 'react'
 import { Breadcrumbs } from '../_components/breadcrumbs'
@@ -108,7 +108,7 @@ const Page = async (props: Props) => {
       <div className="flex flex-1 justify-center gap-[139px] px-5 py-20 lg:pl-[250px] xl:pr-[140px]">
         <div className="w-full max-w-[664px]">
           <div className="mb-1 text-16 font-300 text-white-80">
-            {timeFormat('%b %d, %Y')(new Date(meta.lastEdited))}
+            {formatDate(meta.lastEdited)}
           </div>
           <div className="pb-5">{content}</div>
           <div className="mt-5 grid gap-1 text-16 font-300 text-white-80">
@@ -116,7 +116,7 @@ const Page = async (props: Props) => {
               Last edited
             </div>
             <div className="text-16 font-300 text-white-80">
-              {timeFormat('%b %d, %Y')(new Date(meta.lastEdited))}
+              {formatDate(meta.lastEdited)}
             </div>
           </div>
         </div>

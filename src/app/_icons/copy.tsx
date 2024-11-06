@@ -1,4 +1,4 @@
-const CopyIcon = () => {
+const Copy = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -6,6 +6,7 @@ const CopyIcon = () => {
       height="20"
       viewBox="0 0 20 20"
       fill="none"
+      {...props}
     >
       <path
         fill-rule="evenodd"
@@ -17,4 +18,4 @@ const CopyIcon = () => {
   )
 }
 
-export { CopyIcon }
+export { Copy }

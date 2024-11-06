@@ -2,7 +2,7 @@ import { Link } from '~components/link'
 import { cx } from 'cva'
 import { Children, cloneElement, ComponentProps } from 'react'
 import { match } from 'ts-pattern'
-import { BulletIcon } from '../_icons/bullet-icon'
+import { Bullet } from '../_icons/bullet'
 import { renderText } from '../_utils/render-text'
 import { AnchorLink } from './anchor-link'
 import { CodeBlock } from './code-block'
@@ -264,7 +264,7 @@ export const baseComponents = {
   ) => {
     const icon = match(props.parent)
       .with('ol', () => <Step value={props.order!} />)
-      .otherwise(() => <BulletIcon />)
+      .otherwise(() => <Bullet />)
 
     return (
       <li className="flex items-start gap-2">
@@ -327,5 +327,15 @@ export const baseComponents = {
     }
 
     return <figure {...props} className="my-5" />
+  },
+}
+
+export const legalComponents = {
+  ...baseComponents,
+  p: (props: Parameters<typeof baseComponents.p>[0]) => {
+    return baseComponents.p({ ...props, className: 'my-6' })
+  },
+  h2: (props: ComponentProps<'h2'>) => {
+    return <>{baseComponents.h2({ ...props, className: 'mb-4 mt-6' })}</>
   },
 }
