@@ -79,6 +79,9 @@ const NavBarMobile = () => {
       animate={{
         height: isOpen ? '100%' : '80px',
       }}
+      initial={{
+        height: '80px',
+      }}
       transition={{ duration: 0.3, ease: 'easeInOut' }}
       style={{
         backgroundColor: finalBackgroundColor,

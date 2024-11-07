@@ -136,11 +136,11 @@ const Integration = () => {
         </div>
       </div>
 
-      <div className="px-6 pt-20 md:px-12">
-        <h2 className="pb-4 pl-8 text-12 font-400 text-white-80">
+      <div className="px-3 pt-20 md:px-12">
+        <h2 className="pb-4 pl-6 text-12 font-400 text-white-80 lg:pl-8">
           ALSO INTEGRATED WITH
         </h2>
-        <div className="grid grid-cols-1 gap-6 rounded-28 border border-white-8 bg-white-3 p-8 pt-9 text-white-95 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 rounded-28 border border-white-8 bg-white-3 p-6 pt-5 text-white-95 md:grid-cols-2 lg:grid-cols-4 lg:gap-6 lg:p-8 lg:pt-9">
           {integrations.map((integration, index) => (
             <div key={index} className="flex flex-col">
               <div className="mb-3 inline-flex items-center">
@@ -169,7 +169,7 @@ const Integration = () => {
           ))}
           <div className="flex flex-col gap-6">
             <div>
-              <h2 className="font-lora text-32 font-500 text-white-95">
+              <h2 className="font-lora text-24 font-500 text-white-95 lg:text-32">
                 Want to integrate?
               </h2>
               <p className="text-16 text-white-80">
