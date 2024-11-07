@@ -60,10 +60,10 @@ const Section = (props: Props) => {
 
 const BuyCards = () => {
   return (
-    <section className="ml-[calc(calc((100vw-100%)/2)*-1)] grid w-screen grid-cols-1 gap-40 overflow-clip pb-2 pt-[160px] lg:ml-0 lg:w-auto lg:grid-cols-2 lg:flex-row lg:gap-2 lg:pt-[200px]">
+    <section className="grid grid-cols-1 gap-40 overflow-clip pb-2 pt-[160px] full-view-port lg:grid-cols-2 lg:flex-row lg:gap-2 lg:pt-[200px] lg:remove-full-view-port">
       <Section
         image="/assets/bottom-keycard.png"
-        imageClassName="-mb-30 lg:-mb-72 lg:w-full"
+        imageClassName="-"
         name="keycard"
         title={
           <>
