@@ -47,8 +47,8 @@ const features = [
 const FeaturesSlider = () => {
   const options: EmblaOptionsType = {
     align: 'start',
-    containScroll: false,
-    dragFree: true,
+    containScroll: 'trimSnaps',
+    dragFree: false,
   }
 
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
@@ -85,12 +85,12 @@ const FeaturesSlider = () => {
   }, [emblaApi, onSelect])
 
   return (
-    <div className="relative w-full pt-[200px]">
+    <div className="relative w-full pt-[130px] lg:pt-[200px]">
       <div className="flex items-center justify-between">
-        <h2 className="max-w-[665px] px-20 font-lora text-32 text-white-95">
+        <h2 className="max-w-[665px] px-3 font-lora text-32 text-white-95 lg:px-20">
           Running on open source software{' '}
         </h2>
-        <div className="flex items-center gap-3 pr-20">
+        <div className="hidden items-center gap-3 pr-20 lg:flex">
           <button
             className="rounded-12 border border-white-12 bg-white-8 p-[10px] text-white-95 opacity-[100%] transition-all hover:text-white-100 disabled:opacity-[40%]"
             disabled={!prevBtnEnabled}
@@ -107,12 +107,12 @@ const FeaturesSlider = () => {
           </button>
         </div>
       </div>
-      <div className="relative w-full px-20 pt-14" ref={emblaRef}>
+      <div className="relative w-full px-3 pt-14 lg:px-20" ref={emblaRef}>
         <div className="flex justify-start gap-6">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="min-w-0 flex-[0_0_100%] select-none sm:flex-[0_0_50%] lg:flex-[0_0_320px]"
+              className="min-w-0 flex-[0_0_90%] select-none sm:flex-[0_0_50%] lg:flex-[0_0_320px]"
             >
               <div className="rounded-28 border border-white-8 bg-white-3 p-10">
                 <Image
