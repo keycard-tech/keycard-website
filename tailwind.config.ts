@@ -59,6 +59,13 @@ export default {
           letterSpacing: '-0.02rem',
         },
       ],
+      14: [
+        '0.875rem',
+        {
+          lineHeight: '1.125rem',
+          letterSpacing: '-0.0175rem',
+        },
+      ],
       12: [
         '0.75rem',
         {
@@ -89,10 +96,13 @@ export default {
         3: 'rgba(255, 255, 255, 0.03)',
       },
       'white-dark': 'rgba(206, 206, 206, 1)',
+      red: 'rgba(255, 80, 80, 1)',
     },
 
     borderRadius: {
       12: '12px',
+      16: '16px',
+      20: '20px',
       28: '28px',
       full: '9999px',
     },

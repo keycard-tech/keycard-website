@@ -1,6 +1,8 @@
 export { Arrow } from './arrow'
 export { Check } from './check'
 export { ChevronDown } from './chevron-down'
+export { Close } from './close'
+export { Confetti } from './confetti'
 export { Discord } from './discord'
 export { External } from './external'
 export { Github } from './github'
