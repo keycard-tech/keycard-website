@@ -26,6 +26,7 @@
     "react": "^18.3.1",
     "react-children-utilities": "^2.10.0",
     "react-dom": "^18.3.1",
+    "server-only": "^0.0.1",
     "ts-pattern": "^5.5.0",
     "zod": "^3.23.8"
   },
