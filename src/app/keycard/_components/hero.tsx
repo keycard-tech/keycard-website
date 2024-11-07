@@ -3,13 +3,13 @@ import Image from 'next/image'
 
 const Hero = () => {
   return (
-    <section className="relative ml-[calc(calc((100vw-100%)/2)*-1)] flex h-svh w-screen overflow-y-clip lg:ml-0 lg:h-[986px] lg:w-auto">
+    <section className="relative flex h-svh overflow-y-clip full-view-port lg:h-[986px] lg:remove-full-view-port">
       <Image
         src="/assets/keycard/hero-keycard-mobile.png"
         alt="Keycard"
         width={1600}
         height={1600}
-        className="absolute z-0 w-[1600px] bg-contain bg-center bg-no-repeat lg:left-1/2 lg:top-1/3 lg:w-full lg:-translate-x-1/2 lg:-translate-y-1/2"
+        className="absolute z-0 block w-[1600px] bg-contain bg-center bg-no-repeat lg:left-1/2 lg:top-1/3 lg:hidden lg:w-full lg:-translate-x-1/2 lg:-translate-y-1/2"
         priority
       />
       <Image
