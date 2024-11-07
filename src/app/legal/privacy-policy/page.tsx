@@ -1,5 +1,4 @@
 import { Metadata } from '~/app/_metadata'
-import { formatDate } from '~/app/_utils/format-date'
 import { getLegalDocumentContent } from '../_utils/get-legal-document-content'
 
 export const metadata = Metadata({
@@ -15,9 +14,6 @@ export default async function PrivacyPolicyPage() {
         <h1 className="mb-3 font-lora text-32 font-500 text-white-95 xl:text-48">
           {meta.title}
         </h1>
-        <p className="text-20 text-white-95">
-          Last update: {formatDate(meta.lastEdited, 'long')}
-        </p>
       </div>
       <article className="font-300">{content}</article>
     </>
