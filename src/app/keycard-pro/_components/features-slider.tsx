@@ -112,7 +112,7 @@ const FeaturesSlider = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="min-w-0 flex-[0_0_90%] select-none sm:flex-[0_0_50%] lg:flex-[0_0_320px]"
+              className="min-w-0 flex-[0_0_90%] select-none sm:flex-[0_0_320px]"
             >
               <div className="rounded-28 border border-white-8 bg-white-3 p-10">
                 <Image

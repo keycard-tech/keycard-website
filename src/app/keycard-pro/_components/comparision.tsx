@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 const Comparision = () => {
   return (
-    <section className="mt-[120px] grid gap-0 overflow-clip rounded-28 border border-white-12 md:grid-cols-2 lg:mt-[200px]">
+    <section className="mt-[120px] grid gap-0 overflow-clip rounded-28 border border-white-12 lg:mt-[200px] lg:grid-cols-2">
       <div className="relative flex min-h-[480px] flex-col items-center justify-center lg:min-h-[840px]">
         <Image
           alt="Keycard Pro"
