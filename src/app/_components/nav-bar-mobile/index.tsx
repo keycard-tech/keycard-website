@@ -1,10 +1,11 @@
 'use client'
 
 import { ROUTES } from '~/config/routes'
+import { cx } from 'cva'
 import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useEffect, useLayoutEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { ButtonLink } from '../button-link'
 import { Logo } from '../logo'
 import { MenuIcon } from './menu-icon'
@@ -15,8 +16,8 @@ const NAV_BAR_HEIGHT = 80
 const NavBarMobile = () => {
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
-
   const { scrollY } = useScroll()
+  const scrollPositionRef = useRef(0)
 
   const backgroundColor = useTransform(
     scrollY,
@@ -37,45 +38,37 @@ const NavBarMobile = () => {
 
   useLayoutEffect(() => {
     if (isOpen) {
-      const scrollY = window.scrollY
-
+      scrollPositionRef.current = window.scrollY
       document.body.style.position = 'fixed'
-      document.body.style.top = `-${scrollY}px`
+      document.body.style.top = `-${scrollPositionRef.current}px`
       document.body.style.width = '100%'
-
-      document.documentElement.style.position = 'fixed'
-      document.documentElement.style.width = '100%'
-
-      document.body.setAttribute('data-scroll-position', scrollY.toString())
     } else {
-      const scrollY = parseInt(
-        document.body.getAttribute('data-scroll-position') || '0',
-        10,
-      )
-
       document.body.style.position = ''
       document.body.style.top = ''
       document.body.style.width = ''
-      document.documentElement.style.position = ''
-      document.documentElement.style.width = ''
-
-      window.scrollTo(0, scrollY)
+      window.scrollTo(0, scrollPositionRef.current)
     }
 
     return () => {
       document.body.style.position = ''
       document.body.style.top = ''
       document.body.style.width = ''
-      document.documentElement.style.position = ''
-      document.documentElement.style.width = ''
     }
   }, [isOpen])
 
-  useEffect(() => setIsOpen(false), [pathname])
+  useEffect(() => {
+    if (isOpen) {
+      setIsOpen(false)
+      scrollPositionRef.current = 0
+      window.scrollTo(0, 0)
+    }
+  }, [pathname])
 
   return (
     <motion.nav
-      className="fixed inset-0 z-[60] block w-full transition-all lg:hidden"
+      className={cx([
+        'fixed inset-0 z-[60] block w-full transition-all lg:hidden',
+      ])}
       animate={{
         height: isOpen ? '100%' : '80px',
       }}
