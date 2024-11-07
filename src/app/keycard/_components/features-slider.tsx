@@ -1,6 +1,14 @@
 'use client'
 
+import { useMobileOperatingSystem } from '~/app/_hooks/use-mobile-operating-system'
+import {
+  STATUS_MOBILE_APP_STORE_URL,
+  STATUS_MOBILE_F_DROID_URL,
+  STATUS_MOBILE_GOOGLE_PLAY_URL,
+} from '~/config/routes'
+import { Link } from '~components/link'
 import Image from 'next/image'
+import { match } from 'ts-pattern'
 
 type Props = {
   items: Array<{
@@ -14,6 +22,8 @@ type Props = {
 
 const FeaturesSlider = (props: Props) => {
   const { items } = props
+
+  const mobileOS = useMobileOperatingSystem()
 
   return (
     <div className="relative block pt-14 lg:hidden">
@@ -31,7 +41,7 @@ const FeaturesSlider = (props: Props) => {
             key={index}
             className="z-20 min-w-[calc(100vw-40px)] snap-start px-2"
           >
-            <div className="mx-auto flex flex-col rounded-[32px] border border-white-12 bg-white-3 px-6 py-5">
+            <div className="mx-auto flex h-full flex-col rounded-[32px] border border-white-12 bg-white-3 px-6 py-5">
               <div>
                 <p className="pb-[6px] text-left font-lora text-24 font-500 text-white-95">
                   {feature.title}
@@ -62,6 +72,56 @@ const FeaturesSlider = (props: Props) => {
           </div>
         ))}
       </div>
+      {mobileOS && (
+        <div className="mt-14 flex w-full max-w-[549px] flex-col gap-6 rounded-28 border border-white-8 bg-white-3 p-6 pt-5">
+          <div className="flex flex-col gap-[6px]">
+            <p className="font-lora text-24 font-400 text-white-95">
+              Download Status for Mobile
+            </p>
+            <p className="font-300 text-white-80">
+              Available for iOS or Android
+            </p>
+          </div>
+
+          <div className="flex gap-3">
+            {match(mobileOS)
+              .with('ios', () => (
+                <Link href={STATUS_MOBILE_APP_STORE_URL}>
+                  <Image
+                    src="/assets/keycard/appstore.png"
+                    width={140}
+                    height={40}
+                    alt="Download on App Store"
+                    className="h-10 w-auto"
+                  />
+                </Link>
+              ))
+              .with('android', () => (
+                <>
+                  <Link href={STATUS_MOBILE_GOOGLE_PLAY_URL}>
+                    <Image
+                      src="/assets/keycard/googleplay.png"
+                      width={142}
+                      height={40}
+                      className="h-10 w-auto"
+                      alt="Get it on Google Play"
+                    />
+                  </Link>
+                  <Link href={STATUS_MOBILE_F_DROID_URL}>
+                    <Image
+                      src="/assets/keycard/fdroid.png"
+                      width={120}
+                      height={40}
+                      className="h-10 w-auto"
+                      alt="Get it on F-Droid"
+                    />
+                  </Link>
+                </>
+              ))
+              .exhaustive()}
+          </div>
+        </div>
+      )}
     </div>
   )
 }
