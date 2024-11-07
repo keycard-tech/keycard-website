@@ -88,11 +88,11 @@ const features = [
 
 const FeaturesGrid = () => {
   return (
-    <section className="mx-auto max-w-[1352px] pt-[200px]">
+    <section className="max-w-[1352px] px-3 pt-[120px] lg:mx-auto lg:pt-[200px] min-[1512px]:px-0">
       <h2 className="max-w-[665px] font-lora text-32 text-white-95">
         Convenient, robust and made to last
       </h2>
-      <div className="grid grid-cols-4 gap-6 pt-14">
+      <div className="grid grid-cols-1 gap-5 pt-14 lg:grid-cols-4 lg:gap-6">
         {features.map((feature, index) => (
           <div
             key={index}
