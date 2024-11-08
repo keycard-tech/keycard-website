@@ -1,0 +1,162 @@
+[
+  {
+    "title": "Overview",
+    "link": "/docs/overview"
+  },
+  {
+    "title": "Card Setup",
+    "link": "/docs/applet_installation"
+  },
+  {
+    "title": "Resources",
+    "link": "/docs/resources"
+  },
+  {
+    "title": "Java SDK",
+    "link": "/docs/sdk",
+    "subItems": [
+      {
+        "title": "Installation",
+        "link": "/docs/sdk/installation"
+      },
+      {
+        "title": "Card Connection",
+        "link": "/docs/sdk/connection"
+      },
+      {
+        "title": "Preparation",
+        "link": "/docs/sdk/preparation"
+      },
+      {
+        "title": "Secure Channel",
+        "link": "/docs/sdk/securechannel"
+      },
+      {
+        "title": "Authentication",
+        "link": "/docs/sdk/authentication"
+      },
+      {
+        "title": "Wallet Creation",
+        "link": "/docs/sdk/create_wallet"
+      },
+      {
+        "title": "Derivation & Signing",
+        "link": "/docs/sdk/derivation_sign"
+      },
+      {
+        "title": "Pinless Signing",
+        "link": "/docs/sdk/pinless"
+      },
+      {
+        "title": "Exporting Keys",
+        "link": "/docs/sdk/export"
+      },
+      {
+        "title": "Cash Applet",
+        "link": "/docs/sdk/cash"
+      }
+    ]
+  },
+  {
+    "title": "Web3 API Extensions",
+    "link": "/docs/web3"
+  },
+  {
+    "title": "APDU API",
+    "link": "/docs/apdu",
+    "subItems": [
+      {
+        "title": "Overview",
+        "link": "/docs/apdu/overview"
+      },
+      {
+        "title": "CHANGELOG",
+        "link": "/docs/apdu/changelog"
+      },
+      {
+        "title": "SELECT",
+        "link": "/docs/apdu/select"
+      },
+      {
+        "title": "INIT",
+        "link": "/docs/apdu/init"
+      },
+      {
+        "title": "IDENT",
+        "link": "/docs/apdu/ident"
+      },
+      {
+        "title": "OPEN SECURE CHANNEL",
+        "link": "/docs/apdu/opensecurechannel"
+      },
+      {
+        "title": "MUTUALLY AUTHENTICATE",
+        "link": "/docs/apdu/mutuallyauthenticate"
+      },
+      {
+        "title": "PAIR",
+        "link": "/docs/apdu/pair"
+      },
+      {
+        "title": "UNPAIR",
+        "link": "/docs/apdu/unpair"
+      },
+      {
+        "title": "GET STATUS",
+        "link": "/docs/apdu/getstatus"
+      },
+      {
+        "title": "VERIFY PIN",
+        "link": "/docs/apdu/verifypin"
+      },
+      {
+        "title": "CHANGE PIN",
+        "link": "/docs/apdu/changepin"
+      },
+      {
+        "title": "UNBLOCK PIN",
+        "link": "/docs/apdu/unblockpin"
+      },
+      {
+        "title": "LOAD KEY",
+        "link": "/docs/apdu/loadkey"
+      },
+      {
+        "title": "DERIVE KEY",
+        "link": "/docs/apdu/derivekey"
+      },
+      {
+        "title": "GENERATE MNEMONIC",
+        "link": "/docs/apdu/generatemnemonic"
+      },
+      {
+        "title": "REMOVE KEY",
+        "link": "/docs/apdu/removekey"
+      },
+      {
+        "title": "GENERATE KEY",
+        "link": "/docs/apdu/generatekey"
+      },
+      {
+        "title": "SIGN",
+        "link": "/docs/apdu/sign"
+      },
+      {
+        "title": "SET PINLESS PATH",
+        "link": "/docs/apdu/setpinlesspath"
+      },
+      {
+        "title": "EXPORT KEY",
+        "link": "/docs/apdu/exportkey"
+      },
+      {
+        "title": "STORE DATA",
+        "link": "/docs/apdu/storedata"
+      },
+      {
+        "title": "GET DATA",
+        "link": "/docs/apdu/getdata"
+      }
+    ]
+  }
+]
