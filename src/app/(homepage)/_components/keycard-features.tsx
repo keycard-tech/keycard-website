@@ -11,6 +11,7 @@ const features = [
     description:
       'Our secure element has the highest level of security EAL6+ certified by Common Criteria.',
     image: '/assets/feature-keycard.png',
+    imageClassName: '!justify-start',
     badge: { icon: Shield, text: 'EAL 6+', gradient: true },
     className: 'row-span-2 col-span-1',
   },
@@ -81,7 +82,12 @@ const KeycardFeatures = () => {
             ])}
           >
             {feature.image && (
-              <div className={`flex items-center justify-center`}>
+              <div
+                className={cx([
+                  'flex items-center justify-center',
+                  feature.imageClassName,
+                ])}
+              >
                 <Image
                   src={feature.image}
                   alt={feature.title}

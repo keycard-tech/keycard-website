@@ -1,4 +1,7 @@
+'use client'
+
 import * as Tooltip from '@radix-ui/react-tooltip'
+import { useState } from 'react'
 
 type Props = {
   children: React.ReactNode
@@ -10,10 +13,29 @@ type Props = {
 const TooltipBase = (props: Props) => {
   const { children, label, hidden, side = 'top' } = props
 
+  const [open, setOpen] = useState(false)
+
   return (
     <Tooltip.Provider delayDuration={300}>
-      <Tooltip.Root>
-        <Tooltip.Trigger asChild>{children}</Tooltip.Trigger>
+      <Tooltip.Root open={open}>
+        <Tooltip.Trigger
+          asChild
+          // Workaround to make it work for touch devices
+          onMouseEnter={() => {
+            setOpen(true)
+          }}
+          onMouseLeave={() => {
+            setOpen(false)
+          }}
+          onFocus={() => {
+            setOpen(true)
+          }}
+          onBlur={() => {
+            setOpen(false)
+          }}
+        >
+          {children}
+        </Tooltip.Trigger>
         <Tooltip.Portal>
           <Tooltip.Content
             hidden={hidden}
