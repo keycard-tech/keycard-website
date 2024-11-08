@@ -2,9 +2,9 @@
 
 import * as Accordion from '@radix-ui/react-accordion'
 import { Link } from '~components/link'
+import { ChevronRight } from '~icons'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { ChevronRightIcon } from '../_icons/chevron-right-icon'
 import { decodeUriComponent } from '../_utils/decode-uri-component'
 
 interface SidenavItem {
@@ -86,7 +86,7 @@ const SidenavItem = (props: SidenavItemProps) => {
         <div className="flex gap-0.5">
           <Accordion.Trigger className="group flex items-center gap-0.5">
             <div className="transition-transform group-aria-expanded:rotate-90">
-              <ChevronRightIcon />
+              <ChevronRight />
             </div>
           </Accordion.Trigger>
           <Link

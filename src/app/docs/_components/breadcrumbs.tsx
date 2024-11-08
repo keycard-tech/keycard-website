@@ -1,6 +1,6 @@
-import { Link } from '~components/link'
+import { Link } from '~/app/_components/link'
+import { ChevronRight } from '~/app/_icons/chevron-right'
 import { Fragment } from 'react'
-import { ChevronRightIcon } from '../_icons/chevron-right-icon'
 
 type Props = {
   items: Array<{
@@ -15,7 +15,7 @@ const Breadcrumbs = (props: Props) => {
   return (
     <div className="mx-[-8px] border-y border-white-12 px-10 py-3">
       <div className="flex items-center gap-2">
-        <div className="scrollbar-none flex items-center gap-2 overflow-x-scroll whitespace-nowrap">
+        <div className="flex items-center gap-2 overflow-x-scroll whitespace-nowrap scrollbar-none">
           {items.map((item, index) => {
             if (index === items.length - 1) {
               return (
@@ -37,7 +37,7 @@ const Breadcrumbs = (props: Props) => {
                   {item.label}
                 </Link>
                 <span className="size-5">
-                  <ChevronRightIcon />
+                  <ChevronRight />
                 </span>
               </Fragment>
             )

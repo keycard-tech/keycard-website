@@ -1,11 +1,8 @@
 import type { PostOrPage } from '@tryghost/content-api'
-import { formatDate } from '../_utils/format-time'
 import { Link } from '../../_components/link'
+import { formatDate } from '../../_utils/format-date'
 import { PostAuthor } from './post-author'
 import { PostTag } from './post-tag'
-
-// import { PostAuthor } from './post-author'
-// import { PostTag } from './post-tag'
 
 type PostCardProps = {
   post: PostOrPage
@@ -38,13 +35,13 @@ export const PostCard = (props: PostCardProps) => {
           <div className="mt-auto flex h-5 gap-1">
             <PostAuthor author={author} />
             <span className="text-16 text-white-95">
-              on {formatDate(new Date(post.published_at!))}
+              on {formatDate(post.published_at!)}
             </span>
           </div>
         ) : (
           <div className="mt-auto h-5">
             <span className="text-16 text-white-95">
-              on {formatDate(new Date(post.published_at!))}
+              on {formatDate(post.published_at!)}
             </span>
           </div>
         )}
@@ -64,6 +61,6 @@ export const PostCard = (props: PostCardProps) => {
 
 export const PostCardSkeleton = () => (
   <div className="flex flex-col rounded-16 border border-white-8 bg-white-3 transition-all hover:scale-[101%]">
-    <div className="flex grow flex-col gap-[13px] p-4">loading...</div>
+    <div className="flex grow flex-col gap-[13px] p-4">Loading...</div>
   </div>
 )

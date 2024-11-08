@@ -1,5 +1,6 @@
 import fs from 'fs/promises'
 import path from 'path'
+import { baseComponents } from '~/app/_components/content'
 import { slug as slugify } from 'github-slugger'
 import { compileMDX } from 'next-mdx-remote/rsc'
 import rehypePrettyCode from 'rehype-pretty-code'
@@ -7,7 +8,6 @@ import rehypeSlug from 'rehype-slug'
 import { Literal, Node, Parent } from 'unist'
 import { visit } from 'unist-util-visit'
 import { z } from 'zod'
-import { baseComponents } from '../_components/content'
 
 interface HeadingNode extends Parent {
   type: 'heading'
