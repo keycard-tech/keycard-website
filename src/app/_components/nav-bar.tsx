@@ -70,7 +70,7 @@ const NavBar = () => {
         <Logo />
       </Link>
 
-      <div className="flex items-center space-x-6">
+      <div className="flex items-center gap-6">
         {links.map(({ href, label }) => (
           <Link
             key={href}

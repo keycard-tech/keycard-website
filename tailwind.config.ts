@@ -94,6 +94,7 @@ export default {
 
     borderRadius: {
       12: '12px',
+      16: '16px',
       28: '28px',
       full: '9999px',
     },

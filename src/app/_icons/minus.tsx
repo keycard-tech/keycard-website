@@ -7,12 +7,7 @@ const Minus = (props: React.SVGProps<SVGSVGElement>) => {
       fill="none"
       {...props}
     >
-      <path
-        stroke="#fff"
-        strokeOpacity=".4"
-        strokeWidth="1.2"
-        d="m8.5 11.85 8-0"
-      />
+      <path stroke="currentColor" strokeWidth="1.2" d="m8.5 11.85 8-0" />
     </svg>
   )
 }
