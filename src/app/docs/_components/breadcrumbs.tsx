@@ -36,7 +36,9 @@ const Breadcrumbs = (props: Props) => {
                 >
                   {item.label}
                 </Link>
-                <ChevronRightIcon />
+                <span className="size-5">
+                  <ChevronRightIcon />
+                </span>
               </Fragment>
             )
           })}
