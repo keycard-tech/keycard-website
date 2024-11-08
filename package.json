@@ -18,6 +18,7 @@
     "@tryghost/content-api": "^1.11.21",
     "@types/unist": "^3.0.3",
     "cva": "1.0.0-beta.1",
+    "d3-time-format": "^4.1.0",
     "embla-carousel-react": "^8.3.1",
     "embla-carousel-wheel-gestures": "^8.0.1",
     "framer-motion": "^11.11.9",
@@ -27,11 +28,13 @@
     "react": "^18.3.1",
     "react-children-utilities": "^2.10.0",
     "react-dom": "^18.3.1",
+    "server-only": "^0.0.1",
     "ts-pattern": "^5.5.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
+    "@types/d3-time-format": "^4.0.3",
     "@types/mdx": "^2.0.13",
     "@types/node": "^20",
     "@types/react": "^18.3.11",
