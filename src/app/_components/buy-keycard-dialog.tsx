@@ -116,7 +116,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
   return (
     <div className="grid grid-cols-1 gap-6 overflow-hidden rounded-28 border border-white-12 bg-white-3 p-2 backdrop-blur-[20px] md:grid-cols-2">
       <div className="h-full overflow-hidden rounded-28 bg-dark-100">
-        <AnimatePresence mode="wait">
+        <AnimatePresence>
           <motion.div
             key={selectedBundle}
             initial={{ opacity: 0, y: 20 }}
