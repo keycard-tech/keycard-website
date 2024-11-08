@@ -1,4 +1,4 @@
-import { ButtonLink } from '~components/button-link'
+import { BuyKeycard } from '~components/buy-keycard'
 import { cx } from 'cva'
 import Image from 'next/image'
 
@@ -15,7 +15,7 @@ const Prefooter = () => {
           wallet.
         </p>
         <div className="flex flex-col items-center gap-5 md:flex-row">
-          <ButtonLink href="/">Buy Keycard</ButtonLink>
+          <BuyKeycard />
           <p className="text-16 font-300 text-white-60">From $25</p>
         </div>
       </div>

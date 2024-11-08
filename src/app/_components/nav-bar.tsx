@@ -10,7 +10,7 @@ import {
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import { ButtonLink } from './button-link'
+import { BuyKeycard } from './buy-keycard'
 import { Logo } from './logo'
 
 const NAV_BAR_HEIGHT = 92
@@ -80,14 +80,7 @@ const NavBar = () => {
             {label}
           </Link>
         ))}
-        {/* TODO This has to be changed since get notified and buy keycard will trigger twi different modals and are not links */}
-        <ButtonLink
-          href="/"
-          variant={variant}
-          active={pathname === '/get-notified'}
-        >
-          Get Keycard
-        </ButtonLink>
+        <BuyKeycard variant={variant} />
       </div>
     </motion.nav>
   )

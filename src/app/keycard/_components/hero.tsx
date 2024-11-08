@@ -1,4 +1,4 @@
-import { ButtonLink } from '~components/button-link'
+import { BuyKeycard } from '~components/buy-keycard'
 import Image from 'next/image'
 
 const Hero = () => {
@@ -37,7 +37,7 @@ const Hero = () => {
             </p>
             <div className="flex flex-row-reverse items-center gap-6 self-start lg:flex-row lg:self-end">
               <p className="text-16 font-300 text-white-60">From $25</p>
-              <ButtonLink href="/">Buy Keycard</ButtonLink>
+              <BuyKeycard />
             </div>
           </div>
         </div>

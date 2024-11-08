@@ -1,4 +1,5 @@
 import { ButtonLink } from '~components/button-link'
+import { BuyKeycard } from '~components/buy-keycard'
 import Image from 'next/image'
 
 const Hero = () => {
@@ -30,8 +31,8 @@ const Hero = () => {
           Store and trade your crypto with a simple, secure and slim hardware
           wallet.
         </p>
-        <div className="flex gap-4">
-          <ButtonLink href="/">Buy Keycard</ButtonLink>
+        <div className="flex space-x-4">
+          <BuyKeycard />
           <ButtonLink href="/" variant="secondary">
             Learn more
           </ButtonLink>
