@@ -157,7 +157,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
   }, [selectedBundle, quantity, includeReader])
 
   return (
-    <div className="grid min-h-screen grid-cols-1 gap-6 bg-white-3 p-4 backdrop-blur-[20px] md:grid-cols-2 md:rounded-28 md:border md:border-white-12 md:p-2">
+    <div className="grid h-svh grid-cols-1 gap-6 overflow-auto bg-white-3 p-4 backdrop-blur-[20px] md:grid-cols-2 md:rounded-28 md:border md:border-white-12 md:p-2">
       <div className="hidden h-full rounded-28 bg-dark-100 md:block">
         <AnimatePresence>
           <motion.div
@@ -240,6 +240,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
                 variant="dark"
                 onClick={() => setValue('quantity', Math.max(1, quantity - 1))}
                 className="justify-center px-[9px] text-center text-white-100"
+                disabled={quantity === 1}
               >
                 <Minus />
               </Button>
