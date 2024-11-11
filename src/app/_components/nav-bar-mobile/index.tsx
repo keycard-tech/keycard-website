@@ -62,12 +62,12 @@ const NavBarMobile = () => {
       scrollPositionRef.current = 0
       window.scrollTo(0, 0)
     }
-  }, [pathname])
+  }, [pathname, isOpen])
 
   return (
     <motion.nav
       className={cx([
-        'fixed inset-0 z-[60] block w-full transition-all lg:hidden',
+        'fixed inset-0 z-50 block w-full transition-all lg:hidden',
       ])}
       animate={{
         height: isOpen ? '100%' : '80px',
@@ -160,7 +160,7 @@ const NavBarMobile = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 + 4 * 0.05, duration: 0.3 }}
-                className="divide grid w-full grid-cols-2 divide-x divide-dashed divide-white-12 border-t border-dashed border-white-12"
+                className="grid w-full grid-cols-2 divide-x divide-dashed divide-white-12 border-t border-dashed border-white-12"
               >
                 <Section title="INFO" routes={ROUTES.Info} />
                 <Section title="CONTACTS" routes={ROUTES.Contacts} />
