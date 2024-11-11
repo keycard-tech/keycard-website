@@ -1,4 +1,5 @@
 import { cva, cx } from 'cva'
+import React, { forwardRef } from 'react'
 
 type Props = {
   variant?: 'primary' | 'secondary' | 'white' | 'dark'
@@ -9,7 +10,7 @@ type Props = {
 } & React.ComponentProps<'button'>
 
 const buttonStyles = cva({
-  base: 'inline-flex cursor-pointer gap-1  text-16 select-none items-center rounded-12 border transition-all w-fit disabled:opacity-[0.3] disabled:cursor-default',
+  base: 'inline-flex cursor-pointer gap-1 text-16 select-none items-center rounded-12 border transition-all w-fit disabled:opacity-[0.3] disabled:cursor-default',
   variants: {
     variant: {
       primary:
@@ -41,19 +42,19 @@ const buttonStyles = cva({
   ],
 })
 
-const Button = (props: Props) => {
+const Button = forwardRef<HTMLButtonElement, Props>((props, ref) => {
   const {
-    children,
     variant = 'primary',
     className,
     active,
     icon,
     backdropFilter,
+    children,
     ...rest
   } = props
-
   return (
     <button
+      ref={ref}
       className={cx([
         buttonStyles({ variant, active, withIcon: !!icon, backdropFilter }),
         className,
@@ -61,9 +62,10 @@ const Button = (props: Props) => {
       {...rest}
     >
       {children}
-      {icon}
     </button>
   )
-}
+})
+
+Button.displayName = 'Button'
 
 export { Button }

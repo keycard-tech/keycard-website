@@ -152,7 +152,6 @@ const FeaturesGrid = () => {
                     icon={<feature.button.icon />}
                   >
                     {feature.button.text}
-                    <feature.button.icon />
                   </ButtonLink>
                 )}
               </div>

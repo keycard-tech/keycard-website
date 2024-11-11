@@ -92,7 +92,7 @@ export const BuyKeycardDialog = (props: Props) => {
       <Dialog.Trigger asChild>{children}</Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 z-50 bg-dark-60 backdrop-blur-2xl" />
-        <Dialog.Content className="fixed left-1/2 top-1/2 z-50 w-[90vw] max-w-[1136px] -translate-x-1/2 -translate-y-1/2 focus:outline-none data-[state=open]:animate-contentShow lg:max-h-[85vh]">
+        <Dialog.Content className="fixed left-1/2 top-1/2 z-50 max-h-screen w-screen max-w-[1136px] -translate-x-1/2 -translate-y-1/2 overflow-auto focus:outline-none data-[state=open]:animate-contentShow md:w-[90vw] md:overflow-hidden">
           <Dialog.Description className="sr-only">
             Buy Keycard
           </Dialog.Description>
@@ -148,8 +148,8 @@ const ShopifyForm = (props: ShopifyFormProps) => {
   }, [selectedBundle, quantity, includeReader])
 
   return (
-    <div className="grid grid-cols-1 gap-6 overflow-hidden rounded-28 border border-white-12 bg-white-3 p-2 backdrop-blur-[20px] md:grid-cols-2">
-      <div className="h-full overflow-hidden rounded-28 bg-dark-100">
+    <div className="grid min-h-screen grid-cols-1 gap-6 bg-white-3 p-4 backdrop-blur-[20px] md:grid-cols-2 md:rounded-28 md:border md:border-white-12 md:p-2">
+      <div className="hidden h-full rounded-28 bg-dark-100 md:block">
         <AnimatePresence>
           <motion.div
             key={selectedBundle}
@@ -168,8 +168,8 @@ const ShopifyForm = (props: ShopifyFormProps) => {
         </AnimatePresence>
       </div>
 
-      <div className="flex flex-col justify-start p-6">
-        <div className="flex items-center justify-between">
+      <div className="flex flex-col justify-start md:p-6 md:pl-0">
+        <div className="flex items-center justify-between p-1 pb-0 md:p-0">
           <Dialog.Title className="font-lora text-32">Buy Keycard</Dialog.Title>
           <Button
             variant="secondary"
@@ -182,9 +182,11 @@ const ShopifyForm = (props: ShopifyFormProps) => {
 
         <Form {...form} onSubmit={submitHandler}>
           <div className="pt-10">
-            <h3 className="py-3 text-12 text-white-80">SELECT BUNDLE</h3>
+            <h3 className="px-1 py-3 pb-2 text-12 text-white-80 md:px-0 md:pb-3">
+              SELECT BUNDLE
+            </h3>
 
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-3 gap-4 md:gap-6">
               {bundles.map(bundle => {
                 const selected = selectedBundle === bundle.id
 
@@ -221,7 +223,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
             </div>
           </div>
 
-          <div className="pt-8">
+          <div className="px-1 pt-8 md:px-0">
             <h3 className="pb-2 text-12 text-white-80">NUMBER OF SETS</h3>
             <div className="flex items-center gap-4 rounded-16 border border-white-12 bg-white-3 p-1">
               <Button
@@ -244,7 +246,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
             </div>
           </div>
 
-          <div className="py-8">
+          <div className="px-1 py-8 md:px-0">
             <h3 className="mb-2 text-12 text-white-80">DESKTOP SUPPORT</h3>
             <div className="flex items-center justify-between space-x-3 rounded-16 border border-white-12 bg-white-3 p-4">
               <div className="relative flex items-center justify-start">
@@ -288,19 +290,24 @@ const ShopifyForm = (props: ShopifyFormProps) => {
               <div className="text-16 font-300 text-white-60">+$5</div>
             </div>
           </div>
+          <div className="px-1 md:px-0">
+            <Button
+              type="submit"
+              className="w-full justify-center font-500"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? (
+                <Loading className="my-px animate-spin text-white-100" />
+              ) : (
+                <>
+                  Checkout <div className="size-1 rounded-full bg-white-40" /> $
+                  {total}
+                </>
+              )}
+            </Button>
+          </div>
 
-          <Button type="submit" className="w-full justify-center font-500">
-            {isSubmitting ? (
-              <Loading className="my-px animate-spin text-white-100" />
-            ) : (
-              <>
-                Checkout <div className="size-1 rounded-full bg-white-40" /> $
-                {total}
-              </>
-            )}
-          </Button>
-
-          <div className="pt-5">
+          <div className="px-1 pb-1 pt-5 md:px-0 md:pb-0">
             <div className="flex items-center gap-2">
               <Image
                 src="/assets/buy/visa.png"
@@ -327,12 +334,12 @@ const ShopifyForm = (props: ShopifyFormProps) => {
                 height={32}
               />
             </div>
-            <div className="mt-10 flex items-center gap-4 rounded-16 border border-dashed border-white-12 bg-white-3 px-4 py-[14px] text-14 text-white-60">
+            <div className="mt-10 flex flex-col items-center gap-[10px] rounded-16 border border-dashed border-white-12 bg-white-3 px-4 py-[14px] text-14 text-white-60 md:flex-row md:gap-4">
               <span className="flex">
                 <Labels className="mr-1 shrink-0" /> Prices don&apos;t include
                 VAT
               </span>
-              <div className="size-1 rounded-full bg-white-40" />
+              <div className="hidden size-1 rounded-full bg-white-40 md:block" />
 
               <span className="flex">
                 <World className="mr-1 shrink-0" />

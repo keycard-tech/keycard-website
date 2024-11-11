@@ -1,12 +1,13 @@
 'use client'
 
 import { ROUTES } from '~/config/routes'
+import { Button } from '~components/button'
+import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
 import { cx } from 'cva'
 import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { ButtonLink } from '../button-link'
 import { Logo } from '../logo'
 import { MenuIcon } from './menu-icon'
 import { Section } from './section'
@@ -96,9 +97,9 @@ const NavBarMobile = () => {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
               >
-                <ButtonLink href="/" variant="secondary">
-                  Buy Keycard
-                </ButtonLink>
+                <BuyKeycardDialog>
+                  <Button variant="secondary">Buy Keycard</Button>
+                </BuyKeycardDialog>
               </motion.div>
             )}
           </AnimatePresence>
@@ -152,9 +153,11 @@ const NavBarMobile = () => {
                   transition={{ delay: 0.2 + 3 * 0.05, duration: 0.3 }}
                   className="pt-2 text-center"
                 >
-                  <ButtonLink href="/" backdropFilter>
-                    Buy Keycard
-                  </ButtonLink>
+                  <BuyKeycardDialog>
+                    <Button variant="primary" backdropFilter>
+                      Buy Keycard
+                    </Button>
+                  </BuyKeycardDialog>
                 </motion.li>
               </ul>
               <motion.div
