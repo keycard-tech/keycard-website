@@ -1,8 +1,9 @@
 'use server'
 
 import { createCart } from '~/server/shopify/storefront'
+import { CartInput } from '~/server/shopify/storefront/validation'
 
-async function _createCart(input: { productId: string; quantity: number }) {
+async function _createCart(input: CartInput) {
   return await createCart(input)
 }
 
