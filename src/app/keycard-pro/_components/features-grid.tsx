@@ -149,9 +149,9 @@ const FeaturesGrid = () => {
                     href="https://github.com"
                     className="font-500 [&_path]:hover:fill-white-dark"
                     variant="white"
-                    size="small"
+                    icon={<feature.button.icon />}
                   >
-                    <span>{feature.button.text}</span>
+                    {feature.button.text}
                     <feature.button.icon />
                   </ButtonLink>
                 )}

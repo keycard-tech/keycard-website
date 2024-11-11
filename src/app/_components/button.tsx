@@ -2,13 +2,14 @@ import { cva, cx } from 'cva'
 
 type Props = {
   variant?: 'primary' | 'secondary' | 'white' | 'dark'
-  size?: 'small' | 'medium'
+  backdropFilter?: boolean
   children: React.ReactNode
   active?: boolean
+  icon?: React.ReactNode
 } & React.ComponentProps<'button'>
 
 const buttonStyles = cva({
-  base: 'inline-flex cursor-pointer gap-[6px] text-16 select-none items-center rounded-12 border transition-all w-fit disabled:opacity-[0.3] disabled:cursor-default',
+  base: 'inline-flex cursor-pointer gap-1  text-16 select-none items-center rounded-12 border transition-all w-fit disabled:opacity-[0.3] disabled:cursor-default',
   variants: {
     variant: {
       primary:
@@ -18,13 +19,17 @@ const buttonStyles = cva({
       white: 'bg-white-100 hover:bg-white-dark text-dark-100',
       dark: 'border-[transparent] bg-white-3 hover:enabled:border-white-8 hover:enabled:bg-white-8 text-white-95',
     },
+    withIcon: {
+      true: 'pl-[14px] pr-[10px] py-2',
+      false: 'px-[14px] py-2',
+    },
+    backdropFilter: {
+      true: 'backdrop-blur-[20px]',
+      false: '',
+    },
     active: {
       true: '',
       false: '',
-    },
-    size: {
-      small: 'px-[12px] py-[9px]',
-      medium: 'px-[14px] py-2 pb-[10px]',
     },
   },
   compoundVariants: [
@@ -35,21 +40,28 @@ const buttonStyles = cva({
     },
   ],
 })
+
 const Button = (props: Props) => {
   const {
     children,
     variant = 'primary',
     className,
     active,
-    size = 'medium',
+    icon,
+    backdropFilter,
     ...rest
   } = props
+
   return (
     <button
-      className={cx([buttonStyles({ variant, active, size }), className])}
+      className={cx([
+        buttonStyles({ variant, active, withIcon: !!icon, backdropFilter }),
+        className,
+      ])}
       {...rest}
     >
       {children}
+      {icon}
     </button>
   )
 }

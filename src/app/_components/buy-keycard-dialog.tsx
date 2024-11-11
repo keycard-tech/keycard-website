@@ -148,7 +148,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
   }, [selectedBundle, quantity, includeReader])
 
   return (
-    <div className="grid grid-cols-1 overflow-hidden rounded-28 border border-white-12 bg-white-3 p-2 backdrop-blur-[20px] md:grid-cols-2">
+    <div className="grid grid-cols-1 gap-6 overflow-hidden rounded-28 border border-white-12 bg-white-3 p-2 backdrop-blur-[20px] md:grid-cols-2">
       <div className="h-full overflow-hidden rounded-28 bg-dark-100">
         <AnimatePresence>
           <motion.div
@@ -173,7 +173,6 @@ const ShopifyForm = (props: ShopifyFormProps) => {
           <Dialog.Title className="font-lora text-32">Buy Keycard</Dialog.Title>
           <Button
             variant="secondary"
-            size="small"
             className="px-[9px] text-white-95"
             onClick={() => setOpen(false)}
           >
@@ -228,7 +227,6 @@ const ShopifyForm = (props: ShopifyFormProps) => {
               <Button
                 type="button"
                 variant="dark"
-                size="small"
                 onClick={() => setValue('quantity', Math.max(1, quantity - 1))}
                 className="justify-center px-[9px] text-center text-white-100"
               >
@@ -238,7 +236,6 @@ const ShopifyForm = (props: ShopifyFormProps) => {
               <Button
                 type="button"
                 variant="dark"
-                size="small"
                 onClick={() => setValue('quantity', quantity + 1)}
                 className="justify-center px-[9px] text-center text-white-100"
               >
@@ -294,7 +291,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
 
           <Button type="submit" className="w-full justify-center font-500">
             {isSubmitting ? (
-              <Loading className="animate-spin text-white-100" />
+              <Loading className="my-px animate-spin text-white-100" />
             ) : (
               <>
                 Checkout <div className="size-1 rounded-full bg-white-40" /> $

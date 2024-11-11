@@ -62,12 +62,13 @@ const NavBarMobile = () => {
       scrollPositionRef.current = 0
       window.scrollTo(0, 0)
     }
-  }, [pathname, isOpen])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathname])
 
   return (
     <motion.nav
       className={cx([
-        'fixed inset-0 z-50 block w-full transition-all lg:hidden',
+        'fixed inset-0 z-40 block w-full transition-all lg:hidden',
       ])}
       animate={{
         height: isOpen ? '100%' : '80px',
