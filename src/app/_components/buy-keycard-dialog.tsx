@@ -12,6 +12,7 @@ import { useController, useForm } from 'react-hook-form'
 import type { SubmitHandler } from 'react-hook-form'
 import { Shopify, shopifySchema } from '../_api/validation/shopify'
 import { KEYCARD_BUNDLES } from '../_constants/shopify/products'
+import { useShopifyUTMParams } from '../_hooks/use-shopify-utm-params'
 import {
   Check,
   Close,
@@ -72,6 +73,7 @@ export const BuyKeycardDialog = (props: Props) => {
   const [open, setOpen] = useState(false)
 
   const router = useRouter()
+  const utmParams = useShopifyUTMParams()
 
   const onSubmit: SubmitHandler<Shopify> = async data => {
     const quantity = data.quantity
@@ -79,12 +81,19 @@ export const BuyKeycardDialog = (props: Props) => {
       ? KEYCARD_BUNDLES[data.bundleId].READER.productId
       : KEYCARD_BUNDLES[data.bundleId].NO_READER.productId
 
+    // TODO: consider add some ui to error handling - toast or something similar
     const shopifyCartUrl = await createCart({
       productId,
       quantity: quantity,
     })
 
-    router.push(shopifyCartUrl)
+    const url = new URL(shopifyCartUrl)
+
+    utmParams.forEach((value, key) => {
+      url.searchParams.append(key, value)
+    })
+
+    router.push(url.toString())
   }
 
   return (
