@@ -1,4 +1,5 @@
-import { ButtonLink } from '~components/button-link'
+import { Button } from '~components/button'
+import { GetNotifiedDialog } from '~components/get-notified-dialog'
 import Image from 'next/image'
 
 const Hero = () => {
@@ -32,7 +33,9 @@ const Hero = () => {
             </p>
             <div className="flex items-center justify-end gap-7">
               <p className="text-16 font-300 text-white-60">Coming 2025</p>
-              <ButtonLink href="/">Get notified</ButtonLink>
+              <GetNotifiedDialog>
+                <Button>Get notified</Button>
+              </GetNotifiedDialog>
             </div>
           </div>
         </div>

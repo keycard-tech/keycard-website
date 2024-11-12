@@ -25,6 +25,10 @@ const buttonStyles = cva({
       small: 'px-[12px] py-[9px]',
       medium: 'px-[14px] py-2 pb-[10px]',
     },
+    disabled: {
+      true: 'cursor-not-allowed bg-orange hover:bg-orange text-white-60',
+      false: '',
+    },
   },
   compoundVariants: [
     {

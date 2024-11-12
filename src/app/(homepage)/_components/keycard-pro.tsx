@@ -33,7 +33,7 @@ const KeycardPro = () => {
         </p>
         <div className="flex space-x-4">
           <GetNotifiedDialog>
-            <Button variant="primary">Get notified</Button>
+            <Button>Get notified</Button>
           </GetNotifiedDialog>
           <ButtonLink href="/" variant="secondary">
             Learn more

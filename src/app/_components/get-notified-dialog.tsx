@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react'
 import { useController, useForm } from 'react-hook-form'
 import type { SubmitHandler } from 'react-hook-form'
 import { Close, Confetti } from '../_icons'
+import { Loading } from '../_icons/loading'
 import { signUpSchema, type SignUp } from '../_lib/google/validation'
 import { handleSignUp } from '../actions'
 import { Button } from './button'
@@ -155,7 +156,7 @@ export const GetNotifiedDialog = (props: Props) => {
                   className={cx(
                     'mx-5 flex items-center justify-center gap-2 bg-white-3 px-4 py-[14px] text-14 font-300 text-white-60',
                     'rounded-16 border border-dashed border-white-12',
-                    'md:mx-6 md:justify-start md:border-x-0 md:border-b-0 md:px-6',
+                    'md:mx-0 md:justify-start md:rounded-0 md:border-x-0 md:border-b-0 md:px-6',
                   )}
                 >
                   <Confetti className="size-4" /> Keycard Pro is launching in
@@ -227,9 +228,13 @@ const SignUpForm = (props: SignUpFormProps) => {
             type="submit"
             disabled={isSubmitting}
             variant="primary"
-            className="absolute right-1 top-8 h-10 border border-white-20"
+            className="absolute right-1 top-8 h-10 border border-white-20 disabled:cursor-not-allowed disabled:text-white-40"
           >
-            Notify me
+            {isSubmitting ? (
+              <Loading className="my-px animate-spin text-white-100" />
+            ) : (
+              'Notify me'
+            )}
           </Button>
         </Field>
       </div>

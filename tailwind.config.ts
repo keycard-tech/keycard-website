@@ -100,6 +100,7 @@ export default {
     },
 
     borderRadius: {
+      0: '0px',
       12: '12px',
       16: '16px',
       20: '20px',

@@ -1,4 +1,5 @@
-import { ButtonLink } from '~components/button-link'
+import { Button } from '~components/button'
+import { GetNotifiedDialog } from '~components/get-notified-dialog'
 
 const Prefooter = () => {
   return (
@@ -15,7 +16,9 @@ const Prefooter = () => {
           secure element.
         </p>
         <div className="flex items-center gap-5">
-          <ButtonLink href="/">Get notified</ButtonLink>
+          <GetNotifiedDialog>
+            <Button>Get notified</Button>
+          </GetNotifiedDialog>
           <p className="text-16 font-300 text-white-60">Coming 2025</p>
         </div>
       </div>
