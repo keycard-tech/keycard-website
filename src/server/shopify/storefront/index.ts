@@ -54,8 +54,8 @@ export async function _fetch<T extends ProductsResponseBody | CartResponseBody>(
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/graphql-response+json',
-        'Shopify-Storefront-Private-Token':
-          process.env.SHOPIFY_STOREFRONT_API_PRIVATE_ACCESS_TOKEN,
+        'X-Shopify-Storefront-Access-Token':
+          process.env.SHOPIFY_STOREFRONT_API_PUBLIC_ACCESS_TOKEN,
       },
       body: JSON.stringify({
         query,
