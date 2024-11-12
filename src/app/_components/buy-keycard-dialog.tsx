@@ -2,7 +2,6 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as Checkbox from '@radix-ui/react-checkbox'
-import * as Dialog from '@radix-ui/react-dialog'
 import { cx } from 'cva'
 import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
@@ -26,6 +25,7 @@ import {
 } from '../_icons'
 import { createCart } from '../actions'
 import { Button } from './button'
+import * as Dialog from './dialog'
 import { Form } from './form/form'
 import { Tooltip } from './tooltip'
 
@@ -99,15 +99,10 @@ export const BuyKeycardDialog = (props: Props) => {
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger asChild>{children}</Dialog.Trigger>
-      <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 z-50 bg-dark-60 backdrop-blur-2xl" />
-        <Dialog.Content className="fixed left-1/2 top-1/2 z-50 max-h-screen w-screen max-w-[1136px] -translate-x-1/2 -translate-y-1/2 overflow-auto focus:outline-none data-[state=open]:animate-contentShow md:w-[90vw] md:overflow-hidden">
-          <Dialog.Description className="sr-only">
-            Buy Keycard
-          </Dialog.Description>
-          <ShopifyForm onSubmit={onSubmit} setOpen={setOpen} />
-        </Dialog.Content>
-      </Dialog.Portal>
+      <Dialog.Content>
+        <Dialog.Description className="sr-only">Buy Keycard</Dialog.Description>
+        <ShopifyForm onSubmit={onSubmit} setOpen={setOpen} />
+      </Dialog.Content>
     </Dialog.Root>
   )
 }
