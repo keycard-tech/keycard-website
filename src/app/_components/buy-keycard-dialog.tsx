@@ -157,7 +157,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
   }, [selectedBundle, quantity, includeReader])
 
   return (
-    <div className="grid h-svh grid-cols-1 gap-6 overflow-auto bg-white-3 p-4 backdrop-blur-[20px] md:grid-cols-2 md:rounded-28 md:border md:border-white-12 md:p-2">
+    <div className="grid h-svh grid-cols-1 gap-6 overflow-auto bg-white-3 p-4 backdrop-blur-[20px] md:h-auto md:grid-cols-2 md:rounded-28 md:border md:border-white-12 md:p-2">
       <div className="hidden h-full rounded-28 bg-dark-100 md:block">
         <AnimatePresence>
           <motion.div
@@ -168,10 +168,12 @@ const ShopifyForm = (props: ShopifyFormProps) => {
             className="flex h-full items-center justify-center overflow-hidden"
           >
             <Image
+              className="w-auto"
               src={bundles.find(b => b.id === selectedBundle)!.image}
               alt={`${bundles.find(b => b.id === selectedBundle)!.name} keycard`}
               width={400}
               height={300}
+              priority
             />
           </motion.div>
         </AnimatePresence>

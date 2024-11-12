@@ -26,6 +26,10 @@ const MenuIcon = ({ isOpen }: { isOpen: boolean }) => (
       stroke="white"
       strokeWidth="1.5"
       strokeLinecap="round"
+      initial={{
+        rotateZ: 0,
+        y: 0,
+      }}
       animate={{
         rotateZ: isOpen ? 45 : 0,
         y: isOpen ? 6 : 0,
@@ -44,6 +48,10 @@ const MenuIcon = ({ isOpen }: { isOpen: boolean }) => (
       stroke="white"
       strokeWidth="1.5"
       strokeLinecap="round"
+      initial={{
+        opacity: 0,
+        x: 0,
+      }}
       animate={{
         opacity: isOpen ? 0 : 1,
         x: isOpen ? 20 : 0,
@@ -59,6 +67,10 @@ const MenuIcon = ({ isOpen }: { isOpen: boolean }) => (
       stroke="white"
       strokeWidth="1.5"
       strokeLinecap="round"
+      initial={{
+        rotateZ: 0,
+        y: 0,
+      }}
       animate={{
         rotateZ: isOpen ? -45 : 0,
         y: isOpen ? -6 : 0,

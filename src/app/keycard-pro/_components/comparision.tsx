@@ -8,7 +8,8 @@ const Comparision = () => {
           alt="Keycard Pro"
           className="absolute left-0 top-0 z-0 size-full object-cover"
           src="/assets/keycard-pro/comparision-left.png"
-          layout="fill"
+          width={1480}
+          height={1680}
         />
 
         <h2 className="absolute left-1/2 top-1/2 z-20 mx-auto w-full max-w-[328px] -translate-x-1/2 -translate-y-20 text-center font-lora text-32 lg:max-w-full">
@@ -25,7 +26,8 @@ const Comparision = () => {
           alt="Keycard"
           className="absolute left-0 top-0 size-full object-cover"
           src="/assets/keycard-pro/comparision-right.png"
-          layout="fill"
+          width={1480}
+          height={1680}
         />
 
         <h2 className="absolute left-1/2 top-1/2 z-20 mx-auto w-full max-w-[328px] -translate-x-1/2 -translate-y-20 text-center font-lora text-32 lg:max-w-full">

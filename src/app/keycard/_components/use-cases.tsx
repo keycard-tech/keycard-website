@@ -60,7 +60,7 @@ const UseCases = () => {
           {cardSets.map((set, index) => (
             <div
               key={index}
-              className="flex w-40 flex-col justify-between rounded-[20px] border border-white-12 bg-white-3 px-4 py-3"
+              className="flex w-40 flex-col items-start justify-between rounded-[20px] border border-white-12 bg-white-3 px-4 py-3"
             >
               <span className="font-300 text-white-60">
                 {set.count} card set

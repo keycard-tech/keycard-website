@@ -10,7 +10,8 @@ const Keycards = () => {
         src="/assets/keycard-pro/bg-keycards.png"
         alt="Keycards scattered around"
         className="absolute left-0 top-0 size-full object-cover"
-        layout="fill"
+        width={2704}
+        height={1680}
       />
 
       <div className="relative z-10 pt-12 text-center lg:pt-20">
