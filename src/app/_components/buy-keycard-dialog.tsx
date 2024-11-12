@@ -164,8 +164,10 @@ const ShopifyForm = (props: ShopifyFormProps) => {
     return bundlePrice * quantity + readerPrice
   }, [selectedBundle, quantity, includeReader])
 
+  console.log('Selected Bundle: ', selectedBundle)
+
   return (
-    <div className="grid h-svh grid-cols-1 gap-6 overflow-auto bg-white-3 p-4 backdrop-blur-[20px] md:h-auto md:grid-cols-2 md:rounded-28 md:border md:border-white-12 md:p-2">
+    <div className="grid h-svh grid-cols-1 gap-6 overflow-auto bg-white-3 p-5 backdrop-blur-[20px] md:h-auto md:grid-cols-2 md:rounded-28 md:border md:border-white-12 md:p-2">
       <div className="hidden h-full rounded-28 bg-dark-100 md:block">
         <AnimatePresence>
           <motion.div
@@ -188,7 +190,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
       </div>
 
       <div className="flex flex-col justify-start md:p-6 md:pl-0">
-        <div className="flex items-center justify-between p-1 pb-0 md:p-0">
+        <div className="flex items-center justify-between">
           <Dialog.Title className="font-lora text-32">Buy Keycard</Dialog.Title>
           <Button
             variant="secondary"
@@ -200,8 +202,8 @@ const ShopifyForm = (props: ShopifyFormProps) => {
         </div>
 
         <Form {...form} onSubmit={submitHandler}>
-          <div className="pt-10">
-            <h3 className="px-1 py-3 pb-2 text-12 text-white-80 md:px-0 md:pb-3">
+          <div className="pt-12 md:pt-10">
+            <h3 className="pb-2 text-12 text-white-80 md:pb-3">
               SELECT BUNDLE
             </h3>
 
@@ -216,13 +218,20 @@ const ShopifyForm = (props: ShopifyFormProps) => {
                     onClick={() => {
                       setValue('bundleId', bundle.id)
                     }}
-                    className={cx([
-                      'flex max-w-40 flex-col items-start justify-between rounded-[20px] border bg-white-3 px-4 py-3 text-left',
-                      selected
-                        ? 'border-orange-dark hover:border-orange'
-                        : 'border-white-12 hover:border-white-60',
-                    ])}
+                    className={cx(
+                      'relative flex max-w-40 flex-col items-start justify-between rounded-[20px] bg-white-3 px-4 py-3 text-left transition-colors duration-300',
+                      selected ? 'outline outline-4 outline-white-3' : '',
+                    )}
                   >
+                    <span
+                      className={cx([
+                        'absolute border transition-colors',
+                        selected
+                          ? '-left-1 -top-1 size-[calc(100%+8px)] rounded-[24px] border-orange-dark'
+                          : 'left-0 top-0 size-full rounded-[20px] border-white-12',
+                      ])}
+                    />
+
                     <span className="font-300 text-white-60">
                       {bundle.cards} card set
                     </span>
@@ -242,7 +251,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
             </div>
           </div>
 
-          <div className="px-1 pt-8 md:px-0">
+          <div className="pt-8">
             <h3 className="pb-2 text-12 text-white-80">NUMBER OF SETS</h3>
             <div className="flex items-center gap-4 rounded-16 border border-white-12 bg-white-3 p-1">
               <Button
@@ -266,7 +275,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
             </div>
           </div>
 
-          <div className="px-1 py-8 md:px-0">
+          <div className="py-8">
             <h3 className="mb-2 text-12 text-white-80">DESKTOP SUPPORT</h3>
             <div className="flex items-center justify-between space-x-3 rounded-16 border border-white-12 bg-white-3 p-4">
               <div className="relative flex items-center justify-start">
@@ -307,27 +316,26 @@ const ShopifyForm = (props: ShopifyFormProps) => {
                   </div>
                 </Tooltip>
               </div>
-              <div className="text-16 font-300 text-white-60">+$5</div>
+              <div className="text-16 font-300 text-white-80">+$5</div>
             </div>
           </div>
-          <div className="px-1 md:px-0">
-            <Button
-              type="submit"
-              className="w-full justify-center font-500"
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? (
-                <Loading className="my-px animate-spin text-white-100" />
-              ) : (
-                <>
-                  Checkout <div className="size-1 rounded-full bg-white-40" /> $
-                  {total}
-                </>
-              )}
-            </Button>
-          </div>
 
-          <div className="px-1 pb-1 pt-5 md:px-0 md:pb-0">
+          <Button
+            type="submit"
+            className="w-full justify-center font-500"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? (
+              <Loading className="my-px animate-spin text-white-100" />
+            ) : (
+              <>
+                Checkout <div className="size-1 rounded-full bg-white-40" /> $
+                {total}
+              </>
+            )}
+          </Button>
+
+          <div className="pb-1 pt-5 md:pb-0">
             <div className="flex items-center gap-2">
               <Image
                 src="/assets/buy/visa.png"
@@ -354,17 +362,17 @@ const ShopifyForm = (props: ShopifyFormProps) => {
                 height={32}
               />
             </div>
-            <div className="mt-10 flex flex-col items-center gap-[10px] rounded-16 border border-dashed border-white-12 bg-white-3 px-4 py-[14px] text-14 text-white-60 md:flex-row md:gap-4">
-              <span className="flex">
+            <div className="mt-10 flex flex-col items-center gap-[10px] rounded-16 border border-dashed border-white-12 bg-white-3 px-4 py-[14px] text-14 text-white-60 md:flex-row md:gap-2">
+              <div className="flex items-center">
                 <Labels className="mr-1 shrink-0" /> Prices don&apos;t include
                 VAT
-              </span>
+              </div>
               <div className="hidden size-1 rounded-full bg-white-40 md:block" />
 
-              <span className="flex">
+              <div className="flex items-center">
                 <World className="mr-1 shrink-0" />
                 Delivery estimate: 3-5 business days
-              </span>
+              </div>
             </div>
           </div>
         </Form>
