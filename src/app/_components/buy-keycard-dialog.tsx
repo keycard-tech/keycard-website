@@ -164,8 +164,6 @@ const ShopifyForm = (props: ShopifyFormProps) => {
     return bundlePrice * quantity + readerPrice
   }, [selectedBundle, quantity, includeReader])
 
-  console.log('Selected Bundle: ', selectedBundle)
-
   return (
     <div className="grid h-svh grid-cols-1 gap-6 overflow-auto bg-white-3 p-5 backdrop-blur-[20px] md:h-auto md:grid-cols-2 md:rounded-28 md:border md:border-white-12 md:p-2">
       <div className="hidden h-full rounded-28 bg-dark-100 md:block">
