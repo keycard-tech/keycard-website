@@ -9,7 +9,7 @@ import { useRouter } from 'next/navigation'
 import { useMemo, useState } from 'react'
 import { useController, useForm } from 'react-hook-form'
 import type { SubmitHandler } from 'react-hook-form'
-import { Shopify, shopifySchema } from '../_api/validation/shopify'
+import { z } from 'zod'
 import { KEYCARD_BUNDLES } from '../_constants/shopify/products'
 import { useShopifyUTMParams } from '../_hooks/use-shopify-utm-params'
 import {
@@ -28,6 +28,30 @@ import { Button } from './button'
 import * as Dialog from './dialog'
 import { Form } from './form/form'
 import { Tooltip } from './tooltip'
+
+const shopifySchema = z
+  .object({
+    // The Shopify product ID could be 'ONE_CARD', 'TWO_CARDS', or 'THREE_CARDS'
+    bundleId: z.enum(['ONE_CARD', 'TWO_CARDS', 'THREE_CARDS']),
+    quantity: z.number(),
+    includeKeycardReader: z.boolean(),
+  })
+  .required()
+
+type Shopify = z.infer<typeof shopifySchema>
+
+type Bundle = {
+  id: Shopify['bundleId']
+  name: string
+  price: number
+  cards: number
+  image: string
+  tag?: string
+}
+
+type Props = {
+  children: React.ReactElement
+}
 
 const bundles: Bundle[] = [
   {
@@ -54,20 +78,7 @@ const bundles: Bundle[] = [
   },
 ] as const
 
-type Bundle = {
-  id: Shopify['bundleId']
-  name: string
-  price: number
-  cards: number
-  image: string
-  tag?: string
-}
-
-type Props = {
-  children: React.ReactElement
-}
-
-export const BuyKeycardDialog = (props: Props) => {
+const BuyKeycardDialog = (props: Props) => {
   const { children } = props
 
   const [open, setOpen] = useState(false)
@@ -106,6 +117,8 @@ export const BuyKeycardDialog = (props: Props) => {
     </Dialog.Root>
   )
 }
+
+export { BuyKeycardDialog }
 
 type ShopifyFormProps = {
   onSubmit: SubmitHandler<Shopify>
