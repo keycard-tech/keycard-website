@@ -67,7 +67,7 @@ export async function generateMetadata({ params }: Props) {
     return null
   }
 
-  const title = findTitle(params.slug, config)
+  const title = findTitle((await params).slug, config)
   if (!title) {
     throw new Error(
       'Title not found, article probably missing in config/sidenav.',
@@ -82,9 +82,9 @@ export async function generateMetadata({ params }: Props) {
 }
 
 type Props = {
-  params: {
+  params: Promise<{
     slug: string[]
-  }
+  }>
 }
 
 const Page = async (props: Props) => {
@@ -92,7 +92,7 @@ const Page = async (props: Props) => {
 
   let article
   try {
-    article = await getDocumentationArticle(params.slug)
+    article = await getDocumentationArticle((await params).slug)
   } catch (err) {
     console.error(`Error fetching documentation article: ${err}`)
     notFound()
@@ -100,7 +100,7 @@ const Page = async (props: Props) => {
 
   const { meta, content } = article
 
-  const breadcrumbs = generateBreadcrumbs(params.slug, meta.title)
+  const breadcrumbs = generateBreadcrumbs((await params).slug, meta.title)
 
   return (
     <div>

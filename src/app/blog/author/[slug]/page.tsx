@@ -10,17 +10,17 @@ export const dynamicParams = true
 export async function generateStaticParams() {
   const slugs = await getAuthorSlugs()
 
-  return slugs.map(slug => ({ slug })) satisfies Array<Props['params']>
+  return slugs.map(slug => ({ slug })) satisfies Array<Awaited<Props['params']>>
 }
 
 type Props = {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export default async function BlogAuthorPage(props: Props) {
   const { params } = props
 
-  const response = await getPostsByAuthorSlug(params.slug)
+  const response = await getPostsByAuthorSlug((await params).slug)
   if (!response) {
     return notFound()
   }

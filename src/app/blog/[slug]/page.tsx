@@ -16,11 +16,11 @@ export const dynamicParams = true
 
 export async function generateStaticParams() {
   const slugs = await getPostSlugs()
-  return slugs.map(slug => ({ slug })) satisfies Array<Props['params']>
+  return slugs.map(slug => ({ slug })) satisfies Array<Awaited<Props['params']>>
 }
 
 export async function generateMetadata({ params }: Props) {
-  const post = (await getPostBySlug(params.slug))!
+  const post = (await getPostBySlug((await params).slug))!
 
   return Metadata({
     title: post.title!,
@@ -35,13 +35,13 @@ export async function generateMetadata({ params }: Props) {
 }
 
 type Props = {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export default async function BlogDetailPage(props: Props) {
   const { params } = props
 
-  const post = await getPostBySlug(params!.slug)
+  const post = await getPostBySlug((await params).slug)
 
   if (!post) {
     return notFound()

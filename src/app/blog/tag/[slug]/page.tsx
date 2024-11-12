@@ -9,17 +9,17 @@ export const dynamicParams = true
 export async function generateStaticParams() {
   const slugs = await getTagSlugs()
 
-  return slugs.map(slug => ({ slug })) satisfies Array<Props['params']>
+  return slugs.map(slug => ({ slug })) satisfies Array<Awaited<Props['params']>>
 }
 
 type Props = {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export default async function BlogTagPage(props: Props) {
   const { params } = props
 
-  const response = await getPostsByTagSlug(params.slug)
+  const response = await getPostsByTagSlug((await params).slug)
 
   if (!response) {
     return notFound()
