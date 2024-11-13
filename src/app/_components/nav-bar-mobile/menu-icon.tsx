@@ -19,6 +19,7 @@ const MenuIcon = ({ isOpen }: { isOpen: boolean }) => (
       strokeOpacity="0"
     />
     <motion.line
+      layout
       x1="12"
       y1="14"
       x2="26"
@@ -26,10 +27,6 @@ const MenuIcon = ({ isOpen }: { isOpen: boolean }) => (
       stroke="white"
       strokeWidth="1.5"
       strokeLinecap="round"
-      initial={{
-        rotateZ: 0,
-        y: 0,
-      }}
       animate={{
         rotateZ: isOpen ? 45 : 0,
         y: isOpen ? 6 : 0,
@@ -38,7 +35,7 @@ const MenuIcon = ({ isOpen }: { isOpen: boolean }) => (
         originX: 0.5,
         originY: 0.5,
       }}
-      transition={{ duration: 0.3, ease: 'easeInOut' }}
+      transition={{ duration: 0.3, ease: 'easeInOut', delay: 0.1 }}
     />
     <motion.line
       x1="12"
@@ -48,18 +45,15 @@ const MenuIcon = ({ isOpen }: { isOpen: boolean }) => (
       stroke="white"
       strokeWidth="1.5"
       strokeLinecap="round"
-      initial={{
-        opacity: 0,
-        x: 0,
-      }}
       animate={{
         opacity: isOpen ? 0 : 1,
         x: isOpen ? 20 : 0,
       }}
-      transition={{ duration: 0.3, ease: 'easeInOut' }}
+      transition={{ duration: 0.3, ease: 'easeInOut', delay: 0.1 }}
     />
 
     <motion.line
+      layout
       x1="12"
       y1="26"
       x2="26"
@@ -67,10 +61,6 @@ const MenuIcon = ({ isOpen }: { isOpen: boolean }) => (
       stroke="white"
       strokeWidth="1.5"
       strokeLinecap="round"
-      initial={{
-        rotateZ: 0,
-        y: 0,
-      }}
       animate={{
         rotateZ: isOpen ? -45 : 0,
         y: isOpen ? -6 : 0,
@@ -79,7 +69,7 @@ const MenuIcon = ({ isOpen }: { isOpen: boolean }) => (
         originX: 0.5,
         originY: 0.5,
       }}
-      transition={{ duration: 0.3, ease: 'easeInOut' }}
+      transition={{ duration: 0.3, ease: 'easeInOut', delay: 0.1 }}
     />
   </svg>
 )
