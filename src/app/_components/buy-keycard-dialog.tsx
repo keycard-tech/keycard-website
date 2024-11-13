@@ -11,7 +11,6 @@ import { useController, useForm } from 'react-hook-form'
 import type { SubmitHandler } from 'react-hook-form'
 import { z } from 'zod'
 import { KEYCARD_BUNDLES } from '../_constants/shopify/products'
-import { useShopifyUTMParams } from '../_hooks/use-shopify-utm-params'
 import {
   Check,
   Close,
@@ -23,6 +22,7 @@ import {
   Recommended,
   World,
 } from '../_icons'
+import { useShopifyUTMParamsContext } from '../_providers/shopify-utm-params-provider'
 import { createCart } from '../actions'
 import { Button } from './button'
 import * as Dialog from './dialog'
@@ -84,7 +84,7 @@ const BuyKeycardDialog = (props: Props) => {
   const [open, setOpen] = useState(false)
 
   const router = useRouter()
-  const utmParams = useShopifyUTMParams()
+  const utmParams = useShopifyUTMParamsContext()
 
   const onSubmit: SubmitHandler<Shopify> = async data => {
     const quantity = data.quantity
