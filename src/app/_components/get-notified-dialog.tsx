@@ -226,7 +226,7 @@ const SignUpForm = (props: SignUpFormProps) => {
 
           <Button
             type="submit"
-            disabled={true}
+            disabled={isSubmitting}
             variant="primary"
             className="absolute right-1 top-8 h-10 w-[101px] justify-center border border-white-20"
           >
