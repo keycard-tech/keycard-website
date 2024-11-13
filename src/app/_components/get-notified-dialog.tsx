@@ -24,7 +24,7 @@ export const GetNotifiedDialog = (props: Props) => {
   const { children } = props
 
   const [open, setOpen] = useState(false)
-  const [showSuccess, setShowSuccess] = useState(true)
+  const [showSuccess, setShowSuccess] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
   const onSubmit: SubmitHandler<SignUp> = async data => {
@@ -219,16 +219,16 @@ const SignUpForm = (props: SignUpFormProps) => {
             )}
           />
           {error && (
-            <div role="alert" className="text-16 font-300 text-red">
+            <div role="alert" className="mb-0.5 text-14 font-300 text-red">
               {error}
             </div>
           )}
 
           <Button
             type="submit"
-            disabled={isSubmitting}
+            disabled={true}
             variant="primary"
-            className="absolute right-1 top-8 h-10 border border-white-20 disabled:cursor-not-allowed disabled:text-white-40"
+            className="absolute right-1 top-8 h-10 w-[101px] justify-center border border-white-20"
           >
             {isSubmitting ? (
               <Loading className="my-px animate-spin text-white-100" />

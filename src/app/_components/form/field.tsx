@@ -22,7 +22,7 @@ const Field = (props: Props) => {
       <div className="grid gap-3">
         {children}
         {error && (
-          <p role="alert" className="text-16 font-300 text-red">
+          <p role="alert" className="mb-0.5 text-14 font-300 text-red">
             {error}
           </p>
         )}

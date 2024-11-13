@@ -5,6 +5,7 @@ type Props = {
   size?: 'small' | 'medium'
   children: React.ReactNode
   active?: boolean
+  disabled?: boolean
 } & React.ComponentProps<'button'>
 
 const buttonStyles = cva({
@@ -26,7 +27,7 @@ const buttonStyles = cva({
       medium: 'px-[14px] py-2 pb-[10px]',
     },
     disabled: {
-      true: 'cursor-not-allowed bg-orange hover:bg-orange text-white-60',
+      true: 'opacity-[0.3] hover:disabled:bg-orange cursor-default',
       false: '',
     },
   },
@@ -45,11 +46,15 @@ const Button = (props: Props) => {
     className,
     active,
     size = 'medium',
+    disabled,
     ...rest
   } = props
   return (
     <button
-      className={cx([buttonStyles({ variant, active, size }), className])}
+      className={cx([
+        buttonStyles({ variant, active, size, disabled }),
+        className,
+      ])}
       {...rest}
     >
       {children}
