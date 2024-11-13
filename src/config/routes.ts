@@ -5,7 +5,7 @@ export const ROUTES = {
   ],
   Info: [
     { name: 'Get started', href: '/get-started' },
-    { name: 'Documentation', href: '/docs' },
+    { name: 'Documentation', href: '/docs/overview' },
     { name: 'Blog', href: '/blog' },
   ],
   Contacts: [
@@ -14,8 +14,8 @@ export const ROUTES = {
     { name: 'X', href: 'https://x.com' },
   ],
   Legal: [
-    { name: 'Privacy policy', href: '/privacy-policy' },
-    { name: 'Terms of use', href: '/terms-of-use' },
+    { name: 'Privacy policy', href: '/legal/privacy-policy' },
+    { name: 'Terms of use', href: '/legal/terms-of-use' },
   ],
   Network: [
     { name: 'status.app', href: 'https://status.app' },

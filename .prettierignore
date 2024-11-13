@@ -1,1 +1,9 @@
+node_modules/
+
+.next/
+
+public/
+
+*.mdx
+*.md
 pnpm-lock.yaml

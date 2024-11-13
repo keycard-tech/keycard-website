@@ -78,6 +78,7 @@ export default {
     colors: {
       orange: 'rgba(255, 100, 0, 1)',
       'orange-dark': 'rgba(225, 88, 0, 1)',
+      green: 'rgba(35, 173, 160, 1)',
       dark: {
         100: 'rgba(1, 1, 1, 1)',
         60: 'rgba(1, 1, 1, 0.6)',
@@ -101,6 +102,7 @@ export default {
 
     borderRadius: {
       0: '0px',
+      6: '6px',
       12: '12px',
       16: '16px',
       20: '20px',
