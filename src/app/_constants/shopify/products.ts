@@ -1,26 +1,14 @@
-export const KEYCARD_BUNDLES = {
-  THREE_CARDS: {
-    READER: {
-      productId: 'gid://shopify/ProductVariant/49438096195927',
-    },
-    NO_READER: {
-      productId: 'gid://shopify/ProductVariant/49438110384471',
-    },
+export const KEYCARD_PRODUCTS = {
+  ONE_CARD_SET: {
+    productId: 'gid://shopify/ProductVariant/43948807127304',
   },
-  TWO_CARDS: {
-    READER: {
-      productId: 'gid://shopify/ProductVariant/49438096163159',
-    },
-    NO_READER: {
-      productId: 'gid://shopify/ProductVariant/49438110351703',
-    },
+  TWO_CARDS_SET: {
+    productId: 'gid://shopify/ProductVariant/50316052529416',
   },
-  ONE_CARD: {
-    READER: {
-      productId: 'gid://shopify/ProductVariant/49438096130391',
-    },
-    NO_READER: {
-      productId: 'gid://shopify/ProductVariant/49438110318935',
-    },
+  THREE_CARDS_SET: {
+    productId: 'gid://shopify/ProductVariant/50329773539592',
+  },
+  READER: {
+    productId: 'gid://shopify/ProductVariant/50331110965512',
   },
 } as const

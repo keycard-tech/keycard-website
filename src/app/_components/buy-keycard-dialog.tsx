@@ -2,6 +2,7 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as Checkbox from '@radix-ui/react-checkbox'
+import { CartInput } from '~/server/shopify/storefront/validation'
 import { cx } from 'cva'
 import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
@@ -10,7 +11,7 @@ import { useMemo, useState } from 'react'
 import { useController, useForm } from 'react-hook-form'
 import type { SubmitHandler } from 'react-hook-form'
 import { z } from 'zod'
-import { KEYCARD_BUNDLES } from '../_constants/shopify/products'
+import { KEYCARD_PRODUCTS } from '../_constants/shopify/products'
 import {
   Check,
   Close,
@@ -31,8 +32,7 @@ import { Tooltip } from './tooltip'
 
 const shopifySchema = z
   .object({
-    // The Shopify product ID could be 'ONE_CARD', 'TWO_CARDS', or 'THREE_CARDS'
-    bundleId: z.enum(['ONE_CARD', 'TWO_CARDS', 'THREE_CARDS']),
+    bundleId: z.enum(['ONE_CARD_SET', 'TWO_CARDS_SET', 'THREE_CARDS_SET']),
     quantity: z.number(),
     includeKeycardReader: z.boolean(),
   })
@@ -55,7 +55,7 @@ type Props = {
 
 const bundles: Bundle[] = [
   {
-    id: 'THREE_CARDS',
+    id: 'THREE_CARDS_SET',
     name: '3 card set',
     price: 64,
     cards: 3,
@@ -63,14 +63,14 @@ const bundles: Bundle[] = [
     tag: 'Best deal',
   },
   {
-    id: 'TWO_CARDS',
+    id: 'TWO_CARDS_SET',
     name: '2 card set',
     price: 48,
     cards: 2,
     image: '/assets/buy/2-card.png',
   },
   {
-    id: 'ONE_CARD',
+    id: 'ONE_CARD_SET',
     name: '1 card set',
     price: 25,
     cards: 1,
@@ -87,16 +87,22 @@ const BuyKeycardDialog = (props: Props) => {
   const utmParams = useShopifyUTMParamsContext()
 
   const onSubmit: SubmitHandler<Shopify> = async data => {
-    const quantity = data.quantity
-    const productId = data.includeKeycardReader
-      ? KEYCARD_BUNDLES[data.bundleId].READER.productId
-      : KEYCARD_BUNDLES[data.bundleId].NO_READER.productId
+    const products: CartInput = [
+      {
+        productId: KEYCARD_PRODUCTS[data.bundleId].productId,
+        quantity: data.quantity,
+      },
+    ]
+
+    if (data.includeKeycardReader) {
+      products.push({
+        productId: KEYCARD_PRODUCTS.READER.productId,
+        quantity: 1,
+      })
+    }
 
     // TODO: consider add some ui to error handling - toast or something similar
-    const shopifyCartUrl = await createCart({
-      productId,
-      quantity: quantity,
-    })
+    const shopifyCartUrl = await createCart(products)
 
     const url = new URL(shopifyCartUrl)
 
@@ -131,7 +137,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
   const form = useForm<Shopify>({
     resolver: zodResolver(shopifySchema),
     defaultValues: {
-      bundleId: 'THREE_CARDS',
+      bundleId: 'THREE_CARDS_SET',
       includeKeycardReader: true,
       quantity: 1,
     },

@@ -1,7 +1,7 @@
-import { z } from 'zod'
 import 'server-only'
 import { CartMutation, ProductsQuery } from './operations'
 import { CartResponseBody, ProductsResponseBody } from './types'
+import { CartInput, cartSchema } from './validation'
 
 export async function experimental_getProducts() {
   const response = await _fetch<ProductsResponseBody>(ProductsQuery)
@@ -24,19 +24,14 @@ export async function experimental_getProducts() {
   return products
 }
 
-const cartSchema = z.object({
-  productId: z.string(),
-  quantity: z.number(),
-})
-
-export async function createCart(
-  input: z.infer<typeof cartSchema>,
-): Promise<string> {
-  const { productId, quantity } = cartSchema.parse(input)
-
-  const response = await _fetch<CartResponseBody>(CartMutation, {
+export async function createCart(input: CartInput): Promise<string> {
+  const products = cartSchema.parse(input).map(({ productId, quantity }) => ({
     merchandiseId: productId,
     quantity,
+  }))
+
+  const response = await _fetch<CartResponseBody>(CartMutation, {
+    lines: products,
   })
 
   const checkoutUrl = response.cartCreate?.cart?.checkoutUrl
@@ -59,8 +54,8 @@ export async function _fetch<T extends ProductsResponseBody | CartResponseBody>(
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/graphql-response+json',
-        'Shopify-Storefront-Private-Token':
-          process.env.SHOPIFY_STOREFRONT_API_PRIVATE_ACCESS_TOKEN,
+        'X-Shopify-Storefront-Access-Token':
+          process.env.SHOPIFY_STOREFRONT_API_PUBLIC_ACCESS_TOKEN,
       },
       body: JSON.stringify({
         query,
@@ -74,6 +69,10 @@ export async function _fetch<T extends ProductsResponseBody | CartResponseBody>(
   }
 
   const body = await response.json()
+
+  if (body.errors) {
+    throw new Error('Failed to fetch')
+  }
 
   return body.data as T
 }
