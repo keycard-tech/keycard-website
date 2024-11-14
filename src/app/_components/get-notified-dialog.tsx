@@ -228,7 +228,7 @@ const SignUpForm = (props: SignUpFormProps) => {
             type="submit"
             disabled={isSubmitting}
             variant="primary"
-            className="absolute right-1 top-8 h-10 w-[101px] justify-center border border-white-20"
+            className="absolute right-1 top-8 h-10 min-w-[101px] justify-center border border-white-20"
           >
             {isSubmitting ? (
               <Loading className="my-px animate-spin text-white-100" />
