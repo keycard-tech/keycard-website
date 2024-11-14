@@ -223,29 +223,29 @@ const ShopifyForm = (props: ShopifyFormProps) => {
                       setValue('bundleId', bundle.id)
                     }}
                     className={cx(
-                      'relative flex max-w-40 flex-col items-start justify-between rounded-[20px] bg-white-3 px-4 py-3 text-left transition-colors duration-300',
+                      'relative flex max-w-40 flex-col items-start justify-between rounded-[20px] bg-white-3 px-4 py-3 text-left transition-colors duration-300 hover:[&>span]:-left-1 hover:[&>span]:-top-1 hover:[&>span]:size-[calc(100%+8px)] hover:[&>span]:rounded-[24px]',
                       selected ? 'outline outline-4 outline-[transparent]' : '',
                     )}
                   >
                     <span
                       className={cx([
-                        'absolute border transition-colors',
+                        'absolute border transition-all',
                         selected
                           ? '-left-1 -top-1 size-[calc(100%+8px)] rounded-[24px] border-orange-dark'
                           : 'left-0 top-0 size-full rounded-[20px] border-white-12',
                       ])}
                     />
 
-                    <span className="font-300 text-white-60">
+                    <div className="font-300 text-white-60">
                       {bundle.cards} card set
-                    </span>
+                    </div>
                     <div className="flex w-full items-center justify-between font-lora text-24 font-400">
                       ${bundle.price}
                       {bundle.tag && (
                         <Tooltip label="Best deal">
-                          <span className="flex size-5 items-center justify-center rounded-full bg-orange">
+                          <div className="flex size-5 items-center justify-center rounded-full bg-orange">
                             <Recommended />
-                          </span>
+                          </div>
                         </Tooltip>
                       )}
                     </div>
