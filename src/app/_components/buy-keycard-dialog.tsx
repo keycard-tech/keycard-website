@@ -84,6 +84,7 @@ const BuyKeycardDialog = (props: Props) => {
   const [open, setOpen] = useState(false)
 
   const router = useRouter()
+
   const utmParams = useShopifyUTMParamsContext()
 
   const onSubmit: SubmitHandler<Shopify> = async data => {
@@ -110,7 +111,9 @@ const BuyKeycardDialog = (props: Props) => {
       url.searchParams.append(key, value)
     })
 
-    router.push(url.toString())
+    window.open(url.toString(), '_blank', 'noopener')
+
+    router.push('/thank-you')
   }
 
   return (
