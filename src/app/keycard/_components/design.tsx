@@ -26,10 +26,10 @@ const features = [
 
 const Design = () => {
   return (
-    <div className="px-6 pt-20 text-white-95 md:px-20 md:pt-[200px]">
+    <div className="px-3 pt-[120px] text-white-95 md:pt-[200px] lg:px-20">
       <div>
         <h2 className="pb-14 font-lora text-32 font-400">Simple by design</h2>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-4">
           {features.map((feature, index) => (
             <div
               key={index}

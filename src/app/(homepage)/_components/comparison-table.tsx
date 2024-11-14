@@ -365,46 +365,54 @@ const ComparisonTable = () => {
   ]
 
   return (
-    <section className="mx-auto max-w-[1352px] overflow-x-auto pt-[200px] text-white-95">
-      <h1 className="font-lora text-32 text-white-95">
+    <section className="mx-auto max-w-[1352px] overflow-x-hidden pt-[120px] text-white-95 lg:pt-[200px]">
+      <h1 className="px-3 font-lora text-32 text-white-95 min-[1512px]:px-0">
         Going one step further.
       </h1>
-      <div className="overflow-hidden pt-20">
-        <div className="grid grid-cols-[2fr,1fr,1fr,1fr,1fr] justify-items-center font-lora text-24 font-400 text-white-90">
-          <div className="justify-self-start p-4 pb-5 pl-6">Feature</div>
-          <div className="p-4 pb-5">Keycard Pro</div>
-          <div className="p-4 pb-5">Keycard</div>
-          <div className="p-4 pb-5">Tangem</div>
-          <div className="p-4 pb-5">Ledger</div>
-        </div>
+      <div className="overflow-x-auto px-3 scrollbar-none min-[1512px]:px-0">
+        <div className="w-[684px] pt-14 md:w-full lg:w-full lg:pt-20">
+          <div className="grid grid-cols-[1.33fr,1fr,1fr,1fr,1fr] justify-items-center font-lora text-24 font-400 text-white-90 lg:grid-cols-[2fr,1fr,1fr,1fr,1fr]">
+            <div className="justify-self-start p-4 pb-5 pl-6">Feature</div>
+            <div className="hidden p-4 pb-5 lg:block">Keycard Pro</div>
+            <div className="p-4 pb-5 lg:hidden">KPro</div>
+            <div className="p-4 pb-5">Keycard</div>
+            <div className="p-4 pb-5">Tangem</div>
+            <div className="p-4 pb-5">Ledger</div>
+          </div>
 
-        <div className="rounded-28 border border-white-12 bg-white-3 px-6">
-          {features.map((feature, index) => {
-            return (
-              <div
-                key={index}
-                className="grid grid-cols-[2fr,1fr,1fr,1fr,1fr] border-b border-dashed border-white-12 font-300 first:pt-2 last:border-b-0 last:pb-2"
-              >
-                <div className="flex items-center gap-1 p-5 first:pl-0">
-                  {feature.name}
-                  {feature.tooltip && (
-                    <Tooltip label={feature.tooltip}>
-                      <Info className="flex-shrink-0 text-white-40 transition-colors hover:text-white-60" />
-                    </Tooltip>
-                  )}
-                </div>
-                {products.map(product => (
-                  <div
-                    key={product}
-                    className="relative flex items-center justify-center last:pr-0"
-                  >
-                    <FeatureInfo variant={feature[product]} />
-                    <TooltipInfo variant={feature[product]} />
+          <div className="rounded-28 border border-white-12 bg-white-3 px-6">
+            {features.map((feature, index) => {
+              return (
+                <div
+                  key={index}
+                  className="grid grid-cols-[1.33fr,1fr,1fr,1fr,1fr] border-b border-dashed border-white-12 font-300 first:pt-2 last:border-b-0 last:pb-2 lg:grid-cols-[2fr,1fr,1fr,1fr,1fr]"
+                >
+                  <div className="w-full p-5 first:pl-0 lg:flex lg:items-center">
+                    <span className="relative inline whitespace-normal">
+                      {feature.name.split(' ').slice(0, -1).join(' ')}{' '}
+                      <span className="inline-flex items-center">
+                        {feature.name.split(' ').slice(-1)[0]}
+                        {feature.tooltip && (
+                          <Tooltip label={feature.tooltip}>
+                            <Info className="ml-2 flex-shrink-0 text-white-40 transition-colors hover:text-white-60" />
+                          </Tooltip>
+                        )}
+                      </span>
+                    </span>
                   </div>
-                ))}
-              </div>
-            )
-          })}
+                  {products.map(product => (
+                    <div
+                      key={product}
+                      className="relative flex items-center justify-center last:pr-0"
+                    >
+                      <FeatureInfo variant={feature[product]} />
+                      <TooltipInfo variant={feature[product]} />
+                    </div>
+                  ))}
+                </div>
+              )
+            })}
+          </div>
         </div>
       </div>
     </section>

@@ -3,16 +3,24 @@ import Image from 'next/image'
 
 const KeycardPro = () => {
   return (
-    <section className="relative mx-6 mt-[200px] flex items-center overflow-hidden rounded-28 border border-white-12 backdrop-blur-[20px] md:mx-20">
+    <section className="relative mx-0 mt-[160px] flex items-center overflow-hidden rounded-28 border border-white-12 lg:mx-6 lg:mt-[200px]">
       <Image
         src="/assets/keycard/bg-keycard-pro.png"
         alt="Keycard Pro Hardware Wallet"
         width={1400}
         height={800}
-        className="absolute left-0 top-0 size-full object-cover"
+        className="absolute left-0 top-0 hidden size-full object-cover md:block"
       />
 
-      <div className="relative z-10 flex flex-col p-8 md:py-[200px] md:pl-[229px]">
+      <Image
+        src="/assets/keycard/bg-keycard-pro-mobile.png"
+        alt="Keycard Pro Hardware Wallet"
+        width={828}
+        height={1452}
+        className="absolute left-0 top-0 block size-full scale-[101%] object-cover md:hidden"
+      />
+
+      <div className="relative z-10 flex flex-col p-6 pt-[400px] lg:py-[200px] lg:pl-[229px]">
         <p className="pb-3 text-24 font-600 text-white-95">
           keycard <span className="font-200">pro</span>
         </p>
@@ -25,7 +33,7 @@ const KeycardPro = () => {
           Use the same device for all your Keycards. It’s airgaped, stateless
           and modular.
         </p>
-        <div className="flex space-x-4">
+        <div className="flex gap-4">
           <ButtonLink href="/">Get notified</ButtonLink>
           <ButtonLink href="/" variant="secondary">
             Learn more

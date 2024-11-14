@@ -3,6 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '~components/tabs'
 import { External } from '~icons'
 import Image from 'next/image'
 import { FeaturesAccordion } from './features-accordion'
+import { FeaturesSlider } from './features-slider'
 
 // TODO: Replace with correct data when design has it.
 const featuresMobile = [
@@ -10,6 +11,7 @@ const featuresMobile = [
     title: 'Store your profile and chatkey',
     description: 'Here is a short description of the feature',
     image: '/assets/keycard/status-app-mobile.png',
+    imageMobile: '/assets/keycard/slider/iphone-a.png',
   },
   {
     title: 'Send assets and collectibles',
@@ -17,22 +19,26 @@ const featuresMobile = [
       'Status supports all Ethereum assets in the Uniswap Labs default token list.',
     tokens: '/assets/keycard/tokens.png',
     image: '/assets/keycard/status-app-mobile.png',
+    imageMobile: '/assets/keycard/slider/iphone-a.png',
   },
   {
     title: 'Bridge',
     description: 'Here is a short description of the feature',
     image: '/assets/keycard/status-app-mobile.png',
+    imageMobile: '/assets/keycard/slider/iphone-a.png',
   },
   {
     title: 'Swap',
     description: 'Here is a short description of the feature',
     tag: 'SOON',
     image: '/assets/keycard/status-app-mobile.png',
+    imageMobile: '/assets/keycard/slider/iphone-a.png',
   },
   {
     title: 'Sign dApp transactions',
     description: 'Here is a short description of the feature',
     image: '/assets/keycard/status-app-mobile.png',
+    imageMobile: '/assets/keycard/slider/iphone-a.png',
   },
 ]
 
@@ -41,6 +47,7 @@ const featuresDesktop = [
     title: 'Store your profile and chatkey',
     description: 'Here is a short description of the feature',
     image: '/assets/keycard/status-app-mobile.png',
+    imageMobile: '/assets/keycard/slider/iphone-a.png',
   },
   {
     title: 'Send assets and collectibles',
@@ -48,22 +55,26 @@ const featuresDesktop = [
       'Status supports all Ethereum assets in the Uniswap Labs default token list.',
     tokens: '/assets/keycard/tokens.png',
     image: '/assets/keycard/status-app-mobile.png',
+    imageMobile: '/assets/keycard/slider/iphone-a.png',
   },
   {
     title: 'Bridge',
     description: 'Here is a short description of the feature',
     image: '/assets/keycard/status-app-mobile.png',
+    imageMobile: '/assets/keycard/slider/iphone-a.png',
   },
   {
     title: 'Swap',
     description: 'Here is a short description of the feature',
     tag: 'SOON',
     image: '/assets/keycard/status-app-mobile.png',
+    imageMobile: '/assets/keycard/slider/iphone-a.png',
   },
   {
     title: 'Sign dApp transactions',
     description: 'Here is a short description of the feature',
     image: '/assets/keycard/status-app-mobile.png',
+    imageMobile: '/assets/keycard/slider/iphone-a.png',
   },
 ]
 
@@ -91,10 +102,9 @@ const integrations = [
 const Integration = () => {
   return (
     <section>
-      {/* eslint-disable-next-line tailwindcss/enforces-negative-arbitrary-values*/}
-      <div className="-ml-[calc((100vw-100%)/2)] mt-[200px] flex w-screen justify-center border-y border-y-white-8 bg-white-3">
-        <div className="w-full max-w-[1512px] p-20">
-          <div className="flex max-w-[550px] flex-col gap-2 pb-8">
+      <div className="mt-[200px] flex justify-center border-y border-y-white-8 bg-white-3">
+        <div className="w-full max-w-[1512px] p-20 px-0 pb-5 lg:px-20 lg:pb-20">
+          <div className="flex max-w-[550px] flex-col gap-2 px-3 pb-8 lg:px-0">
             <Image
               width={109}
               height={32}
@@ -110,25 +120,27 @@ const Integration = () => {
             </p>
           </div>
           <Tabs defaultValue="desktop">
-            <TabsList>
+            <TabsList className="mx-3 lg:mx-0">
               <TabsTrigger value="desktop">Desktop</TabsTrigger>
               <TabsTrigger value="mobile">Mobile</TabsTrigger>
             </TabsList>
-            <TabsContent value="desktop">
+            <TabsContent value="desktop" className="pt-20">
               <FeaturesAccordion items={featuresDesktop} />
+              <FeaturesSlider items={featuresDesktop} />
             </TabsContent>
-            <TabsContent value="mobile">
+            <TabsContent value="mobile" className="pt-20">
               <FeaturesAccordion items={featuresMobile} />
+              <FeaturesSlider items={featuresMobile} />
             </TabsContent>
           </Tabs>
         </div>
       </div>
 
-      <div className="px-6 pt-20 md:px-12">
-        <h2 className="pb-4 pl-8 text-12 font-400 text-white-80">
+      <div className="px-3 pt-20 md:px-12">
+        <h2 className="pb-4 pl-6 text-12 font-400 text-white-80 lg:pl-8">
           ALSO INTEGRATED WITH
         </h2>
-        <div className="grid grid-cols-1 gap-6 rounded-28 border border-white-8 bg-white-3 p-8 pt-9 text-white-95 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 rounded-28 border border-white-8 bg-white-3 p-6 pt-5 text-white-95 md:grid-cols-2 lg:grid-cols-4 lg:gap-6 lg:p-8 lg:pt-9">
           {integrations.map((integration, index) => (
             <div key={index} className="flex flex-col">
               <div className="mb-3 inline-flex items-center">
@@ -157,7 +169,7 @@ const Integration = () => {
           ))}
           <div className="flex flex-col gap-6">
             <div>
-              <h2 className="font-lora text-32 font-500 text-white-95">
+              <h2 className="font-lora text-24 font-500 text-white-95 lg:text-32">
                 Want to integrate?
               </h2>
               <p className="text-16 text-white-80">
