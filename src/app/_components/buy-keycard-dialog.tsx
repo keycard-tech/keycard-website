@@ -323,21 +323,22 @@ const ShopifyForm = (props: ShopifyFormProps) => {
               <div className="text-16 font-300 text-white-80">+$22</div>
             </div>
           </div>
-
-          <Button
-            type="submit"
-            className="w-full justify-center font-500"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? (
-              <Loading className="my-px animate-spin text-white-100" />
-            ) : (
-              <>
-                Checkout <div className="size-1 rounded-full bg-white-40" /> $
-                {total}
-              </>
-            )}
-          </Button>
+          <div className="rounded-16 border border-white-12 bg-white-3 p-1">
+            <Button
+              type="submit"
+              className="w-full justify-center font-500"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? (
+                <Loading className="my-px animate-spin text-white-100" />
+              ) : (
+                <>
+                  Checkout <div className="size-1 rounded-full bg-white-40" /> $
+                  {total}
+                </>
+              )}
+            </Button>
+          </div>
 
           <div className="pb-1 pt-5 md:pb-0">
             <div className="flex items-center gap-2">
