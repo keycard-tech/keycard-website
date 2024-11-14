@@ -12,6 +12,8 @@ const Title = BaseDialog.Title
 
 const Description = BaseDialog.Description
 
+const Close = BaseDialog.Close
+
 const Overlay = forwardRef<
   React.ElementRef<typeof BaseDialog.Overlay>,
   React.ComponentPropsWithoutRef<typeof BaseDialog.Overlay>
@@ -51,4 +53,4 @@ const Content = forwardRef<
 
 Content.displayName = BaseDialog.Content.displayName
 
-export { Content, Description, Root, Title, Trigger }
+export { Content, Close, Description, Root, Title, Trigger }

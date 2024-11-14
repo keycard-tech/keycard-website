@@ -12,7 +12,7 @@ import { Loading } from '../_icons/loading'
 import { signUpSchema, type SignUp } from '../_lib/google/validation'
 import { handleSignUp } from '../actions'
 import { Button } from './button'
-import { ButtonLink } from './button-link'
+import { BuyKeycardDialog } from './buy-keycard-dialog'
 import { Field } from './form/field'
 import { Form } from './form/form'
 
@@ -56,13 +56,13 @@ export const GetNotifiedDialog = (props: Props) => {
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger asChild>{children}</Dialog.Trigger>
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 z-50 bg-dark-60 backdrop-blur-2xl" />
+        <Dialog.Overlay className="fixed inset-0 z-[70] bg-dark-60 backdrop-blur-2xl" />
         <Dialog.Content>
           {showSuccess ? (
             <>
               <div
                 className={cx(
-                  'fixed inset-0 top-1/2 z-50 -mt-6 h-[623px] -translate-y-1/2 overflow-y-auto focus:outline-none',
+                  'fixed inset-0 top-1/2 z-[70] -mt-6 h-[623px] -translate-y-1/2 overflow-y-auto focus:outline-none',
                   'md:left-1/2 md:mt-0 md:w-[570px] md:-translate-x-1/2',
                 )}
               >
@@ -90,7 +90,7 @@ export const GetNotifiedDialog = (props: Props) => {
               </div>
               <div
                 className={cx(
-                  'fixed inset-x-5 bottom-4 z-50 flex flex-col items-start justify-between gap-2 bg-white-8 p-1',
+                  'fixed inset-x-5 bottom-4 z-[70] flex flex-col items-start justify-between gap-2 bg-white-8 p-1',
                   'rounded-20 border border-white-12',
                   'md:bottom-12 md:left-1/2 md:w-[570px] md:-translate-x-1/2 md:flex-row md:items-center md:gap-4 md:pr-4',
                 )}
@@ -112,19 +112,20 @@ export const GetNotifiedDialog = (props: Props) => {
                     </div>
                   </div>
                 </div>
-                <ButtonLink
-                  variant="primary"
-                  href="/keycard"
-                  className="w-full justify-center md:w-fit md:justify-start"
-                >
-                  Buy Keycard
-                </ButtonLink>
+                <BuyKeycardDialog>
+                  <Button
+                    variant="primary"
+                    className="w-full justify-center md:w-fit md:justify-start"
+                  >
+                    Buy Keycard
+                  </Button>
+                </BuyKeycardDialog>
               </div>
             </>
           ) : (
             <div
               className={cx(
-                'fixed inset-0 z-50 h-full overflow-y-auto focus:outline-none',
+                'fixed inset-0 z-[70] h-full overflow-y-auto focus:outline-none',
                 'md:left-1/2 md:top-1/2 md:h-fit md:w-[570px] md:-translate-x-1/2 md:-translate-y-1/2',
               )}
             >
