@@ -165,7 +165,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
 
   const total = useMemo(() => {
     const bundlePrice = bundles.find(b => b.id === selectedBundle)?.price || 0
-    const readerPrice = includeReader ? 5 : 0
+    const readerPrice = includeReader ? 22 : 0
 
     return bundlePrice * quantity + readerPrice
   }, [selectedBundle, quantity, includeReader])
@@ -281,7 +281,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
 
           <div className="py-8">
             <h3 className="mb-2 text-12 text-white-80">DESKTOP SUPPORT</h3>
-            <div className="flex items-center justify-between space-x-3 rounded-16 border border-white-12 bg-white-3 p-4">
+            <div className="flex items-center justify-between space-x-3 rounded-16 border border-white-12 bg-white-3 p-3 pr-4">
               <div className="relative flex items-center justify-start">
                 <Checkbox.Root
                   {...form.register('includeKeycardReader')}
@@ -320,7 +320,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
                   </div>
                 </Tooltip>
               </div>
-              <div className="text-16 font-300 text-white-80">+$5</div>
+              <div className="text-16 font-300 text-white-80">+$22</div>
             </div>
           </div>
 
@@ -366,7 +366,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
                 height={32}
               />
             </div>
-            <div className="mt-10 flex flex-col items-center gap-[10px] rounded-16 border border-dashed border-white-12 bg-white-3 px-4 py-[14px] text-14 text-white-60 md:flex-row md:gap-2">
+            <div className="mt-10 flex flex-col items-center gap-[10px] rounded-16 border border-dashed border-white-12 bg-white-3 px-4 py-[14px] text-14 text-white-60 md:flex-row md:justify-center md:gap-2">
               <div className="flex items-center">
                 <Labels className="mr-1 shrink-0" /> Prices don&apos;t include
                 VAT
