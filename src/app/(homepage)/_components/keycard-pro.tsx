@@ -1,4 +1,6 @@
+import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
+import { GetNotifiedDialog } from '~components/get-notified-dialog'
 import Image from 'next/image'
 
 const KeycardPro = () => {
@@ -39,7 +41,9 @@ const KeycardPro = () => {
           Certainly you don&apos;t want to miss it
         </p>
         <div className="flex gap-4">
-          <ButtonLink href="/">Get notified</ButtonLink>
+          <GetNotifiedDialog>
+            <Button>Get notified</Button>
+          </GetNotifiedDialog>
           <ButtonLink href="/" variant="secondary">
             Learn more
           </ButtonLink>
