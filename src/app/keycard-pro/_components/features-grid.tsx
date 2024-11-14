@@ -44,7 +44,8 @@ const features = [
       'Enjoy full visibility of sensitive information like your seed phrase.',
     image: '/assets/keycard-pro/keycard-pro-feature-2.png',
     badge: { text: '2 inches' },
-    className: 'row-span-2 col-span-1 flex-col-reverse gap-0',
+    className:
+      'row-span-2 col-span-1 flex-col-reverse gap-0 [&_img]:scale-75 lg:scale-100',
   },
   {
     title: 'Open source security',
@@ -88,11 +89,11 @@ const features = [
 
 const FeaturesGrid = () => {
   return (
-    <section className="mx-auto max-w-[1352px] pt-[200px]">
+    <section className="max-w-[1352px] px-3 pt-[120px] lg:mx-auto lg:pt-[200px] min-[1512px]:px-0">
       <h2 className="max-w-[665px] font-lora text-32 text-white-95">
         Convenient, robust and made to last
       </h2>
-      <div className="grid grid-cols-4 gap-6 pt-14">
+      <div className="grid grid-cols-1 gap-5 pt-14 lg:grid-cols-4 lg:gap-6">
         {features.map((feature, index) => (
           <div
             key={index}
@@ -106,8 +107,8 @@ const FeaturesGrid = () => {
                 src={feature.image}
                 alt={feature.title}
                 className="w-full rounded-12"
-                width={140}
-                height={140}
+                width={640}
+                height={640}
               />
             )}
             <div className="p-6 pt-5">
@@ -149,7 +150,6 @@ const FeaturesGrid = () => {
                     href="https://github.com"
                     className="font-500 [&_path]:hover:fill-white-dark"
                     variant="white"
-                    size="small"
                   >
                     <span>{feature.button.text}</span>
                     <feature.button.icon />

@@ -45,21 +45,22 @@ const AirGapped = () => {
   ]
 
   return (
-    <section className="relative mb-[100px] grid items-center overflow-y-clip px-5 pb-[100px] pt-[120px] lg:grid-cols-2">
-      <div className="relative">
-        <div className="relative right-0 lg:absolute lg:h-[678px] lg:-translate-y-60">
-          <div className="absolute bottom-0 z-10 h-96 w-full bg-gradient-to-b from-[transparent] to-dark-100 lg:bottom-28" />
+    <section className="relative -order-1 grid items-center overflow-y-clip px-3 pb-[498px] pt-[120px] lg:mb-[100px] lg:grid-cols-2 lg:pb-[100px]">
+      <div className="relative order-last lg:order-first">
+        <div className="absolute right-1/4 h-[448px] translate-x-1/3 translate-y-14 lg:right-0 lg:h-[678px] lg:-translate-y-60 lg:translate-x-0">
+          <div className="absolute bottom-1 z-10 h-20 w-full bg-gradient-to-b from-[transparent] to-dark-100 lg:bottom-20 lg:h-64" />
+
           <Image
             alt="Hardware wallet device with QR display"
             height={800}
             width={1600}
-            className="w-full max-w-max lg:w-[1000px] lg:max-w-[1000px]"
+            className="w-[800px] max-w-[800px] lg:w-[1000px] lg:max-w-[1000px]"
             src="/assets/keycard-pro/keycard-with-macbook.png"
           />
         </div>
       </div>
 
-      <div className="flex w-full max-w-[549px] flex-col justify-self-start pl-3">
+      <div className="flex w-full flex-col justify-self-start lg:max-w-[549px] lg:pl-3 lg:pt-20">
         <div>
           <h2 className="mb-2 font-lora text-32">Something about airgapped</h2>
           <p className="text-16 font-300 text-white-60">
@@ -67,7 +68,7 @@ const AirGapped = () => {
           </p>
         </div>
 
-        <div className="mt-14">
+        <div className="mt-8 lg:mt-14">
           <div className="mb-5 text-12 text-white-80">
             TRANSACTION SIGNING WITH
           </div>

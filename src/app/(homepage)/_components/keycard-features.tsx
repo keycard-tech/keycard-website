@@ -11,6 +11,7 @@ const features = [
     description:
       'Our secure element has the highest level of security EAL6+ certified by Common Criteria.',
     image: '/assets/feature-keycard.png',
+    imageClassName: '!justify-start',
     badge: { icon: Shield, text: 'EAL 6+', gradient: true },
     className: 'row-span-2 col-span-1',
   },
@@ -28,7 +29,6 @@ const features = [
     image: '/assets/feature-keycard-pro.png',
     badge: { text: '0 cables' },
     className: 'row-span-2 col-span-1 flex-col-reverse',
-    gradient: true,
   },
   {
     title: 'Made to last',
@@ -64,14 +64,14 @@ const UnderlinedWord = ({ children }: { children: React.ReactNode }) => (
 
 const KeycardFeatures = () => {
   return (
-    <section className="mx-auto max-w-[1352px] pt-[200px]">
+    <section className="max-w-[1352px] px-3 pt-[120px] lg:mx-auto lg:pt-[200px] min-[1512px]:px-0">
       <h1 className="max-w-[665px] font-lora text-32 text-white-95">
         Join the <UnderlinedWord>open source</UnderlinedWord> revolution of the
         most <UnderlinedWord>modular</UnderlinedWord> and{' '}
         <UnderlinedWord>future proof</UnderlinedWord> hardware wallet system
         ever conceived.
       </h1>
-      <div className="grid grid-cols-4 gap-6 pt-20">
+      <div className="grid grid-cols-1 gap-5 pt-20 lg:grid-cols-4 lg:gap-6">
         {features.map((feature, index) => (
           <div
             key={index}
@@ -81,7 +81,12 @@ const KeycardFeatures = () => {
             ])}
           >
             {feature.image && (
-              <div className={`flex items-center justify-center`}>
+              <div
+                className={cx([
+                  'flex items-center justify-center',
+                  feature.imageClassName,
+                ])}
+              >
                 <Image
                   src={feature.image}
                   alt={feature.title}
@@ -91,10 +96,7 @@ const KeycardFeatures = () => {
                 />
               </div>
             )}
-            {feature.gradient && (
-              <div className="absolute -bottom-10 left-0 h-1/2 w-full rounded-12 bg-gradient-to-b from-[transparent] to-white-8" />
-            )}
-            <div className="p-6">
+            <div className="p-6 pt-5 lg:pt-6">
               <div>
                 <h3 className="mb-[6px] font-lora text-24 font-400">
                   {feature.title}

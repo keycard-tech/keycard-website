@@ -33,14 +33,23 @@ const faqs = [
 
 const Faqs = () => {
   return (
-    <section className="mx-auto max-w-[1352px] overflow-y-clip">
-      <div className="item-start px- flex flex-col justify-between lg:flex-row lg:items-end lg:px-0">
-        <div className="flex flex-1 flex-col pt-[200px]">
+    <section className="mx-auto max-w-[1352px]">
+      <div className="flex flex-col items-start justify-between px-3 lg:flex-row lg:items-end min-[1512px]:px-0">
+        <div className="flex w-full flex-col lg:pt-[200px]">
+          <div className="block pt-[120px] lg:hidden">
+            <Image
+              src="/assets/faqs-mobile.png"
+              alt="FAQ Background"
+              width={736}
+              height={736}
+              className="w-full"
+            />
+          </div>
           <h1 className="font-lora text-32 text-white-95">
-            Something about faqs
+            Frequently asked questions
           </h1>
           <Accordion.Root
-            className="max-w-[549px] flex-1 pt-14"
+            className="flex-1 pt-8 lg:max-w-[549px] lg:pt-14"
             type="single"
             defaultValue="item-1"
             collapsible
@@ -56,7 +65,7 @@ const Faqs = () => {
                 <Accordion.Header className="flex">
                   <Accordion.Trigger
                     className={cx(
-                      'group flex flex-1 cursor-pointer items-center justify-between text-left font-lora text-24 leading-none text-white-95 outline-none',
+                      'group flex flex-1 cursor-pointer items-center justify-between gap-6 text-left font-lora text-24 leading-none text-white-95 outline-none',
                     )}
                   >
                     {faq.question}
@@ -70,14 +79,14 @@ const Faqs = () => {
                     'overflow-hidden text-16 font-300 text-white-80 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown',
                   )}
                 >
-                  {faq.answer}
+                  <span className="flex pt-4">{faq.answer}</span>
                 </Accordion.Content>
               </Accordion.Item>
             ))}
           </Accordion.Root>
         </div>
-        <div className="flex flex-col items-end pt-[100px]">
-          <div className="relative -right-1/4 -mt-48 translate-x-[156px] translate-y-10">
+        <div className="flex flex-col items-end">
+          <div className="relative -right-1/4 -mt-48 hidden translate-x-[156px] translate-y-10 lg:block">
             <div className="absolute top-32 z-10 h-1/2 w-full bg-gradient-to-t from-[transparent] to-dark-100" />
             <Image
               src="/assets/faqs.png"
@@ -87,7 +96,7 @@ const Faqs = () => {
             />
           </div>
 
-          <div className="flex max-w-[320px] flex-col gap-6 rounded-28 border border-white-8 bg-white-3 p-6 pt-5">
+          <div className="mt-14 flex w-full flex-col gap-6 rounded-28 border border-white-8 bg-white-3 p-6 pt-5 lg:mt-0 lg:max-w-[320px]">
             <div className="flex flex-col gap-[6px]">
               <p className="font-lora text-24 font-400 text-white-95">
                 Still have questions?
@@ -104,14 +113,14 @@ const Faqs = () => {
               <ButtonLink
                 href="https://discord.com"
                 variant="secondary"
-                className="inline-flex"
+                className="px-[9px]"
               >
                 <Discord />
               </ButtonLink>
               <ButtonLink
                 href="https://x.com"
                 variant="secondary"
-                className="inline-flex"
+                className="px-[9px]"
               >
                 <X />
               </ButtonLink>

@@ -81,7 +81,7 @@ export function GhostContentAPI({
    */
   if (host) {
     console.warn(
-      `${name}: The 'host' parameter is deprecated, please use 'url' instead`
+      `${name}: The 'host' parameter is deprecated, please use 'url' instead`,
     )
     if (!url) {
       url = host
@@ -101,7 +101,7 @@ export function GhostContentAPI({
 
   if (version === undefined) {
     throw new Error(
-      `${name} Config Missing: 'version' is required. E.g. ${supportedVersions.join(',')}`
+      `${name} Config Missing: 'version' is required. E.g. ${supportedVersions.join(',')}`,
     )
   }
 
@@ -117,18 +117,18 @@ export function GhostContentAPI({
     !version.match(/^v\d+\.\d+/)
   ) {
     throw new Error(
-      `${name} Config Invalid: 'version' ${version} is not supported`
+      `${name} Config Invalid: 'version' ${version} is not supported`,
     )
   } else {
     if (version === 'canary') {
       console.warn(
-        `${name}: The 'version' parameter has a deprecated format 'canary', please use 'v{major}.{minor}' format instead`
+        `${name}: The 'version' parameter has a deprecated format 'canary', please use 'v{major}.{minor}' format instead`,
       )
 
       acceptVersionHeader = defaultAcceptVersionHeader
     } else if (version.match(/^v\d+$/)) {
       console.warn(
-        `${name}: The 'version' parameter has a deprecated format 'v{major}', please use 'v{major}.{minor}' format instead`
+        `${name}: The 'version' parameter has a deprecated format 'v{major}', please use 'v{major}.{minor}' format instead`,
       )
 
       acceptVersionHeader = `${version}.0`
@@ -139,27 +139,27 @@ export function GhostContentAPI({
 
   if (!url) {
     throw new Error(
-      `${name} Config Missing: 'url' is required. E.g. 'https://site.com'`
+      `${name} Config Missing: 'url' is required. E.g. 'https://site.com'`,
     )
   }
   if (!/https?:\/\//.test(url)) {
     throw new Error(
-      `${name} Config Invalid: 'url' ${url} requires a protocol. E.g. 'https://site.com'`
+      `${name} Config Invalid: 'url' ${url} requires a protocol. E.g. 'https://site.com'`,
     )
   }
   if (url.endsWith('/')) {
     throw new Error(
-      `${name} Config Invalid: 'url' ${url} must not have a trailing slash. E.g. 'https://site.com'`
+      `${name} Config Invalid: 'url' ${url} must not have a trailing slash. E.g. 'https://site.com'`,
     )
   }
   if (ghostPath.endsWith('/') || ghostPath.startsWith('/')) {
     throw new Error(
-      `${name} Config Invalid: 'ghostPath' ${ghostPath} must not have a leading or trailing slash. E.g. 'ghost'`
+      `${name} Config Invalid: 'ghostPath' ${ghostPath} must not have a leading or trailing slash. E.g. 'ghost'`,
     )
   }
   if (key && !/[0-9a-f]{26}/.test(key)) {
     throw new Error(
-      `${name} Config Invalid: 'key' ${key} must have 26 hex characters`
+      `${name} Config Invalid: 'key' ${key} must have 26 hex characters`,
     )
   }
 
@@ -191,7 +191,7 @@ export function GhostContentAPI({
         resourceType,
         params,
         data.id || `slug/${data.slug}`,
-        memberToken
+        memberToken,
       )
     }
 
@@ -214,7 +214,7 @@ export function GhostContentAPI({
   function makeApiRequest(resourceType, params, id, membersToken = null) {
     if (!membersToken && !key) {
       return Promise.reject(
-        new Error(`${name} Config Missing: 'key' is required.`)
+        new Error(`${name} Config Missing: 'key' is required.`),
       )
     }
     delete params.id
