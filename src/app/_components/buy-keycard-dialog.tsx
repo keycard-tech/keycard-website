@@ -224,7 +224,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
                     }}
                     className={cx(
                       'relative flex max-w-40 flex-col items-start justify-between rounded-[20px] bg-white-3 px-4 py-3 text-left transition-colors duration-300',
-                      selected ? 'outline outline-4 outline-white-3' : '',
+                      selected ? 'outline outline-4 outline-[transparent]' : '',
                     )}
                   >
                     <span
