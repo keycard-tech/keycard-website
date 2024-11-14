@@ -1,4 +1,5 @@
-import { ButtonLink } from '~components/button-link'
+import { Button } from '~components/button'
+import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
 import { cx } from 'cva'
 import Image from 'next/image'
 
@@ -17,7 +18,9 @@ const Prefooter = () => {
           secure element.
         </p>
         <div className="flex flex-col items-center gap-5 md:flex-row">
-          <ButtonLink href="/">Buy Keycard</ButtonLink>
+          <BuyKeycardDialog>
+            <Button variant="primary">Buy Keycard</Button>
+          </BuyKeycardDialog>
           <p className="text-16 font-300 text-white-60">From $25</p>
         </div>
       </div>

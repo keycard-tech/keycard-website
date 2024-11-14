@@ -10,13 +10,14 @@ import {
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import { BuyKeycard } from './buy-keycard'
+import { Button } from './button'
+import { BuyKeycardDialog } from './buy-keycard-dialog'
 import { Logo } from './logo'
 
 const NAV_BAR_HEIGHT = 92
 
 const internalLinkStyles = cva({
-  base: 'rounded-12 border border-[transparent] px-[14px] pb-[10px] pt-2 transition-colors hover:border-white-8 hover:bg-white-8',
+  base: 'rounded-12 border border-[transparent] px-[14px] py-[7px] transition-colors hover:border-white-8 hover:bg-white-8',
   variants: {
     isActive: {
       true: 'bg-white-12',
@@ -70,7 +71,7 @@ const NavBar = () => {
         <Logo />
       </Link>
 
-      <div className="flex items-center space-x-6">
+      <div className="flex items-center gap-6">
         {links.map(({ href, label }) => (
           <Link
             key={href}
@@ -80,7 +81,9 @@ const NavBar = () => {
             {label}
           </Link>
         ))}
-        <BuyKeycard variant={variant} />
+        <BuyKeycardDialog>
+          <Button variant={variant}>Buy Keycard</Button>
+        </BuyKeycardDialog>
       </div>
     </motion.nav>
   )

@@ -1,6 +1,6 @@
 import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
-import { BuyKeycard } from '~components/buy-keycard'
+import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
 import { GetNotifiedDialog } from '~components/get-notified-dialog'
 import { cx } from 'cva'
 import Image from 'next/image'
@@ -75,7 +75,9 @@ const BuyCards = () => {
         description="Something will say here about this product. Certainly, you don't want to miss it."
         buttons={
           <>
-            <BuyKeycard />
+            <BuyKeycardDialog>
+              <Button variant="primary">Buy Keycard</Button>
+            </BuyKeycardDialog>
             <ButtonLink href="/" variant="secondary">
               Learn more
             </ButtonLink>

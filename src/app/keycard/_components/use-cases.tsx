@@ -1,4 +1,5 @@
-import { BuyKeycard } from '~components/buy-keycard'
+import { Button } from '~components/button'
+import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
 import { Recommended } from '~icons'
 import { cx } from 'cva'
 import Image from 'next/image'
@@ -50,14 +51,16 @@ const UseCases = () => {
             By having different Keycards you can store your most valuable card
             at home while taking your hot wallet with you.
           </p>
-          <BuyKeycard />
+          <BuyKeycardDialog>
+            <Button variant="primary">Buy Keycard</Button>
+          </BuyKeycardDialog>
         </div>
 
         <div className="flex justify-start gap-3 py-14 lg:justify-center lg:pb-20">
           {cardSets.map((set, index) => (
             <div
               key={index}
-              className="flex w-40 flex-col justify-between rounded-[20px] border border-white-12 bg-white-3 px-4 py-3"
+              className="flex w-40 flex-col justify-between rounded-20 border border-white-12 bg-white-3 px-4 py-3"
             >
               <span className="font-300 text-white-60">
                 {set.count} card set

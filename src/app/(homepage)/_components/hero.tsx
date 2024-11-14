@@ -1,10 +1,11 @@
+import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
-import { BuyKeycard } from '~components/buy-keycard'
+import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
 import Image from 'next/image'
 
 const Hero = () => {
   return (
-    <section className="relative ml-[calc(calc((100vw-100%)/2)*-1)] flex h-[calc(100svh-80px)] w-screen flex-col justify-end overflow-clip rounded-t-28 border border-white-8 bg-white-3 px-0 pt-0 lg:ml-0 lg:h-auto lg:w-full lg:px-[72px] lg:py-20">
+    <section className="relative flex h-[calc(100svh-80px)] flex-col justify-end overflow-clip rounded-t-28 border border-white-8 bg-white-3 px-0 pt-0 full-view-port lg:h-auto lg:px-[72px] lg:py-20 lg:remove-full-view-port">
       <Image
         alt="Keycard"
         src="/assets/hero-bg.png"
@@ -32,7 +33,9 @@ const Hero = () => {
           wallet.
         </p>
         <div className="flex space-x-4">
-          <BuyKeycard />
+          <BuyKeycardDialog>
+            <Button variant="primary">Buy Keycard</Button>
+          </BuyKeycardDialog>
           <ButtonLink href="/" variant="secondary">
             Learn more
           </ButtonLink>

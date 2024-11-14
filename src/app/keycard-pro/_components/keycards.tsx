@@ -1,5 +1,6 @@
+import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
-import { BuyKeycard } from '~components/buy-keycard'
+import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
 import Image from 'next/image'
 
 const Keycards = () => {
@@ -9,7 +10,8 @@ const Keycards = () => {
         src="/assets/keycard-pro/bg-keycards.png"
         alt="Keycards scattered around"
         className="absolute left-0 top-0 size-full object-cover"
-        layout="fill"
+        width={2704}
+        height={1680}
       />
 
       <div className="relative z-10 pt-12 text-center lg:pt-20">
@@ -20,7 +22,9 @@ const Keycards = () => {
         </h1>
 
         <div className="flex items-center justify-center gap-4 pt-8">
-          <BuyKeycard />
+          <BuyKeycardDialog>
+            <Button variant="primary">Buy Keycard</Button>
+          </BuyKeycardDialog>
           <ButtonLink href="/" variant="secondary">
             Learn more
           </ButtonLink>

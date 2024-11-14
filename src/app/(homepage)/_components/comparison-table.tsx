@@ -321,8 +321,9 @@ const FeatureInfo = ({
 }) => {
   if (!variant || typeof variant === 'string') return null
 
-  if (variant.featured === true) return <Check />
-  if (variant.featured === false) return <Minus />
+  if (variant.featured === true) return <Check className="text-orange" />
+  if (variant.featured === false)
+    return <Minus className="size-4 text-white-60" />
   if (variant.featured === 'n/a') return <p className="text-white-60">n/a</p>
   if (variant.label) return <p className="text-white-95">{variant.label}</p>
   if (variant.badge) {

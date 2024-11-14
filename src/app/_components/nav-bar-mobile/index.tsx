@@ -1,12 +1,13 @@
 'use client'
 
 import { ROUTES } from '~/config/routes'
+import { Button } from '~components/button'
+import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
 import { cx } from 'cva'
 import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { ButtonLink } from '../button-link'
 import { Logo } from '../logo'
 import { MenuIcon } from './menu-icon'
 import { Section } from './section'
@@ -62,6 +63,7 @@ const NavBarMobile = () => {
       scrollPositionRef.current = 0
       window.scrollTo(0, 0)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname])
 
   return (
@@ -97,13 +99,14 @@ const NavBarMobile = () => {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
               >
-                <ButtonLink href="/" variant="secondary" backdropFilter>
-                  Buy Keycard
-                </ButtonLink>
+                <BuyKeycardDialog>
+                  <Button variant="secondary">Buy Keycard</Button>
+                </BuyKeycardDialog>
               </motion.div>
             )}
           </AnimatePresence>
           <button
+            key={isOpen ? 'menu-open' : 'menu-closed'}
             className="rounded-12 border border-white-12 bg-white-8 text-white-95 transition-colors hover:bg-white-12"
             onClick={() => setIsOpen(!isOpen)}
           >
@@ -156,15 +159,19 @@ const NavBarMobile = () => {
                   transition={{ delay: 0.2 + 3 * 0.05, duration: 0.3 }}
                   className="pt-2 text-center"
                 >
-                  <ButtonLink href="/">Buy Keycard</ButtonLink>
+                  <BuyKeycardDialog>
+                    <Button variant="primary" backdropFilter>
+                      Buy Keycard
+                    </Button>
+                  </BuyKeycardDialog>
                 </motion.li>
               </ul>
               <motion.div
-                key="menu-sections"
+                key="menu-footer"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 + 4 * 0.05, duration: 0.3 }}
-                className="divide grid w-full grid-cols-2 divide-x divide-dashed divide-white-12 border-t border-dashed border-white-12"
+                className="grid w-full grid-cols-2 divide-x divide-dashed divide-white-12 border-t border-dashed border-white-12"
               >
                 <Section title="INFO" routes={ROUTES.Info} />
                 <Section title="CONTACTS" routes={ROUTES.Contacts} />

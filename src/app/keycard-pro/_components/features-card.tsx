@@ -62,9 +62,9 @@ const FeaturesCard = () => {
             href="https://github.com"
             className="font-500 [&_path]:hover:fill-white-dark"
             variant="white"
+            icon={<Github />}
           >
-            <span>View on Github</span>
-            <Github />
+            View on Github
           </ButtonLink>
         </div>
       </div>

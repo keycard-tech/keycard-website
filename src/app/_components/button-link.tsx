@@ -52,6 +52,7 @@ const ButtonLink = (props: Props) => {
     backdropFilter,
     ...rest
   } = props
+
   return (
     <Link
       className={cx([
@@ -61,6 +62,7 @@ const ButtonLink = (props: Props) => {
       {...rest}
     >
       {children}
+      {icon}
     </Link>
   )
 }

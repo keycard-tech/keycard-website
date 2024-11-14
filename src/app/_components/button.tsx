@@ -1,33 +1,35 @@
 import { cva, cx } from 'cva'
+import React, { forwardRef } from 'react'
 
 type Props = {
-  variant?: 'primary' | 'secondary' | 'white'
-  size?: 'small' | 'medium'
+  variant?: 'primary' | 'secondary' | 'white' | 'dark'
+  backdropFilter?: boolean
   children: React.ReactNode
   active?: boolean
-  disabled?: boolean
+  icon?: React.ReactNode
 } & React.ComponentProps<'button'>
 
 const buttonStyles = cva({
-  base: 'inline-flex cursor-pointer gap-[6px] text-16 select-none items-center rounded-12 border transition-colors w-fit',
+  base: 'inline-flex cursor-pointer gap-1 text-16 select-none items-center rounded-12 border transition-all w-fit disabled:opacity-[0.3] disabled:cursor-default',
   variants: {
     variant: {
       primary:
-        'bg-orange border-[transparent] hover:bg-orange-dark backdrop-blur-[20px] text-white-95',
+        'bg-orange border-white-12 hover:enabled:bg-orange-dark text-white-95',
       secondary:
-        'bg-white-8 border-white-12 hover:bg-white-12 backdrop-blur-[20px] text-white-95',
+        'bg-white-8 border-white-12 hover:enabled:bg-white-12 text-white-95',
       white: 'bg-white-100 hover:bg-white-dark text-dark-100',
+      dark: 'border-[transparent] bg-white-3 hover:enabled:border-white-8 hover:enabled:bg-white-8 text-white-95',
+    },
+    withIcon: {
+      true: 'pl-[14px] pr-[10px] py-2',
+      false: 'px-[14px] py-2',
+    },
+    backdropFilter: {
+      true: 'backdrop-blur-[20px]',
+      false: '',
     },
     active: {
       true: '',
-      false: '',
-    },
-    size: {
-      small: 'px-[12px] py-[9px]',
-      medium: 'px-[14px] py-2 pb-[10px]',
-    },
-    disabled: {
-      true: 'opacity-[0.3] hover:disabled:bg-orange cursor-default',
       false: '',
     },
   },
@@ -39,20 +41,22 @@ const buttonStyles = cva({
     },
   ],
 })
-const Button = (props: Props) => {
+
+const Button = forwardRef<HTMLButtonElement, Props>((props, ref) => {
   const {
-    children,
     variant = 'primary',
     className,
     active,
-    size = 'medium',
-    disabled,
+    icon,
+    backdropFilter,
+    children,
     ...rest
   } = props
   return (
     <button
+      ref={ref}
       className={cx([
-        buttonStyles({ variant, active, size, disabled }),
+        buttonStyles({ variant, active, withIcon: !!icon, backdropFilter }),
         className,
       ])}
       {...rest}
@@ -60,6 +64,8 @@ const Button = (props: Props) => {
       {children}
     </button>
   )
-}
+})
+
+Button.displayName = 'Button'
 
 export { Button }

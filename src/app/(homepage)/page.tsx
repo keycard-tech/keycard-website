@@ -4,10 +4,12 @@ import { Faqs } from '~/app/(homepage)/_components/faqs'
 import { Hero } from '~/app/(homepage)/_components/hero'
 import { KeycardFeatures } from '~/app/(homepage)/_components/keycard-features'
 import { KeycardPro } from '~/app/(homepage)/_components/keycard-pro'
+import { ThankYouDialog } from './_components/thank-you-dialog'
 
 export default async function HomePage() {
   return (
     <div className="relative m-auto mt-20 w-full max-w-[1512px] lg:mt-[92px]">
+      <ThankYouDialog />
       <Hero />
       <KeycardPro />
       <KeycardFeatures />

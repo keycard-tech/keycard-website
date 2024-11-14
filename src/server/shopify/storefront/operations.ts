@@ -34,10 +34,8 @@ export const ProductsQuery = /* GraphQL */ `
 `
 
 export const CartMutation = /* GraphQL */ `
-  mutation Cart($merchandiseId: ID!, $quantity: Int!) {
-    cartCreate(
-      input: { lines: [{ merchandiseId: $merchandiseId, quantity: $quantity }] }
-    ) {
+  mutation Cart($lines: [CartLineInput!]!) {
+    cartCreate(input: { lines: $lines }) {
       cart {
         id
         createdAt
