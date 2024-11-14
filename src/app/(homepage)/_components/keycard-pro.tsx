@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const KeycardPro = () => {
   return (
-    <section className="relative ml-[calc(calc((100vw-100%)/2)*-1)] flex w-screen flex-col justify-end overflow-hidden rounded-b-28 border border-t-0 border-white-8 bg-white-3 backdrop-blur-[20px] lg:-ml-0 lg:w-full lg:flex-row lg:items-center lg:justify-normal">
+    <section className="relative flex flex-col justify-end overflow-hidden rounded-b-28 border border-t-0 border-white-8 bg-white-3 backdrop-blur-[20px] full-view-port lg:flex-row lg:items-center lg:justify-normal lg:remove-full-view-port">
       <div className="hidden max-h-[510px] flex-1 items-start justify-center overflow-hidden lg:flex">
         <Image
           src="/assets/keycard-pro.png"

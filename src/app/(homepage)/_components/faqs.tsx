@@ -35,8 +35,8 @@ const Faqs = () => {
   return (
     <section className="mx-auto max-w-[1352px]">
       <div className="flex flex-col items-start justify-between px-3 lg:flex-row lg:items-end min-[1512px]:px-0">
-        <div className="flex flex-col lg:pt-[200px]">
-          <div className="ml-[calc(calc((100vw-100%)/2)*-1)] block w-screen pt-[120px] lg:hidden">
+        <div className="flex w-full flex-col lg:pt-[200px]">
+          <div className="block pt-[120px] lg:hidden">
             <Image
               src="/assets/faqs-mobile.png"
               alt="FAQ Background"
