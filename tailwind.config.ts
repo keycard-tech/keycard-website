@@ -71,7 +71,7 @@ export default {
         '0.75rem',
         {
           lineHeight: '1.25rem',
-          letterSpacing: '-0.02rem',
+          letterSpacing: '0.015rem',
         },
       ],
     },
@@ -79,6 +79,7 @@ export default {
     colors: {
       orange: 'rgba(255, 100, 0, 1)',
       'orange-dark': 'rgba(225, 88, 0, 1)',
+      green: 'rgba(35, 173, 160, 1)',
       dark: {
         100: 'rgba(1, 1, 1, 1)',
         60: 'rgba(1, 1, 1, 0.6)',
@@ -97,11 +98,15 @@ export default {
         3: 'rgba(255, 255, 255, 0.03)',
       },
       'white-dark': 'rgba(206, 206, 206, 1)',
+      red: 'rgba(255, 80, 80, 1)',
     },
 
     borderRadius: {
+      0: '0px',
+      6: '6px',
       12: '12px',
       16: '16px',
+      20: '20px',
       28: '28px',
       full: '9999px',
     },

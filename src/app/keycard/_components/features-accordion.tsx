@@ -69,7 +69,7 @@ const FeaturesAccordion = (props: Props) => {
   }, [items, value])
 
   return (
-    <div className="hidden flex-1 items-center justify-between pt-[60px] lg:flex">
+    <div className="hidden flex-1 items-center justify-between lg:flex">
       <div className={cx(['flex flex-1 items-start justify-center'])}>
         <Accordion.Root
           type="single"

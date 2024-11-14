@@ -388,13 +388,18 @@ const ComparisonTable = () => {
                   key={index}
                   className="grid grid-cols-[1.33fr,1fr,1fr,1fr,1fr] border-b border-dashed border-white-12 font-300 first:pt-2 last:border-b-0 last:pb-2 lg:grid-cols-[2fr,1fr,1fr,1fr,1fr]"
                 >
-                  <div className="flex items-center gap-1 p-5 first:pl-0">
-                    {feature.name}
-                    {feature.tooltip && (
-                      <Tooltip label={feature.tooltip}>
-                        <Info className="flex-shrink-0 text-white-40 transition-colors hover:text-white-60" />
-                      </Tooltip>
-                    )}
+                  <div className="w-full p-5 first:pl-0 lg:flex lg:items-center">
+                    <span className="relative inline whitespace-normal">
+                      {feature.name.split(' ').slice(0, -1).join(' ')}{' '}
+                      <span className="inline-flex items-center">
+                        {feature.name.split(' ').slice(-1)[0]}
+                        {feature.tooltip && (
+                          <Tooltip label={feature.tooltip}>
+                            <Info className="ml-2 flex-shrink-0 text-white-40 transition-colors hover:text-white-60" />
+                          </Tooltip>
+                        )}
+                      </span>
+                    </span>
                   </div>
                   {products.map(product => (
                     <div

@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 const Hero = () => {
   return (
-    <section className="relative ml-[calc(calc((100vw-100%)/2)*-1)] flex h-[calc(100svh-80px)] w-screen flex-col justify-end overflow-clip rounded-t-28 border border-white-8 bg-white-3 px-0 pt-0 lg:ml-0 lg:h-auto lg:w-full lg:px-[72px] lg:py-20">
+    <section className="relative flex h-[calc(100svh-80px)] flex-col justify-end overflow-clip rounded-t-28 border border-white-8 bg-white-3 px-0 pt-0 full-view-port lg:h-auto lg:px-[72px] lg:py-20 lg:remove-full-view-port">
       <Image
         alt="Keycard"
         src="/assets/hero-bg.png"
@@ -23,9 +23,9 @@ const Hero = () => {
         priority
       />
 
-      <div className="relative z-10 flex max-w-[434px] flex-col px-4 lg:pt-0">
+      <div className="relative z-10 flex max-w-[434px] flex-col px-5 lg:pt-0">
         <p className="pb-2 text-24 font-600 text-white-95">keycard</p>
-        <h1 className="flex pb-4 font-lora text-32 font-400 lg:text-48">
+        <h1 className="flex pb-8 font-lora text-32 font-400 lg:pb-4 lg:text-48">
           A card shaped <br /> hardware wallet
         </h1>
         <p className="pb-8 text-20 font-300 text-white-80">

@@ -5,8 +5,8 @@ import Image from 'next/image'
 
 const Prefooter = () => {
   return (
-    <section className="relative mb-[88px] mt-10 flex flex-col rounded-28 border border-white-8 bg-white-3 px-6 pb-20 pt-0 full-view-port lg:my-0 lg:flex-row lg:border-0 lg:px-14 lg:pb-0 lg:pt-[200px] lg:remove-full-view-port xl:px-[195px]">
-      <div className="relative z-20 flex flex-1 flex-col items-center pt-[260px] text-center lg:items-start lg:pt-0 lg:text-left">
+    <section className="relative mb-[88px] mt-16 flex flex-col rounded-28 border border-white-8 bg-white-3 px-6 pb-20 pt-0 full-view-port lg:my-0 lg:mt-10 lg:flex-row lg:border-0 lg:px-14 lg:pb-0 lg:pt-[200px] lg:remove-full-view-port xl:px-[195px]">
+      <div className="relative z-20 flex flex-1 flex-col items-center pt-[310px] text-center lg:items-start lg:pt-0 lg:text-left">
         <p className="pb-2 text-24 font-600 text-white-95">keycard</p>
         <h2 className="flex pb-4 font-lora text-32 font-400 text-white-95 md:text-48">
           A card shaped <br /> hardware wallet
@@ -30,7 +30,7 @@ const Prefooter = () => {
         height={600}
         draggable={false}
         className={cx([
-          'pointer-events-none absolute left-1/2 top-6 z-10 max-w-[549px] -translate-x-1/2 select-none lg:relative lg:left-auto lg:top-auto lg:translate-x-0',
+          'pointer-events-none absolute left-1/2 top-12 z-10 max-w-[549px] -translate-x-1/2 select-none lg:relative lg:left-auto lg:top-auto lg:translate-x-0',
           'lg:w-full',
         ])}
       />

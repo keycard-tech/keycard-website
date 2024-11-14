@@ -13,7 +13,7 @@ const Section = (props: Props) => {
   return (
     <div className="relative">
       <div className="relative flex flex-col gap-6 p-6">
-        <p className="text-400 text-12 uppercase text-white-60">{title}</p>
+        <p className="text-12 font-400 uppercase text-white-60">{title}</p>
         <ul className="grid gap-1">
           {routes.map(route => {
             const external = route.href.startsWith('http')

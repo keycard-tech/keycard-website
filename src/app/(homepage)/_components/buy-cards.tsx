@@ -1,13 +1,14 @@
 import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
 import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
+import { GetNotifiedDialog } from '~components/get-notified-dialog'
 import { cx } from 'cva'
 import Image from 'next/image'
 import React from 'react'
 
 type Props = {
   image: string
-  imageClassName: string
+  imageClassName?: string
   name: string
   secondName?: string
   title: React.ReactNode
@@ -62,10 +63,9 @@ const Section = (props: Props) => {
 
 const BuyCards = () => {
   return (
-    <section className="grid grid-cols-1 gap-40 overflow-clip pb-2 pt-[160px] full-view-port lg:grid-cols-2 lg:flex-row lg:gap-2 lg:pt-[200px] lg:remove-full-view-port">
+    <section className="grid grid-cols-1 gap-10 overflow-clip pb-2 pt-[160px] full-view-port lg:grid-cols-2 lg:flex-row lg:gap-2 lg:pt-[200px] lg:remove-full-view-port">
       <Section
         image="/assets/bottom-keycard.png"
-        imageClassName="-"
         name="keycard"
         title={
           <>
@@ -87,7 +87,7 @@ const BuyCards = () => {
       />
       <Section
         image="/assets/bottom-keycard-pro.png"
-        imageClassName="pt-8 lg:pt-0 lg:-mb-20 lg:w-full"
+        imageClassName="pt-10 lg:pt-0 lg:-mb-20 lg:w-full"
         name="keycard"
         secondName="pro"
         title={
@@ -98,7 +98,9 @@ const BuyCards = () => {
         description="Something will say here about this product. Certainly you don't want to miss it"
         buttons={
           <>
-            <ButtonLink href="/">Get notified</ButtonLink>
+            <GetNotifiedDialog>
+              <Button>Get notified</Button>
+            </GetNotifiedDialog>
             <ButtonLink href="/" variant="secondary">
               Learn more
             </ButtonLink>

@@ -44,8 +44,8 @@ export default function RootLayout({ children }: Props) {
         <Providers>
           <NavBar />
           <NavBarMobile />
-          <div className="flex w-full justify-center overflow-x-hidden">
-            <div className="w-full max-w-[1512px]">{children}</div>
+          <div className="flex w-full justify-center">
+            <div className="w-full">{children}</div>
           </div>
           <Footer />
         </Providers>

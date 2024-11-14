@@ -17,7 +17,10 @@ const Overlay = forwardRef<
   React.ComponentPropsWithoutRef<typeof BaseDialog.Overlay>
 >(({ className, ...props }, ref) => (
   <BaseDialog.Overlay
-    className={cx('fixed inset-0 z-50 bg-dark-60 backdrop-blur-2xl', className)}
+    className={cx(
+      'fixed inset-0 z-[70] bg-dark-60 backdrop-blur-2xl',
+      className,
+    )}
     {...props}
     ref={ref}
   />
@@ -35,7 +38,7 @@ const Content = forwardRef<
       <BaseDialog.Content
         ref={ref}
         className={cx([
-          'fixed left-1/2 top-1/2 z-50 max-h-screen w-screen max-w-[1136px] -translate-x-1/2 -translate-y-1/2 overflow-auto focus:outline-none data-[state=open]:animate-contentShow md:w-[90vw] md:overflow-hidden',
+          'fixed left-1/2 top-1/2 z-[70] max-h-screen w-screen max-w-[1136px] -translate-x-1/2 -translate-y-1/2 overflow-auto focus:outline-none data-[state=open]:animate-contentShow md:w-[90vw] md:overflow-hidden',
           className,
         ])}
         {...props}

@@ -1,9 +1,11 @@
+import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
+import { GetNotifiedDialog } from '~components/get-notified-dialog'
 import Image from 'next/image'
 
 const KeycardPro = () => {
   return (
-    <section className="relative mx-3 mt-[160px] flex items-center overflow-hidden rounded-28 border border-white-12 lg:mx-6 lg:mt-[200px]">
+    <section className="relative mx-0 mt-[160px] flex items-center overflow-hidden rounded-28 border border-white-12 lg:mx-6 lg:mt-[200px]">
       <Image
         src="/assets/keycard/bg-keycard-pro.png"
         alt="Keycard Pro Hardware Wallet"
@@ -34,7 +36,9 @@ const KeycardPro = () => {
           and modular.
         </p>
         <div className="flex gap-4">
-          <ButtonLink href="/">Get notified</ButtonLink>
+          <GetNotifiedDialog>
+            <Button>Get notified</Button>
+          </GetNotifiedDialog>
           <ButtonLink href="/" variant="secondary">
             Learn more
           </ButtonLink>

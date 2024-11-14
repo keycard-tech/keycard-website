@@ -44,7 +44,8 @@ const features = [
       'Enjoy full visibility of sensitive information like your seed phrase.',
     image: '/assets/keycard-pro/keycard-pro-feature-2.png',
     badge: { text: '2 inches' },
-    className: 'row-span-2 col-span-1 flex-col-reverse gap-0',
+    className:
+      'row-span-2 col-span-1 flex-col-reverse gap-0 [&_img]:scale-75 lg:scale-100',
   },
   {
     title: 'Open source security',
@@ -106,8 +107,8 @@ const FeaturesGrid = () => {
                 src={feature.image}
                 alt={feature.title}
                 className="w-full rounded-12"
-                width={140}
-                height={140}
+                width={640}
+                height={640}
               />
             )}
             <div className="p-6 pt-5">

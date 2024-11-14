@@ -2,7 +2,7 @@ import { cva, cx } from 'cva'
 import { Link } from './link'
 
 type Props = {
-  variant?: 'primary' | 'secondary' | 'white'
+  variant?: 'primary' | 'secondary' | 'white' | 'dark'
   backdropFilter?: boolean
   children: React.ReactNode
   active?: boolean
@@ -10,7 +10,7 @@ type Props = {
 } & React.ComponentProps<typeof Link>
 
 const buttonStyles = cva({
-  base: 'inline-flex cursor-pointer gap-1  text-16 select-none items-center rounded-12 border transition-all w-fit disabled:opacity-[0.3] disabled:cursor-default',
+  base: 'inline-flex cursor-pointer gap-[6px] text-16 select-none items-center rounded-12 border transition-colors w-fit disabled:opacity-[0.3] disabled:cursor-default',
   variants: {
     variant: {
       primary:
@@ -48,8 +48,8 @@ const ButtonLink = (props: Props) => {
     variant = 'primary',
     className,
     active,
-    backdropFilter,
     icon,
+    backdropFilter,
     ...rest
   } = props
 

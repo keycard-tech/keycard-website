@@ -1,19 +1,20 @@
-import { ButtonLink } from '~components/button-link'
+import { Button } from '~components/button'
+import { GetNotifiedDialog } from '~components/get-notified-dialog'
 import Image from 'next/image'
 
 const Hero = () => {
   return (
-    <section className="relative flex h-svh overflow-y-clip lg:h-[986px]">
+    <section className="relative flex h-svh overflow-y-clip full-view-port lg:h-[986px] lg:remove-full-view-port">
       <Image
         alt="Keycard Pro"
         src="/assets/keycard-pro/bg-hero-keycard-pro.png"
         width={986}
         height={986}
         priority
-        className="absolute left-0 top-1/3 z-0 h-auto w-fit -translate-y-1/2 bg-contain bg-top bg-no-repeat lg:left-1/3 lg:-translate-x-1/2"
+        className="absolute left-10 top-1/3 z-0 h-auto w-fit -translate-y-1/2 scale-[120%] bg-contain bg-top bg-no-repeat md:scale-100 lg:left-1/3 lg:-translate-x-1/2"
       />
       <div className="absolute bottom-0 left-0 z-10 h-1/3 w-full bg-gradient-to-b from-[transparent] to-dark-100 lg:bottom-40 lg:left-1/2 lg:-translate-x-1/2" />
-      <div className="relative z-10 flex flex-1 flex-col justify-end px-3 pb-5 align-bottom lg:pb-[200px] 2xl:px-20">
+      <div className="relative z-10 flex flex-1 flex-col justify-end px-5 pb-5 align-bottom lg:pb-[200px] 2xl:px-20">
         <p className="pb-2 text-24 font-600">
           keycard <span className="font-200">pro</span>
         </p>
@@ -30,9 +31,11 @@ const Hero = () => {
               A principle-based hardware wallet that relies on Keycard as a
               modular secure element
             </p>
-            <div className="flex items-center gap-7 lg:justify-end">
+            <div className="flex flex-row-reverse items-center gap-6 self-start lg:flex-row lg:gap-7 lg:self-end">
               <p className="text-16 font-300 text-white-60">Coming 2025</p>
-              <ButtonLink href="/">Get notified</ButtonLink>
+              <GetNotifiedDialog>
+                <Button>Get notified</Button>
+              </GetNotifiedDialog>
             </div>
           </div>
         </div>

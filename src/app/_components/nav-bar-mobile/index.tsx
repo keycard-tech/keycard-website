@@ -68,8 +68,9 @@ const NavBarMobile = () => {
 
   return (
     <motion.nav
+      key="nav-bar-mobile"
       className={cx([
-        'fixed inset-0 z-40 block w-full transition-all lg:hidden',
+        'fixed inset-0 z-[60] block w-full transition-all lg:hidden',
       ])}
       animate={{
         height: isOpen ? '100%' : '80px',
@@ -92,6 +93,7 @@ const NavBarMobile = () => {
           <AnimatePresence>
             {!isOpen && (
               <motion.div
+                key="button-keycard"
                 initial={{ opacity: 1 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -115,6 +117,7 @@ const NavBarMobile = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            key="menu"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'calc(100% - 80px)' }}
             exit={{ opacity: 0 }}
@@ -122,6 +125,7 @@ const NavBarMobile = () => {
             className="fixed inset-x-0 top-20 z-50 overflow-hidden"
           >
             <motion.div
+              key="menu-content"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.3 }}
@@ -149,6 +153,7 @@ const NavBarMobile = () => {
                   </motion.li>
                 ))}
                 <motion.li
+                  key="button-keycard"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 + 3 * 0.05, duration: 0.3 }}
@@ -162,6 +167,7 @@ const NavBarMobile = () => {
                 </motion.li>
               </ul>
               <motion.div
+                key="menu-footer"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 + 4 * 0.05, duration: 0.3 }}

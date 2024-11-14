@@ -223,7 +223,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
                       setValue('bundleId', bundle.id)
                     }}
                     className={cx(
-                      'relative flex max-w-40 flex-col items-start justify-between rounded-[20px] bg-white-3 px-4 py-3 text-left transition-colors duration-300 hover:[&>span]:-left-1 hover:[&>span]:-top-1 hover:[&>span]:size-[calc(100%+8px)] hover:[&>span]:rounded-[24px]',
+                      'relative flex max-w-40 flex-col items-start justify-between rounded-20 bg-white-3 px-4 py-3 text-left transition-colors duration-300 hover:[&>span]:-left-1 hover:[&>span]:-top-1 hover:[&>span]:size-[calc(100%+8px)] hover:[&>span]:rounded-[24px]',
                       selected ? 'outline outline-4 outline-[transparent]' : '',
                     )}
                   >
@@ -232,7 +232,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
                         'absolute border transition-all',
                         selected
                           ? '-left-1 -top-1 size-[calc(100%+8px)] rounded-[24px] border-orange-dark'
-                          : 'left-0 top-0 size-full rounded-[20px] border-white-12',
+                          : 'left-0 top-0 size-full rounded-20 border-white-12',
                       ])}
                     />
 

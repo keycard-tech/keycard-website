@@ -124,11 +124,11 @@ const Integration = () => {
               <TabsTrigger value="desktop">Desktop</TabsTrigger>
               <TabsTrigger value="mobile">Mobile</TabsTrigger>
             </TabsList>
-            <TabsContent value="desktop">
+            <TabsContent value="desktop" className="pt-20">
               <FeaturesAccordion items={featuresDesktop} />
               <FeaturesSlider items={featuresDesktop} />
             </TabsContent>
-            <TabsContent value="mobile">
+            <TabsContent value="mobile" className="pt-20">
               <FeaturesAccordion items={featuresMobile} />
               <FeaturesSlider items={featuresMobile} />
             </TabsContent>
