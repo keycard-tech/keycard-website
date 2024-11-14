@@ -34,9 +34,11 @@
         "name": "next"
       }
     ],
+    "baseUrl": ".",
     "paths": {
       "~icons": ["./src/app/_icons"],
       "~components/*": ["./src/app/_components/*"],
+      "~config/*": ["./src/config/*"],
       "~/*": ["./src/*"]
     }
   },
