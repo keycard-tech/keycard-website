@@ -29,7 +29,6 @@ const features = [
     image: '/assets/feature-keycard-pro.png',
     badge: { text: '0 cables' },
     className: 'row-span-2 col-span-1 flex-col-reverse',
-    gradient: true,
   },
   {
     title: 'Made to last',
@@ -97,10 +96,7 @@ const KeycardFeatures = () => {
                 />
               </div>
             )}
-            {feature.gradient && (
-              <div className="absolute -bottom-10 left-0 h-1/2 w-full rounded-12 bg-gradient-to-b from-[transparent] to-white-8" />
-            )}
-            <div className="p-6">
+            <div className="p-6 pt-5 lg:pt-6">
               <div>
                 <h3 className="mb-[6px] font-lora text-24 font-400">
                   {feature.title}

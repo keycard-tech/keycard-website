@@ -4,7 +4,7 @@ import Image from 'next/image'
 const Customisation = () => {
   return (
     <>
-      <section className="flex flex-col items-center justify-center bg-gradient-to-b from-[transparent] to-white-8 px-5 pt-[120px] text-center full-view-port lg:px-6 lg:pt-[200px]">
+      <section className="flex flex-col items-center justify-center border-b border-white-12 bg-gradient-to-b from-[transparent] to-white-8 px-5 pt-[120px] text-center full-view-port lg:px-6 lg:pt-[200px]">
         <h2 className="pb-2 font-lora text-32 text-white-95">
           Your brand, same Keycard
         </h2>

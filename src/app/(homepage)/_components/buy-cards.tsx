@@ -61,7 +61,7 @@ const Section = (props: Props) => {
 
 const BuyCards = () => {
   return (
-    <section className="grid grid-cols-1 gap-40 overflow-clip pb-2 pt-[160px] full-view-port lg:grid-cols-2 lg:flex-row lg:gap-2 lg:pt-[200px] lg:remove-full-view-port">
+    <section className="grid grid-cols-1 gap-20 overflow-clip pb-2 pt-[160px] full-view-port lg:grid-cols-2 lg:flex-row lg:gap-2 lg:pt-[200px] lg:remove-full-view-port">
       <Section
         image="/assets/bottom-keycard.png"
         imageClassName="-"

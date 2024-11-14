@@ -22,9 +22,9 @@ const Hero = () => {
         priority
       />
 
-      <div className="relative z-10 flex max-w-[434px] flex-col px-4 lg:pt-0">
+      <div className="relative z-10 flex max-w-[434px] flex-col px-5 lg:pt-0">
         <p className="pb-2 text-24 font-600 text-white-95">keycard</p>
-        <h1 className="flex pb-4 font-lora text-32 font-400 lg:text-48">
+        <h1 className="flex pb-8 font-lora text-32 font-400 lg:pb-4 lg:text-48">
           A card shaped <br /> hardware wallet
         </h1>
         <p className="pb-8 text-20 font-300 text-white-80">

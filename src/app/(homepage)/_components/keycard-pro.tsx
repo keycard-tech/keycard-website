@@ -24,7 +24,7 @@ const KeycardPro = () => {
         priority
       />
 
-      <div className="relative z-10 -mt-16 flex max-w-[434px] flex-col px-4 pb-8 pt-0 lg:mt-0 lg:py-20">
+      <div className="relative z-10 -mt-16 flex max-w-[434px] flex-col px-5 pb-8 pt-0 lg:mt-0 lg:py-20">
         <p className="pb-2 text-24 font-600 text-white-95">
           keycard <span className="font-200">pro</span>
         </p>

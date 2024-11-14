@@ -18,7 +18,7 @@ const SecurityFeatures = () => {
             />
           </div>
           <div className="py-20 pb-6 md:pb-20 md:pl-6 lg:w-1/2 lg:pl-0 lg:pr-[72px]">
-            <h2 className="pb-11 font-lora text-32 lg:pb-14">
+            <h2 className="pb-[52px] font-lora text-32 lg:pb-14">
               Unparalleled security
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2">

@@ -95,7 +95,7 @@ const NavBarMobile = () => {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
               >
-                <ButtonLink href="/" variant="secondary">
+                <ButtonLink href="/" variant="secondary" backdropFilter>
                   Buy Keycard
                 </ButtonLink>
               </motion.div>

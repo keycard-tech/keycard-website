@@ -120,6 +120,7 @@ const FeaturesSlider = () => {
                   alt={feature.name}
                   width={500}
                   height={500}
+                  priority
                 />
               </div>
               <div className="pt-8">

@@ -103,7 +103,7 @@ const UseCases = () => {
                   <div className="size-6 shrink-0 rounded-full border border-white-95" />
                 </div>
               </div>
-              <div className="absolute right-0 z-[-1] -mt-8 w-[450px] -translate-y-12 translate-x-[60%]">
+              <div className="absolute right-0 z-[-1] -mt-8 w-[450px] -translate-y-12 translate-x-[60%] drop-shadow-[0_35px_35px_rgba(0,0,0,0.65)]">
                 <Image
                   src="/assets/keycard/card.png"
                   alt={`Keycard for ${useCase.name}`}
