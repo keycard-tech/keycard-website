@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props) {
   }
 
   return Metadata({
-    title: response.author.name,
+    title: response.author.name ?? response.author.slug,
   })
 }
 

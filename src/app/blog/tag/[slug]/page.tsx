@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props) {
   }
 
   return Metadata({
-    title: response.tag.name,
+    title: response.tag.name ?? response.tag.slug,
   })
 }
 
