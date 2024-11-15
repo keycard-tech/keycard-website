@@ -7,9 +7,10 @@ import { cx } from 'cva'
 import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useController, useForm } from 'react-hook-form'
 import type { SubmitHandler } from 'react-hook-form'
+import { useDebouncedCallback } from 'use-debounce'
 import { z } from 'zod'
 import { KEYCARD_PRODUCTS } from '../_constants/shopify/products'
 import {
@@ -83,11 +84,45 @@ const BuyKeycardDialog = (props: Props) => {
 
   const [open, setOpen] = useState(false)
 
+  return (
+    <Dialog.Root open={open} onOpenChange={setOpen}>
+      <Dialog.Trigger asChild>{children}</Dialog.Trigger>
+      <Dialog.Content className="fixed left-1/2 top-1/2 z-50 max-h-screen w-screen max-w-[1136px] -translate-x-1/2 -translate-y-1/2 overflow-auto focus:outline-none data-[state=open]:animate-contentShow lg:w-[90vw] lg:overflow-hidden">
+        <Dialog.Description className="sr-only">Buy Keycard</Dialog.Description>
+        <ShopifyForm closeDialog={() => setOpen(false)} />
+      </Dialog.Content>
+    </Dialog.Root>
+  )
+}
+
+export { BuyKeycardDialog }
+
+type ShopifyFormProps = {
+  closeDialog: () => void
+}
+
+const ShopifyForm = (props: ShopifyFormProps) => {
+  const { closeDialog } = props
+
+  const form = useForm<Shopify>({
+    resolver: zodResolver(shopifySchema),
+    defaultValues: {
+      bundleId: 'THREE_CARDS_SET',
+      includeKeycardReader: true,
+      quantity: 1,
+    },
+    mode: 'onTouched',
+  })
+
+  const { formState, watch, setValue } = form
+
+  const { isSubmitting } = formState
+
+  const [shopifyCartUrl, setShopifyCartUrl] = useState<string>()
+
   const router = useRouter()
 
-  const utmParams = useShopifyUTMParamsContext()
-
-  const onSubmit: SubmitHandler<Shopify> = async data => {
+  const create = (data: Shopify) => {
     const products: CartInput = [
       {
         productId: KEYCARD_PRODUCTS[data.bundleId].productId,
@@ -102,59 +137,42 @@ const BuyKeycardDialog = (props: Props) => {
       })
     }
 
-    // TODO: consider add some ui to error handling - toast or something similar
-    const shopifyCartUrl = await createCart(products)
+    createCart(products).then(shopifyCartUrl => {
+      const url = new URL(shopifyCartUrl)
 
-    const url = new URL(shopifyCartUrl)
+      utmParams.forEach((value, key) => {
+        url.searchParams.append(key, value)
+      })
 
-    utmParams.forEach((value, key) => {
-      url.searchParams.append(key, value)
+      setShopifyCartUrl(url.toString())
     })
-
-    window.open(url.toString(), '_blank', 'noopener')
-
-    router.push('/thank-you')
   }
 
-  return (
-    <Dialog.Root open={open} onOpenChange={setOpen}>
-      <Dialog.Trigger asChild>{children}</Dialog.Trigger>
-      <Dialog.Content className="fixed left-1/2 top-1/2 z-50 max-h-screen w-screen max-w-[1136px] -translate-x-1/2 -translate-y-1/2 overflow-auto focus:outline-none data-[state=open]:animate-contentShow lg:w-[90vw] lg:overflow-hidden">
-        <Dialog.Description className="sr-only">Buy Keycard</Dialog.Description>
-        <ShopifyForm onSubmit={onSubmit} setOpen={setOpen} />
-      </Dialog.Content>
-    </Dialog.Root>
-  )
-}
-
-export { BuyKeycardDialog }
-
-type ShopifyFormProps = {
-  onSubmit: SubmitHandler<Shopify>
-  setOpen: (open: boolean) => void
-}
-
-const ShopifyForm = (props: ShopifyFormProps) => {
-  const { onSubmit, setOpen } = props
-
-  const form = useForm<Shopify>({
-    resolver: zodResolver(shopifySchema),
-    defaultValues: {
-      bundleId: 'THREE_CARDS_SET',
-      includeKeycardReader: true,
-      quantity: 1,
-    },
-    mode: 'onTouched',
+  useEffect(() => {
+    create(form.getValues())
   })
 
-  const {
-    formState: { isSubmitting },
-    watch,
-    setValue,
-  } = form
+  const debounced = useDebouncedCallback(data => {
+    create(data)
+  }, 2 * 1000)
 
-  const submitHandler: SubmitHandler<Shopify> = async data => {
-    return onSubmit(data)
+  useEffect(() => {
+    const subscription = watch(data => {
+      debounced(data)
+    })
+
+    return () => subscription.unsubscribe()
+  })
+
+  const utmParams = useShopifyUTMParamsContext()
+
+  const submitHandler: SubmitHandler<Shopify> = () => {
+    if (!shopifyCartUrl) {
+      return
+    }
+
+    window.open(shopifyCartUrl, '_blank', 'noopener')
+    router.push('/thank-you-page')
   }
 
   const selectedBundle = watch('bundleId')
@@ -202,14 +220,14 @@ const ShopifyForm = (props: ShopifyFormProps) => {
           <Button
             variant="secondary"
             className="size-10 px-[9px] text-white-95"
-            onClick={() => setOpen(false)}
+            onClick={closeDialog}
             aria-label="Close"
           >
             <Close className="size-5" />
           </Button>
         </div>
 
-        <Form {...form} onSubmit={submitHandler}>
+        <Form {...form}>
           <div className="pt-12 lg:pt-10">
             <h3 className="pb-2 text-12 text-white-80 lg:pb-3">
               SELECT BUNDLE
@@ -334,7 +352,14 @@ const ShopifyForm = (props: ShopifyFormProps) => {
             <Button
               type="submit"
               className="w-full justify-center font-500"
-              disabled={isSubmitting}
+              disabled={debounced.isPending() || !shopifyCartUrl}
+              onClick={() => {
+                // form.handleSubmit(submitHandler)()
+                // form.trigger()
+
+                // submitHandler(form.getValues())
+                form.handleSubmit(submitHandler)()
+              }}
             >
               {isSubmitting ? (
                 <Loading className="my-px animate-spin text-white-100" />
