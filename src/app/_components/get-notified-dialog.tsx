@@ -10,10 +10,10 @@ import { Loading } from '../_icons/loading'
 import { signUpSchema, type SignUp } from '../_lib/google/validation'
 import { handleSignUp } from '../actions'
 import { Button } from './button'
+import { BuyKeycardDialog } from './buy-keycard-dialog'
 import * as Dialog from './dialog'
 import { Field } from './form/field'
 import { Form } from './form/form'
-import { Success } from './success'
 
 type Props = {
   children: React.ReactElement
@@ -56,7 +56,18 @@ export const GetNotifiedDialog = (props: Props) => {
       <Dialog.Trigger asChild>{children}</Dialog.Trigger>
       <Dialog.Content>
         {showSuccess ? (
-          <Success variant="get-notified" onClose={handleClose} />
+          <Dialog.Success
+            title="We'll notify you!"
+            description="You have successfully signed up to be notified when Keycard Pro becomes available to buy next year."
+            image="/assets/sign-up-success.png"
+            onClose={() => setOpen(false)}
+            footer={{
+              title: "Don't want to wait?",
+              description: 'Get started with Keycard',
+              dialog: BuyKeycardDialog,
+              buttonText: 'Buy Keycard',
+            }}
+          />
         ) : (
           <div
             className={cx(
@@ -95,7 +106,7 @@ export const GetNotifiedDialog = (props: Props) => {
                   'md:mx-0 md:justify-start md:rounded-0 md:border-x-0 md:border-b-0 md:px-6',
                 )}
               >
-                <Confetti className="size-4" /> Keycard Pro is launching in 2025
+                <Confetti className="size-5" /> Keycard Pro is launching in 2025
               </div>
             </div>
           </div>

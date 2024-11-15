@@ -1,6 +1,6 @@
 'use client'
 
-import { Success } from '~components/success'
+import { GetNotifiedDialog } from '~components/get-notified-dialog'
 import { useState } from 'react'
 import * as Dialog from '../../_components/dialog'
 
@@ -11,7 +11,18 @@ export const ThankYouDialog = () => {
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Content>
-        <Success variant="buy-keycard" onClose={() => setOpen(false)} />
+        <Dialog.Success
+          title="Thanks for choosing Keycard!"
+          description="You have successfully purchased a Keycard set. It will arrive shortly!"
+          image="/assets/sign-up-success.png"
+          onClose={() => setOpen(false)}
+          footer={{
+            title: 'Want to up your game?',
+            description: 'Keycard Pro is coming 2025',
+            dialog: GetNotifiedDialog,
+            buttonText: 'Get notified',
+          }}
+        />
       </Dialog.Content>
     </Dialog.Root>
   )
