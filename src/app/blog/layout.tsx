@@ -14,5 +14,9 @@ export const metadata = Metadata({
 })
 
 export default function BlogLayout({ children }: Props) {
-  return <Providers>{children}</Providers>
+  return (
+    <Providers>
+      <div className="mt-[84px]">{children}</div>
+    </Providers>
+  )
 }
