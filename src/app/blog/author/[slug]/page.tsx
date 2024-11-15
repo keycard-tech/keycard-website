@@ -1,3 +1,4 @@
+import { Metadata } from '~/app/_metadata'
 import { Breadcrumbs } from '~/app/docs/_components/breadcrumbs'
 import { notFound } from 'next/navigation'
 import { Avatar } from '../../_components/avatar'
@@ -11,6 +12,17 @@ export async function generateStaticParams() {
   const slugs = await getAuthorSlugs()
 
   return slugs.map(slug => ({ slug })) satisfies Array<Awaited<Props['params']>>
+}
+
+export async function generateMetadata({ params }: Props) {
+  const response = await getPostsByAuthorSlug((await params).slug)
+  if (!response) {
+    return notFound()
+  }
+
+  return Metadata({
+    title: response.author.name,
+  })
 }
 
 type Props = {

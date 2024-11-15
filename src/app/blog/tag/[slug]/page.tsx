@@ -1,3 +1,4 @@
+import { Metadata } from '~/app/_metadata'
 import { Breadcrumbs } from '~/app/docs/_components/breadcrumbs'
 import { notFound } from 'next/navigation'
 import { InfinitePostGrid } from '../../_components/infinite-post-grid'
@@ -10,6 +11,17 @@ export async function generateStaticParams() {
   const slugs = await getTagSlugs()
 
   return slugs.map(slug => ({ slug })) satisfies Array<Awaited<Props['params']>>
+}
+
+export async function generateMetadata({ params }: Props) {
+  const response = await getPostsByTagSlug((await params).slug)
+  if (!response) {
+    return notFound()
+  }
+
+  return Metadata({
+    title: response.tag.name,
+  })
 }
 
 type Props = {

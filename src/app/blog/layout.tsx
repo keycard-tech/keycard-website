@@ -7,8 +7,8 @@ type Props = {
 
 export const metadata = Metadata({
   title: {
-    template: '%s — Keycard',
-    default: 'News',
+    template: '%s - Blog - Keycard',
+    default: 'Blog',
   },
   description: 'Thoughts, stories and ideas.',
 })
