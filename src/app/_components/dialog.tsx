@@ -66,7 +66,7 @@ const Success = (props: Props) => {
     <>
       <div
         className={cx(
-          'fixed inset-0 top-1/2 z-[70] -mt-6 h-[623px] -translate-y-1/2 overflow-y-auto focus:outline-none',
+          'fixed inset-0 top-1/2 z-[70] -mt-6 h-[623px] -translate-y-1/2 overflow-y-auto overflow-x-clip focus:outline-none',
           'md:left-1/2 md:mt-0 md:w-[570px] md:-translate-x-1/2',
         )}
       >
@@ -76,11 +76,11 @@ const Success = (props: Props) => {
             alt={props.title}
             width={549}
             height={623}
-            className="absolute left-1/2 top-0 z-0 max-w-max -translate-x-1/2 md:max-w-full"
+            className="absolute left-1/2 top-0 z-0 max-w-fit -translate-x-1/2 md:max-w-full"
           />
           <div className="z-10 flex flex-col items-center pt-72">
             <Title asChild>
-              <h3 className="mb-3 font-lora text-32 text-white-95">
+              <h3 className="mb-3 text-center font-lora text-32 text-white-95">
                 {props.title}
               </h3>
             </Title>
