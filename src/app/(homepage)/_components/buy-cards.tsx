@@ -78,7 +78,7 @@ const BuyCards = () => {
             <BuyKeycardDialog>
               <Button variant="primary">Buy Keycard</Button>
             </BuyKeycardDialog>
-            <ButtonLink href="/" variant="secondary">
+            <ButtonLink href="/keycard" variant="secondary">
               Learn more
             </ButtonLink>
           </>
@@ -101,7 +101,7 @@ const BuyCards = () => {
             <GetNotifiedDialog>
               <Button>Get notified</Button>
             </GetNotifiedDialog>
-            <ButtonLink href="/" variant="secondary">
+            <ButtonLink href="/keycard-pro" variant="secondary">
               Learn more
             </ButtonLink>
           </>

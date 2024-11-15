@@ -44,7 +44,7 @@ const KeycardPro = () => {
           <GetNotifiedDialog>
             <Button>Get notified</Button>
           </GetNotifiedDialog>
-          <ButtonLink href="/" variant="secondary">
+          <ButtonLink href="/keycard-pro" variant="secondary">
             Learn more
           </ButtonLink>
         </div>

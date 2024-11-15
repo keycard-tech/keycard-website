@@ -118,7 +118,7 @@ const KeycardFeatures = () => {
                 )}
                 {feature.button && (
                   <ButtonLink
-                    href="https://github.com"
+                    href="https://github.com/status-im/status-keycard"
                     className="mt-4 font-500 [&_path]:hover:fill-white-dark"
                     variant="white"
                     icon={<feature.button.icon />}

@@ -59,7 +59,7 @@ const FeaturesCard = () => {
           </div>
 
           <ButtonLink
-            href="https://github.com"
+            href="https://github.com/status-im/status-keycard"
             className="font-500 [&_path]:hover:fill-white-dark"
             variant="white"
             icon={<Github />}

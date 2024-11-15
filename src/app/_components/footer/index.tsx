@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className="rounded-28 bg-orange pt-8">
       <div className="grid grid-cols-2 divide-x divide-dashed divide-white-20 lg:grid-cols-6">
         <div className="flex items-start border-b border-dashed border-white-20 p-6 pr-0 pt-0">
-          <Link href="/">
+          <Link href="/" aria-label="Homepage">
             <Logo />
           </Link>
         </div>

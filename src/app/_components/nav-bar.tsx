@@ -67,7 +67,7 @@ const NavBar = () => {
         WebkitBackdropFilter: backdropFilter,
       }}
     >
-      <Link href="/">
+      <Link href="/" aria-label="Homepage">
         <Logo />
       </Link>
 

@@ -111,16 +111,18 @@ const Faqs = () => {
                 Get in touch
               </ButtonLink>
               <ButtonLink
-                href="https://discord.com"
+                href="https://discord.com" // TODO: fix this link
                 variant="secondary"
                 className="px-[9px]"
+                aria-label="Keycard on Discord"
               >
                 <Discord />
               </ButtonLink>
               <ButtonLink
-                href="https://x.com"
+                href="https://x.com/keycard_"
                 variant="secondary"
                 className="px-[9px]"
+                aria-label="Keycard on X"
               >
                 <X />
               </ButtonLink>

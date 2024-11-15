@@ -25,7 +25,7 @@ const Keycards = () => {
           <BuyKeycardDialog>
             <Button variant="primary">Buy Keycard</Button>
           </BuyKeycardDialog>
-          <ButtonLink href="/" variant="secondary">
+          <ButtonLink href="/keycard" variant="secondary">
             Learn more
           </ButtonLink>
         </div>
