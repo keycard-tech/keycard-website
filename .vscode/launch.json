@@ -25,7 +25,7 @@
       // note: config https://github.com/microsoft/vscode-js-debug/blob/e620efe1841742402a332b532df2aa2ec95361f6/OPTIONS.md
       "type": "node-terminal",
       "request": "launch",
-      "command": "yarn dev -- --port 3030",
+      "command": "NODE_OPTIONS='' pnpm dev --port 3030",
       "serverReadyAction": {
         "pattern": "\\s- Local:\\s+(https?://\\S+)",
         "action": "startDebugging",
