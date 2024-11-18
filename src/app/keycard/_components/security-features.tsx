@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 const SecurityFeatures = () => {
   return (
-    <section className="relative mt-[100px] overflow-clip px-3 lg:mt-0 lg:px-0">
+    <section className="relative mt-[100px] overflow-clip px-3 lg:mt-[227px] lg:px-0">
       <div className="rounded-28 border border-white-8 bg-white-3 px-6 md:px-0">
         <div className="flex flex-col items-center justify-between lg:flex-row">
           <div className="-mx-6 flex-1 self-start lg:mx-0">

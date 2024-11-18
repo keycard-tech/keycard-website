@@ -5,8 +5,8 @@ import Image from 'next/image'
 
 const Prefooter = () => {
   return (
-    <section className="relative mb-[88px] mt-16 flex flex-col rounded-28 border border-white-8 bg-white-3 px-6 pb-20 pt-0 full-view-port lg:my-0 lg:mt-10 lg:flex-row lg:border-0 lg:px-14 lg:pb-0 lg:pt-[200px] lg:remove-full-view-port xl:px-[195px]">
-      <div className="relative z-20 flex flex-1 flex-col items-center pt-[310px] text-center lg:items-start lg:pt-0 lg:text-left">
+    <section className="relative flex flex-col px-6 lg:flex-row lg:px-14 xl:px-[195px]">
+      <div className="relative z-20 flex flex-1 flex-col items-start pb-[120px] pt-[320px] text-left lg:pt-[200px]">
         <p className="pb-2 text-24 font-600 text-white-95">keycard</p>
         <h2 className="flex pb-4 font-lora text-32 font-400 text-white-95 md:text-48">
           A card shaped <br /> hardware wallet
@@ -15,23 +15,23 @@ const Prefooter = () => {
           Store and trade your crypto in a simple, secure and slim hardware
           wallet.
         </p>
-        <div className="flex flex-col items-center gap-5 md:flex-row">
+        <div className="flex flex-row items-center gap-5">
           <BuyKeycardDialog>
             <Button variant="primary">Buy Keycard</Button>
           </BuyKeycardDialog>
           <p className="text-16 font-300 text-white-60">From $25</p>
         </div>
       </div>
-      <div className="absolute inset-0 z-10 block h-1/2 w-full -translate-y-1 bg-gradient-to-b from-dark-100 to-[transparent] lg:hidden" />
+      <div className="absolute bottom-0 z-10 block h-1/2 w-full -translate-y-1 bg-gradient-to-t from-dark-100 to-[transparent] lg:h-40" />
       <Image
-        src="/assets/bottom-keycard.png"
+        src="/assets/keycard/pre-footer.png"
         alt="Keycard"
-        width={900}
-        height={600}
+        width={744}
+        height={712}
         draggable={false}
         className={cx([
-          'pointer-events-none absolute left-1/2 top-12 z-10 max-w-[549px] -translate-x-1/2 select-none lg:relative lg:left-auto lg:top-auto lg:translate-x-0',
-          'lg:w-full',
+          'pointer-events-none absolute left-1/2 top-12 z-0 h-auto max-w-[549px] -translate-x-1/2 select-none lg:relative lg:left-auto lg:top-auto lg:translate-x-0',
+          'aspect-[744/712] object-contain',
         ])}
       />
     </section>
