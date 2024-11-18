@@ -5,42 +5,42 @@ const AirGapped = () => {
     {
       name: 'Metamask',
       network: 'Ethereum',
-      image: '/assets/keycard-pro/wallets/metamask.png',
+      image: '/assets/keycard-shell/wallets/metamask.png',
     },
     {
       name: 'imToken',
       network: 'Ethereum',
-      image: '/assets/keycard-pro/wallets/im-token.png',
+      image: '/assets/keycard-shell/wallets/im-token.png',
     },
     {
       name: 'Rabby',
       network: 'Ethereum',
-      image: '/assets/keycard-pro/wallets/rabbit.png',
+      image: '/assets/keycard-shell/wallets/rabbit.png',
     },
     {
       name: 'Backpack',
       network: 'Ethereum',
-      image: '/assets/keycard-pro/wallets/back-pack.png',
+      image: '/assets/keycard-shell/wallets/back-pack.png',
     },
     {
       name: 'UniSat',
       network: 'Bitcoin',
-      image: '/assets/keycard-pro/wallets/uni-sat.png',
+      image: '/assets/keycard-shell/wallets/uni-sat.png',
     },
     {
       name: 'Blue',
       network: 'Bitcoin',
-      image: '/assets/keycard-pro/wallets/blue.png',
+      image: '/assets/keycard-shell/wallets/blue.png',
     },
     {
       name: 'Sparrow',
       network: 'Bitcoin',
-      image: '/assets/keycard-pro/wallets/sparrow.png',
+      image: '/assets/keycard-shell/wallets/sparrow.png',
     },
     {
       name: 'Specter',
       network: 'Bitcoin',
-      image: '/assets/keycard-pro/wallets/specter.png',
+      image: '/assets/keycard-shell/wallets/specter.png',
     },
   ]
 
@@ -55,7 +55,7 @@ const AirGapped = () => {
             height={800}
             width={1600}
             className="w-[800px] max-w-[800px] lg:w-[1000px] lg:max-w-[1000px]"
-            src="/assets/keycard-pro/keycard-with-macbook.png"
+            src="/assets/keycard-shell/keycard-with-macbook.png"
           />
         </div>
       </div>

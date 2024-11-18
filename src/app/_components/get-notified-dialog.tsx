@@ -58,7 +58,7 @@ export const GetNotifiedDialog = (props: Props) => {
         {showSuccess ? (
           <Dialog.Success
             title="We'll notify you!"
-            description="You have successfully signed up to be notified when Keycard Pro becomes available to buy next year."
+            description="You have successfully signed up to be notified when Keycard Shell becomes available to buy next year."
             image="/assets/sign-up-success.png"
             onClose={() => setOpen(false)}
             footer={{
@@ -106,7 +106,8 @@ export const GetNotifiedDialog = (props: Props) => {
                   'md:mx-0 md:justify-start md:rounded-0 md:border-x-0 md:border-b-0 md:px-6',
                 )}
               >
-                <Confetti className="size-5" /> Keycard Pro is launching in 2025
+                <Confetti className="size-5" /> Keycard Shell is launching in
+                2025
               </div>
             </div>
           </div>

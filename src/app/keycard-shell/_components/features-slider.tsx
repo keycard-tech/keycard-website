@@ -12,35 +12,35 @@ const features = [
     name: 'Full visibility of seed phrase',
     description:
       'All the words clearly numbered and visible, ready for you to write them down.',
-    image: '/assets/keycard-pro/keycard-pro-feature-card-1.png',
+    image: '/assets/keycard-shell/keycard-shell-feature-card-1.png',
   },
   {
     name: 'Human readable tx data',
     description: 'Get a clear understanding of what you’re actually signing.',
-    image: '/assets/keycard-pro/keycard-pro-feature-card-2.png',
+    image: '/assets/keycard-shell/keycard-shell-feature-card-2.png',
   },
   {
     name: 'Secure PIN for each card',
     description:
       'Switch your card, enter your pin, and you’re ready to sign a transaction.',
-    image: '/assets/keycard-pro/keycard-pro-feature-card-3.png',
+    image: '/assets/keycard-shell/keycard-shell-feature-card-3.png',
   },
   {
     name: 'Compatible QR wallets',
     description:
-      'Its embedded camera allows Keycard Pro to be used fully airgapped.',
-    image: '/assets/keycard-pro/keycard-pro-feature-card-4.png',
+      'Its embedded camera allows Keycard Shell to be used fully airgapped.',
+    image: '/assets/keycard-shell/keycard-shell-feature-card-4.png',
   },
   {
     name: 'Block USB data transfer',
     description:
       'Add an extra layer of security by preventing unwanted data transfers.',
-    image: '/assets/keycard-pro/keycard-pro-feature-card-5.png',
+    image: '/assets/keycard-shell/keycard-shell-feature-card-5.png',
   },
   {
     name: 'Name your cards',
     description: 'Easily identify your cards by giving them a unique name.',
-    image: '/assets/keycard-pro/keycard-pro-feature-card-6.png',
+    image: '/assets/keycard-shell/keycard-shell-feature-card-6.png',
   },
 ]
 

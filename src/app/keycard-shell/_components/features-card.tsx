@@ -22,7 +22,7 @@ const features = [
 
 const FeaturesCard = () => {
   return (
-    <section className="px-3 pt-20 lg:pt-0">
+    <section className="px-3 pt-[120px] lg:pt-0">
       <div className="grid grid-cols-1 gap-8 rounded-28 border border-white-8 bg-white-3 p-6 pt-5 text-white-95 lg:grid-cols-2 lg:gap-6 lg:p-8 lg:pt-7 xl:grid-cols-4">
         {features.map((feature, index) => (
           <div key={index} className="flex flex-col">

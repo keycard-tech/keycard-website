@@ -14,7 +14,7 @@ const Hero = () => {
         priority
       />
       <Image
-        alt="Keycard Pro"
+        alt="Keycard"
         src="/assets/keycard/hero-keycard.png"
         width={1600}
         height={1600}

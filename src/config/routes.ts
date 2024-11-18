@@ -1,7 +1,7 @@
 export const ROUTES = {
   Products: [
     { name: 'Keycard', href: '/keycard' },
-    { name: 'Keycard Pro', href: '/keycard-pro' },
+    { name: 'Keycard Shell', href: '/keycard-shell' },
   ],
   Info: [
     { name: 'Get started', href: '/get-started' },

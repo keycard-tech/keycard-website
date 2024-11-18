@@ -18,7 +18,7 @@ export const ThankYouDialog = () => {
           onClose={() => setOpen(false)}
           footer={{
             title: 'Want to up your game?',
-            description: 'Keycard Pro is coming 2025',
+            description: 'Keycard Shell is coming 2025',
             Dialog: GetNotifiedDialog,
             buttonText: 'Get notified',
           }}
