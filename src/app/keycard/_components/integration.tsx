@@ -84,18 +84,21 @@ const integrations = [
     description: 'Native Android Ethereum Wallet',
     logo: '/assets/keycard/enno.png',
     buttonText: 'Learn more',
+    href: 'https://ennowallet.com/',
   },
   {
     name: 'WallETH',
     description: 'Native Android Ethereum Wallet',
     logo: '/assets/keycard/walleth.png',
     buttonText: 'Learn more',
+    href: 'https://walleth.org/',
   },
   {
     name: 'Logos Operators',
     description: '5,000 Ordinals Collection',
     logo: '/assets/keycard/logos-operators.png',
     buttonText: 'Learn more',
+    href: 'https://dashboard.logos.co/',
   },
 ]
 
@@ -161,7 +164,11 @@ const Integration = () => {
                 {integration.description}
               </p>
 
-              <ButtonLink href="/" variant="secondary" className="group w-fit">
+              <ButtonLink
+                href={integration.href}
+                variant="secondary"
+                className="group w-fit"
+              >
                 <span className="text-white-95">{integration.buttonText}</span>
                 <External />
               </ButtonLink>
