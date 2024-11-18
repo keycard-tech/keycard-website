@@ -5,9 +5,9 @@ const Comparision = () => {
     <section className="mt-[120px] grid gap-0 overflow-clip rounded-28 border border-white-12 lg:mt-[200px] lg:grid-cols-2">
       <div className="relative flex min-h-[480px] flex-col items-center justify-center lg:min-h-[840px]">
         <Image
-          alt="Keycard Pro"
+          alt="Keycard Shell"
           className="absolute left-0 top-0 z-0 size-full object-cover"
-          src="/assets/keycard-pro/comparision-left.png"
+          src="/assets/keycard-shell/comparision-left.png"
           width={1480}
           height={1680}
         />
@@ -16,7 +16,7 @@ const Comparision = () => {
           Keep your device at home
         </h2>
         <p className="absolute bottom-8 mx-auto max-w-[423px] px-2 text-center text-16 font-300 text-white-80 lg:bottom-14">
-          Stored away on a drawer, or hiding in plain sight, Keycard Pro is
+          Stored away on a drawer, or hiding in plain sight, Keycard Shell is
           stateless without a Keycard.
         </p>
       </div>
@@ -25,7 +25,7 @@ const Comparision = () => {
         <Image
           alt="Keycard"
           className="absolute left-0 top-0 size-full object-cover"
-          src="/assets/keycard-pro/comparision-right.png"
+          src="/assets/keycard-shell/comparision-right.png"
           width={1480}
           height={1680}
         />

@@ -11,7 +11,7 @@ const features = [
     title: 'Runs forever',
     description:
       'With the use of a very common replaceable Nokia BL-4C battery.',
-    image: '/assets/keycard-pro/keycard-pro-feature-1.png',
+    image: '/assets/keycard-shell/keycard-shell-feature-1.png',
     badge: { text: '18 hours+' },
     className: 'row-span-2 col-span-1 [&_img]:w-fit gap-0',
   },
@@ -22,19 +22,19 @@ const features = [
     icons: [
       {
         name: 'Metamask',
-        image: '/assets/keycard-pro/wallets/metamask.png',
+        image: '/assets/keycard-shell/wallets/metamask.png',
       },
       {
         name: 'Rabbit',
-        image: '/assets/keycard-pro/wallets/rabbit.png',
+        image: '/assets/keycard-shell/wallets/rabbit.png',
       },
       {
         name: 'imToken',
-        image: '/assets/keycard-pro/wallets/im-token.png',
+        image: '/assets/keycard-shell/wallets/im-token.png',
       },
       {
         name: 'Backpack',
-        image: '/assets/keycard-pro/wallets/back-pack.png',
+        image: '/assets/keycard-shell/wallets/back-pack.png',
       },
     ],
   },
@@ -42,7 +42,7 @@ const features = [
     title: 'Large display',
     description:
       'Enjoy full visibility of sensitive information like your seed phrase.',
-    image: '/assets/keycard-pro/keycard-pro-feature-2.png',
+    image: '/assets/keycard-shell/keycard-shell-feature-2.png',
     badge: { text: '2 inches' },
     className:
       'row-span-2 col-span-1 flex-col-reverse gap-0 [&_img]:scale-75 lg:scale-100',
@@ -69,19 +69,19 @@ const features = [
     icons: [
       {
         name: 'Unisat',
-        image: '/assets/keycard-pro/wallets/uni-sat.png',
+        image: '/assets/keycard-shell/wallets/uni-sat.png',
       },
       {
         name: 'Sparrow',
-        image: '/assets/keycard-pro/wallets/sparrow.png',
+        image: '/assets/keycard-shell/wallets/sparrow.png',
       },
       {
         name: 'Specter',
-        image: '/assets/keycard-pro/wallets/specter.png',
+        image: '/assets/keycard-shell/wallets/specter.png',
       },
       {
         name: 'Blue',
-        image: '/assets/keycard-pro/wallets/blue.png',
+        image: '/assets/keycard-shell/wallets/blue.png',
       },
     ],
   },

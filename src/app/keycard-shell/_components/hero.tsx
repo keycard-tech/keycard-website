@@ -6,8 +6,8 @@ const Hero = () => {
   return (
     <section className="relative flex h-svh overflow-y-clip full-view-port lg:h-[986px] lg:remove-full-view-port">
       <Image
-        alt="Keycard Pro"
-        src="/assets/keycard-pro/bg-hero-keycard-pro.png"
+        alt="Keycard Shell"
+        src="/assets/keycard-shell/bg-hero-keycard-shell.png"
         width={986}
         height={986}
         priority
@@ -16,7 +16,7 @@ const Hero = () => {
       <div className="absolute bottom-0 left-0 z-10 h-1/3 w-full bg-gradient-to-b from-[transparent] to-dark-100 lg:bottom-40 lg:left-1/2 lg:-translate-x-1/2" />
       <div className="relative z-10 flex flex-1 flex-col justify-end px-5 pb-5 align-bottom lg:pb-[200px] 2xl:px-20">
         <p className="pb-2 text-24 font-600">
-          keycard <span className="font-200">pro</span>
+          keycard <span className="font-200">shell</span>
         </p>
         <div className="flex flex-col items-start justify-between lg:flex-row">
           <div className="flex max-w-[664px] flex-col lg:self-end">

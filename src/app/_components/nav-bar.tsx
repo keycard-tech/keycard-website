@@ -29,8 +29,8 @@ const internalLinkStyles = cva({
 const links = [
   { href: '/keycard', label: 'Keycard' },
   {
-    href: '/keycard-pro',
-    label: 'Keycard Pro',
+    href: '/keycard-shell',
+    label: 'Keycard Shell',
   },
 ]
 

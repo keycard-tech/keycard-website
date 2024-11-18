@@ -7,7 +7,7 @@ const features: Array<Feature> = [
   {
     name: 'Competitive pricing',
     tooltip: 'Pricing information',
-    keycardPro: {
+    keycardShell: {
       label: 'TBD',
     },
     keycard: {
@@ -22,7 +22,7 @@ const features: Array<Feature> = [
   },
   {
     name: 'EVM chain compatible',
-    keycardPro: {
+    keycardShell: {
       featured: true,
     },
     keycard: {
@@ -37,7 +37,7 @@ const features: Array<Feature> = [
   },
   {
     name: 'Bitcoin compatible',
-    keycardPro: {
+    keycardShell: {
       featured: true,
     },
     keycard: {
@@ -54,7 +54,7 @@ const features: Array<Feature> = [
   {
     name: 'Hardware level protection',
     tooltip: 'Security certification level',
-    keycardPro: {
+    keycardShell: {
       badge: {
         text: 'EAL 6+',
         gradient: true,
@@ -68,7 +68,7 @@ const features: Array<Feature> = [
   {
     name: 'Mobile friendly',
     tooltip: 'Compatible with mobile devices',
-    keycardPro: {
+    keycardShell: {
       featured: true,
       tooltip: 'iOS and Android',
     },
@@ -84,7 +84,7 @@ const features: Array<Feature> = [
   },
   {
     name: 'Unlimited master keys',
-    keycardPro: {
+    keycardShell: {
       featured: true,
     },
     keycard: {
@@ -102,7 +102,7 @@ const features: Array<Feature> = [
   },
   {
     name: 'Easy back up of master keys',
-    keycardPro: {
+    keycardShell: {
       featured: true,
     },
     keycard: {
@@ -118,7 +118,7 @@ const features: Array<Feature> = [
   {
     name: 'Open ecosystem',
     tooltip: 'Part of an open ecosystem',
-    keycardPro: {
+    keycardShell: {
       featured: true,
     },
     keycard: {
@@ -133,7 +133,7 @@ const features: Array<Feature> = [
   },
   {
     name: 'Open source secure element',
-    keycardPro: {
+    keycardShell: {
       featured: true,
       tooltip: 'Secure element is open source',
     },
@@ -149,7 +149,7 @@ const features: Array<Feature> = [
   },
   {
     name: "Secure element can't be upgraded",
-    keycardPro: {
+    keycardShell: {
       featured: true,
     },
     keycard: {
@@ -167,7 +167,7 @@ const features: Array<Feature> = [
   {
     name: 'QR transaction signing with any wallet',
     tooltip: 'Sign transactions using QR codes',
-    keycardPro: {
+    keycardShell: {
       featured: true,
     },
     keycard: {
@@ -184,7 +184,7 @@ const features: Array<Feature> = [
   {
     name: 'Airgap capable',
     tooltip: 'Can operate without direct connection',
-    keycardPro: {
+    keycardShell: {
       featured: true,
     },
     keycard: {
@@ -199,7 +199,7 @@ const features: Array<Feature> = [
   },
   {
     name: 'Modular architecture',
-    keycardPro: {
+    keycardShell: {
       featured: true,
     },
     keycard: {
@@ -214,7 +214,7 @@ const features: Array<Feature> = [
   },
   {
     name: 'Secure element has its own usages',
-    keycardPro: {
+    keycardShell: {
       featured: true,
       tooltip: 'Multiple use cases for secure element',
     },
@@ -231,7 +231,7 @@ const features: Array<Feature> = [
   {
     name: 'Can be used with future signing schemes',
     tooltip: 'Future-proof design',
-    keycardPro: {
+    keycardShell: {
       featured: true,
     },
     keycard: {
@@ -247,7 +247,7 @@ const features: Array<Feature> = [
   {
     name: 'Removable battery',
     tooltip: 'Battery can be replaced',
-    keycardPro: {
+    keycardShell: {
       featured: true,
     },
     keycard: {
@@ -264,7 +264,7 @@ const features: Array<Feature> = [
   },
   {
     name: 'USBC + Camera',
-    keycardPro: {
+    keycardShell: {
       featured: true,
     },
     keycard: {
@@ -279,7 +279,7 @@ const features: Array<Feature> = [
   },
   {
     name: 'Oshwa label',
-    keycardPro: {
+    keycardShell: {
       featured: true,
     },
     keycard: {
@@ -308,7 +308,7 @@ type FeatureVariant = {
 type Feature = {
   name: string
   tooltip?: string
-  keycardPro: FeatureVariant
+  keycardShell: FeatureVariant
   keycard: FeatureVariant
   tangem: FeatureVariant
   ledger: FeatureVariant
@@ -359,7 +359,7 @@ const TooltipInfo = ({
 
 const ComparisonTable = () => {
   const products: Array<keyof Feature> = [
-    'keycardPro',
+    'keycardShell',
     'keycard',
     'tangem',
     'ledger',
@@ -374,8 +374,8 @@ const ComparisonTable = () => {
         <div className="w-[684px] pt-14 md:w-full lg:w-full lg:pt-20">
           <div className="grid grid-cols-[1.33fr,1fr,1fr,1fr,1fr] justify-items-center font-lora text-24 font-400 text-white-90 lg:grid-cols-[2fr,1fr,1fr,1fr,1fr]">
             <div className="justify-self-start p-4 pb-5 pl-6">Feature</div>
-            <div className="hidden p-4 pb-5 lg:block">Keycard Pro</div>
-            <div className="p-4 pb-5 lg:hidden">KPro</div>
+            <div className="hidden p-4 pb-5 lg:block">Keycard Shell</div>
+            <div className="p-4 pb-5 lg:hidden">KShell</div>
             <div className="p-4 pb-5">Keycard</div>
             <div className="p-4 pb-5">Tangem</div>
             <div className="p-4 pb-5">Ledger</div>
