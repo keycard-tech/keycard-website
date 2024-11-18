@@ -56,12 +56,14 @@ type Props = {
   footer: {
     title: string
     description: string
-    dialog: React.FC<{ children: React.ReactElement }>
+    Dialog: React.FC<{ children: React.ReactElement }>
     buttonText: string
   }
 }
 
 const Success = (props: Props) => {
+  const { title, description, image, footer, onClose } = props
+
   return (
     <>
       <div
@@ -72,8 +74,8 @@ const Success = (props: Props) => {
       >
         <div className="relative grid place-items-center px-5">
           <Image
-            src={props.image}
-            alt={props.title}
+            src={image}
+            alt={title}
             width={549}
             height={623}
             className="absolute left-1/2 top-0 z-0 max-w-fit -translate-x-1/2 md:max-w-full"
@@ -81,19 +83,19 @@ const Success = (props: Props) => {
           <div className="z-10 flex flex-col items-center pt-72">
             <Title asChild>
               <h3 className="mb-3 text-center font-lora text-32 text-white-95">
-                {props.title}
+                {title}
               </h3>
             </Title>
             <p className="mb-10 max-w-[490px] text-center text-20 font-300 text-white-80">
-              {props.description}
+              {description}
             </p>
-            <Button variant="secondary" onClick={props.onClose}>
+            <Button variant="secondary" onClick={onClose}>
               Continue exploring
             </Button>
           </div>
         </div>
       </div>
-      <Footer {...props.footer} />
+      <Footer {...footer} />
     </>
   )
 }
@@ -101,6 +103,8 @@ const Success = (props: Props) => {
 type FooterProps = Props['footer']
 
 const Footer = (props: FooterProps) => {
+  const { title, description, Dialog, buttonText } = props
+
   return (
     <div
       className={cx(
@@ -117,21 +121,19 @@ const Footer = (props: FooterProps) => {
           height={64}
         />
         <div className="flex flex-1 flex-col gap-0.5">
-          <div className="font-lora text-20 text-white-95">{props.title}</div>
-          <div className="text-16 font-300 text-white-80">
-            {props.description}
-          </div>
+          <div className="font-lora text-20 text-white-95">{title}</div>
+          <div className="text-16 font-300 text-white-80">{description}</div>
         </div>
       </div>
 
-      <props.dialog>
+      <Dialog>
         <Button
           variant="primary"
           className="w-full justify-center md:w-fit md:justify-start"
         >
-          {props.buttonText}
+          {buttonText}
         </Button>
-      </props.dialog>
+      </Dialog>
     </div>
   )
 }

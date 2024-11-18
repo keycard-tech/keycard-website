@@ -64,7 +64,7 @@ export const GetNotifiedDialog = (props: Props) => {
             footer={{
               title: "Don't want to wait?",
               description: 'Get started with Keycard',
-              dialog: BuyKeycardDialog,
+              Dialog: BuyKeycardDialog,
               buttonText: 'Buy Keycard',
             }}
           />

@@ -19,7 +19,7 @@ export const ThankYouDialog = () => {
           footer={{
             title: 'Want to up your game?',
             description: 'Keycard Pro is coming 2025',
-            dialog: GetNotifiedDialog,
+            Dialog: GetNotifiedDialog,
             buttonText: 'Get notified',
           }}
         />
