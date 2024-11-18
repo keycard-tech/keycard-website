@@ -372,10 +372,9 @@ const ComparisonTable = () => {
       </h1>
       <div className="overflow-x-auto px-3 scrollbar-none min-[1512px]:px-0">
         <div className="w-[684px] pt-14 md:w-full lg:w-full lg:pt-20">
-          <div className="grid grid-cols-[1.33fr,1fr,1fr,1fr,1fr] justify-items-center font-lora text-24 font-400 text-white-90 lg:grid-cols-[2fr,1fr,1fr,1fr,1fr]">
+          <div className="grid grid-cols-[1.33fr,1fr,1fr,1fr,1fr] justify-items-center text-center font-lora text-24 font-400 text-white-90 lg:grid-cols-[2fr,1fr,1fr,1fr,1fr] lg:text-24">
             <div className="justify-self-start p-4 pb-5 pl-6">Feature</div>
-            <div className="hidden p-4 pb-5 lg:block">Keycard Shell</div>
-            <div className="p-4 pb-5 lg:hidden">KShell</div>
+            <div className="p-4 pb-5">Shell</div>
             <div className="p-4 pb-5">Keycard</div>
             <div className="p-4 pb-5">Tangem</div>
             <div className="p-4 pb-5">Ledger</div>

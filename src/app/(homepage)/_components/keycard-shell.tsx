@@ -26,7 +26,7 @@ const KeycardShell = () => {
         priority
       />
 
-      <div className="relative z-10 -mt-16 flex max-w-[434px] flex-col px-5 pb-8 pt-0 lg:mt-0 lg:py-20">
+      <div className="relative z-10 -mt-16 flex max-w-[434px] flex-col px-5 pb-8 pt-0 lg:mt-0 lg:py-20 lg:pl-0">
         <p className="pb-2 text-24 font-600 text-white-95">
           keycard <span className="font-200">shell</span>
         </p>
@@ -36,9 +36,8 @@ const KeycardShell = () => {
           your Keycards
         </h1>
         <p className="pb-8 text-20 font-300 text-white-80">
-          Something will say here about this product.
-          <br />
-          Certainly you don&apos;t want to miss it
+          A modular and stateless hardware wallet that
+          <br /> relies on Keycard as the secure element.
         </p>
         <div className="flex gap-4">
           <GetNotifiedDialog>

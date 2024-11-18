@@ -25,7 +25,7 @@ const features = [
   {
     title: 'Fully airgapped',
     description:
-      "Through KeyShell's camera or Keycard's contactless nature, our products are truly airgapped.",
+      "Through Keycard Shell's camera or Keycard's contactless nature, our products are truly airgapped.",
     image: '/assets/feature-keycard-shell.png',
     badge: { text: '0 cables' },
     className: 'row-span-2 col-span-1 flex-col-reverse',
