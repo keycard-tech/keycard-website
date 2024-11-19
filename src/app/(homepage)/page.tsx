@@ -5,6 +5,7 @@ import { Hero } from '~/app/(homepage)/_components/hero'
 import { KeycardFeatures } from '~/app/(homepage)/_components/keycard-features'
 import { KeycardShell } from '~/app/(homepage)/_components/keycard-shell'
 import { ThankYouDialog } from './_components/thank-you-dialog'
+import { Video } from './_components/video'
 
 export default async function HomePage() {
   return (
@@ -13,6 +14,7 @@ export default async function HomePage() {
       <Hero />
       <KeycardShell />
       <KeycardFeatures />
+      <Video />
       <ComparisonTable />
       <Faqs />
       <BuyCards />
