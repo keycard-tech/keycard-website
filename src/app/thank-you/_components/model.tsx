@@ -19,7 +19,10 @@ type GLTFResult = GLTF & {
   }
 }
 
-export function Model(props: JSX.IntrinsicElements['group']) {
+export function Model(
+  props: JSX.IntrinsicElements['group'] & { speed: number },
+) {
+  const { speed, ...rest } = props
   const { nodes, materials } = useGLTF(
     'assets/keycard-transformed.glb',
   ) as GLTFResult
@@ -27,15 +30,15 @@ export function Model(props: JSX.IntrinsicElements['group']) {
   const group = useRef<THREE.Group>(null)
 
   useFrame(state => {
-    const t = state.clock.getElapsedTime()
+    const t = state.clock.getElapsedTime() * 0.5
 
     if (group.current) {
-      group.current.position.y = Math.sin(t * 2) * 0.1
+      group.current.position.y = Math.sin(t * (speed * 1.5)) * 0.25
     }
   })
 
   return (
-    <group ref={group} {...props}>
+    <group ref={group} {...rest}>
       <group>
         <mesh
           geometry={nodes.Cube002.geometry}
