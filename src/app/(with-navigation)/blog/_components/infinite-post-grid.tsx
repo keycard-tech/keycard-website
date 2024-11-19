@@ -2,14 +2,14 @@
 
 import { useInfiniteQuery } from '@tanstack/react-query'
 import type { PostOrPage, PostsOrPages } from '@tryghost/content-api'
-import { useMemo } from 'react'
-import { match } from 'ts-pattern'
-import { useInfiniteLoading } from '../_hooks/use-infinite-loading'
 import {
   getPosts,
   getPostsByAuthorSlug,
   getPostsByTagSlug,
-} from '../../_lib/ghost'
+} from '~/app/_lib/ghost'
+import { useMemo } from 'react'
+import { match } from 'ts-pattern'
+import { useInfiniteLoading } from '../_hooks/use-infinite-loading'
 import { PostGrid } from './post-grid'
 
 type Props = {
