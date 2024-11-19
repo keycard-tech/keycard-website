@@ -75,6 +75,9 @@
     "unified": "^10.1.2",
     "unist-util-visit": "^5.0.0"
   },
+  "engines": {
+    "node": "20.x"
+  },
   "lint-staged": {
     "*.{js,mjs,ts,tsx}": [
       "eslint --fix",
