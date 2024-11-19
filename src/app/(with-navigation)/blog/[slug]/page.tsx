@@ -1,6 +1,6 @@
 import { baseComponents } from '~/app/_components/content'
 import { Metadata } from '~/app/_metadata'
-import { Breadcrumbs } from '~/app/docs/_components/breadcrumbs'
+import { Breadcrumbs } from '~/app/(with-navigation)/docs/_components/breadcrumbs'
 import { notFound } from 'next/navigation'
 import { createElement, Fragment } from 'react'
 import rehypeParse from 'rehype-parse'

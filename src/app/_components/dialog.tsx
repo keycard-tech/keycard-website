@@ -138,4 +138,4 @@ const Footer = (props: FooterProps) => {
   )
 }
 
-export { Content, Close, Description, Root, Title, Trigger, Success }
+export { Content, Close, Description, Root, Title, Trigger, Success, Footer }

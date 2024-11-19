@@ -1,4 +1,4 @@
-import { Breadcrumbs } from '~/app/docs/_components/breadcrumbs'
+import { Breadcrumbs } from '~/app/(with-navigation)/docs/_components/breadcrumbs'
 import { notFound } from 'next/navigation'
 import { Avatar } from '../../_components/avatar'
 import { InfinitePostGrid } from '../../_components/infinite-post-grid'

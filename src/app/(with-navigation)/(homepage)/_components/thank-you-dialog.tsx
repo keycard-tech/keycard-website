@@ -1,8 +1,8 @@
 'use client'
 
+import * as Dialog from '~components/dialog'
 import { GetNotifiedDialog } from '~components/get-notified-dialog'
 import { useState } from 'react'
-import * as Dialog from '../../_components/dialog'
 
 export const ThankYouDialog = () => {
   const [open, setOpen] = useState(false)
