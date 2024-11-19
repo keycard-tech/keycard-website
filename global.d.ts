@@ -1,0 +1,27 @@
+// why: https://react.dev/blog/2024/04/25/react-19-upgrade-guide#the-jsx-namespace-in-typescript
+// declare module 'react' {
+//   namespace JSX {
+//     interface IntrinsicElements {
+//       'my-element': {
+//         myElementProps: string
+//       }
+//     }
+//   }
+// }
+
+import type * as React from 'react'
+
+// why: https://github.com/mdx-js/mdx/issues/2487#issuecomment-2407661869
+declare global {
+  namespace JSX {
+    // type ElementClass = React.JSX.ElementClass
+    // type Element = React.JSX.Element
+    type IntrinsicElements = React.JSX.IntrinsicElements
+  }
+}
+
+declare module 'framer-motion' {
+  export interface MotionProps {
+    className?: string
+  }
+}
