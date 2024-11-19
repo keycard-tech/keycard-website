@@ -198,7 +198,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
           <Dialog.Title className="font-lora text-32">Buy Keycard</Dialog.Title>
           <Button
             variant="secondary"
-            className="px-[9px] text-white-95"
+            className="size-10 px-[9px] text-white-95"
             onClick={() => setOpen(false)}
           >
             <Close className="size-5" />
