@@ -69,7 +69,6 @@ const Hero = () => {
       <div className="absolute -left-1/4 top-1/3 z-20 hidden size-full lg:block">
         <Canvas shadows>
           <ambientLight intensity={1} />
-
           <Model rotation={[0.8, 10, 2]} scale={30} speed={2.4} />
           <Environment preset="night" />
         </Canvas>
