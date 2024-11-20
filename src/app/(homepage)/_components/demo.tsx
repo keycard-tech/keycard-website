@@ -1,6 +1,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '~components/tabs'
+import { Video } from '~components/video'
 
-const Video = () => {
+const Demo = () => {
   const keycardWebmSrc = '/assets/videos/keycard.webm'
   const keycardMp4Src = '/assets/videos/keycard.mp4'
   const keycardShellWebmSrc = '/assets/videos/keycard-shell.webm'
@@ -32,32 +33,18 @@ const Video = () => {
               </TabsTrigger>
             </TabsList>
             <TabsContent value="keycard">
-              <video
-                className="aspect-[0.79] w-full rounded-28 border border-white-12 object-cover md:aspect-[1.88]"
-                autoPlay
-                loop
-                playsInline
-                muted
-                aria-label="Keycard video demonstration"
-              >
-                <source src={keycardMp4Src} type="video/mp4" />
-                <source src={keycardWebmSrc} type="video/webm" />
-                Your browser does not support the video tag.
-              </video>
+              <Video
+                mp4Src={keycardMp4Src}
+                webmSrc={keycardWebmSrc}
+                ariaLabel="Keycard video demonstration"
+              />
             </TabsContent>
             <TabsContent value="keycard-shell">
-              <video
-                className="aspect-[0.79] w-full rounded-28 border border-white-12 object-cover md:aspect-[1.88]"
-                autoPlay
-                loop
-                playsInline
-                muted
-                aria-label="Keycard shell video demonstration"
-              >
-                <source src={keycardShellMp4Src} type="video/mp4" />
-                <source src={keycardShellWebmSrc} type="video/webm" />
-                Your browser does not support the video tag.
-              </video>
+              <Video
+                mp4Src={keycardShellMp4Src}
+                webmSrc={keycardShellWebmSrc}
+                ariaLabel="Keycard shell video demonstration"
+              />
             </TabsContent>
           </Tabs>
         </div>
@@ -66,4 +53,4 @@ const Video = () => {
   )
 }
 
-export { Video }
+export { Demo }
