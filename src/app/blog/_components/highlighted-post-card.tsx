@@ -1,5 +1,6 @@
 import type { PostOrPage } from '@tryghost/content-api'
 import { Link } from '~components/link'
+import Image from 'next/image'
 import { formatDate } from '../../_utils/format-date'
 import { PostAuthor } from './post-author'
 import { PostTag } from './post-tag'
@@ -19,11 +20,12 @@ export const HighlightedPostCard = (props: Props) => {
       className="grid grid-cols-1 gap-5 2xl:grid-cols-3 2xl:gap-7"
     >
       <div className="col-span-2 w-full flex-[2] shrink-0">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          className="aspect-[366/206] size-full rounded-16 object-cover"
+        <Image
+          className="aspect-[286/161] size-full rounded-16 object-cover"
+          width={1144}
+          height={644}
           src={post.feature_image!}
-          alt={post.feature_image_alt!}
+          alt={post.feature_image_alt! ?? post.title}
         />
       </div>
 

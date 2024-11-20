@@ -200,6 +200,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
             variant="secondary"
             className="size-10 px-[9px] text-white-95"
             onClick={() => setOpen(false)}
+            aria-label="Close"
           >
             <Close className="size-5" />
           </Button>
@@ -264,6 +265,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
                 onClick={() => setValue('quantity', Math.max(1, quantity - 1))}
                 className="justify-center px-[9px] text-center text-white-100"
                 disabled={quantity === 1}
+                aria-label="Decrease quantity"
               >
                 <Minus />
               </Button>
@@ -273,6 +275,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
                 variant="dark"
                 onClick={() => setValue('quantity', quantity + 1)}
                 className="justify-center px-[9px] text-center text-white-100"
+                aria-label="Increase quantity"
               >
                 <Plus />
               </Button>
@@ -289,6 +292,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
                   className="flex size-6 appearance-none items-center justify-center rounded-[8px] bg-white-100 outline-none aria-checked:bg-orange aria-checked:hover:bg-orange-dark [&>svg]:aria-checked:text-white-95"
                   checked={field.value}
                   onCheckedChange={field.onChange}
+                  aria-label="Include USB-C Keycard reader"
                 >
                   <Checkbox.Indicator className="text-white-95">
                     <Check className="size-5 text-white-95" />

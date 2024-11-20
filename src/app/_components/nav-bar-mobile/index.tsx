@@ -109,6 +109,7 @@ const NavBarMobile = () => {
             key={isOpen ? 'menu-open' : 'menu-closed'}
             className="rounded-12 border border-white-12 bg-white-8 text-white-95 transition-colors hover:bg-white-12"
             onClick={() => setIsOpen(!isOpen)}
+            aria-label="Menu"
           >
             <MenuIcon isOpen={isOpen} />
           </button>
