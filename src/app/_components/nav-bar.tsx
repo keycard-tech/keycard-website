@@ -60,7 +60,7 @@ const NavBar = () => {
 
   return (
     <motion.nav
-      className="fixed left-0 top-0 z-30 hidden w-full items-center justify-between p-6 px-8 pt-8 text-white-95 lg:flex"
+      className="fixed left-0 top-0 z-30 hidden w-full items-center justify-between px-8 py-6 text-white-95 lg:flex"
       style={{
         backgroundColor,
         backdropFilter,
@@ -71,7 +71,7 @@ const NavBar = () => {
         <Logo />
       </Link>
 
-      <div className="flex items-center gap-6">
+      <div className="flex items-center gap-4">
         {links.map(({ href, label }) => (
           <Link
             key={href}

@@ -216,7 +216,7 @@ export const baseComponents = {
       <p
         className={cx(
           paragraphMarginTop[size],
-          'my-5',
+          'my-5 text-16 font-300',
           '[:is(h1,h2,h3,h4,h5,h6)+&]:!mt-0', // immediately follows a heading as a sibling element
           // '[&:not(:has(+*))]:!mb-0', // not followed by any sibling element
           '[:is(div,td,blockquote)>&:first-child]:!mt-0', // is a first child of selected parent element

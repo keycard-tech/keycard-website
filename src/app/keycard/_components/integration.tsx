@@ -124,8 +124,8 @@ const Integration = () => {
           </div>
           <Tabs defaultValue="desktop">
             <TabsList className="mx-3 lg:mx-0">
-              <TabsTrigger value="desktop">Desktop</TabsTrigger>
-              <TabsTrigger value="mobile">Mobile</TabsTrigger>
+              <TabsTrigger value="desktop">On desktop</TabsTrigger>
+              <TabsTrigger value="mobile">On mobile</TabsTrigger>
             </TabsList>
             <TabsContent value="desktop" className="pt-20">
               <FeaturesAccordion items={featuresDesktop} />
@@ -184,8 +184,11 @@ const Integration = () => {
               </p>
             </div>
             <div className="flex gap-3">
-              <ButtonLink href="/">Read docs</ButtonLink>
-              <ButtonLink href="/" variant="secondary">
+              <ButtonLink href="/docs">Read docs</ButtonLink>
+              <ButtonLink
+                href="mailto:support@keycard.tech"
+                variant="secondary"
+              >
                 Get in touch
               </ButtonLink>
             </div>
