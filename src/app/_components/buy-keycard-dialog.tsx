@@ -116,7 +116,7 @@ const BuyKeycardDialog = (props: Props) => {
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger asChild>{children}</Dialog.Trigger>
-      <Dialog.Content className="fixed left-1/2 top-1/2 z-[70] max-h-screen w-screen max-w-[1136px] -translate-x-1/2 -translate-y-1/2 overflow-auto focus:outline-none data-[state=open]:animate-contentShow lg:w-[90vw] lg:overflow-hidden">
+      <Dialog.Content className="fixed left-1/2 top-1/2 z-50 max-h-screen w-screen max-w-[1136px] -translate-x-1/2 -translate-y-1/2 overflow-auto focus:outline-none data-[state=open]:animate-contentShow lg:w-[90vw] lg:overflow-hidden">
         <Dialog.Description className="sr-only">Buy Keycard</Dialog.Description>
         <ShopifyForm onSubmit={onSubmit} setOpen={setOpen} />
       </Dialog.Content>
@@ -218,7 +218,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
 
                 return (
                   <button
-                    key={bundle.name}
+                    key={bundle.id}
                     type="button"
                     onClick={() => {
                       setValue('bundleId', bundle.id)
@@ -230,7 +230,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
                   >
                     <span
                       className={cx([
-                        'absolute border transition-all',
+                        'absolute z-0 border transition-all',
                         selected
                           ? '-left-1 -top-1 size-[calc(100%+8px)] rounded-[24px] border-orange-dark'
                           : 'left-0 top-0 size-full rounded-20 border-white-12',
@@ -244,7 +244,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
                       ${bundle.price}
                       {bundle.tag && (
                         <Tooltip label="Best deal">
-                          <div className="flex size-5 items-center justify-center rounded-full bg-orange">
+                          <div className="z-50 flex size-5 items-center justify-center rounded-full bg-orange">
                             <Recommended />
                           </div>
                         </Tooltip>
