@@ -18,9 +18,8 @@ type GLTFResult = GLTF & {
     ['Material.001']: THREE.MeshStandardMaterial
   }
 }
-
 export function Model(
-  props: JSX.IntrinsicElements['group'] & { speed: number },
+  props: React.ComponentProps<'group'> & { speed: number },
 ) {
   const { speed, ...rest } = props
   const { nodes, materials } = useGLTF(
