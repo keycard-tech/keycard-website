@@ -67,7 +67,20 @@ const Hero = () => {
             <Environment preset="night" />
             <group position={[4.4, 2, 1]}>
               <PresentationControls {...presentationControls}>
-                <Model rotation={[9, 3, 2.4]} scale={35} speed={0.6} />
+                <Model
+                  rotation={[9, 3, 2.4]}
+                  scale={23}
+                  speed={0.3}
+                  blurNode={
+                    <div
+                      className="pointer-events-none absolute top-0 z-10 w-full -translate-y-1/2 translate-x-[-550px] backdrop-blur-[3px]"
+                      style={{
+                        height: 800,
+                        width: 800,
+                      }}
+                    />
+                  }
+                />
               </PresentationControls>
             </group>
 
@@ -79,7 +92,20 @@ const Hero = () => {
 
             <group position={[-3.4, 0, 1.2]}>
               <PresentationControls {...presentationControls}>
-                <Model rotation={[1.5, -2, 3]} scale={15} speed={1.3} />
+                <Model
+                  rotation={[1.5, -2, 3]}
+                  scale={15}
+                  speed={1.3}
+                  blurNode={
+                    <div
+                      className="pointer-events-none absolute top-0 z-10 w-full -translate-y-1/2 translate-x-[-400px] backdrop-blur-[3px]"
+                      style={{
+                        height: 800,
+                        width: 680,
+                      }}
+                    />
+                  }
+                />
               </PresentationControls>
             </group>
 
@@ -97,7 +123,20 @@ const Hero = () => {
 
             <group position={[-5, 4, 1.5]}>
               <PresentationControls {...presentationControls}>
-                <Model rotation={[-2, -2, -4.6]} scale={34} speed={1.45} />
+                <Model
+                  rotation={[-2, -2, -4.6]}
+                  scale={34}
+                  speed={1.45}
+                  blurNode={
+                    <div
+                      className="pointer-events-none absolute top-0 z-10 w-full translate-x-0 translate-y-[300px] backdrop-blur-[5px]"
+                      style={{
+                        height: 500,
+                        width: 800,
+                      }}
+                    />
+                  }
+                />
               </PresentationControls>
             </group>
           </Canvas>

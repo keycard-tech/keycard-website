@@ -1,10 +1,12 @@
 'use client'
 
-import { useGLTF } from '@react-three/drei'
-import { useFrame } from '@react-three/fiber'
+import { Html, useGLTF } from '@react-three/drei'
+import { extend, useFrame } from '@react-three/fiber'
 import React, { useRef } from 'react'
 import * as THREE from 'three'
 import { GLTF } from 'three-stdlib'
+
+extend({ meshTransmissionMaterial: THREE.Mesh })
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -19,9 +21,12 @@ type GLTFResult = GLTF & {
   }
 }
 export function Model(
-  props: React.ComponentProps<'group'> & { speed: number },
+  props: React.ComponentProps<'group'> & {
+    speed: number
+    blurNode?: React.ReactNode
+  },
 ) {
-  const { speed, ...rest } = props
+  const { speed, blurNode, ...rest } = props
   const { nodes, materials } = useGLTF(
     'assets/keycard-transformed.glb',
   ) as GLTFResult
@@ -37,21 +42,24 @@ export function Model(
   })
 
   return (
-    <group ref={group} {...rest}>
-      <group>
-        <mesh
-          geometry={nodes.Cube002.geometry}
-          material={materials['Card.image.001']}
-        />
-        <mesh
-          geometry={nodes.Cube002_1.geometry}
-          material={materials['Card.light.001']}
-        />
-        <mesh
-          geometry={nodes.Cube002_2.geometry}
-          material={materials['Material.001']}
-        />
+    <>
+      <group ref={group} {...rest}>
+        {!!blurNode && <Html>{blurNode}</Html>}
+        <group>
+          <mesh
+            geometry={nodes.Cube002.geometry}
+            material={materials['Card.image.001']}
+          />
+          <mesh
+            geometry={nodes.Cube002_1.geometry}
+            material={materials['Card.light.001']}
+          />
+          <mesh
+            geometry={nodes.Cube002_2.geometry}
+            material={materials['Material.001']}
+          />
+        </group>
       </group>
-    </group>
+    </>
   )
 }
