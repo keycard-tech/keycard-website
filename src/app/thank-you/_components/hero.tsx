@@ -13,6 +13,7 @@ import { GetNotifiedDialog } from '~components/get-notified-dialog'
 import { cx } from 'cva'
 import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
+import { useRef } from 'react'
 import { Model } from './model'
 
 useGLTF.preload('/assets/keycard-transformed.glb')
@@ -25,6 +26,8 @@ const presentationControls: PresentationControlProps = {
 }
 
 const Hero = () => {
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+
   return (
     <div
       className={cx(
@@ -51,13 +54,16 @@ const Hero = () => {
 
       <AnimatePresence>
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3, delay: 0.5, ease: 'easeInOut' }}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 40 }}
+          transition={{
+            duration: 0.3,
+            delay: 1,
+          }}
           className="fixed left-0 top-0 z-0 h-svh w-full"
         >
-          <Canvas>
+          <Canvas ref={canvasRef}>
             <directionalLight
               color="white"
               intensity={100}
@@ -67,20 +73,7 @@ const Hero = () => {
             <Environment preset="night" />
             <group position={[4.4, 2, 1]}>
               <PresentationControls {...presentationControls}>
-                <Model
-                  rotation={[9, 3, 2.4]}
-                  scale={23}
-                  speed={0.3}
-                  blurNode={
-                    <div
-                      className="pointer-events-none absolute top-0 z-10 w-full -translate-y-1/2 translate-x-[-550px] backdrop-blur-[3px]"
-                      style={{
-                        height: 800,
-                        width: 800,
-                      }}
-                    />
-                  }
-                />
+                <Model rotation={[9, 3, 2.4]} scale={23} speed={0.3} />
               </PresentationControls>
             </group>
 
@@ -92,20 +85,7 @@ const Hero = () => {
 
             <group position={[-3.4, 0, 1.2]}>
               <PresentationControls {...presentationControls}>
-                <Model
-                  rotation={[1.5, -2, 3]}
-                  scale={15}
-                  speed={1.3}
-                  blurNode={
-                    <div
-                      className="pointer-events-none absolute top-0 z-10 w-full -translate-y-1/2 translate-x-[-400px] backdrop-blur-[3px]"
-                      style={{
-                        height: 800,
-                        width: 680,
-                      }}
-                    />
-                  }
-                />
+                <Model rotation={[1.5, -2, 3]} scale={15} speed={1.3} />
               </PresentationControls>
             </group>
 
@@ -123,20 +103,7 @@ const Hero = () => {
 
             <group position={[-5, 4, 1.5]}>
               <PresentationControls {...presentationControls}>
-                <Model
-                  rotation={[-2, -2, -4.6]}
-                  scale={34}
-                  speed={1.45}
-                  blurNode={
-                    <div
-                      className="pointer-events-none absolute top-0 z-10 w-full translate-x-0 translate-y-[300px] backdrop-blur-[5px]"
-                      style={{
-                        height: 500,
-                        width: 800,
-                      }}
-                    />
-                  }
-                />
+                <Model rotation={[-2, -2, -4.6]} scale={34} speed={1.45} />
               </PresentationControls>
             </group>
           </Canvas>
