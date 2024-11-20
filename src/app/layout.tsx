@@ -35,7 +35,7 @@ export default function RootLayout({ children }: Props) {
         className={cx(
           lora.variable,
           inter.variable,
-          'bg-dark-100 p-2 font-inter text-white-100 antialiased',
+          'bg-dark-100 p-2 pt-0 font-inter text-white-100 antialiased',
         )}
       >
         <Providers>

@@ -1,6 +1,6 @@
 import { ROUTES } from '~/config/routes'
+import { Link } from '~components/link'
 import { Logo } from '~components/logo'
-import Link from 'next/link'
 import { Section } from './section'
 
 const Footer = () => {
@@ -22,7 +22,10 @@ const Footer = () => {
           © Keycard {new Date().getFullYear()}
         </span>
         <p className="text-center text-16 font-300 text-white-80 md:text-left">
-          Keycard is part of the Institute of Free Technology
+          Keycard is part of the{' '}
+          <Link href="https://free.technology" className="hover:text-white-95">
+            Institute of Free Technology
+          </Link>
         </p>
       </div>
     </footer>
