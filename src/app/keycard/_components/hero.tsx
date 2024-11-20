@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 const Hero = () => {
   return (
-    <section className="relative flex h-svh overflow-y-clip full-view-port lg:h-[986px] lg:remove-full-view-port">
+    <section className="relative flex h-svh overflow-y-clip full-view-port lg:remove-full-view-port xl:h-[986px]">
       <Image
         src="/assets/keycard/hero-keycard-mobile.png"
         alt="Keycard"
@@ -21,7 +21,7 @@ const Hero = () => {
         priority
         className="absolute z-0 hidden w-[1600px] bg-contain bg-center bg-no-repeat lg:left-1/2 lg:top-1/3 lg:block lg:w-full lg:-translate-x-1/2 lg:-translate-y-1/2"
       />
-      <div className="relative z-10 flex flex-1 flex-col justify-end px-5 pb-5 align-bottom lg:px-20 lg:pb-[270px]">
+      <div className="relative z-10 flex flex-1 flex-col justify-end px-5 pb-5 align-bottom lg:pb-[43px] xl:px-20">
         <p className="pb-2 text-24 font-600 text-orange">keycard</p>
         <div className="flex flex-col items-start justify-between lg:flex-row">
           <div className="flex max-w-[664px] flex-col lg:self-end">
