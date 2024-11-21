@@ -86,7 +86,7 @@ const Success = (props: Props) => {
                 {title}
               </h3>
             </Title>
-            <p className="mb-10 max-w-[490px] text-center text-20 font-300 text-white-80">
+            <p className="max-w-[490px] pb-8 text-center text-20 font-300 text-white-80">
               {description}
             </p>
             <Button variant="secondary" onClick={onClose}>

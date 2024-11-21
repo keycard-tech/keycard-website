@@ -41,7 +41,7 @@ const Hero = () => {
               Thanks for choosing Keycard!
             </h3>
 
-            <p className="mb-10 max-w-[490px] text-center text-20 font-300 text-white-80">
+            <p className="max-w-[490px] pb-8 text-center text-20 font-300 text-white-80">
               You have successfully purchased a Keycard set. It will arrive
               shortly!
             </p>
@@ -119,8 +119,8 @@ const Hero = () => {
       >
         <div className="flex items-center gap-3">
           <Image
-            src="/assets/sign-up-teaser.png"
-            alt="Sign up teaser"
+            src="/assets/thank-you.png"
+            alt="Thank you"
             width={64}
             height={64}
           />

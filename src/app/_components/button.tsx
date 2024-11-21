@@ -10,7 +10,7 @@ type Props = {
 } & React.ComponentProps<'button'>
 
 const buttonStyles = cva({
-  base: 'inline-flex cursor-pointer gap-1 text-16 select-none items-center rounded-12 border transition-all w-fit disabled:opacity-[0.3] disabled:cursor-default',
+  base: 'inline-flex font-500 cursor-pointer gap-1 text-16 select-none items-center rounded-12 border transition-all w-fit disabled:opacity-[0.3] disabled:cursor-default',
   variants: {
     variant: {
       primary:
