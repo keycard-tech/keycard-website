@@ -13,9 +13,8 @@ import { match } from 'ts-pattern'
 type Props = {
   items: Array<{
     title: string
-    description: string
+    description: React.ReactNode | string
     imageMobile: string
-    tokens?: string
     tag?: string
   }>
 }
@@ -30,7 +29,7 @@ const FeaturesSlider = (props: Props) => {
       <div className="flex snap-x snap-mandatory overflow-x-auto scrollbar-none">
         <Image
           src="/assets/keycard/slider/card.png"
-          alt="left arrow"
+          alt="Card"
           width={851}
           height={430}
           className="absolute right-0 top-1/2 z-10 max-w-[calc(200vw)] -translate-y-1/2 translate-x-1/3"
@@ -49,16 +48,6 @@ const FeaturesSlider = (props: Props) => {
                 <p className="text-16 font-300 text-white-60">
                   {feature.description}
                 </p>
-                {feature.tokens && (
-                  <div className="flex gap-4 pt-4">
-                    <Image
-                      alt="Tokens"
-                      src={feature.tokens}
-                      width={265}
-                      height={32}
-                    />
-                  </div>
-                )}
               </div>
               <div className="rounded-28">
                 <Image

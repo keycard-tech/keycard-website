@@ -14,9 +14,8 @@ import { useEffect, useState } from 'react'
 type Props = {
   items: Array<{
     title: string
-    description: string
+    description: React.ReactNode | string
     image: string
-    tokens?: string
     tag?: string
   }>
 }
@@ -32,67 +31,67 @@ const LineDivider = () => (
   </svg>
 )
 
-// Interval in milliseconds
-const TIME_INTERVAL = 16000
-const TIME_INTERVAL_STEP = 50
-
-const FeaturesAccordion = (props: Props) => {
-  const { items } = props
+const useAutoSwitch = (
+  items: Array<{ title: string }>,
+  interval: number,
+  step: number,
+) => {
   const [value, setValue] = useState(items[0].title)
   const [width, setWidth] = useState(0)
 
-  const selected = items.find(item => item.title === value)!
-
-  // Make the accordion change the selected item with a time interval of TIME_INTERVAL value
   useEffect(() => {
     let counter = 0
 
-    const interval = setInterval(() => {
-      if (counter >= TIME_INTERVAL) {
-        const index = items.findIndex(item => item.title === value)
-        if (index === items.length - 1) {
-          setValue(items[0].title)
-        } else {
-          setValue(items[index + 1].title)
-        }
+    const timer = setInterval(() => {
+      if (counter >= interval) {
         counter = 0
         setWidth(0)
+        const index = items.findIndex(item => item.title === value)
+        setValue(items[(index + 1) % items.length].title)
       } else {
-        counter += TIME_INTERVAL_STEP
-        // Calculate the width base on the counter.
-        const newWidth = (counter * 100) / TIME_INTERVAL
-        setWidth(newWidth)
+        counter += step
+        setWidth((counter * 100) / interval)
       }
-    }, TIME_INTERVAL_STEP)
+    }, step)
 
-    return () => clearInterval(interval)
-  }, [items, value])
+    return () => clearInterval(timer)
+  }, [items, value, interval, step])
+
+  return { value, setValue, width }
+}
+
+const FeaturesAccordion = (props: Props) => {
+  const { items } = props
+  const { value, setValue, width } = useAutoSwitch(items, 16000, 50)
+
+  const selected = items.find(item => item.title === value)!
 
   return (
     <div className="hidden flex-1 items-center justify-between lg:flex">
-      <div className={cx(['flex flex-1 items-start justify-center'])}>
+      <div
+        className={cx([
+          'flex flex-1 items-start justify-center gap-6 xl:gap-0',
+        ])}
+      >
         <Accordion.Root
           type="single"
           value={value}
           collapsible
-          onValueChange={val => {
-            setValue(val)
-          }}
-          className="flex max-w-[549px] flex-col gap-0 pt-24 xl:flex-1 xl:pt-0"
+          onValueChange={setValue}
+          className="flex max-w-[549px] flex-col gap-0 pt-24 lg:flex-1 lg:pt-0"
         >
           {items.map(item => {
             const isOpen = value === item.title
 
             return (
               <Accordion.Item key={item.title} value={item.title}>
-                <Accordion.Header className="flex">
-                  <Accordion.Trigger disabled={isOpen}>
-                    <div className="relative mt-5 flex items-center justify-center gap-2">
+                <Accordion.Header>
+                  <Accordion.Trigger disabled={isOpen} className="w-full">
+                    <div className="group relative flex items-center gap-2 py-5">
                       <p
                         className={cx(
-                          'open:bg-white-40',
-                          'flex items-center text-left font-lora text-32 font-500',
-                          !isOpen && 'hover:opacity-[50%]',
+                          'flex items-center text-left font-lora text-32 font-500 open:bg-white-40',
+                          !isOpen && 'group-hover:opacity-[50%]',
                         )}
                       >
                         {item.title}
@@ -107,35 +106,24 @@ const FeaturesAccordion = (props: Props) => {
                 </Accordion.Header>
                 <Accordion.Content
                   className={cx(
-                    'overflow-hidden text-16 font-300 text-white-80 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown',
+                    '-translate-y-5 overflow-hidden text-16 font-300 text-white-80 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown',
                   )}
                 >
                   <div className="pt-1">
                     <p className="text-16 font-300 text-white-60">
                       {item.description}
                     </p>
-                    {item.tokens && (
-                      <div className="flex gap-4 pt-4">
-                        <Image
-                          alt="Tokens"
-                          src={item.tokens}
-                          width={265}
-                          height={32}
-                        />
-                      </div>
-                    )}
                   </div>
                 </Accordion.Content>
 
-                <div className="relative mt-6 w-full">
+                <div className="relative w-full">
                   <div
-                    className="absolute left-0 top-0 z-[2] h-px bg-orange text-white-100"
+                    className="absolute left-0 top-0 z-[2] h-px bg-orange text-white-100 transition-opacity duration-500"
                     style={{
                       opacity: isOpen ? 1 : 0,
                       width: `${width}%`,
                     }}
                   />
-
                   <div className="absolute left-0 top-0 z-[1] w-full overflow-hidden text-white-20">
                     <LineDivider />
                   </div>
@@ -147,12 +135,11 @@ const FeaturesAccordion = (props: Props) => {
         <div className="relative mt-[-35%] flex flex-1 flex-col items-end">
           <Image
             src={selected.image}
-            width={664}
-            height={746}
+            width={1565}
+            height={2148}
             alt={selected.title}
             className="w-full max-w-[664px] pb-20"
           />
-          {/* TODO: Add desktop download version when design is ready */}
           <div className="flex w-full max-w-[549px] flex-col gap-6 rounded-28 border border-white-8 bg-white-3 p-6 pt-5">
             <div className="flex flex-col gap-[6px]">
               <p className="font-lora text-24 font-400 text-white-95">

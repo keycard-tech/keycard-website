@@ -1,4 +1,5 @@
 import { ButtonLink } from '~components/button-link'
+import { Link } from '~components/link'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '~components/tabs'
 import { External } from '~icons'
 import Image from 'next/image'
@@ -8,73 +9,101 @@ import { FeaturesSlider } from './features-slider'
 // TODO: Replace with correct data when design has it.
 const featuresMobile = [
   {
-    title: 'Store your profile and chatkey',
-    description: 'Here is a short description of the feature',
-    image: '/assets/keycard/status-app-mobile.png',
-    imageMobile: '/assets/keycard/slider/iphone-a.png',
-  },
-  {
     title: 'Send assets and collectibles',
-    description:
-      'Status supports all Ethereum assets in the Uniswap Labs default token list.',
-    tokens: '/assets/keycard/tokens.png',
-    image: '/assets/keycard/status-app-mobile.png',
-    imageMobile: '/assets/keycard/slider/iphone-a.png',
-  },
-  {
-    title: 'Bridge',
-    description: 'Here is a short description of the feature',
-    image: '/assets/keycard/status-app-mobile.png',
+    description: (
+      <>
+        Status supports all Ethereum assets in the{' '}
+        <Link
+          href="https://tokenlists.org/token-list?url=https://ipfs.io/ipns/tokens.uniswap.org"
+          className="underline"
+        >
+          Uniswap Labs default token list.
+        </Link>
+      </>
+    ),
+    image: '/assets/keycard/slider/status-app-mobile-a.png',
     imageMobile: '/assets/keycard/slider/iphone-a.png',
   },
   {
     title: 'Swap',
-    description: 'Here is a short description of the feature',
+    description: 'Swap your favourite assets on Mainnet, Arbitrum or Optimism.',
     tag: 'SOON',
-    image: '/assets/keycard/status-app-mobile.png',
+    image: '/assets/keycard/slider/status-app-mobile-a.png',
+    imageMobile: '/assets/keycard/slider/iphone-a.png',
+  },
+  {
+    title: 'Bridge',
+    description: 'Bridge assets across Ethereum’s most popular chains.',
+    image: '/assets/keycard/slider/status-app-mobile-a.png',
     imageMobile: '/assets/keycard/slider/iphone-a.png',
   },
   {
     title: 'Sign dApp transactions',
-    description: 'Here is a short description of the feature',
-    image: '/assets/keycard/status-app-mobile.png',
+    description: (
+      <>
+        Connect to your favourite dApps with the{' '}
+        <Link
+          href="https://github.com/status-im/status-web/tree/main/apps/connector"
+          className="underline"
+        >
+          Status Connector
+        </Link>{' '}
+        web extension.
+      </>
+    ),
+    tag: 'SOON',
+    image: '/assets/keycard/slider/status-app-mobile-a.png',
     imageMobile: '/assets/keycard/slider/iphone-a.png',
   },
 ]
 
 const featuresDesktop = [
   {
-    title: 'Store your profile and chatkey',
-    description: 'Here is a short description of the feature',
-    image: '/assets/keycard/status-app-mobile.png',
-    imageMobile: '/assets/keycard/slider/iphone-a.png',
-  },
-  {
     title: 'Send assets and collectibles',
-    description:
-      'Status supports all Ethereum assets in the Uniswap Labs default token list.',
-    tokens: '/assets/keycard/tokens.png',
-    image: '/assets/keycard/status-app-mobile.png',
-    imageMobile: '/assets/keycard/slider/iphone-a.png',
-  },
-  {
-    title: 'Bridge',
-    description: 'Here is a short description of the feature',
-    image: '/assets/keycard/status-app-mobile.png',
-    imageMobile: '/assets/keycard/slider/iphone-a.png',
+    description: (
+      <>
+        Status supports all Ethereum assets in the{' '}
+        <Link
+          href="https://tokenlists.org/token-list?url=https://ipfs.io/ipns/tokens.uniswap.org"
+          className="underline"
+        >
+          Uniswap Labs default token list.
+        </Link>
+      </>
+    ),
+    image: '/assets/keycard/slider/status-app-desktop-a.png',
+    imageMobile: '/assets/keycard/slider/macbook-a.png',
   },
   {
     title: 'Swap',
-    description: 'Here is a short description of the feature',
+    description: 'Swap your favourite assets on Mainnet, Arbitrum or Optimism.',
     tag: 'SOON',
-    image: '/assets/keycard/status-app-mobile.png',
-    imageMobile: '/assets/keycard/slider/iphone-a.png',
+    image: '/assets/keycard/slider/status-app-desktop-a.png',
+    imageMobile: '/assets/keycard/slider/macbook-a.png',
+  },
+  {
+    title: 'Bridge',
+    description: 'Bridge assets across Ethereum’s most popular chains.',
+    image: '/assets/keycard/slider/status-app-desktop-a.png',
+    imageMobile: '/assets/keycard/slider/macbook-a.png',
   },
   {
     title: 'Sign dApp transactions',
-    description: 'Here is a short description of the feature',
-    image: '/assets/keycard/status-app-mobile.png',
-    imageMobile: '/assets/keycard/slider/iphone-a.png',
+    description: (
+      <>
+        Connect to your favourite dApps with the{' '}
+        <Link
+          href="https://github.com/status-im/status-web/tree/main/apps/connector"
+          className="underline"
+        >
+          Status Connector
+        </Link>{' '}
+        web extension.
+      </>
+    ),
+    tag: 'SOON',
+    image: '/assets/keycard/slider/status-app-desktop-a.png',
+    imageMobile: '/assets/keycard/slider/macbook-a.png',
   },
 ]
 
@@ -104,8 +133,8 @@ const integrations = [
 
 const Integration = () => {
   return (
-    <section>
-      <div className="mt-[200px] flex justify-center border-y border-y-white-8 bg-white-3">
+    <section className="mt-[200px]">
+      <div className="flex justify-center border-y border-y-white-8 bg-white-3 full-view-port">
         <div className="w-full max-w-[1512px] p-20 px-0 pb-5 lg:px-20 lg:pb-20">
           <div className="flex max-w-[550px] flex-col gap-2 px-3 pb-8 lg:px-0">
             <Image
@@ -118,8 +147,9 @@ const Integration = () => {
               Seamless integration with Status
             </h1>
             <p className="text-20 font-300 text-white-60">
-              Keycard works straight out of the box with the Status app. No need
-              to pair it, it just works!
+              Keycard works straight out of the box with the Status app.
+              <br />
+              No need to pair it, it just works!
             </p>
           </div>
           <Tabs defaultValue="desktop">
