@@ -10,9 +10,9 @@ const KeycardShell = () => {
         <Image
           src="/assets/keycard-shell.png"
           alt="Keycard Shell Hardware Wallet"
-          width="900"
-          height="600"
-          className="object-contain"
+          width="758"
+          height="758"
+          className="relative left-0 top-[-86px] object-cover object-center xl:top-[-128px] xl:object-contain"
           priority
         />
       </div>
