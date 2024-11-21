@@ -21,10 +21,7 @@ const Overlay = forwardRef<
   React.ComponentPropsWithoutRef<typeof BaseDialog.Overlay>
 >(({ className, ...props }, ref) => (
   <BaseDialog.Overlay
-    className={cx(
-      'fixed inset-0 z-[70] bg-dark-60 backdrop-blur-2xl',
-      className,
-    )}
+    className={cx('fixed inset-0 z-50 bg-dark-60 backdrop-blur-2xl', className)}
     {...props}
     ref={ref}
   />
@@ -68,7 +65,7 @@ const Success = (props: Props) => {
     <>
       <div
         className={cx(
-          'fixed inset-0 top-1/2 z-[70] -mt-6 h-[623px] -translate-y-1/2 overflow-y-auto overflow-x-clip focus:outline-none',
+          'fixed inset-0 top-1/2 z-50 -mt-6 h-[623px] -translate-y-1/2 overflow-y-auto overflow-x-clip focus:outline-none',
           'md:left-1/2 md:mt-0 md:w-[570px] md:-translate-x-1/2',
         )}
       >
@@ -108,7 +105,7 @@ const Footer = (props: FooterProps) => {
   return (
     <div
       className={cx(
-        'fixed inset-x-5 bottom-4 z-[70] flex flex-col items-start justify-between gap-2 bg-white-8 p-1',
+        'fixed inset-x-5 bottom-4 z-50 flex flex-col items-start justify-between gap-2 bg-white-8 p-1',
         'rounded-20 border border-white-12',
         'md:bottom-12 md:left-1/2 md:w-[570px] md:-translate-x-1/2 md:flex-row md:items-center md:gap-4 md:pr-4',
       )}

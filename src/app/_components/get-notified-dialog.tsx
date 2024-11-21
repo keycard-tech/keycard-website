@@ -71,7 +71,7 @@ export const GetNotifiedDialog = (props: Props) => {
         ) : (
           <div
             className={cx(
-              'fixed inset-0 z-[70] h-full overflow-y-auto focus:outline-none',
+              'fixed inset-0 z-50 h-full overflow-y-auto focus:outline-none',
               'md:left-1/2 md:top-1/2 md:h-fit md:w-[570px] md:-translate-x-1/2 md:-translate-y-1/2',
             )}
           >

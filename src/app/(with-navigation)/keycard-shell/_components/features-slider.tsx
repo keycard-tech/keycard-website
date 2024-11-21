@@ -95,6 +95,7 @@ const FeaturesSlider = () => {
             className="rounded-12 border border-white-12 bg-white-8 p-[10px] text-white-95 opacity-[100%] transition-all hover:text-white-100 disabled:opacity-[40%]"
             disabled={!prevBtnEnabled}
             onClick={scrollPrev}
+            aria-label="Previous item"
           >
             <Arrow className="-scale-x-100 transform" />
           </button>
@@ -102,6 +103,7 @@ const FeaturesSlider = () => {
             className="rounded-12 border border-white-12 bg-white-8 p-[10px] text-white-95 opacity-[100%] transition-all hover:text-white-100 disabled:opacity-[40%]"
             disabled={!nextBtnEnabled}
             onClick={scrollNext}
+            aria-label="Next item"
           >
             <Arrow />
           </button>

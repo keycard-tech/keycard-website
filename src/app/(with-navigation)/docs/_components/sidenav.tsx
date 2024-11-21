@@ -84,7 +84,10 @@ const SidenavItem = (props: SidenavItemProps) => {
     <Accordion.Item value={title}>
       <div>
         <div className="flex gap-0.5">
-          <Accordion.Trigger className="group flex items-center gap-0.5">
+          <Accordion.Trigger
+            className="group flex items-center gap-0.5"
+            aria-label={`Toggle ${title} section`}
+          >
             <div className="transition-transform group-aria-expanded:rotate-90">
               <ChevronRight />
             </div>

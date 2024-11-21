@@ -3,6 +3,7 @@ import { getPostBySlug, getPostSlugs } from '~/app/_lib/ghost'
 import { Metadata } from '~/app/_metadata'
 import { formatDate } from '~/app/_utils/format-date'
 import { Breadcrumbs } from '~/app/(with-navigation)/docs/_components/breadcrumbs'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { createElement, Fragment } from 'react'
 import rehypeParse from 'rehype-parse'
@@ -98,10 +99,12 @@ export default async function BlogDetailPage(props: Props) {
         </div>
 
         <div className="mx-auto w-full max-w-[1504px] px-0 py-6 xl:py-10">
-          <img
+          <Image
             src={post.feature_image!}
-            className="aspect-[374/182] size-full rounded-28 object-cover xl:aspect-[1456/470]"
-            alt={post.feature_image_alt!}
+            className="aspect-[83/38] size-full rounded-28 object-cover"
+            width={664}
+            height={304}
+            alt={post.feature_image_alt! ?? post.title}
           />
         </div>
 
