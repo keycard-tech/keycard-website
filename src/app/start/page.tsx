@@ -1,6 +1,7 @@
 import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
 import { Customize, External } from '~icons'
+import Image from 'next/image'
 import { Usb } from '../_icons/usb'
 
 export default function StartPage() {
@@ -14,12 +15,18 @@ export default function StartPage() {
           Follow our step-by-step guides to set up your Keycard
         </p>
       </div>
-      <div className="mt-8 grid grid-flow-row gap-3">
+      <div className="mt-14 grid grid-flow-row gap-3">
         <h2 className="mb-6 flex justify-start gap-3 font-lora text-32 font-400 text-white-95">
           <span className="text-orange">1</span> Download Status
         </h2>
         <div className="mb-6 flex flex-col gap-5 rounded-28 border border-white-8 bg-white-3 p-3 pt-5">
-          <div className="">Status logo</div>
+          <Image
+            src="/assets/status-logo.png"
+            alt="Status logo"
+            width={120}
+            height={32}
+            className="ml-3"
+          />
           <div className="flex flex-row gap-3">
             <div className="flex flex-1 flex-col rounded-20 border border-white-8 bg-white-3 p-6 pt-4">
               <h3 className="mb-[6px] font-lora text-24 font-400 text-white-95">
@@ -72,7 +79,7 @@ export default function StartPage() {
             Learn how to create and store your keys directly on Keycard
           </p>
           <ButtonLink
-            href="https://status.app/help/keycard"
+            href="https://status.app/help/profile/create-a-status-profile-using-keycard"
             variant="secondary"
             icon={<External />}
           >
@@ -87,7 +94,7 @@ export default function StartPage() {
             Learn how to move your keys to Keycard
           </p>
           <ButtonLink
-            href="https://status.app/help/keycard"
+            href="https://status.app/help/profile/secure-your-status-profile-or-wallet-with-keycard"
             variant="secondary"
             icon={<External />}
           >
