@@ -39,6 +39,7 @@
       "~icons": ["./src/app/_icons"],
       "~components/*": ["./src/app/_components/*"],
       "~config/*": ["./src/config/*"],
+      "~server/*": ["./src/server/*"],
       "~/*": ["./src/*"]
     }
   },

@@ -134,7 +134,7 @@ const integrations = [
 const Integration = () => {
   return (
     <section className="mt-[200px]">
-      <div className="flex justify-center border-y border-y-white-8 bg-white-3 full-view-port">
+      <div className="flex justify-center border-y border-y-white-8 bg-white-3 remove-full-view-port lg:full-view-port">
         <div className="w-full max-w-[1512px] p-20 px-0 pb-5 lg:px-20 lg:pb-20">
           <div className="flex max-w-[550px] flex-col gap-2 px-3 pb-8 lg:px-0">
             <Image

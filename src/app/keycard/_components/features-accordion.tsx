@@ -1,13 +1,20 @@
 'use client'
 
 import * as Accordion from '@radix-ui/react-accordion'
+import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
+import { downloadUrl } from '~/app/_utils/download-url'
 import {
+  STATUS_DESKTOP_DOWNLOAD_URL_LINUX,
+  STATUS_DESKTOP_DOWNLOAD_URL_MACOS_INTEL,
+  STATUS_DESKTOP_DOWNLOAD_URL_MACOS_SILICON,
+  STATUS_DESKTOP_DOWNLOAD_URL_WINDOWS,
   STATUS_MOBILE_APP_STORE_URL,
   STATUS_MOBILE_F_DROID_URL,
   STATUS_MOBILE_GOOGLE_PLAY_URL,
 } from '~/config/routes'
+import { Button } from '~components/button'
 import { Link } from '~components/link'
-import { Customize, Usb } from '~icons'
+import { Apple, ChevronDown, Customize, Linux, Usb, Windows } from '~icons'
 import { cx } from 'cva'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
@@ -270,8 +277,69 @@ const DownloadStatusForDesktop = (props: DownloadStatusForDesktopProps) => {
             Available for Mac, Windows and Linux
           </p>
         </div>
-        <div className="h-10">Add the download links here</div>
+        <div className="flex h-10 gap-3">
+          <MacOsPicker />
+          <Button
+            variant="secondary"
+            className="!p-[10px]"
+            onClick={() => downloadUrl(STATUS_DESKTOP_DOWNLOAD_URL_WINDOWS)}
+          >
+            <Windows />
+          </Button>
+          <Button
+            variant="secondary"
+            className="!p-[10px]"
+            onClick={() => downloadUrl(STATUS_DESKTOP_DOWNLOAD_URL_LINUX)}
+          >
+            <Linux />
+          </Button>
+        </div>
       </div>
     </div>
+  )
+}
+
+const MacOsPicker = () => {
+  return (
+    <DropdownMenu.Root modal={false}>
+      <DropdownMenu.Trigger asChild className="">
+        <Button
+          variant="secondary"
+          icon={
+            <div className="ml-1 flex size-[14px] items-center justify-center rounded-full bg-white-12">
+              <ChevronDown />
+            </div>
+          }
+        >
+          <Apple /> Download for macOS
+        </Button>
+      </DropdownMenu.Trigger>
+
+      <DropdownMenu.Portal>
+        <DropdownMenu.Content
+          sideOffset={4}
+          align="start"
+          className="flex w-[225px] flex-col gap-1 rounded-12 border border-white-12 bg-dark-60 p-1"
+        >
+          <DropdownMenu.Item
+            className="cursor-pointer rounded-[8px] bg-white-3 px-3 py-1 transition-colors hover:bg-white-8"
+            onSelect={() =>
+              downloadUrl(STATUS_DESKTOP_DOWNLOAD_URL_MACOS_SILICON)
+            }
+          >
+            Apple Silicon
+          </DropdownMenu.Item>
+
+          <DropdownMenu.Item
+            className="cursor-pointer rounded-[8px] bg-white-3 px-3 py-1 transition-colors hover:bg-white-8"
+            onSelect={() =>
+              downloadUrl(STATUS_DESKTOP_DOWNLOAD_URL_MACOS_INTEL)
+            }
+          >
+            Intel
+          </DropdownMenu.Item>
+        </DropdownMenu.Content>
+      </DropdownMenu.Portal>
+    </DropdownMenu.Root>
   )
 }

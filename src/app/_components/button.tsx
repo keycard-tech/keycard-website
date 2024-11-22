@@ -62,6 +62,7 @@ const Button = forwardRef<HTMLButtonElement, Props>((props, ref) => {
       {...rest}
     >
       {children}
+      {icon}
     </button>
   )
 })
