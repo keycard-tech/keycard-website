@@ -74,19 +74,19 @@ const FeaturesAccordion = (props: Props) => {
   const selected = items.find(item => item.title === value)!
 
   return (
-    <div className="hidden flex-1 items-center justify-between lg:flex">
+    <div className="hidden items-center justify-between lg:flex">
       <div
         className={cx([
           'flex flex-1 items-start justify-center gap-6 xl:gap-0',
         ])}
       >
-        <div className="flex flex-col items-start">
+        <div className="flex flex-1 flex-col items-start">
           <Accordion.Root
             type="single"
             value={value}
             collapsible
             onValueChange={setValue}
-            className="flex max-w-[549px] flex-col gap-0 pt-24 lg:flex-1 lg:pt-0"
+            className="flex w-full max-w-[549px] flex-col gap-0 pt-24 lg:flex-1 lg:pt-0"
           >
             {items.map(item => {
               const isOpen = value === item.title
@@ -195,7 +195,7 @@ type DownloadStatusForMobileProps = {
 const DownloadStatusForMobile = (props: DownloadStatusForMobileProps) => {
   const { image, className, title } = props
   return (
-    <div className="relative flex flex-1 flex-col items-end self-end">
+    <div className="relative flex flex-col items-end self-end">
       <Image
         src={image}
         width={1565}
@@ -255,7 +255,7 @@ const DownloadStatusForDesktop = (props: DownloadStatusForDesktopProps) => {
   const { image, className, title } = props
 
   return (
-    <div className="relative flex flex-1 flex-col items-end self-end">
+    <div className="relative flex flex-col items-end self-end">
       <Image
         src={image}
         width={1565}
