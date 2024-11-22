@@ -20,8 +20,6 @@ type Props = {
     tag?: string
   }>
   imageClassName?: string
-  contentClassName?: string
-  imageContainerClassName?: string
 }
 
 const LineDivider = () => (
@@ -65,8 +63,7 @@ const useAutoSwitch = (
 }
 
 const FeaturesAccordion = (props: Props) => {
-  const { items, imageClassName, contentClassName, imageContainerClassName } =
-    props
+  const { items, imageClassName } = props
   const { value, setValue, width } = useAutoSwitch(items, 16000, 50)
 
   const selected = items.find(item => item.title === value)!
@@ -84,10 +81,7 @@ const FeaturesAccordion = (props: Props) => {
             value={value}
             collapsible
             onValueChange={setValue}
-            className={cx([
-              'flex max-w-[549px] flex-col gap-0 pt-24 lg:flex-1 lg:pt-0',
-              contentClassName,
-            ])}
+            className="flex max-w-[549px] flex-col gap-0 pt-24 lg:flex-1 lg:pt-0"
           >
             {items.map(item => {
               const isOpen = value === item.title
@@ -157,12 +151,7 @@ const FeaturesAccordion = (props: Props) => {
             </div>
           </div>
         </div>
-        <div
-          className={cx([
-            'relative flex flex-1 flex-col items-end self-end',
-            imageContainerClassName,
-          ])}
-        >
+        <div className="relative flex flex-1 flex-col items-end self-end">
           <Image
             src={selected.image}
             width={1565}

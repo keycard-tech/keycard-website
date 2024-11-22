@@ -15,7 +15,7 @@ const featuresMobile = [
         Status supports all Ethereum assets in the{' '}
         <Link
           href="https://tokenlists.org/token-list?url=https://ipfs.io/ipns/tokens.uniswap.org"
-          className="underline"
+          className="underline transition-colors hover:text-orange"
         >
           Uniswap Labs default token list.
         </Link>
@@ -44,7 +44,7 @@ const featuresMobile = [
         Connect to your favourite dApps with the{' '}
         <Link
           href="https://github.com/status-im/status-web/tree/main/apps/connector"
-          className="underline"
+          className="underline transition-colors hover:text-orange"
         >
           Status Connector
         </Link>{' '}
@@ -65,7 +65,7 @@ const featuresDesktop = [
         Status supports all Ethereum assets in the{' '}
         <Link
           href="https://tokenlists.org/token-list?url=https://ipfs.io/ipns/tokens.uniswap.org"
-          className="underline"
+          className="underline transition-colors hover:text-orange"
         >
           Uniswap Labs default token list.
         </Link>
@@ -94,7 +94,7 @@ const featuresDesktop = [
         Connect to your favourite dApps with the{' '}
         <Link
           href="https://github.com/status-im/status-web/tree/main/apps/connector"
-          className="underline"
+          className="underline transition-colors hover:text-orange"
         >
           Status Connector
         </Link>{' '}
@@ -167,8 +167,7 @@ const Integration = () => {
             <TabsContent value="mobile" className="pt-20">
               <FeaturesAccordion
                 items={featuresMobile}
-                imageClassName="w-full max-w-[664px]"
-                imageContainerClassName="mt-[-35%]"
+                imageClassName="absolute top-0 translate-x-[30%] xl:translate-x-0  max-w-[604px] translate-y-[-100%] right-0"
               />
               <FeaturesSlider items={featuresMobile} />
             </TabsContent>
