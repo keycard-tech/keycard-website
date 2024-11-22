@@ -1,27 +1,22 @@
 import { fetchLatestRelease } from '~server/services/github'
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import { match } from 'ts-pattern'
 import { z } from 'zod'
 
 const querySchema = z.object({
-  platform: z.enum([
-    'macos-silicon',
-    'macos-intel',
-    'linux',
-    'windows',
-    'android',
-  ]),
+  platform: z.enum(['macos-silicon', 'macos-intel', 'linux', 'windows']),
   source: z.enum(['instructions', 'sharing', 'connector']).optional(),
 })
 
 export async function GET(
-  request: Request,
-  { params }: { params: { platform: string } },
+  request: NextRequest,
+  { params }: { params: Promise<{ platform: string }> },
 ) {
   const { searchParams } = new URL(request.url)
+  const platformFromParams = (await params).platform
 
   const result = querySchema.safeParse({
-    platform: params.platform,
+    platform: platformFromParams,
     source: searchParams.get('source') ?? undefined,
   })
 
@@ -30,21 +25,6 @@ export async function GET(
   }
 
   const { platform } = result.data
-
-  if (platform === 'android') {
-    const release = await fetchLatestRelease({ repo: 'status-mobile' })
-
-    // await track('Download', {
-    //   platform: 'android',
-    //   version: release.data.tag_name,
-    // })
-
-    const { browser_download_url: downloadUrl } = release.data.assets.find(
-      asset => asset.name.endsWith('universal.apk'),
-    )!
-
-    return NextResponse.redirect(downloadUrl)
-  }
 
   try {
     const release = await fetchLatestRelease({ repo: 'status-desktop' })
@@ -75,12 +55,6 @@ export async function GET(
           )!,
       )
       .exhaustive()
-
-    // await track('Download', {
-    //   platform,
-    //   version: release.data.tag_name,
-    //   source,
-    // })
 
     return NextResponse.redirect(downloadUrl)
   } catch (error) {
