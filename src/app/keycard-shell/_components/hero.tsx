@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 const Hero = () => {
   return (
-    <section className="relative flex h-svh overflow-y-clip full-view-port lg:remove-full-view-port xl:h-[986px]">
+    <section className="relative flex h-svh overflow-y-clip full-view-port lg:remove-full-view-port 2xl:h-[986px]">
       <Image
         alt="Keycard Shell"
         src="/assets/keycard-shell/bg-hero-keycard-shell.png"
