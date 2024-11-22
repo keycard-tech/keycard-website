@@ -158,11 +158,18 @@ const Integration = () => {
               <TabsTrigger value="mobile">On mobile</TabsTrigger>
             </TabsList>
             <TabsContent value="desktop" className="pt-20">
-              <FeaturesAccordion items={featuresDesktop} />
+              <FeaturesAccordion
+                items={featuresDesktop}
+                imageClassName="absolute top-0 translate-x-[65%] xl:translate-x-1/2 translate-y-[-100%] right-0 min-w-[1035px]"
+              />
               <FeaturesSlider items={featuresDesktop} />
             </TabsContent>
             <TabsContent value="mobile" className="pt-20">
-              <FeaturesAccordion items={featuresMobile} />
+              <FeaturesAccordion
+                items={featuresMobile}
+                imageClassName="w-full max-w-[664px]"
+                imageContainerClassName="mt-[-35%]"
+              />
               <FeaturesSlider items={featuresMobile} />
             </TabsContent>
           </Tabs>
