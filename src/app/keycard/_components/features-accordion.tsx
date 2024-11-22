@@ -195,7 +195,7 @@ type DownloadStatusForMobileProps = {
 const DownloadStatusForMobile = (props: DownloadStatusForMobileProps) => {
   const { image, className, title } = props
   return (
-    <div className="relative flex flex-col items-end self-end">
+    <div className="relative flex flex-1 flex-col items-end self-end">
       <Image
         src={image}
         width={1565}
@@ -255,11 +255,11 @@ const DownloadStatusForDesktop = (props: DownloadStatusForDesktopProps) => {
   const { image, className, title } = props
 
   return (
-    <div className="relative flex flex-col items-end self-end">
+    <div className="relative flex flex-1 flex-col items-end self-end">
       <Image
         src={image}
-        width={1565}
-        height={2148}
+        width={1124}
+        height={716}
         alt={title}
         className={className}
       />

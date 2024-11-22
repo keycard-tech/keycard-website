@@ -161,7 +161,7 @@ const Integration = () => {
               <FeaturesAccordion
                 variant="desktop-app"
                 items={featuresDesktop}
-                imageClassName="absolute top-0 translate-x-[65%] xl:translate-x-1/2 translate-y-[-100%] right-0 min-w-[1035px]"
+                imageClassName="absolute top-0 translate-x-[65%] xl:translate-x-1/2 translate-y-[-100%] right-0 min-w-[1124px]"
               />
               <FeaturesSlider items={featuresDesktop} />
             </TabsContent>
