@@ -159,6 +159,7 @@ const Integration = () => {
             </TabsList>
             <TabsContent value="desktop" className="pt-20">
               <FeaturesAccordion
+                variant="desktop-app"
                 items={featuresDesktop}
                 imageClassName="absolute top-0 translate-x-[65%] xl:translate-x-1/2 translate-y-[-100%] right-0 min-w-[1035px]"
               />
@@ -166,6 +167,7 @@ const Integration = () => {
             </TabsContent>
             <TabsContent value="mobile" className="pt-20">
               <FeaturesAccordion
+                variant="mobile-app"
                 items={featuresMobile}
                 imageClassName="absolute top-0 translate-x-[30%] xl:translate-x-0  max-w-[604px] translate-y-[-100%] right-0"
               />

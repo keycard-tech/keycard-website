@@ -1,6 +1,8 @@
 'use client'
 
 import * as Accordion from '@radix-ui/react-accordion'
+// import { useDesktopOperatingSystem } from '~/app/_hooks/use-desktop-operating-system'
+// import { useMobileOperatingSystem } from '~/app/_hooks/use-mobile-operating-system'
 import {
   STATUS_MOBILE_APP_STORE_URL,
   STATUS_MOBILE_F_DROID_URL,
@@ -11,6 +13,7 @@ import { Customize, Usb } from '~icons'
 import { cx } from 'cva'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
+import { match } from 'ts-pattern'
 
 type Props = {
   items: Array<{
@@ -20,6 +23,7 @@ type Props = {
     tag?: string
   }>
   imageClassName?: string
+  variant: 'desktop-app' | 'mobile-app'
 }
 
 const LineDivider = () => (
@@ -63,7 +67,7 @@ const useAutoSwitch = (
 }
 
 const FeaturesAccordion = (props: Props) => {
-  const { items, imageClassName } = props
+  const { items, imageClassName, variant } = props
   const { value, setValue, width } = useAutoSwitch(items, 16000, 50)
 
   const selected = items.find(item => item.title === value)!
@@ -93,7 +97,7 @@ const FeaturesAccordion = (props: Props) => {
                       <div className="group relative flex items-center gap-2 py-5">
                         <p
                           className={cx(
-                            'flex items-center text-left font-lora text-32 font-500 open:bg-white-40',
+                            'flex items-center text-left font-lora text-32 font-500 transition-opacity',
                             !isOpen && 'group-hover:opacity-[50%]',
                           )}
                         >
@@ -151,55 +155,22 @@ const FeaturesAccordion = (props: Props) => {
             </div>
           </div>
         </div>
-        <div className="relative flex flex-1 flex-col items-end self-end">
-          <Image
-            src={selected.image}
-            width={1565}
-            height={2148}
-            alt={selected.title}
-            className={imageClassName}
-          />
-          <div className="mt-20 flex w-full max-w-[549px] flex-col gap-6 rounded-28 border border-white-8 bg-white-3 p-6 pt-5">
-            <div className="flex flex-col gap-[6px]">
-              <p className="font-lora text-24 font-400 text-white-95">
-                Download Status for Mobile
-              </p>
-              <p className="font-300 text-white-80">
-                Available for iOS or Android
-              </p>
-            </div>
-
-            <div className="flex gap-3">
-              <Link href={STATUS_MOBILE_APP_STORE_URL}>
-                <Image
-                  src="/assets/keycard/appstore.png"
-                  width={140}
-                  height={40}
-                  alt="Download on App Store"
-                  className="h-10 w-auto"
-                />
-              </Link>
-              <Link href={STATUS_MOBILE_GOOGLE_PLAY_URL}>
-                <Image
-                  src="/assets/keycard/googleplay.png"
-                  width={142}
-                  height={40}
-                  className="h-10 w-auto"
-                  alt="Get it on Google Play"
-                />
-              </Link>
-              <Link href={STATUS_MOBILE_F_DROID_URL}>
-                <Image
-                  src="/assets/keycard/fdroid.png"
-                  width={120}
-                  height={40}
-                  className="h-10 w-auto"
-                  alt="Get it on F-Droid"
-                />
-              </Link>
-            </div>
-          </div>
-        </div>
+        {match(variant)
+          .with('desktop-app', () => (
+            <DownloadStatusForDesktop
+              image={selected.image}
+              title={selected.title}
+              className={imageClassName}
+            />
+          ))
+          .with('mobile-app', () => (
+            <DownloadStatusForMobile
+              image={selected.image}
+              title={selected.title}
+              className={imageClassName}
+            />
+          ))
+          .exhaustive()}
       </div>
     </div>
   )
@@ -207,3 +178,95 @@ const FeaturesAccordion = (props: Props) => {
 
 export { FeaturesAccordion }
 export type { Props as FeaturesAccordionProps }
+
+type DownloadStatusForMobileProps = {
+  image: string
+  className?: string
+  title: string
+}
+
+const DownloadStatusForMobile = (props: DownloadStatusForMobileProps) => {
+  const { image, className, title } = props
+  return (
+    <div className="relative flex flex-1 flex-col items-end self-end">
+      <Image
+        src={image}
+        width={1565}
+        height={2148}
+        alt={title}
+        className={className}
+      />
+      <div className="mt-20 flex w-full max-w-[549px] flex-col gap-6 rounded-28 border border-white-8 bg-white-3 p-6 pt-5">
+        <div className="flex flex-col gap-[6px]">
+          <p className="font-lora text-24 font-400 text-white-95">
+            Download Status for Mobile
+          </p>
+          <p className="font-300 text-white-80">Available for iOS or Android</p>
+        </div>
+
+        <div className="flex gap-3">
+          <Link href={STATUS_MOBILE_APP_STORE_URL}>
+            <Image
+              src="/assets/keycard/appstore.png"
+              width={140}
+              height={40}
+              alt="Download on App Store"
+              className="h-10 w-auto"
+            />
+          </Link>
+          <Link href={STATUS_MOBILE_GOOGLE_PLAY_URL}>
+            <Image
+              src="/assets/keycard/googleplay.png"
+              width={142}
+              height={40}
+              className="h-10 w-auto"
+              alt="Get it on Google Play"
+            />
+          </Link>
+          <Link href={STATUS_MOBILE_F_DROID_URL}>
+            <Image
+              src="/assets/keycard/fdroid.png"
+              width={120}
+              height={40}
+              className="h-10 w-auto"
+              alt="Get it on F-Droid"
+            />
+          </Link>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+type DownloadStatusForDesktopProps = {
+  image: string
+  className?: string
+  title: string
+}
+
+const DownloadStatusForDesktop = (props: DownloadStatusForDesktopProps) => {
+  const { image, className, title } = props
+
+  return (
+    <div className="relative flex flex-1 flex-col items-end self-end">
+      <Image
+        src={image}
+        width={1565}
+        height={2148}
+        alt={title}
+        className={className}
+      />
+      <div className="mt-20 flex w-full max-w-[549px] flex-col gap-6 rounded-28 border border-white-8 bg-white-3 p-6 pt-5">
+        <div className="flex flex-col gap-[6px]">
+          <p className="font-lora text-24 font-400 text-white-95">
+            Download Status for Desktop
+          </p>
+          <p className="font-300 text-white-80">
+            Available for Mac, Windows and Linux
+          </p>
+        </div>
+        <div className="h-10">Add the download links here</div>
+      </div>
+    </div>
+  )
+}
