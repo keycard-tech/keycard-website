@@ -72,20 +72,20 @@ const featuresDesktop = [
       </>
     ),
     image: '/assets/keycard/slider/status-app-desktop-a.png',
-    imageMobile: '/assets/keycard/slider/macbook-a.png',
+    imageMobile: '/assets/keycard/slider/status-app-desktop-a.png',
   },
   {
     title: 'Swap',
     description: 'Swap your favourite assets on Mainnet, Arbitrum or Optimism.',
     tag: 'SOON',
     image: '/assets/keycard/slider/status-app-desktop-a.png',
-    imageMobile: '/assets/keycard/slider/macbook-a.png',
+    imageMobile: '/assets/keycard/slider/status-app-desktop-a.png',
   },
   {
     title: 'Bridge',
     description: 'Bridge assets across Ethereum’s most popular chains.',
     image: '/assets/keycard/slider/status-app-desktop-a.png',
-    imageMobile: '/assets/keycard/slider/macbook-a.png',
+    imageMobile: '/assets/keycard/slider/status-app-desktop-a.png',
   },
   {
     title: 'Sign dApp transactions',
@@ -103,7 +103,7 @@ const featuresDesktop = [
     ),
     tag: 'SOON',
     image: '/assets/keycard/slider/status-app-desktop-a.png',
-    imageMobile: '/assets/keycard/slider/macbook-a.png',
+    imageMobile: '/assets/keycard/slider/status-app-desktop-a.png',
   },
 ]
 
@@ -159,19 +159,19 @@ const Integration = () => {
             </TabsList>
             <TabsContent value="desktop" className="pt-20">
               <FeaturesAccordion
-                variant="desktop-app"
+                variant="desktop"
                 items={featuresDesktop}
                 imageClassName="absolute top-0 translate-x-[65%] xl:translate-x-1/2 translate-y-[-100%] right-0 min-w-[1124px]"
               />
-              <FeaturesSlider items={featuresDesktop} />
+              <FeaturesSlider items={featuresDesktop} variant="desktop" />
             </TabsContent>
             <TabsContent value="mobile" className="pt-20">
               <FeaturesAccordion
-                variant="mobile-app"
+                variant="mobile"
                 items={featuresMobile}
                 imageClassName="absolute top-0 translate-x-[30%] xl:translate-x-0  max-w-[604px] translate-y-[-100%] right-0"
               />
-              <FeaturesSlider items={featuresMobile} />
+              <FeaturesSlider items={featuresMobile} variant="mobile" />
             </TabsContent>
           </Tabs>
         </div>

@@ -7,6 +7,7 @@ import {
   STATUS_MOBILE_GOOGLE_PLAY_URL,
 } from '~/config/routes'
 import { Link } from '~components/link'
+import { cx } from 'cva'
 import Image from 'next/image'
 import { match } from 'ts-pattern'
 
@@ -17,23 +18,26 @@ type Props = {
     imageMobile: string
     tag?: string
   }>
+  variant: 'desktop' | 'mobile'
 }
 
 const FeaturesSlider = (props: Props) => {
-  const { items } = props
+  const { items, variant } = props
 
   const mobileOS = useMobileOperatingSystem()
 
   return (
     <div className="relative block lg:hidden">
       <div className="flex snap-x snap-mandatory overflow-x-auto scrollbar-none">
-        <Image
-          src="/assets/keycard/slider/card.png"
-          alt="Card"
-          width={851}
-          height={430}
-          className="absolute right-0 top-1/2 z-10 max-w-[calc(200vw)] -translate-y-1/2 translate-x-1/3"
-        />
+        {variant === 'mobile' && (
+          <Image
+            src="/assets/keycard/slider/card.png"
+            alt="Card"
+            width={851}
+            height={430}
+            className="absolute left-1/2 top-1/3 z-10 max-w-[200vw] -translate-y-1/4 translate-x-[-43%]"
+          />
+        )}
 
         {items.map((feature, index) => (
           <div
@@ -49,12 +53,16 @@ const FeaturesSlider = (props: Props) => {
                   {feature.description}
                 </p>
               </div>
-              <div className="rounded-28">
+              <div className="rounded-28 pt-10">
                 <Image
                   src={feature.imageMobile}
                   alt={feature.title}
-                  width={489}
-                  height={791}
+                  width={1125}
+                  height={200}
+                  className={cx([
+                    'mx-auto',
+                    variant === 'desktop' ? 'w-full' : 'max-w-[350px]',
+                  ])}
                 />
               </div>
             </div>

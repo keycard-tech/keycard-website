@@ -1,8 +1,6 @@
 'use client'
 
 import * as Accordion from '@radix-ui/react-accordion'
-// import { useDesktopOperatingSystem } from '~/app/_hooks/use-desktop-operating-system'
-// import { useMobileOperatingSystem } from '~/app/_hooks/use-mobile-operating-system'
 import {
   STATUS_MOBILE_APP_STORE_URL,
   STATUS_MOBILE_F_DROID_URL,
@@ -24,7 +22,7 @@ type Props = {
     tag?: string
   }>
   imageClassName?: string
-  variant: 'desktop-app' | 'mobile-app'
+  variant: 'desktop' | 'mobile'
 }
 
 const LineDivider = () => (
@@ -163,14 +161,14 @@ const FeaturesAccordion = (props: Props) => {
           </div>
         </div>
         {match(variant)
-          .with('desktop-app', () => (
+          .with('desktop', () => (
             <DownloadStatusForDesktop
               image={selected.image}
               title={selected.title}
               className={imageClassName}
             />
           ))
-          .with('mobile-app', () => (
+          .with('mobile', () => (
             <DownloadStatusForMobile
               image={selected.image}
               title={selected.title}
