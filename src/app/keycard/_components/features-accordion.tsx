@@ -14,6 +14,7 @@ import { cx } from 'cva'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { match } from 'ts-pattern'
+import { FeaturesDialog } from './features-dialog'
 
 type Props = {
   items: Array<{
@@ -150,7 +151,13 @@ const FeaturesAccordion = (props: Props) => {
             <div className="flex items-center gap-1">
               <Customize />
               <p className="text-14 font-300 text-white-60">
-                View other features availalble
+                View other{' '}
+                <FeaturesDialog>
+                  <button className="underline transition-colors hover:text-orange">
+                    features
+                  </button>
+                </FeaturesDialog>{' '}
+                availalble
               </p>
             </div>
           </div>
