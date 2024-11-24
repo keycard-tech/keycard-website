@@ -4,14 +4,14 @@ import Image from 'next/image'
 
 const Hero = () => {
   return (
-    <section className="relative flex h-svh overflow-y-clip full-view-port lg:remove-full-view-port 2xl:h-[986px]">
+    <section className="relative flex h-svh overflow-y-clip full-view-port lg:remove-full-view-port 2xl:h-[839px]">
       <Image
         alt="Keycard Shell"
         src="/assets/keycard-shell/bg-hero-keycard-shell.png"
         width={986}
         height={986}
         priority
-        className="absolute left-10 top-1/3 z-0 h-auto w-fit -translate-y-1/2 scale-[120%] bg-contain bg-top bg-no-repeat md:scale-125 lg:left-1/3 lg:-translate-x-1/2"
+        className="absolute left-10 top-[43%] z-0 h-auto w-fit -translate-y-1/2 scale-[120%] bg-contain bg-top bg-no-repeat md:scale-100 lg:left-[36%] lg:-translate-x-1/2"
       />
       <div className="absolute bottom-0 left-0 z-10 h-1/3 w-full bg-gradient-to-b from-[transparent] to-dark-100 lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2" />
       <div className="relative z-10 flex flex-1 flex-col justify-end px-5 pb-5 align-bottom lg:pb-[43px] xl:px-20">

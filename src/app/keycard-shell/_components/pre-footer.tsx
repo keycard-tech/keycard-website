@@ -1,12 +1,11 @@
 import { Button } from '~components/button'
 import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
-import { cx } from 'cva'
 import Image from 'next/image'
 
 const Prefooter = () => {
   return (
-    <section className="relative mb-2 mt-28 flex flex-col rounded-28 border border-white-8 bg-white-3 px-5 pb-20 pt-0 full-view-port lg:my-0 lg:flex-row lg:border-0 lg:px-14 lg:pb-0 lg:pt-[200px] lg:remove-full-view-port xl:px-[195px]">
-      <div className="relative z-20 flex flex-1 flex-col items-center pt-[265px] text-center lg:items-start lg:pt-0 lg:text-left">
+    <section className="relative mb-2 mt-28 flex flex-col px-5 pb-20 pt-0 full-view-port lg:my-0 lg:mb-[160px] lg:flex-row lg:gap-16 lg:pb-0 lg:pt-[100px] lg:remove-full-view-port">
+      <div className="relative z-20 order-2 flex flex-col items-center pt-[365px] text-center lg:order-1 lg:items-start lg:pt-[100px] lg:text-left xl:pl-[230px]">
         <p className="pb-2 text-24 font-600 text-white-95">
           keycard <span className="font-200">shell</span>
         </p>
@@ -24,18 +23,17 @@ const Prefooter = () => {
           <p className="text-16 font-300 text-white-60">From $25</p>
         </div>
       </div>
-      <div className="absolute inset-0 z-10 block h-1/2 w-full -translate-y-1 bg-gradient-to-b from-dark-100 to-[transparent] lg:hidden" />
-      <Image
-        src="/assets/bottom-keycard-shell.png"
-        alt="Keycard Shell"
-        width={900}
-        height={600}
-        draggable={false}
-        className={cx([
-          'pointer-events-none absolute left-1/2 top-0 z-10 max-w-[549px] -translate-x-1/2 select-none lg:relative lg:left-auto lg:top-auto lg:translate-x-0',
-          'lg:w-full',
-        ])}
-      />
+      <div className="order-1 flex lg:relative lg:right-[-20px] lg:order-2">
+        <div className="absolute z-20 block h-[220px] w-full bg-gradient-to-b from-dark-100 to-[transparent]" />
+        <Image
+          src="/assets/faqs.png"
+          alt="Keycard Shell"
+          width={671}
+          height={442}
+          draggable={false}
+          className="pointer-events-none z-10 aspect-[671/442] select-none"
+        />
+      </div>
     </section>
   )
 }
