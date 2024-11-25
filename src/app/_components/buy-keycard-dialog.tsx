@@ -25,7 +25,7 @@ import {
   World,
 } from '../_icons'
 import { useShopifyUTMParamsContext } from '../_providers/shopify-utm-params-provider'
-import { createCart } from '../actions'
+import { createCart as _createCart } from '../actions'
 import { Button } from './button'
 import * as Dialog from './dialog'
 import { Form } from './form/form'
@@ -113,58 +113,27 @@ const ShopifyForm = (props: ShopifyFormProps) => {
     },
     mode: 'onTouched',
   })
-
   const { formState, watch, setValue } = form
-
   const { isSubmitting } = formState
 
   const [shopifyCartUrl, setShopifyCartUrl] = useState<string>()
-
+  const utmParams = useShopifyUTMParamsContext()
   const router = useRouter()
 
-  const create = (data: Shopify) => {
-    const products: CartInput = [
-      {
-        productId: KEYCARD_PRODUCTS[data.bundleId].productId,
-        quantity: data.quantity,
-      },
-    ]
-
-    if (data.includeKeycardReader) {
-      products.push({
-        productId: KEYCARD_PRODUCTS.READER.productId,
-        quantity: 1,
-      })
-    }
-
-    createCart(products).then(shopifyCartUrl => {
-      const url = new URL(shopifyCartUrl)
-
-      utmParams.forEach((value, key) => {
-        url.searchParams.append(key, value)
-      })
-
-      setShopifyCartUrl(url.toString())
-    })
-  }
-
-  useEffect(() => {
-    create(form.getValues())
-  })
-
   const debounced = useDebouncedCallback(data => {
-    create(data)
+    createCart(data, utmParams, setShopifyCartUrl)
   }, 2 * 1000)
 
   useEffect(() => {
+    createCart(form.getValues(), utmParams, setShopifyCartUrl)
+
     const subscription = watch(data => {
       debounced(data)
     })
 
     return () => subscription.unsubscribe()
-  })
-
-  const utmParams = useShopifyUTMParamsContext()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const submitHandler: SubmitHandler<Shopify> = () => {
     if (!shopifyCartUrl) {
@@ -172,7 +141,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
     }
 
     window.open(shopifyCartUrl, '_blank', 'noopener')
-    router.push('/thank-you-page')
+    router.push('/thank-you')
   }
 
   const selectedBundle = watch('bundleId')
@@ -220,7 +189,9 @@ const ShopifyForm = (props: ShopifyFormProps) => {
           <Button
             variant="secondary"
             className="size-10 px-[9px] text-white-95"
-            onClick={closeDialog}
+            onClick={() => {
+              closeDialog()
+            }}
             aria-label="Close"
           >
             <Close className="size-5" />
@@ -354,10 +325,6 @@ const ShopifyForm = (props: ShopifyFormProps) => {
               className="w-full justify-center font-500"
               disabled={debounced.isPending() || !shopifyCartUrl}
               onClick={() => {
-                // form.handleSubmit(submitHandler)()
-                // form.trigger()
-
-                // submitHandler(form.getValues())
                 form.handleSubmit(submitHandler)()
               }}
             >
@@ -416,4 +383,34 @@ const ShopifyForm = (props: ShopifyFormProps) => {
       </div>
     </div>
   )
+}
+
+function createCart(
+  data: Shopify,
+  utmParams: URLSearchParams,
+  setShopifyCartUrl: (url: string) => void,
+) {
+  const products: CartInput = [
+    {
+      productId: KEYCARD_PRODUCTS[data.bundleId].productId,
+      quantity: data.quantity,
+    },
+  ]
+
+  if (data.includeKeycardReader) {
+    products.push({
+      productId: KEYCARD_PRODUCTS.READER.productId,
+      quantity: 1,
+    })
+  }
+
+  _createCart(products).then(shopifyCartUrl => {
+    const url = new URL(shopifyCartUrl)
+
+    utmParams.forEach((value, key) => {
+      url.searchParams.append(key, value)
+    })
+
+    setShopifyCartUrl(url.toString())
+  })
 }
