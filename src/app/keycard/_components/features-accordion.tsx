@@ -14,12 +14,12 @@ import {
 } from '~/config/routes'
 import { Button } from '~components/button'
 import { Link } from '~components/link'
-import { Apple, ChevronDown, Customize, Linux, Usb, Windows } from '~icons'
+import { Apple, ChevronDown, Linux, Windows } from '~icons'
 import { cx } from 'cva'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { match } from 'ts-pattern'
-import { FeaturesDialog } from './features-dialog'
+import { FeaturesDisclaimer } from './features-disclaimer'
 
 type Props = {
   items: Array<{
@@ -145,27 +145,7 @@ const FeaturesAccordion = (props: Props) => {
               )
             })}
           </Accordion.Root>
-          <div className="mt-20 flex items-center justify-center gap-2 rounded-16 border border-dashed border-white-12 bg-white-3 px-4 py-[14px]">
-            <div className="flex items-center gap-1">
-              <Usb />
-              <p className="text-14 font-300 text-white-60">
-                Desktop requires an NFC card reader
-              </p>
-            </div>
-            <div className="size-1 rounded-full bg-white-40" />
-            <div className="flex items-center gap-1">
-              <Customize />
-              <p className="text-14 font-300 text-white-60">
-                View other{' '}
-                <FeaturesDialog>
-                  <button className="underline transition-colors hover:text-orange">
-                    features
-                  </button>
-                </FeaturesDialog>{' '}
-                availalble
-              </p>
-            </div>
-          </div>
+          <FeaturesDisclaimer />
         </div>
         {match(variant)
           .with('desktop', () => (

@@ -1,3 +1,4 @@
+import containerQueries from '@tailwindcss/container-queries'
 import { scrollbarWidth } from 'tailwind-scrollbar-utilities'
 import type { Config } from 'tailwindcss'
 import { fontFamily } from 'tailwindcss/defaultTheme'
@@ -151,6 +152,7 @@ export default {
   },
 
   plugins: [
+    containerQueries,
     scrollbarWidth(),
     plugin(({ addUtilities }) => {
       addUtilities({

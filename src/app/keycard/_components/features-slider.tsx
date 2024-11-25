@@ -10,6 +10,7 @@ import { Link } from '~components/link'
 import { cx } from 'cva'
 import Image from 'next/image'
 import { match } from 'ts-pattern'
+import { FeaturesDisclaimer } from './features-disclaimer'
 
 type Props = {
   items: Array<{
@@ -69,6 +70,7 @@ const FeaturesSlider = (props: Props) => {
           </div>
         ))}
       </div>
+      <FeaturesDisclaimer />
       {mobileOS && (
         <div className="mt-14 flex w-full max-w-[549px] flex-col gap-6 rounded-28 border border-white-8 bg-white-3 p-6 pt-5">
           <div className="flex flex-col gap-[6px]">
