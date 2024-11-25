@@ -35,10 +35,12 @@ export const STATUS_MOBILE_F_DROID_URL =
   'https://f-droid.org/packages/im.status.ethereum'
 
 export const STATUS_DESKTOP_DOWNLOAD_URL_MACOS_SILICON =
-  '/api/download/macos-silicon'
+  'https://status.app/api/download/macos-silicon'
 export const STATUS_DESKTOP_DOWNLOAD_URL_MACOS_INTEL =
-  '/api/download/macos-intel'
-export const STATUS_DESKTOP_DOWNLOAD_URL_WINDOWS = '/api/download/windows'
-export const STATUS_DESKTOP_DOWNLOAD_URL_LINUX = '/api/download/linux'
+  'https://status.app/api/download/macos-intel'
+export const STATUS_DESKTOP_DOWNLOAD_URL_WINDOWS =
+  'https://status.app/api/download/windows'
+export const STATUS_DESKTOP_DOWNLOAD_URL_LINUX =
+  'https://status.app/api/download/linux'
 
 export type Routes = (typeof ROUTES)[keyof typeof ROUTES]

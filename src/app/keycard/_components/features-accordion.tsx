@@ -1,24 +1,12 @@
 'use client'
 
 import * as Accordion from '@radix-ui/react-accordion'
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
-import { downloadUrl } from '~/app/_utils/download-url'
-import {
-  STATUS_DESKTOP_DOWNLOAD_URL_LINUX,
-  STATUS_DESKTOP_DOWNLOAD_URL_MACOS_INTEL,
-  STATUS_DESKTOP_DOWNLOAD_URL_MACOS_SILICON,
-  STATUS_DESKTOP_DOWNLOAD_URL_WINDOWS,
-  STATUS_MOBILE_APP_STORE_URL,
-  STATUS_MOBILE_F_DROID_URL,
-  STATUS_MOBILE_GOOGLE_PLAY_URL,
-} from '~/config/routes'
-import { Button } from '~components/button'
-import { Link } from '~components/link'
-import { Apple, ChevronDown, Linux, Windows } from '~icons'
 import { cx } from 'cva'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { match } from 'ts-pattern'
+import { DownloadStatusForDesktop } from './download-status-for-desktop'
+import { DownloadStatusForMobile } from './download-status-for-mobile'
 import { FeaturesDisclaimer } from './features-disclaimer'
 
 type Props = {
@@ -149,18 +137,30 @@ const FeaturesAccordion = (props: Props) => {
         </div>
         {match(variant)
           .with('desktop', () => (
-            <DownloadStatusForDesktop
-              image={selected.image}
-              title={selected.title}
-              className={imageClassName}
-            />
+            <div className="relative flex flex-1 flex-col items-end self-end">
+              <Image
+                src={selected.image}
+                width={1124}
+                height={716}
+                alt={selected.title}
+                className={imageClassName}
+              />
+
+              <DownloadStatusForDesktop className="mt-20" />
+            </div>
           ))
           .with('mobile', () => (
-            <DownloadStatusForMobile
-              image={selected.image}
-              title={selected.title}
-              className={imageClassName}
-            />
+            <div className="relative flex flex-1 flex-col items-end self-end">
+              <Image
+                src={selected.image}
+                width={1124}
+                height={716}
+                alt={selected.title}
+                className={imageClassName}
+              />
+
+              <DownloadStatusForMobile className="mt-20" />
+            </div>
           ))
           .exhaustive()}
       </div>
@@ -170,156 +170,3 @@ const FeaturesAccordion = (props: Props) => {
 
 export { FeaturesAccordion }
 export type { Props as FeaturesAccordionProps }
-
-type DownloadStatusForMobileProps = {
-  image: string
-  className?: string
-  title: string
-}
-
-const DownloadStatusForMobile = (props: DownloadStatusForMobileProps) => {
-  const { image, className, title } = props
-  return (
-    <div className="relative flex flex-1 flex-col items-end self-end">
-      <Image
-        src={image}
-        width={1565}
-        height={2148}
-        alt={title}
-        className={className}
-      />
-      <div className="mt-20 flex w-full max-w-[549px] flex-col gap-6 rounded-28 border border-white-8 bg-white-3 p-6 pt-5">
-        <div className="flex flex-col gap-[6px]">
-          <p className="font-lora text-24 font-400 text-white-95">
-            Download Status for Mobile
-          </p>
-          <p className="font-300 text-white-80">Available for iOS or Android</p>
-        </div>
-
-        <div className="flex gap-3">
-          <Link href={STATUS_MOBILE_APP_STORE_URL}>
-            <Image
-              src="/assets/keycard/appstore.png"
-              width={140}
-              height={40}
-              alt="Download on App Store"
-              className="h-10 w-auto"
-            />
-          </Link>
-          <Link href={STATUS_MOBILE_GOOGLE_PLAY_URL}>
-            <Image
-              src="/assets/keycard/googleplay.png"
-              width={142}
-              height={40}
-              className="h-10 w-auto"
-              alt="Get it on Google Play"
-            />
-          </Link>
-          <Link href={STATUS_MOBILE_F_DROID_URL}>
-            <Image
-              src="/assets/keycard/fdroid.png"
-              width={120}
-              height={40}
-              className="h-10 w-auto"
-              alt="Get it on F-Droid"
-            />
-          </Link>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-type DownloadStatusForDesktopProps = {
-  image: string
-  className?: string
-  title: string
-}
-
-const DownloadStatusForDesktop = (props: DownloadStatusForDesktopProps) => {
-  const { image, className, title } = props
-
-  return (
-    <div className="relative flex flex-1 flex-col items-end self-end">
-      <Image
-        src={image}
-        width={1124}
-        height={716}
-        alt={title}
-        className={className}
-      />
-      <div className="mt-20 flex w-full max-w-[549px] flex-col gap-6 rounded-28 border border-white-8 bg-white-3 p-6 pt-5">
-        <div className="flex flex-col gap-[6px]">
-          <p className="font-lora text-24 font-400 text-white-95">
-            Download Status for Desktop
-          </p>
-          <p className="font-300 text-white-80">
-            Available for Mac, Windows and Linux
-          </p>
-        </div>
-        <div className="flex h-10 gap-3">
-          <MacOsPicker />
-          <Button
-            variant="secondary"
-            className="!p-[10px]"
-            onClick={() => downloadUrl(STATUS_DESKTOP_DOWNLOAD_URL_WINDOWS)}
-          >
-            <Windows />
-          </Button>
-          <Button
-            variant="secondary"
-            className="!p-[10px]"
-            onClick={() => downloadUrl(STATUS_DESKTOP_DOWNLOAD_URL_LINUX)}
-          >
-            <Linux />
-          </Button>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-const MacOsPicker = () => {
-  return (
-    <DropdownMenu.Root modal={false}>
-      <DropdownMenu.Trigger asChild className="">
-        <Button
-          variant="secondary"
-          icon={
-            <div className="ml-1 flex size-[14px] items-center justify-center rounded-full bg-white-12">
-              <ChevronDown />
-            </div>
-          }
-        >
-          <Apple /> Download for macOS
-        </Button>
-      </DropdownMenu.Trigger>
-
-      <DropdownMenu.Portal>
-        <DropdownMenu.Content
-          sideOffset={4}
-          align="start"
-          className="flex w-[225px] flex-col gap-1 rounded-12 border border-white-12 bg-dark-60 p-1"
-        >
-          <DropdownMenu.Item
-            className="cursor-pointer rounded-[8px] bg-white-3 px-3 py-1 transition-colors hover:bg-white-8"
-            onSelect={() =>
-              downloadUrl(STATUS_DESKTOP_DOWNLOAD_URL_MACOS_SILICON)
-            }
-          >
-            Apple Silicon
-          </DropdownMenu.Item>
-
-          <DropdownMenu.Item
-            className="cursor-pointer rounded-[8px] bg-white-3 px-3 py-1 transition-colors hover:bg-white-8"
-            onSelect={() =>
-              downloadUrl(STATUS_DESKTOP_DOWNLOAD_URL_MACOS_INTEL)
-            }
-          >
-            Intel
-          </DropdownMenu.Item>
-        </DropdownMenu.Content>
-      </DropdownMenu.Portal>
-    </DropdownMenu.Root>
-  )
-}
