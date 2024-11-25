@@ -39,7 +39,7 @@ const Sidenav: React.FC<SidenavProps> = ({ items }) => {
   }, [pathname, items])
 
   return (
-    <nav className="flex w-[255px] flex-col items-start justify-start border-r border-white-12 px-8 py-6">
+    <nav className="flex w-[255px] flex-col items-start justify-start border-r border-white-12 p-6">
       <Accordion.Root
         type="single"
         collapsible
