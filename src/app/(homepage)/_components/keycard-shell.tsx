@@ -30,11 +30,11 @@ const KeycardShell = () => {
         <p className="pb-2 text-24 font-600 text-white-95">
           keycard <span className="font-200">shell</span>
         </p>
-        <h1 className="flex pb-8 font-lora text-32 font-400 lg:pb-4 lg:text-48">
+        <p className="flex pb-8 font-lora text-32 font-400 lg:pb-4 lg:text-48">
           One device for all
           <br />
           your Keycards
-        </h1>
+        </p>
         <p className="pb-8 text-20 font-300 text-white-80">
           A modular and stateless hardware wallet that
           <br /> relies on Keycard as the secure element.

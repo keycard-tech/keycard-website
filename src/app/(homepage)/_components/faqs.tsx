@@ -45,9 +45,9 @@ const Faqs = () => {
               className="w-full"
             />
           </div>
-          <h1 className="font-lora text-32 text-white-95">
+          <h2 className="font-lora text-32 text-white-95">
             Frequently asked questions
-          </h1>
+          </h2>
           <Accordion.Root
             className="flex-1 pt-8 lg:max-w-[549px] lg:pt-14"
             type="single"

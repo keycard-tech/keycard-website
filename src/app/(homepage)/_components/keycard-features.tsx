@@ -65,12 +65,12 @@ const UnderlinedWord = ({ children }: { children: React.ReactNode }) => (
 const KeycardFeatures = () => {
   return (
     <section className="max-w-[1352px] px-3 pt-[120px] lg:mx-auto lg:pt-[200px] min-[1512px]:px-0">
-      <h1 className="max-w-[665px] font-lora text-32 text-white-95">
+      <h2 className="max-w-[665px] font-lora text-32 text-white-95">
         Join the <UnderlinedWord>open source</UnderlinedWord> revolution of the
         most <UnderlinedWord>modular</UnderlinedWord> and{' '}
         <UnderlinedWord>future proof</UnderlinedWord> hardware wallet system
         ever conceived.
-      </h1>
+      </h2>
       <div className="grid grid-cols-1 gap-5 pt-20 lg:grid-cols-4 lg:gap-6">
         {features.map((feature, index) => (
           <div

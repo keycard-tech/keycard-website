@@ -114,9 +114,9 @@ const Integration = () => {
               alt="Status"
               src="/assets/keycard/status-logo.png"
             />
-            <h1 className="pt-1 font-lora text-32 font-400 text-white-95">
+            <h2 className="pt-1 font-lora text-32 font-400 text-white-95">
               Seamless integration with Status
-            </h1>
+            </h2>
             <p className="text-20 font-300 text-white-60">
               Keycard works straight out of the box with the Status app. No need
               to pair it, it just works!

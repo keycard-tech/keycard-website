@@ -367,9 +367,9 @@ const ComparisonTable = () => {
 
   return (
     <section className="mx-auto max-w-[1352px] overflow-x-hidden pt-[120px] text-white-95 lg:pt-[200px]">
-      <h1 className="px-3 font-lora text-32 text-white-95 min-[1512px]:px-0">
+      <h2 className="px-3 font-lora text-32 text-white-95 min-[1512px]:px-0">
         Going one step further.
-      </h1>
+      </h2>
       <div className="overflow-x-auto px-3 scrollbar-none min-[1512px]:px-0">
         <div className="w-[684px] pt-14 md:w-full lg:w-full lg:pt-20">
           <div className="grid grid-cols-[1.33fr,1fr,1fr,1fr,1fr] justify-items-center text-center font-lora text-24 font-400 text-white-90 lg:grid-cols-[2fr,1fr,1fr,1fr,1fr] lg:text-24">
