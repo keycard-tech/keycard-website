@@ -12,6 +12,9 @@ export const metadata = Metadata({
   title: 'Keycard',
   description:
     'Store and trade your crypto with a simple, secure and slim hardware wallet.',
+  openGraph: {
+    images: ['/assets/og/keycard.png'],
+  },
 })
 
 export default async function KeycardPage() {

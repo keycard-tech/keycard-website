@@ -9,9 +9,12 @@ import { Keycards } from './_components/keycards'
 import { Prefooter } from './_components/pre-footer'
 
 export const metadata = Metadata({
-  title: 'Keycard Pro',
+  title: 'Keycard Shell',
   description:
     'A modular hardware wallet that relies on Keycard as the secure element.',
+  openGraph: {
+    images: ['/assets/og/shell.png'],
+  },
 })
 
 export default async function KeycardShellPage() {
