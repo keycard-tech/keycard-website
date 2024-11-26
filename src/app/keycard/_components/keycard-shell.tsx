@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 const KeycardShell = () => {
   return (
-    <section className="relative mx-0 mt-[160px] flex items-center overflow-hidden rounded-28 border border-white-12 lg:mx-6 lg:mt-[200px]">
+    <section className="relative mx-0 mt-[160px] flex items-center overflow-hidden rounded-28 border border-white-12 lg:mx-6 lg:mt-[200px] xl:mx-20">
       <Image
         src="/assets/keycard/bg-keycard-shell.png"
         alt="Keycard Shell Hardware Wallet"

@@ -171,7 +171,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
   }, [selectedBundle, quantity, includeReader])
 
   return (
-    <div className="grid h-svh grid-cols-1 gap-6 overflow-auto bg-white-3 p-5 backdrop-blur-[20px] lg:h-auto lg:grid-cols-2 lg:rounded-28 lg:border lg:border-white-12 lg:p-2">
+    <div className="grid h-svh grid-cols-1 gap-6 overflow-auto bg-white-4 p-5 backdrop-blur-[20px] lg:h-auto lg:grid-cols-2 lg:rounded-28 lg:border lg:border-white-12 lg:p-2">
       <div className="hidden h-full rounded-20 bg-dark-100 lg:block">
         <AnimatePresence>
           <motion.div
@@ -224,7 +224,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
                       setValue('bundleId', bundle.id)
                     }}
                     className={cx(
-                      'relative flex flex-col items-start justify-between rounded-20 bg-white-3 px-4 py-3 text-left transition-colors duration-300 hover:[&>span]:-left-1 hover:[&>span]:-top-1 hover:[&>span]:size-[calc(100%+8px)] hover:[&>span]:rounded-[24px]',
+                      'relative flex flex-col items-start justify-between rounded-20 bg-white-4 px-4 py-3 text-left transition-colors duration-300 hover:[&>span]:-left-1 hover:[&>span]:-top-1 hover:[&>span]:size-[calc(100%+8px)] hover:[&>span]:rounded-[24px]',
                       selected ? 'outline outline-4 outline-[transparent]' : '',
                     )}
                   >
@@ -258,7 +258,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
 
           <div className="pt-8">
             <h3 className="pb-2 text-12 text-white-80">NUMBER OF SETS</h3>
-            <div className="flex items-center gap-4 rounded-16 border border-white-12 bg-white-3 p-1">
+            <div className="flex items-center gap-4 rounded-16 border border-white-12 bg-white-4 p-1">
               <Button
                 type="button"
                 variant="dark"
@@ -284,12 +284,12 @@ const ShopifyForm = (props: ShopifyFormProps) => {
 
           <div className="py-8">
             <h3 className="mb-2 text-12 text-white-80">DESKTOP SUPPORT</h3>
-            <div className="flex items-center justify-between space-x-3 rounded-16 border border-white-12 bg-white-3 p-3 pr-4">
+            <div className="flex items-center justify-between space-x-3 rounded-16 border border-white-12 bg-white-4 p-3 pr-4">
               <div className="relative flex items-center justify-start">
                 <Checkbox.Root
                   {...form.register('includeKeycardReader')}
                   id="includeKeycardReader"
-                  className="flex size-6 appearance-none items-center justify-center rounded-[8px] border border-white-20 bg-white-3 outline-none aria-checked:bg-orange aria-checked:hover:bg-orange-dark [&>svg]:aria-checked:text-white-95"
+                  className="flex size-6 appearance-none items-center justify-center rounded-[8px] border border-white-20 bg-white-4 outline-none aria-checked:bg-orange aria-checked:hover:bg-orange-dark [&>svg]:aria-checked:text-white-95"
                   checked={field.value}
                   onCheckedChange={field.onChange}
                   aria-label="Include USB-C Keycard reader"
@@ -327,7 +327,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
               <div className="text-16 font-300 text-white-80">+$22</div>
             </div>
           </div>
-          <div className="rounded-16 border border-white-12 bg-white-3 p-1">
+          <div className="rounded-16 border border-white-12 bg-white-4 p-1">
             <Button
               type="submit"
               className="w-full justify-center font-500"
@@ -371,7 +371,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
                 height={32}
               />
             </div>
-            <div className="mt-10 flex flex-col items-center gap-[10px] rounded-16 border border-dashed border-white-12 bg-white-3 px-4 py-[14px] text-14 text-white-60 lg:flex-row lg:justify-center lg:gap-2">
+            <div className="mt-10 flex flex-col items-center gap-[10px] rounded-16 border border-dashed border-white-12 bg-white-4 px-4 py-[14px] text-14 text-white-60 lg:flex-row lg:justify-center lg:gap-2">
               <div className="flex items-center">
                 <Labels className="mr-1 shrink-0" /> Prices don&apos;t include
                 VAT

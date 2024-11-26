@@ -19,7 +19,7 @@ export const PostCard = (props: PostCardProps) => {
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="flex flex-col rounded-16 border border-white-8 bg-white-3 transition-all hover:scale-[101%]"
+      className="flex flex-col rounded-16 border border-white-8 bg-white-4 transition-all hover:scale-[101%]"
     >
       <div className="flex grow flex-col gap-4 p-4">
         {showTag && (
@@ -63,7 +63,7 @@ export const PostCard = (props: PostCardProps) => {
 }
 
 export const PostCardSkeleton = () => (
-  <div className="flex flex-col rounded-16 border border-white-8 bg-white-3 transition-all hover:scale-[101%]">
+  <div className="flex flex-col rounded-16 border border-white-8 bg-white-4 transition-all hover:scale-[101%]">
     <div className="flex grow flex-col gap-[13px] p-4">Loading...</div>
   </div>
 )

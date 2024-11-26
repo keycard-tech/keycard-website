@@ -41,7 +41,7 @@ function PostTag(props: Props, ref: Ref<HTMLButtonElement | HTMLDivElement>) {
 
 const styles = cva({
   base: [
-    'inline-flex shrink-0 items-center justify-center gap-1 border border-white-8 bg-white-3 font-500 transition-all hover:border-white-12 hover:bg-white-8 text-white-95',
+    'inline-flex shrink-0 items-center justify-center gap-1 border border-white-8 bg-white-4 font-500 transition-all hover:border-white-12 hover:bg-white-8 text-white-95',
     'outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2',
     'disabled:cursor-default disabled:opacity-[.3]',
   ],
