@@ -1,11 +1,12 @@
 import { Button } from '~components/button'
 import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
+import { cx } from 'cva'
 import Image from 'next/image'
 
 const Prefooter = () => {
   return (
-    <section className="relative mb-2 mt-28 flex flex-col px-5 pb-20 pt-0 full-view-port lg:my-0 lg:mb-[160px] lg:flex-row lg:gap-16 lg:pb-0 lg:pt-[100px] lg:remove-full-view-port">
-      <div className="relative z-20 order-2 flex flex-col items-center pt-[365px] text-center lg:order-1 lg:items-start lg:pt-[100px] lg:text-left xl:pl-[230px]">
+    <section className="relative mb-2 mt-28 flex flex-col px-5 pb-20 pt-0 full-view-port lg:my-0 lg:mb-[160px] lg:flex-row lg:pb-0 lg:pt-[100px] lg:remove-full-view-port xl:gap-8 2xl:gap-16">
+      <div className="relative z-20 order-2 flex flex-col items-start pt-[365px] text-left lg:order-1 lg:pt-[100px] xl:pl-[290px]">
         <p className="pb-2 text-24 font-600 text-white-95">
           keycard <span className="font-200">shell</span>
         </p>
@@ -24,14 +25,17 @@ const Prefooter = () => {
         </div>
       </div>
       <div className="order-1 flex lg:relative lg:right-[-20px] lg:order-2">
-        <div className="absolute z-20 block h-[220px] w-full bg-gradient-to-b from-dark-100 to-[transparent]" />
+        <div className="absolute z-20 block h-[360px] w-full bg-gradient-to-b from-dark-100 to-[transparent] lg:h-[220px]" />
         <Image
           src="/assets/faqs.png"
           alt="Keycard Shell"
           width={671}
           height={442}
           draggable={false}
-          className="pointer-events-none z-10 aspect-[671/442] select-none"
+          className={cx([
+            'pointer-events-none absolute left-[80%] top-0 z-0 h-auto max-w-[549px] -translate-x-1/2 select-none md:left-1/2 lg:relative lg:left-1/2 lg:top-12 lg:translate-x-0',
+            'aspect-[671/442] object-contain',
+          ])}
         />
       </div>
     </section>
