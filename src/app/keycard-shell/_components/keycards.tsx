@@ -7,7 +7,7 @@ const Keycards = () => {
   return (
     <section className="relative mx-auto mt-[120px] min-h-[490px] max-w-[1352px] overflow-clip rounded-28 border border-white-12 lg:mt-0 lg:min-h-[840px]">
       <Image
-        src="/assets/keycard-pro/bg-keycards.png"
+        src="/assets/keycard-shell/bg-keycards.png"
         alt="Keycards scattered around"
         className="absolute left-0 top-0 size-full object-cover"
         width={2704}
@@ -25,7 +25,7 @@ const Keycards = () => {
           <BuyKeycardDialog>
             <Button variant="primary">Buy Keycard</Button>
           </BuyKeycardDialog>
-          <ButtonLink href="/" variant="secondary">
+          <ButtonLink href="/keycard" variant="secondary">
             Learn more
           </ButtonLink>
         </div>

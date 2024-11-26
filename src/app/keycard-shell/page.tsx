@@ -14,7 +14,7 @@ export const metadata = Metadata({
     'A modular hardware wallet that relies on Keycard as the secure element.',
 })
 
-export default async function KeycardProPage() {
+export default async function KeycardShellPage() {
   return (
     <>
       <Hero />

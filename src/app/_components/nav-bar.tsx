@@ -17,7 +17,7 @@ import { Logo } from './logo'
 const NAV_BAR_HEIGHT = 92
 
 const internalLinkStyles = cva({
-  base: 'rounded-12 border border-[transparent] px-[14px] py-[7px] transition-colors hover:border-white-8 hover:bg-white-8',
+  base: 'rounded-12 border border-[transparent] px-[14px] py-[7px] transition-colors  hover:bg-white-8',
   variants: {
     isActive: {
       true: 'bg-white-12',
@@ -29,8 +29,8 @@ const internalLinkStyles = cva({
 const links = [
   { href: '/keycard', label: 'Keycard' },
   {
-    href: '/keycard-pro',
-    label: 'Keycard Pro',
+    href: '/keycard-shell',
+    label: 'Keycard Shell',
   },
 ]
 
@@ -60,18 +60,18 @@ const NavBar = () => {
 
   return (
     <motion.nav
-      className="fixed left-0 top-0 z-30 hidden w-full items-center justify-between p-6 px-8 pt-8 text-white-95 lg:flex"
+      className="fixed left-0 top-0 z-30 hidden w-full items-center justify-between px-8 py-6 text-white-95 lg:flex"
       style={{
         backgroundColor,
         backdropFilter,
         WebkitBackdropFilter: backdropFilter,
       }}
     >
-      <Link href="/">
+      <Link href="/" aria-label="Homepage">
         <Logo />
       </Link>
 
-      <div className="flex items-center gap-6">
+      <div className="flex items-center gap-4">
         {links.map(({ href, label }) => (
           <Link
             key={href}

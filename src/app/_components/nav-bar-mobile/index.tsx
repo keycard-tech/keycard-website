@@ -86,7 +86,7 @@ const NavBarMobile = () => {
       }}
     >
       <div className="flex items-center justify-between p-5">
-        <Link href="/" className="text-white-95">
+        <Link href="/" className="text-white-95" aria-label="Homepage">
           <Logo className="h-10" />
         </Link>
         <div className="flex items-center gap-4">
@@ -109,6 +109,7 @@ const NavBarMobile = () => {
             key={isOpen ? 'menu-open' : 'menu-closed'}
             className="rounded-12 border border-white-12 bg-white-8 text-white-95 transition-colors hover:bg-white-12"
             onClick={() => setIsOpen(!isOpen)}
+            aria-label="Menu"
           >
             <MenuIcon isOpen={isOpen} />
           </button>

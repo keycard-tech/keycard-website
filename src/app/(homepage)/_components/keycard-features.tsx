@@ -25,8 +25,8 @@ const features = [
   {
     title: 'Fully airgapped',
     description:
-      "Through KeyPro's camera or Keycard's contactless nature, our products are truly airgapped.",
-    image: '/assets/feature-keycard-pro.png',
+      "Through Keycard Shell's camera or Keycard's contactless nature, our products are truly airgapped.",
+    image: '/assets/feature-keycard-shell.png',
     badge: { text: '0 cables' },
     className: 'row-span-2 col-span-1 flex-col-reverse',
   },
@@ -96,7 +96,7 @@ const KeycardFeatures = () => {
                 />
               </div>
             )}
-            <div className="p-6 pt-5 lg:pt-6">
+            <div className="p-6 pt-5">
               <div>
                 <h3 className="mb-[6px] font-lora text-24 font-400">
                   {feature.title}
@@ -118,8 +118,8 @@ const KeycardFeatures = () => {
                 )}
                 {feature.button && (
                   <ButtonLink
-                    href="https://github.com"
-                    className="mt-4 font-500 [&_path]:hover:fill-white-dark"
+                    href="https://github.com/status-im/status-keycard"
+                    className="font-500 [&_path]:hover:fill-white-dark"
                     variant="white"
                     icon={<feature.button.icon />}
                   >

@@ -12,7 +12,9 @@ const Customisation = () => {
           Create your own cards with your design. We support with design,
           manufacturing, and fulfilment of your cards.
         </p>
-        <ButtonLink href="/">Order custom Keycard</ButtonLink>
+        <ButtonLink href="mailto:get@keycard.tech">
+          Order custom Keycard
+        </ButtonLink>
         <Image
           src="/assets/keycard/customisation.png"
           alt="Custom Keycard"

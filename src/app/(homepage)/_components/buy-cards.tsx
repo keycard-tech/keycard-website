@@ -78,7 +78,7 @@ const BuyCards = () => {
             <BuyKeycardDialog>
               <Button variant="primary">Buy Keycard</Button>
             </BuyKeycardDialog>
-            <ButtonLink href="/" variant="secondary">
+            <ButtonLink href="/keycard" variant="secondary">
               Learn more
             </ButtonLink>
           </>
@@ -86,10 +86,10 @@ const BuyCards = () => {
         info="Starts from $25"
       />
       <Section
-        image="/assets/bottom-keycard-pro.png"
+        image="/assets/bottom-keycard-shell.png"
         imageClassName="pt-10 lg:pt-0 lg:-mb-20 lg:w-full"
         name="keycard"
-        secondName="pro"
+        secondName="shell"
         title={
           <>
             One device for all <br /> your keycards
@@ -101,7 +101,7 @@ const BuyCards = () => {
             <GetNotifiedDialog>
               <Button>Get notified</Button>
             </GetNotifiedDialog>
-            <ButtonLink href="/" variant="secondary">
+            <ButtonLink href="/keycard-shell" variant="secondary">
               Learn more
             </ButtonLink>
           </>

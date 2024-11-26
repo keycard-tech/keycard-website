@@ -1,7 +1,7 @@
 export const ROUTES = {
   Products: [
     { name: 'Keycard', href: '/keycard' },
-    { name: 'Keycard Pro', href: '/keycard-pro' },
+    { name: 'Keycard Shell', href: '/keycard-shell' },
   ],
   Info: [
     { name: 'Get started', href: '/get-started' },
@@ -9,9 +9,9 @@ export const ROUTES = {
     { name: 'Blog', href: '/blog' },
   ],
   Contacts: [
-    { name: 'Get in touch', href: '/contact' },
+    { name: 'Get in touch', href: 'mailto:support@keycard.tech' },
     { name: 'Discord', href: 'https://discord.com' },
-    { name: 'X', href: 'https://x.com' },
+    { name: 'X', href: 'https://x.com/Keycard_' },
   ],
   Legal: [
     { name: 'Privacy policy', href: '/legal/privacy-policy' },
