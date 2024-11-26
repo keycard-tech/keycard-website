@@ -9,7 +9,7 @@ import { FeaturesSlider } from './features-slider'
 // TODO: Replace with correct data when design has it.
 const featuresMobile = [
   {
-    title: 'Send assets and collectibles',
+    title: 'Send crypto and NFTs',
     description: (
       <>
         Status supports all Ethereum assets in the{' '}
@@ -17,7 +17,7 @@ const featuresMobile = [
           href="https://tokenlists.org/token-list?url=https://ipfs.io/ipns/tokens.uniswap.org"
           className="underline transition-colors hover:text-orange"
         >
-          Uniswap Labs default token list.
+          Uniswap Labs token list.
         </Link>
       </>
     ),
@@ -28,14 +28,14 @@ const featuresMobile = [
     title: 'Swap',
     description: 'Swap your favourite assets on Mainnet, Arbitrum or Optimism.',
     tag: 'SOON',
-    image: '/assets/keycard/slider/status-app-mobile-a.png',
-    imageMobile: '/assets/keycard/slider/iphone-a.png',
+    image: '/assets/keycard/slider/status-app-mobile-b.png',
+    imageMobile: '/assets/keycard/slider/iphone-b.png',
   },
   {
     title: 'Bridge',
     description: 'Bridge assets across Ethereum’s most popular chains.',
-    image: '/assets/keycard/slider/status-app-mobile-a.png',
-    imageMobile: '/assets/keycard/slider/iphone-a.png',
+    image: '/assets/keycard/slider/status-app-mobile-c.png',
+    imageMobile: '/assets/keycard/slider/iphone-c.png',
   },
   {
     title: 'Sign dApp transactions',
@@ -52,14 +52,14 @@ const featuresMobile = [
       </>
     ),
     tag: 'SOON',
-    image: '/assets/keycard/slider/status-app-mobile-a.png',
-    imageMobile: '/assets/keycard/slider/iphone-a.png',
+    image: '/assets/keycard/slider/status-app-mobile-d.png',
+    imageMobile: '/assets/keycard/slider/iphone-d.png',
   },
 ]
 
 const featuresDesktop = [
   {
-    title: 'Send assets and collectibles',
+    title: 'Send crypto and NFTs',
     description: (
       <>
         Status supports all Ethereum assets in the{' '}
@@ -67,7 +67,7 @@ const featuresDesktop = [
           href="https://tokenlists.org/token-list?url=https://ipfs.io/ipns/tokens.uniswap.org"
           className="underline transition-colors hover:text-orange"
         >
-          Uniswap Labs default token list.
+          Uniswap Labs token list.
         </Link>
       </>
     ),
@@ -78,14 +78,14 @@ const featuresDesktop = [
     title: 'Swap',
     description: 'Swap your favourite assets on Mainnet, Arbitrum or Optimism.',
     tag: 'SOON',
-    image: '/assets/keycard/slider/status-app-desktop-a.png',
-    imageMobile: '/assets/keycard/slider/status-app-desktop-a.png',
+    image: '/assets/keycard/slider/status-app-desktop-b.png',
+    imageMobile: '/assets/keycard/slider/status-app-desktop-b.png',
   },
   {
     title: 'Bridge',
     description: 'Bridge assets across Ethereum’s most popular chains.',
-    image: '/assets/keycard/slider/status-app-desktop-a.png',
-    imageMobile: '/assets/keycard/slider/status-app-desktop-a.png',
+    image: '/assets/keycard/slider/status-app-desktop-c.png',
+    imageMobile: '/assets/keycard/slider/status-app-desktop-c.png',
   },
   {
     title: 'Sign dApp transactions',
@@ -102,8 +102,8 @@ const featuresDesktop = [
       </>
     ),
     tag: 'SOON',
-    image: '/assets/keycard/slider/status-app-desktop-a.png',
-    imageMobile: '/assets/keycard/slider/status-app-desktop-a.png',
+    image: '/assets/keycard/slider/status-app-desktop-d.png',
+    imageMobile: '/assets/keycard/slider/status-app-desktop-d.png',
   },
 ]
 
@@ -161,7 +161,7 @@ const Integration = () => {
               <FeaturesAccordion
                 variant="desktop"
                 items={featuresDesktop}
-                imageClassName="absolute top-0 translate-x-[65%] xl:translate-x-1/2 translate-y-[-100%] right-0 min-w-[1124px]"
+                imageClassName="absolute top-0 min-w-[808px] translate-x-[45%] xl:translate-x-[43%] 2xl:translate-x-[33%] translate-y-[-87%] xl:min-w-[1008px] right-0 2xl:min-w-[1178px]"
               />
               <FeaturesSlider items={featuresDesktop} variant="desktop" />
             </TabsContent>

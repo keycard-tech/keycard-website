@@ -2,6 +2,7 @@
 
 import * as Accordion from '@radix-ui/react-accordion'
 import { cx } from 'cva'
+import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { match } from 'ts-pattern'
@@ -138,26 +139,44 @@ const FeaturesAccordion = (props: Props) => {
         {match(variant)
           .with('desktop', () => (
             <div className="relative flex flex-1 flex-col items-end self-end">
-              <Image
-                src={selected.image}
-                width={1124}
-                height={716}
-                alt={selected.title}
-                className={imageClassName}
-              />
+              <AnimatePresence>
+                <motion.div
+                  initial={{ opacity: 0, x: 40 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 40 }}
+                >
+                  <Image
+                    src={selected.image}
+                    width={1124}
+                    height={716}
+                    alt={selected.title}
+                    className={imageClassName}
+                    quality={75}
+                  />
+                </motion.div>
+              </AnimatePresence>
 
               <DownloadStatusForDesktop className="mt-20" />
             </div>
           ))
           .with('mobile', () => (
             <div className="relative flex flex-1 flex-col items-end self-end">
-              <Image
-                src={selected.image}
-                width={1124}
-                height={716}
-                alt={selected.title}
-                className={imageClassName}
-              />
+              <AnimatePresence>
+                <motion.div
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 40 }}
+                >
+                  <Image
+                    src={selected.image}
+                    width={1124}
+                    height={716}
+                    alt={selected.title}
+                    className={imageClassName}
+                    quality={75}
+                  />
+                </motion.div>
+              </AnimatePresence>
 
               <DownloadStatusForMobile className="mt-20" />
             </div>

@@ -63,7 +63,7 @@ const FeaturesSlider = (props: Props) => {
                   height={200}
                   className={cx([
                     'mx-auto',
-                    variant === 'desktop' ? 'w-full' : 'max-w-[350px]',
+                    variant === 'desktop' ? 'w-full' : 'w-full max-w-[350px]',
                   ])}
                 />
               </div>
