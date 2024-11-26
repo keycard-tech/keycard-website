@@ -86,13 +86,14 @@ const Faqs = () => {
           </Accordion.Root>
         </div>
         <div className="flex flex-col items-end">
-          <div className="relative -right-1/4 -mt-48 hidden translate-x-[156px] translate-y-10 lg:block">
-            <div className="absolute top-32 z-10 h-1/2 w-full bg-gradient-to-t from-[transparent] to-dark-100" />
+          <div className="relative hidden lg:block">
+            <div className="absolute right-[-100px] top-[-20px] z-10 h-[380px] w-full bg-gradient-to-tr from-[transparent] via-dark-100 via-[83%] to-dark-100" />
             <Image
               src="/assets/faqs.png"
               alt="FAQ Background"
-              width={736}
-              height={736}
+              height={790}
+              width={1010}
+              className="relative right-[-95px] top-[-40px]"
             />
           </div>
 

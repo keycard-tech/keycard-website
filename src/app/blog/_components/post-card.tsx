@@ -1,4 +1,5 @@
 import type { PostOrPage } from '@tryghost/content-api'
+import Image from 'next/image'
 import { Link } from '../../_components/link'
 import { formatDate } from '../../_utils/format-date'
 import { PostAuthor } from './post-author'
@@ -49,10 +50,12 @@ export const PostCard = (props: PostCardProps) => {
 
       <div className="w-full px-2 pb-2">
         {/* eslint-disable-next-line jsx-a11y/alt-text */}
-        <img
-          className="aspect-[334/188] size-full rounded-12 object-cover"
+        <Image
+          className="aspect-[350/190] size-full rounded-12 object-cover"
+          width={350}
+          height={190}
           src={post.feature_image!}
-          alt={post.feature_image_alt!}
+          alt={post.feature_image_alt! ?? post.title}
         />
       </div>
     </Link>

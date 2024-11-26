@@ -167,7 +167,7 @@ const Integration = () => {
               <ButtonLink
                 href={integration.href}
                 variant="secondary"
-                className="group w-fit"
+                className="group w-fit pr-2"
               >
                 <span className="text-white-95">{integration.buttonText}</span>
                 <External />

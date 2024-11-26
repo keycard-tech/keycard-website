@@ -39,7 +39,7 @@ const Sidenav: React.FC<SidenavProps> = ({ items }) => {
   }, [pathname, items])
 
   return (
-    <nav className="flex w-[255px] flex-col items-start justify-start border-r border-white-12 px-8 py-6">
+    <nav className="flex w-[255px] flex-col items-start justify-start border-r border-white-12 p-6">
       <Accordion.Root
         type="single"
         collapsible
@@ -84,7 +84,10 @@ const SidenavItem = (props: SidenavItemProps) => {
     <Accordion.Item value={title}>
       <div>
         <div className="flex gap-0.5">
-          <Accordion.Trigger className="group flex items-center gap-0.5">
+          <Accordion.Trigger
+            className="group flex items-center gap-0.5"
+            aria-label={`Toggle ${title} section`}
+          >
             <div className="transition-transform group-aria-expanded:rotate-90">
               <ChevronRight />
             </div>
