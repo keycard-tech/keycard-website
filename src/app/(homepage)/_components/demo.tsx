@@ -1,11 +1,13 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '~components/tabs'
-import { Video } from '~components/video'
+
+// import { Video } from '~components/video'
 
 const Demo = () => {
-  const keycardWebmSrc = '/assets/videos/keycard.webm'
-  const keycardMp4Src = '/assets/videos/keycard.mp4'
-  const keycardShellWebmSrc = '/assets/videos/keycard-shell.webm'
-  const keycardShellMp4Src = '/assets/videos/keycard-shell.mp4'
+  // TODO add video assets when final versions are ready
+  // const keycardWebmSrc = '/assets/videos/keycard.webm'
+  // const keycardMp4Src = '/assets/videos/keycard.mp4'
+  // const keycardShellWebmSrc = '/assets/videos/keycard-shell.webm'
+  // const keycardShellMp4Src = '/assets/videos/keycard-shell.mp4'
 
   return (
     <>
@@ -33,18 +35,18 @@ const Demo = () => {
               </TabsTrigger>
             </TabsList>
             <TabsContent value="keycard">
-              <Video
+              {/* <Video
                 mp4Src={keycardMp4Src}
                 webmSrc={keycardWebmSrc}
                 ariaLabel="Keycard video demonstration"
-              />
+              /> */}
             </TabsContent>
             <TabsContent value="keycard-shell">
-              <Video
+              {/* <Video
                 mp4Src={keycardShellMp4Src}
                 webmSrc={keycardShellWebmSrc}
                 ariaLabel="Keycard shell video demonstration"
-              />
+              /> */}
             </TabsContent>
           </Tabs>
         </div>

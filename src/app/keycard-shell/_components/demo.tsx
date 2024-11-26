@@ -1,4 +1,4 @@
-import { Video } from '~components/video'
+// import { Video } from '~components/video'
 
 const steps = [
   {
@@ -23,8 +23,9 @@ const steps = [
 ]
 
 const Demo = () => {
-  const keycardShellWebmSrc = '/assets/videos/keycard-shell.webm'
-  const keycardShellMp4Src = '/assets/videos/keycard-shell.mp4'
+  // TODO add video assets when final versions are ready
+  // const keycardShellWebmSrc = '/assets/videos/keycard-shell.webm'
+  // const keycardShellMp4Src = '/assets/videos/keycard-shell.mp4'
 
   return (
     <>
@@ -46,11 +47,11 @@ const Demo = () => {
             ))}
           </div>
         </div>
-        <Video
+        {/* <Video
           mp4Src={keycardShellMp4Src}
           webmSrc={keycardShellWebmSrc}
           ariaLabel="Keycard shell video demonstration"
-        />
+        /> */}
       </section>
     </>
   )
