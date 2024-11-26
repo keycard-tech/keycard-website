@@ -12,7 +12,7 @@ export const metadata = Metadata({
   description:
     'Join the open source revolution of the most modular and future proof hardware wallet system ever conceived.',
   openGraph: {
-    images: ['/assets/og/home.png'],
+    images: ['../(homepage)/opengraph-image'],
   },
 })
 

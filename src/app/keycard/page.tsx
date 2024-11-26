@@ -13,7 +13,7 @@ export const metadata = Metadata({
   description:
     'Store and trade your crypto with a simple, secure and slim hardware wallet.',
   openGraph: {
-    images: ['/assets/og/keycard.png'],
+    images: ['../keycard/opengraph-image'],
   },
 })
 

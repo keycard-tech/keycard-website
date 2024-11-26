@@ -13,7 +13,7 @@ export const metadata = Metadata({
   description:
     'A modular hardware wallet that relies on Keycard as the secure element.',
   openGraph: {
-    images: ['/assets/og/shell.png'],
+    images: ['../keycard-shell/opengraph-image'],
   },
 })
 
