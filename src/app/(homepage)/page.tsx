@@ -11,9 +11,6 @@ export const metadata = Metadata({
   title: 'Keycard',
   description:
     'Join the open source revolution of the most modular and future proof hardware wallet system ever conceived.',
-  openGraph: {
-    images: ['../(homepage)/opengraph-image'],
-  },
 })
 
 export default async function HomePage() {

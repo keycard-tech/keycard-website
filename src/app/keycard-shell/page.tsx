@@ -12,9 +12,6 @@ export const metadata = Metadata({
   title: 'Keycard Shell',
   description:
     'A modular hardware wallet that relies on Keycard as the secure element.',
-  openGraph: {
-    images: ['../keycard-shell/opengraph-image'],
-  },
 })
 
 export default async function KeycardShellPage() {

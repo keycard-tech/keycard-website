@@ -10,7 +10,6 @@ export function Metadata(input: Input): Metadata {
     ...input,
     openGraph: {
       type: 'website',
-      images: '',
       url: './',
       title: input.title,
       description: input.description,
