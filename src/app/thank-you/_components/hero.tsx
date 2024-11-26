@@ -10,6 +10,8 @@ import { Canvas } from '@react-three/fiber'
 import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
 import { GetNotifiedDialog } from '~components/get-notified-dialog'
+import { Link } from '~components/link'
+import { Logo } from '~components/logo'
 import { cx } from 'cva'
 import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
@@ -34,6 +36,14 @@ const Hero = () => {
         'relative flex min-h-[calc(100svh-16px)] flex-col justify-center overflow-clip',
       )}
     >
+      <Link
+        href="/"
+        aria-label="Homepage"
+        className="fixed left-5 top-5 z-40 lg:left-8 lg:top-6"
+      >
+        <Logo />
+      </Link>
+
       <div className="z-10 flex w-fit self-center">
         <div className="relative px-5">
           <div className="z-10 flex select-none flex-col items-center">
@@ -112,8 +122,8 @@ const Hero = () => {
 
       <div
         className={cx(
-          'absolute bottom-10 left-1/2 z-40 flex -translate-x-1/2 flex-col items-start justify-between gap-2 bg-white-8 p-1 backdrop-blur-[20px]',
-          'rounded-20 border border-white-12',
+          'absolute bottom-0 left-1/2 z-40 flex -translate-x-1/2 flex-col items-start justify-between gap-2 bg-white-8 p-1 backdrop-blur-[20px] md:bottom-10',
+          'rounded-16 border border-white-12 md:rounded-20',
           'mx-auto w-full md:w-[570px] md:flex-row md:items-center md:gap-4 md:pr-4',
         )}
       >
