@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 const KeycardShell = () => {
   return (
-    <section className="relative flex flex-col justify-end overflow-hidden rounded-b-28 border border-t-0 border-white-8 bg-white-3 backdrop-blur-[20px] full-view-port lg:flex-row lg:items-center lg:justify-normal lg:remove-full-view-port">
+    <section className="relative flex flex-col justify-end overflow-hidden rounded-b-28 border border-t-0 border-white-8 bg-white-4 backdrop-blur-[20px] full-view-port lg:flex-row lg:items-center lg:justify-normal lg:remove-full-view-port">
       <div className="hidden max-h-[510px] flex-1 items-start justify-center overflow-hidden lg:flex">
         <Image
           src="/assets/keycard-shell.png"

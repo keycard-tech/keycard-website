@@ -76,7 +76,7 @@ const KeycardFeatures = () => {
           <div
             key={index}
             className={cx([
-              'relative flex flex-col justify-between overflow-clip rounded-28 bg-white-3 outline outline-1 outline-white-8',
+              'relative flex flex-col justify-between overflow-clip rounded-28 bg-white-4 outline outline-1 outline-white-8',
               feature.className,
             ])}
           >

@@ -150,7 +150,7 @@ export const baseComponents = {
         {...rest}
         className={cx(
           blockquoteParagraphTextSize[size],
-          'mt-5 border-l border-dashed border-white-3 !pt-0 pl-6',
+          'mt-5 border-l border-dashed border-white-4 !pt-0 pl-6',
         )}
       >
         {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
