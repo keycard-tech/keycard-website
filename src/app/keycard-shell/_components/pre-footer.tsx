@@ -24,17 +24,17 @@ const Prefooter = () => {
           <p className="text-16 font-300 text-white-60">From $25</p>
         </div>
       </div>
-      <div className="order-1 flex lg:relative lg:right-[-20px] lg:order-2">
+      <div className="order-1 flex lg:right-[-20px] lg:order-2">
         <div className="absolute z-20 block h-[360px] w-full bg-gradient-to-b from-dark-100 to-[transparent] lg:h-[220px]" />
         <Image
           src="/assets/faqs.png"
           alt="Keycard Shell"
-          width={671}
-          height={442}
+          width={791}
+          height={521}
           draggable={false}
           className={cx([
-            'pointer-events-none absolute left-[80%] top-0 z-0 h-auto max-w-[549px] -translate-x-1/2 select-none md:left-1/2 lg:relative lg:left-1/2 lg:top-12 lg:translate-x-0',
-            'aspect-[671/442] object-contain',
+            'pointer-events-none absolute left-[80%] top-0 z-0 h-auto max-w-[549px] -translate-x-1/2 select-none md:left-1/2 lg:relative lg:left-1/4 lg:top-12 lg:translate-x-0',
+            'aspect-[791/521] object-contain lg:scale-125',
           ])}
         />
       </div>
