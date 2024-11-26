@@ -22,8 +22,8 @@ const features = [
 
 const FeaturesCard = () => {
   return (
-    <section className="px-3 pt-[124px] lg:pt-[98px]">
-      <div className="grid grid-cols-1 gap-8 rounded-28 border border-white-8 bg-white-3 p-6 pt-5 text-white-95 lg:grid-cols-2 lg:gap-6 lg:p-8 lg:pt-7 xl:grid-cols-4">
+    <section className="mx-9 px-3 pt-[124px] lg:pt-[98px]">
+      <div className="grid grid-cols-1 gap-8 rounded-28 border border-white-8 bg-white-4 p-6 pt-5 text-white-95 lg:grid-cols-2 lg:gap-6 lg:p-8 lg:pt-7 xl:grid-cols-4">
         {features.map((feature, index) => (
           <div key={index} className="flex flex-col">
             <h3 className="pb-[6px] font-lora text-24 font-400">

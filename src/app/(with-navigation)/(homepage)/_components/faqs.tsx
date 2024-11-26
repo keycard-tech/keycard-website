@@ -45,9 +45,9 @@ const Faqs = () => {
               className="w-full"
             />
           </div>
-          <h1 className="font-lora text-32 text-white-95">
+          <h2 className="font-lora text-32 text-white-95">
             Frequently asked questions
-          </h1>
+          </h2>
           <Accordion.Root
             className="flex-1 pt-8 lg:max-w-[549px] lg:pt-14"
             type="single"
@@ -86,17 +86,18 @@ const Faqs = () => {
           </Accordion.Root>
         </div>
         <div className="flex flex-col items-end">
-          <div className="relative -right-1/4 -mt-48 hidden translate-x-[156px] translate-y-10 lg:block">
-            <div className="absolute top-32 z-10 h-1/2 w-full bg-gradient-to-t from-[transparent] to-dark-100" />
+          <div className="relative hidden lg:block">
+            <div className="absolute right-[-100px] top-[-20px] z-10 h-[380px] w-full bg-gradient-to-tr from-[transparent] via-dark-100 via-[83%] to-dark-100" />
             <Image
               src="/assets/faqs.png"
               alt="FAQ Background"
-              width={736}
-              height={736}
+              height={790}
+              width={1010}
+              className="relative right-[-95px] top-[-40px]"
             />
           </div>
 
-          <div className="mt-14 flex w-full flex-col gap-6 rounded-28 border border-white-8 bg-white-3 p-6 pt-5 lg:mt-0 lg:max-w-[320px]">
+          <div className="mt-14 flex w-full flex-col gap-6 rounded-28 border border-white-8 bg-white-4 p-6 pt-5 lg:mt-0 lg:max-w-[320px]">
             <div className="flex flex-col gap-[6px]">
               <p className="font-lora text-24 font-400 text-white-95">
                 Still have questions?

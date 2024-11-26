@@ -153,7 +153,7 @@ const FeaturesAccordion = (props: Props) => {
             className="w-full max-w-[664px] pb-20"
           />
           {/* TODO: Add desktop download version when design is ready */}
-          <div className="flex w-full max-w-[549px] flex-col gap-6 rounded-28 border border-white-8 bg-white-3 p-6 pt-5">
+          <div className="flex w-full max-w-[549px] flex-col gap-6 rounded-28 border border-white-8 bg-white-4 p-6 pt-5">
             <div className="flex flex-col gap-[6px]">
               <p className="font-lora text-24 font-400 text-white-95">
                 Download Status for Mobile

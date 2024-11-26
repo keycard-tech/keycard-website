@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 const KeycardShell = () => {
   return (
-    <section className="relative flex flex-col justify-end overflow-hidden rounded-b-28 border border-t-0 border-white-8 bg-white-3 backdrop-blur-[20px] full-view-port lg:flex-row lg:items-center lg:justify-normal lg:remove-full-view-port">
+    <section className="relative flex flex-col justify-end overflow-hidden rounded-b-28 border border-t-0 border-white-8 bg-white-4 backdrop-blur-[20px] full-view-port lg:flex-row lg:items-center lg:justify-normal lg:remove-full-view-port">
       <div className="hidden max-h-[510px] flex-1 items-start justify-center overflow-hidden lg:flex">
         <Image
           src="/assets/keycard-shell.png"
@@ -26,15 +26,15 @@ const KeycardShell = () => {
         priority
       />
 
-      <div className="relative z-10 -mt-16 flex max-w-[434px] flex-col px-5 pb-8 pt-0 lg:mt-0 lg:py-20 lg:pl-0">
+      <div className="relative z-10 -mt-16 flex max-w-[506px] flex-col px-5 pb-8 pt-0 lg:mt-0 lg:py-20 lg:pl-0 lg:pr-[72px]">
         <p className="pb-2 text-24 font-600 text-white-95">
           keycard <span className="font-200">shell</span>
         </p>
-        <h1 className="flex pb-8 font-lora text-32 font-400 lg:pb-4 lg:text-48">
+        <p className="flex pb-8 font-lora text-32 font-400 lg:pb-4 lg:text-48">
           One device for all
           <br />
           your Keycards
-        </h1>
+        </p>
         <p className="pb-8 text-20 font-300 text-white-80">
           A modular and stateless hardware wallet that
           <br /> relies on Keycard as the secure element.

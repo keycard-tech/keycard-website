@@ -15,9 +15,9 @@ const buttonStyles = cva({
     variant: {
       primary: 'bg-orange border-white-12 hover:bg-orange-dark text-white-95',
       secondary:
-        'bg-white-3 border-white-8 hover:bg-white-8 hover:border-white-12 text-white-95',
+        'bg-white-4 border-white-8 hover:bg-white-8 hover:border-white-12 text-white-95',
       white: 'bg-white-100 hover:bg-white-dark text-dark-100',
-      dark: 'border-[transparent] bg-white-3 hover:border-white-8 hover:bg-white-8 text-white-95',
+      dark: 'border-[transparent] bg-white-4 hover:border-white-8 hover:bg-white-8 text-white-95',
     },
     withIcon: {
       true: 'pl-[14px] pr-[10px] py-2',

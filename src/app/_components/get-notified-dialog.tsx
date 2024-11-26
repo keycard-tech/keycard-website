@@ -79,7 +79,7 @@ export const GetNotifiedDialog = (props: Props) => {
               <div className="absolute right-5 top-5 z-50 md:right-6 md:top-7">
                 <button
                   onClick={handleClose}
-                  className="rounded-12 border border-white-12 bg-white-3 p-[10px] text-white-100 hover:bg-white-8"
+                  className="rounded-12 border border-white-12 bg-white-4 p-[10px] text-white-100 hover:bg-white-8"
                 >
                   <Close />
                 </button>
@@ -88,7 +88,7 @@ export const GetNotifiedDialog = (props: Props) => {
             <div
               className={cx(
                 'grid max-w-[570px] overflow-hidden border-0 border-white-12 bg-[transparent]',
-                'md:rounded-28 md:border md:bg-white-3',
+                'md:rounded-28 md:border md:bg-white-4',
               )}
             >
               <div className="p-5 pb-6 md:px-6">
@@ -101,7 +101,7 @@ export const GetNotifiedDialog = (props: Props) => {
               </div>
               <div
                 className={cx(
-                  'mx-5 flex items-center justify-center gap-2 bg-white-3 px-4 py-[14px] text-14 font-300 text-white-60',
+                  'mx-5 flex items-center justify-center gap-2 bg-white-4 px-4 py-[14px] text-14 font-300 text-white-60',
                   'rounded-16 border border-dashed border-white-12',
                   'md:mx-0 md:justify-start md:rounded-0 md:border-x-0 md:border-b-0 md:px-6',
                 )}
@@ -160,7 +160,7 @@ const SignUpForm = (props: SignUpFormProps) => {
             className={cx(
               // input has to have at least 16px font size to prevent from "zooming in" on mobile
               'h-12 w-full border border-solid px-4 py-1 text-16 font-300 text-white-95 placeholder-white-40 caret-orange max-sm:text-[1rem]',
-              'rounded-16 border-white-12 bg-white-3 hover:bg-white-8 focus:border-white-20',
+              'rounded-16 border-white-12 bg-white-4 hover:bg-white-8 focus:border-white-20',
               'disabled:cursor-not-allowed disabled:border-0 disabled:bg-white-8 disabled:text-white-40',
             )}
           />

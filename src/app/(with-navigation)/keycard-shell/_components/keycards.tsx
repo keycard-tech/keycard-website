@@ -15,11 +15,11 @@ const Keycards = () => {
       />
 
       <div className="relative z-10 pt-12 text-center lg:pt-20">
-        <h1 className="font-lora text-32 text-white-95">
+        <p className="font-lora text-32 text-white-95">
           One device.
           <br />
           Multiple Keycards.
-        </h1>
+        </p>
 
         <div className="flex items-center justify-center gap-4 pt-8">
           <BuyKeycardDialog>

@@ -105,7 +105,7 @@ const integrations = [
 const Integration = () => {
   return (
     <section>
-      <div className="mt-[200px] flex justify-center border-y border-y-white-8 bg-white-3">
+      <div className="mt-[200px] flex justify-center border-y border-y-white-8 bg-white-4">
         <div className="w-full max-w-[1512px] p-20 px-0 pb-5 lg:px-20 lg:pb-20">
           <div className="flex max-w-[550px] flex-col gap-2 px-3 pb-8 lg:px-0">
             <Image
@@ -114,9 +114,9 @@ const Integration = () => {
               alt="Status"
               src="/assets/keycard/status-logo.png"
             />
-            <h1 className="pt-1 font-lora text-32 font-400 text-white-95">
+            <h2 className="pt-1 font-lora text-32 font-400 text-white-95">
               Seamless integration with Status
-            </h1>
+            </h2>
             <p className="text-20 font-300 text-white-60">
               Keycard works straight out of the box with the Status app. No need
               to pair it, it just works!
@@ -143,7 +143,7 @@ const Integration = () => {
         <h2 className="pb-4 pl-6 text-12 font-400 text-white-80 lg:pl-8">
           ALSO INTEGRATED WITH
         </h2>
-        <div className="grid grid-cols-1 gap-8 rounded-28 border border-white-8 bg-white-3 p-6 pt-5 text-white-95 md:grid-cols-2 lg:grid-cols-4 lg:gap-6 lg:p-8 lg:pt-9">
+        <div className="grid grid-cols-1 gap-8 rounded-28 border border-white-8 bg-white-4 p-6 pt-5 text-white-95 md:grid-cols-2 lg:grid-cols-4 lg:gap-6 lg:p-8 lg:pt-9">
           {integrations.map((integration, index) => (
             <div key={index} className="flex flex-col">
               <div className="mb-3 inline-flex items-center">
@@ -167,7 +167,7 @@ const Integration = () => {
               <ButtonLink
                 href={integration.href}
                 variant="secondary"
-                className="group w-fit"
+                className="group w-fit pr-2"
               >
                 <span className="text-white-95">{integration.buttonText}</span>
                 <External />
