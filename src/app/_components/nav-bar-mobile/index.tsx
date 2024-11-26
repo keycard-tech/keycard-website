@@ -70,7 +70,7 @@ const NavBarMobile = () => {
     <motion.nav
       key="nav-bar-mobile"
       className={cx([
-        'fixed inset-0 z-[60] block w-full transition-all lg:hidden',
+        'fixed inset-0 z-40 block w-full transition-all lg:hidden',
       ])}
       animate={{
         height: isOpen ? '100%' : '80px',
@@ -123,7 +123,7 @@ const NavBarMobile = () => {
             animate={{ opacity: 1, height: 'calc(100% - 80px)' }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2, ease: 'easeInOut' }}
-            className="fixed inset-x-0 top-20 z-50 overflow-hidden"
+            className="fixed inset-x-0 top-20 z-30 overflow-hidden"
           >
             <motion.div
               key="menu-content"

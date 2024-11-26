@@ -3,7 +3,11 @@ import { ButtonLink } from '~components/button-link'
 import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
 import Image from 'next/image'
 
-const Hero = () => {
+type Props = {
+  isBuyKeycardDialogOpen: boolean
+}
+
+const Hero = ({ isBuyKeycardDialogOpen }: Props) => {
   return (
     <section className="relative flex h-[calc(100svh-80px)] flex-col justify-end overflow-clip rounded-t-28 border border-white-8 bg-white-4 px-0 pt-0 full-view-port lg:h-auto lg:px-[72px] lg:py-20 lg:remove-full-view-port">
       <Image
@@ -33,7 +37,7 @@ const Hero = () => {
           wallet.
         </p>
         <div className="flex space-x-4">
-          <BuyKeycardDialog>
+          <BuyKeycardDialog isOpen={isBuyKeycardDialogOpen}>
             <Button variant="primary">Buy Keycard</Button>
           </BuyKeycardDialog>
           <ButtonLink href="/keycard" variant="secondary">

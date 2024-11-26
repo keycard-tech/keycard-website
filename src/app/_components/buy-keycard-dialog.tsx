@@ -52,6 +52,7 @@ type Bundle = {
 
 type Props = {
   children: React.ReactElement
+  isOpen?: boolean
 }
 
 const bundles: Bundle[] = [
@@ -80,9 +81,9 @@ const bundles: Bundle[] = [
 ] as const
 
 const BuyKeycardDialog = (props: Props) => {
-  const { children } = props
+  const { children, isOpen = false } = props
 
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(isOpen)
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
