@@ -172,7 +172,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
 
   return (
     <div className="grid h-svh grid-cols-1 gap-6 overflow-auto bg-white-3 p-5 backdrop-blur-[20px] lg:h-auto lg:grid-cols-2 lg:rounded-28 lg:border lg:border-white-12 lg:p-2">
-      <div className="hidden h-full rounded-28 bg-dark-100 lg:block">
+      <div className="hidden h-full rounded-20 bg-dark-100 lg:block">
         <AnimatePresence>
           <motion.div
             key={selectedBundle}
@@ -289,7 +289,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
                 <Checkbox.Root
                   {...form.register('includeKeycardReader')}
                   id="includeKeycardReader"
-                  className="flex size-6 appearance-none items-center justify-center rounded-[8px] bg-white-100 outline-none aria-checked:bg-orange aria-checked:hover:bg-orange-dark [&>svg]:aria-checked:text-white-95"
+                  className="flex size-6 appearance-none items-center justify-center rounded-[8px] border border-white-20 bg-white-3 outline-none aria-checked:bg-orange aria-checked:hover:bg-orange-dark [&>svg]:aria-checked:text-white-95"
                   checked={field.value}
                   onCheckedChange={field.onChange}
                   aria-label="Include USB-C Keycard reader"

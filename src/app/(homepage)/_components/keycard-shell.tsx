@@ -26,7 +26,7 @@ const KeycardShell = () => {
         priority
       />
 
-      <div className="relative z-10 -mt-16 flex max-w-[434px] flex-col px-5 pb-8 pt-0 lg:mt-0 lg:py-20 lg:pl-0">
+      <div className="relative z-10 -mt-16 flex max-w-[506px] flex-col px-5 pb-8 pt-0 lg:mt-0 lg:py-20 lg:pl-0 lg:pr-[72px]">
         <p className="pb-2 text-24 font-600 text-white-95">
           keycard <span className="font-200">shell</span>
         </p>

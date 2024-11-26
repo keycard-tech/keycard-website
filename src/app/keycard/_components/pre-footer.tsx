@@ -6,7 +6,7 @@ import Image from 'next/image'
 const Prefooter = () => {
   return (
     <section className="relative flex flex-col px-6 lg:flex-row lg:px-14 xl:px-[195px]">
-      <div className="relative z-20 flex flex-1 flex-col items-start pb-[120px] pt-[320px] text-left lg:pt-[200px]">
+      <div className="relative z-20 flex flex-1 flex-col items-start pb-[120px] pt-[320px] text-left lg:py-[200px]">
         <p className="pb-2 text-24 font-600 text-white-95">keycard</p>
         <h2 className="flex pb-4 font-lora text-32 font-400 text-white-95 md:text-48">
           A card shaped <br /> hardware wallet

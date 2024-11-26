@@ -3,8 +3,8 @@ const LineGradient = () => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="484"
-      height="2"
-      viewBox="0 0 484 2"
+      height="1"
+      viewBox="0 0 484 1"
     >
       <path stroke="url(#a)" strokeOpacity=".95" strokeWidth="2" d="M484 1H0" />
       <defs>
@@ -29,8 +29,8 @@ const LinearGradientMobile = () => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="260"
-      height="2"
-      viewBox="0 0 260 2"
+      height="1"
+      viewBox="0 0 260 1"
       preserveAspectRatio="none"
       className="w-full"
       fill="none"
