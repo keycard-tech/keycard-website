@@ -380,7 +380,7 @@ const ComparisonTable = () => {
             <div className="p-4 pb-5">Ledger</div>
           </div>
 
-          <div className="rounded-28 border border-white-12 bg-white-3 px-6">
+          <div className="rounded-28 border border-white-8 bg-white-3 px-6">
             {features.map((feature, index) => {
               return (
                 <div

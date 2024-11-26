@@ -116,7 +116,7 @@ const BuyKeycardDialog = (props: Props) => {
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger asChild>{children}</Dialog.Trigger>
-      <Dialog.Content className="fixed left-1/2 top-1/2 z-[70] max-h-screen w-screen max-w-[1136px] -translate-x-1/2 -translate-y-1/2 overflow-auto focus:outline-none data-[state=open]:animate-contentShow lg:w-[90vw] lg:overflow-hidden">
+      <Dialog.Content className="fixed left-1/2 top-1/2 z-50 max-h-screen w-screen max-w-[1136px] -translate-x-1/2 -translate-y-1/2 overflow-auto focus:outline-none data-[state=open]:animate-contentShow lg:w-[90vw] lg:overflow-hidden">
         <Dialog.Description className="sr-only">Buy Keycard</Dialog.Description>
         <ShopifyForm onSubmit={onSubmit} setOpen={setOpen} />
       </Dialog.Content>
@@ -172,7 +172,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
 
   return (
     <div className="grid h-svh grid-cols-1 gap-6 overflow-auto bg-white-3 p-5 backdrop-blur-[20px] lg:h-auto lg:grid-cols-2 lg:rounded-28 lg:border lg:border-white-12 lg:p-2">
-      <div className="hidden h-full rounded-28 bg-dark-100 lg:block">
+      <div className="hidden h-full rounded-20 bg-dark-100 lg:block">
         <AnimatePresence>
           <motion.div
             key={selectedBundle}
@@ -200,6 +200,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
             variant="secondary"
             className="size-10 px-[9px] text-white-95"
             onClick={() => setOpen(false)}
+            aria-label="Close"
           >
             <Close className="size-5" />
           </Button>
@@ -217,7 +218,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
 
                 return (
                   <button
-                    key={bundle.name}
+                    key={bundle.id}
                     type="button"
                     onClick={() => {
                       setValue('bundleId', bundle.id)
@@ -229,7 +230,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
                   >
                     <span
                       className={cx([
-                        'absolute border transition-all',
+                        'absolute z-0 border transition-all',
                         selected
                           ? '-left-1 -top-1 size-[calc(100%+8px)] rounded-[24px] border-orange-dark'
                           : 'left-0 top-0 size-full rounded-20 border-white-12',
@@ -243,7 +244,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
                       ${bundle.price}
                       {bundle.tag && (
                         <Tooltip label="Best deal">
-                          <div className="flex size-5 items-center justify-center rounded-full bg-orange">
+                          <div className="z-50 flex size-5 items-center justify-center rounded-full bg-orange">
                             <Recommended />
                           </div>
                         </Tooltip>
@@ -264,6 +265,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
                 onClick={() => setValue('quantity', Math.max(1, quantity - 1))}
                 className="justify-center px-[9px] text-center text-white-100"
                 disabled={quantity === 1}
+                aria-label="Decrease quantity"
               >
                 <Minus />
               </Button>
@@ -273,6 +275,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
                 variant="dark"
                 onClick={() => setValue('quantity', quantity + 1)}
                 className="justify-center px-[9px] text-center text-white-100"
+                aria-label="Increase quantity"
               >
                 <Plus />
               </Button>
@@ -286,9 +289,10 @@ const ShopifyForm = (props: ShopifyFormProps) => {
                 <Checkbox.Root
                   {...form.register('includeKeycardReader')}
                   id="includeKeycardReader"
-                  className="flex size-6 appearance-none items-center justify-center rounded-[8px] bg-white-100 outline-none aria-checked:bg-orange aria-checked:hover:bg-orange-dark [&>svg]:aria-checked:text-white-95"
+                  className="flex size-6 appearance-none items-center justify-center rounded-[8px] border border-white-20 bg-white-3 outline-none aria-checked:bg-orange aria-checked:hover:bg-orange-dark [&>svg]:aria-checked:text-white-95"
                   checked={field.value}
                   onCheckedChange={field.onChange}
+                  aria-label="Include USB-C Keycard reader"
                 >
                   <Checkbox.Indicator className="text-white-95">
                     <Check className="size-5 text-white-95" />

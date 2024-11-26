@@ -33,7 +33,7 @@ export const PostAuthor = (props: {
       tabIndex={0}
       onClick={handleNavigation}
       onKeyDown={handleNavigation}
-      className="flex cursor-pointer gap-2 text-white-95 hover:text-orange"
+      className="flex cursor-pointer gap-2 leading-6 text-white-95 hover:text-orange"
     >
       <Avatar
         size="20"

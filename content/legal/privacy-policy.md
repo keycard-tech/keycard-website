@@ -1,5 +1,5 @@
 ---
-title: Keycard Presale Website - Privacy Policy
+title: Keycard - Privacy Policy
 ---
 
 This Privacy Policy is intended to inform users of our approach to privacy in respect of this website (“**Website**”). In this regard, if you are visiting our Website, this Privacy Policy applies to you. 

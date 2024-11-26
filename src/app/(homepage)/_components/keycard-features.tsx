@@ -96,7 +96,7 @@ const KeycardFeatures = () => {
                 />
               </div>
             )}
-            <div className="p-6 pt-5 lg:pt-6">
+            <div className="p-6 pt-5">
               <div>
                 <h3 className="mb-[6px] font-lora text-24 font-400">
                   {feature.title}
@@ -119,7 +119,7 @@ const KeycardFeatures = () => {
                 {feature.button && (
                   <ButtonLink
                     href="https://github.com/status-im/status-keycard"
-                    className="mt-4 font-500 [&_path]:hover:fill-white-dark"
+                    className="font-500 [&_path]:hover:fill-white-dark"
                     variant="white"
                     icon={<feature.button.icon />}
                   >
