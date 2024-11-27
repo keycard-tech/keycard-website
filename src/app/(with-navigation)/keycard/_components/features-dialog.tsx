@@ -88,7 +88,7 @@ const FeaturesDialog = (props: Props) => {
               'md:rounded-28 md:border md:bg-white-4',
             )}
           >
-            <Dialog.Title asChild className="px-6 pt-6">
+            <Dialog.Title asChild className="p-6">
               <h3 className="font-lora text-32">
                 Available features on Status
               </h3>
@@ -105,11 +105,11 @@ const FeaturesDialog = (props: Props) => {
               </div>
             </Dialog.Close>
 
-            <div className="px-6 pt-[34px]">
+            <div className="px-6 pt-[10px]">
               <div className="grid grid-cols-[1.33fr,1fr,1fr] justify-items-center text-center font-lora text-24 font-400 text-white-90 lg:grid-cols-[2fr,1fr,1fr] lg:text-24">
-                <div className="justify-self-start p-4 pb-0 pl-0">Feature</div>
-                <div className="p-4 pb-0">Mobile</div>
-                <div className="p-4 pb-0">Desktop</div>
+                <div className="justify-self-start">Feature</div>
+                <div>Mobile</div>
+                <div>Desktop</div>
               </div>
               <div className="">
                 {features.map((feature, index) => {
