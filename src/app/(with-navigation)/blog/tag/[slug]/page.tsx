@@ -1,8 +1,8 @@
+import { getPostsByTagSlug, getTagSlugs } from '~/app/_lib/ghost'
 import { Metadata } from '~/app/_metadata'
-import { Breadcrumbs } from '~/app/docs/_components/breadcrumbs'
+import { Breadcrumbs } from '~/app/(with-navigation)/docs/_components/breadcrumbs'
 import { notFound } from 'next/navigation'
 import { InfinitePostGrid } from '../../_components/infinite-post-grid'
-import { getPostsByTagSlug, getTagSlugs } from '../../../_lib/ghost'
 
 export const revalidate = 3600 // 1 hour
 export const dynamicParams = true

@@ -1,7 +1,7 @@
 import type { PostOrPage } from '@tryghost/content-api'
+import { formatDate } from '~/app/_utils/format-date'
+import { Link } from '~components/link'
 import Image from 'next/image'
-import { Link } from '../../_components/link'
-import { formatDate } from '../../_utils/format-date'
 import { PostAuthor } from './post-author'
 import { PostTag } from './post-tag'
 

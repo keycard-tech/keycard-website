@@ -1,4 +1,4 @@
-import { Metadata } from '../_metadata'
+import { Metadata } from '~/app/_metadata'
 import { Providers } from './_providers'
 
 type Props = {

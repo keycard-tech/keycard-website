@@ -21,7 +21,6 @@ export function ShopifyUTMParamsProvider({ children }: Props) {
 }
 
 export function useShopifyUTMParamsContext() {
-  console.log('useShopifyUTMParamsContext')
   const context = useContext(ShopifyUTMParamsContext)
 
   if (!context) {
@@ -36,11 +35,9 @@ export function useShopifyUTMParamsContext() {
 const SHOPIFY_UTM_PARAMS_KEY = 'shopify-utm-params'
 
 function useShopifyUTMParams() {
-  console.log('useShopifyUTMParams')
   const [utmParams, setUtmParams] = useState(new URLSearchParams())
 
   useEffect(() => {
-    console.log('useShopifyUTMParamsEffect')
     const storedParams = sessionStorage.getItem(SHOPIFY_UTM_PARAMS_KEY)
 
     if (storedParams) {

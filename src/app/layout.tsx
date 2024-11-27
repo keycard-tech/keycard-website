@@ -1,9 +1,6 @@
 import { cx } from 'cva'
 import { Inter, Lora } from 'next/font/google'
 import './globals.css'
-import { Footer } from '~components/footer'
-import { NavBar } from '~components/nav-bar'
-import { NavBarMobile } from '~components/nav-bar-mobile'
 import { Metadata } from './_metadata'
 import { Providers } from './_providers'
 
@@ -56,12 +53,9 @@ export default function RootLayout({ children }: Props) {
         )}
       >
         <Providers>
-          <NavBar />
-          <NavBarMobile />
           <div className="flex w-full justify-center">
             <div className="w-full">{children}</div>
           </div>
-          <Footer />
         </Providers>
       </body>
     </html>
