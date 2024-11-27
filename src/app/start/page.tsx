@@ -1,5 +1,6 @@
 import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
+import { Link } from '~components/link'
 import { Customize, External } from '~icons'
 import Image from 'next/image'
 import { Usb } from '../_icons/usb'
@@ -8,7 +9,7 @@ export default function StartPage() {
   return (
     <div className="pb-[120px] pt-20">
       <div className="mb-6 grid grid-flow-row gap-3">
-        <h1 className="font-lora text-48 font-400 text-white-95">
+        <h1 className="font-lora text-32 font-400 text-white-95 lg:text-48">
           Get started with Keycard
         </h1>
         <p className="font-inter text-20 font-300 text-white-95">
@@ -27,7 +28,7 @@ export default function StartPage() {
             height={32}
             className="ml-3"
           />
-          <div className="flex flex-row gap-3">
+          <div className="flex flex-col gap-3 lg:flex-row">
             <div className="flex flex-1 flex-col rounded-20 border border-white-8 bg-white-3 p-6 pt-4">
               <h3 className="mb-[6px] font-lora text-24 font-400 text-white-95">
                 Desktop
@@ -36,7 +37,7 @@ export default function StartPage() {
                 Available for Mac, Windows and Linux
               </p>
               <div className="grid grid-flow-col justify-start gap-3">
-                <Button variant="secondary">Download for macOS</Button>
+                <Button variant="secondary">MacOS</Button>
                 <Button variant="secondary">Win</Button>
                 <Button variant="secondary">Lin</Button>
               </div>
@@ -48,21 +49,52 @@ export default function StartPage() {
               <p className="mb-6 font-inter text-16 font-300 text-white-80">
                 Available for iOS or Android
               </p>
-              <div className="grid grid-flow-col justify-start gap-3">
-                <Button variant="secondary">Download for iOS</Button>
-                <Button variant="secondary">Android</Button>
+              <div className="grid grid-flow-row justify-start gap-3 lg:grid-flow-col">
+                <Link
+                  href="https://apps.apple.com/us/app/status-private-communication/id1178893006"
+                  className="overflow-hidden rounded-6 border border-white-12"
+                >
+                  <Image
+                    src="/assets/start/app-store.png"
+                    alt="App Store logo"
+                    width={143}
+                    height={40}
+                  />
+                </Link>
+                <Link
+                  href="https://play.google.com/store/apps/details?id=im.status.ethereum&pcampaignid=web_share"
+                  className="overflow-hidden rounded-6 border border-white-12"
+                >
+                  <Image
+                    src="/assets/start/google-play.png"
+                    alt="Google Play logo"
+                    width={139}
+                    height={40}
+                  />
+                </Link>
+                <Link
+                  href="https://f-droid.org/packages/im.status.ethereum"
+                  className="overflow-hidden rounded-6 border border-white-12"
+                >
+                  <Image
+                    src="/assets/start/f-droid.png"
+                    width={116}
+                    height={40}
+                    alt="F-Droid logo"
+                  />
+                </Link>
               </div>
             </div>
           </div>
           <div className="flex items-center justify-center gap-2 rounded-16 border border-dashed border-white-12 bg-white-3 px-4 py-[14px] text-14 font-300 text-white-60">
             <span className="flex items-center gap-1">
-              <Usb className="text-white-95" /> Desktop requires an NFC card
-              reader
+              <Usb className="shrink-0 text-white-95" /> Desktop requires an NFC
+              card reader
             </span>
             &bull;
             <span className="flex items-center gap-1">
-              <Customize className="text-white-95" /> View basic features
-              available by platform
+              <Customize className="shrink-0 text-white-95" /> View basic
+              features available by platform
             </span>
           </div>
         </div>
@@ -70,7 +102,7 @@ export default function StartPage() {
       <h2 className="my-6 flex justify-start gap-3 font-lora text-32 font-400 text-white-95">
         <span className="text-orange">2</span> Follow our guides
       </h2>
-      <div className="flex flex-row gap-3">
+      <div className="flex flex-col gap-3 lg:flex-row">
         <div className="flex flex-1 flex-col rounded-28 border border-white-8 bg-white-3 p-6 pt-5">
           <h3 className="mb-1 font-lora text-24 font-400 text-white-95">
             If you never used Status
