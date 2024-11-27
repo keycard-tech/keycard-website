@@ -1,8 +1,8 @@
 import { ButtonLink } from '~components/button-link'
+import { Image } from '~components/image'
 import { Tag } from '~components/tag'
 import { Github, Infinity, Shield } from '~icons'
 import { cx } from 'cva'
-import Image from 'next/image'
 import { createElement } from 'react'
 
 const features = [

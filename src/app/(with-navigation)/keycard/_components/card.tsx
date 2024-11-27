@@ -1,5 +1,5 @@
+import { Image } from '~components/image'
 import { cx } from 'cva'
-import Image from 'next/image'
 import { LineGradient } from './linear-gradients'
 
 type Props = {

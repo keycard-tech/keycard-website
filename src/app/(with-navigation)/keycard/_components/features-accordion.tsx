@@ -6,9 +6,9 @@ import {
   STATUS_MOBILE_F_DROID_URL,
   STATUS_MOBILE_GOOGLE_PLAY_URL,
 } from '~/config/routes'
+import { Image } from '~components/image'
 import { Link } from '~components/link'
 import { cx } from 'cva'
-import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 type Props = {

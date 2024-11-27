@@ -1,8 +1,8 @@
 import * as Accordion from '@radix-ui/react-accordion'
 import { ButtonLink } from '~components/button-link'
+import { Image } from '~components/image'
 import { ChevronDown, Discord, X } from '~icons'
 import { cx } from 'cva'
-import Image from 'next/image'
 
 const faqs = [
   {

@@ -2,9 +2,8 @@ import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
 import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
 import { GetNotifiedDialog } from '~components/get-notified-dialog'
+import { Image } from '~components/image'
 import { cx } from 'cva'
-import Image from 'next/image'
-import React from 'react'
 
 type Props = {
   image: string

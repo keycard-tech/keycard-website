@@ -1,7 +1,7 @@
 import { ButtonLink } from '~components/button-link'
+import { Image } from '~components/image'
 import { Tag } from '~components/tag'
 import { Github, Shield } from '~icons'
-import Image from 'next/image'
 
 const SecurityFeatures = () => {
   return (

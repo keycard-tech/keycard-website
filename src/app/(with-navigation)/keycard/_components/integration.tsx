@@ -1,7 +1,7 @@
 import { ButtonLink } from '~components/button-link'
+import { Image } from '~components/image'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '~components/tabs'
 import { External } from '~icons'
-import Image from 'next/image'
 import { FeaturesAccordion } from './features-accordion'
 import { FeaturesSlider } from './features-slider'
 
