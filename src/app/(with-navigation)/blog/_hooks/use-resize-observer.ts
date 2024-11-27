@@ -1,6 +1,6 @@
 import { RefObject, useEffect, useState } from 'react'
 
-export function useResizeObserver(elementRef: RefObject<Element>) {
+export function useResizeObserver(elementRef: RefObject<Element | null>) {
   const [columnCount, setColumnCount] = useState(1)
 
   useEffect(() => {
