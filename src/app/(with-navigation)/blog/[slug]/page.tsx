@@ -1,6 +1,8 @@
 import { baseComponents } from '~/app/_components/content'
+import { getPostBySlug, getPostSlugs } from '~/app/_lib/ghost'
 import { Metadata } from '~/app/_metadata'
-import { Breadcrumbs } from '~/app/docs/_components/breadcrumbs'
+import { formatDate } from '~/app/_utils/format-date'
+import { Breadcrumbs } from '~/app/(with-navigation)/docs/_components/breadcrumbs'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { createElement, Fragment } from 'react'
@@ -9,8 +11,6 @@ import rehypeReact from 'rehype-react'
 import { unified } from 'unified'
 import { PostAuthor } from '../_components/post-author'
 import { PostTag } from '../_components/post-tag'
-import { getPostBySlug, getPostSlugs } from '../../_lib/ghost'
-import { formatDate } from '../../_utils/format-date'
 
 export const revalidate = 3600 // 1 hour
 export const dynamicParams = true
