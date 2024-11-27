@@ -7,10 +7,8 @@ import {
   STATUS_MOBILE_GOOGLE_PLAY_URL,
 } from '~/config/routes'
 import { Link } from '~components/link'
-import { cx } from 'cva'
 import Image from 'next/image'
 import { match } from 'ts-pattern'
-import { DownloadStatusForDesktop } from './download-status-for-desktop'
 import { FeaturesDisclaimer } from './features-disclaimer'
 
 type Props = {
@@ -20,26 +18,23 @@ type Props = {
     imageMobile: string
     tag?: string
   }>
-  variant: 'desktop' | 'mobile'
 }
 
-const FeaturesSlider = (props: Props) => {
-  const { items, variant } = props
+const FeaturesSliderMobile = (props: Props) => {
+  const { items } = props
 
   const mobileOS = useMobileOperatingSystem()
 
   return (
     <div className="relative block lg:hidden">
       <div className="flex snap-x snap-mandatory overflow-x-auto scrollbar-none">
-        {variant === 'mobile' && (
-          <Image
-            src="/assets/keycard/slider/card.png"
-            alt="Card"
-            width={851}
-            height={430}
-            className="absolute left-1/2 top-1/3 z-10 max-w-[200vw] -translate-y-1/4 translate-x-[-43%]"
-          />
-        )}
+        <Image
+          src="/assets/keycard/slider/card.png"
+          alt="Card"
+          width={851}
+          height={430}
+          className="absolute left-1/2 top-1/3 z-10 max-w-[200vw] -translate-y-1/4 translate-x-[-43%]"
+        />
 
         {items.map((feature, index) => (
           <div
@@ -61,10 +56,7 @@ const FeaturesSlider = (props: Props) => {
                   alt={feature.title}
                   width={1125}
                   height={200}
-                  className={cx([
-                    'mx-auto',
-                    variant === 'desktop' ? 'w-full' : 'w-full max-w-[350px]',
-                  ])}
+                  className="mx-auto w-full max-w-[350px]"
                 />
               </div>
             </div>
@@ -73,9 +65,6 @@ const FeaturesSlider = (props: Props) => {
       </div>
       <div className="px-2">
         <FeaturesDisclaimer />
-        {variant === 'desktop' && (
-          <DownloadStatusForDesktop className="mt-8 max-w-full" />
-        )}
       </div>
       {mobileOS && (
         <div className="mt-14 flex w-full max-w-[549px] flex-col gap-6 rounded-28 border border-white-8 bg-white-3 p-6 pt-5">
@@ -131,4 +120,4 @@ const FeaturesSlider = (props: Props) => {
   )
 }
 
-export { FeaturesSlider }
+export { FeaturesSliderMobile }

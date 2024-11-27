@@ -52,8 +52,6 @@ const ButtonLink = (props: Props) => {
     ...rest
   } = props
 
-  console.log(props)
-
   return (
     <Link
       className={cx([

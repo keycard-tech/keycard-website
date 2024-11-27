@@ -4,7 +4,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '~components/tabs'
 import { External } from '~icons'
 import Image from 'next/image'
 import { FeaturesAccordion } from './features-accordion'
-import { FeaturesSlider } from './features-slider'
+import { FeaturesSliderDesktop } from './features-slider-desktop'
+import { FeaturesSliderMobile } from './features-slider-mobile'
 
 // TODO: Replace with correct data when design has it.
 const featuresMobile = [
@@ -163,7 +164,7 @@ const Integration = () => {
                 items={featuresDesktop}
                 imageClassName="absolute top-0 min-w-[808px] translate-x-[45%] xl:translate-x-[43%] 2xl:translate-x-[33%] translate-y-[-87%] xl:min-w-[1008px] right-0 2xl:min-w-[1178px]"
               />
-              <FeaturesSlider items={featuresDesktop} variant="desktop" />
+              <FeaturesSliderDesktop items={featuresDesktop} />
             </TabsContent>
             <TabsContent value="mobile" className="pt-20">
               <FeaturesAccordion
@@ -171,7 +172,7 @@ const Integration = () => {
                 items={featuresMobile}
                 imageClassName="absolute top-0 translate-x-[30%] xl:translate-x-0  max-w-[604px] translate-y-[-100%] right-0"
               />
-              <FeaturesSlider items={featuresMobile} variant="mobile" />
+              <FeaturesSliderMobile items={featuresMobile} />
             </TabsContent>
           </Tabs>
         </div>
