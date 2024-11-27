@@ -17,7 +17,7 @@ import { Logo } from './logo'
 const NAV_BAR_HEIGHT = 92
 
 const internalLinkStyles = cva({
-  base: 'rounded-12 border border-[transparent] px-[14px] py-[7px] transition-colors hover:border-white-8 hover:bg-white-8',
+  base: 'rounded-12 border border-[transparent] px-[14px] py-[7px] transition-colors  hover:bg-white-8',
   variants: {
     isActive: {
       true: 'bg-white-12',

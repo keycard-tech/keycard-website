@@ -1,5 +1,5 @@
 ---
-title: Keycard Presale - Terms of Use
+title: Keycard - Terms of Use
 ---
 
 These website terms of use (“**Website Terms of Use**”) are entered into by you and us, and they govern your access and use of this Website, including any content and functionality contained in the Website.

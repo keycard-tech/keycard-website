@@ -1,10 +1,7 @@
 import { cx } from 'cva'
-import type { Metadata } from 'next'
 import { Inter, Lora } from 'next/font/google'
 import './globals.css'
-import { Footer } from '~components/footer'
-import { NavBar } from '~components/nav-bar'
-import { NavBarMobile } from '~components/nav-bar-mobile'
+import { Metadata } from './_metadata'
 import { Providers } from './_providers'
 
 const lora = Lora({
@@ -21,11 +18,25 @@ const inter = Inter({
   preload: true,
 })
 
-export const metadata: Metadata = {
-  title: 'Keycard',
+export const metadata = Metadata({
+  metadataBase: new URL('https://keycard.tech/'),
+
+  title: {
+    default: 'Keycard',
+    template: '%s - Keycard',
+  },
   description:
     'Join the open source revolution of the most modular and future proof hardware wallet system ever conceived.',
-}
+
+  alternates: {
+    canonical: './',
+  },
+
+  twitter: {
+    card: 'summary_large_image',
+    site: '@keycard_',
+  },
+})
 
 type Props = {
   children: React.ReactNode
@@ -42,12 +53,9 @@ export default function RootLayout({ children }: Props) {
         )}
       >
         <Providers>
-          <NavBar />
-          <NavBarMobile />
           <div className="flex w-full justify-center">
             <div className="w-full">{children}</div>
           </div>
-          <Footer />
         </Providers>
       </body>
     </html>
