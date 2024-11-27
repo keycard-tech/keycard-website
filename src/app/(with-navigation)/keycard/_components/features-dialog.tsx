@@ -95,7 +95,7 @@ const FeaturesDialog = (props: Props) => {
             </Dialog.Title>
 
             <Dialog.Close asChild>
-              <div className="absolute right-5 top-5 z-50 md:right-6 md:top-7">
+              <div className="absolute right-5 top-5 z-50 md:right-6 md:top-6">
                 <button
                   onClick={() => setOpen(false)}
                   className="rounded-12 border border-white-12 bg-white-4 p-[10px] text-white-100 hover:bg-white-8"
@@ -107,16 +107,16 @@ const FeaturesDialog = (props: Props) => {
 
             <div className="px-6 pt-[34px]">
               <div className="grid grid-cols-[1.33fr,1fr,1fr] justify-items-center text-center font-lora text-24 font-400 text-white-90 lg:grid-cols-[2fr,1fr,1fr] lg:text-24">
-                <div className="justify-self-start p-4 pb-5 pl-0">Feature</div>
-                <div className="p-4 pb-5">Mobile</div>
-                <div className="p-4 pb-5">Desktop</div>
+                <div className="justify-self-start p-4 pb-0 pl-0">Feature</div>
+                <div className="p-4 pb-0">Mobile</div>
+                <div className="p-4 pb-0">Desktop</div>
               </div>
               <div className="">
                 {features.map((feature, index) => {
                   return (
                     <div
                       key={index}
-                      className="grid grid-cols-[1.33fr,1fr,1fr] border-b border-dashed border-white-12 font-300 first:pt-2 last:border-b-0 last:pb-2 lg:grid-cols-[2fr,1fr,1fr]"
+                      className="grid grid-cols-[1.33fr,1fr,1fr] border-b border-dashed border-white-12 font-300 first:pt-2 last:border-b-0 lg:grid-cols-[2fr,1fr,1fr]"
                     >
                       <div className="w-full p-3 first:pl-0 lg:flex lg:items-center">
                         <span className="relative inline whitespace-normal">
