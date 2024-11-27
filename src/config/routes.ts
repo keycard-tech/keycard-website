@@ -43,4 +43,6 @@ export const STATUS_DESKTOP_DOWNLOAD_URL_WINDOWS =
 export const STATUS_DESKTOP_DOWNLOAD_URL_LINUX =
   'https://status.app/api/download/linux'
 
+export const STATUS_APPS_DESKTOP_URL = 'https://status.app/apps#desktop'
+
 export type Routes = (typeof ROUTES)[keyof typeof ROUTES]
