@@ -2,6 +2,9 @@ import { cx } from 'cva'
 import type { Metadata } from 'next'
 import { Inter, Lora } from 'next/font/google'
 import './globals.css'
+import { Footer } from '~components/footer'
+import { NavBar } from '~components/nav-bar'
+import { NavBarMobile } from '~components/nav-bar-mobile'
 import { Providers } from './_providers'
 
 const lora = Lora({
@@ -37,13 +40,42 @@ export default function RootLayout({ children }: Props) {
           inter.variable,
           'bg-dark-100 p-2 pt-0 font-inter text-white-100 antialiased',
         )}
+        suppressHydrationWarning
       >
         <Providers>
+          <NavBar />
+          <NavBarMobile />
           <div className="flex w-full justify-center">
             <div className="w-full">{children}</div>
           </div>
+          <Footer />
+          <script
+            suppressHydrationWarning
+            dangerouslySetInnerHTML={{
+              __html: `(${platformScript.toString()})()`,
+            }}
+          />
         </Providers>
       </body>
     </html>
   )
+}
+
+// inspired by the implementation of next-themes
+// https://github.com/pacocoursey/next-themes/blob/main/next-themes/src/index.tsx
+const platformScript = () => {
+  const userAgent = navigator.userAgent.toLowerCase()
+  if (/iphone|ipad|ipod/.test(userAgent)) {
+    document.body.setAttribute('data-platform', 'ios')
+  } else if (userAgent.includes('mac')) {
+    document.body.setAttribute('data-platform', 'macos')
+  } else if (userAgent.includes('win')) {
+    document.body.setAttribute('data-platform', 'windows')
+  } else if (userAgent.includes('android')) {
+    document.body.setAttribute('data-platform', 'android')
+  } else if (userAgent.includes('linux')) {
+    document.body.setAttribute('data-platform', 'linux')
+  } else {
+    document.body.setAttribute('data-platform', 'unknown')
+  }
 }
