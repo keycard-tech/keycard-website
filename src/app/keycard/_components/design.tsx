@@ -33,7 +33,7 @@ const Design = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="flex flex-col rounded-28 border border-white-8 bg-white-3 p-6"
+              className="flex flex-col rounded-28 border border-white-8 bg-white-4 p-6"
             >
               <div className="text-12 font-400 text-white-80">BY DESIGN</div>
               <div className="translate-x-6 translate-y-[-20px] self-end pb-[6px]">

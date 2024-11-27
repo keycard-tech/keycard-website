@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 const Hero = () => {
   return (
-    <section className="relative flex h-[calc(100svh-80px)] flex-col justify-end overflow-clip rounded-t-28 border border-white-8 bg-white-3 px-0 pt-0 full-view-port lg:h-auto lg:px-[72px] lg:py-20 lg:remove-full-view-port">
+    <section className="relative flex h-[calc(100svh-80px)] flex-col justify-end overflow-clip rounded-t-28 border border-white-8 bg-white-4 px-0 pt-0 full-view-port lg:h-auto lg:px-[72px] lg:py-20 lg:remove-full-view-port">
       <Image
         alt="Keycard"
         src="/assets/hero-bg.png"
