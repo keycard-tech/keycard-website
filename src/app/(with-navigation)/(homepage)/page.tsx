@@ -1,4 +1,5 @@
 import { BuyCards } from '~/app/(with-navigation)/(homepage)/_components/buy-cards'
+import { BuyKeycardDialog } from '~/app/(with-navigation)/(homepage)/_components/buy-keycard-dialog'
 import { ComparisonTable } from '~/app/(with-navigation)/(homepage)/_components/comparison-table'
 import { Faqs } from '~/app/(with-navigation)/(homepage)/_components/faqs'
 import { Hero } from '~/app/(with-navigation)/(homepage)/_components/hero'
@@ -9,14 +10,16 @@ import { Suspense } from 'react'
 export default function HomePage() {
   return (
     <>
-      <Suspense>
-        <Hero />
-      </Suspense>
+      <Hero />
       <KeycardShell />
       <KeycardFeatures />
       <ComparisonTable />
       <Faqs />
       <BuyCards />
+
+      <Suspense>
+        <BuyKeycardDialog />
+      </Suspense>
     </>
   )
 }
