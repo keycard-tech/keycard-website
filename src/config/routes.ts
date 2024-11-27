@@ -17,13 +17,19 @@ export const ROUTES = {
     { name: 'Privacy policy', href: '/legal/privacy-policy' },
     { name: 'Terms of use', href: '/legal/terms-of-use' },
   ],
-  Network: [
-    { name: 'status.app', href: 'https://status.app' },
+  'Works With': [
     {
-      name: 'Logos',
-      href: 'https://logos.co',
+      name: 'Status',
+      href: 'https://status.app',
     },
-    { name: 'Codex', href: 'https://codex.storage/' },
+    {
+      name: 'WallETH',
+      href: 'https://walleth.org',
+    },
+    {
+      name: 'Enno Wallet',
+      href: 'https://ennowallet.com/',
+    },
   ],
 } as const
 
