@@ -1,4 +1,4 @@
-import { Metadata } from '../_metadata'
+import { Metadata } from '~/app/_metadata'
 import { Customisation } from './_components/customisation'
 import { Design } from './_components/design'
 import { Hero } from './_components/hero'

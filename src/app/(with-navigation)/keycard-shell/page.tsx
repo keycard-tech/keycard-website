@@ -1,4 +1,4 @@
-import { Metadata } from '../_metadata'
+import { Metadata } from '~/app/_metadata'
 import { AirGapped } from './_components/air-gapped'
 import { Comparision } from './_components/comparision'
 import { FeaturesCard } from './_components/features-card'
