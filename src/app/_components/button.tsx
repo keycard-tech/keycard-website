@@ -10,7 +10,7 @@ type Props = {
 } & React.ComponentProps<'button'>
 
 const buttonStyles = cva({
-  base: 'inline-flex cursor-pointer gap-1 text-16 select-none items-center rounded-12 border transition-all w-fit disabled:opacity-[0.3] disabled:cursor-default',
+  base: 'inline-flex font-500 cursor-pointer gap-1 text-16 select-none items-center rounded-12 border transition-all w-fit disabled:opacity-[0.3] disabled:cursor-default',
   variants: {
     variant: {
       primary:
@@ -18,7 +18,7 @@ const buttonStyles = cva({
       secondary:
         'bg-white-8 border-white-12 hover:enabled:bg-white-12 text-white-95',
       white: 'bg-white-100 hover:bg-white-dark text-dark-100',
-      dark: 'border-[transparent] bg-white-3 hover:enabled:border-white-8 hover:enabled:bg-white-8 text-white-95',
+      dark: 'border-[transparent] bg-white-4 hover:enabled:border-white-8 hover:enabled:bg-white-8 text-white-95',
     },
     withIcon: {
       true: 'pl-[14px] pr-[10px] py-2',

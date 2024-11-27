@@ -2,7 +2,7 @@ import { Link } from '~components/link'
 import { cx } from 'cva'
 import { Children, cloneElement, ComponentProps } from 'react'
 import { match } from 'ts-pattern'
-import { Bullet } from '../_icons/bullet'
+import { BulletIcon } from '../_icons/bullet-icon'
 import { renderText } from '../_utils/render-text'
 import { AnchorLink } from './anchor-link'
 import { CodeBlock } from './code-block'
@@ -216,7 +216,7 @@ export const baseComponents = {
       <p
         className={cx(
           paragraphMarginTop[size],
-          'my-5',
+          'my-5 text-16 font-300',
           '[:is(h1,h2,h3,h4,h5,h6)+&]:!mt-0', // immediately follows a heading as a sibling element
           // '[&:not(:has(+*))]:!mb-0', // not followed by any sibling element
           '[:is(div,td,blockquote)>&:first-child]:!mt-0', // is a first child of selected parent element
@@ -264,7 +264,7 @@ export const baseComponents = {
   ) => {
     const icon = match(props.parent)
       .with('ol', () => <Step value={props.order!} />)
-      .otherwise(() => <Bullet />)
+      .otherwise(() => <BulletIcon />)
 
     return (
       <li className="flex items-start gap-2">
@@ -327,15 +327,5 @@ export const baseComponents = {
     }
 
     return <figure {...props} className="my-5" />
-  },
-}
-
-export const legalComponents = {
-  ...baseComponents,
-  p: (props: Parameters<typeof baseComponents.p>[0]) => {
-    return baseComponents.p({ ...props, className: 'my-6' })
-  },
-  h2: (props: ComponentProps<'h2'>) => {
-    return <>{baseComponents.h2({ ...props, className: 'mb-4 mt-6' })}</>
   },
 }
