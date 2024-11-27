@@ -85,6 +85,10 @@ const BuyKeycardDialog = (props: Props) => {
 
   const [open, setOpen] = useState(isOpen)
 
+  useEffect(() => {
+    setOpen(isOpen)
+  }, [isOpen])
+
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger asChild>{children}</Dialog.Trigger>
