@@ -1,8 +1,8 @@
+import { Bullet } from '~/app/_icons'
 import { Link } from '~components/link'
 import { cx } from 'cva'
 import { Children, cloneElement, ComponentProps } from 'react'
 import { match } from 'ts-pattern'
-import { BulletIcon } from '../_icons/bullet-icon'
 import { renderText } from '../_utils/render-text'
 import { AnchorLink } from './anchor-link'
 import { CodeBlock } from './code-block'
@@ -264,7 +264,7 @@ export const baseComponents = {
   ) => {
     const icon = match(props.parent)
       .with('ol', () => <Step value={props.order!} />)
-      .otherwise(() => <BulletIcon />)
+      .otherwise(() => <Bullet />)
 
     return (
       <li className="flex items-start gap-2">
