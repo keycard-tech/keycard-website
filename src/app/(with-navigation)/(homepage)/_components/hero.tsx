@@ -4,28 +4,8 @@ import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
 import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
 import Image from 'next/image'
-import { useSearchParams } from 'next/navigation'
-import { useEffect, useState } from 'react'
 
 const Hero = () => {
-  const [isBuyKeycardDialogOpen, setIsBuyKeycardDialogOpen] = useState(false)
-  const searchParams = useSearchParams()
-
-  useEffect(() => {
-    const buyKeycard = searchParams.get('buyKeycard')
-
-    if (!buyKeycard || buyKeycard !== 'true') {
-      return
-    }
-
-    const timer = setTimeout(() => {
-      setIsBuyKeycardDialogOpen(true)
-    }, 1000)
-
-    return () => clearTimeout(timer)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
   return (
     <section className="relative flex h-[calc(100svh-80px)] flex-col justify-end overflow-clip rounded-t-28 border border-white-8 bg-white-4 px-0 pt-0 full-view-port lg:h-auto lg:px-[72px] lg:py-20 lg:remove-full-view-port">
       <Image
@@ -55,7 +35,7 @@ const Hero = () => {
           wallet.
         </p>
         <div className="flex space-x-4">
-          <BuyKeycardDialog isOpen={isBuyKeycardDialogOpen}>
+          <BuyKeycardDialog>
             <Button variant="primary">Buy Keycard</Button>
           </BuyKeycardDialog>
           <ButtonLink href="/keycard" variant="secondary">
