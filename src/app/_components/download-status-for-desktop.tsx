@@ -12,7 +12,7 @@ const DownloadStatusForDesktop = (props: Props) => {
   return (
     <div
       className={cx([
-        'flex w-full max-w-[549px] flex-col gap-6 rounded-28 border border-white-8 bg-white-4 p-6 pt-5',
+        'flex w-full flex-col gap-6 rounded-28 border border-white-8 bg-white-4 p-6 pt-5',
         className,
       ])}
     >
@@ -22,7 +22,7 @@ const DownloadStatusForDesktop = (props: Props) => {
           Available for Mac, Windows and Linux
         </p>
       </div>
-      <div className="flex h-10 gap-3">
+      <div className="flex gap-3">
         <DownloadDesktopButton show="all" />
       </div>
     </div>

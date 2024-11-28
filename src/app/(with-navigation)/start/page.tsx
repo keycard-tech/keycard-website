@@ -1,13 +1,13 @@
+import { ExternalIcon } from '@status-im/icons/20'
 import { ButtonLink } from '~components/button-link'
 import { DownloadStatusForDesktop } from '~components/download-status-for-desktop'
 import { DownloadStatusForMobile } from '~components/download-status-for-mobile'
 import { FeaturesDisclaimer } from '~components/features-disclaimer'
-import { External } from '~icons'
 import Image from 'next/image'
 
 export default function StartPage() {
   return (
-    <div className="px-5 pb-[120px] pt-20 md:px-10 lg:px-20">
+    <div className="px-3 pb-[120px] pt-12 md:px-8 lg:px-20 lg:pt-20">
       <div className="mb-6 grid grid-flow-row gap-3">
         <h1 className="font-lora text-32 font-400 text-white-95 lg:text-48">
           Get started with Keycard
@@ -49,7 +49,7 @@ export default function StartPage() {
           <ButtonLink
             href="https://status.app/help/profile/create-a-status-profile-using-keycard"
             variant="secondary"
-            icon={<External />}
+            icon={<ExternalIcon />}
           >
             Get started
           </ButtonLink>
@@ -64,7 +64,7 @@ export default function StartPage() {
           <ButtonLink
             href="https://status.app/help/profile/secure-your-status-profile-or-wallet-with-keycard"
             variant="secondary"
-            icon={<External />}
+            icon={<ExternalIcon />}
           >
             Get started
           </ButtonLink>

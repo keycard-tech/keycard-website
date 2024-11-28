@@ -71,7 +71,7 @@ export const DownloadDesktopButton = (props: Props) => {
   }
 
   return (
-    <div className="flex gap-2">
+    <div className="flex flex-wrap gap-2">
       <div className="order-2 inline-flex macos:order-1 ios:order-1">
         <MacOsPicker>
           <span className="hidden macos:contents ios:contents">

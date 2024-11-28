@@ -158,7 +158,7 @@ const FeaturesAccordion = (props: Props) => {
                 </motion.div>
               </AnimatePresence>
 
-              <DownloadStatusForDesktop className="mt-20" />
+              <DownloadStatusForDesktop className="mt-20 max-w-[549px]" />
             </div>
           ))
           .with('mobile', () => (
@@ -180,7 +180,7 @@ const FeaturesAccordion = (props: Props) => {
                 </motion.div>
               </AnimatePresence>
 
-              <DownloadStatusForMobile className="mt-20" />
+              <DownloadStatusForMobile className="mt-20 max-w-[549px]" />
             </div>
           ))
           .exhaustive()}

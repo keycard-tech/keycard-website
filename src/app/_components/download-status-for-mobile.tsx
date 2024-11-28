@@ -18,7 +18,7 @@ const DownloadStatusForMobile = (props: Props) => {
   return (
     <div
       className={cx([
-        'flex w-full max-w-[549px] flex-col gap-6 rounded-28 border border-white-4 bg-white-4 p-6 pt-5',
+        'flex w-full flex-col gap-6 rounded-28 border border-white-4 bg-white-4 p-6 pt-5',
         className,
       ])}
     >
@@ -27,7 +27,7 @@ const DownloadStatusForMobile = (props: Props) => {
         <p className="font-300 text-white-80">Available for iOS or Android</p>
       </div>
 
-      <div className="flex gap-3">
+      <div className="flex flex-wrap gap-3">
         <Link href={STATUS_MOBILE_APP_STORE_URL}>
           <Image
             src="/assets/keycard/appstore.png"
