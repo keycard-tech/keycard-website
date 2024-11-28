@@ -1,5 +1,6 @@
 'use client'
 
+import { Button } from '~components/button'
 import { Check, Close } from '~icons'
 import { cx } from 'cva'
 import { useState } from 'react'
@@ -95,14 +96,14 @@ const FeaturesDialog = (props: Props) => {
             </Dialog.Title>
 
             <Dialog.Close asChild>
-              <div className="absolute right-5 top-5 z-50 md:right-6 md:top-6">
-                <button
-                  onClick={() => setOpen(false)}
-                  className="rounded-12 border border-white-12 bg-white-4 p-[10px] text-white-100 hover:bg-white-8"
-                >
-                  <Close />
-                </button>
-              </div>
+              <Button
+                variant="secondary"
+                className="absolute right-5 top-5 z-50 size-10 px-[9px] text-white-95 md:right-6 md:top-6"
+                onClick={() => setOpen(false)}
+                aria-label="Close"
+              >
+                <Close className="size-5" />
+              </Button>
             </Dialog.Close>
 
             <div className="px-6 pt-[10px]">

@@ -196,14 +196,16 @@ const ShopifyForm = (props: ShopifyFormProps) => {
       <div className="flex flex-col justify-start lg:p-6 lg:pl-0">
         <div className="flex items-center justify-between">
           <Dialog.Title className="font-lora text-32">Buy Keycard</Dialog.Title>
-          <Button
-            variant="secondary"
-            className="size-10 px-[9px] text-white-95"
-            onClick={() => setOpen(false)}
-            aria-label="Close"
-          >
-            <Close className="size-5" />
-          </Button>
+          <Dialog.Close asChild>
+            <Button
+              variant="secondary"
+              className="size-10 px-[9px] text-white-95"
+              onClick={() => setOpen(false)}
+              aria-label="Close"
+            >
+              <Close className="size-5" />
+            </Button>
+          </Dialog.Close>
         </div>
 
         <Form {...form} onSubmit={submitHandler}>

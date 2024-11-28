@@ -120,7 +120,7 @@ const FeaturesAccordion = (props: Props) => {
 
                   <div className="relative w-full">
                     <div
-                      className="absolute left-0 top-0 z-[2] h-px bg-orange text-white-100 transition-opacity duration-500"
+                      className="absolute left-0 top-[0.5px] z-[2] h-px rounded-[2px] bg-orange text-white-100 transition-opacity duration-500"
                       style={{
                         opacity: isOpen ? 1 : 0,
                         width: `${width}%`,
