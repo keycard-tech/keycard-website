@@ -4,7 +4,7 @@ export const ROUTES = {
     { name: 'Keycard Shell', href: '/keycard-shell' },
   ],
   Info: [
-    { name: 'Get started', href: '/get-started' },
+    { name: 'Get started', href: '/start' },
     { name: 'Documentation', href: '/docs/overview' },
     { name: 'Blog', href: '/blog' },
   ],
