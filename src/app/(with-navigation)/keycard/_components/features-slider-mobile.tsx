@@ -9,18 +9,18 @@ import {
 import { Link } from '~components/link'
 import Image from 'next/image'
 import { match } from 'ts-pattern'
+import { FeaturesDisclaimer } from './features-disclaimer'
 
 type Props = {
   items: Array<{
     title: string
-    description: string
+    description: React.ReactNode | string
     imageMobile: string
-    tokens?: string
     tag?: string
   }>
 }
 
-const FeaturesSlider = (props: Props) => {
+const FeaturesSliderMobile = (props: Props) => {
   const { items } = props
 
   const mobileOS = useMobileOperatingSystem()
@@ -30,17 +30,14 @@ const FeaturesSlider = (props: Props) => {
       <div className="flex snap-x snap-mandatory overflow-x-auto scrollbar-none">
         <Image
           src="/assets/keycard/slider/card.png"
-          alt="left arrow"
+          alt="Card"
           width={851}
           height={430}
-          className="absolute right-0 top-1/2 z-10 max-w-[calc(200vw)] -translate-y-1/2 translate-x-1/3"
+          className="absolute left-1/2 top-1/3 max-w-[200vw] -translate-y-1/4 translate-x-[-43%]"
         />
 
         {items.map((feature, index) => (
-          <div
-            key={index}
-            className="z-20 min-w-[calc(100vw-40px)] snap-start px-2"
-          >
+          <div key={index} className="min-w-[calc(100vw-40px)] snap-start px-2">
             <div className="mx-auto flex h-full flex-col rounded-[32px] border border-white-12 bg-white-4 px-6 py-5">
               <div>
                 <p className="pb-[6px] text-left font-lora text-24 font-500 text-white-95">
@@ -49,28 +46,23 @@ const FeaturesSlider = (props: Props) => {
                 <p className="text-16 font-300 text-white-60">
                   {feature.description}
                 </p>
-                {feature.tokens && (
-                  <div className="flex gap-4 pt-4">
-                    <Image
-                      alt="Tokens"
-                      src={feature.tokens}
-                      width={265}
-                      height={32}
-                    />
-                  </div>
-                )}
               </div>
-              <div className="rounded-28">
+              <div className="z-10 rounded-28 pt-10">
                 <Image
                   src={feature.imageMobile}
                   alt={feature.title}
-                  width={489}
-                  height={791}
+                  width={1125}
+                  height={200}
+                  priority
+                  className="mx-auto w-full max-w-[350px]"
                 />
               </div>
             </div>
           </div>
         ))}
+      </div>
+      <div className="px-2">
+        <FeaturesDisclaimer />
       </div>
       {mobileOS && (
         <div className="mt-14 flex w-full max-w-[549px] flex-col gap-6 rounded-28 border border-white-8 bg-white-4 p-6 pt-5">
@@ -126,4 +118,4 @@ const FeaturesSlider = (props: Props) => {
   )
 }
 
-export { FeaturesSlider }
+export { FeaturesSliderMobile }
