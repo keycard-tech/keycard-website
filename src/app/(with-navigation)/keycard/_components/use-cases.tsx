@@ -1,6 +1,6 @@
 import { Button } from '~components/button'
 import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
-import { RecommendedIcon } from '~icons'
+import { RecommendedIcon } from '~icons/recommended'
 import { cx } from 'cva'
 import Image from 'next/image'
 import { Card } from './card'

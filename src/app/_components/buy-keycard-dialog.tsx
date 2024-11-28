@@ -13,7 +13,7 @@ import {
   WorldIcon,
 } from '@status-im/icons/20'
 import { CartInput } from '~/server/shopify/storefront/validation'
-import { RecommendedIcon } from '~icons'
+import { RecommendedIcon } from '~icons/recommended'
 import { cx } from 'cva'
 import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
