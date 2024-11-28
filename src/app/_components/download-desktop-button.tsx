@@ -141,7 +141,7 @@ const WindowsDownloadButton = (props: DownloadButtonProps) => {
         <ButtonLink
           variant="secondary"
           className="!p-[10px]"
-          href={STATUS_DESKTOP_DOWNLOAD_URL_LINUX}
+          href={STATUS_DESKTOP_DOWNLOAD_URL_WINDOWS}
           aria-label="Download for Windows"
         >
           <WindowsIcon className="text-white-60" />
@@ -165,7 +165,7 @@ const MacOsPicker = (props: DownloadButtonProps) => {
   const { children } = props
   return (
     <DropdownMenu.Root modal={false}>
-      <DropdownMenu.Trigger asChild className="text-orange">
+      <DropdownMenu.Trigger asChild>
         <Button
           variant="secondary"
           icon={

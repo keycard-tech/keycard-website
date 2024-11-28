@@ -33,14 +33,11 @@ const FeaturesSliderMobile = (props: Props) => {
           alt="Card"
           width={851}
           height={430}
-          className="absolute left-1/2 top-1/3 z-10 max-w-[200vw] -translate-y-1/4 translate-x-[-43%]"
+          className="absolute left-1/2 top-1/3 max-w-[200vw] -translate-y-1/4 translate-x-[-43%]"
         />
 
         {items.map((feature, index) => (
-          <div
-            key={index}
-            className="z-20 min-w-[calc(100vw-40px)] snap-start px-2"
-          >
+          <div key={index} className="min-w-[calc(100vw-40px)] snap-start px-2">
             <div className="mx-auto flex h-full flex-col rounded-[32px] border border-white-12 bg-white-4 px-6 py-5">
               <div>
                 <p className="pb-[6px] text-left font-lora text-24 font-500 text-white-95">
@@ -50,7 +47,7 @@ const FeaturesSliderMobile = (props: Props) => {
                   {feature.description}
                 </p>
               </div>
-              <div className="rounded-28 pt-10">
+              <div className="z-10 rounded-28 pt-10">
                 <Image
                   src={feature.imageMobile}
                   alt={feature.title}
