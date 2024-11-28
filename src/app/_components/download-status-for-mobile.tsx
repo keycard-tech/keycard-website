@@ -9,10 +9,11 @@ import Link from 'next/link'
 
 type Props = {
   className?: string
+  title?: string
 }
 
 const DownloadStatusForMobile = (props: Props) => {
-  const { className } = props
+  const { className, title = 'Download Status for Mobile' } = props
 
   return (
     <div
@@ -22,9 +23,7 @@ const DownloadStatusForMobile = (props: Props) => {
       ])}
     >
       <div className="flex flex-col gap-[6px]">
-        <p className="font-lora text-24 font-400 text-white-95">
-          Download Status for Mobile
-        </p>
+        <p className="font-lora text-24 font-400 text-white-95">{title}</p>
         <p className="font-300 text-white-80">Available for iOS or Android</p>
       </div>
 

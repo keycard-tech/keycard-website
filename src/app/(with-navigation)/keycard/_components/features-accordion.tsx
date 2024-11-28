@@ -1,14 +1,14 @@
 'use client'
 
 import * as Accordion from '@radix-ui/react-accordion'
+import { DownloadStatusForDesktop } from '~components/download-status-for-desktop'
+import { DownloadStatusForMobile } from '~components/download-status-for-mobile'
+import { FeaturesDisclaimer } from '~components/features-disclaimer'
 import { cx } from 'cva'
 import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { match } from 'ts-pattern'
-import { DownloadStatusForDesktop } from './download-status-for-desktop'
-import { DownloadStatusForMobile } from './download-status-for-mobile'
-import { FeaturesDisclaimer } from './features-disclaimer'
 
 type Props = {
   items: Array<{
@@ -134,7 +134,9 @@ const FeaturesAccordion = (props: Props) => {
               )
             })}
           </Accordion.Root>
-          <FeaturesDisclaimer />
+          <div className="w-full max-w-[549px] pt-8 lg:pt-20">
+            <FeaturesDisclaimer />
+          </div>
         </div>
         {match(variant)
           .with('desktop', () => (

@@ -1,8 +1,8 @@
 'use client'
 
+import { DownloadStatusForDesktop } from '~components/download-status-for-desktop'
+import { FeaturesDisclaimer } from '~components/features-disclaimer'
 import Image from 'next/image'
-import { DownloadStatusForDesktop } from './download-status-for-desktop'
-import { FeaturesDisclaimer } from './features-disclaimer'
 
 type Props = {
   items: Array<{
@@ -49,7 +49,7 @@ const FeaturesSliderDesktop = (props: Props) => {
         })}
       </div>
 
-      <div className="px-2">
+      <div className="w-full max-w-[549px] px-2 pt-8 lg:pt-20">
         <FeaturesDisclaimer />
         <DownloadStatusForDesktop className="mt-8 max-w-full" />
       </div>

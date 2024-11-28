@@ -1,10 +1,10 @@
 'use client'
 
 import { Button } from '~components/button'
+import * as Dialog from '~components/dialog'
 import { Check, Close } from '~icons'
 import { cx } from 'cva'
 import { useState } from 'react'
-import * as Dialog from '../../../_components/dialog'
 
 type Props = {
   children: React.ReactElement

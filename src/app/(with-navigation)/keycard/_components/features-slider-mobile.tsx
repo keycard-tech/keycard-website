@@ -6,10 +6,10 @@ import {
   STATUS_MOBILE_F_DROID_URL,
   STATUS_MOBILE_GOOGLE_PLAY_URL,
 } from '~/config/routes'
+import { FeaturesDisclaimer } from '~components/features-disclaimer'
 import { Link } from '~components/link'
 import Image from 'next/image'
 import { match } from 'ts-pattern'
-import { FeaturesDisclaimer } from './features-disclaimer'
 
 type Props = {
   items: Array<{
@@ -61,7 +61,7 @@ const FeaturesSliderMobile = (props: Props) => {
           </div>
         ))}
       </div>
-      <div className="px-2">
+      <div className="w-full max-w-[549px] px-2 pt-8 lg:pt-20">
         <FeaturesDisclaimer />
       </div>
       {mobileOS && (
