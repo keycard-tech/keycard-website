@@ -3,7 +3,7 @@
 import { cx } from 'cva'
 import { useEffect, useState } from 'react'
 import { onlyText } from 'react-children-utilities'
-import { Check, Copy } from '../_icons'
+import { CheckIcon, CopyIcon } from '../_icons'
 import { useCopyToClipboard } from '../(with-navigation)/docs/_hooks/use-copy-to-clipboard'
 
 export function CodeBlock(props: React.ComponentProps<'figure'>) {
@@ -33,7 +33,7 @@ export function CodeBlock(props: React.ComponentProps<'figure'>) {
             )}
             aria-label="Copy code"
           >
-            {success ? <Check /> : <Copy />}
+            {success ? <CheckIcon /> : <CopyIcon />}
           </button>
         </div>
         {props.children}

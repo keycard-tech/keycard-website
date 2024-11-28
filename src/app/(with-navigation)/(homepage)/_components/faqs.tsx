@@ -1,6 +1,6 @@
 import * as Accordion from '@radix-ui/react-accordion'
 import { ButtonLink } from '~components/button-link'
-import { ChevronDown, Discord, X } from '~icons'
+import { ChevronDownIcon, DiscordIcon, XIcon } from '~icons'
 import { cx } from 'cva'
 import Image from 'next/image'
 
@@ -70,7 +70,7 @@ const Faqs = () => {
                   >
                     {faq.question}
                     <div className="rounded-[10px] border border-white-12 bg-white-8 p-[6px]">
-                      <ChevronDown className="text-white-95 transition-transform duration-300 ease-[cubic-bezier(0.87,_0,_0.13,_1)] group-data-[state=open]:rotate-180" />
+                      <ChevronDownIcon className="text-white-95 transition-transform duration-300 ease-[cubic-bezier(0.87,_0,_0.13,_1)] group-data-[state=open]:rotate-180" />
                     </div>
                   </Accordion.Trigger>
                 </Accordion.Header>
@@ -117,7 +117,7 @@ const Faqs = () => {
                 className="px-[9px]"
                 aria-label="Keycard on Discord"
               >
-                <Discord />
+                <DiscordIcon />
               </ButtonLink>
               <ButtonLink
                 href="https://x.com/keycard_"
@@ -125,7 +125,7 @@ const Faqs = () => {
                 className="px-[9px]"
                 aria-label="Keycard on X"
               >
-                <X />
+                <XIcon />
               </ButtonLink>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import { Button } from '~components/button'
 import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
-import { Recommended } from '~icons'
+import { RecommendedIcon } from '~icons'
 import { cx } from 'cva'
 import Image from 'next/image'
 import { Card } from './card'
@@ -69,7 +69,7 @@ const UseCases = () => {
                 ${set.price}
                 {set.recommended && (
                   <span className="flex size-5 items-center justify-center rounded-full bg-orange">
-                    <Recommended />
+                    <RecommendedIcon />
                   </span>
                 )}
               </div>

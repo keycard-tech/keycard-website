@@ -1,7 +1,7 @@
 'use client'
 
+import { CheckIcon, CloseIcon } from '@status-im/icons/20'
 import { Button } from '~components/button'
-import { Check, Close } from '~icons'
 import { cx } from 'cva'
 import { useState } from 'react'
 import * as Dialog from '../../../_components/dialog'
@@ -102,7 +102,7 @@ const FeaturesDialog = (props: Props) => {
                 onClick={() => setOpen(false)}
                 aria-label="Close"
               >
-                <Close className="size-5" />
+                <CloseIcon className="size-5" />
               </Button>
             </Dialog.Close>
 
@@ -150,7 +150,7 @@ const FeaturesDialog = (props: Props) => {
 export { FeaturesDialog }
 
 const FeatureInfo = ({ variant }: { variant: FeatureVariant }) => {
-  if (variant === true) return <Check className="text-orange" />
+  if (variant === true) return <CheckIcon className="text-orange" />
   if (typeof variant === 'string')
     return (
       <p className="whitespace-nowrap text-center text-16 text-white-95">

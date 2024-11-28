@@ -1,5 +1,5 @@
 import { Link } from '~/app/_components/link'
-import { ChevronRight } from '~/app/_icons/chevron-right'
+import { ChevronRightIcon } from '~icons'
 import { Fragment } from 'react'
 
 type Props = {
@@ -37,7 +37,7 @@ const Breadcrumbs = (props: Props) => {
                   {item.label}
                 </Link>
                 <span className="size-5">
-                  <ChevronRight />
+                  <ChevronRightIcon />
                 </span>
               </Fragment>
             )

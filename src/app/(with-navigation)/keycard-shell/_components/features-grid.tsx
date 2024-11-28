@@ -1,7 +1,7 @@
 import { ButtonLink } from '~components/button-link'
 import { Tag } from '~components/tag'
 import { Tooltip } from '~components/tooltip'
-import { Github, Shield } from '~icons'
+import { FirmwareIcon, GithubIcon } from '~icons'
 import { cx } from 'cva'
 import Image from 'next/image'
 import { createElement } from 'react'
@@ -51,14 +51,14 @@ const features = [
     title: 'Open source security',
     description:
       'Our software, hardware and construction is fully open source.',
-    button: { icon: Github, text: 'View on GitHub' },
+    button: { icon: GithubIcon, text: 'View on GitHub' },
     className: 'col-span-1',
   },
   {
     title: 'Unparalleled security',
     description:
       'Keycard’s secure element has passed Common Criteria EAL6+ certification.',
-    badge: { icon: Shield, text: 'EAL 6+', gradient: true },
+    badge: { icon: FirmwareIcon, text: 'EAL 6+', gradient: true },
     className: 'col-span-1',
   },
   {

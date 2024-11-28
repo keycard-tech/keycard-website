@@ -1,12 +1,11 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
+import { CloseIcon, ConfettiColorfulIcon, LoadingIcon } from '~icons'
 import { cx } from 'cva'
 import { useEffect, useState } from 'react'
 import { useController, useForm } from 'react-hook-form'
 import type { SubmitHandler } from 'react-hook-form'
-import { Close, Confetti } from '../_icons'
-import { Loading } from '../_icons/loading'
 import { signUpSchema, type SignUp } from '../_lib/google/validation'
 import { handleSignUp } from '../actions'
 import { Button } from './button'
@@ -81,7 +80,7 @@ export const GetNotifiedDialog = (props: Props) => {
                   onClick={handleClose}
                   className="rounded-12 border border-white-12 bg-white-4 p-[10px] text-white-100 hover:bg-white-8"
                 >
-                  <Close />
+                  <CloseIcon />
                 </button>
               </div>
             </Dialog.Close>
@@ -106,8 +105,8 @@ export const GetNotifiedDialog = (props: Props) => {
                   'md:mx-0 md:justify-start md:rounded-0 md:border-x-0 md:border-b-0 md:px-6',
                 )}
               >
-                <Confetti className="size-5" /> Keycard Shell is launching in
-                2025
+                <ConfettiColorfulIcon className="size-5" /> Keycard Shell is
+                launching in 2025
               </div>
             </div>
           </div>
@@ -177,7 +176,7 @@ const SignUpForm = (props: SignUpFormProps) => {
             className="absolute right-1 top-8 h-10 min-w-[101px] justify-center border border-white-20"
           >
             {isSubmitting ? (
-              <Loading className="my-px animate-spin text-white-100" />
+              <LoadingIcon className="my-px animate-spin text-white-100" />
             ) : (
               'Notify me'
             )}

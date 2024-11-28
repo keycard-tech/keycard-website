@@ -1,6 +1,6 @@
 import { Routes } from '~/config/routes'
 import { Link } from '~components/link'
-import { External } from '~icons'
+import { ExternalIcon } from '~icons'
 
 type Props = {
   title: string
@@ -24,7 +24,7 @@ const Section = (props: Props) => {
                   <span className="text-16 font-500 text-white-95 transition-colors group-hover:text-white-60 group-data-[active='true']:text-white-40">
                     {route.name}
                   </span>
-                  {external && <External />}
+                  {external && <ExternalIcon />}
                 </Link>
               </li>
             )

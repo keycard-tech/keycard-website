@@ -1,4 +1,4 @@
-const Discord = (props: React.SVGProps<SVGSVGElement>) => {
+const DiscordIcon = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -17,4 +17,4 @@ const Discord = (props: React.SVGProps<SVGSVGElement>) => {
   )
 }
 
-export { Discord }
+export { DiscordIcon }
