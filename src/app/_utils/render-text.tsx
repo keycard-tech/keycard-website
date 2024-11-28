@@ -33,7 +33,9 @@ export function renderText(params: {
     }
 
     if (parent) {
-      return cloneElement(child as React.ReactElement, { parent })
+      return cloneElement(child as React.ReactElement<{ parent?: string }>, {
+        parent,
+      })
     }
 
     return child
