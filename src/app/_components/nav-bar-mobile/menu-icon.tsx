@@ -45,9 +45,17 @@ const MenuIcon = ({ isOpen }: { isOpen: boolean }) => (
       stroke="white"
       strokeWidth="1.5"
       strokeLinecap="round"
+      initial={{
+        opacity: 1,
+        x: 0,
+      }}
       animate={{
         opacity: isOpen ? 0 : 1,
         x: isOpen ? 20 : 0,
+      }}
+      exit={{
+        opacity: 1,
+        x: 20,
       }}
       transition={{ duration: 0.3, ease: 'easeInOut', delay: 0.1 }}
     />
