@@ -6,8 +6,8 @@ import {
   STATUS_MOBILE_F_DROID_URL,
   STATUS_MOBILE_GOOGLE_PLAY_URL,
 } from '~/config/routes'
+import { Image } from '~components/image'
 import { Link } from '~components/link'
-import Image from 'next/image'
 import { match } from 'ts-pattern'
 import { FeaturesDisclaimer } from './features-disclaimer'
 

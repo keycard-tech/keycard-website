@@ -1,5 +1,5 @@
+import { Image } from '~components/image'
 import { cva } from 'cva'
-import Image from 'next/image'
 
 type Props = {
   size: '56' | '32' | '20'

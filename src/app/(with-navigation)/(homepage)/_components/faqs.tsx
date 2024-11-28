@@ -2,8 +2,8 @@ import * as Accordion from '@radix-ui/react-accordion'
 import { ChevronDownIcon } from '@status-im/icons/20'
 import { DiscordIcon, TwitterIcon } from '@status-im/icons/social'
 import { ButtonLink } from '~components/button-link'
+import { Image } from '~components/image'
 import { cx } from 'cva'
-import Image from 'next/image'
 
 const faqs = [
   {

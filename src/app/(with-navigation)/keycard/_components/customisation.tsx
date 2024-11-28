@@ -1,5 +1,5 @@
 import { ButtonLink } from '~components/button-link'
-import Image from 'next/image'
+import { Image } from '~components/image'
 
 const Customisation = () => {
   return (

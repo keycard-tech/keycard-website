@@ -1,7 +1,7 @@
 import { Button } from '~components/button'
 import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
+import { Image } from '~components/image'
 import { cx } from 'cva'
-import Image from 'next/image'
 
 const Prefooter = () => {
   return (

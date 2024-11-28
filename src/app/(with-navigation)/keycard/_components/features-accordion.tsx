@@ -1,9 +1,9 @@
 'use client'
 
 import * as Accordion from '@radix-ui/react-accordion'
+import { Image } from '~components/image'
 import { cx } from 'cva'
 import { AnimatePresence, motion } from 'framer-motion'
-import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { match } from 'ts-pattern'
 import { DownloadStatusForDesktop } from './download-status-for-desktop'

@@ -1,8 +1,8 @@
 import { Button } from '~components/button'
 import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
+import { Image } from '~components/image'
 import { RecommendedIcon } from '~icons/recommended'
 import { cx } from 'cva'
-import Image from 'next/image'
 import { Card } from './card'
 import { LinearGradientMobile } from './linear-gradients'
 
