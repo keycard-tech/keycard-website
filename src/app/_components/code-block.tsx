@@ -1,9 +1,9 @@
 'use client'
 
+import { CheckIcon, CopyIcon } from '@status-im/icons/20'
 import { cx } from 'cva'
 import { useEffect, useState } from 'react'
 import { onlyText } from 'react-children-utilities'
-import { CheckIcon, CopyIcon } from '../_icons'
 import { useCopyToClipboard } from '../(with-navigation)/docs/_hooks/use-copy-to-clipboard'
 
 export function CodeBlock(props: React.ComponentProps<'figure'>) {

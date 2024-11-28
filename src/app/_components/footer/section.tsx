@@ -1,6 +1,6 @@
+import { ExternalIcon } from '@status-im/icons/20'
 import { Routes } from '~/config/routes'
 import { Link } from '~components/link'
-import { ExternalIcon } from '~icons'
 
 type Props = {
   title: string

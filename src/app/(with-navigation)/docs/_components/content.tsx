@@ -1,4 +1,4 @@
-import { BulletIcon } from '~/app/_icons'
+import { BulletIcon } from '@status-im/icons/20'
 import { Link } from '~components/link'
 import { cx } from 'cva'
 import { Children, cloneElement, ComponentProps } from 'react'

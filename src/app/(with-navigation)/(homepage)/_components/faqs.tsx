@@ -1,6 +1,7 @@
 import * as Accordion from '@radix-ui/react-accordion'
+import { ChevronDownIcon } from '@status-im/icons/20'
+import { DiscordIcon, TwitterIcon } from '@status-im/icons/social'
 import { ButtonLink } from '~components/button-link'
-import { ChevronDownIcon, DiscordIcon, XIcon } from '~icons'
 import { cx } from 'cva'
 import Image from 'next/image'
 
@@ -125,7 +126,7 @@ const Faqs = () => {
                 className="px-[9px]"
                 aria-label="Keycard on X"
               >
-                <XIcon />
+                <TwitterIcon />
               </ButtonLink>
             </div>
           </div>

@@ -1,6 +1,11 @@
+import {
+  CheckIcon,
+  FirmwareIcon,
+  InfoIcon,
+  RemoveIcon,
+} from '@status-im/icons/20'
 import { Tag } from '~components/tag'
 import { Tooltip } from '~components/tooltip'
-import { CheckIcon, FirmwareIcon, InfoIcon, RemoveIcon } from '~icons'
 import { createElement } from 'react'
 
 const features: Array<Feature> = [

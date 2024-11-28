@@ -1,5 +1,5 @@
+import { BulletIcon } from '@status-im/icons/20'
 import { Link } from '~components/link'
-import { BulletIcon } from '~icons'
 import { cx } from 'cva'
 import { Children, cloneElement, ComponentProps } from 'react'
 import { match } from 'ts-pattern'

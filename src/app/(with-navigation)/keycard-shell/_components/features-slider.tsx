@@ -1,6 +1,6 @@
 'use client'
 
-import { ArrowLeftIcon, ArrowRightIcon } from '~icons'
+import { ArrowLeftIcon, ArrowRightIcon } from '@status-im/icons/20'
 import { EmblaOptionsType } from 'embla-carousel'
 import useEmblaCarousel from 'embla-carousel-react'
 import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures'

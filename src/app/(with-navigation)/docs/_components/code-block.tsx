@@ -1,6 +1,6 @@
 'use client'
 
-import { CheckIcon, CopyIcon } from '~/app/_icons'
+import { CheckIcon, CopyIcon } from '@status-im/icons/20'
 import { cx } from 'cva'
 import { useEffect, useState } from 'react'
 import { onlyText } from 'react-children-utilities'

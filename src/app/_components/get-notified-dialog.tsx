@@ -1,7 +1,11 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { CloseIcon, ConfettiColorfulIcon, LoadingIcon } from '~icons'
+import {
+  CloseIcon,
+  ConfettiColorfulIcon,
+  LoadingIcon,
+} from '@status-im/icons/20'
 import { cx } from 'cva'
 import { useEffect, useState } from 'react'
 import { useController, useForm } from 'react-hook-form'

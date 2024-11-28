@@ -1,7 +1,7 @@
+import { ExternalIcon } from '@status-im/icons/20'
 import { ButtonLink } from '~components/button-link'
 import { Link } from '~components/link'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '~components/tabs'
-import { ExternalIcon } from '~icons'
 import Image from 'next/image'
 import { FeaturesAccordion } from './features-accordion'
 import { FeaturesSliderDesktop } from './features-slider-desktop'

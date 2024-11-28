@@ -2,13 +2,18 @@
 
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import {
+  AppleIcon,
+  ChevronDownIcon,
+  LinuxIcon,
+  WindowsIcon,
+} from '@status-im/icons/20'
+import {
   STATUS_APPS_DESKTOP_URL,
   STATUS_DESKTOP_DOWNLOAD_URL_LINUX,
   STATUS_DESKTOP_DOWNLOAD_URL_MACOS_INTEL,
   STATUS_DESKTOP_DOWNLOAD_URL_MACOS_SILICON,
   STATUS_DESKTOP_DOWNLOAD_URL_WINDOWS,
 } from '~/config/routes'
-import { AppleIcon, ChevronDownIcon, LinuxIcon, WindowsIcon } from '~icons'
 import { downloadUrl } from '../_utils/download-url'
 import { Button } from './button'
 import { ButtonLink } from './button-link'

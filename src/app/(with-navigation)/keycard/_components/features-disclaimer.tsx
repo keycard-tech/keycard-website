@@ -1,4 +1,4 @@
-import { CustomizeIcon, UsbIcon } from '~icons'
+import { CustomizeIcon, UsbIcon } from '@status-im/icons/20'
 import { FeaturesDialog } from './features-dialog'
 
 const FeaturesDisclaimer = () => {

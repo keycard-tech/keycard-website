@@ -1,5 +1,5 @@
+import { ChevronRightIcon } from '@status-im/icons/20'
 import { Link } from '~/app/_components/link'
-import { ChevronRightIcon } from '~icons'
 import { Fragment } from 'react'
 
 type Props = {

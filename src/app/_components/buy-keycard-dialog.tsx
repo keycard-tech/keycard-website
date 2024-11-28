@@ -2,7 +2,18 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as Checkbox from '@radix-ui/react-checkbox'
+import {
+  AddIcon,
+  CheckIcon,
+  CloseIcon,
+  InfoIcon,
+  LabelsIcon,
+  LoadingIcon,
+  RemoveIcon,
+  WorldIcon,
+} from '@status-im/icons/20'
 import { CartInput } from '~/server/shopify/storefront/validation'
+import { RecommendedIcon } from '~icons'
 import { cx } from 'cva'
 import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
@@ -12,17 +23,6 @@ import { useController, useForm } from 'react-hook-form'
 import type { SubmitHandler } from 'react-hook-form'
 import { z } from 'zod'
 import { KEYCARD_PRODUCTS } from '../_constants/shopify/products'
-import {
-  AddIcon,
-  CheckIcon,
-  CloseIcon,
-  InfoIcon,
-  LabelsIcon,
-  LoadingIcon,
-  RecommendedIcon,
-  RemoveIcon,
-  WorldIcon,
-} from '../_icons'
 import { useShopifyUTMParamsContext } from '../_providers/shopify-utm-params-provider'
 import { createCart } from '../actions'
 import { Button } from './button'
