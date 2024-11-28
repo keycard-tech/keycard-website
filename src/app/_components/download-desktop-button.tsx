@@ -136,7 +136,7 @@ const WindowsDownloadButton = (props: DownloadButtonProps) => {
         <ButtonLink
           variant="secondary"
           className="!p-[10px]"
-          href={STATUS_DESKTOP_DOWNLOAD_URL_LINUX}
+          href={STATUS_DESKTOP_DOWNLOAD_URL_WINDOWS}
           aria-label="Download for Windows"
         >
           <Windows />
