@@ -7,7 +7,6 @@ import { FeaturesAccordion } from './features-accordion'
 import { FeaturesSliderDesktop } from './features-slider-desktop'
 import { FeaturesSliderMobile } from './features-slider-mobile'
 
-// TODO: Replace with correct data when design has it.
 const featuresMobile = [
   {
     title: 'Send crypto and NFTs',
@@ -22,21 +21,21 @@ const featuresMobile = [
         </Link>
       </>
     ),
-    image: '/assets/keycard/slider/status-app-mobile-a.png',
-    imageMobile: '/assets/keycard/slider/iphone-a.png',
+    image: '/assets/keycard/slider/status-app-mobile-send.png',
+    imageMobile: '/assets/keycard/slider/iphone-send.png',
   },
   {
     title: 'Swap',
     description: 'Swap your favourite assets on Mainnet, Arbitrum or Optimism.',
     tag: 'SOON',
-    image: '/assets/keycard/slider/status-app-mobile-b.png',
-    imageMobile: '/assets/keycard/slider/iphone-b.png',
+    image: '/assets/keycard/slider/status-app-mobile-swap.png',
+    imageMobile: '/assets/keycard/slider/iphone-swap.png',
   },
   {
     title: 'Bridge',
     description: 'Bridge assets across Ethereum’s most popular chains.',
-    image: '/assets/keycard/slider/status-app-mobile-c.png',
-    imageMobile: '/assets/keycard/slider/iphone-c.png',
+    image: '/assets/keycard/slider/status-app-mobile-bridge.png',
+    imageMobile: '/assets/keycard/slider/iphone-bridge.png',
   },
   {
     title: 'Sign dApp transactions',
@@ -53,8 +52,8 @@ const featuresMobile = [
       </>
     ),
     tag: 'SOON',
-    image: '/assets/keycard/slider/status-app-mobile-d.png',
-    imageMobile: '/assets/keycard/slider/iphone-d.png',
+    image: '/assets/keycard/slider/status-app-mobile-dapp.png',
+    imageMobile: '/assets/keycard/slider/iphone-dapp.png',
   },
 ]
 
@@ -72,21 +71,21 @@ const featuresDesktop = [
         </Link>
       </>
     ),
-    image: '/assets/keycard/slider/status-app-desktop-a.png',
-    imageMobile: '/assets/keycard/slider/status-app-desktop-a.png',
+    image: '/assets/keycard/slider/status-app-desktop-send.png',
+    imageMobile: '/assets/keycard/slider/status-app-desktop-send.png',
   },
   {
     title: 'Swap',
     description: 'Swap your favourite assets on Mainnet, Arbitrum or Optimism.',
     tag: 'SOON',
-    image: '/assets/keycard/slider/status-app-desktop-b.png',
-    imageMobile: '/assets/keycard/slider/status-app-desktop-b.png',
+    image: '/assets/keycard/slider/status-app-desktop-swap.png',
+    imageMobile: '/assets/keycard/slider/status-app-desktop-swap.png',
   },
   {
     title: 'Bridge',
     description: 'Bridge assets across Ethereum’s most popular chains.',
-    image: '/assets/keycard/slider/status-app-desktop-c.png',
-    imageMobile: '/assets/keycard/slider/status-app-desktop-c.png',
+    image: '/assets/keycard/slider/status-app-desktop-bridge.png',
+    imageMobile: '/assets/keycard/slider/status-app-desktop-bridge.png',
   },
   {
     title: 'Sign dApp transactions',
@@ -103,8 +102,8 @@ const featuresDesktop = [
       </>
     ),
     tag: 'SOON',
-    image: '/assets/keycard/slider/status-app-desktop-d.png',
-    imageMobile: '/assets/keycard/slider/status-app-desktop-d.png',
+    image: '/assets/keycard/slider/status-app-desktop-dapp.png',
+    imageMobile: '/assets/keycard/slider/status-app-desktop-dapp.png',
   },
 ]
 

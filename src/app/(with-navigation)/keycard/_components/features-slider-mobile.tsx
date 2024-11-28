@@ -56,6 +56,7 @@ const FeaturesSliderMobile = (props: Props) => {
                   alt={feature.title}
                   width={1125}
                   height={200}
+                  priority
                   className="mx-auto w-full max-w-[350px]"
                 />
               </div>
