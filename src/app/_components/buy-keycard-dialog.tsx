@@ -51,7 +51,9 @@ type Bundle = {
 }
 
 type Props = {
-  children: React.ReactElement
+  children?: React.ReactElement
+  open?: boolean
+  onOpenChange?: (open: boolean) => void
 }
 
 const bundles: Bundle[] = [
@@ -80,16 +82,16 @@ const bundles: Bundle[] = [
 ] as const
 
 const BuyKeycardDialog = (props: Props) => {
-  const { children } = props
+  const { children, ...rest } = props
 
   const [open, setOpen] = useState(false)
 
   return (
-    <Dialog.Root open={open} onOpenChange={setOpen}>
-      <Dialog.Trigger asChild>{children}</Dialog.Trigger>
+    <Dialog.Root open={open} onOpenChange={setOpen} {...rest}>
+      {children && <Dialog.Trigger asChild>{children}</Dialog.Trigger>}
       <Dialog.Content className="fixed left-1/2 top-1/2 z-50 max-h-screen w-screen max-w-[1136px] -translate-x-1/2 -translate-y-1/2 overflow-auto focus:outline-none data-[state=open]:animate-contentShow lg:w-[90vw] lg:overflow-hidden">
         <Dialog.Description className="sr-only">Buy Keycard</Dialog.Description>
-        <ShopifyForm closeDialog={() => setOpen(false)} />
+        <ShopifyForm />
       </Dialog.Content>
     </Dialog.Root>
   )
@@ -97,13 +99,7 @@ const BuyKeycardDialog = (props: Props) => {
 
 export { BuyKeycardDialog }
 
-type ShopifyFormProps = {
-  closeDialog: () => void
-}
-
-const ShopifyForm = (props: ShopifyFormProps) => {
-  const { closeDialog } = props
-
+const ShopifyForm = () => {
   const form = useForm<Shopify>({
     resolver: zodResolver(shopifySchema),
     defaultValues: {
@@ -186,16 +182,15 @@ const ShopifyForm = (props: ShopifyFormProps) => {
       <div className="flex flex-col justify-start lg:p-6 lg:pl-0">
         <div className="flex items-center justify-between">
           <Dialog.Title className="font-lora text-32">Buy Keycard</Dialog.Title>
-          <Button
-            variant="secondary"
-            className="size-10 px-[9px] text-white-95"
-            onClick={() => {
-              closeDialog()
-            }}
-            aria-label="Close"
-          >
-            <Close className="size-5" />
-          </Button>
+          <Dialog.Close asChild>
+            <Button
+              variant="secondary"
+              className="size-10 px-[9px] text-white-95"
+              aria-label="Close"
+            >
+              <Close className="size-5" />
+            </Button>
+          </Dialog.Close>
         </div>
 
         <Form {...form}>
