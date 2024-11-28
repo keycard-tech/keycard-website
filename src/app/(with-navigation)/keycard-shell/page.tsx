@@ -1,6 +1,7 @@
 import { Metadata } from '~/app/_metadata'
 import { AirGapped } from './_components/air-gapped'
 import { Comparision } from './_components/comparision'
+import { Demo } from './_components/demo'
 import { FeaturesCard } from './_components/features-card'
 import { FeaturesGrid } from './_components/features-grid'
 import { FeaturesSlider } from './_components/features-slider'
@@ -19,6 +20,7 @@ export default async function KeycardShellPage() {
     <>
       <Hero />
       <FeaturesCard />
+      <Demo />
       <FeaturesGrid />
       <FeaturesSlider />
       <Comparision />

@@ -1,10 +1,11 @@
+// import { Demo } from './_components/demo'
 import { Metadata } from '~/app/_metadata'
-import { BuyCards } from '~/app/(with-navigation)/(homepage)/_components/buy-cards'
-import { ComparisonTable } from '~/app/(with-navigation)/(homepage)/_components/comparison-table'
-import { Faqs } from '~/app/(with-navigation)/(homepage)/_components/faqs'
-import { Hero } from '~/app/(with-navigation)/(homepage)/_components/hero'
-import { KeycardFeatures } from '~/app/(with-navigation)/(homepage)/_components/keycard-features'
-import { KeycardShell } from '~/app/(with-navigation)/(homepage)/_components/keycard-shell'
+import { BuyCards } from './_components/buy-cards'
+import { ComparisonTable } from './_components/comparison-table'
+import { Faqs } from './_components/faqs'
+import { Hero } from './_components/hero'
+import { KeycardFeatures } from './_components/keycard-features'
+import { KeycardShell } from './_components/keycard-shell'
 
 export const metadata = Metadata({
   title: 'Keycard',
@@ -19,6 +20,7 @@ export default async function HomePage() {
       <KeycardShell />
       <KeycardFeatures />
       <ComparisonTable />
+      {/* <Demo /> */}
       <Faqs />
       <BuyCards />
     </>

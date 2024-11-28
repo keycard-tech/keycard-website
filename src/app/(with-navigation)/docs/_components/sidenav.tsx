@@ -1,8 +1,8 @@
 'use client'
 
 import * as Accordion from '@radix-ui/react-accordion'
+import { ChevronRightIcon } from '@status-im/icons/20'
 import { Link } from '~components/link'
-import { ChevronRight } from '~icons'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { decodeUriComponent } from '../_utils/decode-uri-component'
@@ -89,7 +89,7 @@ const SidenavItem = (props: SidenavItemProps) => {
             aria-label={`Toggle ${title} section`}
           >
             <div className="transition-transform group-aria-expanded:rotate-90">
-              <ChevronRight />
+              <ChevronRightIcon />
             </div>
           </Accordion.Trigger>
           <Link

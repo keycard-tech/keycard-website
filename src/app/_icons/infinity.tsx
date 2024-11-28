@@ -1,4 +1,4 @@
-const Infinity = (props: React.SVGProps<SVGSVGElement>) => (
+const InfinityIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="20"
@@ -14,4 +14,4 @@ const Infinity = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 )
 
-export { Infinity }
+export { InfinityIcon }
