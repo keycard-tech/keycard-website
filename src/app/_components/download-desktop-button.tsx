@@ -2,13 +2,18 @@
 
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import {
+  AppleIcon,
+  ChevronDownIcon,
+  LinuxIcon,
+  WindowsIcon,
+} from '@status-im/icons/20'
+import {
   STATUS_APPS_DESKTOP_URL,
   STATUS_DESKTOP_DOWNLOAD_URL_LINUX,
   STATUS_DESKTOP_DOWNLOAD_URL_MACOS_INTEL,
   STATUS_DESKTOP_DOWNLOAD_URL_MACOS_SILICON,
   STATUS_DESKTOP_DOWNLOAD_URL_WINDOWS,
 } from '~/config/routes'
-import { Apple, ChevronDown, Linux, Windows } from '~icons'
 import { downloadUrl } from '../_utils/download-url'
 import { Button } from './button'
 import { ButtonLink } from './button-link'
@@ -110,7 +115,7 @@ const LinuxDownloadButton = (props: DownloadButtonProps) => {
           href={STATUS_DESKTOP_DOWNLOAD_URL_LINUX}
           aria-label="Download for Linux"
         >
-          <Linux />
+          <LinuxIcon className="text-white-60" />
         </ButtonLink>
       </div>
       <div className="hidden linux:contents unknown:contents">
@@ -118,7 +123,7 @@ const LinuxDownloadButton = (props: DownloadButtonProps) => {
           variant="secondary"
           href={STATUS_DESKTOP_DOWNLOAD_URL_LINUX}
           aria-label="Download for Linux"
-          icon={<Linux />}
+          icon={<LinuxIcon className="text-white-60" />}
         >
           {children}
         </ButtonLink>
@@ -139,7 +144,7 @@ const WindowsDownloadButton = (props: DownloadButtonProps) => {
           href={STATUS_DESKTOP_DOWNLOAD_URL_WINDOWS}
           aria-label="Download for Windows"
         >
-          <Windows />
+          <WindowsIcon className="text-white-60" />
         </ButtonLink>
       </div>
       <div className="hidden windows:contents android:contents">
@@ -147,7 +152,7 @@ const WindowsDownloadButton = (props: DownloadButtonProps) => {
           variant="secondary"
           href={STATUS_DESKTOP_DOWNLOAD_URL_WINDOWS}
           aria-label="Download for Windows"
-          icon={<Windows />}
+          icon={<WindowsIcon className="text-white-60" />}
         >
           {children}
         </ButtonLink>
@@ -160,16 +165,16 @@ const MacOsPicker = (props: DownloadButtonProps) => {
   const { children } = props
   return (
     <DropdownMenu.Root modal={false}>
-      <DropdownMenu.Trigger asChild className="">
+      <DropdownMenu.Trigger asChild>
         <Button
           variant="secondary"
           icon={
             <div className="ml-1 flex size-[14px] items-center justify-center rounded-full bg-white-12">
-              <ChevronDown />
+              <ChevronDownIcon />
             </div>
           }
         >
-          <Apple /> {children}
+          <AppleIcon className="text-white-60" /> {children}
         </Button>
       </DropdownMenu.Trigger>
 

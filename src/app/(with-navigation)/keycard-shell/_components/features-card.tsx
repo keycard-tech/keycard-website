@@ -1,6 +1,7 @@
+import { FirmwareIcon } from '@status-im/icons/20'
+import { GithubIcon } from '@status-im/icons/social'
 import { ButtonLink } from '~components/button-link'
 import { Tag } from '~components/tag'
-import { Github, Shield } from '~icons'
 
 const features = [
   {
@@ -35,7 +36,7 @@ const FeaturesCard = () => {
             </p>
 
             {Boolean(feature.badge) && (
-              <Tag gradient icon={<Shield />}>
+              <Tag gradient icon={<FirmwareIcon />}>
                 {feature.badge}
               </Tag>
             )}
@@ -62,7 +63,7 @@ const FeaturesCard = () => {
             href="https://github.com/status-im/status-keycard"
             className="font-500 [&_path]:hover:fill-white-dark"
             variant="white"
-            icon={<Github />}
+            icon={<GithubIcon />}
           >
             View on Github
           </ButtonLink>

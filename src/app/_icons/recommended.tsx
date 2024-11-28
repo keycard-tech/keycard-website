@@ -1,4 +1,4 @@
-const Recommended = () => {
+const RecommendedIcon = () => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none">
       <g clipPath="url(#recommended)">
@@ -19,4 +19,4 @@ const Recommended = () => {
   )
 }
 
-export { Recommended }
+export { RecommendedIcon }
