@@ -70,7 +70,7 @@ const NavBarMobile = () => {
     <motion.nav
       key="nav-bar-mobile"
       className={cx([
-        'fixed inset-0 z-[60] block w-full transition-all lg:hidden',
+        'fixed inset-0 z-50 block w-full transition-all lg:hidden',
       ])}
       animate={{
         height: isOpen ? '100%' : '80px',

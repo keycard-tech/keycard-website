@@ -1,7 +1,9 @@
+import { FirmwareIcon } from '@status-im/icons/20'
+import { GithubIcon } from '@status-im/icons/social'
 import { ButtonLink } from '~components/button-link'
 import { Image } from '~components/image'
 import { Tag } from '~components/tag'
-import { Github, Infinity, Shield } from '~icons'
+import { InfinityIcon } from '~icons/infinity'
 import { cx } from 'cva'
 import { createElement } from 'react'
 
@@ -12,14 +14,14 @@ const features = [
       'Our secure element has the highest level of security EAL6+ certified by Common Criteria.',
     image: '/assets/feature-keycard.png',
     imageClassName: '!justify-start',
-    badge: { icon: Shield, text: 'EAL 6+', gradient: true },
+    badge: { icon: FirmwareIcon, text: 'EAL 6+', gradient: true },
     className: 'row-span-2 col-span-1',
   },
   {
     title: '100% open source',
     description:
       'We have nothing to hide! Our software, hardware and construction is fully open source.',
-    button: { icon: Github, text: 'View on GitHub' },
+    button: { icon: GithubIcon, text: 'View on GitHub' },
     className: 'col-span-1',
   },
   {
@@ -41,7 +43,7 @@ const features = [
     title: 'Easy to backup',
     description:
       'Create cards to back up your master key and store them in a safe place instead of the typical piece of paper.',
-    badge: { icon: Infinity, text: 'backups' },
+    badge: { icon: InfinityIcon, text: 'backups' },
     className: 'col-span-1',
   },
   {

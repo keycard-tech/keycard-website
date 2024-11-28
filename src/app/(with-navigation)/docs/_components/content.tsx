@@ -1,4 +1,4 @@
-import { Bullet } from '~/app/_icons'
+import { BulletIcon } from '@status-im/icons/20'
 import { Link } from '~components/link'
 import { cx } from 'cva'
 import { Children, cloneElement, ComponentProps } from 'react'
@@ -264,7 +264,7 @@ export const baseComponents = {
   ) => {
     const icon = match(props.parent)
       .with('ol', () => <Step value={props.order!} />)
-      .otherwise(() => <Bullet />)
+      .otherwise(() => <BulletIcon />)
 
     return (
       <li className="flex items-start gap-2">

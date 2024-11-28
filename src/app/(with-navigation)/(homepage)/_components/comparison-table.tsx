@@ -1,6 +1,11 @@
+import {
+  CheckIcon,
+  FirmwareIcon,
+  InfoIcon,
+  RemoveIcon,
+} from '@status-im/icons/20'
 import { Tag } from '~components/tag'
 import { Tooltip } from '~components/tooltip'
-import { Check, Info, Minus, Shield } from '~icons'
 import { createElement } from 'react'
 
 const features: Array<Feature> = [
@@ -58,11 +63,11 @@ const features: Array<Feature> = [
       badge: {
         text: 'EAL 6+',
         gradient: true,
-        icon: Shield,
+        icon: FirmwareIcon,
       },
     },
-    keycard: { badge: { text: 'EAL 6+', gradient: true, icon: Shield } },
-    tangem: { badge: { text: 'EAL 6+', gradient: true, icon: Shield } },
+    keycard: { badge: { text: 'EAL 6+', gradient: true, icon: FirmwareIcon } },
+    tangem: { badge: { text: 'EAL 6+', gradient: true, icon: FirmwareIcon } },
     ledger: { badge: { text: 'EAL 5+' } },
   },
   {
@@ -321,9 +326,9 @@ const FeatureInfo = ({
 }) => {
   if (!variant || typeof variant === 'string') return null
 
-  if (variant.featured === true) return <Check className="text-orange" />
+  if (variant.featured === true) return <CheckIcon className="text-orange" />
   if (variant.featured === false)
-    return <Minus className="size-4 text-white-60" />
+    return <RemoveIcon className="size-4 text-white-60" />
   if (variant.featured === 'n/a') return <p className="text-white-60">n/a</p>
   if (variant.label) return <p className="text-white-95">{variant.label}</p>
   if (variant.badge) {
@@ -351,7 +356,7 @@ const TooltipInfo = ({
   return (
     <Tooltip label={variant.tooltip || ''}>
       <div className="absolute left-[calc(50%+10px)] flex">
-        <Info className="ml-2 flex-shrink-0 text-white-40 transition-colors hover:text-white-60" />
+        <InfoIcon className="ml-2 flex-shrink-0 text-white-40 transition-colors hover:text-white-60" />
       </div>
     </Tooltip>
   )
@@ -366,7 +371,7 @@ const ComparisonTable = () => {
   ]
 
   return (
-    <section className="mx-auto max-w-[1352px] overflow-x-hidden pt-[120px] text-white-95 lg:pt-[200px]">
+    <section className="mx-auto max-w-[1352px] pt-[120px] text-white-95 lg:pt-[200px]">
       <h2 className="px-3 font-lora text-32 text-white-95 min-[1512px]:px-0">
         Going one step further.
       </h2>
@@ -394,7 +399,7 @@ const ComparisonTable = () => {
                         {feature.name.split(' ').slice(-1)[0]}
                         {feature.tooltip && (
                           <Tooltip label={feature.tooltip}>
-                            <Info className="ml-2 flex-shrink-0 text-white-40 transition-colors hover:text-white-60" />
+                            <InfoIcon className="ml-2 flex-shrink-0 text-white-40 transition-colors hover:text-white-60" />
                           </Tooltip>
                         )}
                       </span>

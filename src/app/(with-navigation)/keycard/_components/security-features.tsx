@@ -1,7 +1,8 @@
+import { FirmwareIcon } from '@status-im/icons/20'
+import { GithubIcon } from '@status-im/icons/social'
 import { ButtonLink } from '~components/button-link'
 import { Image } from '~components/image'
 import { Tag } from '~components/tag'
-import { Github, Shield } from '~icons'
 
 const SecurityFeatures = () => {
   return (
@@ -32,7 +33,7 @@ const SecurityFeatures = () => {
                     certification provided by Common Criteria.
                   </p>
 
-                  <Tag gradient icon={<Shield />}>
+                  <Tag gradient icon={<FirmwareIcon />}>
                     EAL6+
                   </Tag>
                 </div>
@@ -70,7 +71,7 @@ const SecurityFeatures = () => {
                     variant="white"
                   >
                     <span>View on Github</span>
-                    <Github />
+                    <GithubIcon />
                   </ButtonLink>
                 </div>
               </div>

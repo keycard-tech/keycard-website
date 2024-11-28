@@ -1,7 +1,7 @@
 'use client'
 
+import { ArrowLeftIcon, ArrowRightIcon } from '@status-im/icons/20'
 import { Image } from '~components/image'
-import { Arrow } from '~icons'
 import { EmblaOptionsType } from 'embla-carousel'
 import useEmblaCarousel from 'embla-carousel-react'
 import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures'
@@ -97,7 +97,7 @@ const FeaturesSlider = () => {
             onClick={scrollPrev}
             aria-label="Previous item"
           >
-            <Arrow className="-scale-x-100 transform" />
+            <ArrowLeftIcon />
           </button>
           <button
             className="rounded-12 border border-white-12 bg-white-8 p-[10px] text-white-95 opacity-[100%] transition-all hover:bg-white-12 disabled:opacity-[40%]"
@@ -105,7 +105,7 @@ const FeaturesSlider = () => {
             onClick={scrollNext}
             aria-label="Next item"
           >
-            <Arrow />
+            <ArrowRightIcon />
           </button>
         </div>
       </div>

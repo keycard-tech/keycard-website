@@ -1,7 +1,7 @@
 import { Button } from '~components/button'
 import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
 import { Image } from '~components/image'
-import { Recommended } from '~icons'
+import { RecommendedIcon } from '~icons/recommended'
 import { cx } from 'cva'
 import { Card } from './card'
 import { LinearGradientMobile } from './linear-gradients'
@@ -69,7 +69,7 @@ const UseCases = () => {
                 ${set.price}
                 {set.recommended && (
                   <span className="flex size-5 items-center justify-center rounded-full bg-orange">
-                    <Recommended />
+                    <RecommendedIcon />
                   </span>
                 )}
               </div>
