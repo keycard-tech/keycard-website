@@ -1,8 +1,8 @@
 import { FirmwareIcon } from '@status-im/icons/20'
 import { GithubIcon } from '@status-im/icons/social'
 import { ButtonLink } from '~components/button-link'
+import { Image } from '~components/image'
 import { Tag } from '~components/tag'
-import Image from 'next/image'
 
 const SecurityFeatures = () => {
   return (

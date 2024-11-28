@@ -13,10 +13,10 @@ import {
   WorldIcon,
 } from '@status-im/icons/20'
 import { CartInput } from '~/server/shopify/storefront/validation'
+import { Image } from '~components/image'
 import { RecommendedIcon } from '~icons/recommended'
 import { cx } from 'cva'
 import { AnimatePresence, motion } from 'framer-motion'
-import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useMemo, useState } from 'react'
 import { useController, useForm } from 'react-hook-form'

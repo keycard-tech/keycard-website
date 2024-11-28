@@ -1,6 +1,6 @@
 import { Button } from '~components/button'
 import { GetNotifiedDialog } from '~components/get-notified-dialog'
-import Image from 'next/image'
+import { Image } from '~components/image'
 
 const Hero = () => {
   return (

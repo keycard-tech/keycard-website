@@ -1,10 +1,10 @@
 'use client'
 
 import { ArrowLeftIcon, ArrowRightIcon } from '@status-im/icons/20'
+import { Image } from '~components/image'
 import { EmblaOptionsType } from 'embla-carousel'
 import useEmblaCarousel from 'embla-carousel-react'
 import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures'
-import Image from 'next/image'
 import { useCallback, useEffect, useState } from 'react'
 
 const features = [

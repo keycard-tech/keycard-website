@@ -1,10 +1,10 @@
+import { Image } from '~components/image'
 import {
   STATUS_MOBILE_APP_STORE_URL,
   STATUS_MOBILE_F_DROID_URL,
   STATUS_MOBILE_GOOGLE_PLAY_URL,
 } from '~config/routes'
 import { cx } from 'cva'
-import Image from 'next/image'
 import Link from 'next/link'
 
 type Props = {

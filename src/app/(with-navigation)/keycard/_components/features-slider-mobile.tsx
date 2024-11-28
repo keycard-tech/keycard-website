@@ -7,8 +7,8 @@ import {
   STATUS_MOBILE_GOOGLE_PLAY_URL,
 } from '~/config/routes'
 import { FeaturesDisclaimer } from '~components/features-disclaimer'
+import { Image } from '~components/image'
 import { Link } from '~components/link'
-import Image from 'next/image'
 import { match } from 'ts-pattern'
 
 type Props = {

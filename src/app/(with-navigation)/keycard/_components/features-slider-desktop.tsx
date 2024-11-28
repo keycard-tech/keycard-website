@@ -2,7 +2,7 @@
 
 import { DownloadStatusForDesktop } from '~components/download-status-for-desktop'
 import { FeaturesDisclaimer } from '~components/features-disclaimer'
-import Image from 'next/image'
+import { Image } from '~components/image'
 
 type Props = {
   items: Array<{
