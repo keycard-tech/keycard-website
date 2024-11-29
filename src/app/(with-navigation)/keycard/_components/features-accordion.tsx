@@ -1,14 +1,14 @@
 'use client'
 
 import * as Accordion from '@radix-ui/react-accordion'
+import { DownloadStatusForDesktop } from '~components/download-status-for-desktop'
+import { DownloadStatusForMobile } from '~components/download-status-for-mobile'
+import { FeaturesDisclaimer } from '~components/features-disclaimer'
 import { Image } from '~components/image'
 import { cx } from 'cva'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { match } from 'ts-pattern'
-import { DownloadStatusForDesktop } from './download-status-for-desktop'
-import { DownloadStatusForMobile } from './download-status-for-mobile'
-import { FeaturesDisclaimer } from './features-disclaimer'
 
 type Props = {
   items: Array<{
@@ -134,7 +134,9 @@ const FeaturesAccordion = (props: Props) => {
               )
             })}
           </Accordion.Root>
-          <FeaturesDisclaimer />
+          <div className="w-full pt-8 lg:max-w-[549px] lg:pt-20">
+            <FeaturesDisclaimer />
+          </div>
         </div>
         {match(variant)
           .with('desktop', () => (
@@ -156,7 +158,7 @@ const FeaturesAccordion = (props: Props) => {
                 </motion.div>
               </AnimatePresence>
 
-              <DownloadStatusForDesktop className="mt-20" />
+              <DownloadStatusForDesktop className="mt-20 lg:max-w-[549px]" />
             </div>
           ))
           .with('mobile', () => (
@@ -178,7 +180,7 @@ const FeaturesAccordion = (props: Props) => {
                 </motion.div>
               </AnimatePresence>
 
-              <DownloadStatusForMobile className="mt-20" />
+              <DownloadStatusForMobile className="mt-20 lg:max-w-[549px]" />
             </div>
           ))
           .exhaustive()}
