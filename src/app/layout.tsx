@@ -49,13 +49,15 @@ export default function RootLayout({ children }: Props) {
         className={cx(
           lora.variable,
           inter.variable,
-          'bg-dark-100 pt-0 font-inter text-white-100 antialiased',
+          'bg-dark-100 font-inter text-white-100 antialiased',
         )}
         suppressHydrationWarning
       >
         <Providers>
-          <div className="flex w-full justify-center overflow-clip">
-            <div className="w-full p-2">{children}</div>
+          <div className="flex min-h-screen w-full justify-center overflow-clip">
+            <div className="flex min-h-screen w-full flex-col p-2 pt-0">
+              {children}
+            </div>
           </div>
           <script
             suppressHydrationWarning

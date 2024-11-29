@@ -3,5 +3,7 @@ type Props = {
 }
 
 export default function StartLayout({ children }: Props) {
-  return <div className="mx-auto mt-[88px] max-w-[1160px]">{children}</div>
+  return (
+    <div className="mx-auto mt-[88px] w-full max-w-[1320px]">{children}</div>
+  )
 }
