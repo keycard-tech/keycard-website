@@ -89,7 +89,15 @@ const BuyKeycardDialog = (props: Props) => {
   return (
     <Dialog.Root open={open} onOpenChange={setOpen} {...rest}>
       {children && <Dialog.Trigger asChild>{children}</Dialog.Trigger>}
-      <Dialog.Content className="fixed left-1/2 top-1/2 z-50 max-h-screen w-screen max-w-[1136px] -translate-x-1/2 -translate-y-1/2 overflow-auto focus:outline-none data-[state=open]:animate-contentShow lg:w-[90vw] lg:overflow-hidden">
+      <Dialog.Content
+        onOpenAutoFocus={event => {
+          event.preventDefault()
+
+          const element = event.target as HTMLElement
+          element.focus()
+        }}
+        className="fixed left-1/2 top-1/2 z-50 max-h-screen w-screen max-w-[1136px] -translate-x-1/2 -translate-y-1/2 overflow-auto focus:outline-none data-[state=open]:animate-contentShow lg:w-[90vw] lg:overflow-hidden"
+      >
         <Dialog.Description className="sr-only">Buy Keycard</Dialog.Description>
         <ShopifyForm />
       </Dialog.Content>
