@@ -2,9 +2,9 @@ import { FormProvider } from 'react-hook-form'
 import type { FieldValues, SubmitHandler, UseFormReturn } from 'react-hook-form'
 
 type Props<Values extends FieldValues> = UseFormReturn<Values> & {
+  onSubmit: SubmitHandler<Values>
   children: React.ReactNode
   className?: string
-  onSubmit?: SubmitHandler<Values>
 }
 
 const Form = <Values extends FieldValues>(props: Props<Values>) => {
@@ -12,10 +12,7 @@ const Form = <Values extends FieldValues>(props: Props<Values>) => {
   return (
     <>
       <FormProvider {...form}>
-        <form
-          onSubmit={onSubmit ? form.handleSubmit(onSubmit) : undefined}
-          className={className}
-        >
+        <form onSubmit={form.handleSubmit(onSubmit)} className={className}>
           {children}
         </form>
       </FormProvider>

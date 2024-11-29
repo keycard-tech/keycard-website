@@ -7,7 +7,7 @@ import { cx } from 'cva'
 import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-import { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { useController, useForm } from 'react-hook-form'
 import type { SubmitHandler } from 'react-hook-form'
 import { useDebouncedCallback } from 'use-debounce'
@@ -193,7 +193,7 @@ const ShopifyForm = () => {
           </Dialog.Close>
         </div>
 
-        <Form {...form}>
+        <Form {...form} onSubmit={submitHandler}>
           <div className="pt-12 lg:pt-10">
             <h3 className="pb-2 text-12 text-white-80 lg:pb-3">
               SELECT BUNDLE
@@ -319,9 +319,6 @@ const ShopifyForm = () => {
               type="submit"
               className="w-full justify-center font-500"
               disabled={debounced.isPending() || !shopifyCartUrl}
-              onClick={() => {
-                form.handleSubmit(submitHandler)()
-              }}
             >
               {isSubmitting ? (
                 <Loading className="my-px animate-spin text-white-100" />
@@ -380,7 +377,7 @@ const ShopifyForm = () => {
   )
 }
 
-function createCart(
+async function createCart(
   data: Shopify,
   utmParams: URLSearchParams,
   setShopifyCartUrl: (url: string) => void,
@@ -399,13 +396,12 @@ function createCart(
     })
   }
 
-  _createCart(products).then(shopifyCartUrl => {
-    const url = new URL(shopifyCartUrl)
+  const shopifyCartUrl = await _createCart(products)
+  const url = new URL(shopifyCartUrl)
 
-    utmParams.forEach((value, key) => {
-      url.searchParams.append(key, value)
-    })
-
-    setShopifyCartUrl(url.toString())
+  utmParams.forEach((value, key) => {
+    url.searchParams.append(key, value)
   })
+
+  setShopifyCartUrl(url.toString())
 }
