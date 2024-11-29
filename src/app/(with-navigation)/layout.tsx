@@ -8,11 +8,11 @@ type Props = {
 
 export default function WithNavigationLayout({ children }: Props) {
   return (
-    <div className="overflow-clip">
+    <>
       <NavBar />
       <NavBarMobile />
       {children}
       <Footer />
-    </div>
+    </>
   )
 }

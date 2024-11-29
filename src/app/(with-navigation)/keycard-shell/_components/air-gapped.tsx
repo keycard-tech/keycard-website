@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import { Image } from '~components/image'
 
 const AirGapped = () => {
   const wallets = [

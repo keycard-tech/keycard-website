@@ -1,3 +1,4 @@
+import containerQueries from '@tailwindcss/container-queries'
 import { scrollbarWidth } from 'tailwind-scrollbar-utilities'
 import type { Config } from 'tailwindcss'
 import { fontFamily } from 'tailwindcss/defaultTheme'
@@ -151,8 +152,15 @@ export default {
   },
 
   plugins: [
+    containerQueries,
     scrollbarWidth(),
-    plugin(({ addUtilities }) => {
+    plugin(({ addUtilities, addVariant }) => {
+      addVariant('macos', `:is([data-platform="macos"] &)`)
+      addVariant('windows', `:is([data-platform="windows"] &)`)
+      addVariant('linux', `:is([data-platform="linux"] &)`)
+      addVariant('ios', `:is([data-platform="ios"] &)`)
+      addVariant('android', `:is([data-platform="android"] &)`)
+      addVariant('unknown', `:is([data-platform="unknown"] &)`)
       addUtilities({
         '.full-view-port': {
           marginLeft: 'calc(calc((100vw - 100%) / 2) * -1)',

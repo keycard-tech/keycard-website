@@ -2,10 +2,21 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as Checkbox from '@radix-ui/react-checkbox'
+import {
+  AddIcon,
+  CheckIcon,
+  CloseIcon,
+  InfoIcon,
+  LabelsIcon,
+  LoadingIcon,
+  RemoveIcon,
+  WorldIcon,
+} from '@status-im/icons/20'
 import { CartInput } from '~/server/shopify/storefront/validation'
+import { Image } from '~components/image'
+import { RecommendedIcon } from '~icons/recommended'
 import { cx } from 'cva'
 import { AnimatePresence, motion } from 'framer-motion'
-import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import React, { useEffect, useMemo, useState } from 'react'
 import { useController, useForm } from 'react-hook-form'
@@ -13,17 +24,6 @@ import type { SubmitHandler } from 'react-hook-form'
 import { useDebouncedCallback } from 'use-debounce'
 import { z } from 'zod'
 import { KEYCARD_PRODUCTS } from '../_constants/shopify/products'
-import {
-  Check,
-  Close,
-  Info,
-  Labels,
-  Loading,
-  Minus,
-  Plus,
-  Recommended,
-  World,
-} from '../_icons'
 import { useShopifyUTMParamsContext } from '../_providers/shopify-utm-params-provider'
 import { createCart as _createCart } from '../actions'
 import { Button } from './button'
@@ -196,7 +196,7 @@ const ShopifyForm = () => {
               className="size-10 px-[9px] text-white-95"
               aria-label="Close"
             >
-              <Close className="size-5" />
+              <CloseIcon className="size-5" />
             </Button>
           </Dialog.Close>
         </div>
@@ -220,7 +220,7 @@ const ShopifyForm = () => {
                     }}
                     className={cx(
                       'relative flex flex-col items-start justify-between rounded-20 bg-white-4 px-4 py-3 text-left transition-colors duration-300 hover:[&>span]:-left-1 hover:[&>span]:-top-1 hover:[&>span]:size-[calc(100%+8px)] hover:[&>span]:rounded-[24px]',
-                      selected ? 'outline outline-4 outline-[transparent]' : '',
+                      selected ? 'outline-transparent outline outline-4' : '',
                     )}
                   >
                     <span
@@ -240,7 +240,7 @@ const ShopifyForm = () => {
                       {bundle.tag && (
                         <Tooltip label="Best deal">
                           <div className="z-50 flex size-5 items-center justify-center rounded-full bg-orange">
-                            <Recommended />
+                            <RecommendedIcon />
                           </div>
                         </Tooltip>
                       )}
@@ -262,7 +262,7 @@ const ShopifyForm = () => {
                 disabled={quantity === 1}
                 aria-label="Decrease quantity"
               >
-                <Minus />
+                <RemoveIcon />
               </Button>
               <span className="flex-1 text-center text-16">{quantity}</span>
               <Button
@@ -272,7 +272,7 @@ const ShopifyForm = () => {
                 className="justify-center px-[9px] text-center text-white-100"
                 aria-label="Increase quantity"
               >
-                <Plus />
+                <AddIcon />
               </Button>
             </div>
           </div>
@@ -290,7 +290,7 @@ const ShopifyForm = () => {
                   aria-label="Include USB-C Keycard reader"
                 >
                   <Checkbox.Indicator className="text-white-95">
-                    <Check className="size-5 text-white-95" />
+                    <CheckIcon className="size-5 text-white-95" />
                   </Checkbox.Indicator>
                 </Checkbox.Root>
 
@@ -315,7 +315,7 @@ const ShopifyForm = () => {
                   }
                 >
                   <div className="flex">
-                    <Info className="flex-shrink-0 text-white-40 transition-colors hover:text-white-60" />
+                    <InfoIcon className="flex-shrink-0 text-white-40 transition-colors hover:text-white-60" />
                   </div>
                 </Tooltip>
               </div>
@@ -329,7 +329,7 @@ const ShopifyForm = () => {
               disabled={debounced.isPending() || !shopifyCartUrl}
             >
               {isSubmitting ? (
-                <Loading className="my-px animate-spin text-white-100" />
+                <LoadingIcon className="my-px animate-spin text-white-100" />
               ) : (
                 <>
                   Checkout <div className="size-1 rounded-full bg-white-40" /> $
@@ -368,13 +368,13 @@ const ShopifyForm = () => {
             </div>
             <div className="mt-10 flex flex-col items-center gap-[10px] rounded-16 border border-dashed border-white-12 bg-white-4 px-4 py-[14px] text-14 text-white-60 lg:flex-row lg:justify-center lg:gap-2">
               <div className="flex items-center">
-                <Labels className="mr-1 shrink-0" /> Prices don&apos;t include
-                VAT
+                <LabelsIcon className="mr-1 shrink-0" /> Prices don&apos;t
+                include VAT
               </div>
               <div className="hidden size-1 rounded-full bg-white-40 lg:block" />
 
               <div className="flex items-center">
-                <World className="mr-1 shrink-0" />
+                <WorldIcon className="mr-1 shrink-0" />
                 Delivery estimate: 3-5 business days
               </div>
             </div>

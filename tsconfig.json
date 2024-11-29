@@ -36,9 +36,10 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "~icons": ["./src/app/_icons"],
+      "~icons/*": ["./src/app/_icons/*"],
       "~components/*": ["./src/app/_components/*"],
       "~config/*": ["./src/config/*"],
+      "~server/*": ["./src/server/*"],
       "~/*": ["./src/*"]
     }
   },
@@ -47,7 +48,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "env.d.ts"
+    "env.d.ts",
+    "global.d.ts"
   ],
   "exclude": ["node_modules"]
 }

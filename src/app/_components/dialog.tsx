@@ -1,6 +1,6 @@
 import * as BaseDialog from '@radix-ui/react-dialog'
+import { Image } from '~components/image'
 import { cx } from 'cva'
-import Image from 'next/image'
 import { forwardRef } from 'react'
 import { Button } from './button'
 
