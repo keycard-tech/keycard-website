@@ -49,7 +49,7 @@ const FeaturesSliderDesktop = (props: Props) => {
         })}
       </div>
 
-      <div className="w-full max-w-[549px] px-2 pt-8 lg:pt-20">
+      <div className="w-full px-2 pt-8 lg:max-w-[549px] lg:pt-20">
         <FeaturesDisclaimer />
         <DownloadStatusForDesktop className="mt-8" />
       </div>

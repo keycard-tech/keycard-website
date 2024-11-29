@@ -134,7 +134,7 @@ const FeaturesAccordion = (props: Props) => {
               )
             })}
           </Accordion.Root>
-          <div className="w-full max-w-[549px] pt-8 lg:pt-20">
+          <div className="w-full pt-8 lg:max-w-[549px] lg:pt-20">
             <FeaturesDisclaimer />
           </div>
         </div>
@@ -158,7 +158,7 @@ const FeaturesAccordion = (props: Props) => {
                 </motion.div>
               </AnimatePresence>
 
-              <DownloadStatusForDesktop className="mt-20 max-w-[549px]" />
+              <DownloadStatusForDesktop className="mt-20 lg:max-w-[549px]" />
             </div>
           ))
           .with('mobile', () => (
@@ -180,7 +180,7 @@ const FeaturesAccordion = (props: Props) => {
                 </motion.div>
               </AnimatePresence>
 
-              <DownloadStatusForMobile className="mt-20 max-w-[549px]" />
+              <DownloadStatusForMobile className="mt-20 lg:max-w-[549px]" />
             </div>
           ))
           .exhaustive()}
