@@ -220,7 +220,7 @@ const ShopifyForm = () => {
                     }}
                     className={cx(
                       'relative flex flex-col items-start justify-between rounded-20 bg-white-4 px-4 py-3 text-left transition-colors duration-300 hover:[&>span]:-left-1 hover:[&>span]:-top-1 hover:[&>span]:size-[calc(100%+8px)] hover:[&>span]:rounded-[24px]',
-                      selected ? 'outline-transparent outline outline-4' : '',
+                      selected ? 'outline outline-4 outline-[transparent]' : '',
                     )}
                   >
                     <span
