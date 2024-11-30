@@ -3,5 +3,5 @@ type Props = {
 }
 
 export default function KeycardLayout({ children }: Props) {
-  return <div className="m-auto max-w-[1512px]">{children}</div>
+  return <div className="m-auto w-full max-w-[1512px]">{children}</div>
 }
