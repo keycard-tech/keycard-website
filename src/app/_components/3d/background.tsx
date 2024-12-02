@@ -21,7 +21,7 @@ const Background = () => {
           duration: 0.3,
           delay: 1,
         }}
-        className="fixed left-0 top-0 z-0 h-svh w-full"
+        className="absolute left-0 top-0 z-0 h-svh w-full"
       >
         <Canvas ref={canvasRef}>
           <directionalLight
