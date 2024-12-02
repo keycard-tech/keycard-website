@@ -1,5 +1,3 @@
-import { ExternalIcon } from '@status-im/icons/20'
-import { ButtonLink } from '~components/button-link'
 import { Image } from '~components/image'
 import { Link } from '~components/link'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '~components/tabs'
@@ -107,30 +105,6 @@ const featuresDesktop = [
   },
 ]
 
-const integrations = [
-  {
-    name: 'Enno Wallet',
-    description: 'Native Android Ethereum Wallet',
-    logo: '/assets/keycard/enno.png',
-    buttonText: 'Learn more',
-    href: 'https://ennowallet.com/',
-  },
-  {
-    name: 'WallETH',
-    description: 'Native Android Ethereum Wallet',
-    logo: '/assets/keycard/walleth.png',
-    buttonText: 'Learn more',
-    href: 'https://walleth.org/',
-  },
-  {
-    name: 'Logos Operators',
-    description: '5,000 Ordinals Collection',
-    logo: '/assets/keycard/logos-operators.png',
-    buttonText: 'Learn more',
-    href: 'https://dashboard.logos.co/',
-  },
-]
-
 const Integration = () => {
   return (
     <section className="mt-[200px]">
@@ -174,63 +148,6 @@ const Integration = () => {
               <FeaturesSliderMobile items={featuresMobile} />
             </TabsContent>
           </Tabs>
-        </div>
-      </div>
-
-      <div className="px-3 pt-20 md:px-12">
-        <h2 className="pb-4 pl-6 text-12 font-400 text-white-80 lg:pl-8">
-          ALSO INTEGRATED WITH
-        </h2>
-        <div className="grid grid-cols-1 gap-8 rounded-28 border border-white-8 bg-white-4 p-6 pt-5 text-white-95 md:grid-cols-2 lg:grid-cols-4 lg:gap-6 lg:p-8 lg:pt-9">
-          {integrations.map((integration, index) => (
-            <div key={index} className="flex flex-col">
-              <div className="mb-3 inline-flex items-center">
-                {integration.logo && (
-                  <Image
-                    src={integration.logo}
-                    alt={`${integration.name} logo`}
-                    width={24}
-                    height={23}
-                    className="mr-2"
-                  />
-                )}
-                <h3 className="font-lora text-24 font-400">
-                  {integration.name}
-                </h3>
-              </div>
-              <p className="mb-6 text-16 font-300 text-white-80">
-                {integration.description}
-              </p>
-
-              <ButtonLink
-                href={integration.href}
-                variant="secondary"
-                className="group w-fit pr-2"
-              >
-                <span className="text-white-95">{integration.buttonText}</span>
-                <ExternalIcon />
-              </ButtonLink>
-            </div>
-          ))}
-          <div className="flex flex-col gap-6">
-            <div>
-              <h2 className="font-lora text-24 font-500 text-white-95 lg:text-32">
-                Want to integrate?
-              </h2>
-              <p className="text-16 text-white-80">
-                Read our documentation or get in touch
-              </p>
-            </div>
-            <div className="flex gap-3">
-              <ButtonLink href="/docs">Read docs</ButtonLink>
-              <ButtonLink
-                href="mailto:support@keycard.tech"
-                variant="secondary"
-              >
-                Get in touch
-              </ButtonLink>
-            </div>
-          </div>
         </div>
       </div>
     </section>
