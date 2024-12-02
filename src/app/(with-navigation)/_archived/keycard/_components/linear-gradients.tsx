@@ -5,19 +5,20 @@ const LineGradient = () => {
       width="484"
       height="1"
       viewBox="0 0 484 1"
+      fill="none"
     >
-      <path stroke="url(#a)" strokeOpacity=".95" strokeWidth="2" d="M484 1H0" />
+      <path d="M484 1H0" stroke="url(#paint)" strokeOpacity="0.95" />
       <defs>
         <linearGradient
-          id="a"
+          id="paint"
           x1="-10"
-          x2="484"
           y1="1.5"
+          x2="484"
           y2="1.5"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#fff" stopOpacity="0" />
-          <stop offset="1" stopColor="#fff" />
+          <stop stopColor="white" stopOpacity="0" />
+          <stop offset="1" stopColor="white" />
         </linearGradient>
       </defs>
     </svg>
