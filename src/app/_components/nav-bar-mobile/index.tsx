@@ -9,7 +9,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { Logo } from '../logo'
-import { MenuIcon } from './menu-icon'
+// import { MenuIcon } from './menu-icon'
 import { Section } from './section'
 
 const NAV_BAR_HEIGHT = 80
@@ -105,14 +105,14 @@ const NavBarMobile = () => {
               </motion.div>
             )}
           </AnimatePresence>
-          <button
+          {/* <button
             key={isOpen ? 'menu-open' : 'menu-closed'}
             className="rounded-12 border border-white-12 bg-white-8 text-white-95 transition-colors hover:bg-white-12"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Menu"
           >
             <MenuIcon isOpen={isOpen} />
-          </button>
+          </button> */}
         </div>
       </div>
       <AnimatePresence>
@@ -140,7 +140,7 @@ const NavBarMobile = () => {
               className="flex h-full flex-col items-center justify-center pt-[200px]"
             >
               <ul className="flex flex-1 flex-col gap-4">
-                {ROUTES.Products.map((item, index) => (
+                {/* {ROUTES.Products.map((item, index) => (
                   <motion.li
                     key={item.name}
                     initial={{ opacity: 0, y: 20 }}
@@ -152,7 +152,7 @@ const NavBarMobile = () => {
                       {item.name}
                     </Link>
                   </motion.li>
-                ))}
+                ))} */}
                 <motion.li
                   key="button-keycard"
                   initial={{ opacity: 0, y: 20 }}

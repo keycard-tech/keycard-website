@@ -152,7 +152,7 @@ const Integration = () => {
               No need to pair it, it just works!
             </p>
           </div>
-          <Tabs defaultValue="mobile">
+          <Tabs defaultValue="desktop">
             <TabsList className="mx-3 lg:mx-0">
               <TabsTrigger value="desktop">On desktop</TabsTrigger>
               <TabsTrigger value="mobile">On mobile</TabsTrigger>
