@@ -45,8 +45,7 @@ const features = [
       'Enjoy full visibility of sensitive information like your seed phrase.',
     image: '/assets/keycard-shell/keycard-shell-feature-2.png',
     badge: { text: '2 inches' },
-    className:
-      'row-span-2 col-span-1 flex-col-reverse gap-0 [&_img]:scale-75 lg:scale-100',
+    className: 'row-span-2 col-span-1 flex-col-reverse gap-0 max-w-[460px]',
   },
   {
     title: 'Open source security',
