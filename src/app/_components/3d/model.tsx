@@ -126,14 +126,17 @@ const KeycardModel = (
     >
       <group>
         <mesh
+          castShadow
           geometry={nodes.Cube002.geometry}
           material={materials['Card.image.001']}
         />
         <mesh
+          castShadow
           geometry={nodes.Cube002_1.geometry}
           material={materials['Card.light.001']}
         />
         <mesh
+          castShadow
           geometry={nodes.Cube002_2.geometry}
           material={materials['Material.001']}
         />
