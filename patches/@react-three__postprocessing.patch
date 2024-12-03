@@ -1,0 +1,16 @@
+diff --git a/dist/EffectComposer.js b/dist/EffectComposer.js
+index 335539d470b862efff4d34818a28d1ed78255005..c4e47fad5ea95dd28ef1570919bbcba0b1883ad8 100644
+--- a/dist/EffectComposer.js
++++ b/dist/EffectComposer.js
+@@ -77,9 +77,9 @@ const EffectComposer = React.memo(
+       useLayoutEffect(() => {
+         const passes = [];
+         if (group.current && instance.current && composer) {
+-          const children2 = instance.current.objects;
++          const children2 = instance.current.children;
+           for (let i = 0; i < children2.length; i++) {
+-            const child = children2[i];
++            const child = children2[i].object;
+             if (child instanceof Effect) {
+               const effects = [child];
+               if (!isConvolution(child)) {

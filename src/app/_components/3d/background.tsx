@@ -2,6 +2,12 @@
 
 import { Environment, useGLTF } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
+import {
+  DepthOfField,
+  EffectComposer,
+  Noise,
+  Vignette,
+} from '@react-three/postprocessing'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useRef } from 'react'
 import { KeycardModel } from './model'
@@ -21,9 +27,19 @@ const Background = () => {
           duration: 0.3,
           delay: 1,
         }}
-        className="absolute left-0 top-0 z-0 h-svh w-full"
+        className="absolute left-0 top-0 z-0 size-full"
       >
         <Canvas ref={canvasRef}>
+          <EffectComposer multisampling={0}>
+            <DepthOfField
+              focusDistance={0.04}
+              focalLength={1}
+              bokehScale={1.5}
+              height={380}
+            />
+            <Noise opacity={0.025} />
+            <Vignette eskil={false} offset={0.1} darkness={1} />
+          </EffectComposer>
           <directionalLight
             color="white"
             intensity={100}
