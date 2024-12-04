@@ -26,7 +26,6 @@ const Background = () => {
         gl={{
           precision: 'highp',
         }}
-        dpr={[1, 2]}
       >
         <Environment
           preset="night"
@@ -35,7 +34,7 @@ const Background = () => {
         />
 
         <ambientLight intensity={3.5} />
-        <EffectComposer multisampling={8}>
+        <EffectComposer>
           <DepthOfField
             target={[0, 5, -30]}
             focusDistance={0.001}

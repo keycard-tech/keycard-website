@@ -12,9 +12,6 @@ const features: Array<Feature> = [
   {
     name: 'Competitive pricing',
     tooltip: 'Pricing information',
-    keycardShell: {
-      label: 'TBD',
-    },
     keycard: {
       label: '$25',
     },
@@ -26,28 +23,9 @@ const features: Array<Feature> = [
     },
   },
   {
-    name: 'EVM chain compatible',
-    keycardShell: {
-      featured: true,
-    },
+    name: 'Compatible with: EVM, Ethereum and Bitcoin',
     keycard: {
       featured: true,
-    },
-    tangem: {
-      featured: true,
-    },
-    ledger: {
-      featured: true,
-    },
-  },
-  {
-    name: 'Bitcoin compatible',
-    keycardShell: {
-      featured: true,
-    },
-    keycard: {
-      featured: true,
-      tooltip: 'Bitcoin only',
     },
     tangem: {
       featured: true,
@@ -59,13 +37,6 @@ const features: Array<Feature> = [
   {
     name: 'Hardware level protection',
     tooltip: 'Security certification level',
-    keycardShell: {
-      badge: {
-        text: 'EAL 6+',
-        gradient: true,
-        icon: FirmwareIcon,
-      },
-    },
     keycard: { badge: { text: 'EAL 6+', gradient: true, icon: FirmwareIcon } },
     tangem: { badge: { text: 'EAL 6+', gradient: true, icon: FirmwareIcon } },
     ledger: { badge: { text: 'EAL 5+' } },
@@ -73,10 +44,6 @@ const features: Array<Feature> = [
   {
     name: 'Mobile friendly',
     tooltip: 'Compatible with mobile devices',
-    keycardShell: {
-      featured: true,
-      tooltip: 'iOS and Android',
-    },
     keycard: {
       featured: true,
     },
@@ -88,10 +55,7 @@ const features: Array<Feature> = [
     },
   },
   {
-    name: 'Unlimited master keys',
-    keycardShell: {
-      featured: true,
-    },
+    name: 'Many cards, many keys',
     keycard: {
       featured: true,
       tooltip: 'No limit on master keys',
@@ -107,9 +71,6 @@ const features: Array<Feature> = [
   },
   {
     name: 'Easy back up of master keys',
-    keycardShell: {
-      featured: true,
-    },
     keycard: {
       featured: true,
     },
@@ -123,9 +84,6 @@ const features: Array<Feature> = [
   {
     name: 'Open ecosystem',
     tooltip: 'Part of an open ecosystem',
-    keycardShell: {
-      featured: true,
-    },
     keycard: {
       featured: true,
     },
@@ -137,13 +95,9 @@ const features: Array<Feature> = [
     },
   },
   {
-    name: 'Open source secure element',
-    keycardShell: {
-      featured: true,
-      tooltip: 'Secure element is open source',
-    },
+    name: 'Immutable, open-source secure element',
     keycard: {
-      featured: false,
+      featured: true,
     },
     tangem: {
       featured: false,
@@ -153,148 +107,15 @@ const features: Array<Feature> = [
     },
   },
   {
-    name: "Secure element can't be upgraded",
-    keycardShell: {
-      featured: true,
-    },
-    keycard: {
-      featured: false,
-    },
-    tangem: {
-      featured: false,
-      tooltip: 'Not applicable',
-    },
-    ledger: {
-      featured: false,
-      tooltip: 'Not applicable',
-    },
-  },
-  {
-    name: 'QR transaction signing with any wallet',
-    tooltip: 'Sign transactions using QR codes',
-    keycardShell: {
-      featured: true,
-    },
+    name: 'Works on mobile and desktop',
     keycard: {
       featured: true,
-      tooltip: 'Only with Keycard wallet',
     },
     tangem: {
       featured: false,
     },
     ledger: {
-      featured: false,
-    },
-  },
-  {
-    name: 'Airgap capable',
-    tooltip: 'Can operate without direct connection',
-    keycardShell: {
       featured: true,
-    },
-    keycard: {
-      featured: false,
-    },
-    tangem: {
-      featured: false,
-    },
-    ledger: {
-      featured: false,
-    },
-  },
-  {
-    name: 'Modular architecture',
-    keycardShell: {
-      featured: true,
-    },
-    keycard: {
-      featured: false,
-    },
-    tangem: {
-      featured: false,
-    },
-    ledger: {
-      featured: false,
-    },
-  },
-  {
-    name: 'Secure element has its own usages',
-    keycardShell: {
-      featured: true,
-      tooltip: 'Multiple use cases for secure element',
-    },
-    keycard: {
-      featured: 'n/a',
-    },
-    tangem: {
-      featured: 'n/a',
-    },
-    ledger: {
-      featured: false,
-    },
-  },
-  {
-    name: 'Can be used with future signing schemes',
-    tooltip: 'Future-proof design',
-    keycardShell: {
-      featured: true,
-    },
-    keycard: {
-      featured: 'n/a',
-    },
-    tangem: {
-      featured: 'n/a',
-    },
-    ledger: {
-      featured: false,
-    },
-  },
-  {
-    name: 'Removable battery',
-    tooltip: 'Battery can be replaced',
-    keycardShell: {
-      featured: true,
-    },
-    keycard: {
-      featured: 'n/a',
-      tooltip: 'Not applicable',
-    },
-    tangem: {
-      featured: 'n/a',
-      tooltip: 'Not applicable',
-    },
-    ledger: {
-      featured: false,
-    },
-  },
-  {
-    name: 'USBC + Camera',
-    keycardShell: {
-      featured: true,
-    },
-    keycard: {
-      featured: 'n/a',
-    },
-    tangem: {
-      featured: 'n/a',
-    },
-    ledger: {
-      featured: false,
-    },
-  },
-  {
-    name: 'Oshwa label',
-    keycardShell: {
-      featured: true,
-    },
-    keycard: {
-      featured: false,
-    },
-    tangem: {
-      featured: false,
-    },
-    ledger: {
-      featured: false,
     },
   },
 ] as const
@@ -313,7 +134,6 @@ type FeatureVariant = {
 type Feature = {
   name: string
   tooltip?: string
-  keycardShell: FeatureVariant
   keycard: FeatureVariant
   tangem: FeatureVariant
   ledger: FeatureVariant
@@ -363,12 +183,7 @@ const TooltipInfo = ({
 }
 
 const ComparisonTable = () => {
-  const products: Array<keyof Feature> = [
-    'keycardShell',
-    'keycard',
-    'tangem',
-    'ledger',
-  ]
+  const products: Array<keyof Feature> = ['keycard', 'tangem', 'ledger']
 
   return (
     <section className="mx-auto max-w-[1352px] pt-[120px] text-white-95 lg:pt-[200px]">
@@ -377,9 +192,8 @@ const ComparisonTable = () => {
       </h2>
       <div className="overflow-x-auto px-3 scrollbar-none min-[1512px]:px-0">
         <div className="w-[684px] pt-14 md:w-full lg:w-full lg:pt-20">
-          <div className="grid grid-cols-[1.33fr,1fr,1fr,1fr,1fr] justify-items-center text-center font-lora text-24 font-400 text-white-90 lg:grid-cols-[2fr,1fr,1fr,1fr,1fr] lg:text-24">
+          <div className="grid grid-cols-[1.33fr,1fr,1fr,1fr] justify-items-center text-center font-lora text-24 font-400 text-white-90 lg:grid-cols-[2fr,1fr,1fr,1fr] lg:text-24">
             <div className="justify-self-start p-4 pb-5 pl-6">Feature</div>
-            <div className="p-4 pb-5">Shell</div>
             <div className="p-4 pb-5">Keycard</div>
             <div className="p-4 pb-5">Tangem</div>
             <div className="p-4 pb-5">Ledger</div>
@@ -390,7 +204,7 @@ const ComparisonTable = () => {
               return (
                 <div
                   key={index}
-                  className="grid grid-cols-[1.33fr,1fr,1fr,1fr,1fr] border-b border-dashed border-white-12 font-300 first:pt-2 last:border-b-0 last:pb-2 lg:grid-cols-[2fr,1fr,1fr,1fr,1fr]"
+                  className="grid grid-cols-[1.33fr,1fr,1fr,1fr] border-b border-dashed border-white-12 font-300 first:pt-2 last:border-b-0 last:pb-2 lg:grid-cols-[2fr,1fr,1fr,1fr]"
                 >
                   <div className="w-full p-5 first:pl-0 lg:flex lg:items-center">
                     <span className="relative inline whitespace-normal">

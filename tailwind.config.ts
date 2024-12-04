@@ -33,6 +33,13 @@ export default {
           letterSpacing: '-0.06rem',
         },
       ],
+      44: [
+        '2.75rem',
+        {
+          lineHeight: '3.375rem',
+          letterSpacing: '-0.055rem',
+        },
+      ],
       32: [
         '2rem',
         {
