@@ -1,19 +1,16 @@
 'use client'
 
-import { Environment, useGLTF } from '@react-three/drei'
+import { Environment } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import {
   Bloom,
-  BrightnessContrast,
+  DepthOfField,
   EffectComposer,
-  HueSaturation,
   Vignette,
 } from '@react-three/postprocessing'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useRef } from 'react'
 import { KeycardModel } from './model'
-
-useGLTF.preload('/assets/keycard-model.glb')
 
 const Background = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -41,72 +38,62 @@ const Background = () => {
           }}
           dpr={[1, 2]}
         >
-          <Environment preset="warehouse" />
+          <Environment preset="warehouse" environmentIntensity={0.6} />
 
-          <ambientLight intensity={1.5} />
+          <ambientLight intensity={6} />
+
           <directionalLight
             position={[2, 5, 10]}
-            intensity={5}
-            color="#ffffff"
+            intensity={5.6}
+            color="#fff"
           />
 
           <EffectComposer multisampling={8}>
+            <DepthOfField
+              target={[0, 5, -30]}
+              focusDistance={0.001}
+              focalLength={0.02}
+              bokehScale={3}
+            />
             <Bloom
               intensity={0.05}
               luminanceThreshold={0.005}
               luminanceSmoothing={0.005}
             />
-            <Vignette eskil={false} offset={0.25} darkness={1.1} />
-            <BrightnessContrast brightness={0.01} contrast={0.1} />
-            <HueSaturation hue={6.3} saturation={0.1} />
+            <Vignette eskil={false} offset={0.55} darkness={1} />
           </EffectComposer>
 
-          <group position={[4, 2.4, 1]}>
-            <KeycardModel
-              initialRotation={[9, 3, 2.4]}
-              scale={22}
-              speed={0.3}
-            />
-          </group>
-
-          <group position={[0, 2.2, 1]}>
-            <KeycardModel
-              initialRotation={[-0.4, -0.2, 2.4]}
-              scale={30}
-              speed={1}
-            />
-          </group>
-
-          <group position={[-3.4, 0, 1.2]}>
-            <KeycardModel
-              initialRotation={[1.5, -2, 3]}
-              scale={15}
-              speed={1.3}
-            />
-          </group>
-
-          <group position={[-2, -1.4, 0]}>
-            <KeycardModel
-              initialRotation={[0, 1.3, -1.2]}
-              scale={24}
-              speed={0.75}
-            />
-          </group>
-
-          <group position={[2.9, -1.3, 0]}>
-            <KeycardModel
-              initialRotation={[-0.1, -0, 1]}
-              scale={40}
-              speed={0.25}
-            />
-          </group>
-
-          <group position={[-3.5, 2.5, 1.5]}>
-            <KeycardModel
-              initialRotation={[2, -2, -4.6]}
-              scale={16}
-              speed={1.45}
-            />
+          <group scale={2} position={[0, -10, 0]}>
+            <group position={[25, 25, -38]}>
+              <KeycardModel initialRotation={[-0.3, 0.4, -0.8]} speed={5.3} />
+            </group>
+            <group position={[60, 45, -68]}>
+              <KeycardModel initialRotation={[1, 0, 0]} speed={5.3} />
+            </group>
+            <group position={[0, 15, -15]}>
+              <KeycardModel initialRotation={[-0.3, -0.6, 2.4]} speed={1.4} />
+            </group>
+            <group position={[7, 4, -15]}>
+              <KeycardModel initialRotation={[0, 0, 0.6]} speed={2.3} />
+            </group>
+            <group position={[43, 4, -30]} scale={1.4}>
+              <KeycardModel initialRotation={[0, 0.4, 1.2]} speed={2.3} />
+            </group>
+            <group position={[-7.5, 8, -27.5]}>
+              <KeycardModel initialRotation={[-1.1, 0.8, -0.6]} speed={2.75} />
+            </group>
+            <group position={[-15, 10, -20]}>
+              <KeycardModel initialRotation={[2, -2, -4.6]} speed={1.45} />
+            </group>
+            <group position={[-50.9, 20, -40]}>
+              <KeycardModel initialRotation={[0, -0, 0.6]} speed={4.25} />
+            </group>
+            <group position={[-20.9, 35, -40]}>
+              <KeycardModel initialRotation={[-1.3, -0.8, 0.6]} speed={4.25} />
+            </group>
+            <group position={[-110.9, 10, -80]}>
+              <KeycardModel initialRotation={[2, -0, 0.6]} speed={2.25} />
+            </group>
           </group>
         </Canvas>
       </motion.div>

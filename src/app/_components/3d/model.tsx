@@ -114,6 +114,7 @@ const KeycardModel = (
   return (
     <group
       ref={group}
+      scale={100}
       {...rest}
       onPointerOver={e => {
         e.stopPropagation()
