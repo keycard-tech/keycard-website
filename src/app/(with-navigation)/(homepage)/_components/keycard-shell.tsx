@@ -21,7 +21,7 @@ const KeycardShell = () => {
         className="relative left-0 top-0 block aspect-[414/614] w-full lg:hidden"
       />
 
-      <div className="absolute right-0 top-0 h-full w-[270px] bg-gradient-to-r from-[transparent] to-dark-100" />
+      <div className="absolute right-0 top-0 hidden h-full w-[270px] bg-gradient-to-r from-[transparent] to-dark-100 lg:block" />
 
       <div className="relative z-10 mt-[-53%] flex w-full flex-col p-6 pt-0 lg:mt-0 lg:w-auto lg:py-[256px] lg:pr-[229px]">
         <p className="flex min-w-[320px] pb-4 font-lora text-32 font-400">
