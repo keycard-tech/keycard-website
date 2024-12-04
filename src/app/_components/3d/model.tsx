@@ -21,6 +21,8 @@ type GLTFResult = GLTF & {
   }
 }
 
+useGLTF.preload('assets/keycard-model.glb')
+
 const KeycardModel = (
   props: React.ComponentProps<'group'> & {
     speed: number
