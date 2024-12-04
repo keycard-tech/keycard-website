@@ -326,7 +326,10 @@ const ShopifyForm = (props: ShopifyFormProps) => {
                   </div>
                 </Tooltip>
               </div>
-              <div className="text-16 font-300 text-white-80">+$22</div>
+              <div className="flex gap-2 text-16 font-300 text-white-80">
+                <span className="text-green">Free</span>
+                <span className="line-through">$22</span>
+              </div>
             </div>
           </div>
           <div className="rounded-16 border border-white-12 bg-white-4 p-1">
@@ -375,13 +378,13 @@ const ShopifyForm = (props: ShopifyFormProps) => {
             </div>
             <div className="mt-10 flex flex-col items-center gap-[10px] rounded-16 border border-dashed border-white-12 bg-white-4 px-4 py-[14px] text-14 text-white-60 lg:flex-row lg:justify-center lg:gap-2">
               <div className="flex items-center">
-                <LabelsIcon className="mr-1 shrink-0" /> Prices don&apos;t
-                include VAT
+                <LabelsIcon className="mr-1 shrink-0 text-white-95" /> Prices
+                don&apos;t include VAT
               </div>
               <div className="hidden size-1 rounded-full bg-white-40 lg:block" />
 
               <div className="flex items-center">
-                <WorldIcon className="mr-1 shrink-0" />
+                <WorldIcon className="mr-1 shrink-0 text-white-95" />
                 Delivery estimate: 3-5 business days
               </div>
             </div>

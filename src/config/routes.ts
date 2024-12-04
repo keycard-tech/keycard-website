@@ -17,7 +17,7 @@ export const ROUTES = {
     { name: 'Privacy policy', href: '/legal/privacy-policy' },
     { name: 'Terms of use', href: '/legal/terms-of-use' },
   ],
-  'Works With': [
+  'Works with': [
     {
       name: 'Status',
       href: 'https://status.app',

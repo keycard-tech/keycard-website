@@ -26,7 +26,7 @@ const Section = (props: Props) => {
                 <span className="text-16 font-500 text-white-95 transition-colors group-hover:text-white-60 group-data-[active='true']:text-white-40">
                   {route.name}
                 </span>
-                {external && <ExternalIcon />}
+                {external && <ExternalIcon className="text-white-60" />}
               </Link>
             </li>
           )
