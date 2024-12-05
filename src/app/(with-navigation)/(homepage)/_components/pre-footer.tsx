@@ -9,7 +9,9 @@ const Prefooter = () => {
       <div className="relative z-20 flex flex-1 flex-col items-start pb-[120px] pt-[320px] text-left lg:py-[200px]">
         <p className="pb-2 text-24 font-600 text-orange">keycard</p>
         <h2 className="flex pb-4 font-lora text-32 font-400 text-white-95 md:text-48">
-          A card shaped <br /> hardware wallet
+          Get the card-shaped
+          <br />
+          hardware wallet
         </h2>
         <p className="max-w-[435px] pb-10 text-20 font-300 text-white-80">
           Store and trade your crypto in a simple, secure and slim hardware

@@ -39,11 +39,11 @@ const SecurityFeatures = () => {
                 </div>
                 <div className="border-t border-dashed border-white-20 pb-6 pt-5 md:pb-0 md:pl-0 md:pr-6 md:pt-6">
                   <h3 className="pb-2 font-lora text-24 font-400 text-white-95">
-                    Non extractable keys
+                    Non-extractable keys
                   </h3>
                   <p className="text-16 font-300 text-white-60">
-                    The secure element software is non upgradable and no one
-                    will ever change its software to change this behaviour.
+                    The secure element software is non-upgradable and no one
+                    will ever change its software to change its behaviour.
                   </p>
                 </div>
               </div>
@@ -53,7 +53,7 @@ const SecurityFeatures = () => {
                     Counterfeit protected
                   </h3>
                   <p className="text-16 font-300 text-white-60">
-                    Our open source protocol allows any wallet using the keycard
+                    Our open-source protocol allows any wallet using the Keycard
                     to check it&apos;s genuine and not counterfeited.
                   </p>
                 </div>
@@ -62,7 +62,7 @@ const SecurityFeatures = () => {
                     Fully open source
                   </h3>
                   <p className="pb-6 text-16 font-300 text-white-60">
-                    Open source code on an open framework, making it the most
+                    Open-source code on an open framework, making it the most
                     open way to design a secure element.
                   </p>
                   <ButtonLink

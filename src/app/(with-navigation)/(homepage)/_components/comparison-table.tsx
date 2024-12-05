@@ -11,7 +11,6 @@ import { createElement } from 'react'
 const features: Array<Feature> = [
   {
     name: 'Competitive pricing',
-    tooltip: 'Pricing information',
     keycard: {
       label: '$25',
     },
@@ -35,7 +34,7 @@ const features: Array<Feature> = [
     },
   },
   {
-    name: 'Hardware level protection',
+    name: 'Hardware-level protection',
     tooltip: 'Security certification level',
     keycard: { badge: { text: 'EAL 6+', gradient: true, icon: FirmwareIcon } },
     tangem: { badge: { text: 'EAL 6+', gradient: true, icon: FirmwareIcon } },
@@ -188,7 +187,7 @@ const ComparisonTable = () => {
   return (
     <section className="mx-auto max-w-[1352px] pt-[120px] text-white-95 lg:pt-[200px]">
       <h2 className="px-3 font-lora text-32 text-white-95 min-[1512px]:px-0">
-        Going one step further.
+        Going one step further
       </h2>
       <div className="overflow-x-auto px-3 scrollbar-none min-[1512px]:px-0">
         <div className="w-[684px] pt-14 md:w-full lg:w-full lg:pt-20">

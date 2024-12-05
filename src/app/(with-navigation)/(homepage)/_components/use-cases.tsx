@@ -15,15 +15,15 @@ const cardSets = [
 const useCases = [
   {
     name: 'Vault',
-    description: 'Your most precious tokens in a single card',
+    description: 'Your most precious tokens in a single card.',
     cardClassName: 'z-20',
     cardClassNameMobile: 'z-20',
     captionClassName:
       'right-1/2 -translate-x-20 xl:-translate-x-1/3  top-[92px]',
   },
   {
-    name: 'Backup',
-    description: 'Never worry about losing your Keycards',
+    name: 'Backup vault',
+    description: 'Never worry about losing a Keycard.',
     cardClassName: 'z-10 -mt-36',
     cardClassNameMobile: 'z-10',
     captionClassName: 'left-1/2 translate-x-36 xl:translate-x-1/3 top-10',
@@ -31,7 +31,7 @@ const useCases = [
   },
   {
     name: 'Memecoins',
-    description: 'Have peace of mind trading memecoins',
+    description: 'Enjoy peace of mind trading memecoins.',
     cardClassName: '-mt-40',
     cardClassNameMobile: '',
     captionClassName:
@@ -48,8 +48,8 @@ const UseCases = () => {
             Many use cases, multiple Keycards
           </h2>
           <p className="max-w-[549px] pb-8 text-20 font-300 text-white-60 lg:mx-auto">
-            By having different Keycards you can store your most valuable card
-            at home while taking your hot wallet with you.
+            Use multiple Keycards to take your hot wallet with you and keep your
+            most valuable assets safe at home.
           </p>
           <BuyKeycardDialog>
             <Button variant="primary">Buy Keycard</Button>

@@ -48,7 +48,7 @@ Content.displayName = BaseDialog.Content.displayName
 type Props = {
   title: string
   description: string
-  image: string
+  // image: string
   onClose: () => void
   footer: {
     title: string
@@ -59,7 +59,7 @@ type Props = {
 }
 
 const Success = (props: Props) => {
-  const { title, description, image, footer, onClose } = props
+  const { title, description, footer, onClose } = props
 
   return (
     <>
@@ -70,13 +70,13 @@ const Success = (props: Props) => {
         )}
       >
         <div className="relative grid place-items-center px-5">
-          <Image
+          {/* <Image
             src={image}
             alt={title}
             width={549}
             height={623}
             className="absolute left-1/2 top-0 z-0 max-w-fit -translate-x-1/2 md:max-w-full"
-          />
+          /> */}
           <div className="z-10 flex flex-col items-center pt-72">
             <Title asChild>
               <h3 className="mb-3 text-center font-lora text-32 text-white-95">

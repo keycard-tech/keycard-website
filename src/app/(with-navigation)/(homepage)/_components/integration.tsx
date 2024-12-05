@@ -7,16 +7,17 @@ import { FeaturesSliderMobile } from './features-slider-mobile'
 
 const featuresMobile = [
   {
-    title: 'Send crypto and NFTs',
+    title: 'Send assets and collectibles',
     description: (
       <>
-        Status supports all Ethereum assets in the{' '}
+        Status supports all Ethereum assets on{' '}
         <Link
           href="https://tokenlists.org/token-list?url=https://ipfs.io/ipns/tokens.uniswap.org"
           className="underline transition-colors hover:text-orange"
         >
-          Uniswap Labs token list.
+          Uniswap Labs default token list
         </Link>
+        .
       </>
     ),
     image: '/assets/keycard/slider/status-app-mobile-send.png',
@@ -31,12 +32,12 @@ const featuresMobile = [
   },
   {
     title: 'Bridge',
-    description: 'Bridge assets across Ethereum’s most popular chains.',
+    description: 'Bridge assets across Ethereum’s most popular chains. ',
     image: '/assets/keycard/slider/status-app-mobile-bridge.png',
     imageMobile: '/assets/keycard/slider/iphone-bridge.png',
   },
   {
-    title: 'Sign dApp transactions',
+    title: 'Dapp interactions',
     description: (
       <>
         Connect to your favourite dApps with the{' '}
@@ -57,16 +58,17 @@ const featuresMobile = [
 
 const featuresDesktop = [
   {
-    title: 'Send crypto and NFTs',
+    title: 'Send assets and collectibles',
     description: (
       <>
-        Status supports all Ethereum assets in the{' '}
+        Status supports all Ethereum assets on{' '}
         <Link
           href="https://tokenlists.org/token-list?url=https://ipfs.io/ipns/tokens.uniswap.org"
           className="underline transition-colors hover:text-orange"
         >
-          Uniswap Labs token list.
+          Uniswap Labs default token list
         </Link>
+        .
       </>
     ),
     image: '/assets/keycard/slider/status-app-desktop-send.png',
@@ -81,12 +83,12 @@ const featuresDesktop = [
   },
   {
     title: 'Bridge',
-    description: 'Bridge assets across Ethereum’s most popular chains.',
+    description: 'Bridge assets across Ethereum’s most popular chains. ',
     image: '/assets/keycard/slider/status-app-desktop-bridge.png',
     imageMobile: '/assets/keycard/slider/status-app-desktop-bridge.png',
   },
   {
-    title: 'Sign dApp transactions',
+    title: 'Dapp interactions',
     description: (
       <>
         Connect to your favourite dApps with the{' '}

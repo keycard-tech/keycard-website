@@ -25,9 +25,11 @@ const KeycardShell = () => {
 
       <div className="relative z-10 mt-[-53%] flex w-full flex-col p-6 pt-0 lg:mt-0 lg:w-auto lg:py-[256px] lg:pr-[229px]">
         <p className="flex min-w-[320px] pb-4 font-lora text-32 font-400">
-          Get ready for
+          Get ready for the
           <br />
-          the future.
+          future of modular
+          <br />
+          hardware security
         </p>
         <p className="min-w-[320px] pb-8 text-16 font-300 text-white-60">
           Revealing soon. Coming 2025

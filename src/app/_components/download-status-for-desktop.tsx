@@ -7,7 +7,7 @@ type Props = {
 }
 
 const DownloadStatusForDesktop = (props: Props) => {
-  const { className, title = 'Download Status for Desktop' } = props
+  const { className, title = 'Download Status for desktop' } = props
 
   return (
     <div

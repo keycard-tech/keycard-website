@@ -9,17 +9,19 @@ const features = [
   {
     title: 'Resistant',
     description:
-      'Resists high (50°) and low (-35°) temperatures, dust and X-Rays.',
+      'Resists high (50°) and low (-35°) temperatures, dust and X-rays.',
     image: '/assets/keycard/resistant.png',
   },
   {
     title: 'Discreet and light',
-    description: 'Carry it in your wallet, no one will notice you hold crypto.',
+    description:
+      'Carry Keycard in your wallet, no one will notice you hold crypto.',
     image: '/assets/keycard/discreet-light.png',
   },
   {
     title: 'Water resistant',
-    description: 'Left it in your jeans? It will survive the washing machine!',
+    description:
+      'Left Keycard in your jeans? It will survive the washing machine!',
     image: '/assets/keycard/water-resistant.png',
   },
 ]

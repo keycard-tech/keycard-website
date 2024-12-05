@@ -156,7 +156,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
 
   const selectedBundle = watch('bundleId')
   const quantity = watch('quantity')
-  const includeReader = watch('includeKeycardReader')
+  // const includeReader = watch('includeKeycardReader')
 
   const { field } = useController({
     control: form.control,
@@ -165,10 +165,10 @@ const ShopifyForm = (props: ShopifyFormProps) => {
 
   const total = useMemo(() => {
     const bundlePrice = bundles.find(b => b.id === selectedBundle)?.price || 0
-    const readerPrice = includeReader ? 22 : 0
+    const readerPrice = 0 // includeReader ? 22 : 0
 
     return bundlePrice * quantity + readerPrice
-  }, [selectedBundle, quantity, includeReader])
+  }, [selectedBundle, quantity])
 
   return (
     <div className="grid h-svh grid-cols-1 gap-6 overflow-auto bg-white-4 p-5 backdrop-blur-[20px] lg:h-auto lg:grid-cols-2 lg:rounded-28 lg:border lg:border-white-12 lg:p-2">

@@ -1,11 +1,7 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import {
-  CloseIcon,
-  ConfettiColorfulIcon,
-  LoadingIcon,
-} from '@status-im/icons/20'
+import { CloseIcon, LoadingIcon } from '@status-im/icons/20'
 import { cx } from 'cva'
 import { useEffect, useState } from 'react'
 import { useController, useForm } from 'react-hook-form'
@@ -61,12 +57,11 @@ export const GetNotifiedDialog = (props: Props) => {
         {showSuccess ? (
           <Dialog.Success
             title="We'll notify you!"
-            description="You have successfully signed up to be notified when Keycard Shell becomes available to buy next year."
-            image="/assets/sign-up-success.png"
+            description="You have successfully signed up to be notified."
             onClose={() => setOpen(false)}
             footer={{
               title: "Don't want to wait?",
-              description: 'Get started with Keycard',
+              description: 'Get started with Keycard today',
               Dialog: BuyKeycardDialog,
               buttonText: 'Buy Keycard',
             }}
@@ -102,7 +97,7 @@ export const GetNotifiedDialog = (props: Props) => {
                 </Dialog.Title>
                 <SignUpForm onSubmit={onSubmit} error={error} />
               </div>
-              <div
+              {/* <div
                 className={cx(
                   'mx-5 flex items-center justify-center gap-2 bg-white-4 px-4 py-[14px] text-14 font-300 text-white-60',
                   'rounded-16 border border-dashed border-white-12',
@@ -111,7 +106,7 @@ export const GetNotifiedDialog = (props: Props) => {
               >
                 <ConfettiColorfulIcon className="size-5" /> Keycard Shell is
                 launching in 2025
-              </div>
+              </div> */}
             </div>
           </div>
         )}
