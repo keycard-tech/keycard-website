@@ -1,5 +1,5 @@
+import { useIntersectionObserver } from '~/app/_hooks/use-intersection-observer'
 import { useEffect, useRef } from 'react'
-import { useIntersectionObserver } from './use-intersection-observer'
 
 export function useInfiniteLoading({
   rootMargin,

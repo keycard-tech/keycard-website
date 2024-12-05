@@ -1,3 +1,4 @@
+import { Background } from '~components/3d/background'
 import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
 import { GetNotifiedDialog } from '~components/get-notified-dialog'
@@ -5,7 +6,6 @@ import { Image } from '~components/image'
 import { Link } from '~components/link'
 import { Logo } from '~components/logo'
 import { cx } from 'cva'
-import { Background } from './_components/background'
 
 export default async function ThankyouPage() {
   return (

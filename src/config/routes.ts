@@ -1,8 +1,8 @@
 export const ROUTES = {
-  Products: [
-    { name: 'Keycard', href: '/keycard' },
-    { name: 'Keycard Shell', href: '/keycard-shell' },
-  ],
+  // Products: [
+  //   { name: 'Keycard', href: '/keycard' },
+  //   { name: 'Keycard Shell', href: '/keycard-shell' },
+  // ],
   Info: [
     { name: 'Get started', href: '/start' },
     { name: 'Documentation', href: '/docs/overview' },
@@ -17,7 +17,7 @@ export const ROUTES = {
     { name: 'Privacy policy', href: '/legal/privacy-policy' },
     { name: 'Terms of use', href: '/legal/terms-of-use' },
   ],
-  'Works With': [
+  'Works with': [
     {
       name: 'Status',
       href: 'https://status.app',

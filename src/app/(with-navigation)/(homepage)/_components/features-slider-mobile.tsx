@@ -61,7 +61,7 @@ const FeaturesSliderMobile = (props: Props) => {
           </div>
         ))}
       </div>
-      <div className="w-full px-2 pt-8 lg:max-w-[549px] lg:pt-20">
+      <div className="hidden w-full px-2 pt-8 lg:block lg:max-w-[549px] lg:pt-20">
         <FeaturesDisclaimer />
       </div>
       {mobileOS && (

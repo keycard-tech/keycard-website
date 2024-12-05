@@ -21,6 +21,8 @@ type GLTFResult = GLTF & {
   }
 }
 
+useGLTF.preload('/assets/keycard-model.glb')
+
 const KeycardModel = (
   props: React.ComponentProps<'group'> & {
     speed: number
@@ -28,7 +30,9 @@ const KeycardModel = (
   },
 ) => {
   const { speed, initialRotation = [0, 0, 0], ...rest } = props
-  const { nodes, materials } = useGLTF('assets/keycard-model.glb') as GLTFResult
+  const { nodes, materials } = useGLTF(
+    '/assets/keycard-model.glb',
+  ) as GLTFResult
 
   const group = useRef<THREE.Group>(null)
   const [hovered, setHovered] = useState(false)
@@ -114,6 +118,7 @@ const KeycardModel = (
   return (
     <group
       ref={group}
+      scale={100}
       {...rest}
       onPointerOver={e => {
         e.stopPropagation()
@@ -124,20 +129,18 @@ const KeycardModel = (
         setHovered(false)
       }}
     >
-      <group>
-        <mesh
-          geometry={nodes.Cube002.geometry}
-          material={materials['Card.image.001']}
-        />
-        <mesh
-          geometry={nodes.Cube002_1.geometry}
-          material={materials['Card.light.001']}
-        />
-        <mesh
-          geometry={nodes.Cube002_2.geometry}
-          material={materials['Material.001']}
-        />
-      </group>
+      <mesh
+        geometry={nodes.Cube002.geometry}
+        material={materials['Card.image.001']}
+      />
+      <mesh
+        geometry={nodes.Cube002_1.geometry}
+        material={materials['Card.light.001']}
+      />
+      <mesh
+        geometry={nodes.Cube002_2.geometry}
+        material={materials['Material.001']}
+      />
     </group>
   )
 }
