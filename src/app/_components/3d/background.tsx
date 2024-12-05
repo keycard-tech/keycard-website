@@ -70,7 +70,11 @@ const Background = () => {
 
           <ambientLight intensity={3.5} />
           <EffectComposer multisampling={0} enabled={isVisible}>
-            <DepthOfField target={[0, 0, -30]} bokehScale={5} />
+            <DepthOfField
+              target={[0, 5, -30]}
+              focalLength={0.015}
+              bokehScale={4}
+            />
             <Vignette eskil={false} offset={0.55} darkness={1} />
           </EffectComposer>
 
