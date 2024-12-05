@@ -7,7 +7,7 @@ import {
   EffectComposer,
   Vignette,
 } from '@react-three/postprocessing'
-import { useIntersectionObserver } from '~/app/(with-navigation)/blog/_hooks/use-intersection-observer'
+import { useIntersectionObserver } from '~/app/_hooks/use-intersection-observer'
 import { Image } from '~components/image'
 import { motion } from 'framer-motion'
 import { useRef, useState } from 'react'
@@ -22,8 +22,6 @@ const Background = () => {
   })
 
   const isVisible = !!entry?.isIntersecting
-
-  console.log('isVisible', isVisible)
 
   return (
     <div className="absolute size-full">
