@@ -21,7 +21,7 @@ type GLTFResult = GLTF & {
   }
 }
 
-useGLTF.preload('assets/keycard-model.glb')
+useGLTF.preload('/assets/keycard-model.glb')
 
 const KeycardModel = (
   props: React.ComponentProps<'group'> & {
@@ -30,7 +30,9 @@ const KeycardModel = (
   },
 ) => {
   const { speed, initialRotation = [0, 0, 0], ...rest } = props
-  const { nodes, materials } = useGLTF('assets/keycard-model.glb') as GLTFResult
+  const { nodes, materials } = useGLTF(
+    '/assets/keycard-model.glb',
+  ) as GLTFResult
 
   const group = useRef<THREE.Group>(null)
   const [hovered, setHovered] = useState(false)
