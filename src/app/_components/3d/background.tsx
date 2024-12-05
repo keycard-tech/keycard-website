@@ -26,11 +26,12 @@ const Background = () => {
   return (
     <div className="absolute size-full">
       <motion.div
-        animate={{ opacity: isMounted ? 0 : 1, y: isMounted ? 20 : 0 }}
+        animate={{ opacity: isMounted ? 0 : 1 }}
         transition={{
           duration: 0.3,
+          ease: 'easeInOut',
         }}
-        className="absolute left-0 top-0 z-0 size-full"
+        className="absolute left-0 top-0 z-0 size-full translate-y-[20px]"
       >
         <Image
           priority
@@ -46,6 +47,7 @@ const Background = () => {
         animate={{ opacity: isMounted ? 1 : 0, y: isMounted ? 0 : 20 }}
         transition={{
           duration: 0.3,
+          ease: 'easeInOut',
         }}
         className="absolute left-0 top-0 z-0 size-full"
       >
@@ -58,7 +60,6 @@ const Background = () => {
             precision: 'lowp',
             preserveDrawingBuffer: true,
             powerPreference: 'low-power',
-            autoClear: false,
           }}
         >
           <Environment
@@ -69,13 +70,7 @@ const Background = () => {
 
           <ambientLight intensity={3.5} />
           <EffectComposer multisampling={0} enabled={isVisible}>
-            <DepthOfField
-              target={[0, 5, -30]}
-              focusDistance={0.001}
-              focalLength={0.02}
-              bokehScale={3}
-            />
-
+            <DepthOfField target={[0, 0, -30]} bokehScale={5} />
             <Vignette eskil={false} offset={0.55} darkness={1} />
           </EffectComposer>
 
@@ -98,8 +93,8 @@ const Background = () => {
             <group position={[-7.5, 8, -27.5]}>
               <KeycardModel initialRotation={[-1.1, 0.8, -0.6]} speed={2.75} />
             </group>
-            <group position={[-15, 10, -20]}>
-              <KeycardModel initialRotation={[2, -2, -4.6]} speed={1.45} />
+            <group position={[-23, 12, -30]}>
+              <KeycardModel initialRotation={[0.5, 0.4, 0.6]} speed={1.45} />
             </group>
             <group position={[-50.9, 20, -40]}>
               <KeycardModel initialRotation={[0, -0, 0.6]} speed={4.25} />
