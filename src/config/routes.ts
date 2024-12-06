@@ -10,7 +10,6 @@ export const ROUTES = {
   ],
   Contacts: [
     { name: 'Get in touch', href: 'mailto:support@keycard.tech' },
-    { name: 'Discord', href: 'https://discord.com' },
     { name: 'X', href: 'https://x.com/Keycard_' },
   ],
   Legal: [
