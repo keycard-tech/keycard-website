@@ -11,9 +11,9 @@ import { SecurityFeatures } from './_components/security-features'
 import { UseCases } from './_components/use-cases'
 
 export const metadata = Metadata({
-  title: 'Keycard',
-  description:
-    'Join the open source revolution of the most modular and future proof hardware wallet system ever conceived.',
+  title: {
+    absolute: 'Keycard',
+  },
 })
 
 export default async function HomePage() {

@@ -1,8 +1,8 @@
 import { cx } from 'cva'
 import { Inter, Lora } from 'next/font/google'
-import './globals.css'
 import { Metadata } from './_metadata'
 import { Providers } from './_providers'
+import './globals.css'
 
 const lora = Lora({
   variable: '--font-lora',
@@ -23,10 +23,10 @@ export const metadata = Metadata({
 
   title: {
     default: 'Keycard',
-    template: '%s - Keycard',
+    template: '%s — Keycard',
   },
   description:
-    'Join the open source revolution of the most modular and future proof hardware wallet system ever conceived.',
+    'Trade swiftly and safely back up your assets with Keycard hardware wallets.',
 
   alternates: {
     canonical: './',
