@@ -38,18 +38,7 @@ const featuresMobile = [
   },
   {
     title: 'Dapp interactions',
-    description: (
-      <>
-        Connect to your favourite dApps with the{' '}
-        <Link
-          href="https://github.com/status-im/status-web/tree/main/apps/connector"
-          className="underline transition-colors hover:text-orange"
-        >
-          Status Connector
-        </Link>{' '}
-        web extension.
-      </>
-    ),
+    description: 'Connect to your favourite dapps using Wallet Connect.',
     tag: 'SOON',
     image: '/assets/keycard/slider/status-app-mobile-dapp.png',
     imageMobile: '/assets/keycard/slider/iphone-dapp.png',
