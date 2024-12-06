@@ -54,6 +54,18 @@ const features: Array<Feature> = [
     },
   },
   {
+    name: 'Works on desktop',
+    keycard: {
+      featured: true,
+    },
+    tangem: {
+      featured: false,
+    },
+    ledger: {
+      featured: true,
+    },
+  },
+  {
     name: 'Many cards, many keys',
     keycard: {
       featured: true,
@@ -103,18 +115,6 @@ const features: Array<Feature> = [
     },
     ledger: {
       featured: false,
-    },
-  },
-  {
-    name: 'Works on mobile and desktop',
-    keycard: {
-      featured: true,
-    },
-    tangem: {
-      featured: false,
-    },
-    ledger: {
-      featured: true,
     },
   },
 ] as const
