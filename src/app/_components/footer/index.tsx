@@ -17,7 +17,7 @@ const Footer = () => {
             <div
               key="empty"
               title="empty"
-              className="col-span-2 h-[72px] border-b border-dashed border-white-20 lg:hidden"
+              className="border-b border-dashed border-white-20 lg:hidden"
             />
 
             {Object.entries(ROUTES).map(([title, links]) => (

@@ -17,20 +17,20 @@ export const ROUTES = {
     { name: 'Privacy policy', href: '/legal/privacy-policy' },
     { name: 'Terms of use', href: '/legal/terms-of-use' },
   ],
-  'Works with': [
-    {
-      name: 'Status',
-      href: 'https://status.app',
-    },
-    {
-      name: 'WallETH',
-      href: 'https://walleth.org',
-    },
-    {
-      name: 'Enno Wallet',
-      href: 'https://ennowallet.com/',
-    },
-  ],
+  // 'Works with': [
+  //   {
+  //     name: 'Status',
+  //     href: 'https://status.app',
+  //   },
+  //   {
+  //     name: 'WallETH',
+  //     href: 'https://walleth.org',
+  //   },
+  //   {
+  //     name: 'Enno Wallet',
+  //     href: 'https://ennowallet.com/',
+  //   },
+  // ],
 } as const
 
 export const STATUS_MOBILE_APP_STORE_URL =
