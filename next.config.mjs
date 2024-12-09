@@ -7,6 +7,11 @@ const config = {
         hostname: 'demo.ghost.io',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'news.keycard.tech',
+        pathname: '/**',
+      },
     ],
   },
   transpilePackages: [
