@@ -9,11 +9,7 @@ import { cx } from 'cva'
 
 export default async function ThankyouPage() {
   return (
-    <div
-      className={cx(
-        'relative flex min-h-[calc(100svh-16px)] flex-col justify-center overflow-clip',
-      )}
-    >
+    <div className="relative flex min-h-[calc(100svh-16px)] flex-col justify-center overflow-clip">
       <Link
         href="/"
         aria-label="Homepage"

@@ -66,11 +66,11 @@ const SecurityFeatures = () => {
                     open way to design a secure element.
                   </p>
                   <ButtonLink
-                    href="https://github.com/status-im/status-keycard"
+                    href="https://github.com/keycard-tech/status-keycard"
                     className="font-500 [&_path]:hover:fill-white-dark"
                     variant="white"
                   >
-                    <span>View on Github</span>
+                    View on Github
                     <GithubIcon />
                   </ButtonLink>
                 </div>
