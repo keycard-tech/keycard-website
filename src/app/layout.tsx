@@ -50,6 +50,7 @@ export default function RootLayout({ children }: Props) {
           lora.variable,
           inter.variable,
           'bg-dark-100 font-inter text-white-100 antialiased',
+          'selection:bg-orange/[0.8] selection:text-white-100',
         )}
         suppressHydrationWarning
       >
