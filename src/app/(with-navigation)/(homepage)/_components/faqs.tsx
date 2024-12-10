@@ -106,7 +106,10 @@ const Faqs = () => {
               </p>
             </div>
             <div className="flex gap-3">
-              <ButtonLink href="/" variant="secondary">
+              <ButtonLink
+                href="mailto:support@keycard.tech"
+                variant="secondary"
+              >
                 Get in touch
               </ButtonLink>
               <ButtonLink
