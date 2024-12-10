@@ -3,6 +3,7 @@ import { ChevronDownIcon } from '@status-im/icons/20'
 import { TwitterIcon } from '@status-im/icons/social'
 import { ButtonLink } from '~components/button-link'
 import { Image } from '~components/image'
+import { Link } from '~components/link'
 import { cx } from 'cva'
 
 const faqs = [
@@ -13,8 +14,19 @@ const faqs = [
   },
   {
     question: 'Which assets does Keycard support?',
-    answer:
-      'Keycard supports a wide range of cryptocurrencies including Bitcoin, Ethereum, and many ERC-20 tokens.',
+    answer: (
+      <>
+        Keycard works seamlessly with Ethereum and EVM based assets. It supports
+        all assets on{' '}
+        <Link
+          href="https://tokenlists.org/token-list?url=https://ipfs.io/ipns/tokens.uniswap.org"
+          className="underline decoration-1 underline-offset-2 transition-colors hover:text-orange"
+        >
+          Uniswap Labs default token list
+        </Link>
+        .
+      </>
+    ),
   },
   {
     question: 'Are my funds safe if I lose my Keycard?',
@@ -80,7 +92,7 @@ const Faqs = () => {
                     'overflow-hidden text-16 font-300 text-white-80 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown',
                   )}
                 >
-                  <span className="flex pt-4">{faq.answer}</span>
+                  <div className="pt-4">{faq.answer}</div>
                 </Accordion.Content>
               </Accordion.Item>
             ))}

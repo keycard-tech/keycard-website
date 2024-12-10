@@ -14,7 +14,7 @@ const featuresMobile = [
         Status supports all Ethereum assets on{' '}
         <Link
           href="https://tokenlists.org/token-list?url=https://ipfs.io/ipns/tokens.uniswap.org"
-          className="underline transition-colors hover:text-orange"
+          className="underline decoration-1 underline-offset-2 transition-colors hover:text-orange"
         >
           Uniswap Labs default token list
         </Link>
@@ -54,7 +54,7 @@ const featuresDesktop = [
         Status supports all Ethereum assets on{' '}
         <Link
           href="https://tokenlists.org/token-list?url=https://ipfs.io/ipns/tokens.uniswap.org"
-          className="underline transition-colors hover:text-orange"
+          className="underline decoration-1 underline-offset-2 transition-colors hover:text-orange"
         >
           Uniswap Labs default token list
         </Link>
