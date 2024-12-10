@@ -1,3 +1,4 @@
+import { ExternalIcon } from '@status-im/icons/20'
 import { Image } from '~components/image'
 import { Link } from '~components/link'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '~components/tabs'
@@ -102,12 +103,22 @@ const Integration = () => {
       <div className="flex justify-center border-y border-y-white-8 bg-white-4 remove-full-view-port lg:full-view-port">
         <div className="w-full max-w-[1512px] p-20 px-0 pb-5 lg:px-20 lg:pb-20">
           <div className="flex max-w-[550px] flex-col gap-2 px-3 pb-8 lg:px-0">
-            <Image
-              width={109}
-              height={32}
-              alt="Status"
-              src="/assets/keycard/status-logo.png"
-            />
+            <div className="flex flex-wrap items-center gap-2">
+              <Image
+                width={109}
+                height={32}
+                alt="Status"
+                src="/assets/keycard/status-logo.png"
+              />
+              {/* TODO add link to future article about beta state of keycard features */}
+              <Link className="group" href="/">
+                <div className="flex items-center gap-1 rounded-16 border border-dashed border-[#FF640020] bg-[#FF640010] py-[5px] pl-4 pr-3 text-14 font-300 text-orange transition-colors group-hover:bg-[#FF640020]">
+                  Keycard features in beta
+                  <span className="hidden lg:block">. Learn more.</span>
+                  <ExternalIcon />
+                </div>
+              </Link>
+            </div>
             <h2 className="pt-1 font-lora text-32 font-400 text-white-95">
               Seamless integration with Status
             </h2>
