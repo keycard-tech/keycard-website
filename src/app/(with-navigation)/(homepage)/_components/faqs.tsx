@@ -27,8 +27,9 @@ const faqs = [
       'Keycard is compatible with various software wallets. Please check our documentation for a full list.',
   },
   {
-    question: 'What happens if I lose access to my Keycard?',
-    answer: 'You can recover your assets using your backup seed phrase.',
+    question: 'Why should I get a Keycard?',
+    answer:
+      'Keycard is a secure, pocket-sized hardware wallet with a provably genuine, immutable chip to protect your digital assets.',
   },
 ]
 
