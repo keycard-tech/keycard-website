@@ -17,44 +17,49 @@ const features: Array<Feature> = [
     desktop: true,
   },
   {
-    name: 'Log in',
-    mobile: true,
-    desktop: true,
-  },
-  {
     name: 'Migrate profile to new card',
     mobile: true,
     desktop: true,
   },
   {
-    name: 'Factory reset',
-    mobile: 'Q4 2024',
+    name: 'Log in',
+    mobile: true,
     desktop: true,
   },
   {
-    name: 'Multiple wallet accounts',
-    mobile: '2025',
+    name: 'Send and Bridge',
+    mobile: true,
+    desktop: true,
+  },
+  {
+    name: 'Swap',
+    mobile: 'Q1 2025',
+    desktop: true,
+  },
+  {
+    name: 'dApp interactions',
+    mobile: 'Q1 2025',
+    desktop: true,
+  },
+  {
+    name: 'Backup',
+    mobile: 'Q1 2025',
     desktop: true,
   },
   {
     name: 'Change PIN',
-    mobile: '2025',
+    mobile: 'Q1 2025',
     desktop: true,
   },
   {
     name: 'Unlock',
-    mobile: '2025',
+    mobile: 'Q1 2025',
     desktop: true,
   },
   {
-    name: 'Back up',
-    mobile: '2025',
+    name: 'Factory reset',
+    mobile: 'Q1 2025',
     desktop: true,
-  },
-  {
-    name: 'Key pair support',
-    mobile: 'Status profile only',
-    desktop: 'Any key pair',
   },
 ] as const
 
@@ -71,7 +76,7 @@ const FeaturesDialog = (props: Props) => {
 
   const [open, setOpen] = useState(false)
 
-  const products: Array<keyof Feature> = ['mobile', 'desktop']
+  const products: Array<keyof Feature> = ['desktop', 'mobile']
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
@@ -90,9 +95,7 @@ const FeaturesDialog = (props: Props) => {
             )}
           >
             <Dialog.Title asChild className="p-6">
-              <h3 className="font-lora text-32">
-                Available features on Status
-              </h3>
+              <h3 className="font-lora text-32">Keycard features on Status</h3>
             </Dialog.Title>
 
             <Dialog.Close asChild>
@@ -109,8 +112,8 @@ const FeaturesDialog = (props: Props) => {
             <div className="px-6 pt-[10px]">
               <div className="grid grid-cols-[1.33fr,1fr,1fr] justify-items-center text-center font-lora text-24 font-400 text-white-90 lg:grid-cols-[2fr,1fr,1fr] lg:text-24">
                 <div className="justify-self-start">Feature</div>
-                <div>Mobile</div>
                 <div>Desktop</div>
+                <div>Mobile</div>
               </div>
               <div className="">
                 {features.map((feature, index) => {
