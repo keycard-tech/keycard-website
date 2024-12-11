@@ -26,7 +26,7 @@ export const metadata = Metadata({
     template: '%s — Keycard',
   },
   description:
-    'Secure crypto wallet for Ethereum & Bitcoin. Open-source, durable, and integrated with Status apps for secure asset management and dApp interactions. From €25.',
+    'Lightweight design, heavyweight security. Open-source, durable, and integrated with Status apps for secure asset management and dApp interactions. From €25.',
 
   alternates: {
     canonical: './',

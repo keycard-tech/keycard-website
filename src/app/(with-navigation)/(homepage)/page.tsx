@@ -12,8 +12,7 @@ import { UseCases } from './_components/use-cases'
 
 export const metadata = Metadata({
   title: {
-    absolute:
-      'Keycard: Secure Crypto & Hardware Wallet - Lightweight, High-Security',
+    absolute: 'Keycard: Secure Crypto & Hardware Wallet',
   },
 })
 
