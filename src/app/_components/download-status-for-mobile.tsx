@@ -13,7 +13,7 @@ type Props = {
 }
 
 const DownloadStatusForMobile = (props: Props) => {
-  const { className, title = 'Download Status for Mobile' } = props
+  const { className, title = 'Download Status for mobile' } = props
 
   return (
     <div

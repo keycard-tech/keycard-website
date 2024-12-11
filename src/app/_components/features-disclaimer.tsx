@@ -15,13 +15,13 @@ const FeaturesDisclaimer = () => {
         <div className="flex items-center gap-1">
           <CustomizeIcon className="shrink-0" />
           <p className="text-14 font-300 text-white-60">
-            View other{' '}
+            Read full{' '}
             <FeaturesDialog>
               <button className="underline transition-colors hover:text-orange">
-                features
+                feature list
               </button>
             </FeaturesDialog>{' '}
-            availalble
+            by platform
           </p>
         </div>
       </div>

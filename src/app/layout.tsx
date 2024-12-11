@@ -1,8 +1,8 @@
 import { cx } from 'cva'
 import { Inter, Lora } from 'next/font/google'
-import './globals.css'
 import { Metadata } from './_metadata'
 import { Providers } from './_providers'
+import './globals.css'
 
 const lora = Lora({
   variable: '--font-lora',
@@ -23,10 +23,10 @@ export const metadata = Metadata({
 
   title: {
     default: 'Keycard',
-    template: '%s - Keycard',
+    template: '%s — Keycard',
   },
   description:
-    'Join the open source revolution of the most modular and future proof hardware wallet system ever conceived.',
+    'Lightweight design, heavyweight security. Open-source, durable, and integrated with Status apps for secure asset management and dApp interactions. From €25.',
 
   alternates: {
     canonical: './',
@@ -50,6 +50,7 @@ export default function RootLayout({ children }: Props) {
           lora.variable,
           inter.variable,
           'bg-dark-100 font-inter text-white-100 antialiased',
+          'selection:bg-orange/[0.8] selection:text-white-100',
         )}
         suppressHydrationWarning
       >

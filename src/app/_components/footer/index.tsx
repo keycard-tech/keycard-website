@@ -5,7 +5,7 @@ import { Section } from './section'
 
 const Footer = () => {
   return (
-    <footer className="mt-auto rounded-28 bg-orange pt-8">
+    <footer className="mt-auto rounded-28 bg-orange pt-8 selection:bg-dark-60">
       <div className="relative">
         <div className="absolute flex items-start pl-6">
           <Link href="/" aria-label="Homepage">
@@ -19,6 +19,7 @@ const Footer = () => {
               title="empty"
               className="border-b border-dashed border-white-20 lg:hidden"
             />
+
             {Object.entries(ROUTES).map(([title, links]) => (
               <Section key={title} title={title} routes={links} />
             ))}

@@ -1,8 +1,8 @@
 export const ROUTES = {
-  Products: [
-    { name: 'Keycard', href: '/keycard' },
-    { name: 'Keycard Shell', href: '/keycard-shell' },
-  ],
+  // Products: [
+  //   { name: 'Keycard', href: '/keycard' },
+  //   { name: 'Keycard Shell', href: '/keycard-shell' },
+  // ],
   Info: [
     { name: 'Get started', href: '/start' },
     { name: 'Documentation', href: '/docs/overview' },
@@ -10,27 +10,26 @@ export const ROUTES = {
   ],
   Contacts: [
     { name: 'Get in touch', href: 'mailto:support@keycard.tech' },
-    { name: 'Discord', href: 'https://discord.com' },
     { name: 'X', href: 'https://x.com/Keycard_' },
   ],
   Legal: [
     { name: 'Privacy policy', href: '/legal/privacy-policy' },
     { name: 'Terms of use', href: '/legal/terms-of-use' },
   ],
-  'Works With': [
-    {
-      name: 'Status',
-      href: 'https://status.app',
-    },
-    {
-      name: 'WallETH',
-      href: 'https://walleth.org',
-    },
-    {
-      name: 'Enno Wallet',
-      href: 'https://ennowallet.com/',
-    },
-  ],
+  // 'Works with': [
+  //   {
+  //     name: 'Status',
+  //     href: 'https://status.app',
+  //   },
+  //   {
+  //     name: 'WallETH',
+  //     href: 'https://walleth.org',
+  //   },
+  //   {
+  //     name: 'Enno Wallet',
+  //     href: 'https://ennowallet.com/',
+  //   },
+  // ],
 } as const
 
 export const STATUS_MOBILE_APP_STORE_URL =
