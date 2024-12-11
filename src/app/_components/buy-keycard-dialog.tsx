@@ -139,7 +139,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
 
   return (
     <div className="grid h-svh grid-cols-1 gap-6 overflow-auto bg-white-4 p-5 backdrop-blur-[20px] lg:h-auto lg:grid-cols-2 lg:overflow-clip lg:rounded-28 lg:border lg:border-white-12 lg:p-2">
-      <div className="hidden h-full rounded-20 bg-dark-100 lg:block">
+      <div className="hidden h-full rounded-20 bg-[#0C0C0C] lg:block">
         <AnimatePresence>
           <motion.div
             key={selectedBundle}
