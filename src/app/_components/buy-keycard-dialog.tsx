@@ -310,13 +310,21 @@ const ShopifyForm = (props: ShopifyFormProps) => {
                 <Tooltip
                   label={
                     <>
-                      <p className="font-400">
-                        For now, some features are only available on Desktop:
+                      <p className="mb-2.5 font-400">
+                        For now, some features are only available via the Status
+                        Desktop app:
                       </p>
-                      <ul className="flex list-disc flex-col gap-0.5 pl-4 pt-2">
-                        <li className="font-300">Something here</li>
-                        <li className="font-300">Amazing feature here</li>
-                        <li className="font-300">Great stuff here</li>
+                      <ul className="grid list-disc gap-0.5 pl-4">
+                        <li className="font-300">
+                          Support for multiple wallet accounts
+                        </li>
+                        <li className="font-300">
+                          Support for non Status profile key pairs
+                        </li>
+                        <li className="font-300">Factory reset</li>
+                        <li className="font-300">Change PIN</li>
+                        <li className="font-300">Unlock</li>
+                        <li className="font-300">Backup</li>
                       </ul>
                     </>
                   }
