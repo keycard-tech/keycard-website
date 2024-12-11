@@ -49,7 +49,7 @@ const Faqs = () => {
   return (
     <section className="mx-auto max-w-[1352px] pt-[144px]">
       <div className="flex flex-col items-start justify-between px-3 lg:flex-row lg:items-end min-[1512px]:px-0">
-        <div className="flex w-full flex-col lg:w-auto">
+        <div className="flex w-full flex-1 flex-col lg:w-auto">
           <div className="flex justify-center pt-[120px] lg:hidden">
             <Image
               src="/assets/faqs-v1.png"
@@ -89,7 +89,7 @@ const Faqs = () => {
                 </Accordion.Header>
                 <Accordion.Content
                   className={cx(
-                    'overflow-hidden text-16 font-300 text-white-80 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown',
+                    'overflow-hidden pr-14 text-16 font-300 text-white-80 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown',
                   )}
                 >
                   <div className="pt-4">{faq.answer}</div>
