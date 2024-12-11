@@ -20,13 +20,13 @@ const SecurityFeatures = () => {
           </div>
           <div className="py-20 pb-6 md:pb-20 md:pl-6 lg:w-1/2 lg:pl-0 lg:pr-[72px]">
             <h2 className="pb-[52px] font-lora text-32 lg:pb-14">
-              Unparalleled security
+              Proudly building in the open
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2">
               <div className="md:border-r md:border-dashed md:border-white-20">
                 <div className="pb-6 md:pb-[28px] md:pl-0 md:pr-6">
                   <h3 className="pb-2 font-lora text-24 font-400 text-white-95">
-                    Best in class chip
+                    Best-in-class chip
                   </h3>
                   <p className="pb-6 text-16 font-300 text-white-60">
                     Keycard secure element has the highest level of
