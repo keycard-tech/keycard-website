@@ -113,7 +113,6 @@ const Integration = () => {
               <Link className="group" href="/">
                 <div className="flex items-center gap-1 rounded-16 border border-dashed border-[#FF640020] bg-[#FF640010] py-[5px] pl-4 pr-3 text-14 font-300 text-orange transition-colors group-hover:bg-[#FF640020]">
                   Keycard features in beta
-                  <span className="hidden lg:block">. Learn more.</span>
                   <ExternalIcon />
                 </div>
               </Link>

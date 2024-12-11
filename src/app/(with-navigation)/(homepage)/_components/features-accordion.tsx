@@ -38,6 +38,7 @@ const useAutoSwitch = (
   interval: number,
   step: number,
   isVisible: boolean,
+  variant: 'desktop' | 'mobile',
 ) => {
   const [value, setValue] = useState(items[0].title)
   const [width, setWidth] = useState(0)
@@ -72,6 +73,13 @@ const useAutoSwitch = (
     }
   }, [isVisible, interval])
 
+  // Change the value if the variant changes
+  useEffect(() => {
+    setValue(items[0].title)
+    setWidth(0)
+    counterRef.current = 0
+  }, [variant, items])
+
   return { value, setValue, width }
 }
 
@@ -85,7 +93,13 @@ const FeaturesAccordion = (props: Props) => {
 
   const isVisible = !!entry?.isIntersecting
 
-  const { value, setValue, width } = useAutoSwitch(items, 16000, 50, isVisible)
+  const { value, setValue, width } = useAutoSwitch(
+    items,
+    16000,
+    50,
+    isVisible,
+    variant,
+  )
 
   const selected = items.find(item => item.title === value)!
 
