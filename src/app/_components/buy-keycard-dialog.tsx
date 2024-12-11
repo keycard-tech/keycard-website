@@ -393,7 +393,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
 
               <div className="flex items-center">
                 <WorldIcon className="mr-1 shrink-0 text-white-95" />
-                Delivery estimate: 3-5 business days
+                Express shipping (3-5 days) available
               </div>
             </div>
           </div>
