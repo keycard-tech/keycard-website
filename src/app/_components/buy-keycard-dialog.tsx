@@ -24,6 +24,7 @@ import type { SubmitHandler } from 'react-hook-form'
 import { z } from 'zod'
 import { KEYCARD_PRODUCTS } from '../_constants/shopify/products'
 import { useShopifyUTMParamsContext } from '../_providers/shopify-utm-params-provider'
+import { formatPrice } from '../_utils/format-price'
 import { createCart } from '../actions'
 import { Button } from './button'
 import * as Dialog from './dialog'
@@ -40,43 +41,9 @@ const shopifySchema = z
 
 type Shopify = z.infer<typeof shopifySchema>
 
-type Bundle = {
-  id: Shopify['bundleId']
-  name: string
-  price: number
-  cards: number
-  image: string
-  tag?: string
-}
-
 type Props = {
   children: React.ReactElement
 }
-
-const bundles: Bundle[] = [
-  {
-    id: 'THREE_CARDS_SET',
-    name: '3 card set',
-    price: 64,
-    cards: 3,
-    image: '/assets/buy/3-card.png',
-    tag: 'Best deal',
-  },
-  {
-    id: 'TWO_CARDS_SET',
-    name: '2 card set',
-    price: 48,
-    cards: 2,
-    image: '/assets/buy/2-card.png',
-  },
-  {
-    id: 'ONE_CARD_SET',
-    name: '1 card set',
-    price: 25,
-    cards: 1,
-    image: '/assets/buy/1-card.png',
-  },
-] as const
 
 const BuyKeycardDialog = (props: Props) => {
   const { children } = props
@@ -164,14 +131,14 @@ const ShopifyForm = (props: ShopifyFormProps) => {
   })
 
   const total = useMemo(() => {
-    const bundlePrice = bundles.find(b => b.id === selectedBundle)?.price || 0
+    const bundlePrice = KEYCARD_PRODUCTS[selectedBundle].price
     const readerPrice = 0 // includeReader ? 22 : 0
 
     return bundlePrice * quantity + readerPrice
   }, [selectedBundle, quantity])
 
   return (
-    <div className="grid h-svh grid-cols-1 gap-6 overflow-auto bg-white-4 p-5 backdrop-blur-[20px] lg:h-auto lg:grid-cols-2 lg:rounded-28 lg:border lg:border-white-12 lg:p-2">
+    <div className="grid h-svh grid-cols-1 gap-6 overflow-auto bg-white-4 p-5 backdrop-blur-[20px] lg:h-auto lg:grid-cols-2 lg:overflow-clip lg:rounded-28 lg:border lg:border-white-12 lg:p-2">
       <div className="hidden h-full rounded-20 bg-dark-100 lg:block">
         <AnimatePresence>
           <motion.div
@@ -183,8 +150,8 @@ const ShopifyForm = (props: ShopifyFormProps) => {
           >
             <Image
               className="w-auto"
-              src={bundles.find(b => b.id === selectedBundle)!.image}
-              alt={`${bundles.find(b => b.id === selectedBundle)!.name} keycard`}
+              src={KEYCARD_PRODUCTS[selectedBundle].image}
+              alt={`${KEYCARD_PRODUCTS[selectedBundle].name} keycard`}
               width={400}
               height={300}
               priority
@@ -215,46 +182,55 @@ const ShopifyForm = (props: ShopifyFormProps) => {
             </h3>
 
             <div className="grid grid-cols-3 gap-4 lg:gap-6">
-              {bundles.map(bundle => {
-                const selected = selectedBundle === bundle.id
+              {Object.entries(KEYCARD_PRODUCTS)
+                .filter(([title]) => title !== 'READER')
+                .map(([title, product]) => {
+                  const selected = selectedBundle === title
 
-                return (
-                  <button
-                    key={bundle.id}
-                    type="button"
-                    onClick={() => {
-                      setValue('bundleId', bundle.id)
-                    }}
-                    className={cx(
-                      'relative flex flex-col items-start justify-between rounded-20 bg-white-4 px-4 py-3 text-left transition-colors duration-300 hover:[&>span]:-left-1 hover:[&>span]:-top-1 hover:[&>span]:size-[calc(100%+8px)] hover:[&>span]:rounded-[24px]',
-                      selected ? 'outline outline-4 outline-[transparent]' : '',
-                    )}
-                  >
-                    <span
-                      className={cx([
-                        'absolute z-0 border transition-all',
+                  console.log('selectedBundle', selectedBundle)
+
+                  return (
+                    <button
+                      key={title}
+                      type="button"
+                      onClick={() => {
+                        setValue('bundleId', title as Shopify['bundleId'])
+                      }}
+                      className={cx(
+                        'relative flex flex-col items-start justify-between rounded-20 bg-white-4 px-4 py-3 text-left transition-colors duration-300 hover:[&>span]:-left-1 hover:[&>span]:-top-1 hover:[&>span]:size-[calc(100%+8px)] hover:[&>span]:rounded-[24px]',
                         selected
-                          ? '-left-1 -top-1 size-[calc(100%+8px)] rounded-[24px] border-orange-dark'
-                          : 'left-0 top-0 size-full rounded-20 border-white-12',
-                      ])}
-                    />
-
-                    <div className="font-300 text-white-60">
-                      {bundle.cards} card set
-                    </div>
-                    <div className="flex w-full items-center justify-between font-lora text-24 font-400">
-                      ${bundle.price}
-                      {bundle.tag && (
-                        <Tooltip label="Best deal">
-                          <div className="z-50 flex size-5 items-center justify-center rounded-full bg-orange">
-                            <RecommendedIcon />
-                          </div>
-                        </Tooltip>
+                          ? 'outline outline-4 outline-[transparent]'
+                          : '',
                       )}
-                    </div>
-                  </button>
-                )
-              })}
+                    >
+                      <span
+                        className={cx([
+                          'absolute z-0 border transition-all',
+                          selected
+                            ? '-left-1 -top-1 size-[calc(100%+8px)] rounded-[24px] border-orange-dark'
+                            : 'left-0 top-0 size-full rounded-20 border-white-12',
+                        ])}
+                      />
+
+                      <div className="font-300 text-white-60">
+                        {product.cards} card set
+                      </div>
+                      <div className="flex w-full items-center justify-between font-lora text-24 font-400">
+                        {formatPrice({
+                          amount: Number(product.price),
+                        })}
+                        {!!product.tag && (
+                          <Tooltip label={product.tag}>
+                            <div className="z-50 flex size-5 items-center justify-center rounded-full bg-orange">
+                              <RecommendedIcon />
+                            </div>
+                          </Tooltip>
+                        )}
+                      </div>
+                    </button>
+                  )
+                })
+                .reverse()}
             </div>
           </div>
 
@@ -336,7 +312,12 @@ const ShopifyForm = (props: ShopifyFormProps) => {
               </div>
               <div className="flex gap-2 text-16 font-300 text-white-80">
                 <span className="text-green">Free</span>
-                <span className="line-through">$22</span>
+                <span className="line-through">
+                  {' '}
+                  {formatPrice({
+                    amount: Number(KEYCARD_PRODUCTS.READER.price),
+                  })}
+                </span>
               </div>
             </div>
           </div>
@@ -350,8 +331,10 @@ const ShopifyForm = (props: ShopifyFormProps) => {
                 <LoadingIcon className="my-px animate-spin text-white-100" />
               ) : (
                 <>
-                  Checkout <div className="size-1 rounded-full bg-white-40" /> $
-                  {total}
+                  Checkout <div className="size-1 rounded-full bg-white-40" />
+                  {formatPrice({
+                    amount: total,
+                  })}
                 </>
               )}
             </Button>

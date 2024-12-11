@@ -1,3 +1,5 @@
+import { KEYCARD_PRODUCTS } from '~/app/_constants/shopify/products'
+import { formatPrice } from '~/app/_utils/format-price'
 import { Button } from '~components/button'
 import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
 import { Image } from '~components/image'
@@ -5,12 +7,6 @@ import { RecommendedIcon } from '~icons/recommended'
 import { cx } from 'cva'
 import { Card } from './card'
 import { LinearGradientMobile } from './linear-gradients'
-
-const cardSets = [
-  { count: 3, price: 64, recommended: true },
-  { count: 2, price: 48 },
-  { count: 1, price: 25 },
-]
 
 const useCases = [
   {
@@ -57,24 +53,29 @@ const UseCases = () => {
         </div>
 
         <div className="flex justify-start gap-3 py-14 lg:justify-center lg:pb-20">
-          {cardSets.map((set, index) => (
-            <div
-              key={index}
-              className="flex w-40 flex-col justify-between rounded-20 border border-white-12 bg-white-4 px-4 py-3"
-            >
-              <span className="text-left text-16 font-300 text-white-60">
-                {set.count} card set
-              </span>
-              <div className="flex w-full items-center justify-between font-lora text-24 font-400">
-                ${set.price}
-                {set.recommended && (
-                  <span className="flex size-5 items-center justify-center rounded-full bg-orange">
-                    <RecommendedIcon />
-                  </span>
-                )}
+          {Object.entries(KEYCARD_PRODUCTS)
+            .filter(([title]) => title !== 'READER')
+            .map(([title, set], index) => (
+              <div
+                key={title}
+                className="flex w-40 flex-col justify-between rounded-20 border border-white-12 bg-white-4 px-4 py-3"
+              >
+                <span className="text-left text-16 font-300 text-white-60">
+                  {index + 1} card set
+                </span>
+                <div className="flex w-full items-center justify-between font-lora text-24 font-400">
+                  {formatPrice({
+                    amount: Number(set.price),
+                  })}
+                  {!!set.tag && (
+                    <span className="flex size-5 items-center justify-center rounded-full bg-orange">
+                      <RecommendedIcon />
+                    </span>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+            .reverse()}
         </div>
 
         {/* Desktop Layout */}

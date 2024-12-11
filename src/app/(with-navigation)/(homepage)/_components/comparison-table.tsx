@@ -4,6 +4,8 @@ import {
   InfoIcon,
   RemoveIcon,
 } from '@status-im/icons/20'
+import { KEYCARD_PRODUCTS } from '~/app/_constants/shopify/products'
+import { formatPrice } from '~/app/_utils/format-price'
 import { Tag } from '~components/tag'
 import { Tooltip } from '~components/tooltip'
 import { createElement } from 'react'
@@ -12,13 +14,19 @@ const features: Array<Feature> = [
   {
     name: 'Competitive pricing',
     keycard: {
-      label: '$25',
+      label: formatPrice({
+        amount: KEYCARD_PRODUCTS.ONE_CARD_SET.price,
+      }),
     },
     tangem: {
-      label: '$55',
+      label: formatPrice({
+        amount: 55,
+      }),
     },
     ledger: {
-      label: '$80',
+      label: formatPrice({
+        amount: 80,
+      }),
     },
   },
   {
