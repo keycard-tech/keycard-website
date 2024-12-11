@@ -128,12 +128,15 @@ export default {
           to: { opacity: '1', transform: 'translateY(0)' },
         },
         slideDown: {
-          from: { height: '0px' },
-          to: { height: 'var(--radix-accordion-content-height)' },
+          from: { height: '0px', opacity: '0' },
+          to: { height: 'var(--radix-accordion-content-height)', opacity: '1' },
         },
         slideUp: {
-          from: { height: 'var(--radix-accordion-content-height)' },
-          to: { height: '0px' },
+          from: {
+            height: 'var(--radix-accordion-content-height)',
+            opacity: '1',
+          },
+          to: { height: '0px', opacity: '0' },
         },
         overlayShow: {
           from: { opacity: '0' },
