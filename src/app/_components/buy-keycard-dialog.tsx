@@ -281,7 +281,7 @@ const ShopifyForm = (props: ShopifyFormProps) => {
                   className="ml-3 mr-2 text-16 font-300 text-white-95"
                   htmlFor="includeKeycardReader"
                 >
-                  Include USB-C Keycard reader
+                  Include Keycard Reader (USB-C)
                 </label>
                 <Tooltip
                   label={
