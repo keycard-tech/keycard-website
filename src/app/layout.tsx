@@ -26,7 +26,7 @@ export const metadata = Metadata({
     template: '%s — Keycard',
   },
   description:
-    'Trade swiftly and safely back up your assets with Keycard hardware wallets.',
+    'Secure crypto wallet for Ethereum & Bitcoin. Open-source, durable, and integrated with Status apps for secure asset management and dApp interactions. From €25.',
 
   alternates: {
     canonical: './',
