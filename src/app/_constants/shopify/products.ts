@@ -1,6 +1,7 @@
 export const KEYCARD_PRODUCTS = {
   ONE_CARD_SET: {
     productId: 'gid://shopify/ProductVariant/43948807127304',
+    variantId: '43948807127304',
     name: '1 card set',
     price: 25,
     cards: 1,
@@ -9,6 +10,7 @@ export const KEYCARD_PRODUCTS = {
   },
   TWO_CARDS_SET: {
     productId: 'gid://shopify/ProductVariant/50316052529416',
+    variantId: '50316052529416',
     name: '2 card set',
     price: 45,
     cards: 2,
@@ -17,7 +19,7 @@ export const KEYCARD_PRODUCTS = {
   },
   THREE_CARDS_SET: {
     productId: 'gid://shopify/ProductVariant/50329773539592',
-
+    variantId: '50329773539592',
     name: '3 card set',
     price: 60,
     cards: 3,
@@ -26,6 +28,7 @@ export const KEYCARD_PRODUCTS = {
   },
   READER: {
     productId: 'gid://shopify/ProductVariant/50331110965512',
+    variantId: '50331110965512',
     name: 'Reader',
     price: 22,
     cards: null,

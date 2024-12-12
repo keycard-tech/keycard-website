@@ -12,27 +12,22 @@ import {
   RemoveIcon,
   WorldIcon,
 } from '@status-im/icons/20'
-import { CartInput } from '~/server/shopify/storefront/validation'
 import { Image } from '~components/image'
 import { RecommendedIcon } from '~icons/recommended'
 import { cx } from 'cva'
 import { AnimatePresence, motion } from 'framer-motion'
-import { useRouter } from 'next/navigation'
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { useController, useForm } from 'react-hook-form'
-import type { SubmitHandler } from 'react-hook-form'
-import { useDebouncedCallback } from 'use-debounce'
 import { z } from 'zod'
 import { KEYCARD_PRODUCTS } from '../_constants/shopify/products'
 import { useShopifyUTMParamsContext } from '../_providers/shopify-utm-params-provider'
 import { formatPrice } from '../_utils/format-price'
-import { createCart as _createCart } from '../actions'
 import { Button } from './button'
 import * as Dialog from './dialog'
 import { Form } from './form/form'
 import { Tooltip } from './tooltip'
 
-const shopifySchema = z
+const formSchema = z
   .object({
     bundleId: z.enum(['ONE_CARD_SET', 'TWO_CARDS_SET', 'THREE_CARDS_SET']),
     quantity: z.number(),
@@ -40,7 +35,24 @@ const shopifySchema = z
   })
   .required()
 
-type Shopify = z.infer<typeof shopifySchema>
+type FormValues = z.infer<typeof formSchema>
+
+function createCheckoutUrl(values: FormValues, utmParams: URLSearchParams) {
+  const url = new URL(
+    `https://get.keycard.tech/cart/${KEYCARD_PRODUCTS[values.bundleId].variantId}:${values.quantity}`,
+  )
+
+  if (values.includeKeycardReader) {
+    const readerVariant = `${KEYCARD_PRODUCTS.READER.variantId}:1`
+    url.pathname += `,${readerVariant}`
+  }
+
+  utmParams.forEach((value, key) => {
+    url.searchParams.append(key, value)
+  })
+
+  return url.toString()
+}
 
 type Props = {
   children?: React.ReactElement
@@ -75,8 +87,8 @@ const BuyKeycardDialog = (props: Props) => {
 export { BuyKeycardDialog }
 
 const ShopifyForm = () => {
-  const form = useForm<Shopify>({
-    resolver: zodResolver(shopifySchema),
+  const form = useForm<FormValues>({
+    resolver: zodResolver(formSchema),
     defaultValues: {
       bundleId: 'THREE_CARDS_SET',
       includeKeycardReader: true,
@@ -87,37 +99,10 @@ const ShopifyForm = () => {
   const { formState, watch, setValue } = form
   const { isSubmitting } = formState
 
-  const [shopifyCartUrl, setShopifyCartUrl] = useState<string>()
   const utmParams = useShopifyUTMParamsContext()
-  const router = useRouter()
-
-  const debounced = useDebouncedCallback(data => {
-    createCart(data, utmParams, setShopifyCartUrl)
-  }, 2 * 1000)
-
-  useEffect(() => {
-    createCart(form.getValues(), utmParams, setShopifyCartUrl)
-
-    const subscription = watch(data => {
-      debounced(data)
-    })
-
-    return () => subscription.unsubscribe()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-  const submitHandler: SubmitHandler<Shopify> = () => {
-    if (!shopifyCartUrl) {
-      return
-    }
-
-    window.open(shopifyCartUrl, '_blank', 'noopener')
-    router.push('/thank-you')
-  }
 
   const selectedBundle = watch('bundleId')
   const quantity = watch('quantity')
-  // const includeReader = watch('includeKeycardReader')
 
   const { field } = useController({
     control: form.control,
@@ -168,7 +153,7 @@ const ShopifyForm = () => {
           </Dialog.Close>
         </div>
 
-        <Form {...form} onSubmit={submitHandler}>
+        <Form {...form} onSubmit={() => {}}>
           <div className="pt-12 lg:pt-10">
             <h3 className="pb-2 text-12 text-white-80 lg:pb-3">
               SELECT BUNDLE
@@ -187,7 +172,7 @@ const ShopifyForm = () => {
                       key={title}
                       type="button"
                       onClick={() => {
-                        setValue('bundleId', title as Shopify['bundleId'])
+                        setValue('bundleId', title as FormValues['bundleId'])
                       }}
                       className={cx(
                         'relative flex flex-col items-start justify-between rounded-20 bg-white-4 px-4 py-3 text-left transition-colors duration-300 hover:[&>span]:-left-1 hover:[&>span]:-top-1 hover:[&>span]:size-[calc(100%+8px)] hover:[&>span]:rounded-[24px]',
@@ -316,9 +301,14 @@ const ShopifyForm = () => {
           </div>
           <div className="rounded-16 border border-white-12 bg-white-4 p-1">
             <Button
-              type="submit"
               className="w-full justify-center font-500"
-              disabled={debounced.isPending() || !shopifyCartUrl}
+              onClick={() => {
+                const checkoutUrl = createCheckoutUrl(
+                  form.getValues(),
+                  utmParams,
+                )
+                window.open(checkoutUrl, '_blank', 'noopener')
+              }}
             >
               {isSubmitting ? (
                 <LoadingIcon className="my-px animate-spin text-white-100" />
@@ -377,33 +367,4 @@ const ShopifyForm = () => {
       </div>
     </div>
   )
-}
-
-async function createCart(
-  data: Shopify,
-  utmParams: URLSearchParams,
-  setShopifyCartUrl: (url: string) => void,
-) {
-  const products: CartInput = [
-    {
-      productId: KEYCARD_PRODUCTS[data.bundleId].productId,
-      quantity: data.quantity,
-    },
-  ]
-
-  if (data.includeKeycardReader) {
-    products.push({
-      productId: KEYCARD_PRODUCTS.READER.productId,
-      quantity: 1,
-    })
-  }
-
-  const shopifyCartUrl = await _createCart(products)
-  const url = new URL(shopifyCartUrl)
-
-  utmParams.forEach((value, key) => {
-    url.searchParams.append(key, value)
-  })
-
-  setShopifyCartUrl(url.toString())
 }
