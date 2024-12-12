@@ -7,7 +7,7 @@ import { cx } from 'cva'
 
 const Prefooter = () => {
   return (
-    <section className="relative flex flex-col px-6 full-view-port lg:flex-row lg:px-14 lg:pt-[200px] lg:remove-full-view-port xl:pl-[309px]">
+    <section className="relative flex flex-col overflow-hidden px-6 lg:flex-row lg:px-14 lg:pt-[200px] xl:pl-[309px]">
       <div className="relative z-20 flex flex-1 flex-col items-start pb-[120px] pt-[320px] text-left lg:py-[200px]">
         <p className="pb-2 text-24 font-600 text-orange">keycard</p>
         <h2 className="flex pb-4 font-lora text-32 font-400 text-white-95 md:text-48">
@@ -33,7 +33,7 @@ const Prefooter = () => {
         </div>
       </div>
       <div className="order-1 flex lg:relative lg:right-[-20px] lg:order-2">
-        <div className="absolute bottom-0 z-10 block h-1/2 w-full -translate-y-1 bg-gradient-to-t from-dark-100 to-[transparent] lg:h-40" />
+        <div className="absolute bottom-0 z-10 block h-1/2 w-full -translate-y-1 bg-gradient-to-t from-dark-100 to-[transparent] lg:hidden" />
         <Image
           src="/assets/keycard/pre-footer.png"
           alt="Keycard"
@@ -41,11 +41,21 @@ const Prefooter = () => {
           height={712}
           draggable={false}
           className={cx([
-            'pointer-events-none absolute left-1/2 top-12 z-0 h-auto max-w-[549px] -translate-x-1/2 select-none lg:relative lg:left-auto lg:top-auto lg:translate-x-0',
+            'pointer-events-none absolute left-1/2 top-12 z-0 block h-auto max-w-[549px] -translate-x-1/2 select-none lg:relative lg:left-auto lg:top-auto lg:hidden lg:translate-x-0',
             'aspect-[744/712] object-contain',
           ])}
         />
       </div>
+      <div className="absolute bottom-0 z-10 hidden h-40 w-full -translate-y-1 bg-gradient-to-t from-dark-100 to-[transparent] lg:block" />
+      <div className="absolute bottom-0 right-0 z-10 hidden h-full w-28 bg-gradient-to-r from-[transparent] to-dark-100 lg:block" />
+      <Image
+        src="/assets/keycard/pre-footer-raw.png"
+        alt="Keycard"
+        width={1387}
+        height={912}
+        draggable={false}
+        className="pointer-events-none absolute bottom-0 right-0 z-0 hidden max-h-[912px] w-full translate-x-44 select-none object-contain lg:block"
+      />
     </section>
   )
 }

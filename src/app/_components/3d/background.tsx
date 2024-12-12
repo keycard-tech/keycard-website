@@ -8,12 +8,135 @@ import {
   Vignette,
 } from '@react-three/postprocessing'
 import { useIntersectionObserver } from '~/app/_hooks/use-intersection-observer'
+import { useWindowFocus } from '~/app/_hooks/use-window-focus'
 import { Image } from '~components/image'
 import { motion } from 'framer-motion'
 import { useRef, useState } from 'react'
 import { KeycardModel } from './model'
 
-const Background = () => {
+const cardsPositions: Record<
+  Props['variant'],
+  Array<{
+    position: [number, number, number]
+    rotation: [number, number, number]
+    speed: number
+    scale?: number
+  }>
+> = {
+  'thank-you': [
+    {
+      position: [25, 25, -38],
+      rotation: [-0.3, 0.4, -0.8],
+      speed: 5.3,
+    },
+    {
+      position: [60, 45, -68],
+      rotation: [1, 0, 0],
+      speed: 5.3,
+    },
+    {
+      position: [0, 15, -15],
+      rotation: [-0.3, -0.6, 2.4],
+      speed: 1.4,
+    },
+    {
+      position: [14, 4, -15],
+      rotation: [0, 0, 0.6],
+      speed: 2.3,
+    },
+    {
+      position: [42, 4, -30],
+      rotation: [0, 0.4, 1.2],
+      speed: 2.3,
+      scale: 1.4,
+    },
+    {
+      position: [-20.5, 0, -27.5],
+      rotation: [-1.1, 0.8, -0.6],
+      speed: 2.75,
+    },
+    {
+      position: [-23, 12, -30],
+      rotation: [0.5, 0.4, 0.6],
+      speed: 1.45,
+    },
+    {
+      position: [-50.9, 20, -40],
+      rotation: [0, 0, 0.6],
+      speed: 4.25,
+    },
+    {
+      position: [-20.9, 35, -40],
+      rotation: [-1.3, -0.8, 0.6],
+      speed: 4.25,
+    },
+    {
+      position: [-107.9, 10, -80],
+      rotation: [2, 0, 0.6],
+      speed: 2.25,
+    },
+  ],
+  homepage: [
+    {
+      position: [25, 25, -38],
+      rotation: [-0.3, 0.4, -0.8],
+      speed: 5.3,
+    },
+    {
+      position: [60, 45, -68],
+      rotation: [1, 0, 0],
+      speed: 5.3,
+    },
+    {
+      position: [0, 15, -15],
+      rotation: [-0.3, -0.6, 2.4],
+      speed: 1.4,
+    },
+    {
+      position: [7, 4, -15],
+      rotation: [0, 0, 0.6],
+      speed: 2.3,
+    },
+    {
+      position: [42, 4, -30],
+      rotation: [0, 0.4, 1.2],
+      speed: 2.3,
+      scale: 1.4,
+    },
+    {
+      position: [-7.5, 8, -27.5],
+      rotation: [-1.1, 0.8, -0.6],
+      speed: 2.75,
+    },
+    {
+      position: [-23, 12, -30],
+      rotation: [0.5, 0.4, 0.6],
+      speed: 1.45,
+    },
+    {
+      position: [-50.9, 20, -40],
+      rotation: [0, 0, 0.6],
+      speed: 4.25,
+    },
+    {
+      position: [-20.9, 35, -40],
+      rotation: [-1.3, -0.8, 0.6],
+      speed: 4.25,
+    },
+    {
+      position: [-107.9, 10, -80],
+      rotation: [2, 0, 0.6],
+      speed: 2.25,
+    },
+  ],
+}
+
+type Props = {
+  variant: 'thank-you' | 'homepage'
+}
+
+const Background = (props: Props) => {
+  const { variant } = props
   const [isMounted, setIsMounted] = useState(false)
 
   const wrapperRef = useRef<HTMLDivElement | null>(null)
@@ -22,6 +145,7 @@ const Background = () => {
   })
 
   const isVisible = !!entry?.isIntersecting
+  const isFocused = useWindowFocus()
 
   return (
     <div className="absolute size-full">
@@ -35,8 +159,12 @@ const Background = () => {
       >
         <Image
           priority
-          src="/assets/placeholder.png"
-          alt="Keycard Placholder"
+          src={
+            variant === 'homepage'
+              ? '/assets/placeholder.png'
+              : '/assets/placeholder-thank-you.png'
+          }
+          alt="Keycard Placeholder"
           width={5478}
           height={2166}
           className="aspect-[5478/2166] h-[74.5%] w-full object-cover blur-2xl"
@@ -44,7 +172,10 @@ const Background = () => {
       </motion.div>
       <motion.div
         ref={wrapperRef}
-        animate={{ opacity: isMounted ? 1 : 0, y: isMounted ? 0 : 20 }}
+        animate={{
+          opacity: isMounted ? 1 : 0,
+          y: isMounted ? 0 : 20,
+        }}
         transition={{
           duration: 0.3,
           ease: 'easeInOut',
@@ -52,7 +183,7 @@ const Background = () => {
         className="absolute left-0 top-0 z-0 size-full"
       >
         <Canvas
-          frameloop={isVisible ? 'always' : 'demand'}
+          frameloop={isVisible && isFocused ? 'always' : 'demand'}
           onCreated={() => {
             setIsMounted(true)
           }}
@@ -79,36 +210,14 @@ const Background = () => {
           </EffectComposer>
 
           <group scale={2} position={[0, -10, 0]}>
-            <group position={[25, 25, -38]}>
-              <KeycardModel initialRotation={[-0.3, 0.4, -0.8]} speed={5.3} />
-            </group>
-            <group position={[60, 45, -68]}>
-              <KeycardModel initialRotation={[1, 0, 0]} speed={5.3} />
-            </group>
-            <group position={[0, 15, -15]}>
-              <KeycardModel initialRotation={[-0.3, -0.6, 2.4]} speed={1.4} />
-            </group>
-            <group position={[7, 4, -15]}>
-              <KeycardModel initialRotation={[0, 0, 0.6]} speed={2.3} />
-            </group>
-            <group position={[42, 4, -30]} scale={1.4}>
-              <KeycardModel initialRotation={[0, 0.4, 1.2]} speed={2.3} />
-            </group>
-            <group position={[-7.5, 8, -27.5]}>
-              <KeycardModel initialRotation={[-1.1, 0.8, -0.6]} speed={2.75} />
-            </group>
-            <group position={[-23, 12, -30]}>
-              <KeycardModel initialRotation={[0.5, 0.4, 0.6]} speed={1.45} />
-            </group>
-            <group position={[-50.9, 20, -40]}>
-              <KeycardModel initialRotation={[0, -0, 0.6]} speed={4.25} />
-            </group>
-            <group position={[-20.9, 35, -40]}>
-              <KeycardModel initialRotation={[-1.3, -0.8, 0.6]} speed={4.25} />
-            </group>
-            <group position={[-107.9, 10, -80]}>
-              <KeycardModel initialRotation={[2, -0, 0.6]} speed={2.25} />
-            </group>
+            {cardsPositions[variant].map((card, index) => (
+              <group key={index} position={card.position} scale={card.scale}>
+                <KeycardModel
+                  initialRotation={card.rotation}
+                  speed={card.speed}
+                />
+              </group>
+            ))}
           </group>
         </Canvas>
       </motion.div>

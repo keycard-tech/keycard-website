@@ -339,14 +339,8 @@ const ShopifyForm = () => {
                 height={32}
               />
               <Image
-                src="/assets/buy/apple-pay.png"
-                alt="Apple Pay"
-                width={52}
-                height={32}
-              />
-              <Image
-                src="/assets/buy/google-pay.png"
-                alt="Google Pay"
+                src="/assets/buy/amex.png"
+                alt="American Express"
                 width={52}
                 height={32}
               />
