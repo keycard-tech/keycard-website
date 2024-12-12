@@ -1,4 +1,5 @@
 import { Metadata } from '~/app/_metadata'
+import { AutoOpenBuyKeycardDialog } from './_components/auto-open-buy-keycard-dialog'
 import { ComparisonTable } from './_components/comparison-table'
 import { Customisation } from './_components/customisation'
 import { Design } from './_components/design'
@@ -16,9 +17,10 @@ export const metadata = Metadata({
   },
 })
 
-export default async function HomePage() {
+export default function HomePage() {
   return (
     <>
+      <AutoOpenBuyKeycardDialog />
       <Hero />
       <SecurityFeatures />
       <Design />

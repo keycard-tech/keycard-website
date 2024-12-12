@@ -2,8 +2,6 @@
 
 import { addRowToSheet } from '~/app/_lib/google/sign-up'
 import { signUpSchema } from '~/app/_lib/google/validation'
-import { createCart } from '~/server/shopify/storefront'
-import { CartInput } from '~/server/shopify/storefront/validation'
 import { z } from 'zod'
 
 export async function handleSignUp(input: { email: string }) {
@@ -23,9 +21,3 @@ export async function handleSignUp(input: { email: string }) {
     }
   }
 }
-
-async function _createCart(input: CartInput) {
-  return await createCart(input)
-}
-
-export { _createCart as createCart }

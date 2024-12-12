@@ -1,7 +1,6 @@
 import 'server-only'
-import { CartMutation, ProductsQuery } from './operations'
-import { CartResponseBody, ProductsResponseBody } from './types'
-import { CartInput, cartSchema } from './validation'
+import { ProductsQuery } from './operations'
+import { ProductsResponseBody } from './types'
 
 export async function experimental_getProducts() {
   const response = await _fetch<ProductsResponseBody>(ProductsQuery)
@@ -24,26 +23,7 @@ export async function experimental_getProducts() {
   return products
 }
 
-export async function createCart(input: CartInput): Promise<string> {
-  const products = cartSchema.parse(input).map(({ productId, quantity }) => ({
-    merchandiseId: productId,
-    quantity,
-  }))
-
-  const response = await _fetch<CartResponseBody>(CartMutation, {
-    lines: products,
-  })
-
-  const checkoutUrl = response.cartCreate?.cart?.checkoutUrl
-
-  if (!checkoutUrl) {
-    throw new Error('Failed to create cart')
-  }
-
-  return checkoutUrl
-}
-
-export async function _fetch<T extends ProductsResponseBody | CartResponseBody>(
+export async function _fetch<T extends ProductsResponseBody>(
   query: string,
   variables?: Record<string, unknown>,
 ): Promise<T> {
