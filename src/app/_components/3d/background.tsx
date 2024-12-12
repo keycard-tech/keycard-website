@@ -134,6 +134,7 @@ const cardsPositions: Record<
 type Props = {
   variant: 'thank-you' | 'homepage'
 }
+
 const Background = (props: Props) => {
   const { variant } = props
   const [isMounted, setIsMounted] = useState(false)
