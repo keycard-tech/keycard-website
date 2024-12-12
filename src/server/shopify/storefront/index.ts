@@ -23,7 +23,7 @@ export async function experimental_getProducts() {
   return products
 }
 
-export async function _fetch<T extends ProductsResponseBody | CartResponseBody>(
+export async function _fetch<T extends ProductsResponseBody>(
   query: string,
   variables?: Record<string, unknown>,
 ): Promise<T> {
