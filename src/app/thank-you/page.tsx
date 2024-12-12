@@ -1,3 +1,5 @@
+'use client'
+
 import { Background } from '~components/3d/background'
 import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
@@ -5,8 +7,13 @@ import { GetNotifiedDialog } from '~components/get-notified-dialog'
 import { Link } from '~components/link'
 import { Logo } from '~components/logo'
 import { cx } from 'cva'
+import { useSearchParams } from 'next/navigation'
 
-export default async function ThankyouPage() {
+export default function ThankyouPage() {
+  const searchParams = useSearchParams()
+
+  const checkoutUrl = searchParams.get('checkoutUrl') ?? '/?buyKeycard=true'
+
   return (
     <div className="relative flex min-h-[calc(100svh-16px)] flex-col justify-center overflow-clip">
       <Link
@@ -25,14 +32,16 @@ export default async function ThankyouPage() {
             </h3>
 
             <p className="max-w-[490px] pb-8 text-center text-20 font-300 text-white-80">
-              You will be redirected to the checkout experience. If you don’t,
-              please{' '}
+              You will be redirected to the checkout experience.
+              <br />
+              If you don’t, please{' '}
               <Link
-                href="/"
-                className="underline transition-colors hover:!text-white-95"
+                href={checkoutUrl}
+                className="underline decoration-1 underline-offset-[3px] transition-colors hover:!text-white-95"
               >
-                press here.
+                press here
               </Link>
+              .
             </p>
             <ButtonLink variant="secondary" href="/">
               Take me home
