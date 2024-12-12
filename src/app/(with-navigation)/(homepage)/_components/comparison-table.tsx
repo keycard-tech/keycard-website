@@ -43,7 +43,7 @@ const features: Array<Feature> = [
   },
   {
     name: 'Hardware-level protection',
-    tooltip: 'Security certification level',
+    // tooltip: 'Security certification level',
     keycard: { badge: { text: 'EAL 6+', gradient: true, icon: FirmwareIcon } },
     tangem: { badge: { text: 'EAL 6+', gradient: true, icon: FirmwareIcon } },
     ledger: { badge: { text: 'EAL 5+' } },
@@ -76,16 +76,16 @@ const features: Array<Feature> = [
     name: 'Many cards, many keys',
     keycard: {
       featured: true,
-      tooltip: 'No limit on master keys',
+      // tooltip: 'No limit on master keys',
     },
     tangem: {
       featured: true,
-      tooltip: 'No limit on master keys',
+      // tooltip: 'No limit on master keys',
     },
     ledger: {
       featured: false,
     },
-    tooltip: 'No limit on master keys',
+    // tooltip: 'No limit on master keys',
   },
   {
     name: 'Easy back up of master keys',
