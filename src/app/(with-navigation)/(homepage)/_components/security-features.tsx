@@ -7,7 +7,7 @@ import { Tag } from '~components/tag'
 const SecurityFeatures = () => {
   return (
     <section className="relative mt-[100px] overflow-clip px-3 lg:mt-[227px] lg:px-0">
-      <div className="rounded-28 border border-white-8 bg-white-4 px-6 md:px-0">
+      <div className="rounded-28 border border-white-8 bg-white-4 px-6 md:px-2">
         <div className="flex flex-col items-center justify-between lg:flex-row">
           <div className="relative -mx-6 flex-1 self-start lg:mx-0">
             <div className="absolute -left-1/2 top-0 z-0 h-[390px] w-[1198px] translate-y-[-190px] -rotate-45 bg-gradient-to-b from-dark-100 to-[transparent]" />
@@ -19,7 +19,7 @@ const SecurityFeatures = () => {
               priority
             />
           </div>
-          <div className="py-20 pb-6 md:pb-20 md:pl-6 lg:w-1/2 lg:pl-0 lg:pr-[72px]">
+          <div className="py-20 pb-6 md:pb-20 md:pl-6 lg:w-[49%] lg:pl-0 lg:pr-[70px]">
             <h2 className="pb-[52px] font-lora text-32 lg:pb-14">
               Proudly building in the open
             </h2>
