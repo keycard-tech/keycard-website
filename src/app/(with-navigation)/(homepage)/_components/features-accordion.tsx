@@ -33,13 +33,19 @@ const LineDivider = () => (
   </svg>
 )
 
-const useAutoSwitch = (
-  items: Array<{ title: string }>,
-  interval: number,
-  step: number,
-  isVisible: boolean,
-  variant: 'desktop' | 'mobile',
-) => {
+const useAutoSwitch = ({
+  items,
+  interval,
+  step,
+  isVisible,
+  variant,
+}: {
+  items: Array<{ title: string }>
+  interval: number
+  step: number
+  isVisible: boolean
+  variant: 'desktop' | 'mobile'
+}) => {
   const [value, setValue] = useState(items[0].title)
   const [width, setWidth] = useState(0)
   const counterRef = useRef(0)
@@ -73,7 +79,7 @@ const useAutoSwitch = (
     }
   }, [isVisible, interval])
 
-  // Change the value if the variant changes
+  // Reset the value if the variant changes
   useEffect(() => {
     setValue(items[0].title)
     setWidth(0)
@@ -93,13 +99,13 @@ const FeaturesAccordion = (props: Props) => {
 
   const isVisible = !!entry?.isIntersecting
 
-  const { value, setValue, width } = useAutoSwitch(
+  const { value, setValue, width } = useAutoSwitch({
     items,
-    16000,
-    50,
+    interval: 16000,
+    step: 50,
     isVisible,
     variant,
-  )
+  })
 
   const selected = items.find(item => item.title === value)!
 
