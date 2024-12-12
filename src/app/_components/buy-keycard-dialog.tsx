@@ -16,6 +16,7 @@ import { Image } from '~components/image'
 import { RecommendedIcon } from '~icons/recommended'
 import { cx } from 'cva'
 import { AnimatePresence, motion } from 'framer-motion'
+import { useRouter } from 'next/navigation'
 import { useMemo, useState } from 'react'
 import { useController, useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -99,6 +100,7 @@ const ShopifyForm = () => {
   const { formState, watch, setValue } = form
   const { isSubmitting } = formState
 
+  const router = useRouter()
   const utmParams = useShopifyUTMParamsContext()
 
   const selectedBundle = watch('bundleId')
@@ -164,8 +166,6 @@ const ShopifyForm = () => {
                 .filter(([title]) => title !== 'READER')
                 .map(([title, product]) => {
                   const selected = selectedBundle === title
-
-                  console.log('selectedBundle', selectedBundle)
 
                   return (
                     <button
@@ -308,6 +308,7 @@ const ShopifyForm = () => {
                   utmParams,
                 )
                 window.open(checkoutUrl, '_blank', 'noopener')
+                router.push(`/thank-you?checkoutUrl=${checkoutUrl}`)
               }}
             >
               {isSubmitting ? (
