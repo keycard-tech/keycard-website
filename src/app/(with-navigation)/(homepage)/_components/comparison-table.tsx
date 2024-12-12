@@ -20,7 +20,7 @@ const features: Array<Feature> = [
     },
     tangem: {
       label: formatPrice({
-        amount: 55,
+        amount: 50,
       }),
     },
     ledger: {
@@ -30,7 +30,7 @@ const features: Array<Feature> = [
     },
   },
   {
-    name: 'Compatible with: EVM, Ethereum and Bitcoin',
+    name: 'Compatible with Ethereum and EVM-chains',
     keycard: {
       featured: true,
     },
@@ -50,7 +50,6 @@ const features: Array<Feature> = [
   },
   {
     name: 'Mobile friendly',
-    tooltip: 'Compatible with mobile devices',
     keycard: {
       featured: true,
     },
@@ -102,7 +101,7 @@ const features: Array<Feature> = [
   },
   {
     name: 'Open ecosystem',
-    tooltip: 'Part of an open ecosystem',
+    // tooltip: 'Part of an open ecosystem',
     keycard: {
       featured: true,
     },
@@ -157,7 +156,8 @@ const FeatureInfo = ({
   if (variant.featured === false)
     return <RemoveIcon className="size-4 text-white-60" />
   if (variant.featured === 'n/a') return <p className="text-white-60">n/a</p>
-  if (variant.label) return <p className="text-white-95">{variant.label}</p>
+  if (variant.label)
+    return <p className="font-400 text-white-95">{variant.label}</p>
   if (variant.badge) {
     return (
       <Tag
@@ -199,7 +199,7 @@ const ComparisonTable = () => {
       </h2>
       <div className="overflow-x-auto px-3 scrollbar-none min-[1512px]:px-0">
         <div className="w-[684px] pt-14 md:w-full lg:w-full lg:pt-20">
-          <div className="grid grid-cols-[1.33fr,1fr,1fr,1fr] justify-items-center text-center font-lora text-24 font-400 text-white-90 lg:grid-cols-[2fr,1fr,1fr,1fr] lg:text-24">
+          <div className="grid grid-cols-[1.33fr,1fr,1fr,1fr] justify-items-center px-6 text-center font-lora text-24 font-400 text-white-90 lg:grid-cols-[2fr,1fr,1fr,1fr] lg:text-24">
             <div className="justify-self-start p-4 pb-5 pl-6">Feature</div>
             <div className="p-4 pb-5">Keycard</div>
             <div className="p-4 pb-5">Tangem</div>
