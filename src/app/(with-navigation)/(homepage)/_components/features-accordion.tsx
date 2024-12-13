@@ -86,6 +86,11 @@ const useAutoSwitch = ({
     counterRef.current = 0
   }, [variant, items])
 
+  // Reset the counter if the value changes
+  useEffect(() => {
+    counterRef.current = 0
+  }, [value])
+
   return { value, setValue, width }
 }
 
