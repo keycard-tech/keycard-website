@@ -28,7 +28,7 @@ export default function ThankyouPage() {
             <p className="max-w-[490px] pb-8 text-center text-20 font-300 text-white-80">
               You will be redirected to the checkout experience.
               <br />
-              If you don’t, please <CheckoutUrlLink />.
+              If not, please <CheckoutUrlLink />.
             </p>
             <ButtonLink variant="secondary" href="/">
               Take me home
