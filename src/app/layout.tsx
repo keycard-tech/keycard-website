@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/next'
 import { cx } from 'cva'
 import { Inter, Lora } from 'next/font/google'
 import { Metadata } from './_metadata'
@@ -67,6 +68,7 @@ export default function RootLayout({ children }: Props) {
             }}
           />
         </Providers>
+        <Analytics />
       </body>
     </html>
   )

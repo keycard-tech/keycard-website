@@ -28,6 +28,7 @@
     "@tryghost/content-api": "^1.11.21",
     "@types/three": "^0.170.0",
     "@types/unist": "^3.0.3",
+    "@vercel/analytics": "^1.4.1",
     "cva": "1.0.0-beta.1",
     "d3-time-format": "^4.1.0",
     "embla-carousel-react": "^8.3.1",
