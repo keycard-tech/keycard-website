@@ -1,6 +1,8 @@
+import { Analytics } from '@vercel/analytics/next'
 import { cx } from 'cva'
-import type { Metadata } from 'next'
 import { Inter, Lora } from 'next/font/google'
+import { Metadata } from './_metadata'
+import { Providers } from './_providers'
 import './globals.css'
 
 const lora = Lora({
@@ -12,16 +14,30 @@ const lora = Lora({
 
 const inter = Inter({
   variable: '--font-inter',
-  weight: ['300', '400', '500'],
+  weight: ['200', '300', '400', '500'],
   subsets: ['latin'],
   preload: true,
 })
 
-export const metadata: Metadata = {
-  title: 'Keycard',
+export const metadata = Metadata({
+  metadataBase: new URL('https://keycard.tech/'),
+
+  title: {
+    default: 'Keycard',
+    template: '%s — Keycard',
+  },
   description:
-    'Join the open source revolution of the most modular and future proof hardware wallet system ever conceived.',
-}
+    'Lightweight design, heavyweight security. Open-source, durable, and integrated with Status apps for secure asset management and dApp interactions. From €25.',
+
+  alternates: {
+    canonical: './',
+  },
+
+  twitter: {
+    card: 'summary_large_image',
+    site: '@keycard_',
+  },
+})
 
 type Props = {
   children: React.ReactNode
@@ -35,10 +51,44 @@ export default function RootLayout({ children }: Props) {
           lora.variable,
           inter.variable,
           'bg-dark-100 font-inter text-white-100 antialiased',
+          'selection:bg-orange/[0.8] selection:text-white-100',
         )}
+        suppressHydrationWarning
       >
-        {children}
+        <Providers>
+          <div className="flex min-h-screen w-full justify-center overflow-clip">
+            <div className="flex min-h-screen w-full flex-col p-2 pt-0">
+              {children}
+            </div>
+          </div>
+          <script
+            suppressHydrationWarning
+            dangerouslySetInnerHTML={{
+              __html: `(${platformScript.toString()})()`,
+            }}
+          />
+        </Providers>
+        <Analytics />
       </body>
     </html>
   )
+}
+
+// inspired by the implementation of next-themes
+// https://github.com/pacocoursey/next-themes/blob/main/next-themes/src/index.tsx
+const platformScript = () => {
+  const userAgent = navigator.userAgent.toLowerCase()
+  if (/iphone|ipad|ipod/.test(userAgent)) {
+    document.body.setAttribute('data-platform', 'ios')
+  } else if (userAgent.includes('mac')) {
+    document.body.setAttribute('data-platform', 'macos')
+  } else if (userAgent.includes('win')) {
+    document.body.setAttribute('data-platform', 'windows')
+  } else if (userAgent.includes('android')) {
+    document.body.setAttribute('data-platform', 'android')
+  } else if (userAgent.includes('linux')) {
+    document.body.setAttribute('data-platform', 'linux')
+  } else {
+    document.body.setAttribute('data-platform', 'unknown')
+  }
 }
