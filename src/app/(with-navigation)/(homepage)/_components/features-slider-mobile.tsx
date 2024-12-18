@@ -26,7 +26,7 @@ const FeaturesSliderMobile = (props: Props) => {
   const mobileOS = useMobileOperatingSystem()
 
   return (
-    <div className="relative block lg:hidden">
+    <div className="relative -mr-2 block lg:hidden">
       <div className="flex snap-x snap-mandatory overflow-x-auto scrollbar-none">
         <Image
           src="/assets/keycard/slider/card.png"
