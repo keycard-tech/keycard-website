@@ -13,6 +13,14 @@ export function Metadata(input: Input): Metadata {
       url: './',
       title: input.title,
       description: input.description,
+      images: [
+        {
+          url: '/opengraph-image.png',
+          type: 'image/png',
+          width: 1200,
+          height: 630,
+        },
+      ],
       ...input.openGraph,
     },
   }
