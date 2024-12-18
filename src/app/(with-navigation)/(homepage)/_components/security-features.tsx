@@ -7,10 +7,10 @@ import { Tag } from '~components/tag'
 const SecurityFeatures = () => {
   return (
     <section className="relative mt-[100px] overflow-clip px-3 lg:mt-[227px] lg:px-0">
-      <div className="rounded-28 border border-white-8 bg-white-4 px-6 md:px-2">
+      <div className="relative overflow-clip rounded-28 border border-white-8 bg-white-4 px-6 md:px-2">
         <div className="flex flex-col items-center justify-between lg:flex-row">
-          <div className="relative -mx-6 flex-1 self-start lg:mx-0">
-            <div className="absolute -left-1/2 top-0 z-0 h-[390px] w-[1198px] translate-y-[-190px] -rotate-45 bg-gradient-to-b from-dark-100 to-[transparent]" />
+          <div className="relative -mx-6 flex-1 self-start">
+            <div className="absolute inset-0 z-10 bg-gradient-to-br from-dark-100 to-30%" />
             <Image
               src="/assets/keycard/chip.png"
               alt="Keycard security"
