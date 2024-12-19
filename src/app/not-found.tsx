@@ -12,11 +12,9 @@ export default function NotFound() {
         <div className="flex size-full items-center justify-center">
           <div className="flex flex-col items-center">
             <div className="mb-4 flex flex-col gap-2 py-3 text-center">
-              <h2 className="font-lora text-32 font-500">
-                404 design not found
-              </h2>
+              <h2 className="font-lora text-32 font-500">404</h2>
               <p className="mt-4 text-16 xl:text-20">
-                The page you were looking for wasn&apos;t designed
+                The page you were looking for wasn&apos;t found
               </p>
             </div>
 
