@@ -33,7 +33,7 @@ const features: Array<Feature> = [
   },
   {
     name: 'Swap',
-    mobile: 'Q1 2025',
+    mobile: true,
     desktop: true,
   },
   {
