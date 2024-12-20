@@ -27,7 +27,6 @@ const featuresMobile = [
   {
     title: 'Swap',
     description: 'Swap your favourite assets on Mainnet, Arbitrum or Optimism.',
-    tag: 'SOON',
     image: '/assets/keycard/slider/status-app-mobile-swap.png',
     imageMobile: '/assets/keycard/slider/iphone-swap.png',
   },
@@ -67,7 +66,6 @@ const featuresDesktop = [
   {
     title: 'Swap',
     description: 'Swap your favourite assets on Mainnet, Arbitrum or Optimism.',
-    tag: 'SOON',
     image: '/assets/keycard/slider/status-app-desktop-swap.png',
     imageMobile: '/assets/keycard/slider/status-app-desktop-swap.png',
   },
