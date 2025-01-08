@@ -1,6 +1,7 @@
 import { ROUTES } from '~/config/routes'
 import { Link } from '~components/link'
 import { Logo } from '~components/logo'
+import { Copyright } from './copyright'
 import { Section } from './section'
 
 const Footer = () => {
@@ -29,7 +30,7 @@ const Footer = () => {
 
       <div className="flex flex-col items-center justify-between gap-2 border-0 border-dashed border-white-20 px-5 py-4 md:flex-row md:gap-0 lg:border-t lg:px-6">
         <span className="text-16 font-300 text-white-80">
-          © Keycard {new Date().getFullYear()}
+          <Copyright />
         </span>
         <p className="text-center text-16 font-300 text-white-80 md:text-left">
           Keycard is part of the{' '}
