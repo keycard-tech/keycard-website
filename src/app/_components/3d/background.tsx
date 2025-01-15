@@ -12,6 +12,7 @@ import { useWindowFocus } from '~/app/_hooks/use-window-focus'
 import { Image } from '~components/image'
 import { motion } from 'framer-motion'
 import { useRef, useState } from 'react'
+import { ErrorBoundary } from 'react-error-boundary'
 import { KeycardModel } from './model'
 
 const cardsPositions: Record<
@@ -135,26 +136,14 @@ type Props = {
   variant: 'thank-you' | 'homepage'
 }
 
-function detectWebGLContext() {
-  try {
-    const canvas = document.createElement('canvas')
-    const ctx =
-      canvas.getContext('webgl') || canvas.getContext('experimental-webgl')
-    return !!ctx
-  } catch {
-    return false
-  }
-}
-
 const Background = (props: Props) => {
   const { variant } = props
-  const isWebGLEnabled = detectWebGLContext()
 
-  if (isWebGLEnabled) {
-    return <BackgroundWebGL variant={variant} />
-  }
-
-  return <BackgroundImage variant={variant} />
+  return (
+    <ErrorBoundary fallback={<BackgroundImage variant={variant} />}>
+      <BackgroundWebGL variant={variant} />
+    </ErrorBoundary>
+  )
 }
 
 export { Background }

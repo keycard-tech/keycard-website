@@ -42,6 +42,7 @@
     "react": "19.0.0-rc.1",
     "react-children-utilities": "^2.10.0",
     "react-dom": "19.0.0-rc.1",
+    "react-error-boundary": "^5.0.0",
     "react-hook-form": "^7.53.1",
     "server-only": "^0.0.1",
     "three": "^0.170.0",
