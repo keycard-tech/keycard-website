@@ -135,7 +135,32 @@ type Props = {
   variant: 'thank-you' | 'homepage'
 }
 
+function detectWebGLContext() {
+  try {
+    const canvas = document.createElement('canvas')
+    const ctx =
+      canvas.getContext('webgl') || canvas.getContext('experimental-webgl')
+    return !!ctx
+  } catch {
+    return false
+  }
+}
+
 const Background = (props: Props) => {
+  const { variant } = props
+  const isWebGLEnabled = detectWebGLContext()
+
+  if (isWebGLEnabled) {
+    return <BackgroundWebGL variant={variant} />
+  }
+
+  return <BackgroundImage variant={variant} />
+}
+
+export { Background }
+
+// WEBGL Background
+const BackgroundWebGL = (props: Props) => {
   const { variant } = props
   const [isMounted, setIsMounted] = useState(false)
 
@@ -225,4 +250,22 @@ const Background = (props: Props) => {
   )
 }
 
-export { Background }
+// Background image when webgl is not supported
+const BackgroundImage = (props: Props) => {
+  const { variant } = props
+  return (
+    <div className="absolute size-full">
+      <Image
+        src={
+          variant === 'homepage'
+            ? '/assets/placeholder.png'
+            : '/assets/placeholder-thank-you.png'
+        }
+        alt="Keycard"
+        width={5478}
+        height={2166}
+        className="aspect-[5478/2166] h-[74.5%] w-full object-cover"
+      />
+    </div>
+  )
+}
