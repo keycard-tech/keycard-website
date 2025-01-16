@@ -243,7 +243,7 @@ const BackgroundWebGL = (props: Props) => {
 const BackgroundImage = (props: Props) => {
   const { variant } = props
   return (
-    <div className="absolute size-full">
+    <div className="absolute size-full translate-y-[20px]">
       <Image
         src={
           variant === 'homepage'
