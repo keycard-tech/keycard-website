@@ -12,6 +12,7 @@ import { useWindowFocus } from '~/app/_hooks/use-window-focus'
 import { Image } from '~components/image'
 import { motion } from 'framer-motion'
 import { useRef, useState } from 'react'
+import { ErrorBoundary } from 'react-error-boundary'
 import { KeycardModel } from './model'
 
 const cardsPositions: Record<
@@ -137,6 +138,19 @@ type Props = {
 
 const Background = (props: Props) => {
   const { variant } = props
+
+  return (
+    <ErrorBoundary fallback={<BackgroundImage variant={variant} />}>
+      <BackgroundWebGL variant={variant} />
+    </ErrorBoundary>
+  )
+}
+
+export { Background }
+
+// WEBGL Background
+const BackgroundWebGL = (props: Props) => {
+  const { variant } = props
   const [isMounted, setIsMounted] = useState(false)
 
   const wrapperRef = useRef<HTMLDivElement | null>(null)
@@ -225,4 +239,22 @@ const Background = (props: Props) => {
   )
 }
 
-export { Background }
+// Background image when webgl is not supported
+const BackgroundImage = (props: Props) => {
+  const { variant } = props
+  return (
+    <div className="absolute size-full translate-y-[20px]">
+      <Image
+        src={
+          variant === 'homepage'
+            ? '/assets/placeholder.png'
+            : '/assets/placeholder-thank-you.png'
+        }
+        alt="Keycard"
+        width={5478}
+        height={2166}
+        className="aspect-[5478/2166] h-[74.5%] w-full object-cover"
+      />
+    </div>
+  )
+}
