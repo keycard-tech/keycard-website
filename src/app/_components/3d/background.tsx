@@ -164,12 +164,14 @@ const BackgroundWebGL = (props: Props) => {
   return (
     <div className="absolute size-full">
       <motion.div
-        animate={{ opacity: isMounted ? 0 : 1 }}
+        animate={{
+          opacity: isMounted ? 0 : 1,
+        }}
         transition={{
           duration: 0.3,
           ease: 'easeInOut',
         }}
-        className="absolute left-0 top-0 z-0 size-full translate-y-[20px]"
+        className="absolute left-0 top-0 z-0 size-full translate-y-px scale-[0.99]"
       >
         <Image
           priority
@@ -181,14 +183,13 @@ const BackgroundWebGL = (props: Props) => {
           alt="Keycard Placeholder"
           width={5478}
           height={2166}
-          className="aspect-[5478/2166] h-[74.5%] w-full object-cover blur-2xl"
+          className="aspect-[5478/2166] h-[74.5%] w-full object-cover"
         />
       </motion.div>
       <motion.div
         ref={wrapperRef}
         animate={{
           opacity: isMounted ? 1 : 0,
-          y: isMounted ? 0 : 20,
         }}
         transition={{
           duration: 0.3,
@@ -243,7 +244,7 @@ const BackgroundWebGL = (props: Props) => {
 const BackgroundImage = (props: Props) => {
   const { variant } = props
   return (
-    <div className="absolute size-full translate-y-[20px]">
+    <div className="absolute size-full">
       <Image
         src={
           variant === 'homepage'
@@ -253,7 +254,7 @@ const BackgroundImage = (props: Props) => {
         alt="Keycard"
         width={5478}
         height={2166}
-        className="aspect-[5478/2166] h-[74.5%] w-full object-cover"
+        className="aspect-[5478/2166] h-[74.5%] w-full translate-y-[2px] scale-[0.99] object-cover"
       />
     </div>
   )
