@@ -1,36 +1,28 @@
+// import { Demo } from './_components/demo'
 import { Metadata } from '~/app/_metadata'
-import { AutoOpenBuyKeycardDialog } from './_components/auto-open-buy-keycard-dialog'
+import { BuyCards } from './_components/buy-cards'
 import { ComparisonTable } from './_components/comparison-table'
-import { Customisation } from './_components/customisation'
-import { Design } from './_components/design'
 import { Faqs } from './_components/faqs'
 import { Hero } from './_components/hero'
-import { Integration } from './_components/integration'
+import { KeycardFeatures } from './_components/keycard-features'
 import { KeycardShell } from './_components/keycard-shell'
-import { Prefooter } from './_components/pre-footer'
-import { SecurityFeatures } from './_components/security-features'
-import { UseCases } from './_components/use-cases'
 
 export const metadata = Metadata({
-  title: {
-    absolute: 'Keycard: Secure Crypto & Hardware Wallet',
-  },
+  title: 'Keycard',
+  description:
+    'Join the open source revolution of the most modular and future proof hardware wallet system ever conceived.',
 })
 
-export default function HomePage() {
+export default async function HomePage() {
   return (
     <>
-      <AutoOpenBuyKeycardDialog />
       <Hero />
-      <SecurityFeatures />
-      <Design />
-      <Integration />
-      <UseCases />
-      <ComparisonTable />
       <KeycardShell />
-      <Customisation />
+      <KeycardFeatures />
+      <ComparisonTable />
+      {/* <Demo /> */}
       <Faqs />
-      <Prefooter />
+      <BuyCards />
     </>
   )
 }
