@@ -62,7 +62,7 @@ const AirGapped = () => {
 
       <div className="flex w-full flex-col justify-self-start lg:max-w-[549px] lg:pl-3 lg:pt-20">
         <div>
-          <h2 className="mb-2 font-lora text-32">Something about airgapped</h2>
+          <h2 className="mb-2 font-lora text-32">Fully airgapped</h2>
           <p className="text-16 font-300 text-white-60">
             Sign transactions on your favourite wallets through QR signing
           </p>

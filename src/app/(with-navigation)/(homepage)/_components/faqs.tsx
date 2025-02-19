@@ -1,6 +1,6 @@
 import * as Accordion from '@radix-ui/react-accordion'
 import { ChevronDownIcon } from '@status-im/icons/20'
-import { DiscordIcon, TwitterIcon } from '@status-im/icons/social'
+import { TwitterIcon } from '@status-im/icons/social'
 import { ButtonLink } from '~components/button-link'
 import { Image } from '~components/image'
 import { cx } from 'cva'
@@ -109,16 +109,11 @@ const Faqs = () => {
               </p>
             </div>
             <div className="flex gap-3">
-              <ButtonLink href="/" variant="secondary">
-                Get in touch
-              </ButtonLink>
               <ButtonLink
-                href="https://discord.com" // TODO: fix this link
+                href="mailto:support@keycard.tech"
                 variant="secondary"
-                className="px-[9px]"
-                aria-label="Keycard on Discord"
               >
-                <DiscordIcon />
+                Get in touch
               </ButtonLink>
               <ButtonLink
                 href="https://x.com/keycard_"

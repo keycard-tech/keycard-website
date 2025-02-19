@@ -1,5 +1,5 @@
 import { Button } from '~components/button'
-import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
+import { GetNotifiedDialog } from '~components/get-notified-dialog'
 import { Image } from '~components/image'
 import { cx } from 'cva'
 
@@ -18,10 +18,10 @@ const Prefooter = () => {
           secure element.
         </p>
         <div className="flex flex-col items-center gap-5 md:flex-row">
-          <BuyKeycardDialog>
-            <Button variant="primary">Buy Keycard</Button>
-          </BuyKeycardDialog>
-          <p className="text-16 font-300 text-white-60">From $25</p>
+          <GetNotifiedDialog>
+            <Button variant="primary">Get notified</Button>
+          </GetNotifiedDialog>
+          <p className="text-16 font-300 text-white-60">Coming 2025</p>
         </div>
       </div>
       <div className="order-1 flex lg:right-[-20px] lg:order-2">

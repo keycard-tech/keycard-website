@@ -149,7 +149,7 @@ const FeaturesGrid = () => {
                 )}
                 {feature.button && (
                   <ButtonLink
-                    href="https://github.com/status-im/status-keycard"
+                    href="https://github.com/keycard-tech/keycard-pro"
                     className="font-500 [&_path]:hover:fill-white-dark"
                     variant="white"
                     icon={<feature.button.icon />}

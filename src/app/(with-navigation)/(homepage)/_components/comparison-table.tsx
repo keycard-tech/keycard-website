@@ -11,7 +11,6 @@ import { createElement } from 'react'
 const features: Array<Feature> = [
   {
     name: 'Competitive pricing',
-    tooltip: 'Pricing information',
     keycardShell: {
       label: 'TBD',
     },
@@ -58,7 +57,6 @@ const features: Array<Feature> = [
   },
   {
     name: 'Hardware level protection',
-    tooltip: 'Security certification level',
     keycardShell: {
       badge: {
         text: 'EAL 6+',
@@ -103,7 +101,6 @@ const features: Array<Feature> = [
     ledger: {
       featured: false,
     },
-    tooltip: 'No limit on master keys',
   },
   {
     name: 'Easy back up of master keys',
@@ -277,21 +274,6 @@ const features: Array<Feature> = [
     },
     tangem: {
       featured: 'n/a',
-    },
-    ledger: {
-      featured: false,
-    },
-  },
-  {
-    name: 'Oshwa label',
-    keycardShell: {
-      featured: true,
-    },
-    keycard: {
-      featured: false,
-    },
-    tangem: {
-      featured: false,
     },
     ledger: {
       featured: false,
