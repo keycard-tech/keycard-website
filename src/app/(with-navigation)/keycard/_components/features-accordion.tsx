@@ -204,6 +204,7 @@ const FeaturesAccordion = (props: Props) => {
                     alt={selected.title}
                     className={imageClassName}
                     quality={75}
+                    priority
                   />
                 </motion.div>
               </AnimatePresence>
@@ -226,6 +227,7 @@ const FeaturesAccordion = (props: Props) => {
                     alt={selected.title}
                     className={imageClassName}
                     quality={75}
+                    priority
                   />
                 </motion.div>
               </AnimatePresence>

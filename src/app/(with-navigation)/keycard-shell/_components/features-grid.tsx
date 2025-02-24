@@ -41,8 +41,7 @@ const features = [
       'Verify the correctness of transaction data on the secure device.',
     image: '/assets/keycard-shell/keycard-shell-feature-2.png',
     badge: { text: '2 inches' },
-    className:
-      'row-span-2 col-span-1 flex-col-reverse gap-0 [&_img]:scale-75 lg:scale-100',
+    className: 'row-span-2 col-span-1 flex-col-reverse gap-0 [&_img]:w-fit',
   },
   {
     title: 'Air-gapped',
