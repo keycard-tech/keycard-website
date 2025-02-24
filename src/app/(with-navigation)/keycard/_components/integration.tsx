@@ -18,7 +18,7 @@ const featuresMobile = [
           href="https://tokenlists.org/token-list?url=https://ipfs.io/ipns/tokens.uniswap.org"
           className="underline decoration-1 underline-offset-2 transition-colors hover:text-orange"
         >
-          Uniswap Labs token list.
+          Uniswap Labs default token list.
         </Link>
       </>
     ),
@@ -28,7 +28,6 @@ const featuresMobile = [
   {
     title: 'Swap',
     description: 'Swap your favourite assets on Mainnet, Arbitrum or Optimism.',
-    tag: 'SOON',
     image: '/assets/keycard/slider/status-app-mobile-swap.png',
     imageMobile: '/assets/keycard/slider/iphone-swap.png',
   },

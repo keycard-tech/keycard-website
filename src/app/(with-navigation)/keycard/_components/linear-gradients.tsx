@@ -5,7 +5,6 @@ const LineGradient = () => {
       width="484"
       height="1"
       viewBox="0 0 484 1"
-      fill="none"
     >
       <path
         stroke="url(#line-use-cases)"
@@ -17,8 +16,8 @@ const LineGradient = () => {
         <linearGradient
           id="line-use-cases"
           x1="-10"
-          y1="1.5"
           x2="484"
+          y1="1.5"
           y2="1.5"
           gradientUnits="userSpaceOnUse"
         >
