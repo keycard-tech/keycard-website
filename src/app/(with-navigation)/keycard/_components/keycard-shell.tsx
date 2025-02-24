@@ -43,7 +43,10 @@ const KeycardShell = () => {
             Learn more
           </ButtonLink>
         </div>
-        <p className="pt-6 text-16 font-300 text-white-60">Coming 2025</p>
+        <p className="flex items-center gap-2 pt-6 text-16 font-300 text-white-60 md:gap-2">
+          Coming 2025 <span className="size-1 rounded-full bg-white-40" />{' '}
+          Bundled with Keycard
+        </p>
       </div>
     </section>
   )

@@ -1,3 +1,5 @@
+import { KEYCARD_PRODUCTS } from '~/app/_constants/shopify/products'
+import { formatPrice } from '~/app/_utils/format-price'
 import { Button } from '~components/button'
 import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
 import { Image } from '~components/image'
@@ -19,7 +21,12 @@ const Prefooter = () => {
           <BuyKeycardDialog>
             <Button variant="primary">Buy Keycard</Button>
           </BuyKeycardDialog>
-          <p className="text-16 font-300 text-white-60">From $25</p>
+          <p className="text-16 font-300 text-white-60">
+            From{' '}
+            {formatPrice({
+              amount: KEYCARD_PRODUCTS.ONE_CARD_SET.price,
+            })}
+          </p>
         </div>
       </div>
       <div className="order-1 flex lg:relative lg:right-[-20px] lg:order-2">

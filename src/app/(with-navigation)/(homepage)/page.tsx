@@ -1,5 +1,5 @@
-// import { Demo } from './_components/demo'
 import { Metadata } from '~/app/_metadata'
+import { AutoOpenBuyKeycardDialog } from './_components/auto-open-buy-keycard-dialog'
 import { BuyCards } from './_components/buy-cards'
 import { ComparisonTable } from './_components/comparison-table'
 import { Faqs } from './_components/faqs'
@@ -16,11 +16,11 @@ export const metadata = Metadata({
 export default async function HomePage() {
   return (
     <>
+      <AutoOpenBuyKeycardDialog />
       <Hero />
       <KeycardShell />
       <KeycardFeatures />
       <ComparisonTable />
-      {/* <Demo /> */}
       <Faqs />
       <BuyCards />
     </>

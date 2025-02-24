@@ -11,17 +11,21 @@ const Prefooter = () => {
           keycard <span className="font-200">shell</span>
         </p>
         <h2 className="flex pb-4 font-lora text-32 font-400 text-white-95 md:text-48">
-          One device for all <br /> your Keycards
+          Get a device for all
+          <br /> your Keycards
         </h2>
         <p className="max-w-[435px] pb-10 text-20 font-300 text-white-80">
-          A principle-based hardware wallet that relies on Keycard as a modular
-          secure element.
+          Unrivalled security with an infinite number of removable Keycards,
+          each with their own key.
         </p>
-        <div className="flex flex-col items-center gap-5 md:flex-row">
+        <div className="flex flex-col items-start gap-5 sm:flex-row sm:items-center">
           <GetNotifiedDialog>
             <Button variant="primary">Get notified</Button>
           </GetNotifiedDialog>
-          <p className="text-16 font-300 text-white-60">Coming 2025</p>
+          <p className="flex items-center gap-2 text-16 font-300 text-white-60 md:gap-2">
+            Coming 2025 <span className="size-1 rounded-full bg-white-40" />{' '}
+            Bundled with Keycard
+          </p>
         </div>
       </div>
       <div className="order-1 flex lg:right-[-20px] lg:order-2">

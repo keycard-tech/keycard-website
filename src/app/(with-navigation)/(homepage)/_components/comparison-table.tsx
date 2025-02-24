@@ -4,6 +4,8 @@ import {
   InfoIcon,
   RemoveIcon,
 } from '@status-im/icons/20'
+import { KEYCARD_PRODUCTS } from '~/app/_constants/shopify/products'
+import { formatPrice } from '~/app/_utils/format-price'
 import { Tag } from '~components/tag'
 import { Tooltip } from '~components/tooltip'
 import { createElement } from 'react'
@@ -15,13 +17,15 @@ const features: Array<Feature> = [
       label: 'TBD',
     },
     keycard: {
-      label: '$25',
+      label: formatPrice({
+        amount: KEYCARD_PRODUCTS.ONE_CARD_SET.price,
+      }),
     },
     tangem: {
-      label: '$55',
+      label: '€50',
     },
     ledger: {
-      label: '$80',
+      label: '€80',
     },
   },
   {
@@ -173,7 +177,7 @@ const features: Array<Feature> = [
       featured: true,
     },
     keycard: {
-      featured: true,
+      featured: false,
       tooltip: 'Only with Keycard wallet',
     },
     tangem: {

@@ -6,12 +6,13 @@ import { Tag } from '~components/tag'
 const features = [
   {
     name: 'Unparalleled security',
-    description: `Keycard's secure element has passed Common Criteria's EAL6+ certification.`,
+    description: `Keycard's secure element has passed Common Criteria EAL6+ certification.`,
     badge: 'EAL 6+',
   },
   {
     name: 'Stateless',
-    description: 'Your info and private keys are never stored on the device.',
+    description:
+      'Your information and private keys are never stored on the device.',
     tags: ['Keys stored on Keycard'],
   },
   {
@@ -52,7 +53,7 @@ const FeaturesCard = () => {
         <div className="flex flex-col gap-6">
           <div>
             <h2 className="pb-[6px] font-lora text-24 font-400 text-white-95">
-              Open source security
+              Fully open source
             </h2>
             <p className="text-16 font-300 text-white-60">
               Our software, hardware and construction are fully open source.

@@ -1,3 +1,5 @@
+import { KEYCARD_PRODUCTS } from '~/app/_constants/shopify/products'
+import { formatPrice } from '~/app/_utils/format-price'
 import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
 import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
@@ -23,14 +25,16 @@ const Hero = () => {
         priority
       />
 
-      <div className="relative z-10 flex max-w-[434px] flex-col px-5 lg:pt-0">
+      <div className="relative z-10 flex max-w-[434px] flex-col px-5 lg:max-w-[500px] lg:pt-0">
         <p className="pb-2 text-24 font-600 text-white-95">keycard</p>
         <h1 className="flex pb-8 font-lora text-32 font-400 lg:pb-4 lg:text-48">
-          A card shaped <br /> hardware wallet
+          Lightweight design
+          <br />
+          heavyweight security
         </h1>
         <p className="pb-8 text-20 font-300 text-white-80">
-          Store and trade your crypto with a simple, secure and slim hardware
-          wallet.
+          Trade swiftly and safely back up your assets with Keycard hardware
+          wallets.
         </p>
         <div className="flex space-x-4">
           <BuyKeycardDialog>
@@ -41,7 +45,10 @@ const Hero = () => {
           </ButtonLink>
         </div>
         <p className="pb-8 pt-6 text-16 font-300 text-white-60 lg:pb-0">
-          From $25
+          From{' '}
+          {formatPrice({
+            amount: KEYCARD_PRODUCTS.ONE_CARD_SET.price,
+          })}
         </p>
       </div>
     </section>

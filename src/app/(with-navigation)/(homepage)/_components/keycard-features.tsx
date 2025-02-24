@@ -11,23 +11,23 @@ const features = [
   {
     title: 'Best in class security',
     description:
-      'Our secure element has the highest level of security EAL6+ certified by Common Criteria.',
+      'Keycard secure element has the highest level of certification provided by Common Criteria.',
     image: '/assets/feature-keycard.png',
     imageClassName: '!justify-start',
     badge: { icon: FirmwareIcon, text: 'EAL 6+', gradient: true },
     className: 'row-span-2 col-span-1',
   },
   {
-    title: '100% open source',
+    title: 'Fully open source',
     description:
-      'We have nothing to hide! Our software, hardware and construction is fully open source.',
+      'Open-source code on an open framework, making it the most open way to design a secure element.',
     button: { icon: GithubIcon, text: 'View on GitHub' },
     className: 'col-span-1',
   },
   {
-    title: 'Fully airgapped',
+    title: 'Airgapped',
     description:
-      "Through Keycard Shell's camera or Keycard's contactless nature, our products are truly airgapped.",
+      'Through Keycard Shell’s camera or Keycard’s contactless nature, our products can be airgapped.',
     image: '/assets/feature-keycard-shell.png',
     badge: { text: '0 cables' },
     className: 'row-span-2 col-span-1 flex-col-reverse',
@@ -42,7 +42,7 @@ const features = [
   {
     title: 'Easy to backup',
     description:
-      'Create cards to back up your master key and store them in a safe place instead of the typical piece of paper.',
+      'Securely store your private key on multiple cards. Encrypted, instead of the typical piece of paper.',
     badge: { icon: InfinityIcon, text: 'backups' },
     className: 'col-span-1',
   },

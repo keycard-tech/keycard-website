@@ -1,3 +1,5 @@
+import { KEYCARD_PRODUCTS } from '~/app/_constants/shopify/products'
+import { formatPrice } from '~/app/_utils/format-price'
 import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
 import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
@@ -71,7 +73,7 @@ const BuyCards = () => {
             A card shaped <br /> hardware wallet
           </>
         }
-        description="Something will say here about this product. Certainly, you don't want to miss it."
+        description="Store and trade your crypto in a simple, secure and slim hardware wallet."
         buttons={
           <>
             <BuyKeycardDialog>
@@ -82,7 +84,9 @@ const BuyCards = () => {
             </ButtonLink>
           </>
         }
-        info="Starts from $25"
+        info={`From ${formatPrice({
+          amount: KEYCARD_PRODUCTS.ONE_CARD_SET.price,
+        })}`}
       />
       <Section
         image="/assets/bottom-keycard-shell.png"
@@ -94,7 +98,7 @@ const BuyCards = () => {
             One device for all <br /> your keycards
           </>
         }
-        description="Something will say here about this product. Certainly you don't want to miss it"
+        description="A modular and stateless hardware wallet that relies on Keycard as the secure element."
         buttons={
           <>
             <GetNotifiedDialog>
@@ -105,7 +109,7 @@ const BuyCards = () => {
             </ButtonLink>
           </>
         }
-        info="Coming 2025"
+        info="Coming 2025 &middot; Bundled with Keycard"
       />
     </section>
   )

@@ -9,7 +9,7 @@ const features = [
   {
     title: 'Resistant',
     description:
-      'Resists high (50°) and low (-35°) temperatures, dust and X-Rays.',
+      'Resists high (50°) and low (-35°) temperatures, dust and X-rays.',
     image: '/assets/keycard/resistant.png',
   },
   {

@@ -1,15 +1,11 @@
-import { FirmwareIcon } from '@status-im/icons/20'
-import { GithubIcon } from '@status-im/icons/social'
-import { ButtonLink } from '~components/button-link'
 import { Image } from '~components/image'
 import { Tag } from '~components/tag'
 import { Tooltip } from '~components/tooltip'
 import { cx } from 'cva'
-import { createElement } from 'react'
 
 const features = [
   {
-    title: 'Runs forever',
+    title: 'Runs for ever',
     description:
       'With the use of a very common replaceable Nokia BL-4C battery.',
     image: '/assets/keycard-shell/keycard-shell-feature-1.png',
@@ -42,24 +38,24 @@ const features = [
   {
     title: 'Large display',
     description:
-      'Enjoy full visibility of sensitive information like your seed phrase.',
+      'Verify the correctness of transaction data on the secure device.',
     image: '/assets/keycard-shell/keycard-shell-feature-2.png',
     badge: { text: '2 inches' },
     className:
       'row-span-2 col-span-1 flex-col-reverse gap-0 [&_img]:scale-75 lg:scale-100',
   },
   {
-    title: 'Open source security',
+    title: 'Air-gapped',
     description:
-      'Our software, hardware and construction is fully open source.',
-    button: { icon: GithubIcon, text: 'View on GitHub' },
+      'Send transactions through the air via QR code standard ERC-4527.',
+    badge: { text: 'ERC-4527' },
     className: 'col-span-1',
   },
   {
-    title: 'Unparalleled security',
+    title: 'Easy to backup',
     description:
-      'Keycard’s secure element has passed Common Criteria EAL6+ certification.',
-    badge: { icon: FirmwareIcon, text: 'EAL 6+', gradient: true },
+      'Use multiple cards as backups, each protected by a unique PIN.',
+    badge: { text: '2 cards included with device' },
     className: 'col-span-1',
   },
   {
@@ -122,16 +118,7 @@ const FeaturesGrid = () => {
                   {feature.description}
                 </p>
 
-                {feature.badge && (
-                  <Tag
-                    gradient={feature.badge.gradient}
-                    icon={
-                      feature.badge.icon && createElement(feature.badge.icon)
-                    }
-                  >
-                    {feature.badge.text}
-                  </Tag>
-                )}
+                {feature.badge && <Tag>{feature.badge.text}</Tag>}
                 {feature.icons && (
                   <div className="flex items-center gap-3">
                     {feature.icons?.map((icon, index) => (
@@ -146,16 +133,6 @@ const FeaturesGrid = () => {
                       </Tooltip>
                     ))}
                   </div>
-                )}
-                {feature.button && (
-                  <ButtonLink
-                    href="https://github.com/keycard-tech/keycard-pro"
-                    className="font-500 [&_path]:hover:fill-white-dark"
-                    variant="white"
-                    icon={<feature.button.icon />}
-                  >
-                    {feature.button.text}
-                  </ButtonLink>
                 )}
               </div>
             </div>

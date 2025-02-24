@@ -1,5 +1,6 @@
 import { ExternalIcon } from '@status-im/icons/20'
 import { ButtonLink } from '~components/button-link'
+import { FeaturesDialog } from '~components/features-dialog'
 import { Image } from '~components/image'
 import { Link } from '~components/link'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '~components/tabs'
@@ -9,7 +10,7 @@ import { FeaturesSliderMobile } from './features-slider-mobile'
 
 const featuresMobile = [
   {
-    title: 'Send crypto and NFTs',
+    title: 'Send assets and collectibles',
     description: (
       <>
         Status supports all Ethereum assets in the{' '}
@@ -38,19 +39,8 @@ const featuresMobile = [
     imageMobile: '/assets/keycard/slider/iphone-bridge.png',
   },
   {
-    title: 'Sign dApp transactions',
-    description: (
-      <>
-        Connect to your favourite dApps with the{' '}
-        <Link
-          href="https://github.com/status-im/status-web/tree/main/apps/connector"
-          className="underline transition-colors hover:text-orange"
-        >
-          Status Connector
-        </Link>{' '}
-        web extension.
-      </>
-    ),
+    title: 'dApp interactions',
+    description: 'Connect to your favourite dapps using Wallet Connect.',
     tag: 'SOON',
     image: '/assets/keycard/slider/status-app-mobile-dapp.png',
     imageMobile: '/assets/keycard/slider/iphone-dapp.png',
@@ -59,15 +49,15 @@ const featuresMobile = [
 
 const featuresDesktop = [
   {
-    title: 'Send crypto and NFTs',
+    title: 'Send assets and collectibles',
     description: (
       <>
-        Status supports all Ethereum assets in the{' '}
+        Status supports all Ethereum assets on{' '}
         <Link
           href="https://tokenlists.org/token-list?url=https://ipfs.io/ipns/tokens.uniswap.org"
           className="underline transition-colors hover:text-orange"
         >
-          Uniswap Labs token list.
+          Uniswap Labs default token list.
         </Link>
       </>
     ),
@@ -88,7 +78,7 @@ const featuresDesktop = [
     imageMobile: '/assets/keycard/slider/status-app-desktop-bridge.png',
   },
   {
-    title: 'Sign dApp transactions',
+    title: 'dApp interactions',
     description: (
       <>
         Connect to your favourite dApps with the{' '}
@@ -144,12 +134,12 @@ const Integration = () => {
                 alt="Status"
                 src="/assets/keycard/status-logo.png"
               />
-              <Link className="group" href="/">
-                <div className="flex items-center gap-1 rounded-16 border border-dashed border-[#FF640020] bg-[#FF640010] py-[5px] pl-4 pr-3 text-14 font-300 text-orange transition-colors group-hover:bg-[#FF640020]">
-                  Keycard features in beta
+              <FeaturesDialog>
+                <button className="flex items-center gap-1 rounded-16 border border-dashed border-[#FF640020] bg-[#FF640010] py-[5px] pl-4 pr-3 text-14 font-300 text-orange transition-colors group-hover:bg-[#FF640020]">
+                  Keycard features in beta - learn more
                   <ExternalIcon />
-                </div>
-              </Link>
+                </button>
+              </FeaturesDialog>
             </div>
             <h2 className="pt-1 font-lora text-32 font-400 text-white-95">
               Seamless integration with Status
@@ -160,10 +150,10 @@ const Integration = () => {
               No need to pair it, it just works!
             </p>
           </div>
-          <Tabs defaultValue="desktop">
+          <Tabs defaultValue="mobile">
             <TabsList className="mx-3 lg:mx-0">
-              <TabsTrigger value="desktop">On desktop</TabsTrigger>
               <TabsTrigger value="mobile">On mobile</TabsTrigger>
+              <TabsTrigger value="desktop">On desktop</TabsTrigger>
             </TabsList>
             <TabsContent value="desktop" className="pt-20">
               <FeaturesAccordion

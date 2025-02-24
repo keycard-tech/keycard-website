@@ -34,7 +34,7 @@ const features = [
   {
     name: 'Block USB data transfer',
     description:
-      'Add an extra layer of security by preventing unwanted data transfers.',
+      'Add an extra layer of safety every time you connect your cable to charge.',
     image: '/assets/keycard-shell/keycard-shell-feature-card-5.png',
   },
   {
