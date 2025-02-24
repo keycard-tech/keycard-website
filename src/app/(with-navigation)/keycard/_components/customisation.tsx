@@ -9,8 +9,8 @@ const Customisation = () => {
           Your brand, same Keycard
         </h2>
         <p className="max-w-[549px] pb-8 text-center text-20 font-300 text-white-60">
-          Create your own cards with your design. We support with design,
-          manufacturing, and fulfilment of your cards.
+          Create a custom Keycard with your design. We support with design,
+          manufacturing and fulfilment of your cards.
         </p>
         <ButtonLink href="mailto:get@keycard.tech">
           Order custom Keycard

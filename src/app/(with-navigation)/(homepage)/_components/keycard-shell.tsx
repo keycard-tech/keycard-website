@@ -31,13 +31,13 @@ const KeycardShell = () => {
           keycard <span className="font-200">shell</span>
         </p>
         <p className="flex pb-8 font-lora text-32 font-400 lg:pb-4 lg:text-48">
-          One device for all
+          One secure device,
           <br />
-          your Keycards
+          infinite backups
         </p>
         <p className="pb-8 text-20 font-300 text-white-80">
-          A modular and stateless hardware wallet that
-          <br /> relies on Keycard as the secure element.
+          Unrivalled security with an infinite number of removable Keycards,
+          each with their own key.
         </p>
         <div className="flex gap-4">
           <GetNotifiedDialog>

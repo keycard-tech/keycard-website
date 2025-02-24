@@ -32,7 +32,7 @@ const KeycardShell = () => {
           One device.
         </p>
         <p className="max-w-[320px] pb-6 text-16 font-300 text-white-80">
-          Use the same device for all your Keycards. It’s airgaped, stateless
+          Use the same device for all your Keycards. It’s airgapped, stateless
           and modular.
         </p>
         <div className="flex gap-4">

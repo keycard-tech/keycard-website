@@ -16,9 +16,9 @@ const Keycards = () => {
 
       <div className="relative z-10 pt-12 text-center lg:pt-20">
         <p className="font-lora text-32 text-white-95">
-          One device.
+          Many use cases,
           <br />
-          Multiple Keycards.
+          multiple Keycards.
         </p>
 
         <div className="flex items-center justify-center gap-4 pt-8">

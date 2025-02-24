@@ -11,7 +11,7 @@ const Prefooter = () => {
           keycard <span className="font-200">shell</span>
         </p>
         <h2 className="flex pb-4 font-lora text-32 font-400 text-white-95 md:text-48">
-          Get a device for all
+          One device for all
           <br /> your Keycards
         </h2>
         <p className="max-w-[435px] pb-10 text-20 font-300 text-white-80">

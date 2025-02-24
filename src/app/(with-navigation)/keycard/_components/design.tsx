@@ -14,12 +14,14 @@ const features = [
   },
   {
     title: 'Discreet and light',
-    description: 'Carry it in your wallet, no one will notice you hold crypto.',
+    description:
+      'Carry Keycard in your wallet, no one will notice you hold crypto.',
     image: '/assets/keycard/discreet-light.png',
   },
   {
     title: 'Water resistant',
-    description: 'Left it in your jeans? It will survive the washing machine!',
+    description:
+      'Resistant to most everyday spills, give it a wipe and you’re good to go.',
     image: '/assets/keycard/water-resistant.png',
   },
 ]

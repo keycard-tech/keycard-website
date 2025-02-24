@@ -11,7 +11,7 @@ const features = [
   {
     name: 'Full visibility of seed phrase',
     description:
-      'All the words clearly numbered and visible, ready for you to write them down.',
+      'All the words clearly numbered and visible ready for you to write them down.',
     image: '/assets/keycard-shell/keycard-shell-feature-card-1.png',
   },
   {

@@ -9,7 +9,7 @@ import { createElement } from 'react'
 
 const features = [
   {
-    title: 'Best in class security',
+    title: 'Best-in-class security',
     description:
       'Keycard secure element has the highest level of certification provided by Common Criteria.',
     image: '/assets/feature-keycard.png',

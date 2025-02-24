@@ -7,14 +7,14 @@ import { Tag } from '~components/tag'
 const SecurityFeatures = () => {
   return (
     <section className="relative mt-[100px] overflow-clip px-3 lg:mt-[227px] lg:px-0">
-      <div className="rounded-28 border border-white-8 bg-white-4 px-6 md:px-0">
+      <div className="relative overflow-clip rounded-28 border border-white-8 bg-white-4 px-6 md:px-0">
         <div className="flex flex-col items-center justify-between lg:flex-row">
           <div className="-mx-6 flex-1 self-start lg:mx-0">
             <Image
               src="/assets/keycard/chip.png"
               alt="Keycard security"
-              width={680}
-              height={695}
+              width={580}
+              height={736}
               priority
             />
           </div>
@@ -26,7 +26,7 @@ const SecurityFeatures = () => {
               <div className="md:border-r md:border-dashed md:border-white-20">
                 <div className="pb-6 md:pb-[28px] md:pl-0 md:pr-6">
                   <h3 className="pb-2 font-lora text-24 font-400 text-white-95">
-                    Best in class chip
+                    Best-in-class chip
                   </h3>
                   <p className="pb-6 text-16 font-300 text-white-60">
                     Keycard secure element has the highest level of
@@ -42,8 +42,8 @@ const SecurityFeatures = () => {
                     Non-extractable keys
                   </h3>
                   <p className="text-16 font-300 text-white-60">
-                    The secure element software is non upgradable and no one
-                    will ever change its software to change this behaviour.
+                    The secure element software is non-upgradable and no one
+                    will ever change its software to change its behaviour.
                   </p>
                 </div>
               </div>
@@ -53,7 +53,7 @@ const SecurityFeatures = () => {
                     Counterfeit protected
                   </h3>
                   <p className="text-16 font-300 text-white-60">
-                    Our open source protocol allows any wallet using the keycard
+                    Our open-source protocol allows any wallet using the Keycard
                     to check it&apos;s genuine and not counterfeited.
                   </p>
                 </div>
@@ -70,7 +70,7 @@ const SecurityFeatures = () => {
                     className="font-500 [&_path]:hover:fill-white-dark"
                     variant="white"
                   >
-                    <span>View on Github</span>
+                    View on Github
                     <GithubIcon />
                   </ButtonLink>
                 </div>

@@ -44,7 +44,7 @@ const Section = (props: Props) => {
         ])}
       />
       <div className="flex size-full flex-col items-center justify-end rounded-28 border border-white-8 bg-white-4 px-5 pb-20 pt-[300px] lg:px-10 lg:pb-[120px] xl:px-[98px]">
-        <div className="container relative z-10 flex max-w-[434px] flex-col items-center justify-center px-4">
+        <div className="container relative z-10 flex max-w-[434px] flex-col items-center justify-center px-2">
           <p className="pb-2 text-24 font-600 text-white-95">
             {name} <span className="font-200">{secondName}</span>
           </p>
@@ -95,10 +95,10 @@ const BuyCards = () => {
         secondName="shell"
         title={
           <>
-            One device for all <br /> your keycards
+            One device for all <br /> your Keycards
           </>
         }
-        description="A modular and stateless hardware wallet that relies on Keycard as the secure element."
+        description="Unrivalled security with an infinite number of removable Keycards, each with their own key."
         buttons={
           <>
             <GetNotifiedDialog>
