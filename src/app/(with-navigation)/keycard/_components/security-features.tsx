@@ -11,7 +11,7 @@ const SecurityFeatures = () => {
         <div className="flex flex-col items-center justify-between lg:flex-row">
           <div className="-mx-6 flex-1 self-start lg:mx-0">
             <Image
-              src="/assets/keycard/security.png"
+              src="/assets/keycard/chip.png"
               alt="Keycard security"
               width={680}
               height={695}
