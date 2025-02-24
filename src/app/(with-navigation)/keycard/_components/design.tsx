@@ -37,7 +37,7 @@ const Design = () => {
               key={index}
               className="flex flex-col rounded-28 border border-white-8 bg-white-4 p-6"
             >
-              <div className="text-12 font-400 text-white-80">BY DESIGN</div>
+              <div className="text-12 font-400 text-white-80">0{index + 1}</div>
               <div className="translate-x-6 translate-y-[-20px] self-end pb-[6px]">
                 <Image
                   src={feature.image}

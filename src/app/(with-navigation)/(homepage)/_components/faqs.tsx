@@ -3,6 +3,7 @@ import { ChevronDownIcon } from '@status-im/icons/20'
 import { TwitterIcon } from '@status-im/icons/social'
 import { ButtonLink } from '~components/button-link'
 import { Image } from '~components/image'
+import { Link } from '~components/link'
 import { cx } from 'cva'
 
 const faqs = [
@@ -13,8 +14,19 @@ const faqs = [
   },
   {
     question: 'Which assets does Keycard support?',
-    answer:
-      'Keycard supports a wide range of cryptocurrencies including Bitcoin, Ethereum, and many ERC-20 tokens.',
+    answer: (
+      <>
+        Keycard works seamlessly with Ethereum and EVM based assets. It supports
+        all assets on{' '}
+        <Link
+          href="https://tokenlists.org/token-list?url=https://ipfs.io/ipns/tokens.uniswap.org"
+          className="underline decoration-1 underline-offset-2 transition-colors hover:text-orange"
+        >
+          Uniswap Labs default token list
+        </Link>
+        .
+      </>
+    ),
   },
   {
     question: 'Are my funds safe if I lose my Keycard?',
@@ -27,17 +39,18 @@ const faqs = [
       'Keycard is compatible with various software wallets. Please check our documentation for a full list.',
   },
   {
-    question: 'What happens if I lose access to my Keycard?',
-    answer: 'You can recover your assets using your backup seed phrase.',
+    question: 'Why should I get a Keycard?',
+    answer:
+      'Keycard is a secure, pocket-sized hardware wallet with a provably genuine, immutable chip to protect your digital assets.',
   },
 ]
 
 const Faqs = () => {
   return (
-    <section className="mx-auto max-w-[1352px]">
+    <section className="mx-auto max-w-[1352px] pt-[144px]">
       <div className="flex flex-col items-start justify-between px-3 lg:flex-row lg:items-end min-[1512px]:px-0">
-        <div className="flex w-full flex-col lg:pt-[200px]">
-          <div className="block pt-[120px] lg:hidden">
+        <div className="flex w-full flex-1 flex-col lg:w-auto">
+          <div className="flex justify-center pt-[120px] lg:hidden">
             <Image
               src="/assets/faqs-mobile.png"
               alt="FAQ Background"
@@ -46,7 +59,7 @@ const Faqs = () => {
               className="w-full"
             />
           </div>
-          <h2 className="font-lora text-32 text-white-95">
+          <h2 className="mt-14 font-lora text-32 text-white-95 lg:mt-0">
             Frequently asked questions
           </h2>
           <Accordion.Root
@@ -77,16 +90,16 @@ const Faqs = () => {
                 </Accordion.Header>
                 <Accordion.Content
                   className={cx(
-                    'overflow-hidden text-16 font-300 text-white-80 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown',
+                    'overflow-hidden pr-14 text-16 font-300 text-white-80 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown',
                   )}
                 >
-                  <span className="flex pt-4">{faq.answer}</span>
+                  <div className="pt-4">{faq.answer}</div>
                 </Accordion.Content>
               </Accordion.Item>
             ))}
           </Accordion.Root>
         </div>
-        <div className="flex flex-col items-end">
+        <div className="flex flex-1 flex-col lg:w-auto lg:items-center">
           <div className="relative hidden lg:block">
             <div className="absolute right-[-100px] top-[-20px] z-10 h-[380px] w-full bg-gradient-to-tr from-[transparent] via-dark-100 via-[83%] to-dark-100" />
             <Image
@@ -98,7 +111,7 @@ const Faqs = () => {
             />
           </div>
 
-          <div className="mt-14 flex w-full flex-col gap-6 rounded-28 border border-white-8 bg-white-4 p-6 pt-5 lg:mt-0 lg:max-w-[320px]">
+          <div className="mt-14 flex flex-1 flex-col gap-6 rounded-28 border border-white-8 bg-white-4 p-6 pt-5 lg:mt-10 lg:max-w-[320px]">
             <div className="flex flex-col gap-[6px]">
               <p className="font-lora text-24 font-400 text-white-95">
                 Still have questions?

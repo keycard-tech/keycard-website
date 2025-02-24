@@ -13,10 +13,10 @@ const featuresMobile = [
     title: 'Send assets and collectibles',
     description: (
       <>
-        Status supports all Ethereum assets in the{' '}
+        Status supports all Ethereum assets on{' '}
         <Link
           href="https://tokenlists.org/token-list?url=https://ipfs.io/ipns/tokens.uniswap.org"
-          className="underline transition-colors hover:text-orange"
+          className="underline decoration-1 underline-offset-2 transition-colors hover:text-orange"
         >
           Uniswap Labs token list.
         </Link>
@@ -39,7 +39,7 @@ const featuresMobile = [
     imageMobile: '/assets/keycard/slider/iphone-bridge.png',
   },
   {
-    title: 'dApp interactions',
+    title: 'Dapp interactions',
     description: 'Connect to your favourite dapps using Wallet Connect.',
     tag: 'SOON',
     image: '/assets/keycard/slider/status-app-mobile-dapp.png',
@@ -55,7 +55,7 @@ const featuresDesktop = [
         Status supports all Ethereum assets on{' '}
         <Link
           href="https://tokenlists.org/token-list?url=https://ipfs.io/ipns/tokens.uniswap.org"
-          className="underline transition-colors hover:text-orange"
+          className="underline decoration-1 underline-offset-2 transition-colors hover:text-orange"
         >
           Uniswap Labs default token list.
         </Link>
@@ -67,7 +67,6 @@ const featuresDesktop = [
   {
     title: 'Swap',
     description: 'Swap your favourite assets on Mainnet, Arbitrum or Optimism.',
-    tag: 'SOON',
     image: '/assets/keycard/slider/status-app-desktop-swap.png',
     imageMobile: '/assets/keycard/slider/status-app-desktop-swap.png',
   },
@@ -78,7 +77,7 @@ const featuresDesktop = [
     imageMobile: '/assets/keycard/slider/status-app-desktop-bridge.png',
   },
   {
-    title: 'dApp interactions',
+    title: 'Dapp interactions',
     description: (
       <>
         Connect to your favourite dApps with the{' '}

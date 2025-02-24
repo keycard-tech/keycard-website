@@ -1,13 +1,14 @@
 'use client'
 
 import * as Accordion from '@radix-ui/react-accordion'
+import { useIntersectionObserver } from '~/app/_hooks/use-intersection-observer'
 import { DownloadStatusForDesktop } from '~components/download-status-for-desktop'
 import { DownloadStatusForMobile } from '~components/download-status-for-mobile'
 import { FeaturesDisclaimer } from '~components/features-disclaimer'
 import { Image } from '~components/image'
 import { cx } from 'cva'
 import { AnimatePresence, motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { match } from 'ts-pattern'
 
 type Props = {
@@ -32,43 +33,92 @@ const LineDivider = () => (
   </svg>
 )
 
-const useAutoSwitch = (
-  items: Array<{ title: string }>,
-  interval: number,
-  step: number,
-) => {
+const useAutoSwitch = ({
+  items,
+  interval,
+  step,
+  isVisible,
+  variant,
+}: {
+  items: Array<{ title: string }>
+  interval: number
+  step: number
+  isVisible: boolean
+  variant: 'desktop' | 'mobile'
+}) => {
   const [value, setValue] = useState(items[0].title)
   const [width, setWidth] = useState(0)
+  const counterRef = useRef(0)
 
   useEffect(() => {
-    let counter = 0
+    let timer: NodeJS.Timeout | null = null
 
-    const timer = setInterval(() => {
-      if (counter >= interval) {
-        counter = 0
-        setWidth(0)
-        const index = items.findIndex(item => item.title === value)
-        setValue(items[(index + 1) % items.length].title)
-      } else {
-        counter += step
-        setWidth((counter * 100) / interval)
-      }
-    }, step)
+    if (isVisible) {
+      timer = setInterval(() => {
+        counterRef.current += step
 
-    return () => clearInterval(timer)
-  }, [items, value, interval, step])
+        if (counterRef.current >= interval) {
+          counterRef.current = 0
+          setWidth(0)
+          const index = items.findIndex(item => item.title === value)
+          setValue(items[(index + 1) % items.length].title)
+        } else {
+          setWidth((counterRef.current * 100) / interval)
+        }
+      }, step)
+    }
+
+    return () => {
+      if (timer) clearInterval(timer)
+    }
+  }, [items, value, interval, step, isVisible])
+
+  useEffect(() => {
+    if (!isVisible) {
+      setWidth((counterRef.current * 100) / interval)
+    }
+  }, [isVisible, interval])
+
+  // Reset the value if the variant changes
+  useEffect(() => {
+    setValue(items[0].title)
+    setWidth(0)
+    counterRef.current = 0
+  }, [variant, items])
+
+  // Reset the counter if the value changes
+  useEffect(() => {
+    counterRef.current = 0
+  }, [value])
 
   return { value, setValue, width }
 }
 
 const FeaturesAccordion = (props: Props) => {
   const { items, imageClassName, variant } = props
-  const { value, setValue, width } = useAutoSwitch(items, 16000, 50)
+
+  const wrapperRef = useRef<HTMLDivElement | null>(null)
+  const entry = useIntersectionObserver(wrapperRef, {
+    rootMargin: '0%',
+  })
+
+  const isVisible = !!entry?.isIntersecting
+
+  const { value, setValue, width } = useAutoSwitch({
+    items,
+    interval: 16000,
+    step: 50,
+    isVisible,
+    variant,
+  })
 
   const selected = items.find(item => item.title === value)!
 
   return (
-    <div className="hidden items-center justify-between lg:flex">
+    <div
+      className="hidden items-center justify-between lg:flex"
+      ref={wrapperRef}
+    >
       <div
         className={cx([
           'flex flex-1 items-start justify-center gap-6 xl:gap-0',

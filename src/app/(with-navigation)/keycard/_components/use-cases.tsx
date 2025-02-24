@@ -11,7 +11,7 @@ import { LinearGradientMobile } from './linear-gradients'
 const useCases = [
   {
     name: 'Vault',
-    description: 'Your most precious tokens in a single card',
+    description: 'Your most precious tokens in a single card.',
     cardClassName: 'z-20',
     cardClassNameMobile: 'z-20',
     captionClassName:
@@ -74,8 +74,8 @@ const UseCases = () => {
                   )}
                 </div>
               </div>
-            ))}
-          .reverse()
+            ))
+            .reverse()}
         </div>
 
         {/* Desktop Layout */}

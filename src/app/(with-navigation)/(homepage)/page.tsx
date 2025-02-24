@@ -8,12 +8,12 @@ import { KeycardFeatures } from './_components/keycard-features'
 import { KeycardShell } from './_components/keycard-shell'
 
 export const metadata = Metadata({
-  title: 'Keycard',
-  description:
-    'Join the open source revolution of the most modular and future proof hardware wallet system ever conceived.',
+  title: {
+    absolute: 'Keycard: Secure Crypto & Hardware Wallet',
+  },
 })
 
-export default async function HomePage() {
+export default function HomePage() {
   return (
     <>
       <AutoOpenBuyKeycardDialog />
