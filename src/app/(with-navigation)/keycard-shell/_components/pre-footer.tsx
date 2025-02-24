@@ -18,7 +18,7 @@ const Prefooter = () => {
           Unrivalled security with an infinite number of removable Keycards,
           each with their own key.
         </p>
-        <div className="flex flex-col items-start gap-5 sm:flex-row sm:items-center">
+        <div className="flex flex-col items-start gap-5 sm:min-w-[410px] sm:flex-row sm:items-center">
           <GetNotifiedDialog>
             <Button variant="primary">Get notified</Button>
           </GetNotifiedDialog>
