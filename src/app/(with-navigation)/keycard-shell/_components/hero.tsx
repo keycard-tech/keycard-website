@@ -28,7 +28,7 @@ const Hero = () => {
               Unrivalled security with an infinite number of removable Keycards,
               each with their own key.
             </p>
-            <div className="flex items-center gap-5">
+            <div className="flex flex-col items-start gap-5 md:flex-row md:items-center">
               <GetNotifiedDialog>
                 <Button variant="primary">Get notified</Button>
               </GetNotifiedDialog>
