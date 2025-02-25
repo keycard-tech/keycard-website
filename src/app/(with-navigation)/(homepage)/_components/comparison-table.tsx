@@ -134,7 +134,7 @@ const features: Array<Feature> = [
       featured: false,
     },
     ledger: {
-      featured: true,
+      featured: false,
     },
   },
   {
