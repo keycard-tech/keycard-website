@@ -22,7 +22,7 @@ const features = [
         image: '/assets/keycard-shell/wallets/metamask.png',
       },
       {
-        name: 'Rabbit',
+        name: 'Rabby',
         image: '/assets/keycard-shell/wallets/rabbit.png',
       },
       {

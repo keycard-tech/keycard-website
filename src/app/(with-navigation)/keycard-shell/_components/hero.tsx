@@ -13,7 +13,7 @@ const Hero = () => {
         priority
         className="absolute left-10 top-[43%] z-0 h-auto w-fit -translate-y-1/2 scale-[120%] bg-contain bg-top bg-no-repeat md:scale-100 lg:left-[56%] lg:-translate-x-1/2"
       />
-      <div className="pointer-events-none relative z-20 flex flex-1 flex-col justify-end px-5 pb-5 align-bottom lg:pb-[43px] xl:px-20">
+      <div className="pointer-events-none relative z-20 flex flex-1 flex-col justify-end px-5 pb-5 align-bottom lg:pb-20 xl:px-20">
         <div className="flex flex-col items-start justify-between lg:flex-row">
           <div className="pointer-events-auto flex max-w-[664px] flex-col lg:self-end">
             <p className="pb-2 text-24 font-600 text-white-95">
