@@ -52,10 +52,11 @@ const Faqs = () => {
         <div className="flex w-full flex-1 flex-col lg:w-auto">
           <div className="flex justify-center pt-[120px] lg:hidden">
             <Image
-              src="/assets/faqs-v1.png"
+              src="/assets/faqs-mobile.png"
               alt="FAQ Background"
-              width={264}
-              height={488}
+              width={736}
+              height={736}
+              className="w-full"
             />
           </div>
           <h2 className="mt-14 font-lora text-32 text-white-95 lg:mt-0">
@@ -98,14 +99,15 @@ const Faqs = () => {
             ))}
           </Accordion.Root>
         </div>
-        <div className="flex w-full flex-col lg:w-auto lg:items-center">
+        <div className="flex flex-1 flex-col lg:w-auto lg:items-end">
           <div className="relative hidden lg:block">
+            <div className="absolute right-[-245px] top-[-20px] z-10 h-[400px] w-full bg-gradient-to-tr from-[transparent] via-dark-100 via-[83%] to-dark-100" />
             <Image
-              src="/assets/faqs-v1.png"
+              src="/assets/faqs.png"
               alt="FAQ Background"
-              height={488}
-              width={264}
-              className="relative"
+              height={790}
+              width={1010}
+              className="relative right-[-245px] top-[-40px]"
             />
           </div>
 
@@ -115,7 +117,8 @@ const Faqs = () => {
                 Still have questions?
               </p>
               <p className="text-16 font-300 text-white-80">
-                Reach out to our team or engage with us on X.
+                Reach out to our team or engage with our community on Discord or
+                X.
               </p>
             </div>
             <div className="flex gap-3">
