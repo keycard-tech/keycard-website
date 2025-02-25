@@ -3,6 +3,7 @@ import { formatPrice } from '~/app/_utils/format-price'
 import { Button } from '~components/button'
 import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
 import { Image } from '~components/image'
+import { Tooltip } from '~components/tooltip'
 import { RecommendedIcon } from '~icons/recommended'
 import { cx } from 'cva'
 import { Card } from './card'
@@ -69,7 +70,9 @@ const UseCases = () => {
                   })}
                   {!!set.tag && (
                     <span className="flex size-5 items-center justify-center rounded-full bg-orange">
-                      <RecommendedIcon />
+                      <Tooltip label="Best deal">
+                        <RecommendedIcon />
+                      </Tooltip>
                     </span>
                   )}
                 </div>

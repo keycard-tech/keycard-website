@@ -21,7 +21,7 @@ const features = [
   {
     title: 'Water resistant',
     description:
-      'Left Keycard in your jeans? It will survive the washing machine!',
+      'Resistant to most everyday spills, give it a wipe and you’re good to go.',
     image: '/assets/keycard/water-resistant.png',
   },
 ]

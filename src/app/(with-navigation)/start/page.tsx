@@ -47,7 +47,7 @@ export default function StartPage() {
             Learn how to create and store your keys directly on Keycard
           </p>
           <ButtonLink
-            href="https://status.app/help/profile/create-a-status-profile-using-keycard"
+            href="https://status.app/help/keycard/create-a-status-profile-using-keycard"
             variant="secondary"
             icon={<ExternalIcon />}
             className="mt-auto"
@@ -63,7 +63,7 @@ export default function StartPage() {
             Learn how to move your keys to Keycard
           </p>
           <ButtonLink
-            href="https://status.app/help/profile/secure-your-status-profile-or-wallet-with-keycard"
+            href="https://status.app/help/keycard/secure-your-status-profile-or-wallet-with-keycard"
             variant="secondary"
             icon={<ExternalIcon />}
             className="mt-auto"

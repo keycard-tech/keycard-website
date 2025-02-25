@@ -8,12 +8,10 @@ import { cx } from 'cva'
 const Prefooter = () => {
   return (
     <section className="relative flex flex-col overflow-hidden px-6 lg:flex-row lg:px-14 lg:pt-[200px] xl:pl-[309px]">
-      <div className="relative z-20 flex flex-1 flex-col items-start pb-[120px] pt-[320px] text-left lg:py-[200px]">
-        <p className="pb-2 text-24 font-600 text-orange">keycard</p>
+      <div className="relative z-20 flex flex-1 flex-col items-start pb-[120px] pt-[320px] text-left lg:min-w-[450px] lg:py-[200px]">
+        <p className="pb-2 text-24 font-600 text-white-95">keycard</p>
         <h2 className="flex pb-4 font-lora text-32 font-400 text-white-95 md:text-48">
-          Get the card-shaped
-          <br />
-          hardware wallet
+          Get the card-shaped <br /> hardware wallet
         </h2>
         <p className="max-w-[435px] pb-10 text-20 font-300 text-white-80">
           Store and trade your crypto in a simple, secure and slim hardware
@@ -24,7 +22,6 @@ const Prefooter = () => {
             <Button variant="primary">Buy Keycard</Button>
           </BuyKeycardDialog>
           <p className="text-16 font-300 text-white-60">
-            {' '}
             From{' '}
             {formatPrice({
               amount: KEYCARD_PRODUCTS.ONE_CARD_SET.price,
