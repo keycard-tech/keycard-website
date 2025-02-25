@@ -7,7 +7,7 @@ import { InfinityIcon } from '~icons/infinity'
 import { cx } from 'cva'
 import { createElement } from 'react'
 
-const features = [
+const FEATURES = [
   {
     title: 'Best-in-class security',
     description:
@@ -74,7 +74,7 @@ const KeycardFeatures = () => {
         ever conceived.
       </h2>
       <div className="grid grid-cols-1 gap-5 pt-20 lg:grid-cols-4 lg:gap-6">
-        {features.map((feature, index) => (
+        {FEATURES.map((feature, index) => (
           <div
             key={index}
             className={cx([

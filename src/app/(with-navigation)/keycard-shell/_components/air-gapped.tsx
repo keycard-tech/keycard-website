@@ -1,49 +1,49 @@
 import { Image } from '~components/image'
 
-const AirGapped = () => {
-  const wallets = [
-    {
-      name: 'Metamask',
-      network: 'Ethereum',
-      image: '/assets/keycard-shell/wallets/metamask.png',
-    },
-    {
-      name: 'imToken',
-      network: 'Ethereum',
-      image: '/assets/keycard-shell/wallets/im-token.png',
-    },
-    {
-      name: 'Rabby',
-      network: 'Ethereum',
-      image: '/assets/keycard-shell/wallets/rabbit.png',
-    },
-    {
-      name: 'Backpack',
-      network: 'Ethereum',
-      image: '/assets/keycard-shell/wallets/back-pack.png',
-    },
-    {
-      name: 'UniSat',
-      network: 'Bitcoin',
-      image: '/assets/keycard-shell/wallets/uni-sat.png',
-    },
-    {
-      name: 'Blue',
-      network: 'Bitcoin',
-      image: '/assets/keycard-shell/wallets/blue.png',
-    },
-    {
-      name: 'Sparrow',
-      network: 'Bitcoin',
-      image: '/assets/keycard-shell/wallets/sparrow.png',
-    },
-    {
-      name: 'Specter',
-      network: 'Bitcoin',
-      image: '/assets/keycard-shell/wallets/specter.png',
-    },
-  ]
+const WALLETS = [
+  {
+    name: 'Metamask',
+    network: 'Ethereum',
+    image: '/assets/keycard-shell/wallets/metamask.png',
+  },
+  {
+    name: 'imToken',
+    network: 'Ethereum',
+    image: '/assets/keycard-shell/wallets/im-token.png',
+  },
+  {
+    name: 'Rabby',
+    network: 'Ethereum',
+    image: '/assets/keycard-shell/wallets/rabbit.png',
+  },
+  {
+    name: 'Backpack',
+    network: 'Ethereum',
+    image: '/assets/keycard-shell/wallets/back-pack.png',
+  },
+  {
+    name: 'UniSat',
+    network: 'Bitcoin',
+    image: '/assets/keycard-shell/wallets/uni-sat.png',
+  },
+  {
+    name: 'Blue',
+    network: 'Bitcoin',
+    image: '/assets/keycard-shell/wallets/blue.png',
+  },
+  {
+    name: 'Sparrow',
+    network: 'Bitcoin',
+    image: '/assets/keycard-shell/wallets/sparrow.png',
+  },
+  {
+    name: 'Specter',
+    network: 'Bitcoin',
+    image: '/assets/keycard-shell/wallets/specter.png',
+  },
+]
 
+const AirGapped = () => {
   return (
     <section className="relative -order-1 grid items-center overflow-y-clip px-3 pb-[498px] pt-[120px] lg:mb-[100px] lg:grid-cols-2 lg:pb-[100px]">
       <div className="relative order-last lg:order-first">
@@ -73,7 +73,7 @@ const AirGapped = () => {
             TRANSACTION SIGNING WITH
           </div>
           <div className="grid grid-cols-2">
-            {wallets.map((wallet, index) => (
+            {WALLETS.map((wallet, index) => (
               <div
                 key={index}
                 className="flex items-center space-x-3 border-b border-dashed border-white-20 py-3 even:border-l even:border-white-20 even:pl-3 [&:nth-child(-n+2)]:pt-0 [&:nth-last-child(-n+2)]:border-b-0 [&:nth-last-child(-n+2)]:pb-0"
