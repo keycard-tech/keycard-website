@@ -83,7 +83,7 @@ const Faqs = () => {
                     )}
                   >
                     {faq.question}
-                    <div className="rounded-[10px] border border-white-12 bg-white-8 p-[6px]">
+                    <div className="rounded-[10px] border border-white-12 bg-white-8 p-[6px] hover:border-white-20 hover:bg-white-12">
                       <ChevronDownIcon className="text-white-95 transition-transform duration-300 ease-[cubic-bezier(0.87,_0,_0.13,_1)] group-data-[state=open]:rotate-180" />
                     </div>
                   </Accordion.Trigger>
