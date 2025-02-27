@@ -383,11 +383,11 @@ const ComparisonTable = () => {
                       {feature.name.split(' ').slice(0, -1).join(' ')}{' '}
                       <span className="inline-flex items-center">
                         {feature.name.split(' ').slice(-1)[0]}
-                        {feature.tooltip && (
+                        {/* {feature.tooltip && (
                           <Tooltip label={feature.tooltip}>
                             <InfoIcon className="ml-2 flex-shrink-0 text-white-40 transition-colors hover:text-white-60" />
                           </Tooltip>
-                        )}
+                        )} */}
                       </span>
                     </span>
                   </div>
