@@ -50,7 +50,6 @@ const features: Array<Feature> = [
     },
     keycard: {
       featured: true,
-      tooltip: 'Bitcoin only',
     },
     tangem: {
       featured: true,
@@ -77,7 +76,6 @@ const features: Array<Feature> = [
     tooltip: 'Compatible with mobile devices',
     keycardShell: {
       featured: true,
-      tooltip: 'iOS and Android',
     },
     keycard: {
       featured: true,
@@ -96,11 +94,9 @@ const features: Array<Feature> = [
     },
     keycard: {
       featured: true,
-      tooltip: 'No limit on master keys',
     },
     tangem: {
       featured: true,
-      tooltip: 'No limit on master keys',
     },
     ledger: {
       featured: false,
@@ -141,7 +137,6 @@ const features: Array<Feature> = [
     name: 'Open source secure element',
     keycardShell: {
       featured: true,
-      tooltip: 'Secure element is open source',
     },
     keycard: {
       featured: false,
@@ -163,11 +158,9 @@ const features: Array<Feature> = [
     },
     tangem: {
       featured: false,
-      tooltip: 'Not applicable',
     },
     ledger: {
       featured: false,
-      tooltip: 'Not applicable',
     },
   },
   {
@@ -178,7 +171,6 @@ const features: Array<Feature> = [
     },
     keycard: {
       featured: false,
-      tooltip: 'Only with Keycard wallet',
     },
     tangem: {
       featured: false,
@@ -222,7 +214,6 @@ const features: Array<Feature> = [
     name: 'Secure element has its own usages',
     keycardShell: {
       featured: true,
-      tooltip: 'Multiple use cases for secure element',
     },
     keycard: {
       featured: 'n/a',
@@ -258,11 +249,9 @@ const features: Array<Feature> = [
     },
     keycard: {
       featured: 'n/a',
-      tooltip: 'Not applicable',
     },
     tangem: {
       featured: 'n/a',
-      tooltip: 'Not applicable',
     },
     ledger: {
       featured: false,
@@ -330,24 +319,6 @@ const FeatureInfo = ({
   }
 }
 
-const TooltipInfo = ({
-  variant,
-}: {
-  variant: FeatureVariant | undefined | string
-}) => {
-  if (typeof variant === 'string') return null
-
-  if (!variant || !variant.tooltip) return null
-
-  return (
-    <Tooltip label={variant.tooltip || ''}>
-      <div className="absolute left-[calc(50%+10px)] flex">
-        <InfoIcon className="ml-2 flex-shrink-0 text-white-40 transition-colors hover:text-white-60" />
-      </div>
-    </Tooltip>
-  )
-}
-
 const ComparisonTable = () => {
   const products: Array<keyof Feature> = [
     'keycardShell',
@@ -383,11 +354,11 @@ const ComparisonTable = () => {
                       {feature.name.split(' ').slice(0, -1).join(' ')}{' '}
                       <span className="inline-flex items-center">
                         {feature.name.split(' ').slice(-1)[0]}
-                        {/* {feature.tooltip && (
+                        {feature.tooltip && (
                           <Tooltip label={feature.tooltip}>
                             <InfoIcon className="ml-2 flex-shrink-0 text-white-40 transition-colors hover:text-white-60" />
                           </Tooltip>
-                        )} */}
+                        )}
                       </span>
                     </span>
                   </div>
@@ -397,7 +368,6 @@ const ComparisonTable = () => {
                       className="relative flex items-center justify-center last:pr-0"
                     >
                       <FeatureInfo variant={feature[product]} />
-                      <TooltipInfo variant={feature[product]} />
                     </div>
                   ))}
                 </div>
