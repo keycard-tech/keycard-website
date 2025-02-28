@@ -60,7 +60,7 @@ const features = [
   {
     title: 'Bitcoin support',
     description:
-      'Ready to use with selected Bitcoin wallets.',
+      'Works out of the box with your favourite Bitcoin wallets.',
     className: 'col-span-1',
     icons: [
       {
