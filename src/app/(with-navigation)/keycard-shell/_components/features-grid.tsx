@@ -60,7 +60,7 @@ const features = [
   {
     title: 'Bitcoin support',
     description:
-      'Something here about how it’s really super cool and a great feature.',
+      'Ready to use with selected Bitcoin wallets.',
     className: 'col-span-1',
     icons: [
       {
