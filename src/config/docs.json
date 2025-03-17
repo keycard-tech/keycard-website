@@ -61,149 +61,149 @@
   },
   {
     "title": "Java SDK",
-    "link": "/docs/sdk",
+    "link": "/docs/software-integration/sdk",
     "subItems": [
       {
         "title": "Installation",
-        "link": "/docs/sdk/installation"
+        "link": "/docs/software-integration/sdk/installation"
       },
       {
         "title": "Card Connection",
-        "link": "/docs/sdk/connection"
+        "link": "/docs/software-integration/sdk/connection"
       },
       {
         "title": "Preparation",
-        "link": "/docs/sdk/preparation"
+        "link": "/docs/software-integration/sdk/preparation"
       },
       {
         "title": "Secure Channel",
-        "link": "/docs/sdk/securechannel"
+        "link": "/docs/software-integration/sdk/securechannel"
       },
       {
         "title": "Authentication",
-        "link": "/docs/sdk/authentication"
+        "link": "/docs/software-integration/sdk/authentication"
       },
       {
         "title": "Wallet Creation",
-        "link": "/docs/sdk/create_wallet"
+        "link": "/docs/software-integration/sdk/create_wallet"
       },
       {
         "title": "Derivation & Signing",
-        "link": "/docs/sdk/derivation_sign"
+        "link": "/docs/software-integration/sdk/derivation_sign"
       },
       {
         "title": "Pinless Signing",
-        "link": "/docs/sdk/pinless"
+        "link": "/docs/software-integration/sdk/pinless"
       },
       {
         "title": "Exporting Keys",
-        "link": "/docs/sdk/export"
+        "link": "/docs/software-integration/sdk/export"
       },
       {
         "title": "Cash Applet",
-        "link": "/docs/sdk/cash"
+        "link": "/docs/software-integration/sdk/cash"
       }
     ]
   },
   {
     "title": "Web3 API Extension",
-    "link": "/docs/web3"
+    "link": "/docs/software-integration/web3"
   },
   {
     "title": "APDU API",
-    "link": "/docs/apdu",
+    "link": "/docs/software-integration/apdu",
     "subItems": [
       {
         "title": "Overview",
-        "link": "/docs/apdu/overview"
+        "link": "/docs/software-integration/apdu/overview"
       },
       {
         "title": "CHANGELOG",
-        "link": "/docs/apdu/changelog"
+        "link": "/docs/software-integration/apdu/changelog"
       },
       {
         "title": "SELECT",
-        "link": "/docs/apdu/select"
+        "link": "/docs/software-integration/apdu/select"
       },
       {
         "title": "INIT",
-        "link": "/docs/apdu/init"
+        "link": "/docs/software-integration/apdu/init"
       },
       {
         "title": "IDENT",
-        "link": "/docs/apdu/ident"
+        "link": "/docs/software-integration/apdu/ident"
       },
       {
         "title": "OPEN SECURE CHANNEL",
-        "link": "/docs/apdu/opensecurechannel"
+        "link": "/docs/software-integration/apdu/opensecurechannel"
       },
       {
         "title": "MUTUALLY AUTHENTICATE",
-        "link": "/docs/apdu/mutuallyauthenticate"
+        "link": "/docs/software-integration/apdu/mutuallyauthenticate"
       },
       {
         "title": "PAIR",
-        "link": "/docs/apdu/pair"
+        "link": "/docs/software-integration/apdu/pair"
       },
       {
         "title": "UNPAIR",
-        "link": "/docs/apdu/unpair"
+        "link": "/docs/software-integration/apdu/unpair"
       },
       {
         "title": "GET STATUS",
-        "link": "/docs/apdu/getstatus"
+        "link": "/docs/software-integration/apdu/getstatus"
       },
       {
         "title": "VERIFY PIN",
-        "link": "/docs/apdu/verifypin"
+        "link": "/docs/software-integration/apdu/verifypin"
       },
       {
         "title": "CHANGE PIN",
-        "link": "/docs/apdu/changepin"
+        "link": "/docs/software-integration/apdu/changepin"
       },
       {
         "title": "UNBLOCK PIN",
-        "link": "/docs/apdu/unblockpin"
+        "link": "/docs/software-integration/apdu/unblockpin"
       },
       {
         "title": "LOAD KEY",
-        "link": "/docs/apdu/loadkey"
+        "link": "/docs/software-integration/apdu/loadkey"
       },
       {
         "title": "DERIVE KEY",
-        "link": "/docs/apdu/derivekey"
+        "link": "/docs/software-integration/apdu/derivekey"
       },
       {
         "title": "GENERATE MNEMONIC",
-        "link": "/docs/apdu/generatemnemonic"
+        "link": "/docs/software-integration/apdu/generatemnemonic"
       },
       {
         "title": "REMOVE KEY",
-        "link": "/docs/apdu/removekey"
+        "link": "/docs/software-integration/apdu/removekey"
       },
       {
         "title": "GENERATE KEY",
-        "link": "/docs/apdu/generatekey"
+        "link": "/docs/software-integration/apdu/generatekey"
       },
       {
         "title": "SIGN",
-        "link": "/docs/apdu/sign"
+        "link": "/docs/software-integration/apdu/sign"
       },
       {
         "title": "SET PINLESS PATH",
-        "link": "/docs/apdu/setpinlesspath"
+        "link": "/docs/software-integration/apdu/setpinlesspath"
       },
       {
         "title": "EXPORT KEY",
-        "link": "/docs/apdu/exportkey"
+        "link": "/docs/software-integration/apdu/exportkey"
       },
       {
         "title": "STORE DATA",
-        "link": "/docs/apdu/storedata"
+        "link": "/docs/software-integration/apdu/storedata"
       },
       {
         "title": "GET DATA",
-        "link": "/docs/apdu/getdata"
+        "link": "/docs/software-integration/apdu/getdata"
       }
     ]
   },
