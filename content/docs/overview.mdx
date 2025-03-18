@@ -7,19 +7,23 @@ title: Overview
 
 ## What is Keycard?
 
-Keycard is a hardware wallet that stores private keys on a dedicated secure chip. Designed as an open-source, contactless smart card, it functions as a [BIP-32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) HD wallet, supporting key generation, derivation, and signing. It also allows exporting keys defined in the context of [EIP-1581](https://eips.ethereum.org/EIPS/eip-1581). 
+Keycard is a hardware wallet that stores private keys on a dedicated secure chip. Designed as an open-source contactless smart card, it functions as a [BIP-32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) HD wallet, supporting key generation, derivation, and signing. It also allows exporting keys defined in the context of [EIP-1581](https://eips.ethereum.org/EIPS/eip-1581). 
 The most obvious case for integration of Keycard is crypto wallets (ETH, BTC, etc), however it can be used in other systems where a BIP-32 key tree is used and/or you perform authentication/identification.
 
-It’s natively integrated with all [Status apps](https://status.app), and compatible with Android phones and USB smartcard readers. [Learn more](https://keycard.tech/keycard).
-Keycard communicates via NFC and ISO7816 interfaces. Communication with the Keycard happens through a simple APDU interface, together with a Secure Channel guaranteeing confidentiality, authentication and integrity of all commands.
+It’s natively integrated with all [Status apps](https://status.app) and works on iOS/Android mobile phones and desktops with a USB smartcard reader. [Learn more](https://keycard.tech/keycard).
+Keycard communicates via NFC and ISO7816 interfaces. Communication with the Keycard happens through a simple APDU interface, together with a secure channel guaranteeing confidentiality, authentication and integrity of all commands.
 
 ## What is Keycard Shell?
 
-Keycard Shell is a companion device designed to enhance the Keycard experience. It’s a separate product into which you insert your Keycard, adding a camera and display for broader compatibility with wallets like MetaMask, imToken, Rabby, BlueWallet and others. Keycard Shell enables QR code scanning ([EIP-4527](https://eips.ethereum.org/EIPS/eip-4527)) and transaction verification directly on the device, bridging the gap between Keycard’s secure chip and wallets that don’t natively support NFC-based hardware wallets. Announced in [March 2025](https://keycard.tech/blog/announcing-keycard-shell), it evolved from a design journey starting in 2022 ([Keycard Origins](https://keycard.tech/blog/keycard-origins-shells-design-journey-from-concept-to-prototype)).
+Keycard Shell is a companion device designed to enhance the Keycard experience. It’s a full fledged hardware wallet  in which you insert your Keycard. This way you add to Keycard a range of connectivity options: keypad, display, camera and usb port. Keycard Shell is compatible with wallets like MetaMask, imToken, Rabby, BlueWallet and more. 
+
+Keycard Shell enables QR code scanning ([EIP-4527](https://eips.ethereum.org/EIPS/eip-4527)) and transaction verification directly on the device, bridging the gap between Keycard’s secure chip and wallets that don’t natively support NFC-based hardware wallets. Announced in [March 2025](https://keycard.tech/blog/announcing-keycard-shell), it evolved from a design journey starting in 2022 ([Keycard Origins](https://keycard.tech/blog/keycard-origins-shells-design-journey-from-concept-to-prototype)).
 
 ## Versioning
 
-The current version of the applet is 3.1. This documentation applies to said version. [Semantic versioning](https://semver.org) is used throughout the project, with the omission of the patch number for the applet, but not the SDK and related tools. The version of all components of the Keycard project are tied to the protocol version.
+The current version of the applet is 3.1.0
+
+This documentation applies to said version. [Semantic versioning](https://semver.org) is used throughout the project, with the omission of the patch number for the applet, but not the SDK and related tools. The version of all components of the Keycard project are tied to the protocol version.
 
 ## Get in touch
 
@@ -45,4 +49,4 @@ To further simplify integration, we have developed a Java-based API which can be
 
 If you use a different language, please first refer to the [Java SDK](software-integration/sdk/installation) documentation for a high level overview of how to perform different tasks with the Keycard. Then, please check the [protocol documentation](software-integration/apdu) out for the low-level details.
 
-Since Keycard 3.0, besides the hardware wallet functionality, you find a second applet with a different purpouse and security model. This applet, internally called Cash applet, does not share any data with the wallet and provides a single keypair which can be used to sign any piece of information. Unlike the wallet applet, the cash applet does not require a PIN or SecureChannel and can be tapped on 3rd party terminal. This enable convenient in-person interactions at the expense of security. For this reason the keypair in the Cash applet should not hold any funds at all, but should instead be used in concert with smartcontracts in scenarios with lower security requirements. It is especially suited for signing EIP-712 formatted metatx. Some examples can include ticketing, small payments, etc. It is worth repeating that the Wallet and Cash applet, while living on the same card, do not share any data or key and are completely independent from each other. In order to easily integrate Keycard with any dApp, we defined a small extension to the [Web3 API](software-integration/web3).
+Since Keycard 3.0, besides the hardware wallet functionality, you find a second applet with a different purpose and security model. This applet, internally called Cash applet, does not share any data with the wallet and provides a single keypair which can be used to sign any piece of information. Unlike the wallet applet, the cash applet does not require a PIN or SecureChannel and can be tapped on 3rd party terminal. This enable convenient in-person interactions at the expense of security. For this reason the keypair in the Cash applet should not hold any funds at all, but should instead be used in concert with smartcontracts in scenarios with lower security requirements. It is especially suited for signing EIP-712 formatted metatx. Some examples can include ticketing, small payments, etc. It is worth repeating that the Wallet and Cash applet, while living on the same card, do not share any data or key and are completely independent from each other. In order to easily integrate Keycard with any dApp, we defined a small extension to the [Web3 API](software-integration/web3).
