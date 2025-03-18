@@ -10,8 +10,9 @@ title: Overview
 Keycard is a hardware wallet that stores private keys on a dedicated secure chip. Designed as an open-source contactless smart card, it functions as a [BIP-32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) HD wallet, supporting key generation, derivation, and signing. It also allows exporting keys defined in the context of [EIP-1581](https://eips.ethereum.org/EIPS/eip-1581). 
 The most obvious case for integration of Keycard is crypto wallets (ETH, BTC, etc), however it can be used in other systems where a BIP-32 key tree is used and/or you perform authentication/identification.
 
-It’s natively integrated with all [Status apps](https://status.app) and works on iOS/Android mobile phones and desktops with a USB smartcard reader. [Learn more](https://keycard.tech/keycard).
-Keycard communicates via NFC and ISO7816 interfaces. Communication with the Keycard happens through a simple APDU interface, together with a secure channel guaranteeing confidentiality, authentication and integrity of all commands.
+It’s natively integrated with all [Status apps](https://status.app) and works on iOS/Android mobile phones and desktops with a USB smartcard reader. Learn more about keycard [here](https://keycard.tech/keycard).
+
+Keycard communicates via NFC contactless interface and ISO-7816-1 contact interface. Communication with Keycard happens through a simple APDU interface, together with a secure channel guaranteeing confidentiality, authentication and integrity of all commands.
 
 ## What is Keycard Shell?
 
@@ -39,7 +40,7 @@ The most obvious case for integration of Keycard is crypto wallets (ETH, BTC, et
 
 ### For users: Duress PIN
 
-A feature added in version 3.1 of the applet is a duress PIN, which is completely transparent in the API and undetectable. It changes the keys generated during derivation in a deterministic way. Wallets should make sure they account for this by hiding balance and wallet address until proper authentication, and eventually be able to transparently switch to using the addresses generated after inserting the duress PIN.
+A feature added in version 3.1.0 of the applet is a duress PIN, which is completely transparent in the API and undetectable. It changes the keys generated during derivation in a deterministic way. Wallets should make sure they account for this by hiding balance and wallet address until proper authentication, and eventually be able to transparently switch to using the addresses generated after inserting the duress PIN.
 
 ### For developers: Our API
 
