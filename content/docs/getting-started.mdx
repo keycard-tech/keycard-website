@@ -9,9 +9,11 @@ Keycard ships with pre-installed applets, ready for initialization. This guide c
 
 ## Getting Started with Keycard
 
-To begin, download the [Status mobile app](https://status.app/apps#mobile) on Android, iOS or the [Status desktop app](https://status.app/apps#desktop) on Windows, MacOS or Linux. Alternatively use [Keycard Connect](https://github.com/keycard-tech/keycard-connect) on Android. These apps help initialize your Keycard with a pairing key, PIN, PUK, and BIP39 seed. Follow the in-app prompts to pair your Keycard via NFC.
+To begin, download the [Status mobile app](https://status.app/apps#mobile) on Android, iOS or the [Status desktop app](https://status.app/apps#desktop) on Windows, MacOS or Linux. Alternatively use [Keycard Connect](https://github.com/keycard-tech/keycard-connect) on Android. 
 
-It also provides basic functionality like changing credentials, changing or removing keys and clear pairing slots. The last functionality is especially useful if you are integrating with Keycard and accidentally fill all pairing slots. Using the "Unpair others" button will remove all pairing except the Keycard Connect's one.
+These apps help initialize your Keycard with a pairing key, PIN, PUK, and BIP39 seed. Follow the in-app prompts to pair your Keycard via NFC.
+
+Keycard connect also provides basic functionality like changing credentials, changing or removing keys and clear pairing slots. The last functionality is especially useful if you are integrating with Keycard and accidentally fill all pairing slots. Using the "Unpair others" button will remove all pairing except the Keycard Connect's one.
 
 ### Applet Installation
 
@@ -51,17 +53,18 @@ In Status, Keycard Shell or Keycard Connect, export your BIP39 seed and initiali
 
 ### Basic Operations
 
-- **Start Device:** Insert Keycard into Keycard Shell to boot up device. Remove Keycard to shut down Keycard Shell.
+- **Start Device:** Insert Keycard into Keycard Shell to turn on device. Remove Keycard or press the on/off button to turn it off.
 - **Menu:** With Keycard Shell, use the buttons (2, 4, 6, 8) to navigate the display menu.
-- **Scanning QR:** Insert Keycard into the Shell, use the camera to scan QR codes from wallets like MetaMask.
-- **Signing Transactions:** Confirm transactions on the Shell’s display, then tap Keycard to sign via NFC.
+- **Pair:** Pair your software wallet (e.g. metamask, rabby or others) with Keycard Shell
+- **Scanning QR:** Use the camera to scan QR codes from wallets like MetaMask.
+- **Signing Transactions:** Confirm transactions on the Shell’s display, then scan the QR code provided by Shell to the software wallet
 - **Confirming Tx Integrity:** The Shell displays transaction details for verification before signing.
 
 ## Tips and Best Practices
 
-### Replacing the Nokia BL-4C Battery
+### Replacing the BL-4C Battery
 
-Keycard Shell uses a Nokia BL-4C battery. Replace it by opening the Shell’s back panel, swapping the battery, and reassembling.
+Keycard Shell uses a BL-4C battery. Replace it by opening the Shell’s back panel, swapping the battery, and reassembling.
 
 ### Cleaning the Camera Lens and Display
 
