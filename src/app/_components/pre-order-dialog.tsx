@@ -68,14 +68,14 @@ const ShopifyForm = () => {
 
   return (
     <div className="grid h-svh grid-cols-1 gap-6 overflow-auto bg-white-4 p-5 backdrop-blur-[20px] lg:h-auto lg:grid-cols-2 lg:overflow-clip lg:rounded-28 lg:border lg:border-white-12 lg:p-2">
-      <div className="relative hidden rounded-20 lg:block">
+      <div className="relative hidden rounded-20 bg-[#010101] lg:block">
         <AnimatePresence>
           <motion.div
             key="pre-order-shell"
             initial={{ opacity: 0, scale: 0.95, y: 40 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="flex h-full items-center justify-center overflow-hidden rounded-20 bg-[#010101]"
+            className="flex h-full items-center justify-center overflow-hidden"
           >
             <Image
               className="w-full"
@@ -94,7 +94,7 @@ const ShopifyForm = () => {
 
       <div className="flex flex-col justify-start lg:p-4 lg:pl-0">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
+          <div className="flex flex-col items-start gap-3 lg:flex-row lg:items-center">
             <Dialog.Title className="font-lora text-32">
               Pre-order Shell
             </Dialog.Title>
@@ -113,7 +113,7 @@ const ShopifyForm = () => {
           </Dialog.Close>
         </div>
 
-        <div className="pt-12 lg:pt-10">
+        <div className="pt-5 lg:pt-10">
           <div className="rounded-16 bg-white-4 px-4 py-3 backdrop-blur-[20px]">
             <p className="pb-0.5 font-300 text-white-60">
               Pre-order exclusive price 🔥
@@ -145,13 +145,13 @@ const ShopifyForm = () => {
               <div className="flex flex-col gap-0.5 font-300 text-white-95">
                 <div className="flex items-center gap-1">
                   <div className="mr-0.5 size-1 rounded-full bg-white-60" /> 1
-                  Logos Operator ordinal (floor: 0.0015 BTC)
+                  Logos Operator ordinal
                   <Tooltip
                     label={
                       <>
                         <p className="mb-2.5 font-400">
-                          Logos Operator is an Ordinal collectible tradeable at
-                          Magic Eden.
+                          Logos Operator is an Ordinal collectible tradeable
+                          (0.0015 BTC) on Magic Eden.
                         </p>
                         <ul className="mb-4 grid list-disc gap-1 pl-4">
                           <li className="font-300">

@@ -13,7 +13,6 @@ import { useState } from 'react'
 import { Button } from './button'
 import { BuyKeycardDialog } from './buy-keycard-dialog'
 import { Logo } from './logo'
-import { PreOrderDialog } from './pre-order-dialog'
 
 const NAV_BAR_HEIGHT = 92
 
@@ -61,13 +60,6 @@ const NavBar = () => {
 
   return (
     <>
-      <div className="fixed left-0 top-0 z-30 flex h-12 w-full items-center justify-center bg-orange text-center text-white-100">
-        🎉 Keycard Shell pre-sale has started! &nbsp;
-        <PreOrderDialog>
-          <button className="underline">Pre-order</button>
-        </PreOrderDialog>{' '}
-        &nbsp; now for exclusive benefits! 👀
-      </div>
       <motion.nav
         className="fixed left-0 top-12 z-30 hidden w-full items-center justify-between px-8 py-6 text-white-95 lg:flex"
         style={{
