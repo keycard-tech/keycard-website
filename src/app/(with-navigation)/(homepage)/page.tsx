@@ -3,7 +3,7 @@ import { AutoOpenBuyKeycardDialog } from './_components/auto-open-buy-keycard-di
 import { BuyCards } from './_components/buy-cards'
 import { ComparisonTable } from './_components/comparison-table'
 import { Faqs } from './_components/faqs'
-import { Hero } from './_components/hero'
+import { Keycard } from './_components/keycard'
 import { KeycardFeatures } from './_components/keycard-features'
 import { KeycardShell } from './_components/keycard-shell'
 
@@ -17,8 +17,8 @@ export default function HomePage() {
   return (
     <>
       <AutoOpenBuyKeycardDialog />
-      <Hero />
       <KeycardShell />
+      <Keycard />
       <KeycardFeatures />
       <ComparisonTable />
       <Faqs />

@@ -1,7 +1,7 @@
 import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
-import { GetNotifiedDialog } from '~components/get-notified-dialog'
 import { Image } from '~components/image'
+import { PreOrderDialog } from '~components/pre-order-dialog'
 
 const KeycardShell = () => {
   return (
@@ -36,9 +36,9 @@ const KeycardShell = () => {
           and modular.
         </p>
         <div className="flex gap-4">
-          <GetNotifiedDialog>
-            <Button>Get notified</Button>
-          </GetNotifiedDialog>
+          <PreOrderDialog>
+            <Button>Pre-order</Button>
+          </PreOrderDialog>
           <ButtonLink href="/keycard-shell" variant="secondary">
             Learn more
           </ButtonLink>

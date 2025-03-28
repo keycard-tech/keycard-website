@@ -1,6 +1,6 @@
 import { Button } from '~components/button'
-import { GetNotifiedDialog } from '~components/get-notified-dialog'
 import { Image } from '~components/image'
+import { PreOrderDialog } from '~components/pre-order-dialog'
 import { cx } from 'cva'
 
 const Prefooter = () => {
@@ -19,9 +19,9 @@ const Prefooter = () => {
           each with their own key.
         </p>
         <div className="flex flex-col items-start gap-5 sm:min-w-[410px] sm:flex-row sm:items-center">
-          <GetNotifiedDialog>
-            <Button variant="primary">Get notified</Button>
-          </GetNotifiedDialog>
+          <PreOrderDialog>
+            <Button>Pre-order</Button>
+          </PreOrderDialog>
           <p className="flex items-center gap-2 text-16 font-300 text-white-60 md:gap-2">
             Coming 2025 <span className="size-1 rounded-full bg-white-40" />{' '}
             Bundled with Keycard

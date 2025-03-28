@@ -1,6 +1,6 @@
 import { Button } from '~components/button'
-import { GetNotifiedDialog } from '~components/get-notified-dialog'
 import { Image } from '~components/image'
+import { PreOrderDialog } from '~components/pre-order-dialog'
 
 const Hero = () => {
   return (
@@ -29,9 +29,9 @@ const Hero = () => {
               each with their own key.
             </p>
             <div className="flex flex-col items-start gap-5 md:flex-row md:items-center">
-              <GetNotifiedDialog>
-                <Button variant="primary">Get notified</Button>
-              </GetNotifiedDialog>
+              <PreOrderDialog>
+                <Button>Pre-order</Button>
+              </PreOrderDialog>
               <p className="flex items-center gap-2 text-16 font-300 text-white-60">
                 Coming 2025 <span className="size-1 rounded-full bg-white-40" />{' '}
                 Bundled with Keycard

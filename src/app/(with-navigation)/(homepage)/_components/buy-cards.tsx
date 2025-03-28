@@ -3,8 +3,8 @@ import { formatPrice } from '~/app/_utils/format-price'
 import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
 import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
-import { GetNotifiedDialog } from '~components/get-notified-dialog'
 import { Image } from '~components/image'
+import { PreOrderDialog } from '~components/pre-order-dialog'
 import { cx } from 'cva'
 
 type Props = {
@@ -101,9 +101,9 @@ const BuyCards = () => {
         description="Unrivalled security with an infinite number of removable Keycards, each with their own key."
         buttons={
           <>
-            <GetNotifiedDialog>
-              <Button>Get notified</Button>
-            </GetNotifiedDialog>
+            <PreOrderDialog>
+              <Button>Pre-order</Button>
+            </PreOrderDialog>
             <ButtonLink href="/keycard-shell" variant="secondary">
               Learn more
             </ButtonLink>
