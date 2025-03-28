@@ -11,7 +11,7 @@ export default function WithNavigationLayout({ children }: Props) {
     <>
       <NavBar />
       <NavBarMobile />
-      {children}
+      <div className="pt-12">{children}</div>
       <Footer />
     </>
   )
