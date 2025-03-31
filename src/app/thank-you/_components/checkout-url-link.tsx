@@ -1,10 +1,18 @@
 'use client'
 
 import { Link } from '~components/link'
+import { useEffect, useState } from 'react'
 
 export function CheckoutUrlLink() {
-  const searchParams = new URLSearchParams(window.location.search)
-  const checkoutUrl = searchParams.get('checkoutUrl') || ''
+  const [checkoutUrl, setCheckoutUrl] = useState('/?buyKeycard=true')
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search)
+    const checkoutUrl = searchParams.get('checkoutUrl')
+    if (checkoutUrl) {
+      setCheckoutUrl(checkoutUrl)
+    }
+  }, [])
 
   return (
     <Link
