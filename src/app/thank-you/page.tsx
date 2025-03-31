@@ -1,9 +1,9 @@
 import { Background } from '~components/3d/background'
 import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
+import { BuyShellDialog } from '~components/buy-shell-dialog'
 import { Link } from '~components/link'
 import { Logo } from '~components/logo'
-import { PreOrderDialog } from '~components/pre-order-dialog'
 import { cx } from 'cva'
 import Image from 'next/image'
 import { CheckoutUrlLink } from './_components/checkout-url-link'
@@ -66,11 +66,11 @@ export default function ThankyouPage() {
           </div>
         </div>
 
-        <PreOrderDialog>
+        <BuyShellDialog>
           <Button className="w-full justify-center md:w-fit md:justify-start">
             Pre-order
           </Button>
-        </PreOrderDialog>
+        </BuyShellDialog>
       </div>
     </div>
   )

@@ -308,7 +308,9 @@ const ShopifyForm = () => {
                   utmParams,
                 )
                 window.open(checkoutUrl, '_blank', 'noopener')
-                router.push(`/thank-you?checkoutUrl=${checkoutUrl}`)
+                router.push(
+                  `/thank-you?product=keycard&checkoutUrl=${checkoutUrl}`,
+                )
               }}
             >
               {isSubmitting ? (

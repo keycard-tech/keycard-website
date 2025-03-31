@@ -11,6 +11,7 @@ import { Image } from '~components/image'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
+import { KEYCARD_SHELL } from '../_constants/shopify/products'
 import { useShopifyUTMParamsContext } from '../_providers/shopify-utm-params-provider'
 import { formatPrice } from '../_utils/format-price'
 import { Button } from './button'
@@ -18,8 +19,9 @@ import * as Dialog from './dialog'
 import { Tooltip } from './tooltip'
 
 function createCheckoutUrl(utmParams: URLSearchParams) {
-  // TODO UPDATE THIS URL WHEN AVAILABLE
-  const url = new URL(`https://get.keycard.tech/cart/`)
+  const url = new URL(
+    `https://get.keycard.tech/cart/${KEYCARD_SHELL.variantId}:1`,
+  )
 
   utmParams.forEach((value, key) => {
     url.searchParams.append(key, value)
@@ -34,7 +36,7 @@ type Props = {
   onOpenChange?: (open: boolean) => void
 }
 
-const PreOrderDialog = (props: Props) => {
+const BuyShellDialog = (props: Props) => {
   const { children, ...rest } = props
 
   const [open, setOpen] = useState(false)
@@ -54,15 +56,15 @@ const PreOrderDialog = (props: Props) => {
         <Dialog.Description className="sr-only">
           Pre-order Shell
         </Dialog.Description>
-        <ShopifyForm />
+        <Content />
       </Dialog.Content>
     </Dialog.Root>
   )
 }
 
-export { PreOrderDialog }
+export { BuyShellDialog }
 
-const ShopifyForm = () => {
+const Content = () => {
   const router = useRouter()
   const utmParams = useShopifyUTMParamsContext()
 
@@ -213,7 +215,7 @@ const ShopifyForm = () => {
             onClick={() => {
               const checkoutUrl = createCheckoutUrl(utmParams)
               window.open(checkoutUrl, '_blank', 'noopener')
-              router.push(`/thank-you?checkoutUrl=${checkoutUrl}`)
+              router.push(`/thank-you?product=shell&checkoutUrl=${checkoutUrl}`)
             }}
           >
             Checkout <div className="size-1 rounded-full bg-white-40" />

@@ -1,7 +1,7 @@
 import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
+import { BuyShellDialog } from '~components/buy-shell-dialog'
 import { Image } from '~components/image'
-import { PreOrderDialog } from '~components/pre-order-dialog'
 
 const KeycardShell = () => {
   return (
@@ -40,9 +40,9 @@ const KeycardShell = () => {
           each with their own key.
         </p>
         <div className="flex gap-4">
-          <PreOrderDialog>
+          <BuyShellDialog>
             <Button>Pre-order</Button>
-          </PreOrderDialog>
+          </BuyShellDialog>
           <ButtonLink href="/keycard-shell" variant="secondary">
             Learn more
           </ButtonLink>
