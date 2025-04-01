@@ -116,7 +116,7 @@ const Content = () => {
         </div>
 
         <div className="pt-5 lg:pt-10">
-          <div className="rounded-16 bg-white-4 px-4 py-3 backdrop-blur-[20px]">
+          <div className="rounded-16 bg-white-4 px-4 py-3">
             <p className="pb-0.5 font-300 text-white-60">
               Pre-order exclusive price 🔥
             </p>
@@ -142,7 +142,7 @@ const Content = () => {
           <h3 className="mb-2 text-12 uppercase text-white-80">
             Exclusive Pre-order benefits
           </h3>
-          <div className="flex items-center justify-between rounded-16 bg-white-4 px-4 py-3 backdrop-blur-[20px]">
+          <div className="flex items-center justify-between rounded-16 bg-white-4 px-4 py-3">
             <div className="relative flex items-center justify-start">
               <div className="flex flex-col gap-0.5 font-300 text-white-95">
                 <div className="flex items-center gap-1">
