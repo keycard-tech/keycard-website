@@ -59,36 +59,34 @@ const NavBar = () => {
   })
 
   return (
-    <>
-      <motion.nav
-        className="fixed left-0 top-12 z-30 hidden w-full items-center justify-between px-8 py-6 text-white-95 lg:flex"
-        style={{
-          backgroundColor,
-          backdropFilter,
-          WebkitBackdropFilter: backdropFilter,
-        }}
-      >
-        <Link href="/" aria-label="Homepage">
-          <Logo />
-        </Link>
+    <motion.nav
+      className="fixed left-0 top-12 z-30 hidden w-full items-center justify-between px-8 py-6 text-white-95 lg:flex"
+      style={{
+        backgroundColor,
+        backdropFilter,
+        WebkitBackdropFilter: backdropFilter,
+      }}
+    >
+      <Link href="/" aria-label="Homepage">
+        <Logo />
+      </Link>
 
-        <div className="flex items-center gap-4">
-          {links.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              className={internalLinkStyles({ isActive: pathname === href })}
-            >
-              {label}
-            </Link>
-          ))}
+      <div className="flex items-center gap-4">
+        {links.map(({ href, label }) => (
+          <Link
+            key={href}
+            href={href}
+            className={internalLinkStyles({ isActive: pathname === href })}
+          >
+            {label}
+          </Link>
+        ))}
 
-          <BuyKeycardDialog>
-            <Button variant={variant}>Buy Keycard</Button>
-          </BuyKeycardDialog>
-        </div>
-      </motion.nav>
-    </>
+        <BuyKeycardDialog>
+          <Button variant={variant}>Buy Keycard</Button>
+        </BuyKeycardDialog>
+      </div>
+    </motion.nav>
   )
 }
 
