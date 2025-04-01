@@ -12,6 +12,10 @@ import { CheckoutUrlLink } from './_components/checkout-url-link'
 
 type Product = 'keycard' | 'shell'
 
+type Props = {
+  searchParams: Promise<{ [key: string]: string | undefined }>
+}
+
 const productConfig = {
   keycard: {
     title: 'Thanks for choosing Keycard!',
@@ -37,12 +41,10 @@ const productConfig = {
   },
 }
 
-export default function ThankyouPage({
-  searchParams,
-}: {
-  searchParams: { product?: string }
-}) {
-  const product = match(searchParams.product)
+export default async function ThankyouPage(props: Props) {
+  const searchParams = await props.searchParams
+
+  const product = match(searchParams['product'])
     .with('keycard', 'shell', p => p as Product)
     .otherwise(() => 'keycard' as Product)
 
