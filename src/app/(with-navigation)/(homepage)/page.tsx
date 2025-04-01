@@ -1,6 +1,5 @@
 import { Metadata } from '~/app/_metadata'
-import { AutoOpenBuyKeycardDialog } from './_components/auto-open-buy-keycard-dialog'
-import { AutoOpenBuyShellDialog } from './_components/auto-open-buy-shell-dialog'
+import { AutoOpenDialogManager } from './_components/auto-open-dialog-manager'
 import { BuyCards } from './_components/buy-cards'
 import { ComparisonTable } from './_components/comparison-table'
 import { Faqs } from './_components/faqs'
@@ -17,8 +16,7 @@ export const metadata = Metadata({
 export default function HomePage() {
   return (
     <>
-      <AutoOpenBuyKeycardDialog />
-      <AutoOpenBuyShellDialog />
+      <AutoOpenDialogManager />
       <KeycardShell />
       <Keycard />
       <KeycardFeatures />
