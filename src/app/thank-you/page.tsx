@@ -1,14 +1,53 @@
 import { Background } from '~components/3d/background'
 import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
+import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
 import { BuyShellDialog } from '~components/buy-shell-dialog'
 import { Link } from '~components/link'
 import { Logo } from '~components/logo'
 import { cx } from 'cva'
 import Image from 'next/image'
+import { match } from 'ts-pattern'
 import { CheckoutUrlLink } from './_components/checkout-url-link'
 
-export default function ThankyouPage() {
+type Product = 'keycard' | 'shell'
+
+const productConfig = {
+  keycard: {
+    title: 'Thanks for choosing Keycard!',
+    description: 'You will be redirected to the checkout experience.',
+    buttonText: 'Take me home',
+    promptText: 'Want to up your game?',
+    promptDescription: 'Keycard Shell is coming in 2025',
+    promptImage: '/assets/pre-order-shell.png',
+    promptImageAlt: 'Pre-order Shell',
+    promptButtonText: 'Pre-order',
+    dialog: BuyShellDialog,
+  },
+  shell: {
+    title: 'Thanks for choosing Keycard!',
+    description: 'You will be redirected to complete your pre-order.',
+    buttonText: 'Continue exploring',
+    promptText: "Don't want to wait?",
+    promptDescription: 'Get started with Keycard today',
+    promptImage: '/assets/sign-up-teaser.png',
+    promptImageAlt: 'Buy Keycard',
+    promptButtonText: 'Buy Keycard',
+    dialog: BuyKeycardDialog,
+  },
+}
+
+export default function ThankyouPage({
+  searchParams,
+}: {
+  searchParams: { product?: string }
+}) {
+  const product = match(searchParams.product)
+    .with('keycard', 'shell', p => p as Product)
+    .otherwise(() => 'keycard' as Product)
+
+  const config = productConfig[product]
+
   return (
     <div className="relative flex min-h-[calc(100svh-16px)] flex-col justify-center overflow-clip">
       <Link
@@ -19,26 +58,38 @@ export default function ThankyouPage() {
         <Logo />
       </Link>
 
-      <div className="z-10 flex w-fit self-center">
-        <div className="relative px-5">
-          <div className="z-10 flex select-none flex-col items-center">
-            <h3 className="mb-3 text-center font-lora text-32 text-white-95">
-              Thanks for choosing Keycard!
-            </h3>
+      <div className="flex flex-col items-center justify-center">
+        {product === 'shell' && (
+          <Image
+            alt="Thank you"
+            src="/assets/thank-you-shell.png"
+            width="549"
+            height="549"
+            priority
+            className="-my-14 min-w-[459px] lg:mt-0 lg:min-w-[549px]"
+          />
+        )}
+        <div className="z-10 flex w-fit self-center">
+          <div className="relative px-5">
+            <div className="z-10 flex select-none flex-col items-center">
+              <h3 className="mb-3 text-center font-lora text-32 text-white-95">
+                {config.title}
+              </h3>
 
-            <p className="max-w-[490px] pb-8 text-center text-20 font-300 text-white-80">
-              You will be redirected to the checkout experience.
-              <br />
-              If not, please <CheckoutUrlLink />.
-            </p>
-            <ButtonLink variant="secondary" href="/">
-              Take me home
-            </ButtonLink>
+              <p className="max-w-[490px] pb-8 text-center text-20 font-300 text-white-80">
+                {config.description}
+                <br />
+                If not, please <CheckoutUrlLink />
+              </p>
+              <ButtonLink variant="secondary" href="/">
+                {config.buttonText}
+              </ButtonLink>
+            </div>
           </div>
         </div>
       </div>
 
-      <Background variant="thank-you" />
+      {product === 'keycard' && <Background variant="thank-you" />}
 
       <div
         className={cx(
@@ -50,27 +101,27 @@ export default function ThankyouPage() {
         <div className="flex items-center gap-4 px-4 pb-4 md:px-0 md:pb-0">
           <div className="flex size-16 items-center justify-center rounded-16 bg-dark-100">
             <Image
-              src="/assets/pre-order-shell.png"
-              alt="Pre-order Shell"
+              src={config.promptImage}
+              alt={config.promptImageAlt}
               width={48}
               height={48}
             />
           </div>
           <div className="flex flex-1 flex-col gap-0.5 py-2">
             <div className="font-lora text-20 text-white-95">
-              Want to up your game?
+              {config.promptText}
             </div>
             <div className="text-16 font-300 text-white-80">
-              Keycard Shell is coming in 2025
+              {config.promptDescription}
             </div>
           </div>
         </div>
 
-        <BuyShellDialog>
+        <config.dialog>
           <Button className="w-full justify-center md:w-fit md:justify-start">
-            Pre-order
+            {config.promptButtonText}
           </Button>
-        </BuyShellDialog>
+        </config.dialog>
       </div>
     </div>
   )
