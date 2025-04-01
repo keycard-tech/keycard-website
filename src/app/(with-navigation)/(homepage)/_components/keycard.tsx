@@ -11,7 +11,7 @@ const Keycard = () => {
       <div className="hidden max-h-[350px] flex-1 items-start justify-center lg:flex">
         <Image
           alt="Keycard"
-          src="/assets/cards-falling.png"
+          src="/assets/hero-bg.png"
           width={1354}
           height={695}
           className="relative left-[-72px] top-[-72px] scale-105 object-cover"
