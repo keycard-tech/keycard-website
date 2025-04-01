@@ -51,7 +51,7 @@ export default async function ThankyouPage(props: Props) {
   const config = productConfig[product]
 
   return (
-    <div className="relative flex min-h-[calc(100svh-16px)] flex-col justify-center overflow-clip">
+    <div className="relative flex min-h-[calc(100svh-16px)] flex-col justify-center">
       <Link
         href="/"
         aria-label="Homepage"
@@ -60,7 +60,7 @@ export default async function ThankyouPage(props: Props) {
         <Logo />
       </Link>
 
-      <div className="flex flex-col items-center justify-center">
+      <div className="z-20 flex flex-col items-center justify-center">
         {product === 'shell' && (
           <Image
             alt="Thank you"
@@ -68,7 +68,7 @@ export default async function ThankyouPage(props: Props) {
             width="549"
             height="549"
             priority
-            className="-my-14 min-w-[459px] lg:mt-0 lg:min-w-[549px]"
+            className="z-10 -my-14 min-w-[459px] lg:mt-0 lg:min-w-[549px]"
           />
         )}
         <div className="z-10 flex w-fit self-center">
@@ -91,16 +91,28 @@ export default async function ThankyouPage(props: Props) {
         </div>
       </div>
 
-      {product === 'keycard' && <Background variant="thank-you" />}
+      {product === 'shell' ? (
+        <div>
+          <div className="absolute top-0 z-10 h-full bg-dark-60 full-view-port" />
+          <div
+            style={{
+              backgroundImage: `url('/assets/bg-shell-blurred.png')`,
+            }}
+            className="absolute inset-0 z-0 bg-cover bg-center full-view-port"
+          />
+        </div>
+      ) : (
+        <Background variant="thank-you" />
+      )}
 
       <div
         className={cx(
-          'absolute bottom-0 left-1/2 z-40 flex -translate-x-1/2 flex-col items-start justify-between gap-2 bg-white-8 p-1 pt-3 backdrop-blur-[20px] md:bottom-10',
+          'absolute bottom-0 left-1/2 z-40 flex -translate-x-1/2 flex-col items-start justify-between gap-2 bg-white-8 p-1 backdrop-blur-[20px] md:bottom-10',
           'rounded-16 border border-white-12 md:rounded-20',
           'mx-auto w-full md:w-[570px] md:flex-row md:items-center md:gap-4 md:py-1 md:pl-1 md:pr-4',
         )}
       >
-        <div className="flex items-center gap-4 px-4 pb-4 md:px-0 md:pb-0">
+        <div className="flex items-center gap-3 md:gap-4">
           <div className="flex size-16 items-center justify-center rounded-16 bg-dark-100">
             <Image
               src={config.promptImage}
@@ -109,7 +121,7 @@ export default async function ThankyouPage(props: Props) {
               height={48}
             />
           </div>
-          <div className="flex flex-1 flex-col gap-0.5 py-2">
+          <div className="flex flex-1 flex-col gap-0.5 md:py-2">
             <div className="font-lora text-20 text-white-95">
               {config.promptText}
             </div>
