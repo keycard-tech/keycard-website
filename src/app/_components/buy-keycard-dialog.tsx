@@ -301,7 +301,7 @@ const ShopifyForm = () => {
           </div>
           <div className="rounded-16 border border-white-12 bg-white-4 p-1">
             <Button
-              className="w-full justify-center font-500"
+              className="w-full justify-center gap-2 font-500"
               onClick={() => {
                 const checkoutUrl = createCheckoutUrl(
                   form.getValues(),

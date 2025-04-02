@@ -95,7 +95,7 @@ const Content = () => {
       </div>
 
       <div className="flex flex-col justify-start lg:p-4 lg:pl-0">
-        <div className="flex items-center justify-between">
+        <div className="flex justify-between lg:items-center">
           <div className="flex flex-col items-start gap-3 lg:flex-row lg:items-center">
             <Dialog.Title className="font-lora text-32">
               Pre-order Shell
@@ -211,7 +211,7 @@ const Content = () => {
         </div>
         <div className="rounded-16 border border-white-12 bg-white-4 p-1">
           <Button
-            className="w-full justify-center font-500"
+            className="w-full justify-center gap-2 font-500"
             onClick={() => {
               const checkoutUrl = createCheckoutUrl(utmParams)
               window.open(checkoutUrl, '_blank', 'noopener')
