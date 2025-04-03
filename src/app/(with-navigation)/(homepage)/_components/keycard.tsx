@@ -14,7 +14,7 @@ const Keycard = () => {
           src="/assets/hero-bg.png"
           width={1354}
           height={695}
-          className="relative left-[-72px] top-[-72px] scale-105 object-cover"
+          className="absolute right-1/2 top-0 w-auto object-cover"
           priority
         />
       </div>
