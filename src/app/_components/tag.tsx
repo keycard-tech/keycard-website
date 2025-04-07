@@ -8,7 +8,7 @@ type Props = {
 }
 
 const styles = cva({
-  base: 'flex w-fit items-center gap-[6px] rounded-[32px] text-16 font-300 text-white-95 outline outline-1 outline-white-12 select-none',
+  base: 'flex w-fit items-center gap-[6px] rounded-[32px] text-16 font-300 text-white-95 outline whitespace-nowrap outline-1 outline-white-12 select-none',
   variants: {
     size: {
       small: 'py-[5px] pl-3 pr-2',

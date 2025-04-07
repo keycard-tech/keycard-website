@@ -120,7 +120,7 @@ const NavBarMobile = () => {
           <motion.div
             key="menu"
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'calc(100% - 80px)' }}
+            animate={{ opacity: 1, height: 'calc(100% - 150px)' }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2, ease: 'easeInOut' }}
             className="fixed inset-x-0 top-20 z-30 overflow-hidden"

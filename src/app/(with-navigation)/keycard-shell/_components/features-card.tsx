@@ -24,7 +24,7 @@ const FEATURES = [
 
 const FeaturesCard = () => {
   return (
-    <section className="mx-9 px-3 pt-[144px] lg:pt-[48px]">
+    <section className="px-3 pt-[144px] lg:mx-9 lg:pt-[48px]">
       <div className="grid grid-cols-1 gap-8 rounded-28 border border-white-8 bg-white-4 p-6 pt-5 text-white-95 lg:grid-cols-2 lg:gap-6 lg:p-8 lg:pt-7 xl:grid-cols-4">
         {FEATURES.map((feature, index) => (
           <div key={index} className="flex flex-col">
