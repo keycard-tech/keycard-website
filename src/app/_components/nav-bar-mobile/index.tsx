@@ -137,9 +137,9 @@ const NavBarMobile = () => {
                   delay: 0,
                 },
               }}
-              className="flex h-full flex-col items-center justify-center pt-[200px]"
+              className="flex h-full flex-col items-center justify-center"
             >
-              <ul className="flex flex-1 flex-col gap-4">
+              <ul className="flex flex-1 flex-col items-center justify-center gap-4">
                 {ROUTES.Products.map((item, index) => (
                   <motion.li
                     key={item.name}
