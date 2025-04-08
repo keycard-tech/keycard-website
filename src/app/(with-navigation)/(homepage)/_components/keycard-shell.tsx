@@ -22,11 +22,11 @@ const KeycardShell = () => {
         alt="Keycard Shell Hardware Wallet"
         width="466"
         height="466"
-        className="relative top-[-28px] w-full lg:hidden"
+        className="absolute top-0 w-full lg:hidden"
         priority
       />
 
-      <div className="relative z-10 flex max-w-[434px] flex-col px-5 pb-5 lg:ml-[72px] lg:p-0">
+      <div className="relative z-10 flex max-w-[434px] flex-1 flex-col place-content-end px-5 pb-5 lg:ml-[72px] lg:p-0">
         <p className="pb-2 text-24 font-600 text-white-95">
           keycard <span className="font-200">shell</span>
         </p>

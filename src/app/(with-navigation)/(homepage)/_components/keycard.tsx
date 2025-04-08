@@ -24,11 +24,11 @@ const Keycard = () => {
         src="/assets/hero-bg-mobile.png"
         width="900"
         height="600"
-        className="self-end lg:hidden"
+        className="absolute left-0 w-full lg:hidden"
         priority
       />
 
-      <div className="relative z-10 flex max-w-[434px] flex-col px-5 lg:max-w-[500px] lg:pt-0">
+      <div className="relative z-10 flex max-w-[434px] flex-1 flex-col place-content-end px-5 lg:max-w-[500px] lg:pt-0">
         <p className="pb-2 text-24 font-600 text-white-95">keycard</p>
         <h1 className="flex pb-8 font-lora text-32 font-400 lg:pb-4 lg:text-48">
           Lightweight design
