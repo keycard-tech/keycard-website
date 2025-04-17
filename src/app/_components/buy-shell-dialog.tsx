@@ -255,7 +255,7 @@ const Content = () => {
 
             <div className="flex items-center">
               <WorldIcon className="mr-1 shrink-0 text-white-95" />
-              Shipping Q3 2025
+              Shipping Q4 2025
             </div>
           </div>
         </div>
