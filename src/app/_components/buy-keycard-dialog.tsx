@@ -301,14 +301,16 @@ const ShopifyForm = () => {
           </div>
           <div className="rounded-16 border border-white-12 bg-white-4 p-1">
             <Button
-              className="w-full justify-center font-500"
+              className="w-full justify-center gap-2 font-500"
               onClick={() => {
                 const checkoutUrl = createCheckoutUrl(
                   form.getValues(),
                   utmParams,
                 )
                 window.open(checkoutUrl, '_blank', 'noopener')
-                router.push(`/thank-you?checkoutUrl=${checkoutUrl}`)
+                router.push(
+                  `/thank-you?product=keycard&checkoutUrl=${checkoutUrl}`,
+                )
               }}
             >
               {isSubmitting ? (

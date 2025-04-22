@@ -14,7 +14,10 @@ const features: Array<Feature> = [
   {
     name: 'Competitive pricing',
     keycardShell: {
-      label: 'TBD',
+      promo: {
+        current: '€99',
+        previous: '€149',
+      },
     },
     keycard: {
       label: formatPrice({
@@ -275,6 +278,10 @@ const features: Array<Feature> = [
 ] as const
 
 type FeatureVariant = {
+  promo?: {
+    current: string
+    previous: string
+  }
   label?: string
   badge?: {
     text: string
@@ -306,6 +313,14 @@ const FeatureInfo = ({
     return <RemoveIcon className="size-4 text-white-60" />
   if (variant.featured === 'n/a') return <p className="text-white-60">n/a</p>
   if (variant.label) return <p className="text-white-95">{variant.label}</p>
+  if (variant.promo) {
+    return (
+      <div className="flex items-center gap-2">
+        <p className="text-green">{variant.promo.current}</p>
+        <p className="text-white-95 line-through">{variant.promo.previous}</p>
+      </div>
+    )
+  }
   if (variant.badge) {
     return (
       <Tag
