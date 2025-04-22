@@ -1,0 +1,71 @@
+---
+id: getting-started
+title: Getting Started
+---
+
+# Getting Started
+
+Keycard ships with pre-installed applets, ready for initialization. This guide covers setting up your Keycard and using it with Keycard Shell.
+
+## Getting Started with Keycard
+
+To begin, download the [Status mobile app](https://status.app/apps#mobile) on Android, iOS or the [Status desktop app](https://status.app/apps#desktop) on Windows, MacOS or Linux. Alternatively use [Keycard Connect](https://github.com/keycard-tech/keycard-connect) on Android. 
+
+These apps help initialize your Keycard with a pairing key, PIN, PUK, and BIP39 seed. Follow the in-app prompts to pair your Keycard via NFC.
+
+Keycard connect also provides basic functionality like changing credentials, changing or removing keys and clear pairing slots. The last functionality is especially useful if you are integrating with Keycard and accidentally fill all pairing slots. Using the "Unpair others" button will remove all pairing except the Keycard Connect's one.
+
+### Applet Installation
+
+Keycard applets are pre-installed. In some cases you might want to reset the applet status completely for testing purposes. This is done by reinstalling the applet, which can be accomplished using the [Keycard CLI](https://github.com/keycard-tech/keycard-cli). To use the Keycard CLI, a USB reader is needed to be able to communicate with the card. The repository contains example scripts for applet reinstallation.
+
+### Card requirements
+
+The Keycard applet can be installed not only on our cards, but on any card which meets the following requirements:
+
+* JavaCard 3.0.4 or later.
+* Cipher.ALG_AES_BLOCK_128_CBC_NOPAD
+* Cipher.ALG_AES_CBC_ISO9797_M2
+* KeyAgreement.ALG_EC_SVDP_DH_PLAIN
+* KeyAgreement.ALG_EC_SVDP_DH_PLAIN_XY (defined in JavaCard 3.0.5 but available on some 3.0.4 cards nonetheless)
+* KeyPair.ALG_EC_FP (generation of 256-bit keys)
+* MessageDigest.ALG_SHA_256
+* MessageDigest.ALG_SHA_512
+* RandomData.ALG_SECURE_RANDOM
+* Signature.ALG_AES_MAC_128_NOPAD
+* Signature.ALG_ECDSA_SHA_256
+
+Best performance is achieved if the card supports:
+
+* Signature.ALG_HMAC_SHA_512
+
+Keycard requires about 10kb of NVM. All allocations, instantiations and checks are performed at installation time, so if installation succeeds, the applet will work fine.
+
+### Verifying Firmware Integrity
+
+After initialization, verify the firmware by checking the applet version via Keycard CLI, Status app, or Keycard Shell. Ensure it matches the latest release (e.g., 3.1) on [GitHub](https://github.com/keycard-tech/status-keycard/releases).
+
+### Creating Backup Keycards
+
+In Status, Keycard Shell or Keycard Connect, export your BIP39 seed and initialize a second Keycard as a backup. Store it securely.
+
+## Getting Started with Keycard Shell
+
+### Basic Operations
+
+- **Start Device:** Insert Keycard into Keycard Shell to turn on device. Remove Keycard or press the on/off button to turn it off.
+- **Menu:** With Keycard Shell, use the buttons (2, 4, 6, 8) to navigate the display menu.
+- **Pair:** Pair your software wallet (e.g. metamask, rabby or others) with Keycard Shell
+- **Scanning QR:** Use the camera to scan QR codes from wallets like MetaMask.
+- **Signing Transactions:** Confirm transactions on the Shell’s display, then scan the QR code provided by Shell to the software wallet
+- **Confirming Tx Integrity:** The Shell displays transaction details for verification before signing.
+
+## Tips and Best Practices
+
+### Replacing the BL-4C Battery
+
+Keycard Shell uses a BL-4C battery. Replace it by opening the Shell’s back panel, swapping the battery, and reassembling.
+
+### Cleaning the Camera Lens and Display
+
+Use a microfiber cloth to gently clean the Shell’s camera lens and display for clear QR scanning and visibility.

@@ -1,15 +1,63 @@
 [
   {
     "title": "Overview",
-    "link": "/docs/overview"
+    "link": "/docs/overview",
+    "subItems": [
+      {
+        "title": "What is Keycard?",
+        "link": "/docs/overview#what-is-keycard"
+      },
+      {
+        "title": "What is Keycard Shell?",
+        "link": "/docs/overview#what-is-keycard-shell"
+      }
+    ]
   },
   {
-    "title": "Card Setup",
-    "link": "/docs/applet_installation"
+    "title": "Getting Started",
+    "link": "/docs/getting-started",
+    "subItems": [
+      {
+        "title": "Getting Started with Keycard",
+        "link": "/docs/getting-started#getting-started-with-keycard"
+      },
+      {
+        "title": "Getting Started with Keycard Shell",
+        "link": "/docs/getting-started#getting-started-with-keycard-shell"
+      },
+      {
+        "title": "Tips and Best Practices",
+        "link": "/docs/getting-started#tips-and-best-practices"
+      }
+    ]
   },
   {
-    "title": "Resources",
-    "link": "/docs/resources"
+    "title": "Supported Wallets",
+    "link": "/docs/supported-wallets",
+    "subItems": [
+      {
+        "title": "Wallets for Keycard",
+        "link": "/docs/supported-wallets#wallets-for-keycard"
+      },
+      {
+        "title": "Wallets for Keycard Shell",
+        "link": "/docs/supported-wallets#wallets-for-keycard-shell"
+      }
+    ]
+  },
+  {
+    "title": "Troubleshooting",
+    "link": "/docs/troubleshooting",
+    "subItems": [
+      {
+        "title": "Common Issues",
+        "link": "/docs/troubleshooting#common-issues"
+      }
+    ]
+  },
+  {
+    "title": "Updating Firmware",
+    "link": "/docs/updating-firmware"
   },
   {
     "title": "Java SDK",
@@ -58,7 +106,7 @@
     ]
   },
   {
-    "title": "Web3 API Extensions",
+    "title": "Web3 API Extension",
     "link": "/docs/web3"
   },
   {
@@ -158,5 +206,27 @@
         "link": "/docs/apdu/getdata"
       }
     ]
+  },
+  {
+    "title": "Resources",
+    "link": "/docs/resources"
+  },
+  {
+    "title": "Hardware Specifications",
+    "link": "/docs/hardware-specification",
+    "subItems": [
+      {
+        "title": "Keycard",
+        "link": "/docs/hardware-specification#keycard"
+      },
+      {
+        "title": "Keycard Shell",
+        "link": "/docs/hardware-specification#keycard-shell"
+      }
+    ]
+  },
+  {
+    "title": "Contact",
+    "link": "/docs/contact"
   }
 ]
