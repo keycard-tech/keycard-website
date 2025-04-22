@@ -14,11 +14,11 @@ const Footer = () => {
           </Link>
         </div>
         <div className="m-auto max-w-[1512px]">
-          <div className="grid grid-cols-2 divide-x divide-dashed divide-white-20 lg:grid-cols-5 lg:pl-[152px] lg:pr-[72px] xl:pl-[282px]">
+          <div className="grid grid-cols-2 divide-x divide-dashed divide-white-20 lg:grid-cols-5 lg:pl-[152px] lg:pr-0 xl:pl-[282px]">
             <div
               key="empty"
               title="empty"
-              className="border-b border-dashed border-white-20 lg:hidden"
+              className="col-span-2 h-[72px] border-b border-dashed border-white-20 lg:col-span-1 lg:border-0"
             />
 
             {Object.entries(ROUTES).map(([title, links]) => (
