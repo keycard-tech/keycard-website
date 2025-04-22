@@ -3,7 +3,7 @@ import { formatPrice } from '~/app/_utils/format-price'
 import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
 import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
-import { GetNotifiedDialog } from '~components/get-notified-dialog'
+import { BuyShellDialog } from '~components/buy-shell-dialog'
 import { Image } from '~components/image'
 import { cx } from 'cva'
 
@@ -101,9 +101,9 @@ const BuyCards = () => {
         description="Unrivalled security with an infinite number of removable Keycards, each with their own key."
         buttons={
           <>
-            <GetNotifiedDialog>
-              <Button>Get notified</Button>
-            </GetNotifiedDialog>
+            <BuyShellDialog>
+              <Button>Pre-order</Button>
+            </BuyShellDialog>
             <ButtonLink href="/keycard-shell" variant="secondary">
               Learn more
             </ButtonLink>

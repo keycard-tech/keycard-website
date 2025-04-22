@@ -1,18 +1,18 @@
 import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
-import { GetNotifiedDialog } from '~components/get-notified-dialog'
+import { BuyShellDialog } from '~components/buy-shell-dialog'
 import { Image } from '~components/image'
 
 const KeycardShell = () => {
   return (
-    <section className="relative flex h-[calc(100svh-80px)] flex-col justify-end overflow-hidden rounded-b-28 border border-t-0 border-white-8 bg-white-4 backdrop-blur-[20px] full-view-port lg:h-auto lg:flex-row lg:items-center lg:justify-normal lg:remove-full-view-port">
+    <section className="relative flex h-[calc(100svh-80px-70px)] flex-col justify-between overflow-hidden rounded-t-28 border border-white-8 bg-white-4 backdrop-blur-[20px] full-view-port sm:h-[calc(100svh-80px-48px)] lg:h-auto lg:flex-row-reverse lg:items-center lg:justify-normal lg:remove-full-view-port">
       <div className="hidden max-h-[510px] flex-1 items-start justify-center overflow-hidden lg:flex">
         <Image
           src="/assets/keycard-shell.png"
           alt="Keycard Shell Hardware Wallet"
           width="758"
           height="758"
-          className="relative left-0 top-[-86px] object-cover object-center xl:top-[-128px] xl:object-contain"
+          className="relative right-0 top-[-86px] object-cover object-center xl:top-[-128px] xl:object-contain"
           priority
         />
       </div>
@@ -20,13 +20,13 @@ const KeycardShell = () => {
       <Image
         src="/assets/keycard-shell-mobile.png"
         alt="Keycard Shell Hardware Wallet"
-        width="900"
-        height="600"
-        className="self-end lg:hidden"
+        width="466"
+        height="466"
+        className="absolute top-0 w-full lg:hidden"
         priority
       />
 
-      <div className="relative z-10 -mt-16 flex max-w-[506px] flex-col px-5 pb-8 pt-0 lg:mt-0 lg:py-20 lg:pl-0 lg:pr-[72px]">
+      <div className="relative z-10 flex max-w-[434px] flex-1 flex-col place-content-end px-5 pb-5 lg:ml-[72px] lg:p-0">
         <p className="pb-2 text-24 font-600 text-white-95">
           keycard <span className="font-200">shell</span>
         </p>
@@ -40,9 +40,9 @@ const KeycardShell = () => {
           each with their own key.
         </p>
         <div className="flex gap-4">
-          <GetNotifiedDialog>
-            <Button>Get notified</Button>
-          </GetNotifiedDialog>
+          <BuyShellDialog>
+            <Button>Pre-order</Button>
+          </BuyShellDialog>
           <ButtonLink href="/keycard-shell" variant="secondary">
             Learn more
           </ButtonLink>

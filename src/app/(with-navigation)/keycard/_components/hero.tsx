@@ -6,7 +6,7 @@ import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
 
 const Hero = () => {
   return (
-    <section className="relative flex h-svh overflow-y-clip full-view-port lg:remove-full-view-port 2xl:h-[839px]">
+    <section className="relative flex h-[calc(100svh-48px)] overflow-y-clip full-view-port lg:remove-full-view-port 2xl:h-[839px]">
       <Background variant="homepage" />
       <div className="pointer-events-none relative z-20 flex flex-1 flex-col justify-end px-5 pb-5 align-bottom lg:pb-[43px] xl:px-20">
         <div className="flex flex-col items-start justify-between lg:flex-row">
