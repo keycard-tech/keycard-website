@@ -146,38 +146,6 @@ const Content = () => {
             <div className="relative flex items-center justify-start">
               <div className="flex flex-col gap-0.5 font-300 text-white-95">
                 <div className="flex items-center gap-1">
-                  <div className="mr-0.5 size-1 rounded-full bg-white-60" /> 1
-                  Logos Operator ordinal
-                  <Tooltip
-                    label={
-                      <>
-                        <p className="mb-2.5 font-400">
-                          Logos Operator is an Ordinal collectible tradeable
-                          (0.0015 BTC) on Magic Eden.
-                        </p>
-                        <ul className="mb-4 grid list-disc gap-1 pl-4">
-                          <li className="font-300">
-                            Gateway to an ecosystem creating parallel societies.
-                          </li>
-                          <li className="font-300">
-                            Serves as the pseudonymous identity of its earliest
-                            members.
-                          </li>
-                        </ul>
-                        <p className="font-400">
-                          200 Operators will be raffled once the pre-order is
-                          complete. Winners to be announced on X with claim
-                          details.
-                        </p>
-                      </>
-                    }
-                  >
-                    <div className="flex">
-                      <InfoIcon className="flex-shrink-0 text-white-40 transition-colors hover:text-white-60" />
-                    </div>
-                  </Tooltip>
-                </div>
-                <div className="flex items-center gap-1">
                   <div className="mr-0.5 size-1 rounded-full bg-white-60" />{' '}
                   Status Network Karma
                   <Tooltip
