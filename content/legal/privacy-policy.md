@@ -26,6 +26,8 @@ In this regard, we collect and process the following personal data from your use
 
 * **Collection of email addresses**: We only collect your email address on our website for the purpose of sending you information in relation to the development of and the potential sale of Keycard Shell. Your email address is securely stored on our self-hosted servers, and we have implemented measures to protect such personal data by securing it with appropriate technical and organisational measures. We will not share such personal data to third parties without your consent, except as required by law. We will only collect and process your email address on the basis of you providing your consent for us to do so. We will retain your email address for as long as necessary to provide you with updates about Keycard Shell, unless you withdraw your consent or request deletion earlier
 
+* **Umami Analytics**: We note that we make use of Umami Analytics, which you can read more about here: https://umami.is/. In short, Umami Analytics is an alternative to Google Analytics, that doesn’t compromise visitor privacy for data. Umami Analytics collects trends and insights, not personal details about specific website visitors. Umami Analytics offers simple traffic insights such as top pages, top referrers, bounce rate, and average time people spend on a site.
+
 ## 3) Third party processing of personal data
 
 In addition to our limited and collection of personal data, third parties may collect or process personal data as a result of the Website making use of certain features or to provide certain content. To the extent you interact with such third party content or features, their respective privacy policies will apply. 
