@@ -71,7 +71,7 @@ export default function RootLayout({ children }: Props) {
         </Providers>
         <Analytics />
         <Script
-          defer
+          strategy="afterInteractive"
           src="https://umami.bi.status.im/script.js"
           data-website-id="a335ad8b-deef-4960-b565-3d4e21b7a8e5"
           data-domains="keycard.tech"
