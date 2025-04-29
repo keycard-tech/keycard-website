@@ -1,6 +1,7 @@
 import { Analytics } from '@vercel/analytics/next'
 import { cx } from 'cva'
 import { Inter, Lora } from 'next/font/google'
+import Script from 'next/script'
 import { Metadata } from './_metadata'
 import { Providers } from './_providers'
 import './globals.css'
@@ -69,6 +70,12 @@ export default function RootLayout({ children }: Props) {
           />
         </Providers>
         <Analytics />
+        <Script
+          strategy="afterInteractive"
+          src="https://umami.bi.status.im/script.js"
+          data-website-id="a335ad8b-deef-4960-b565-3d4e21b7a8e5"
+          data-domains="keycard.tech"
+        />
       </body>
     </html>
   )
