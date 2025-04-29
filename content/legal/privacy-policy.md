@@ -26,6 +26,14 @@ In this regard, we collect and process the following personal data from your use
 
 * **Collection of email addresses**: We only collect your email address on our website for the purpose of sending you information in relation to the development of and the potential sale of Keycard Shell. Your email address is securely stored on our self-hosted servers, and we have implemented measures to protect such personal data by securing it with appropriate technical and organisational measures. We will not share such personal data to third parties without your consent, except as required by law. We will only collect and process your email address on the basis of you providing your consent for us to do so. We will retain your email address for as long as necessary to provide you with updates about Keycard Shell, unless you withdraw your consent or request deletion earlier
 
+* **Umami Analytics**: We use Umami Analytics to help us understand how visitors interact with our website. Umami is a privacy-focused alternative to Google Analytics, designed to respect user privacy and comply with data protection laws such as GDPR. You can learn more about Umami at https://umami.is/.
+
+  Umami does not collect any personally identifiable information, does not use cookies, and does not track users across different websites. All analytics data collected through Umami is anonymised and cannot be used to identify individual users. This means that no personal data is stored or processed, and no cookie consent banner is required.
+  
+  We use the anonymised analytics data to gain insights into how visitors use our site, such as which pages are most popular and how users navigate our content. This information helps us improve our website and enhance the user experience.
+  
+  All analytics data is securely hosted on our own servers, and we do not share this data with any third parties. By using Umami, we ensure that your privacy is respected and that our analytics practices remain compliant with applicable data protection regulations, including GDPR.
+
 ## 3) Third party processing of personal data
 
 In addition to our limited and collection of personal data, third parties may collect or process personal data as a result of the Website making use of certain features or to provide certain content. To the extent you interact with such third party content or features, their respective privacy policies will apply. 
