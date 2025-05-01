@@ -302,6 +302,7 @@ const ShopifyForm = () => {
           <div className="rounded-16 border border-white-12 bg-white-4 p-1">
             <Button
               className="w-full justify-center gap-2 font-500"
+              data-umami-event="checkout-button-buy-keycard-checkout-dialog"
               onClick={() => {
                 const checkoutUrl = createCheckoutUrl(
                   form.getValues(),
