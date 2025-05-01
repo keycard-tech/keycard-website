@@ -41,7 +41,12 @@ const Keycard = () => {
         </p>
         <div className="flex space-x-4">
           <BuyKeycardDialog>
-            <Button variant="primary">Buy Keycard</Button>
+            <Button
+              variant="primary"
+              data-umami-event="buy-keycard-button-homepage-hero"
+            >
+              Buy Keycard
+            </Button>
           </BuyKeycardDialog>
           <ButtonLink href="/keycard" variant="secondary">
             Learn more

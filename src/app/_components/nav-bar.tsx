@@ -83,7 +83,12 @@ const NavBar = () => {
         ))}
 
         <BuyKeycardDialog>
-          <Button variant={variant}>Buy Keycard</Button>
+          <Button
+            variant={variant}
+            data-umami-event="buy-keycard-button-navbar"
+          >
+            Buy Keycard
+          </Button>
         </BuyKeycardDialog>
       </div>
     </motion.nav>

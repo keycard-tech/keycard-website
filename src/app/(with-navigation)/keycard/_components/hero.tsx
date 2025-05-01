@@ -21,7 +21,12 @@ const Hero = () => {
             </p>
             <div className="flex items-center gap-5">
               <BuyKeycardDialog>
-                <Button variant="primary">Buy Keycard</Button>
+                <Button
+                  variant="primary"
+                  data-umami-event="buy-keycard-button-keycardpage-hero"
+                >
+                  Buy Keycard
+                </Button>
               </BuyKeycardDialog>
               <p className="text-16 font-300 text-white-60">
                 From{' '}

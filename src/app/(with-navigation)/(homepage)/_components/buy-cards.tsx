@@ -77,7 +77,12 @@ const BuyCards = () => {
         buttons={
           <>
             <BuyKeycardDialog>
-              <Button variant="primary">Buy Keycard</Button>
+              <Button
+                variant="primary"
+                data-umami-event="buy-keycard-button-homepage-cards"
+              >
+                Buy Keycard
+              </Button>
             </BuyKeycardDialog>
             <ButtonLink href="/keycard" variant="secondary">
               Learn more
