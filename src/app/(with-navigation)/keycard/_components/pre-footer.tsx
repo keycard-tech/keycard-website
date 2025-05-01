@@ -19,7 +19,12 @@ const Prefooter = () => {
         </p>
         <div className="flex flex-row items-center gap-5">
           <BuyKeycardDialog>
-            <Button variant="primary">Buy Keycard</Button>
+            <Button
+              variant="primary"
+              data-umami-event="buy-keycard-button-keycardpage-footer"
+            >
+              Buy Keycard
+            </Button>
           </BuyKeycardDialog>
           <p className="text-16 font-300 text-white-60">
             From{' '}
