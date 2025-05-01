@@ -14,7 +14,12 @@ export default function WithNavigationLayout({ children }: Props) {
         🎉 Keycard Shell pre-sale has started! &nbsp;
         <div>
           <BuyShellDialog>
-            <button className="underline">Pre-order</button>
+            <button
+              className="underline"
+              data-umami-event="preorder-shell-button-topbanner"
+            >
+              Pre-order
+            </button>
           </BuyShellDialog>
           &nbsp;now for exclusive benefits! 👀
         </div>

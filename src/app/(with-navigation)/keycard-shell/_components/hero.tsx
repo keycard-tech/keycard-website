@@ -33,7 +33,9 @@ const Hero = () => {
             </p>
             <div className="flex flex-col items-start gap-5 md:flex-row md:items-center">
               <BuyShellDialog>
-                <Button>Pre-order</Button>
+                <Button data-umami-event="preorder-shell-button-shellpage-hero">
+                  Pre-order
+                </Button>
               </BuyShellDialog>
               <p className="flex items-center gap-2 text-16 font-300 text-white-60">
                 Coming 2025 <span className="size-1 rounded-full bg-white-40" />{' '}
