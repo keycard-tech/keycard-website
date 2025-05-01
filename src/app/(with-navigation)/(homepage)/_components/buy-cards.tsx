@@ -102,7 +102,9 @@ const BuyCards = () => {
         buttons={
           <>
             <BuyShellDialog>
-              <Button>Pre-order</Button>
+              <Button data-umami-event="preorder-shell-button-homepage-cards">
+                Pre-order
+              </Button>
             </BuyShellDialog>
             <ButtonLink href="/keycard-shell" variant="secondary">
               Learn more

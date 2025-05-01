@@ -41,7 +41,9 @@ const KeycardShell = () => {
         </p>
         <div className="flex gap-4">
           <BuyShellDialog>
-            <Button>Pre-order</Button>
+            <Button data-umami-event="preorder-shell-button-homepage-hero">
+              Pre-order
+            </Button>
           </BuyShellDialog>
           <ButtonLink href="/keycard-shell" variant="secondary">
             Learn more
