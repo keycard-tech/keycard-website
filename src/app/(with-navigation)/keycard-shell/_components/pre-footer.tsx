@@ -20,7 +20,12 @@ const Prefooter = () => {
         </p>
         <div className="flex flex-col items-start gap-5 sm:min-w-[410px] sm:flex-row sm:items-center">
           <BuyShellDialog>
-            <Button data-umami-event="preorder-shell-button-shellpage-footer">
+            <Button
+              data-umami-event="preorder-shell"
+              data-umami-event-page="shell"
+              data-umami-event-section="footer"
+              data-umami-event-element="button"
+            >
               Pre-order
             </Button>
           </BuyShellDialog>

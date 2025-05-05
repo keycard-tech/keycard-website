@@ -180,7 +180,10 @@ const Content = () => {
         <div className="rounded-16 border border-white-12 bg-white-4 p-1">
           <Button
             className="w-full justify-center gap-2 font-500"
-            data-umami-event="checkout-button-buy-shell-checkout-dialog"
+            data-umami-event="checkout-shell"
+            data-umami-event-page="buy-shell-dialog"
+            data-umami-event-section="checkout"
+            data-umami-event-element="button"
             onClick={() => {
               const checkoutUrl = createCheckoutUrl(utmParams)
               window.open(checkoutUrl, '_blank', 'noopener')

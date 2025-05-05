@@ -33,7 +33,12 @@ const Hero = () => {
             </p>
             <div className="flex flex-col items-start gap-5 md:flex-row md:items-center">
               <BuyShellDialog>
-                <Button data-umami-event="preorder-shell-button-shellpage-hero">
+                <Button
+                  data-umami-event="preorder-shell"
+                  data-umami-event-page="shell"
+                  data-umami-event-section="hero"
+                  data-umami-event-element="button"
+                >
                   Pre-order
                 </Button>
               </BuyShellDialog>

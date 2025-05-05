@@ -51,7 +51,10 @@ const UseCases = () => {
           <BuyKeycardDialog>
             <Button
               variant="primary"
-              data-umami-event="buy-keycard-button-keycardpage-usecases"
+              data-umami-event="buy-keycard"
+              data-umami-event-page="keycard"
+              data-umami-event-section="usecases"
+              data-umami-event-element="button"
             >
               Buy Keycard
             </Button>
