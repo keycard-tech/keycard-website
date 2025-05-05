@@ -43,7 +43,10 @@ const Keycard = () => {
           <BuyKeycardDialog>
             <Button
               variant="primary"
-              data-umami-event="buy-keycard-button-homepage-hero"
+              data-umami-event="buy-keycard"
+              data-umami-event-page="homepage"
+              data-umami-event-section="hero"
+              data-umami-event-element="button"
             >
               Buy Keycard
             </Button>

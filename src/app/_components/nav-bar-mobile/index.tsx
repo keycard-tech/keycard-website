@@ -102,7 +102,10 @@ const NavBarMobile = () => {
                 <BuyKeycardDialog>
                   <Button
                     variant="secondary"
-                    data-umami-event="buy-keycard-button-mobile-navbar"
+                    data-umami-event="buy-keycard"
+                    data-umami-event-page="global"
+                    data-umami-event-section="mobile-navbar"
+                    data-umami-event-element="button"
                   >
                     Buy Keycard
                   </Button>
@@ -169,7 +172,10 @@ const NavBarMobile = () => {
                     <Button
                       variant="primary"
                       backdropFilter
-                      data-umami-event="buy-keycard-button-mobile-menu"
+                      data-umami-event="buy-keycard"
+                      data-umami-event-page="global"
+                      data-umami-event-section="mobile-menu"
+                      data-umami-event-element="button"
                     >
                       Buy Keycard
                     </Button>

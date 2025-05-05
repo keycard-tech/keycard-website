@@ -25,7 +25,10 @@ const Keycards = () => {
           <BuyKeycardDialog>
             <Button
               variant="primary"
-              data-umami-event="buy-keycard-button-shellpage-keycards"
+              data-umami-event="buy-keycard"
+              data-umami-event-page="shell"
+              data-umami-event-section="keycards"
+              data-umami-event-element="button"
             >
               Buy Keycard
             </Button>

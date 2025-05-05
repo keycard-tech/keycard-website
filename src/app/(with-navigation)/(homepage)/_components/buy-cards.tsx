@@ -79,7 +79,10 @@ const BuyCards = () => {
             <BuyKeycardDialog>
               <Button
                 variant="primary"
-                data-umami-event="buy-keycard-button-homepage-cards"
+                data-umami-event="buy-keycard"
+                data-umami-event-page="homepage"
+                data-umami-event-section="cards"
+                data-umami-event-element="button"
               >
                 Buy Keycard
               </Button>
@@ -107,7 +110,12 @@ const BuyCards = () => {
         buttons={
           <>
             <BuyShellDialog>
-              <Button data-umami-event="preorder-shell-button-homepage-cards">
+              <Button
+                data-umami-event="preorder-shell"
+                data-umami-event-page="homepage"
+                data-umami-event-section="cards"
+                data-umami-event-element="button"
+              >
                 Pre-order
               </Button>
             </BuyShellDialog>

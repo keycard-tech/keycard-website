@@ -16,7 +16,10 @@ export default function WithNavigationLayout({ children }: Props) {
           <BuyShellDialog>
             <button
               className="underline"
-              data-umami-event="preorder-shell-button-topbanner"
+              data-umami-event="preorder-shell"
+              data-umami-event-page="global"
+              data-umami-event-section="topbanner"
+              data-umami-event-element="button"
             >
               Pre-order
             </button>
