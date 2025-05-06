@@ -23,7 +23,15 @@ const Keycards = () => {
 
         <div className="flex items-center justify-center gap-4 pt-8">
           <BuyKeycardDialog>
-            <Button variant="primary">Buy Keycard</Button>
+            <Button
+              variant="primary"
+              data-umami-event="buy-keycard"
+              data-umami-event-page="shell"
+              data-umami-event-section="keycards"
+              data-umami-event-element="button"
+            >
+              Buy Keycard
+            </Button>
           </BuyKeycardDialog>
           <ButtonLink href="/keycard" variant="secondary">
             Learn more

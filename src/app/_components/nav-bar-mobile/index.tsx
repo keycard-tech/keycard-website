@@ -100,7 +100,15 @@ const NavBarMobile = () => {
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
               >
                 <BuyKeycardDialog>
-                  <Button variant="secondary">Buy Keycard</Button>
+                  <Button
+                    variant="secondary"
+                    data-umami-event="buy-keycard"
+                    data-umami-event-page="global"
+                    data-umami-event-section="mobile-navbar"
+                    data-umami-event-element="button"
+                  >
+                    Buy Keycard
+                  </Button>
                 </BuyKeycardDialog>
               </motion.div>
             )}
@@ -161,7 +169,14 @@ const NavBarMobile = () => {
                   className="pt-2 text-center"
                 >
                   <BuyKeycardDialog>
-                    <Button variant="primary" backdropFilter>
+                    <Button
+                      variant="primary"
+                      backdropFilter
+                      data-umami-event="buy-keycard"
+                      data-umami-event-page="global"
+                      data-umami-event-section="mobile-menu"
+                      data-umami-event-element="button"
+                    >
                       Buy Keycard
                     </Button>
                   </BuyKeycardDialog>
