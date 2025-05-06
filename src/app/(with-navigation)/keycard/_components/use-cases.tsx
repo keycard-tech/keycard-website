@@ -49,7 +49,15 @@ const UseCases = () => {
             most valuable assets safe at home.
           </p>
           <BuyKeycardDialog>
-            <Button variant="primary">Buy Keycard</Button>
+            <Button
+              variant="primary"
+              data-umami-event="buy-keycard"
+              data-umami-event-page="keycard"
+              data-umami-event-section="usecases"
+              data-umami-event-element="button"
+            >
+              Buy Keycard
+            </Button>
           </BuyKeycardDialog>
         </div>
 

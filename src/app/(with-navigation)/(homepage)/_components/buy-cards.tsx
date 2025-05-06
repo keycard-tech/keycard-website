@@ -77,7 +77,15 @@ const BuyCards = () => {
         buttons={
           <>
             <BuyKeycardDialog>
-              <Button variant="primary">Buy Keycard</Button>
+              <Button
+                variant="primary"
+                data-umami-event="buy-keycard"
+                data-umami-event-page="homepage"
+                data-umami-event-section="cards"
+                data-umami-event-element="button"
+              >
+                Buy Keycard
+              </Button>
             </BuyKeycardDialog>
             <ButtonLink href="/keycard" variant="secondary">
               Learn more
@@ -102,7 +110,14 @@ const BuyCards = () => {
         buttons={
           <>
             <BuyShellDialog>
-              <Button>Pre-order</Button>
+              <Button
+                data-umami-event="preorder-shell"
+                data-umami-event-page="homepage"
+                data-umami-event-section="cards"
+                data-umami-event-element="button"
+              >
+                Pre-order
+              </Button>
             </BuyShellDialog>
             <ButtonLink href="/keycard-shell" variant="secondary">
               Learn more
