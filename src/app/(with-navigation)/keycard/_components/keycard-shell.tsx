@@ -1,6 +1,6 @@
 import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
-import { GetNotifiedDialog } from '~components/get-notified-dialog'
+import { BuyShellDialog } from '~components/buy-shell-dialog'
 import { Image } from '~components/image'
 
 const KeycardShell = () => {
@@ -36,9 +36,16 @@ const KeycardShell = () => {
           and modular.
         </p>
         <div className="flex gap-4">
-          <GetNotifiedDialog>
-            <Button>Get notified</Button>
-          </GetNotifiedDialog>
+          <BuyShellDialog>
+            <Button
+              data-umami-event="preorder-shell"
+              data-umami-event-page="keycard"
+              data-umami-event-section="shell"
+              data-umami-event-element="button"
+            >
+              Pre-order
+            </Button>
+          </BuyShellDialog>
           <ButtonLink href="/keycard-shell" variant="secondary">
             Learn more
           </ButtonLink>

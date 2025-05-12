@@ -3,7 +3,7 @@ import { formatPrice } from '~/app/_utils/format-price'
 import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
 import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
-import { GetNotifiedDialog } from '~components/get-notified-dialog'
+import { BuyShellDialog } from '~components/buy-shell-dialog'
 import { Image } from '~components/image'
 import { cx } from 'cva'
 
@@ -77,7 +77,15 @@ const BuyCards = () => {
         buttons={
           <>
             <BuyKeycardDialog>
-              <Button variant="primary">Buy Keycard</Button>
+              <Button
+                variant="primary"
+                data-umami-event="buy-keycard"
+                data-umami-event-page="homepage"
+                data-umami-event-section="cards"
+                data-umami-event-element="button"
+              >
+                Buy Keycard
+              </Button>
             </BuyKeycardDialog>
             <ButtonLink href="/keycard" variant="secondary">
               Learn more
@@ -101,9 +109,16 @@ const BuyCards = () => {
         description="Unrivalled security with an infinite number of removable Keycards, each with their own key."
         buttons={
           <>
-            <GetNotifiedDialog>
-              <Button>Get notified</Button>
-            </GetNotifiedDialog>
+            <BuyShellDialog>
+              <Button
+                data-umami-event="preorder-shell"
+                data-umami-event-page="homepage"
+                data-umami-event-section="cards"
+                data-umami-event-element="button"
+              >
+                Pre-order
+              </Button>
+            </BuyShellDialog>
             <ButtonLink href="/keycard-shell" variant="secondary">
               Learn more
             </ButtonLink>

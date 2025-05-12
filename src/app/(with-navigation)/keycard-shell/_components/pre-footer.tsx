@@ -1,5 +1,5 @@
 import { Button } from '~components/button'
-import { GetNotifiedDialog } from '~components/get-notified-dialog'
+import { BuyShellDialog } from '~components/buy-shell-dialog'
 import { Image } from '~components/image'
 import { cx } from 'cva'
 
@@ -19,9 +19,16 @@ const Prefooter = () => {
           each with their own key.
         </p>
         <div className="flex flex-col items-start gap-5 sm:min-w-[410px] sm:flex-row sm:items-center">
-          <GetNotifiedDialog>
-            <Button variant="primary">Get notified</Button>
-          </GetNotifiedDialog>
+          <BuyShellDialog>
+            <Button
+              data-umami-event="preorder-shell"
+              data-umami-event-page="shell"
+              data-umami-event-section="footer"
+              data-umami-event-element="button"
+            >
+              Pre-order
+            </Button>
+          </BuyShellDialog>
           <p className="flex items-center gap-2 text-16 font-300 text-white-60 md:gap-2">
             Coming 2025 <span className="size-1 rounded-full bg-white-40" />{' '}
             Bundled with Keycard

@@ -60,7 +60,7 @@ const NavBar = () => {
 
   return (
     <motion.nav
-      className="fixed left-0 top-0 z-30 hidden w-full items-center justify-between px-8 py-6 text-white-95 lg:flex"
+      className="fixed left-0 top-12 z-30 hidden w-full items-center justify-between px-8 py-6 text-white-95 lg:flex"
       style={{
         backgroundColor,
         backdropFilter,
@@ -83,7 +83,15 @@ const NavBar = () => {
         ))}
 
         <BuyKeycardDialog>
-          <Button variant={variant}>Buy Keycard</Button>
+          <Button
+            variant={variant}
+            data-umami-event="buy-keycard"
+            data-umami-event-page="global"
+            data-umami-event-section="navbar"
+            data-umami-event-element="button"
+          >
+            Buy Keycard
+          </Button>
         </BuyKeycardDialog>
       </div>
     </motion.nav>

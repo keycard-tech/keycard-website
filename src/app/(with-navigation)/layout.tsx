@@ -1,3 +1,4 @@
+import { BuyShellDialog } from '~components/buy-shell-dialog'
 import { Footer } from '~components/footer'
 import { NavBar } from '~components/nav-bar'
 import { NavBarMobile } from '~components/nav-bar-mobile'
@@ -9,9 +10,26 @@ type Props = {
 export default function WithNavigationLayout({ children }: Props) {
   return (
     <>
+      <div className="fixed left-0 top-0 z-30 flex h-[70px] w-full flex-col items-center justify-center bg-orange text-center text-white-100 sm:h-12 sm:flex-row">
+        🎉 Keycard Shell pre-sale has started! &nbsp;
+        <div>
+          <BuyShellDialog>
+            <button
+              className="underline"
+              data-umami-event="preorder-shell"
+              data-umami-event-page="global"
+              data-umami-event-section="topbanner"
+              data-umami-event-element="button"
+            >
+              Pre-order
+            </button>
+          </BuyShellDialog>
+          &nbsp;now for exclusive benefits! 👀
+        </div>
+      </div>
       <NavBar />
       <NavBarMobile />
-      {children}
+      <div className="pt-[70px] sm:pt-12">{children}</div>
       <Footer />
     </>
   )

@@ -70,7 +70,7 @@ const NavBarMobile = () => {
     <motion.nav
       key="nav-bar-mobile"
       className={cx([
-        'fixed inset-0 z-40 block w-full transition-all lg:hidden',
+        'fixed inset-0 top-[70px] z-40 block w-full transition-all sm:top-12 lg:hidden',
       ])}
       animate={{
         height: isOpen ? '100%' : '80px',
@@ -100,7 +100,15 @@ const NavBarMobile = () => {
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
               >
                 <BuyKeycardDialog>
-                  <Button variant="secondary">Buy Keycard</Button>
+                  <Button
+                    variant="secondary"
+                    data-umami-event="buy-keycard"
+                    data-umami-event-page="global"
+                    data-umami-event-section="mobile-navbar"
+                    data-umami-event-element="button"
+                  >
+                    Buy Keycard
+                  </Button>
                 </BuyKeycardDialog>
               </motion.div>
             )}
@@ -120,7 +128,7 @@ const NavBarMobile = () => {
           <motion.div
             key="menu"
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'calc(100% - 80px)' }}
+            animate={{ opacity: 1, height: 'calc(100% - 150px)' }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2, ease: 'easeInOut' }}
             className="fixed inset-x-0 top-20 z-30 overflow-hidden"
@@ -137,9 +145,9 @@ const NavBarMobile = () => {
                   delay: 0,
                 },
               }}
-              className="flex h-full flex-col items-center justify-center pt-[200px]"
+              className="flex h-full flex-col items-center justify-center"
             >
-              <ul className="flex flex-1 flex-col gap-4">
+              <ul className="flex flex-1 flex-col items-center justify-center gap-4">
                 {ROUTES.Products.map((item, index) => (
                   <motion.li
                     key={item.name}
@@ -161,7 +169,14 @@ const NavBarMobile = () => {
                   className="pt-2 text-center"
                 >
                   <BuyKeycardDialog>
-                    <Button variant="primary" backdropFilter>
+                    <Button
+                      variant="primary"
+                      backdropFilter
+                      data-umami-event="buy-keycard"
+                      data-umami-event-page="global"
+                      data-umami-event-section="mobile-menu"
+                      data-umami-event-element="button"
+                    >
                       Buy Keycard
                     </Button>
                   </BuyKeycardDialog>

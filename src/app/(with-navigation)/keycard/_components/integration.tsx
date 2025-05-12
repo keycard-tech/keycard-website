@@ -110,13 +110,6 @@ const integrations = [
     buttonText: 'Learn more',
     href: 'https://walleth.org/',
   },
-  {
-    name: 'Logos Operators',
-    description: '5,000 Ordinals Collection',
-    logo: '/assets/keycard/logos-operators.png',
-    buttonText: 'Learn more',
-    href: 'https://dashboard.logos.co/',
-  },
 ]
 
 const Integration = () => {

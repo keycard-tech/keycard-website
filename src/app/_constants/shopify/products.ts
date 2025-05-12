@@ -32,3 +32,8 @@ export const KEYCARD_PRODUCTS = {
     image: '',
   },
 } as const
+
+export const KEYCARD_SHELL = {
+  variantId: '51010483126536',
+  name: 'Shell',
+} as const
