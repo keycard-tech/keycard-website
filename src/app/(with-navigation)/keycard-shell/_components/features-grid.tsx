@@ -59,8 +59,7 @@ const features = [
   },
   {
     title: 'Bitcoin support',
-    description:
-      'Works out of the box with your favourite Bitcoin wallets.',
+    description: 'Works out of the box with your favourite Bitcoin wallets.',
     className: 'col-span-1',
     icons: [
       {
