@@ -134,7 +134,7 @@ const features: Array<Feature> = [
     },
   },
   {
-    name: 'Open source secure element',
+    name: 'Open source secure element (sw)',
     keycardShell: {
       featured: true,
     },
