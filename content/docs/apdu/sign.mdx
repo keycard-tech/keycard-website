@@ -30,7 +30,7 @@ Response Data format:
 
 - Tag 0x80 = raw signature
 
-if P2 = 0x00 (ECDSA) the signature must include the recovery ID and thus the raw signature is encoded on 65 bytes as (r,s,recId). If calculating the recovery ID on card is too expensive the card is allowed to use the
+if P2 = 0x00 (ECDSA) the signature must include the recovery ID and thus the raw signature is encoded on 65 bytes as (r,s,recId). If calculating the recovery ID on card is too expensive the card is allowed to use the format below:
 - Tag 0xA0 = signature template
   - Tag 0x80 = ECC public key component
   - Tag 0x30 = ECDSA Signature
