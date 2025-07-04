@@ -1,5 +1,5 @@
 ---
-title: Keycard - Terms of Use
+title: Keycard - Website Terms of Use
 ---
 
 These website terms of use (“**Website Terms of Use**”) are entered into by you and us, and they govern your access and use of this Website, including any content and functionality contained in the Website.
@@ -48,23 +48,42 @@ The Website and its contents are made available under Creative Commons Attributi
 
 To the extent the Website provides any links to a third party website, then their terms and conditions, including privacy policies, govern your use of those third party websites. By linking such third party websites, we do not represent or imply that we endorse or support such third party websites or content therein, or that we believe such third party websites and content therein to be accurate, useful or non-harmful. We have no control over such third party websites and will not be liable for your use of or activities on any third party websites accessed through the Website. If you access such third party websites through the Website, it is at your own risk and you are solely responsible for your activities on such third party websites.
 
-## 6) Limitation of liability
+## 6) Affiliate programme
+
+Keycard offers an affiliate programme to reward participants who refer visitors to this Website. The affiliate programme is managed and operated by a separate entity, Status Research & Development GmbH, with address: c/o PST Consulting GmbH Baarerstrasse 10, 6300 Zug Switzerland. There are also separate affiliate programme terms and conditions applicable to such affiliates. 
+
+If you have arrived on this Website by way of an affiliate link or coupon, we may pay commission to the relevant corresponding affiliate. We note that this website makes use of first-party cookies for this purpose. Please refer to the Privacy Policy for more information about such cookies.
+
+## 7) User comments, feedback and other submissions
+
+If, at our request, you send certain specific submissions or without a request from us you send creative ideas, suggestions, proposals, plans, or other materials, whether online, by email, via third party platforms (for example, feedback groups), or otherwise (collectively, ‘comments’), you agree that we may, at any time, without restriction, edit, copy, publish, distribute, translate, and otherwise use in any medium any comments that you forward to us.
+
+We may, but have no obligation to, monitor, edit, or remove content that we determine in our sole discretion to be unlawful, offensive, threatening, libelous, pornographic, obscene, or otherwise objectionable, or that violates any party’s intellectual property or these Terms of Use.
+You agree that your comments will not violate any right of any third-party, including copyright, trademark, privacy, personality or other personal or proprietary right. You further agree that your comments will not contain libelous or otherwise unlawful, abusive or obscene material.
+By participating in feedback groups via third-party platforms, you acknowledge that:
+
+1. Comments shared in such groups may be visible to other participants and should not contain confidential or sensitive information.  
+2. You are subject to the terms and conditions, including privacy policies, of those third-party platforms.  
+3. We are not responsible for the content, security, or availability of those platforms.
+4. We may use your comments to improve our products and services.
+
+## 8) Limitation of liability
 
 We will not be held liable to you under any contract, negligence, strict liability, or other legal or equitable theory for any lost profits, cost of procurement for substitute services, or any special, incidental, or consequential damages related to, arising from, or in any way connected with these Website Terms of Use, the Website, the content on the Website, or your use of the Website, even if we have been advised of the possibility of such damages. In any event, our aggregate liability for such claims is limited to EUR 100 (one hundred Euros). This limitation of liability will apply to the maximum extent permitted by applicable law.
 
-## 7) Indemnity
+## 9) Indemnity
 
 You shall indemnify us and hold us harmless from and against any and all claims, damages and expenses, including attorneys’ fees, arising from or related to your use of the Website, the content on the Website, including without limitation your violation of these Website Terms of Use.
 
-## 8) Modifications
+## 10) Modifications
 
 We may modify or replace any part of this Website Terms of Use at any time and without notice. You are responsible for checking the Website periodically for any changes. The new Website Terms of Use will be effective immediately upon its posting on the Website.
 
-## 9) Governing law
+## 11) Governing law
 
 Swiss law governs these Website Terms of Use and any disputes between you and us, whether in court or arbitration, without regard to conflict of laws provisions.
 
-## 10) Disputes
+## 12) Disputes
 
 In these terms, “dispute” has the broadest meaning enforceable by law and includes any claim you make against or controversy you may have in relation to these Website Terms of Use, the Website, the content on the Website, or your use of the Website.
 
@@ -76,7 +95,7 @@ If we and you are unable to further resolve this dispute within sixty (60) calen
 
 Regardless of any applicable statute of limitations, you must bring any claims within one year after the claim arose or the time when you should have reasonably known about the claim. You also waive the right to participate in a class action lawsuit or a classwide arbitration against us.
 
-## 11) About these Website Terms of Use
+## 13) About these Website Terms of Use
 
 These Website Terms of Use cover the entire agreement between you and us regarding the Website and supersede all prior and contemporaneous understandings, agreements, representations and warranties, both written and oral, with respect to the Website.
 

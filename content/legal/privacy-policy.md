@@ -38,6 +38,31 @@ In this regard, we collect and process the following personal data from your use
 
 In addition to our limited and collection of personal data, third parties may collect or process personal data as a result of the Website making use of certain features or to provide certain content. To the extent you interact with such third party content or features, their respective privacy policies will apply. 
 
+### (a) BixGrow (Affiliate Programme)
+
+Keycard offers an affiliate programme to reward participants who refer visitors to this Website. The affiliate programme is managed and operated by a separate entity:
+
+*Controller*: Status Research & Development GmbH, with address: c/o PST Consulting GmbH Baarerstrasse 10, 6300 Zug Switzerland.
+
+Status Research & Development GmbH is the data controller for the personal data collected and processing activities related to the affiliate programme, including the use of affiliate-tracking cookies.  To enable referral tracking and commission attribution, BixGrow affiliate-tracking cookies are set in your browser when you visit this Website via an affiliate link.
+
+*Purpose and legal basis*: These cookies are used exclusively for tracking referrals and attributing commissions to affiliates, based on the legitimate interests of Status Research & Development GmbH in performance-based marketing (Art. 6(1)(f) GDPR). Where required by law, affiliate-tracking cookies are only set with your consent, which is obtained via our cookie banner.
+
+*International transfers*: BixGrow may process cookie data on Amazon Web Services (AWS) servers located in the European Union (Dublin) or the United States. International data transfers are protected by Standard Contractual Clauses and AWS’s EU-US Data Privacy Framework certification.
+
+*Opt-out*: You can refuse or withdraw consent for BixGrow cookies at any time via our cookie banner.
+
+BixGrow Cookies Used
+
+| Cookie Name      | Provider | Purpose                                                 | Lifespan                                    | Category               |
+|------------------|----------|---------------------------------------------------------|---------------------------------------------|------------------------|
+| bgaffiliate_id   | BixGrow  | Stores the referring affiliate’s ID for commission tracking | 30 days (merchant-configurable, max 10 years) | Marketing / Affiliate |
+| bgclick_id       | BixGrow  | Records unique click-event ID for affiliate attribution | 30 days (merchant-configurable, max 10 years) | Marketing / Affiliate |
+| bgexpire_time    | BixGrow  | Unix timestamp indicating cookie expiry                 | 30 days (merchant-configurable, max 10 years) | Marketing / Affiliate |
+| bglast_click     | BixGrow  | Unix timestamp of most recent affiliate click           | 30 days (merchant-configurable, max 10 years) | Marketing / Affiliate |
+| bgvisitor_id     | BixGrow  | Anonymized visitor ID for de-duplicating repeat visits  | 30 days (merchant-configurable, max 10 years) | Marketing / Affiliate |
+
+
 ## 4) Security measures we take in respect of the Website
 
 As a general approach, we take data security seriously and we have implemented a variety of security measures on the Website to maintain the safety of your personal data when you submit such information to us. 
