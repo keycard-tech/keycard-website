@@ -47,6 +47,68 @@ type Props = {
 export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
+      <head>
+        {/* Shopify cookie banner */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.Shopify = { shop: 'getmykeycard.myshopify.com' };
+          `,
+          }}
+        />
+
+        {/* 1 — load the banner bundle (no ?shop=… query) */}
+        <Script
+          id="shopify-privacy-bundle"
+          src="https://cdn.shopify.com/shopifycloud/privacy-banner/storefront-banner.js"
+          strategy="beforeInteractive"
+        />
+
+        {/* 2 — pass config + kick-start the banner */}
+        <Script
+          id="shopify-privacy-config"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+            /* pulled from Vercel env */
+            const STOREFRONT_TOKEN = '${process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_TOKEN}';
+
+            window.privacyBannerConfig = {
+              storefrontAccessToken: STOREFRONT_TOKEN,
+              checkoutRootDomain:    'getmykeycard.myshopify.com',
+              storefrontRootDomain:  'keycard.tech',
+              headlessStorefront:    true
+            };
+
+            privacyBanner.loadBanner(window.privacyBannerConfig);
+          `,
+          }}
+        />
+
+        <Script
+          id="bixgrow-consent-loader"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(){
+                function inject(){
+                  var s=document.createElement('script');
+                  s.src='/bixgrow-headless.js';
+                  s.defer=true;
+                  document.head.appendChild(s);
+                }
+                if (window.Shopify?.customerPrivacy){
+                  if (window.Shopify.customerPrivacy.marketingAllowed()) inject();
+                  document.addEventListener('visitorConsentCollected', inject);
+                } else {
+                  inject();
+                }
+              })();
+            `,
+          }}
+        />
+      </head>
+
       <body
         className={cx(
           lora.variable,
