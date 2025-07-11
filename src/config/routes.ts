@@ -9,8 +9,9 @@ export const ROUTES = {
     { name: 'Blog', href: '/blog' },
   ],
   Contacts: [
-    { name: 'Get in touch', href: 'mailto:support@keycard.tech' },
+    { name: 'Discord', href: 'https://discord.gg/uJAXk7jFhZ' },
     { name: 'X', href: 'https://x.com/Keycard_' },
+    { name: 'Email', href: 'mailto:support@keycard.tech' },
   ],
   Legal: [
     { name: 'Privacy policy', href: '/legal/privacy-policy' },
