@@ -1,4 +1,5 @@
 import { Analytics } from '@vercel/analytics/next'
+import { clientEnv } from '~/config/env.client.mjs'
 import { cx } from 'cva'
 import { Inter, Lora } from 'next/font/google'
 import Script from 'next/script'
@@ -70,11 +71,8 @@ export default function RootLayout({ children }: Props) {
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `
-            /* pulled from Vercel env */
-            const STOREFRONT_TOKEN = '${process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_TOKEN}';
-
             window.privacyBannerConfig = {
-              storefrontAccessToken: STOREFRONT_TOKEN,
+              storefrontAccessToken: ${clientEnv.NEXT_PUBLIC_SHOPIFY_STOREFRONT_TOKEN},
               checkoutRootDomain:    'getmykeycard.myshopify.com',
               storefrontRootDomain:  'keycard.tech',
               headlessStorefront:    true
