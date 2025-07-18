@@ -17,11 +17,11 @@ function bgSetCookie(e, i, t) {
     var r = new Date();
     r.setTime(r.getTime() + 864e5 * t);
     var o = "expires=" + r.toUTCString();
-    document.cookie = e + "=" + i + ";" + o + ";domain=.keycard.tech;path=/";
+    document.cookie = e + "=" + i + ";" + o + ";path=/";
 }
 function bgSetCookieByUnixTime(e, i, t) {
     var r = "expires=" + new Date(1e3 * t).toUTCString();
-    document.cookie = e + "=" + i + ";" + r + ";domain=.keycard.tech;path=/";
+    document.cookie = e + "=" + i + ";" + r + ";path=/";
 }
 function bgGetCookie(e) {
     for (var i = e + "=", t = decodeURIComponent(document.cookie).split(";"), r = 0; r < t.length; r++) {
