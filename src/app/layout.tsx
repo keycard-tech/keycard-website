@@ -107,6 +107,7 @@ export default function RootLayout({ children }: Props) {
             window.privacyBannerConfig = {
               storefrontAccessToken: '${clientEnv.NEXT_PUBLIC_SHOPIFY_STOREFRONT_TOKEN}',
               checkoutRootDomain:    'getmykeycard.myshopify.com',
+              storefrontRootDomain:  'keycard.tech',
               headlessStorefront:    true
             };
 
