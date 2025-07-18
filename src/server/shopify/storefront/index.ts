@@ -1,4 +1,5 @@
 import 'server-only'
+import { serverEnv } from '~/config/env.server.mjs'
 import { ProductsQuery } from './operations'
 import { ProductsResponseBody } from './types'
 
@@ -28,14 +29,14 @@ export async function _fetch<T extends ProductsResponseBody>(
   variables?: Record<string, unknown>,
 ): Promise<T> {
   const response = await fetch(
-    `https://${process.env.SHOPIFY_STORE_DOMAIN}/api/2024-10/graphql.json`,
+    `https://${serverEnv.SHOPIFY_STORE_DOMAIN}/api/2024-10/graphql.json`,
     {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/graphql-response+json',
         'X-Shopify-Storefront-Access-Token':
-          process.env.SHOPIFY_STOREFRONT_API_PUBLIC_ACCESS_TOKEN,
+          serverEnv.SHOPIFY_STOREFRONT_API_PUBLIC_ACCESS_TOKEN,
       },
       body: JSON.stringify({
         query,

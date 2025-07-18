@@ -12,6 +12,7 @@ export const envSchema = z.object({
   NEXT_PUBLIC_VERCEL_URL: z.string().optional(),
   NEXT_PUBLIC_GHOST_API_URL: z.string(),
   NEXT_PUBLIC_GHOST_API_KEY: z.string(),
+  NEXT_PUBLIC_SHOPIFY_STOREFRONT_TOKEN: z.string(),
 })
 
 export const result = envSchema.strip().safeParse({
@@ -19,6 +20,8 @@ export const result = envSchema.strip().safeParse({
   NEXT_PUBLIC_VERCEL_URL: process.env.NEXT_PUBLIC_VERCEL_URL,
   NEXT_PUBLIC_GHOST_API_URL: process.env.NEXT_PUBLIC_GHOST_API_URL,
   NEXT_PUBLIC_GHOST_API_KEY: process.env.NEXT_PUBLIC_GHOST_API_KEY,
+  NEXT_PUBLIC_SHOPIFY_STOREFRONT_TOKEN:
+    process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_TOKEN,
 })
 
 if (!result.success) {
