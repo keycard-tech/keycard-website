@@ -129,8 +129,6 @@ export default function RootLayout({ children }: Props) {
                 if (window.Shopify?.customerPrivacy){
                   if (window.Shopify.customerPrivacy.marketingAllowed()) inject();
                   document.addEventListener('visitorConsentCollected', inject);
-                } else {
-                  inject();
                 }
               })();
             `,
