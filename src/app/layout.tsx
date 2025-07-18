@@ -48,64 +48,6 @@ type Props = {
 export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
-      <head>
-        {/* Shopify cookie banner */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-            window.Shopify = { shop: 'getmykeycard.myshopify.com' };
-          `,
-          }}
-        />
-
-        {/* 1 — load the banner bundle (no ?shop=… query) */}
-        <Script
-          id="shopify-privacy-bundle"
-          src="https://cdn.shopify.com/shopifycloud/privacy-banner/storefront-banner.js"
-          strategy="beforeInteractive"
-        />
-
-        {/* 2 — pass config + kick-start the banner */}
-        <Script
-          id="shopify-privacy-config"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-            window.privacyBannerConfig = {
-              storefrontAccessToken: '${clientEnv.NEXT_PUBLIC_SHOPIFY_STOREFRONT_TOKEN}',
-              checkoutRootDomain:    'getmykeycard.myshopify.com',
-              headlessStorefront:    true
-            };
-
-            privacyBanner.loadBanner(window.privacyBannerConfig);
-          `,
-          }}
-        />
-
-        <Script
-          id="bixgrow-consent-loader"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(){
-                function inject(){
-                  var s=document.createElement('script');
-                  s.src='/bixgrow-headless.js';
-                  s.defer=true;
-                  document.head.appendChild(s);
-                }
-                if (window.Shopify?.customerPrivacy){
-                  if (window.Shopify.customerPrivacy.marketingAllowed()) inject();
-                  document.addEventListener('visitorConsentCollected', inject);
-                } else {
-                  inject();
-                }
-              })();
-            `,
-          }}
-        />
-      </head>
-
       <body
         className={cx(
           lora.variable,
@@ -128,12 +70,71 @@ export default function RootLayout({ children }: Props) {
             }}
           />
         </Providers>
+
+        {/* Vercel Analytics */}
         <Analytics />
+
+        {/* Umami Analytics */}
         <Script
           strategy="afterInteractive"
           src="https://umami.bi.status.im/script.js"
           data-website-id="a335ad8b-deef-4960-b565-3d4e21b7a8e5"
           data-domains="keycard.tech"
+        />
+
+        {/* Shopify Affiliate */}
+        <Script
+          id="shopify-cokie-banner"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.Shopify = { shop: 'getmykeycard.myshopify.com' };
+          `,
+          }}
+        />
+        {/* 1 — load the banner bundle (no ?shop=… query) */}
+        <Script
+          id="shopify-privacy-bundle"
+          strategy="beforeInteractive"
+          src="https://cdn.shopify.com/shopifycloud/privacy-banner/storefront-banner.js"
+        />
+        {/* 2 — pass config + kick-start the banner */}
+        <Script
+          id="shopify-privacy-config"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.privacyBannerConfig = {
+              storefrontAccessToken: '${clientEnv.NEXT_PUBLIC_SHOPIFY_STOREFRONT_TOKEN}',
+              checkoutRootDomain:    'getmykeycard.myshopify.com',
+              headlessStorefront:    true
+            };
+
+            privacyBanner.loadBanner(window.privacyBannerConfig);
+          `,
+          }}
+        />
+        <Script
+          id="bixgrow-consent-loader"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(){
+                function inject(){
+                  var s=document.createElement('script');
+                  s.src='/bixgrow-headless.js';
+                  s.defer=true;
+                  document.head.appendChild(s);
+                }
+                if (window.Shopify?.customerPrivacy){
+                  if (window.Shopify.customerPrivacy.marketingAllowed()) inject();
+                  document.addEventListener('visitorConsentCollected', inject);
+                } else {
+                  inject();
+                }
+              })();
+            `,
+          }}
         />
       </body>
     </html>
