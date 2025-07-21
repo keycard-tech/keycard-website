@@ -55,11 +55,8 @@ export default function RootLayout({ children }: Props) {
           dangerouslySetInnerHTML={{
             __html: `
               (function () {
-                const dbg = (...m) => console.log('[bix-debug]', ...m);
 
                 document.addEventListener('consentTrackingApiLoaded', () => {
-                  dbg('SDK ready', typeof Shopify?.customerPrivacy);
-
                   if (Shopify.customerPrivacy?.marketingAllowed()) {
                     injectBixGrow();
                   }
@@ -71,21 +68,13 @@ export default function RootLayout({ children }: Props) {
                 });
 
                 function injectBixGrow() {
-                  if (window.__bixgrowInjected) return;   // guard
+                  if (window.__bixgrowInjected) return;
                   window.__bixgrowInjected = true;
-                  dbg('→ injecting BixGrow');
-
                   const s = document.createElement('script');
-                  s.src = '/bixgrow-headless.js';  /* adjust path if needed */
+                  s.src = '/bixgrow-headless.js';
                   s.defer = true;
                   document.head.appendChild(s);
                 }
-
-                /* optional: warn after 10s if the SDK never arrived */
-                setTimeout(() => {
-                  if (!window.Shopify?.customerPrivacy)
-                    dbg('SDK never loaded – BixGrow skipped.');
-                }, 10_000);
               })();
             `,
           }}
