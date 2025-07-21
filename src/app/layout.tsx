@@ -48,6 +48,39 @@ type Props = {
 export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
+      <head>
+        <Script
+          id="bixgrow-hook"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function () {
+
+                document.addEventListener('consentTrackingApiLoaded', () => {
+                  if (Shopify.customerPrivacy?.marketingAllowed()) {
+                    injectBixGrow();
+                  }
+                  document.addEventListener(
+                    'visitorConsentCollected',
+                    injectBixGrow,
+                    { once: true }
+                  );
+                });
+
+                function injectBixGrow() {
+                  if (window.__bixgrowInjected) return;
+                  window.__bixgrowInjected = true;
+                  const s = document.createElement('script');
+                  s.src = '/bixgrow-headless.js';
+                  s.defer = true;
+                  document.head.appendChild(s);
+                }
+              })();
+            `,
+          }}
+        />
+      </head>
+
       <body
         className={cx(
           lora.variable,
@@ -84,7 +117,7 @@ export default function RootLayout({ children }: Props) {
 
         {/* Shopify Affiliate */}
         <Script
-          id="shopify-cokie-banner"
+          id="shopify-cookie-banner"
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `
@@ -92,13 +125,13 @@ export default function RootLayout({ children }: Props) {
           `,
           }}
         />
-        {/* 1 — load the banner bundle (no ?shop=… query) */}
+
         <Script
           id="shopify-privacy-bundle"
           strategy="beforeInteractive"
           src="https://cdn.shopify.com/shopifycloud/privacy-banner/storefront-banner.js"
         />
-        {/* 2 — pass config + kick-start the banner */}
+
         <Script
           id="shopify-privacy-config"
           strategy="beforeInteractive"
@@ -112,26 +145,6 @@ export default function RootLayout({ children }: Props) {
             };
 
             privacyBanner.loadBanner(window.privacyBannerConfig);
-          `,
-          }}
-        />
-        <Script
-          id="bixgrow-consent-loader"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(){
-                function inject(){
-                  var s=document.createElement('script');
-                  s.src='/bixgrow-headless.js';
-                  s.defer=true;
-                  document.head.appendChild(s);
-                }
-                if (window.Shopify?.customerPrivacy){
-                  if (window.Shopify.customerPrivacy.marketingAllowed()) inject();
-                  document.addEventListener('visitorConsentCollected', inject);
-                }
-              })();
             `,
           }}
         />
