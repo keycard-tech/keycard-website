@@ -107,6 +107,8 @@ BixGrow Cookies Used
 
 We use the X (Twitter) pixel to measure the effectiveness of our advertising campaigns on X and to reach visitors with more relevant ads (so-called remarketing). When the pixel is enabled, X receives information about your visit to our site (e.g., page URLs, referrers, IP address, device/browser details, and events such as views or purchases). Where available, the pixel can also transmit customer identifiers (e.g., email or phone) that are hashed with SHA-256 before transmission; X uses these to match and measure conversions. X acts as an independent controller for data it collects via this technology. See X’s Privacy Policy for details. 
 
+*Controller*: Status Research & Development GmbH, with address: c/o PST Consulting GmbH Baarerstrasse 10, 6300 Zug Switzerland. Status Research & Development GmbH is the data controller for the personal data collected and processing activities related to our use of the X pixel described in the manner above. 
+
 *Purpose and legal basis*: We use this technology for ads measurement and remarketing. Where required by law (e.g., in the EU/EEA/UK), we only enable the X pixel after you give consent through our cookie banner. If you do not consent, the pixel won’t load.
 
 *International transfers*: Use of the X pixel may involve transfers of your data to countries outside Switzerland/EU (e.g., the United States). For more on how X handles such transfers, see X’s Privacy Policy.
