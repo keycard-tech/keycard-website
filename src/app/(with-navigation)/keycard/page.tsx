@@ -9,14 +9,16 @@ import { SecurityFeatures } from './_components/security-features'
 import { UseCases } from './_components/use-cases'
 
 export const metadata = Metadata({
-  title: 'Keycard',
+  title: 'Keycard — Secure, Contactless Crypto Card',
   description:
-    'Store and trade your crypto with a simple, secure and slim hardware wallet.',
+    'Keycard is a smart card with secure element for storing keys and transacting via NFC. Durable, open-source, and built for Ethereum/EVM.',
+  alternates: { canonical: '/keycard' },
 })
 
 export default async function KeycardPage() {
   return (
     <>
+      <h1 className="sr-only">Keycard — Secure, Contactless Crypto Card</h1>
       <Hero />
       <SecurityFeatures />
       <Design />
