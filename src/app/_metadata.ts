@@ -1,29 +1,26 @@
 import type { Metadata } from 'next'
 
-type Input = Metadata & {
+type Input = Omit<Metadata, 'openGraph'> & {
   title: NonNullable<Metadata['title']>
   description?: string
+  openGraph?: Metadata['openGraph'] | null
 }
 
 export function Metadata(input: Input): Metadata {
+  const { openGraph, ...rest } = input
+
+  const outputOg: Record<string, unknown> = { ...(openGraph ?? {}) }
+
+  if (outputOg['title'] == null) outputOg['title'] = input.title
+  if (outputOg['description'] == null && input.description) {
+    outputOg['description'] = input.description
+  }
+  if (outputOg['images'] == null) {
+    outputOg['images'] = ['/opengraph-image.png']
+  }
+
   return {
-    ...input,
-    openGraph: {
-      type: 'website',
-      url: './',
-      title: input.title,
-      description: input.description,
-      // @see https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image#image-files-jpg-png-gif for automatic adding of og:image tags
-      // note: https://github.com/vercel/next.js/discussions/50353#discussioncomment-12215100
-      // images: [
-      //   {
-      //     url: './opengraph-image.png',
-      //     type: 'image/png',
-      //     width: 1200,
-      //     height: 630,
-      //   },
-      // ],
-      ...input.openGraph,
-    },
+    ...rest,
+    openGraph: outputOg as NonNullable<Metadata['openGraph']>,
   }
 }
