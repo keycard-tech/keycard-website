@@ -1,9 +1,17 @@
+import { Metadata } from '~/app/_metadata'
 import config from '~/config/docs.json'
 import Sidenav from './_components/sidenav'
 
 type Props = {
   children: React.ReactNode
 }
+
+export const metadata = Metadata({
+  title: { default: 'Keycard Docs', template: '%s — Keycard Docs' },
+  description:
+    'Documentation for Keycard and Keycard Shell: setup, recovery, SDKs, and developer guides.',
+  alternates: { canonical: '/docs' },
+})
 
 export default async function DocsLayout({ children }: Props) {
   return (
