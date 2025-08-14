@@ -47,31 +47,62 @@ export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
       <head>
+        {/* Shopify cookie banner script */}
         <Script
-          id="bixgrow-hook"
+          id="shopify-privacy-bundle"
           strategy="beforeInteractive"
+          src="https://cdn.shopify.com/shopifycloud/privacy-banner/storefront-banner.js"
+        />
+
+        {/* Consent Manager with Fail-Safe */}
+        <Script
+          id="keycard-consent-manager"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
-              (function () {
-
-                document.addEventListener('consentTrackingApiLoaded', () => {
-                  if (Shopify.customerPrivacy?.marketingAllowed()) {
-                    injectBixGrow();
+              (function() {
+                const injectTrackingScripts = () => {
+                  
+                  if (!window.__bixgrowInjected) {
+                    window.__bixgrowInjected = true;
+                    const s = document.createElement('script');
+                    s.src = '/bixgrow-headless.js';
+                    s.defer = true;
+                    document.head.appendChild(s);
                   }
-                  document.addEventListener(
-                    'visitorConsentCollected',
-                    injectBixGrow,
-                    { once: true }
-                  );
+
+                  if (!window.twq) {
+                    !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+                    twq('config', 'op297');
+                  }
+                };
+
+                const eventPromise = new Promise(resolve => {
+                  document.addEventListener('consentTrackingApiLoaded', resolve, { once: true });
                 });
 
-                function injectBixGrow() {
-                  if (window.__bixgrowInjected) return;
-                  window.__bixgrowInjected = true;
-                  const s = document.createElement('script');
-                  s.src = '/bixgrow-headless.js';
-                  s.defer = true;
-                  document.head.appendChild(s);
+                const timeoutPromise = new Promise(resolve => setTimeout(resolve, 6000));
+
+                Promise.race([eventPromise, timeoutPromise]).then(() => {
+                  const cp = window.Shopify.customerPrivacy;
+                  if (!cp) return;
+
+                  if (cp.shouldShowBanner()) {
+                    document.addEventListener('visitorConsentCollected', injectTrackingScripts, { once: true });
+                  } else if (cp.marketingAllowed() || cp.analyticsProcessingAllowed()) {
+                    injectTrackingScripts();
+                  }
+                });
+
+                const config = {
+                  storefrontAccessToken: '${clientEnv.NEXT_PUBLIC_SHOPIFY_STOREFRONT_TOKEN}',
+                  checkoutRootDomain: 'getmykeycard.myshopify.com',
+                  storefrontRootDomain:  'keycard.tech',
+                  headlessStorefront: true,
+                };
+
+                if (window.privacyBanner) {
+                  window.privacyBanner.loadBanner(config);
                 }
               })();
             `,
@@ -111,40 +142,6 @@ export default function RootLayout({ children }: Props) {
           src="https://umami.bi.status.im/script.js"
           data-website-id="a335ad8b-deef-4960-b565-3d4e21b7a8e5"
           data-domains="keycard.tech"
-        />
-
-        {/* Shopify Affiliate */}
-        <Script
-          id="shopify-cookie-banner"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-            window.Shopify = { shop: 'getmykeycard.myshopify.com' };
-          `,
-          }}
-        />
-
-        <Script
-          id="shopify-privacy-bundle"
-          strategy="beforeInteractive"
-          src="https://cdn.shopify.com/shopifycloud/privacy-banner/storefront-banner.js"
-        />
-
-        <Script
-          id="shopify-privacy-config"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-            window.privacyBannerConfig = {
-              storefrontAccessToken: '${clientEnv.NEXT_PUBLIC_SHOPIFY_STOREFRONT_TOKEN}',
-              checkoutRootDomain:    'getmykeycard.myshopify.com',
-              storefrontRootDomain:  'keycard.tech',
-              headlessStorefront:    true
-            };
-
-            privacyBanner.loadBanner(window.privacyBannerConfig);
-            `,
-          }}
         />
       </body>
     </html>
