@@ -4,6 +4,7 @@ import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
 import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
 import { Image } from '~components/image'
+import { JsonLd } from '~components/json-ld'
 
 const Keycard = () => {
   return (
@@ -62,6 +63,25 @@ const Keycard = () => {
           })}
         </p>
       </div>
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'Product',
+          name: 'Keycard',
+          brand: { '@type': 'Brand', name: 'Keycard' },
+          description:
+            'A smart card with secure element for storing keys and transacting via NFC.',
+          image: ['https://keycard.tech/assets/keycard/card.png'],
+          sku: 'SKCR02',
+          offers: {
+            '@type': 'Offer',
+            url: 'https://keycard.tech/keycard',
+            availability: 'https://schema.org/InStock',
+            priceCurrency: 'EUR',
+            price: '25',
+          },
+        }}
+      />
     </section>
   )
 }
