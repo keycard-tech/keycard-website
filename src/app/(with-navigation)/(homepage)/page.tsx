@@ -11,11 +11,17 @@ export const metadata = Metadata({
   title: {
     absolute: 'Keycard: Secure Crypto & Hardware Wallet',
   },
+  description:
+    'Secure your crypto with Keycard hardware. Air-gapped, contactless NFC, and open-source. Use Keycard Shell for modular cold storage and Keycard card for everyday access.',
+  alternates: { canonical: '/' },
 })
 
 export default function HomePage() {
   return (
     <>
+      <h1 className="sr-only">
+        Keycard — Modular, Open-Source Crypto Hardware
+      </h1>
       <AutoOpenDialogManager />
       <KeycardShell />
       <Keycard />
