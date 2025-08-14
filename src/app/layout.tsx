@@ -56,7 +56,7 @@ export default function RootLayout({ children }: Props) {
           src="https://cdn.shopify.com/shopifycloud/privacy-banner/storefront-banner.js"
         />
 
-        {/* Consent Manager with Fail-Safe */}
+        {/* Consent Manager with fail-safe */}
         <Script
           id="keycard-consent-manager"
           strategy="afterInteractive"
