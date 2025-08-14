@@ -209,7 +209,21 @@
   },
   {
     "title": "Resources",
-    "link": "/docs/resources"
+    "link": "/docs/resources",
+    "subItems": [
+      {
+        "title": "Github Repositories",
+        "link": "/docs/resources#github-repositories"
+      },
+      {
+        "title": "Tools",
+        "link": "/docs/resources#tools"
+      },
+      {
+        "title": "Brand Assets",
+        "link": "/docs/resources#keycard-and-keycard-shell-brand-assets"
+      }
+    ]
   },
   {
     "title": "Hardware Specifications",
