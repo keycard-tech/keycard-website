@@ -28,11 +28,9 @@ export const metadata = Metadata({
     default: 'Keycard',
     template: '%s — Keycard',
   },
-  description:
-    'Lightweight design, heavyweight security. Open-source, durable, and integrated with Status apps for secure asset management and dApp interactions. From €25.',
 
   alternates: {
-    canonical: './',
+    canonical: '/',
   },
 
   twitter: {

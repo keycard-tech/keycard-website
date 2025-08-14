@@ -1,9 +1,17 @@
 import { ExternalIcon } from '@status-im/icons/20'
+import { Metadata } from '~/app/_metadata'
 import { ButtonLink } from '~components/button-link'
 import { DownloadStatusForDesktop } from '~components/download-status-for-desktop'
 import { DownloadStatusForMobile } from '~components/download-status-for-mobile'
 import { FeaturesDisclaimer } from '~components/features-disclaimer'
 import Image from 'next/image'
+
+export const metadata = Metadata({
+  title: 'Get Started — Keycard & Keycard Shell',
+  description:
+    'Set up your Keycard and Keycard Shell, pair supported wallets, and learn best practices for backups and recovery.',
+  alternates: { canonical: '/start' },
+})
 
 export default function StartPage() {
   return (
