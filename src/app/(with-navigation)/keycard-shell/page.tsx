@@ -9,14 +9,18 @@ import { Keycards } from './_components/keycards'
 import { Prefooter } from './_components/pre-footer'
 
 export const metadata = Metadata({
-  title: 'Keycard Shell',
+  title: 'Keycard Shell - Open-Source, Modular Hardware Wallet',
   description:
-    'A modular hardware wallet that relies on Keycard as the secure element.',
+    'A modular hardware wallet that relies on Keycard as the secure element. Open-source, swappable battery, infinite removable cards.',
+  alternates: { canonical: '/keycard-shell' },
 })
 
 export default async function KeycardShellPage() {
   return (
     <>
+      <h1 className="sr-only">
+        Keycard Shell — Modular, Open-Source Crypto Hardware Wallet
+      </h1>
       <Hero />
       <FeaturesCard />
       <FeaturesGrid />
