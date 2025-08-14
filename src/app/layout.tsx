@@ -56,39 +56,43 @@ export default function RootLayout({ children }: Props) {
           src="https://cdn.shopify.com/shopifycloud/privacy-banner/storefront-banner.js"
         />
 
-        {/* Consent Manager with fail-safe */}
+        {/* Consent Manager with Fail-Safe */}
         <Script
           id="keycard-consent-manager"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
-                const injectBixGrow = () => {
-                  if (window.__bixgrowInjected) return;
-                  window.__bixgrowInjected = true;
-                  const s = document.createElement('script');
-                  s.src = '/bixgrow-headless.js';
-                  s.defer = true;
-                  document.head.appendChild(s);
+                const injectTrackingScripts = () => {
+                  
+                  if (!window.__bixgrowInjected) {
+                    window.__bixgrowInjected = true;
+                    const s = document.createElement('script');
+                    s.src = '/bixgrow-headless.js';
+                    s.defer = true;
+                    document.head.appendChild(s);
+                  }
+
+                  if (!window.twq) {
+                    !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+                    twq('config', 'op297');
+                  }
                 };
 
-                // Create a promise that resolves when the Shopify event fires
                 const eventPromise = new Promise(resolve => {
                   document.addEventListener('consentTrackingApiLoaded', resolve, { once: true });
                 });
 
-                // Create a promise that resolves after the timeout
                 const timeoutPromise = new Promise(resolve => setTimeout(resolve, 6000));
 
-                // Promise.race will proceed as soon as the FIRST promise resolves
                 Promise.race([eventPromise, timeoutPromise]).then(() => {
                   const cp = window.Shopify.customerPrivacy;
                   if (!cp) return;
 
                   if (cp.shouldShowBanner()) {
-                    document.addEventListener('visitorConsentCollected', injectBixGrow, { once: true });
+                    document.addEventListener('visitorConsentCollected', injectTrackingScripts, { once: true });
                   } else if (cp.marketingAllowed() || cp.analyticsProcessingAllowed()) {
-                    injectBixGrow();
+                    injectTrackingScripts();
                   }
                 });
 
