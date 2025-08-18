@@ -3,6 +3,7 @@ import { ChevronDownIcon } from '@status-im/icons/20'
 import { TwitterIcon } from '@status-im/icons/social'
 import { ButtonLink } from '~components/button-link'
 import { Image } from '~components/image'
+import { JsonLd } from '~components/json-ld'
 import { Link } from '~components/link'
 import { cx } from 'cva'
 
@@ -140,6 +141,17 @@ const Faqs = () => {
           </div>
         </div>
       </div>
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: faqs.map(f => ({
+            '@type': 'Question',
+            name: f.question,
+            acceptedAnswer: { '@type': 'Answer', text: f.answer },
+          })),
+        }}
+      />
     </section>
   )
 }

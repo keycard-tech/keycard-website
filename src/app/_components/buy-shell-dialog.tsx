@@ -18,14 +18,32 @@ import { Button } from './button'
 import * as Dialog from './dialog'
 import { Tooltip } from './tooltip'
 
+function getCookie(name: string): string {
+  if (typeof document === 'undefined') return ''
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop()?.split(';').shift() || ''
+  return ''
+}
+
 function createCheckoutUrl(utmParams: URLSearchParams) {
+  // Base URL construction remains the same
   const url = new URL(
     `https://get.keycard.tech/cart/${KEYCARD_SHELL.variantId}:1`,
   )
 
+  // Add existing UTM params
   utmParams.forEach((value, key) => {
     url.searchParams.append(key, value)
   })
+
+  // 1. Read the BixGrow affiliate ID from the cookie
+  const affiliateId = getCookie('bgaffilite_id')
+
+  // 2. If it exists, append it as a 'ref' parameter
+  if (affiliateId) {
+    url.searchParams.append('bg_ref', affiliateId) // BixGrow Checkout pixel
+  }
 
   return url.toString()
 }

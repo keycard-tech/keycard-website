@@ -2,6 +2,7 @@ import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
 import { BuyShellDialog } from '~components/buy-shell-dialog'
 import { Image } from '~components/image'
+import { JsonLd } from '~components/json-ld'
 
 const KeycardShell = () => {
   return (
@@ -27,6 +28,9 @@ const KeycardShell = () => {
       />
 
       <div className="relative z-10 flex max-w-[434px] flex-1 flex-col place-content-end px-5 pb-5 lg:ml-[72px] lg:p-0">
+        <h1 className="sr-only">
+          Keycard Shell - Modular, Air-Gapped Hardware Wallet
+        </h1>
         <p className="pb-2 text-24 font-600 text-white-95">
           keycard <span className="font-200">shell</span>
         </p>
@@ -59,6 +63,25 @@ const KeycardShell = () => {
           Bundled with Keycard
         </p>
       </div>
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'Product',
+          name: 'Keycard Shell',
+          brand: { '@type': 'Brand', name: 'Keycard' },
+          description:
+            'A modular, air-gapped hardware wallet that uses Keycard as the secure element.',
+          image: ['https://keycard.tech/assets/keycard-shell.png'],
+          sku: 'SHELL-001',
+          offers: {
+            '@type': 'Offer',
+            url: 'https://keycard.tech/keycard-shell',
+            availability: 'https://schema.org/PreOrder',
+            priceCurrency: 'EUR',
+            price: '99',
+          },
+        }}
+      />
     </section>
   )
 }
