@@ -1,11 +1,15 @@
 import fs from 'fs/promises'
 import path from 'path'
+import { getAllPostsForSitemap } from '~/app/_lib/ghost'
 import type { MetadataRoute } from 'next'
+
+export const revalidate = 3600
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = 'https://keycard.tech'
   const now = new Date()
 
+  // 1) Static routes
   const staticRoutes: MetadataRoute.Sitemap = [
     '/',
     '/keycard-shell',
@@ -21,6 +25,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: p === '/' ? 1 : 0.8,
   }))
 
+  // 2) Docs from filesystem
   const urls: MetadataRoute.Sitemap = [...staticRoutes]
 
   async function walk(dir: string, parts: string[] = []) {
@@ -39,10 +44,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       }
     }
   }
-
   try {
     await walk(path.join(process.cwd(), 'content', 'docs'))
   } catch {}
 
-  return urls
+  // blog posts
+  const posts = await getAllPostsForSitemap()
+  const blogEntries: MetadataRoute.Sitemap = posts.map(p => ({
+    url: `${base}/blog/${p.slug}`,
+    lastModified: p.updated_at || p.published_at || now.toISOString(),
+    changeFrequency: 'weekly',
+    priority: 0.7,
+  }))
+
+  return [...urls, ...blogEntries]
 }
