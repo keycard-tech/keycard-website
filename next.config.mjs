@@ -20,4 +20,35 @@ const config = {
   ],
 }
 
+export async function redirects() {
+  return [
+    {
+      source: '/images/card-dark.png',
+      destination: '/assets/keycard-shell.png',
+      permanent: true,
+    },
+    {
+      source: '/images/card-light.png',
+      destination: '/assets/keycard-shell.png',
+      permanent: true,
+    },
+    {
+      source: '/images/integrate-keycard.png',
+      destination: '/assets/keycard-shell.png',
+      permanent: true,
+    },
+    {
+      source: '/images/integration-status.png',
+      destination: '/assets/keycard-shell.png',
+      permanent: true,
+    },
+    {
+      source: '/images/security-keyvisual.png',
+      destination: '/assets/keycard-shell.png',
+      permanent: true,
+    },
+    { source: '/keycard-hell', destination: '/keycard-shell', permanent: true },
+  ]
+}
+
 export default config

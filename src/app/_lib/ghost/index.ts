@@ -145,3 +145,18 @@ export const getAuthorSlugs = async (): Promise<string[]> => {
     return []
   }
 }
+
+export const getAllPostsForSitemap = async () => {
+  try {
+    const posts = await ghost.posts.browse({
+      limit: 'all',
+      fields: ['slug', 'updated_at', 'published_at'],
+      filter: 'visibility:public',
+      order: 'published_at DESC',
+    })
+    return posts
+  } catch (e) {
+    console.error('Error fetching posts for sitemap', e)
+    return []
+  }
+}
