@@ -28,6 +28,8 @@ const faqs = [
         .
       </>
     ),
+    answerText:
+      'Keycard works seamlessly with Ethereum and EVM based assets. It supports all assets on Uniswap Labs default token list.',
   },
   {
     question: 'Are my funds safe if I lose my Keycard?',
@@ -148,7 +150,12 @@ const Faqs = () => {
           mainEntity: faqs.map(f => ({
             '@type': 'Question',
             name: f.question,
-            acceptedAnswer: { '@type': 'Answer', text: f.answer },
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text:
+                (f as { answerText?: string }).answerText ||
+                (f.answer as string),
+            },
           })),
         }}
       />
