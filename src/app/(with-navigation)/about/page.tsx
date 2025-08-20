@@ -44,8 +44,7 @@ export default function AboutPage() {
           <p className="text-white-90">
             A contactless smart-card hardware wallet and signer (BIP-32 HD),
             with keys stored and used inside a secure element. Open-source,
-            NFC-first, and designed to operate apps conveniently with Keycard
-            Shell.
+            NFC-first. Works with Keycard Shell.
           </p>
         </div>
         <div className="border-white-10 bg-dark-80 rounded-20 border p-6">
@@ -70,9 +69,7 @@ export default function AboutPage() {
         </div>
 
         <div className="border-white-10 bg-dark-80 rounded-20 border p-6">
-          <h3 className="mb-2 font-500 text-white-95">
-            Products (short intro)
-          </h3>
+          <h3 className="mb-2 font-500 text-white-95">Products</h3>
           <ul className="list-disc pl-5 text-white-90">
             <li>
               <strong>Keycard</strong> - card-sized signer where keys never
