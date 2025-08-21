@@ -1,4 +1,5 @@
 import { Analytics } from '@vercel/analytics/next'
+import { clientEnv } from '~/config/env.client.mjs'
 import { cx } from 'cva'
 import { Inter, Lora } from 'next/font/google'
 import Script from 'next/script'
@@ -27,11 +28,9 @@ export const metadata = Metadata({
     default: 'Keycard',
     template: '%s — Keycard',
   },
-  description:
-    'Lightweight design, heavyweight security. Open-source, durable, and integrated with Status apps for secure asset management and dApp interactions. From €25.',
 
   alternates: {
-    canonical: './',
+    canonical: '/',
   },
 
   twitter: {
@@ -47,6 +46,70 @@ type Props = {
 export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
+      <head>
+        {/* Shopify cookie banner script */}
+        <Script
+          id="shopify-privacy-bundle"
+          strategy="beforeInteractive"
+          src="https://cdn.shopify.com/shopifycloud/privacy-banner/storefront-banner.js"
+        />
+
+        {/* Consent Manager with Fail-Safe */}
+        <Script
+          id="keycard-consent-manager"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                const injectTrackingScripts = () => {
+                  
+                  if (!window.__bixgrowInjected) {
+                    window.__bixgrowInjected = true;
+                    const s = document.createElement('script');
+                    s.src = '/bixgrow-headless.js';
+                    s.defer = true;
+                    document.head.appendChild(s);
+                  }
+
+                  if (!window.twq) {
+                    !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+                    twq('config', 'op297');
+                  }
+                };
+
+                const eventPromise = new Promise(resolve => {
+                  document.addEventListener('consentTrackingApiLoaded', resolve, { once: true });
+                });
+
+                const timeoutPromise = new Promise(resolve => setTimeout(resolve, 6000));
+
+                Promise.race([eventPromise, timeoutPromise]).then(() => {
+                  const cp = window.Shopify.customerPrivacy;
+                  if (!cp) return;
+
+                  if (cp.shouldShowBanner()) {
+                    document.addEventListener('visitorConsentCollected', injectTrackingScripts, { once: true });
+                  } else if (cp.marketingAllowed() || cp.analyticsProcessingAllowed()) {
+                    injectTrackingScripts();
+                  }
+                });
+
+                const config = {
+                  storefrontAccessToken: '${clientEnv.NEXT_PUBLIC_SHOPIFY_STOREFRONT_TOKEN}',
+                  checkoutRootDomain: 'getmykeycard.myshopify.com',
+                  storefrontRootDomain:  'keycard.tech',
+                  headlessStorefront: true,
+                };
+
+                if (window.privacyBanner) {
+                  window.privacyBanner.loadBanner(config);
+                }
+              })();
+            `,
+          }}
+        />
+      </head>
+
       <body
         className={cx(
           lora.variable,
@@ -69,7 +132,11 @@ export default function RootLayout({ children }: Props) {
             }}
           />
         </Providers>
+
+        {/* Vercel Analytics */}
         <Analytics />
+
+        {/* Umami Analytics */}
         <Script
           strategy="afterInteractive"
           src="https://umami.bi.status.im/script.js"

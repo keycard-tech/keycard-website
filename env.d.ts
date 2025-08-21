@@ -1,11 +1,12 @@
+import type { clientEnv } from './src/config/env.client.mjs'
+import type { serverEnv } from './src/config/env.server.mjs'
+
+type Env = typeof clientEnv & typeof serverEnv
+
 declare global {
   namespace NodeJS {
-    interface ProcessEnv extends Env {
-      SHOPIFY_STORE_DOMAIN: string
-      SHOPIFY_STOREFRONT_API_PUBLIC_ACCESS_TOKEN: string
-      SHOPIFY_ADMIN_API_PRIVATE_ACCESS_TOKEN: string
-    }
+    /* eslint-disable @typescript-eslint/no-empty-object-type */
+    interface ProcessEnv extends Env {}
+    /* eslint-enable @typescript-eslint/no-empty-object-type */
   }
 }
-
-export {}
