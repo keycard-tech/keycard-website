@@ -204,6 +204,10 @@
       {
         "title": "GET DATA",
         "link": "/docs/apdu/getdata"
+      },
+      {
+        "title": "FACTORY RESET",
+        "link": "/docs/apdu/factoryreset"
       }
     ]
   },
