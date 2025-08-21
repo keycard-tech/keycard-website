@@ -38,6 +38,143 @@ In this regard, we collect and process the following personal data from your use
 
 In addition to our limited and collection of personal data, third parties may collect or process personal data as a result of the Website making use of certain features or to provide certain content. To the extent you interact with such third party content or features, their respective privacy policies will apply. 
 
+### (a) BixGrow (Affiliate Programme)
+
+Keycard offers an affiliate programme to reward participants who refer visitors to this Website. The affiliate programme is managed and operated by a separate entity:
+
+*Controller*: Status Research & Development GmbH, with address: c/o PST Consulting GmbH Baarerstrasse 10, 6300 Zug Switzerland.
+
+Status Research & Development GmbH is the data controller for the personal data collected and processing activities related to the affiliate programme, including the use of affiliate-tracking cookies.  To enable referral tracking and commission attribution, BixGrow affiliate-tracking cookies are set in your browser when you visit this Website via an affiliate link.
+
+*Purpose and legal basis*: These cookies are used exclusively for tracking referrals and attributing commissions to affiliates, based on the legitimate interests of Status Research & Development GmbH in performance-based marketing (Art. 6(1)(f) GDPR). Where required by law, affiliate-tracking cookies are only set with your consent, which is obtained via our cookie banner.
+
+*International transfers*: BixGrow may process cookie data on Amazon Web Services (AWS) servers located in the European Union (Dublin) or the United States. International data transfers are protected by Standard Contractual Clauses and AWS’s EU-US Data Privacy Framework certification.
+
+*Opt-out*: You can refuse or withdraw consent for BixGrow cookies at any time via our cookie banner.
+
+BixGrow Cookies Used
+
+<table>
+  <thead>
+    <tr>
+      <th>Cookie Name</th>
+      <th>Provider</th>
+      <th>Purpose</th>
+      <th>Lifespan</th>
+      <th>Category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>bgaffiliate_id</td>
+      <td>BixGrow</td>
+      <td>Stores the referring affiliate’s ID for commission tracking</td>
+      <td>30 days (merchant-configurable, max 10 years)</td>
+      <td>Marketing / Affiliate</td>
+    </tr>
+    <tr>
+      <td>bgclick_id</td>
+      <td>BixGrow</td>
+      <td>Records unique click-event ID for affiliate attribution</td>
+      <td>30 days (merchant-configurable, max 10 years)</td>
+      <td>Marketing / Affiliate</td>
+    </tr>
+    <tr>
+      <td>bgexpire_time</td>
+      <td>BixGrow</td>
+      <td>Unix timestamp indicating cookie expiry</td>
+      <td>30 days (merchant-configurable, max 10 years)</td>
+      <td>Marketing / Affiliate</td>
+    </tr>
+    <tr>
+      <td>bglast_click</td>
+      <td>BixGrow</td>
+      <td>Unix timestamp of most recent affiliate click</td>
+      <td>30 days (merchant-configurable, max 10 years)</td>
+      <td>Marketing / Affiliate</td>
+    </tr>
+    <tr>
+      <td>bgvisitor_id</td>
+      <td>BixGrow</td>
+      <td>Anonymized visitor ID for de-duplicating repeat visits</td>
+      <td>30 days (merchant-configurable, max 10 years)</td>
+      <td>Marketing / Affiliate</td>
+    </tr>
+  </tbody>
+</table>
+
+### (b) X (Twitter) Pixel
+
+We use the X (Twitter) pixel to measure the effectiveness of our advertising campaigns on X and to reach visitors with more relevant ads (so-called remarketing). When the pixel is enabled, X receives information about your visit to our site (e.g., page URLs, referrers, IP address, device/browser details, and events such as views or purchases). Where available, the pixel can also transmit customer identifiers (e.g., email or phone) that are hashed with SHA-256 before transmission; X uses these to match and measure conversions. X acts as an independent controller for data it collects via this technology. See X’s Privacy Policy for details. 
+
+*Controller*: Status Research & Development GmbH, with address: c/o PST Consulting GmbH Baarerstrasse 10, 6300 Zug Switzerland. Status Research & Development GmbH is the data controller for the personal data collected and processing activities related to our use of the X pixel described in the manner above. 
+
+*Purpose and legal basis*: We use this technology for ads measurement and remarketing. Where required by law (e.g., in the EU/EEA/UK), we only enable the X pixel after you give consent through our cookie banner. If you do not consent, the pixel won’t load.
+
+*International transfers*: Use of the X pixel may involve transfers of your data to countries outside Switzerland/EU (e.g., the United States). For more on how X handles such transfers, see X’s Privacy Policy.
+
+*Opt-out*: You can withdraw consent at any time via our cookie settings. If you have an X account, you can also manage ad personalization in X’s settings; more information and industry opt-outs are available from X and the Digital Advertising Alliance/NAI:
+- X: Privacy controls for tailored ads (web & mobile)
+- DAA WebChoices (opt-out) / NAI opt-out tools.
+
+X (Twitter) Cookies Used
+
+<table>
+  <thead>
+    <tr>
+      <th>Cookie Name</th>
+      <th>Provider</th>
+      <th>Purpose</th>
+      <th>Lifespan</th>
+      <th>Category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>personalization_id</td>
+      <td>X (Twitter)</td>
+      <td>Ad targeting & content personalization</td>
+      <td>2 years</td>
+      <td>Marketing / Advertising</td>
+    </tr>
+    <tr>
+      <td>guest_id / guest_id_ads</td>
+      <td>X (Twitter)</td>
+      <td>Distinguish browsers for ads & analytics</td>
+      <td>2 years</td>
+      <td>Marketing / Advertising</td>
+    </tr>
+    <tr>
+      <td>muc_ads</td>
+      <td>X (Twitter)</td>
+      <td>Advertising / fraud-prevention</td>
+      <td>2 years</td>
+      <td>Marketing / Advertising</td>
+    </tr>
+    <tr>
+      <td>_twitter_sess</td>
+      <td>X (Twitter)</td>
+      <td>Login / pixel session management</td>
+      <td>Session</td>
+      <td>Marketing / Advertising</td>
+    </tr>
+    <tr>
+      <td>ct0</td>
+      <td>X (Twitter)</td>
+      <td>CSRF token for requests</td>
+      <td>6 hours</td>
+      <td>Marketing / Advertising</td>
+    </tr>
+    <tr>
+      <td>external_referer</td>
+      <td>X (Twitter)</td>
+      <td>Ad-click attribution</td>
+      <td>3 minutes</td>
+      <td>Marketing / Advertising</td>
+    </tr>
+  </tbody>
+</table>
+
 ## 4) Security measures we take in respect of the Website
 
 As a general approach, we take data security seriously and we have implemented a variety of security measures on the Website to maintain the safety of your personal data when you submit such information to us. 

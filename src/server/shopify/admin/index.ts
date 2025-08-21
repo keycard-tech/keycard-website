@@ -1,4 +1,5 @@
 import 'server-only'
+import { serverEnv } from '~/config/env.server.mjs'
 import { DiscountsQuery } from './operations'
 import { DiscountsResponseBody } from './types'
 
@@ -13,14 +14,14 @@ export async function _fetch<T extends DiscountsResponseBody>(
   variables?: Record<string, unknown>,
 ): Promise<T> {
   const response = await fetch(
-    `https://${process.env.SHOPIFY_STORE_DOMAIN}/admin/api/2024-10/graphql.json`,
+    `https://${serverEnv.SHOPIFY_STORE_DOMAIN}/admin/api/2024-10/graphql.json`,
     {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/graphql-response+json',
         'X-Shopify-Access-Token':
-          process.env.SHOPIFY_ADMIN_API_PRIVATE_ACCESS_TOKEN,
+          serverEnv.SHOPIFY_ADMIN_API_PRIVATE_ACCESS_TOKEN,
       },
       body: JSON.stringify({
         query,

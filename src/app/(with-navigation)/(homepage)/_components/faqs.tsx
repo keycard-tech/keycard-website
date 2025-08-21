@@ -3,6 +3,7 @@ import { ChevronDownIcon } from '@status-im/icons/20'
 import { TwitterIcon } from '@status-im/icons/social'
 import { ButtonLink } from '~components/button-link'
 import { Image } from '~components/image'
+import { JsonLd } from '~components/json-ld'
 import { Link } from '~components/link'
 import { cx } from 'cva'
 
@@ -27,6 +28,8 @@ const faqs = [
         .
       </>
     ),
+    answerText:
+      'Keycard works seamlessly with Ethereum and EVM based assets. It supports all assets on Uniswap Labs default token list.',
   },
   {
     question: 'Are my funds safe if I lose my Keycard?',
@@ -140,6 +143,22 @@ const Faqs = () => {
           </div>
         </div>
       </div>
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: faqs.map(f => ({
+            '@type': 'Question',
+            name: f.question,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text:
+                (f as { answerText?: string }).answerText ||
+                (f.answer as string),
+            },
+          })),
+        }}
+      />
     </section>
   )
 }
