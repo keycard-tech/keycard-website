@@ -12,8 +12,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // 1) Static routes
   const staticRoutes: MetadataRoute.Sitemap = [
     '/',
-    '/keycard-shell',
-    '/keycard',
+    '/docs',
     '/blog',
     '/start',
     '/legal/privacy-policy',
