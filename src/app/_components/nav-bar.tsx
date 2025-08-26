@@ -27,9 +27,9 @@ const internalLinkStyles = cva({
 })
 
 const links = [
-  { href: '/keycard', label: 'Keycard' },
+  { href: 'https://get.keycard.tech/pages/keycard', label: 'Keycard' },
   {
-    href: '/keycard-shell',
+    href: 'https://get.keycard.tech/pages/keycard-shell',
     label: 'Keycard Shell',
   },
 ]
