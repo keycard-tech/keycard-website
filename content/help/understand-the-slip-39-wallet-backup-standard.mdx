@@ -5,7 +5,7 @@ title: Understand the SLIP39 wallet backup standard
 
 # Understand the SLIP39 wallet backup standard
 
-BIP39 is the most common wallet backup standard today. It uses a single recovery phrase of 12 or 24 words to restore your wallet accounts.
+BIP39 is the most common wallet backup standard. It uses a single recovery phrase of 12 or 24 words to restore your wallet accounts.
 
 [SLIP39](https://slip39.com/) is a standard for creating more secure and flexible backups of crypto wallets. Instead of giving you one recovery phrase, with SLIP39 you can split your wallet backup into several parts of recovery phrases. You decide how many parts you want, and how many are needed to recover your wallet accounts.
 
@@ -20,8 +20,8 @@ You can distribute these parts among people you trust or store them in different
 | Aspect                      | SLIP39 backup                                                 | BIP39 backup                                         |
 |:----------------------------|:--------------------------------------------------------------|:-----------------------------------------------------|
 | Recovery phrase             | Several parts of 20 words each                                | One phrase of 12 or 24 words                         |
-| Number of phrases generated | Customizable (1-16)                                           | 1                                                    |
-| Phrases needed for recovery | Customizable (set your own threshold)                         | 1                                                    |
+| Number of phrases generated | Customizable (1-16)                                           | One                                                  |
+| Phrases needed for recovery | Customizable (set your own threshold)                         | One                                                  |
 | Backup redundancy           | Multiple parts stored across people or places                 | Risk for single point of failure                     |
 | Wallet support              | Limited support compared to BIP39, especially outside Bitcoin | Widely supported in hardware wallets and wallet apps |
 
