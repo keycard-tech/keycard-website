@@ -1,12 +1,16 @@
 export const ROUTES = {
   Products: [
-    { name: 'Keycard', href: '/keycard' },
-    { name: 'Keycard Shell', href: '/keycard-shell' },
+    { name: 'Keycard', href: 'https://get.keycard.tech/pages/keycard' },
+    {
+      name: 'Keycard Shell',
+      href: 'https://get.keycard.tech/pages/keycard-shell',
+    },
   ],
   Info: [
     { name: 'Get started', href: '/start' },
     { name: 'Documentation', href: '/docs/overview' },
     { name: 'Blog', href: '/blog' },
+    { name: 'Affiliates', href: 'https://affiliates.keycard.tech' },
   ],
   Contacts: [
     { name: 'Discord', href: 'https://discord.gg/uJAXk7jFhZ' },

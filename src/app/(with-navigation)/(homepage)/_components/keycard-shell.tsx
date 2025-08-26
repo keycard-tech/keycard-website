@@ -54,7 +54,10 @@ const KeycardShell = () => {
               Pre-order
             </Button>
           </BuyShellDialog>
-          <ButtonLink href="/keycard-shell" variant="secondary">
+          <ButtonLink
+            href="https://get.keycard.tech/pages/keycard-shell"
+            variant="secondary"
+          >
             Learn more
           </ButtonLink>
         </div>
@@ -75,7 +78,7 @@ const KeycardShell = () => {
           sku: 'SHELL-001',
           offers: {
             '@type': 'Offer',
-            url: 'https://keycard.tech/keycard-shell',
+            url: 'https://get.keycard.tech/pages/keycard-shell',
             availability: 'https://schema.org/PreOrder',
             priceCurrency: 'EUR',
             price: '99',

@@ -52,7 +52,10 @@ const Keycard = () => {
               Buy Keycard
             </Button>
           </BuyKeycardDialog>
-          <ButtonLink href="/keycard" variant="secondary">
+          <ButtonLink
+            href="https://get.keycard.tech/pages/keycard"
+            variant="secondary"
+          >
             Learn more
           </ButtonLink>
         </div>
@@ -75,7 +78,7 @@ const Keycard = () => {
           sku: 'SKCR02',
           offers: {
             '@type': 'Offer',
-            url: 'https://keycard.tech/keycard',
+            url: 'https://get.keycard.tech/pages/keycard',
             availability: 'https://schema.org/InStock',
             priceCurrency: 'EUR',
             price: '25',
