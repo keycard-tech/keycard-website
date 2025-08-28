@@ -7,13 +7,13 @@ import { JsonLd } from '~components/json-ld'
 const KeycardShell = () => {
   return (
     <section className="relative flex h-[calc(100svh-80px-70px)] flex-col justify-between overflow-hidden rounded-t-28 border border-white-8 bg-white-4 backdrop-blur-[20px] full-view-port sm:h-[calc(100svh-80px-48px)] lg:h-auto lg:flex-row-reverse lg:items-center lg:justify-normal lg:remove-full-view-port">
-      <div className="hidden max-h-[510px] flex-1 items-start justify-center overflow-hidden lg:flex">
+      <div className="hidden flex-1 items-center justify-center overflow-hidden lg:flex">
         <Image
-          src="/assets/keycard-shell.png"
+          src="/assets/keycard-shell.gif"
           alt="Keycard Shell Hardware Wallet"
-          width="758"
-          height="758"
-          className="relative right-0 top-[-86px] object-cover object-center xl:top-[-128px] xl:object-contain"
+          width="450"
+          height="450"
+          className="relative right-0 top-0 object-contain"
           priority
         />
       </div>
