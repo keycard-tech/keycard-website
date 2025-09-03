@@ -88,7 +88,7 @@ const Content = () => {
 
   return (
     <div className="grid h-svh grid-cols-1 gap-6 overflow-auto bg-white-4 p-5 backdrop-blur-[20px] lg:h-auto lg:grid-cols-2 lg:overflow-clip lg:rounded-28 lg:border lg:border-white-12 lg:p-2">
-      <div className="relative hidden rounded-20 bg-[#010101] lg:block">
+      <div className="relative hidden rounded-20 bg-[#010101] lg:block lg:max-h-[70vh] lg:p-4">
         <AnimatePresence>
           <motion.div
             key="pre-order-shell"
@@ -98,12 +98,14 @@ const Content = () => {
             className="flex h-full items-center justify-center overflow-hidden"
           >
             <Image
-              className="w-full"
-              src="/assets/pre-order-shell.png"
-              alt="Pre-order Shell"
-              width={560}
-              height={582}
+              src="/assets/keycard-shell.gif"
+              alt="Pre-order Shell (animated)"
+              className="h-auto max-h-[48vh] w-full max-w-[336px] object-contain lg:max-w-[448px]"
+              width={1052}
+              height={768}
+              unoptimized
               priority
+              sizes="(min-width:1024px) 448px, 90vw"
             />
           </motion.div>
         </AnimatePresence>
