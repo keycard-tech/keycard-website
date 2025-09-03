@@ -9,14 +9,11 @@ const Link = (
   const external = url?.startsWith('http')
 
   if (external) {
+    const target = props.target ?? '_blank'
+    const rel =
+      props.rel ?? (target === '_blank' ? 'noopener noreferrer' : undefined)
     return (
-      <a
-        {...props}
-        href={url}
-        target="_blank"
-        rel="noopener noreferrer"
-        ref={ref}
-      >
+      <a {...props} href={url} target={target} rel={rel} ref={ref}>
         {props.children}
       </a>
     )
