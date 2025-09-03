@@ -1,5 +1,6 @@
 'use client'
 
+import { BuyShellDialog } from '~components/buy-shell-dialog'
 import { cva } from 'cva'
 import {
   motion,
@@ -11,7 +12,6 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { Button } from './button'
-import { BuyKeycardDialog } from './buy-keycard-dialog'
 import { Logo } from './logo'
 
 const NAV_BAR_HEIGHT = 92
@@ -82,17 +82,17 @@ const NavBar = () => {
           </Link>
         ))}
 
-        <BuyKeycardDialog>
+        <BuyShellDialog>
           <Button
             variant={variant}
-            data-umami-event="buy-keycard"
+            data-umami-event="preorder-shell"
             data-umami-event-page="global"
             data-umami-event-section="navbar"
             data-umami-event-element="button"
           >
-            Buy Keycard
+            Pre-order Shell
           </Button>
-        </BuyKeycardDialog>
+        </BuyShellDialog>
       </div>
     </motion.nav>
   )
