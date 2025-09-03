@@ -13,9 +13,11 @@ export const ROUTES = {
     { name: 'Affiliates', href: 'https://affiliates.keycard.tech' },
   ],
   Contacts: [
+    { name: 'About', href: '/about' },
+    { name: 'Contact', href: '/contact' },
     { name: 'Discord', href: 'https://discord.gg/uJAXk7jFhZ' },
     { name: 'X', href: 'https://x.com/Keycard_' },
-    { name: 'Email', href: 'mailto:support@keycard.tech' },
+    // { name: 'Email', href: 'mailto:support@keycard.tech' },
   ],
   Legal: [
     { name: 'Privacy policy', href: '/legal/privacy-policy' },
