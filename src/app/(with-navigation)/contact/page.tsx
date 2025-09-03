@@ -13,9 +13,11 @@ export default function ContactPage() {
     <div className="px-3 pb-[120px] pt-12 md:px-8 lg:px-20 lg:pt-20">
       <header className="mb-8 grid gap-3">
         <h1 className="font-lora text-32 font-500 text-white-95 xl:text-48">
-          Contact
+          Contact Keycard
         </h1>
-        <p className="text-white-90">We reply within 1 business day.</p>
+        <p className="text-white-90 md:text-20">
+          We reply within 1 business day.
+        </p>
       </header>
 
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">

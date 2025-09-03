@@ -44,19 +44,23 @@ const KeycardShell = () => {
           each with their own key.
         </p>
         <div className="flex gap-4">
+          <ButtonLink
+            href="https://get.keycard.tech/pages/keycard-shell"
+            target="_self"
+          >
+            Discover Shell
+          </ButtonLink>
           <BuyShellDialog>
             <Button
               data-umami-event="preorder-shell"
               data-umami-event-page="homepage"
               data-umami-event-section="hero"
               data-umami-event-element="button"
+              variant="secondary"
             >
-              Pre-order
+              Pre-order Now
             </Button>
           </BuyShellDialog>
-          <ButtonLink href="/keycard-shell" variant="secondary">
-            Learn more
-          </ButtonLink>
         </div>
         <p className="flex items-center gap-2 pt-6 text-16 font-300 text-white-60">
           Coming 2025 <span className="size-1 rounded-full bg-white-40" />{' '}
@@ -75,7 +79,7 @@ const KeycardShell = () => {
           sku: 'SHELL-001',
           offers: {
             '@type': 'Offer',
-            url: 'https://keycard.tech/keycard-shell',
+            url: 'https://get.keycard.tech/pages/keycard-shell',
             availability: 'https://schema.org/PreOrder',
             priceCurrency: 'EUR',
             price: '99',

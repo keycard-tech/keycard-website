@@ -87,7 +87,10 @@ const BuyCards = () => {
                 Buy Keycard
               </Button>
             </BuyKeycardDialog>
-            <ButtonLink href="/keycard" variant="secondary">
+            <ButtonLink
+              href="https://get.keycard.tech/pages/keycard"
+              variant="secondary"
+            >
               Learn more
             </ButtonLink>
           </>
@@ -119,7 +122,10 @@ const BuyCards = () => {
                 Pre-order
               </Button>
             </BuyShellDialog>
-            <ButtonLink href="/keycard-shell" variant="secondary">
+            <ButtonLink
+              href="https://get.keycard.tech/pages/keycard-shell"
+              variant="secondary"
+            >
               Learn more
             </ButtonLink>
           </>
