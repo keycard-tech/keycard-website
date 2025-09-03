@@ -15,22 +15,27 @@ title: SIGN
 * Preconditions: Secure Channel must be opened, user PIN must be verified (or a PIN-less key must be active), a valid keypair must be loaded
 
 P1:
-0x00 = Current key
-0x01 = Derive
-0x02 = Derive and make current
-0x03 = PIN-less path
+
+- 0x00 = Current key
+- 0x01 = Derive
+- 0x02 = Derive and make current
+- 0x03 = PIN-less path
 
 P2:
-0x00: ECDSA over secp256k1
-0x01: EDDSA over ed25519
-0x02: BLS12-381
-0x03: BIP340 Schnorr
+
+- 0x00: ECDSA over secp256k1
+- 0x01: EDDSA over ed25519
+- 0x02: BLS12-381
+- 0x03: BIP340 Schnorr
+
+note that not all implementations support all algorithms. Keycard supports only P2=0x00 at the moment.
 
 Response Data format:
 
 - Tag 0x80 = raw signature
 
 if P2 = 0x00 (ECDSA) the signature must include the recovery ID and thus the raw signature is encoded on 65 bytes as (r,s,recId). If calculating the recovery ID on card is too expensive the card is allowed to use the format below:
+
 - Tag 0xA0 = signature template
   - Tag 0x80 = ECC public key component
   - Tag 0x30 = ECDSA Signature
@@ -40,5 +45,7 @@ if P2 = 0x00 (ECDSA) the signature must include the recovery ID and thus the raw
 the client must accept either format. If receiving the signature template the you require the recovery ID, this can be calculated by applying the same algorithm used for public key recovery from a transaction starting with a recovery ID of 0. If the public key matches the one returned in the template, then you have found the recovery ID, otherwise you try again by incrementing the recovery ID.
 
 Returns the signature, using the scheme specified by the P2 parameter, of the given hash. The hash can be calculated using any algorithm, but must be 32-bytes long.
+
 P1 = 0x01 derives the path given in the data field without changing the current path of the card. P1 = 0x02 derives the path but also changes the current path of the card. The source for derivation can be set by OR'ing P1 with the constants defined in the DERIVE KEY command. This allows deriving from master, parent or current.
+
 P1 = 0x03 is specifically thought for POS transactions. It can be executed without Secure Channel (since no sensitive info is transmitted) and does not require PIN authentication. The current derivation path on the card remains unchanged, but the signing process is performed using the PIN-less derivation path previously defined using the SET PINLESS PATH command.

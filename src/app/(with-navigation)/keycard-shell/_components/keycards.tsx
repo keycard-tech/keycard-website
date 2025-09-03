@@ -33,7 +33,10 @@ const Keycards = () => {
               Buy Keycard
             </Button>
           </BuyKeycardDialog>
-          <ButtonLink href="/keycard" variant="secondary">
+          <ButtonLink
+            href="https://get.keycard.tech/pages/keycard"
+            variant="secondary"
+          >
             Learn more
           </ButtonLink>
         </div>
