@@ -6,28 +6,29 @@ import { JsonLd } from '~components/json-ld'
 
 const KeycardShell = () => {
   return (
-    <section className="relative flex h-[calc(100svh-80px-70px)] flex-col justify-between overflow-hidden rounded-t-28 border border-white-8 bg-white-4 backdrop-blur-[20px] full-view-port sm:h-[calc(100svh-80px-48px)] lg:h-auto lg:flex-row-reverse lg:items-center lg:justify-normal lg:remove-full-view-port">
-      <div className="hidden max-h-[510px] flex-1 items-start justify-center overflow-hidden lg:flex">
+    <section className="relative flex h-[calc(100svh-300px)] flex-col justify-center overflow-hidden rounded-t-28 border border-white-8 bg-white-4 backdrop-blur-[20px] full-view-port lg:h-auto lg:flex-row-reverse lg:items-center lg:justify-normal lg:remove-full-view-port">
+      <div className="hidden flex-1 items-center justify-center overflow-hidden lg:flex">
         <Image
-          src="/assets/keycard-shell.png"
+          src="/assets/keycard-shell.gif"
           alt="Keycard Shell Hardware Wallet"
-          width="758"
-          height="758"
-          className="relative right-0 top-[-86px] object-cover object-center xl:top-[-128px] xl:object-contain"
+          width="864"
+          height="1184"
+          className="max-h-[510px] w-auto object-contain lg:translate-y-1 xl:translate-y-2"
           priority
         />
       </div>
 
       <Image
-        src="/assets/keycard-shell-mobile.png"
+        src="/assets/keycard-shell.gif"
         alt="Keycard Shell Hardware Wallet"
-        width="466"
-        height="466"
-        className="absolute top-0 w-full lg:hidden"
+        width="864"
+        height="1184"
+        className="mt-4 h-auto w-[clamp(300px,85vw,420px)] self-center object-contain lg:hidden"
         priority
+        sizes="(max-width:1023px) 85vw"
       />
 
-      <div className="relative z-10 flex max-w-[434px] flex-1 flex-col place-content-end px-5 pb-5 lg:ml-[72px] lg:p-0">
+      <div className="relative z-10 flex max-w-[434px] flex-col px-5 pb-5 lg:ml-[72px] lg:p-0">
         <h1 className="sr-only">
           Keycard Shell - Modular, Air-Gapped Hardware Wallet
         </h1>
