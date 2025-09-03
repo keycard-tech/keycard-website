@@ -41,23 +41,23 @@ const Keycard = () => {
           wallets.
         </p>
         <div className="flex space-x-4">
+          <ButtonLink
+            href="https://get.keycard.tech/pages/keycard"
+            target="_self"
+          >
+            Discover Keycard
+          </ButtonLink>
           <BuyKeycardDialog>
             <Button
-              variant="primary"
               data-umami-event="buy-keycard"
               data-umami-event-page="homepage"
               data-umami-event-section="hero"
               data-umami-event-element="button"
+              variant="secondary"
             >
-              Buy Keycard
+              Buy Now
             </Button>
           </BuyKeycardDialog>
-          <ButtonLink
-            href="https://get.keycard.tech/pages/keycard"
-            variant="secondary"
-          >
-            Learn more
-          </ButtonLink>
         </div>
         <p className="pb-8 pt-6 text-16 font-300 text-white-60 lg:pb-0">
           From{' '}
