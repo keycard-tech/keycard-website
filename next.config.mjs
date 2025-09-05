@@ -70,6 +70,33 @@ const config = {
         destination: 'https://get.keycard.tech/pages/keycard-shell',
         permanent: true,
       },
+
+      // New redirects based on the provided table
+      {
+        source: '/start',
+        destination: '/start/shell',
+        permanent: true,
+      },
+      {
+        source: '/faq',
+        destination: '/help', // TODO: Update to the specific article once available
+        permanent: true,
+      },
+      {
+        source: '/duress_pin',
+        destination: '/help', // TODO: Update to the specific article once available
+        permanent: true,
+      },
+      {
+        source: '/docs',
+        destination: '/developers',
+        permanent: true,
+      },
+      {
+        source: '/slip39',
+        destination: '/help', // TODO: Update to the specific article once available
+        permanent: true,
+      },
     ]
   },
 }
