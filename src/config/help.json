@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Overview",
+    "link": "/help/overview"
+  },
+  {
+    "title": "Set up your Keycard",
+    "link": "/help/set-up-your-keycard"
+  },
+  {
+    "title": "Get to know your Keycard Shell",
+    "link": "/help/get-to-know-your-keycard-shell"
+  },
+  {
+    "title": "Connect Keycard Shell to a wallet app",
+    "link": "/help/connect-keycard-shell-to-a-wallet-app"
+  },
+  {
+    "title": "Connect Keycard Shell to BlueWallet",
+    "link": "/help/connect-keycard-shell-to-bluewallet"
+  },
+  {
+    "title": "Connect Keycard Shell to MetaMask",
+    "link": "/help/connect-keycard-shell-to-metamask"
+  },
+  {
+    "title": "Sign a transaction using Keycard Shell",
+    "link": "/help/sign-a-transaction-using-keycard-shell"
+  },
+  {
+    "title": "Disconnect Keycard Shell from a wallet app",
+    "link": "/help/disconnect-keycard-shell-from-a-wallet-app"
+  },
+  {
+    "title": "Replace your Keycard Shell battery",
+    "link": "/help/replace-your-keycard-shell-battery"
+  }
+]

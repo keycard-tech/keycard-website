@@ -1,11 +1,11 @@
 import { BulletIcon } from '@status-im/icons/20'
+import { CodeBlock } from '~/app/_components/code-block'
 import { Link } from '~components/link'
 import { cx } from 'cva'
 import { Children, cloneElement, ComponentProps } from 'react'
 import { match } from 'ts-pattern'
-import { renderText } from '../_utils/render-text'
+import { renderText } from './_utils/render-text'
 import { AnchorLink } from './anchor-link'
-import { CodeBlock } from './code-block'
 import { Step } from './step'
 
 const paragraphMarginTop: Record<48 | 32 | 24 | 20 | 16 | 12, string> = {
