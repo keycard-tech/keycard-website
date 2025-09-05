@@ -1,38 +1,12 @@
-import {
-  CheckIcon,
-  FirmwareIcon,
-  InfoIcon,
-  RemoveIcon,
-} from '@status-im/icons/20'
-import { KEYCARD_PRODUCTS } from '~/app/_constants/shopify/products'
-import { formatPrice } from '~/app/_utils/format-price'
+import { CheckIcon, InfoIcon, RemoveIcon } from '@status-im/icons/20'
 import { Tag } from '~components/tag'
 import { Tooltip } from '~components/tooltip'
 import { createElement } from 'react'
 
 const features: Array<Feature> = [
   {
-    name: 'Competitive pricing',
-    keycardShell: {
-      promo: {
-        current: '€99',
-        previous: '€149',
-      },
-    },
-    keycard: {
-      label: formatPrice({
-        amount: KEYCARD_PRODUCTS.ONE_CARD_SET.price,
-      }),
-    },
-    tangem: {
-      label: '€50',
-    },
-    ledger: {
-      label: '€80',
-    },
-  },
-  {
-    name: 'EVM chain compatible',
+    name: 'ETH chains and BTC',
+    tooltip: 'Supports Ethereum, any EVM chains (L2s), BTC, BTC multisigs',
     keycardShell: {
       featured: true,
     },
@@ -47,36 +21,9 @@ const features: Array<Feature> = [
     },
   },
   {
-    name: 'Bitcoin compatible',
-    keycardShell: {
-      featured: true,
-    },
-    keycard: {
-      featured: true,
-    },
-    tangem: {
-      featured: true,
-    },
-    ledger: {
-      featured: true,
-    },
-  },
-  {
-    name: 'Hardware level protection',
-    keycardShell: {
-      badge: {
-        text: 'EAL 6+',
-        gradient: true,
-        icon: FirmwareIcon,
-      },
-    },
-    keycard: { badge: { text: 'EAL 6+', gradient: true, icon: FirmwareIcon } },
-    tangem: { badge: { text: 'EAL 6+', gradient: true, icon: FirmwareIcon } },
-    ledger: { badge: { text: 'EAL 5+' } },
-  },
-  {
-    name: 'Mobile friendly',
-    tooltip: 'Compatible with mobile devices',
+    name: 'Many cards, many keys',
+    tooltip:
+      'Unlimited number of cards can be used with different keys for ease of use and backups',
     keycardShell: {
       featured: true,
     },
@@ -91,7 +38,9 @@ const features: Array<Feature> = [
     },
   },
   {
-    name: 'Unlimited master keys',
+    name: "Card can't export private keys",
+    tooltip:
+      'Private keys can never get out of the card. The card is a secure enclave that stores private keys, and performs sigatures.',
     keycardShell: {
       featured: true,
     },
@@ -106,23 +55,9 @@ const features: Array<Feature> = [
     },
   },
   {
-    name: 'Easy back up of master keys',
-    keycardShell: {
-      featured: true,
-    },
-    keycard: {
-      featured: true,
-    },
-    tangem: {
-      featured: true,
-    },
-    ledger: {
-      featured: false,
-    },
-  },
-  {
-    name: 'Open ecosystem',
-    tooltip: 'Part of an open ecosystem',
+    name: 'Card cannot be upgraded',
+    tooltip:
+      'The behaviour of the card will never change since the software element is immutably not upgradable. Your keys will never be able to get out of the secure enclave. ',
     keycardShell: {
       featured: true,
     },
@@ -137,7 +72,72 @@ const features: Array<Feature> = [
     },
   },
   {
-    name: 'Open source secure element (sw)',
+    name: 'Full open source design',
+    tooltip: 'Software, hardware, casing',
+    keycardShell: {
+      featured: true,
+    },
+    keycard: {
+      featured: true,
+    },
+    tangem: {
+      featured: false,
+    },
+    ledger: {
+      featured: false,
+    },
+  },
+  {
+    name: 'Use your card with other wallets',
+    tooltip: 'Keycard is integrated in a number of wallets and tools',
+    keycardShell: {
+      featured: true,
+    },
+    keycard: {
+      featured: true,
+    },
+    tangem: {
+      featured: false,
+    },
+    ledger: {
+      featured: false,
+    },
+  },
+  {
+    name: 'No vendor specific application needed',
+    keycardShell: {
+      featured: true,
+    },
+    keycard: {
+      featured: true,
+    },
+    tangem: {
+      featured: false,
+    },
+    ledger: {
+      featured: false,
+    },
+  },
+  {
+    name: 'Open and expandable ecosystem',
+    tooltip:
+      'Developers and manufacturers can build on top to grow the ecosystem and benefit from it',
+    keycardShell: {
+      featured: true,
+    },
+    keycard: {
+      featured: true,
+    },
+    tangem: {
+      featured: false,
+    },
+    ledger: {
+      featured: false,
+    },
+  },
+  {
+    name: 'Compatible with 10+ wallets',
+    tooltip: 'Can be used with any wallet compatible with QR (EVM or BTC)',
     keycardShell: {
       featured: true,
     },
@@ -152,23 +152,9 @@ const features: Array<Feature> = [
     },
   },
   {
-    name: "Secure element can't be upgraded",
-    keycardShell: {
-      featured: true,
-    },
-    keycard: {
-      featured: false,
-    },
-    tangem: {
-      featured: false,
-    },
-    ledger: {
-      featured: false,
-    },
-  },
-  {
-    name: 'QR transaction signing with any wallet',
-    tooltip: 'Sign transactions using QR codes',
+    name: 'Clear signing',
+    tooltip:
+      'Full decoding of EIP-712 messages, ABI decoding of transactions, and dedicated tools for Safe transactions decoding',
     keycardShell: {
       featured: true,
     },
@@ -184,7 +170,6 @@ const features: Array<Feature> = [
   },
   {
     name: 'Airgap capable',
-    tooltip: 'Can operate without direct connection',
     keycardShell: {
       featured: true,
     },
@@ -199,7 +184,7 @@ const features: Array<Feature> = [
     },
   },
   {
-    name: 'Modular architecture',
+    name: 'Camera to scan QRs',
     keycardShell: {
       featured: true,
     },
@@ -208,37 +193,6 @@ const features: Array<Feature> = [
     },
     tangem: {
       featured: false,
-    },
-    ledger: {
-      featured: false,
-    },
-  },
-  {
-    name: 'Secure element has its own usages',
-    keycardShell: {
-      featured: true,
-    },
-    keycard: {
-      featured: 'n/a',
-    },
-    tangem: {
-      featured: 'n/a',
-    },
-    ledger: {
-      featured: false,
-    },
-  },
-  {
-    name: 'Can be used with future signing schemes',
-    tooltip: 'Future-proof design',
-    keycardShell: {
-      featured: true,
-    },
-    keycard: {
-      featured: 'n/a',
-    },
-    tangem: {
-      featured: 'n/a',
     },
     ledger: {
       featured: false,
@@ -246,30 +200,16 @@ const features: Array<Feature> = [
   },
   {
     name: 'Removable battery',
-    tooltip: 'Battery can be replaced',
+    tooltip:
+      "Your product will never die because of its battery since it's easy to change",
     keycardShell: {
       featured: true,
     },
     keycard: {
-      featured: 'n/a',
-    },
-    tangem: {
-      featured: 'n/a',
-    },
-    ledger: {
       featured: false,
     },
-  },
-  {
-    name: 'USBC + Camera',
-    keycardShell: {
-      featured: true,
-    },
-    keycard: {
-      featured: 'n/a',
-    },
     tangem: {
-      featured: 'n/a',
+      featured: false,
     },
     ledger: {
       featured: false,
@@ -354,7 +294,7 @@ const ComparisonTable = () => {
             <div className="p-4 pb-5">Shell</div>
             <div className="p-4 pb-5">Keycard</div>
             <div className="p-4 pb-5">Tangem</div>
-            <div className="p-4 pb-5">Ledger</div>
+            <div className="p-4 pb-5">Ledger Nano X</div>
           </div>
 
           <div className="rounded-28 border border-white-8 bg-white-4 px-6">
