@@ -1,4 +1,4 @@
-import config from '~/config/docs.json'
+import config from '~/config/help.json'
 
 type Breadcrumb = {
   label: string
@@ -11,12 +11,12 @@ export const generateBreadcrumbs = (
 ): Breadcrumb[] => {
   const breadcrumbs: Breadcrumb[] = [
     {
-      label: 'Documentation',
-      href: '/docs/overview',
+      label: 'Help',
+      href: '/help',
     },
   ]
 
-  let accumulatedPath = '/docs'
+  let accumulatedPath = '/help'
 
   slug.forEach((part, index) => {
     accumulatedPath += `/${part}`
@@ -28,7 +28,6 @@ export const generateBreadcrumbs = (
         href: accumulatedPath,
       })
     } else if (index === slug.length - 1) {
-      // Poslední část slugu, pokusíme se získat titulek aktuálního dokumentu
       breadcrumbs.push({
         label: title,
         href: accumulatedPath,

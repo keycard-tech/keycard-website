@@ -1,6 +1,6 @@
+import Sidenav from '~/app/_components/docs/sidenav'
 import { Metadata } from '~/app/_metadata'
-import config from '~/config/docs.json'
-import Sidenav from './_components/sidenav'
+import config from '~/config/help.json'
 
 type Props = {
   children: React.ReactNode

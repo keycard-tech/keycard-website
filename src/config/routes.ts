@@ -8,8 +8,9 @@ export const ROUTES = {
   ],
   Info: [
     { name: 'Get started', href: '/start' },
-    { name: 'Documentation', href: '/docs/overview' },
+    { name: 'Help', href: '/help' },
     { name: 'Blog', href: '/blog' },
+    { name: 'Developers', href: '/developers' },
     { name: 'Affiliates', href: 'https://affiliates.keycard.tech' },
   ],
   Contacts: [

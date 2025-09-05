@@ -50,7 +50,7 @@ export default function ContactPage() {
           </a>
         </div>
 
-        <div className="border-white-10 bg-dark-80 rounded-20 border p-6">
+        <div className="bg-dark-80 border-white-10 rounded-20 border p-6">
           <h2 className="mb-1 font-500 text-white-95">Orders &amp; returns</h2>
           <p className="text-white-90">For Shopify store purchases.</p>
           <a
