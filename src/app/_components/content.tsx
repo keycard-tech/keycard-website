@@ -4,6 +4,7 @@ import { cx } from 'cva'
 import { Children, cloneElement, ComponentProps } from 'react'
 import { match } from 'ts-pattern'
 import { renderText } from '../_utils/render-text'
+import { Admonition } from './admonition'
 import { AnchorLink } from './anchor-link'
 import { CodeBlock } from './code-block'
 import { Step } from './step'
@@ -327,6 +328,29 @@ export const baseComponents = {
     }
 
     return <figure {...props} className="my-5" />
+  },
+  Admonition: (props: {
+    type: 'note' | 'tip' | 'caution' | 'beta'
+    status?: string
+    children: React.ReactNode & { props?: { children?: React.ReactNode } }
+  }) => {
+    const { type, children } = props
+
+    const content = children?.props?.children || children
+
+    return (
+      <div className="my-5">
+        {type === 'beta' && props.status ? (
+          <Admonition type="beta" status={props.status}>
+            {content}
+          </Admonition>
+        ) : (
+          <Admonition type={type as 'note' | 'tip' | 'caution'}>
+            {content}
+          </Admonition>
+        )}
+      </div>
+    )
   },
 }
 
