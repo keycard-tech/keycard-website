@@ -70,6 +70,12 @@ const config = {
         destination: 'https://get.keycard.tech/pages/keycard-shell',
         permanent: true,
       },
+
+      {
+        source: '/start',
+        destination: '/start/shell',
+        permanent: true,
+      },
     ]
   },
 }

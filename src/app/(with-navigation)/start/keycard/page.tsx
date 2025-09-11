@@ -13,7 +13,7 @@ export const metadata = Metadata({
   alternates: { canonical: '/start' },
 })
 
-export default function StartPage() {
+export default function StartKeycardPage() {
   return (
     <div className="px-3 pb-[120px] pt-12 md:px-8 lg:px-20 lg:pt-20">
       <div className="mb-6 grid grid-flow-row gap-3">
