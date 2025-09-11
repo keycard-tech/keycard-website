@@ -70,6 +70,26 @@ const config = {
         destination: 'https://get.keycard.tech/pages/keycard-shell',
         permanent: true,
       },
+      {
+        source: '/docs',
+        destination: '/developers/overview',
+        permanent: true,
+      },
+      {
+        source: '/faq',
+        destination: '/help/faq',
+        permanent: true,
+      },
+      {
+        source: '/duress_pin',
+        destination: '/help/duress-pin',
+        permanent: true,
+      },
+      {
+        source: '/slip39',
+        destination: '/help/slip-39',
+        permanent: true,
+      },
     ]
   },
 }

@@ -34,5 +34,17 @@
   {
     "title": "Replace your Keycard Shell battery",
     "link": "/help/replace-your-keycard-shell-battery"
+  },
+  {
+    "title": "Duress PIN",
+    "link": "/help/duress-pin"
+  },
+  {
+    "title": "SLIP-39",
+    "link": "/help/slip-39"
+  },
+  {
+    "title": "FAQ",
+    "link": "/help/faq"
   }
 ]
