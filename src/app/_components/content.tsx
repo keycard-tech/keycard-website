@@ -1,13 +1,28 @@
-import { BulletIcon } from '@status-im/icons/20'
+import { BulletIcon, CheckIcon } from '@status-im/icons/20'
+import * as icons from '@status-im/icons/20'
 import { Link } from '~components/link'
 import { cx } from 'cva'
-import { Children, cloneElement, ComponentProps } from 'react'
+import {
+  Children,
+  cloneElement,
+  ComponentProps,
+  ReactElement,
+  ReactNode,
+} from 'react'
 import { match } from 'ts-pattern'
 import { renderText } from '../_utils/render-text'
 import { Admonition } from './admonition'
 import { AnchorLink } from './anchor-link'
 import { CodeBlock } from './code-block'
 import { Step } from './step'
+import {
+  Table,
+  TableCell,
+  TableContent,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from './table'
 
 const paragraphMarginTop: Record<48 | 32 | 24 | 20 | 16 | 12, string> = {
   // note: ref `lineHeight` in tailwind.config.ts#theme.fontSize
@@ -33,6 +48,19 @@ const blockquoteParagraphTextSize: Record<24 | 20 | 16, string> = {
   20: '[&>p>*]:text-20',
   16: '[&>p>*]:text-16',
 }
+
+const iconComponents = Object.entries(icons).reduce((acc, [name, Icon]) => {
+  return {
+    ...acc,
+    [name]: (props: React.ComponentPropsWithoutRef<'svg'>) => {
+      return (
+        <span className="inline-flex align-middle">
+          <Icon {...props} />
+        </span>
+      )
+    },
+  }
+}, {})
 
 export const baseComponents = {
   strong: (
@@ -221,6 +249,7 @@ export const baseComponents = {
           '[:is(h1,h2,h3,h4,h5,h6)+&]:!mt-0', // immediately follows a heading as a sibling element
           // '[&:not(:has(+*))]:!mb-0', // not followed by any sibling element
           '[:is(div,td,blockquote)>&:first-child]:!mt-0', // is a first child of selected parent element
+          '[:is(td)>&]:!my-0', // remove all vertical margins when inside table cells
         )}
       >
         {renderText({ children, size: paragraphTextSize[size] })}
@@ -260,11 +289,12 @@ export const baseComponents = {
     props: ComponentProps<'li'> & {
       size?: 24 | 20 | 16 | 12
       order?: number
-      parent?: 'ol'
+      parent?: 'ol' | 'AwaitedList'
     },
   ) => {
     const icon = match(props.parent)
       .with('ol', () => <Step value={props.order!} />)
+      .with('AwaitedList', () => <CheckIcon className="text-green" />)
       .otherwise(() => <BulletIcon />)
 
     return (
@@ -332,7 +362,7 @@ export const baseComponents = {
   Admonition: (props: {
     type: 'note' | 'tip' | 'caution' | 'beta'
     status?: string
-    children: React.ReactNode & { props?: { children?: React.ReactNode } }
+    children: ReactNode & { props?: { children?: ReactNode } }
   }) => {
     const { type, children } = props
 
@@ -352,6 +382,36 @@ export const baseComponents = {
       </div>
     )
   },
+  Table: (props: ComponentProps<typeof Table>) => {
+    return (
+      <div className="my-5 -mr-8 grid">
+        <Table hasShadow>{props.children}</Table>
+      </div>
+    )
+  },
+  TableHead: (props: ComponentProps<typeof TableHead>) => {
+    return <TableHead {...props} />
+  },
+  TableHeader: (props: ComponentProps<typeof TableHeader>) => {
+    return <TableHeader {...props} />
+  },
+  TableContent: (props: ComponentProps<typeof TableContent>) => {
+    return <TableContent {...props} />
+  },
+  TableRow: (props: ComponentProps<typeof TableRow>) => {
+    return <TableRow {...props} />
+  },
+  TableCell: (props: ComponentProps<typeof TableCell>) => {
+    return <TableCell {...props} />
+  },
+  AwaitedList: (props: { children: ReactElement<{ children: ReactNode }> }) => {
+    return baseComponents.ol({
+      ...props,
+      children: props.children.props.children,
+      parent: 'AwaitedList',
+    })
+  },
+  ...iconComponents,
 }
 
 export const legalComponents = {
