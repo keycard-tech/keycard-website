@@ -40,7 +40,7 @@ const features: Array<Feature> = [
   {
     name: "Card can't export private keys",
     tooltip:
-      'Private keys can never get out of the card. The card is a secure enclave that stores private keys, and performs sigatures.',
+      'Private keys can never get out of the card. The card is a secure enclave that stores private keys, and performs signatures.',
     keycardShell: {
       featured: true,
     },
