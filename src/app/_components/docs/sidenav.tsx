@@ -56,7 +56,7 @@ const Sidenav: React.FC<SidenavProps> = ({ items }) => {
             <Accordion.Item key={item.title} value={item.title}>
               <Link
                 href={item.link}
-                className="pl-[22px] text-16 font-500 text-white-95 transition-colors hover:text-white-60 aria-[current=true]:text-orange hover:aria-[current=true]:text-orange-dark"
+                className="block pl-[22px] text-16 font-500 text-white-95 transition-colors hover:text-white-60 aria-[current=true]:text-orange hover:aria-[current=true]:text-orange-dark"
                 aria-current={pathname === item.link}
                 onClick={() => setLabel(undefined)}
               >
@@ -109,7 +109,7 @@ const SidenavItem = (props: SidenavItemProps) => {
                   <div key={subItem.link} className="pt-2 first:pt-5 last:pb-8">
                     <Link
                       href={subItem.link}
-                      className="text-14 font-500 text-white-95 transition-colors hover:text-white-60 aria-[current=true]:text-orange hover:aria-[current=true]:text-orange-dark"
+                      className="block text-14 font-500 text-white-95 transition-colors hover:text-white-60 aria-[current=true]:text-orange hover:aria-[current=true]:text-orange-dark"
                       aria-current={pathname === subItem.link}
                     >
                       {subItem.title}
