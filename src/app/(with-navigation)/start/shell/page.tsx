@@ -1,0 +1,243 @@
+import * as Accordion from '@radix-ui/react-accordion'
+import { ChevronDownIcon } from '@status-im/icons/20'
+import { Metadata } from '~/app/_metadata'
+import { cx } from 'cva'
+import Image from 'next/image'
+
+const STEPS = [
+  {
+    title: '1. Prepare devices',
+    description:
+      'Inside the box, there are two Keycards and one Keycard Shell. Make sure the security sticker at the opening is intact to ensure the devices are not tampered with.',
+    subSteps: [
+      {
+        title: 'a. Open back cover',
+        description:
+          'Gently press the back cover and slide it downward to remove.',
+        image: '/assets/docs/replace-your-keycard-shell-battery-groove.png',
+      },
+      {
+        title: 'b. Insert battery',
+        description:
+          'Insert the battery into the slot. Slide the back cover upward to close.',
+        image: '/assets/docs/replace-your-keycard-shell-battery-battery.png',
+      },
+      {
+        title: 'c. Insert Keycard',
+        description:
+          'Insert the Keycard with the chip facing up and push it in all the way. The Shell powers on automatically.',
+        image: '/assets/docs/replace-your-keycard-shell-battery-battery.png',
+      },
+    ],
+    secondaryDescription:
+      'If the screen stays off, charge the Shell with a USB-C cable and try again later. Check out FAQ for more tips.',
+  },
+  {
+    title: '2. Create PIN',
+    description:
+      'If this Shell prompts you to create a PIN, it means your Keycard is new, uninitialized, and contains no existing data.',
+    subSteps: [
+      {
+        title: 'a. Create Keycard PIN',
+        description:
+          'Choose a PIN for your Keycard. Keep it secure and never share it.',
+        image: '',
+      },
+      {
+        title: 'b. Set duress PIN',
+        description: 'Optionally set your duress PIN and export it to confirm.',
+        image: '',
+      },
+    ],
+    secondaryDescription:
+      'The duress PIN enhances your wallet security. Choose a duress PIN different from your Keycard PIN to avoid confusion. Check our About the duress PIN to learn more about it.',
+  },
+  {
+    title: '3-I. Generate new key pair',
+    description:
+      'If you want to begin with new addresses, select Generate new key pair on Shell.',
+    subSteps: [
+      {
+        title: 'a. Choose length',
+        description:
+          'A shorter phrase is convenient, while a longer phrase is most secure.',
+        image: '',
+      },
+      {
+        title: 'b. Backup recovery phrase',
+        description: 'Write down your recovery phrase and keep it safe.',
+        image: '',
+      },
+      {
+        title: 'c. Confirm recovery phrase',
+        description: 'Select words from your recovery phrase to confirm.',
+        image: '',
+      },
+    ],
+    secondaryDescription:
+      "Your recovery phrase represents access to your crypto assets. Store and share it with anyone. Don't take a photo.",
+  },
+  {
+    title: '3-II. Import an existing key pair',
+    description:
+      'Alternatively, select Import recovery phrase to add an existing key pair to your Keycard.',
+    subSteps: [
+      {
+        title: 'a. Select length',
+        description:
+          'Keycard supports importing recovery phrases with 12, 18 or 24 words.',
+        image: '',
+      },
+      {
+        title: 'b. Type each word',
+        description:
+          'Press Up/Down and Left/Right to select and confirm each word.',
+        image: '',
+      },
+      {
+        title: 'c. Confirm words',
+        description:
+          'Press and hold OK to confirm the suggested or typed word.',
+        image: '',
+      },
+    ],
+    secondaryDescription:
+      "The Keycard and Shell don't store or have access to your recovery phrase.",
+  },
+  {
+    title: '4. Verify Shell (optional)',
+    description:
+      'Verification checks for malicious extensions or viruses on your Shell. You need your phone or computer to complete this process. Check out Verify your Shell Authenticity for details.',
+    subSteps: [
+      {
+        title: 'a. Open verification web app',
+        description:
+          'On the Shell, go to Settings > Security > Verification. Open the web app with your phone or computer.',
+        image: '',
+      },
+      {
+        title: 'b. Scan QR on web app',
+        description:
+          "Use the Shell to scan the QR code from the camera. Scan the web app's QR code.",
+        image: '',
+      },
+      {
+        title: 'c. Scan code on Shell',
+        description:
+          'Scan the QR on the Shell with your phone or computer to confirm the web app is authentic.',
+        image: '',
+      },
+    ],
+    secondaryDescription:
+      "If your device isn't authentic, don't use it. Contact the Keycard team at Discord.",
+  },
+  {
+    title: '5. Connect to wallet app',
+    description:
+      'Connect the Keycard to a wallet app and use it as an interface for managing funds. Check out Connect Keycard and Shell to a wallet app for more info.',
+    subSteps: [
+      {
+        title: 'a. Set up in a wallet app',
+        description:
+          'In your software wallet, select the option to add a hardware wallet. Tap "Continue" and follow instruction.',
+        image: '',
+      },
+      {
+        title: 'b. Select your wallet type',
+        description:
+          'On Shell go to Connect software wallet and select a wallet type, then use the QR function.',
+        image: '',
+      },
+      {
+        title: 'c. Select the accounts to connect',
+        description:
+          'In your wallet app, select the Keycard accounts and set up.',
+        image: '',
+      },
+    ],
+    secondaryDescription:
+      'If you want see "Keycard" or "Shell" listed in your wallet app, they may still be compatible. Check out Wallet Apps Compatible with Keycard Shell for the full list.',
+  },
+]
+
+export const metadata = Metadata({
+  title: 'Get Started — Keycard & Keycard Shell',
+  description:
+    'Set up your Keycard and Keycard Shell, pair supported wallets, and learn best practices for backups and recovery.',
+  alternates: { canonical: '/start' },
+})
+
+export default function StartShellPage() {
+  return (
+    <div className="px-3 pb-[120px] pt-12 md:px-8 lg:px-20 lg:pt-20">
+      <div className="mb-6 grid grid-flow-row gap-3">
+        <h1 className="font-lora text-32 font-400 text-white-95 lg:text-48">
+          Shell Quick Start Guide
+        </h1>
+        <p className="font-inter text-20 font-300 text-white-95">
+          All you need to know to start using Shell
+        </p>
+      </div>
+
+      <Accordion.Root
+        className="flex-1 pt-8 lg:pt-14"
+        type="single"
+        defaultValue="item-1"
+        collapsible
+      >
+        {STEPS.map((step, index) => (
+          <Accordion.Item
+            key={index}
+            className={cx(
+              'overflow-hidden border-b border-dashed border-white-20 pb-10 pt-5 first:mt-0',
+            )}
+            value={`item-${index + 1}`}
+          >
+            <Accordion.Header className="flex">
+              <Accordion.Trigger
+                className={cx(
+                  'group flex flex-1 cursor-pointer items-center justify-between gap-6 text-left font-lora text-24 leading-none text-white-95 outline-none',
+                )}
+              >
+                {step.title}
+                <div className="rounded-[10px] border border-white-12 bg-white-8 p-[6px] hover:border-white-20 hover:bg-white-12">
+                  <ChevronDownIcon className="text-white-95 transition-transform duration-300 ease-[cubic-bezier(0.87,_0,_0.13,_1)] group-data-[state=open]:rotate-180" />
+                </div>
+              </Accordion.Trigger>
+            </Accordion.Header>
+            <Accordion.Content
+              className={cx(
+                'overflow-hidden pr-14 text-16 font-300 text-white-80 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown',
+              )}
+            >
+              <div className="py-4">{step.description}</div>
+              <div className="flex gap-2">
+                {step.subSteps.map((subStep, subStepIndex) => (
+                  <div
+                    key={subStepIndex}
+                    className="flex flex-col gap-1 rounded-28 border border-white-8 bg-white-4 px-6 py-5"
+                  >
+                    <h3 className="text-20 font-300 text-white-95">
+                      {subStep.title}
+                    </h3>
+                    <p className="pb-8 text-16 font-300 text-white-60">
+                      {subStep.description}
+                    </p>
+                    <Image
+                      src={subStep.image}
+                      alt={subStep.title}
+                      width={280}
+                      height={280}
+                      className="rounded-24 bg-[#181716]"
+                    />
+                  </div>
+                ))}
+              </div>
+              <div className="pt-4">{step.secondaryDescription}</div>
+            </Accordion.Content>
+          </Accordion.Item>
+        ))}
+      </Accordion.Root>
+    </div>
+  )
+}
