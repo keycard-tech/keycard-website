@@ -1,6 +1,9 @@
 import * as Accordion from '@radix-ui/react-accordion'
 import { ChevronDownIcon } from '@status-im/icons/20'
+import { DiscordIcon, TwitterIcon } from '@status-im/icons/social'
 import { Metadata } from '~/app/_metadata'
+import { BuyCards } from '~/app/(with-navigation)/(homepage)/_components/buy-cards'
+import { ButtonLink } from '~components/button-link'
 import { cx } from 'cva'
 import Image from 'next/image'
 
@@ -14,19 +17,31 @@ const STEPS = [
         title: 'a. Open back cover',
         description:
           'Gently press the back cover and slide it downward to remove.',
-        image: '/assets/docs/replace-your-keycard-shell-battery-groove.png',
+        image: {
+          src: '/assets/start/part-1-a.png',
+          width: 280,
+          height: 280,
+        },
       },
       {
         title: 'b. Insert battery',
         description:
           'Insert the battery into the slot. Slide the back cover upward to close.',
-        image: '/assets/docs/replace-your-keycard-shell-battery-battery.png',
+        image: {
+          src: '/assets/start/part-1-b.png',
+          width: 280,
+          height: 280,
+        },
       },
       {
         title: 'c. Insert Keycard',
         description:
           'Insert the Keycard with the chip facing up and push it in all the way. The Shell powers on automatically.',
-        image: '/assets/docs/replace-your-keycard-shell-battery-battery.png',
+        image: {
+          src: '/assets/start/part-1-c.png',
+          width: 280,
+          height: 280,
+        },
       },
     ],
     secondaryDescription:
@@ -41,12 +56,20 @@ const STEPS = [
         title: 'a. Create Keycard PIN',
         description:
           'Choose a PIN for your Keycard. Keep it secure and never share it.',
-        image: '',
+        image: {
+          src: '/assets/start/part-2-a.png',
+          width: 280,
+          height: 210,
+        },
       },
       {
         title: 'b. Set duress PIN',
         description: 'Optionally set your duress PIN and export it to confirm.',
-        image: '',
+        image: {
+          src: '/assets/start/part-2-b.png',
+          width: 280,
+          height: 210,
+        },
       },
     ],
     secondaryDescription:
@@ -61,17 +84,29 @@ const STEPS = [
         title: 'a. Choose length',
         description:
           'A shorter phrase is convenient, while a longer phrase is most secure.',
-        image: '',
+        image: {
+          src: '/assets/start/part-3-I-a.png',
+          width: 280,
+          height: 210,
+        },
       },
       {
         title: 'b. Backup recovery phrase',
         description: 'Write down your recovery phrase and keep it safe.',
-        image: '',
+        image: {
+          src: '/assets/start/part-3-I-b.png',
+          width: 280,
+          height: 210,
+        },
       },
       {
         title: 'c. Confirm recovery phrase',
         description: 'Select words from your recovery phrase to confirm.',
-        image: '',
+        image: {
+          src: '/assets/start/part-3-I-c.png',
+          width: 280,
+          height: 210,
+        },
       },
     ],
     secondaryDescription:
@@ -86,19 +121,31 @@ const STEPS = [
         title: 'a. Select length',
         description:
           'Keycard supports importing recovery phrases with 12, 18 or 24 words.',
-        image: '',
+        image: {
+          src: '/assets/start/part-3-II-a.png',
+          width: 280,
+          height: 210,
+        },
       },
       {
         title: 'b. Type each word',
         description:
           'Press Up/Down and Left/Right to select and confirm each word.',
-        image: '',
+        image: {
+          src: '/assets/start/part-3-II-b.png',
+          width: 280,
+          height: 210,
+        },
       },
       {
         title: 'c. Confirm words',
         description:
           'Press and hold OK to confirm the suggested or typed word.',
-        image: '',
+        image: {
+          src: '/assets/start/part-3-II-c.png',
+          width: 280,
+          height: 210,
+        },
       },
     ],
     secondaryDescription:
@@ -113,19 +160,31 @@ const STEPS = [
         title: 'a. Open verification web app',
         description:
           'On the Shell, go to Settings > Security > Verification. Open the web app with your phone or computer.',
-        image: '',
+        image: {
+          src: '/assets/start/part-4-a.png',
+          width: 280,
+          height: 210,
+        },
       },
       {
         title: 'b. Scan QR on web app',
         description:
           "Use the Shell to scan the QR code from the camera. Scan the web app's QR code.",
-        image: '',
+        image: {
+          src: '/assets/start/part-4-b.png',
+          width: 280,
+          height: 210,
+        },
       },
       {
         title: 'c. Scan code on Shell',
         description:
           'Scan the QR on the Shell with your phone or computer to confirm the web app is authentic.',
-        image: '',
+        image: {
+          src: '/assets/start/part-4-c.png',
+          width: 280,
+          height: 210,
+        },
       },
     ],
     secondaryDescription:
@@ -140,19 +199,31 @@ const STEPS = [
         title: 'a. Set up in a wallet app',
         description:
           'In your software wallet, select the option to add a hardware wallet. Tap "Continue" and follow instruction.',
-        image: '',
+        image: {
+          src: '/assets/start/part-5-a.png',
+          width: 280,
+          height: 210,
+        },
       },
       {
         title: 'b. Select your wallet type',
         description:
           'On Shell go to Connect software wallet and select a wallet type, then use the QR function.',
-        image: '',
+        image: {
+          src: '/assets/start/part-5-b.png',
+          width: 280,
+          height: 210,
+        },
       },
       {
         title: 'c. Select the accounts to connect',
         description:
           'In your wallet app, select the Keycard accounts and set up.',
-        image: '',
+        image: {
+          src: '/assets/start/part-5-c.png',
+          width: 280,
+          height: 210,
+        },
       },
     ],
     secondaryDescription:
@@ -169,8 +240,8 @@ export const metadata = Metadata({
 
 export default function StartShellPage() {
   return (
-    <div className="px-3 pb-[120px] pt-12 md:px-8 lg:px-20 lg:pt-20">
-      <div className="mb-6 grid grid-flow-row gap-3">
+    <div className="px-1 pt-12">
+      <div className="grid grid-flow-row gap-4 py-5">
         <h1 className="font-lora text-32 font-400 text-white-95 lg:text-48">
           Shell Quick Start Guide
         </h1>
@@ -180,7 +251,7 @@ export default function StartShellPage() {
       </div>
 
       <Accordion.Root
-        className="flex-1 pt-8 lg:pt-14"
+        className="flex-1"
         type="single"
         defaultValue="item-1"
         collapsible
@@ -188,9 +259,7 @@ export default function StartShellPage() {
         {STEPS.map((step, index) => (
           <Accordion.Item
             key={index}
-            className={cx(
-              'overflow-hidden border-b border-dashed border-white-20 pb-10 pt-5 first:mt-0',
-            )}
+            className={cx('overflow-hidden py-5 first:mt-0')}
             value={`item-${index + 1}`}
           >
             <Accordion.Header className="flex">
@@ -207,37 +276,74 @@ export default function StartShellPage() {
             </Accordion.Header>
             <Accordion.Content
               className={cx(
-                'overflow-hidden pr-14 text-16 font-300 text-white-80 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown',
+                'overflow-hidden pr-14 pt-5 text-16 font-300 text-white-80 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown',
               )}
             >
-              <div className="py-4">{step.description}</div>
-              <div className="flex gap-2">
+              <div className="pb-5">{step.description}</div>
+              <div className="flex gap-4">
                 {step.subSteps.map((subStep, subStepIndex) => (
                   <div
                     key={subStepIndex}
-                    className="flex flex-col gap-1 rounded-28 border border-white-8 bg-white-4 px-6 py-5"
+                    className="flex min-w-[330px] max-w-[330px] flex-col justify-between gap-3 rounded-28 border border-white-8 bg-white-4 px-6 pb-6 pt-5"
                   >
-                    <h3 className="text-20 font-300 text-white-95">
-                      {subStep.title}
-                    </h3>
-                    <p className="pb-8 text-16 font-300 text-white-60">
-                      {subStep.description}
-                    </p>
+                    <div className="flex flex-col gap-[6px]">
+                      <h3 className="text-20 font-300 text-white-95">
+                        {subStep.title}
+                      </h3>
+                      <p className="text-16 font-300 text-white-60">
+                        {subStep.description}
+                      </p>
+                    </div>
                     <Image
-                      src={subStep.image}
+                      src={subStep.image.src}
                       alt={subStep.title}
-                      width={280}
-                      height={280}
-                      className="rounded-24 bg-[#181716]"
+                      width={subStep.image.width}
+                      height={subStep.image.height}
+                      className="max-w-[280px] rounded-24 bg-[#181716]"
                     />
                   </div>
                 ))}
               </div>
-              <div className="pt-4">{step.secondaryDescription}</div>
+              <div className="py-5">{step.secondaryDescription}</div>
             </Accordion.Content>
           </Accordion.Item>
         ))}
       </Accordion.Root>
+      <div className="mt-6 flex flex-1 flex-col gap-6 rounded-28 border border-white-8 bg-white-4 p-6 pt-5 lg:max-w-[434px]">
+        <div className="flex flex-col gap-[6px]">
+          <p className="font-lora text-24 font-400 text-white-95">
+            Have questions?
+          </p>
+          <p className="text-16 font-300 text-white-80">
+            Reach out to our team or engage with our community on Discord or X.
+          </p>
+        </div>
+        <div className="flex gap-3">
+          <ButtonLink href="mailto:support@keycard.tech" variant="secondary">
+            Get in touch
+          </ButtonLink>
+          <ButtonLink
+            href="https://x.com/keycard_"
+            variant="secondary"
+            className="px-[9px]"
+            aria-label="Keycard on X"
+          >
+            <DiscordIcon />
+          </ButtonLink>
+          <ButtonLink
+            href="https://x.com/keycard_"
+            variant="secondary"
+            className="px-[9px]"
+            aria-label="Keycard on X"
+          >
+            <TwitterIcon />
+          </ButtonLink>
+        </div>
+      </div>
+
+      <div className="-mt-20">
+        <BuyCards />
+      </div>
     </div>
   )
 }
