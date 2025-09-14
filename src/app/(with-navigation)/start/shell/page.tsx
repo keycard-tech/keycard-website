@@ -240,8 +240,18 @@ export const metadata = Metadata({
 
 export default function StartShellPage() {
   return (
-    <div className="px-1 pt-12">
-      <div className="grid grid-flow-row gap-4 py-5">
+    <div className="px-5 2xl:px-1">
+      <div className="relative -mb-2 -mt-20 hidden justify-center lg:flex">
+        <div className="absolute inset-0 z-20 bg-gradient-to-t from-[transparent] via-[transparent] to-dark-100" />
+        <Image
+          src="/assets/faqs.png"
+          alt="Shell Quick Start Guide Background"
+          height={527}
+          width={800}
+          className="relative z-10 max-w-full"
+        />
+      </div>
+      <div className="relative z-20 grid grid-flow-row gap-4 py-5">
         <h1 className="font-lora text-32 font-400 text-white-95 lg:text-48">
           Shell Quick Start Guide
         </h1>
@@ -276,11 +286,11 @@ export default function StartShellPage() {
             </Accordion.Header>
             <Accordion.Content
               className={cx(
-                'overflow-hidden pr-14 pt-5 text-16 font-300 text-white-80 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown',
+                'overflow-hidden pt-5 text-16 font-300 text-white-80 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown',
               )}
             >
-              <div className="pb-5">{step.description}</div>
-              <div className="flex gap-4">
+              <div className="pb-5 pr-14">{step.description}</div>
+              <div className="-mx-1 flex gap-4 overflow-x-auto px-1 pb-2">
                 {step.subSteps.map((subStep, subStepIndex) => (
                   <div
                     key={subStepIndex}
@@ -304,12 +314,12 @@ export default function StartShellPage() {
                   </div>
                 ))}
               </div>
-              <div className="py-5">{step.secondaryDescription}</div>
+              <div className="py-5 pr-14">{step.secondaryDescription}</div>
             </Accordion.Content>
           </Accordion.Item>
         ))}
       </Accordion.Root>
-      <div className="mt-6 flex flex-1 flex-col gap-6 rounded-28 border border-white-8 bg-white-4 p-6 pt-5 lg:max-w-[434px]">
+      <div className="my-10 flex flex-1 flex-col gap-6 rounded-28 border border-white-8 bg-white-4 p-6 pt-5 sm:max-w-[350px] lg:mb-0 lg:mt-6 lg:max-w-[434px]">
         <div className="flex flex-col gap-[6px]">
           <p className="font-lora text-24 font-400 text-white-95">
             Have questions?
