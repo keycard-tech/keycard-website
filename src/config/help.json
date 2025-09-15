@@ -1,50 +1,61 @@
 [
   {
-    "title": "Overview",
-    "link": "/help/overview"
+    "title": "Get started",
+    "subItems": [
+      {
+        "title": "Overview",
+        "link": "/help/overview"
+      },
+      {
+        "title": "Get to know your Keycard Shell",
+        "link": "/help/get-to-know-your-keycard-shell"
+      },
+      {
+        "title": "Set up your Keycard",
+        "link": "/help/set-up-your-keycard"
+      },
+      {
+        "title": "Connect Keycard Shell to a wallet app",
+        "link": "/help/connect-keycard-shell-to-a-wallet-app"
+      },
+      {
+        "title": "Keycard and Keycard Shell FAQ",
+        "link": "/help/faq"
+      }
+    ]
   },
   {
-    "title": "Set up your Keycard",
-    "link": "/help/set-up-your-keycard"
+    "title": "Sign transactions",
+    "subItems": [
+      {
+        "title": "Sign a transaction using Keycard Shell",
+        "link": "/help/sign-a-transaction-using-keycard-shell"
+      }
+    ]
   },
   {
-    "title": "Get to know your Keycard Shell",
-    "link": "/help/get-to-know-your-keycard-shell"
+    "title": "Update and reset"
   },
   {
-    "title": "Connect Keycard Shell to a wallet app",
-    "link": "/help/connect-keycard-shell-to-a-wallet-app"
+    "title": "Security features",
+    "subItems": [
+      {
+        "title": "About your Keycard PIN and duress PIN",
+        "link": "/help/about-your-keycard-pin-and-duress-pin"
+      },
+      {
+        "title": "Understand the Slip39 wallet backup standard",
+        "link": "/help/understand-the-slip-39-wallet-backup-standard"
+      }
+    ]
   },
   {
-    "title": "Connect Keycard Shell to BlueWallet",
-    "link": "/help/connect-keycard-shell-to-bluewallet"
-  },
-  {
-    "title": "Connect Keycard Shell to MetaMask",
-    "link": "/help/connect-keycard-shell-to-metamask"
-  },
-  {
-    "title": "Sign a transaction using Keycard Shell",
-    "link": "/help/sign-a-transaction-using-keycard-shell"
-  },
-  {
-    "title": "Disconnect Keycard Shell from a wallet app",
-    "link": "/help/disconnect-keycard-shell-from-a-wallet-app"
-  },
-  {
-    "title": "Replace your Keycard Shell battery",
-    "link": "/help/replace-your-keycard-shell-battery"
-  },
-  {
-    "title": "Duress PIN",
-    "link": "/help/duress-pin"
-  },
-  {
-    "title": "SLIP-39",
-    "link": "/help/slip-39"
-  },
-  {
-    "title": "FAQ",
-    "link": "/help/faq"
+    "title": "Change settings",
+    "subItems": [
+      {
+        "title": "Replace your Keycard Shell battery",
+        "link": "/help/replace-your-keycard-shell-battery"
+      }
+    ]
   }
 ]
