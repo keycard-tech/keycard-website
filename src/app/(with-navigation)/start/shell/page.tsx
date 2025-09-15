@@ -286,10 +286,10 @@ export default function StartShellPage() {
             </Accordion.Header>
             <Accordion.Content
               className={cx(
-                'overflow-hidden pt-5 text-16 font-300 text-white-80 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown',
+                'overflow-hidden text-16 font-300 text-white-80 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown',
               )}
             >
-              <div className="pb-5 pr-14">{step.description}</div>
+              <div className="py-5 pr-14">{step.description}</div>
               <div className="-mx-1 flex gap-4 overflow-x-auto px-1 pb-2">
                 {step.subSteps.map((subStep, subStepIndex) => (
                   <div
