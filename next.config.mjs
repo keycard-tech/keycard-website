@@ -82,12 +82,12 @@ const config = {
       },
       {
         source: '/duress_pin',
-        destination: '/help/duress-pin',
+        destination: '/help/about-your-keycard-pin-and-duress-pin',
         permanent: true,
       },
       {
         source: '/slip39',
-        destination: '/help/slip-39',
+        destination: '/help/understand-the-slip-39-wallet-backup-standard',
         permanent: true,
       },
     ]
