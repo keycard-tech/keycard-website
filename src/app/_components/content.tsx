@@ -6,6 +6,7 @@ import {
   Children,
   cloneElement,
   ComponentProps,
+  memo,
   ReactElement,
   ReactNode,
 } from 'react'
@@ -50,15 +51,15 @@ const blockquoteParagraphTextSize: Record<24 | 20 | 16, string> = {
 }
 
 const iconComponents = Object.entries(icons).reduce((acc, [name, Icon]) => {
+  const IconComponent = memo((props: React.ComponentPropsWithoutRef<'svg'>) => (
+    <span className="inline-flex align-middle">
+      <Icon {...props} />
+    </span>
+  ))
+  IconComponent.displayName = name
   return {
     ...acc,
-    [name]: (props: React.ComponentPropsWithoutRef<'svg'>) => {
-      return (
-        <span className="inline-flex align-middle">
-          <Icon {...props} />
-        </span>
-      )
-    },
+    [name]: IconComponent,
   }
 }, {})
 
