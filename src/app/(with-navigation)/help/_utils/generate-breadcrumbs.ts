@@ -5,6 +5,12 @@ type Breadcrumb = {
   href: string
 }
 
+type ConfigItem = {
+  title: string
+  link?: string
+  subItems?: Array<{ title: string; link?: string }>
+}
+
 export const generateBreadcrumbs = (
   slug: string[],
   title: string,
@@ -20,11 +26,27 @@ export const generateBreadcrumbs = (
 
   slug.forEach((part, index) => {
     accumulatedPath += `/${part}`
-    const configItem = config.find(c => c.link === accumulatedPath)
 
-    if (configItem) {
+    const configItem = (config as ConfigItem[]).find(
+      c => c.link && c.link === accumulatedPath,
+    )
+    let itemTitle = configItem?.title
+
+    if (!configItem) {
+      for (const c of config as ConfigItem[]) {
+        if (c.subItems) {
+          const subItem = c.subItems.find(sub => sub.link === accumulatedPath)
+          if (subItem) {
+            itemTitle = subItem.title
+            break
+          }
+        }
+      }
+    }
+
+    if (itemTitle) {
       breadcrumbs.push({
-        label: configItem.title,
+        label: itemTitle,
         href: accumulatedPath,
       })
     } else if (index === slug.length - 1) {

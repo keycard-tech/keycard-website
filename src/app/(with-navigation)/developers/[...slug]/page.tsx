@@ -68,9 +68,10 @@ export async function generateMetadata({ params }: Props) {
 
   const title = findTitle((await params).slug, config)
   if (!title) {
-    throw new Error(
-      'Title not found, article probably missing in config/developers.json.',
-    )
+    return {
+      title: 'Article Not Found',
+      description: 'This developer article is not available yet.',
+    }
   }
 
   return Metadata({
