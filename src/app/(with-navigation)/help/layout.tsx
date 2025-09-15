@@ -22,7 +22,12 @@ export default async function DocsLayout({ children }: Props) {
         </div>
       </div>
 
-      {children}
+      <div
+        className="min-h-[calc(100vh-168px)] lg:min-h-[calc(100vh-168px)]"
+        style={{ minHeight: `${Math.max(config.length * 60 + 200, 800)}px` }}
+      >
+        {children}
+      </div>
     </div>
   )
 }
