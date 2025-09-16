@@ -4,6 +4,7 @@ import { DiscordIcon, TwitterIcon } from '@status-im/icons/social'
 import { Metadata } from '~/app/_metadata'
 import { BuyCards } from '~/app/(with-navigation)/(homepage)/_components/buy-cards'
 import { ButtonLink } from '~components/button-link'
+import { Link } from '~components/link'
 import { cx } from 'cva'
 import Image from 'next/image'
 
@@ -44,8 +45,16 @@ const STEPS = [
         },
       },
     ],
-    secondaryDescription:
-      'If the screen stays off, charge the Shell with a USB-C cable and try again later. Check out FAQ for more tips.',
+    secondaryDescription: (
+      <>
+        If the screen stays off, charge the Shell with a USB-C cable and try
+        again later. Check out{' '}
+        <Link className="underline" href="/help/faq">
+          FAQ
+        </Link>{' '}
+        for more tips.
+      </>
+    ),
   },
   {
     title: '2. Create PIN',
@@ -72,8 +81,19 @@ const STEPS = [
         },
       },
     ],
-    secondaryDescription:
-      'The duress PIN enhances your wallet security. Choose a duress PIN different from your Keycard PIN to avoid confusion. Check our About the duress PIN to learn more about it.',
+    secondaryDescription: (
+      <>
+        The duress PIN enhances your wallet security. Choose a duress PIN
+        different from your Keycard PIN to avoid confusion. Check out{' '}
+        <Link
+          className="underline"
+          href="/help/about-your-keycard-pin-and-duress-pin"
+        >
+          About the duress PIN
+        </Link>{' '}
+        to learn more about it.
+      </>
+    ),
   },
   {
     title: '3-I. Generate new key pair',
@@ -153,8 +173,16 @@ const STEPS = [
   },
   {
     title: '4. Verify Shell (optional)',
-    description:
-      'Verification checks for malicious extensions or viruses on your Shell. You need your phone or computer to complete this process. Check out Verify your Shell Authenticity for details.',
+    description: (
+      <>
+        Verification checks for malicious extensions or viruses on your Shell.
+        You need your phone or computer to complete this process. Check out{' '}
+        <Link className="underline" href="/help/verify-your-shell-authenticity">
+          Verify your Shell Authenticity
+        </Link>{' '}
+        for details.
+      </>
+    ),
     subSteps: [
       {
         title: 'a. Open verification web app',
@@ -192,8 +220,22 @@ const STEPS = [
   },
   {
     title: '5. Connect to wallet app',
-    description:
-      'Connect the Keycard to a wallet app and use it as an interface for managing funds. Check out Connect Keycard and Shell to a wallet app for more info.',
+    description: (
+      <>
+        Connect the Keycard to a{' '}
+        <Link className="underline" href="/developers/supported-wallets">
+          wallet app
+        </Link>{' '}
+        and use it as an interface for managing funds. Check out{' '}
+        <Link
+          className="underline"
+          href="/help/connect-keycard-shell-to-a-wallet-app"
+        >
+          Connect Keycard and Shell to a wallet app
+        </Link>{' '}
+        for more info.
+      </>
+    ),
     subSteps: [
       {
         title: 'a. Set up in a wallet app',
@@ -226,8 +268,16 @@ const STEPS = [
         },
       },
     ],
-    secondaryDescription:
-      'If you want see "Keycard" or "Shell" listed in your wallet app, they may still be compatible. Check out Wallet Apps Compatible with Keycard Shell for the full list.',
+    secondaryDescription: (
+      <>
+        If you want see &quot;Keycard&quot; or &quot;Shell&quot; listed in your
+        wallet app, they may still be compatible. Check out{' '}
+        <Link className="underline" href="/developers/supported-wallets">
+          Wallet Apps Compatible with Keycard Shell
+        </Link>{' '}
+        for the full list.
+      </>
+    ),
   },
 ]
 
