@@ -55,7 +55,7 @@ const Faqs = () => {
         <div className="flex w-full flex-1 flex-col lg:w-auto">
           <div className="flex translate-x-5 justify-center lg:hidden">
             <Image
-              src="/assets/faqs-mobile.png"
+              src="/assets/faqs.png"
               alt="FAQ Background"
               width={736}
               height={736}
@@ -104,7 +104,6 @@ const Faqs = () => {
         </div>
         <div className="flex flex-1 flex-col lg:w-auto lg:items-end">
           <div className="relative hidden lg:block">
-            <div className="absolute right-[-245px] top-[-20px] z-10 h-[400px] w-full bg-gradient-to-tr from-[transparent] via-dark-100 via-[83%] to-dark-100" />
             <Image
               src="/assets/faqs.png"
               alt="FAQ Background"
