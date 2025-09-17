@@ -1,6 +1,6 @@
+import { Breadcrumbs } from '~/app/_components/docs/breadcrumbs'
 import { getPostsByTagSlug, getTagSlugs } from '~/app/_lib/ghost'
 import { Metadata } from '~/app/_metadata'
-import { Breadcrumbs } from '~/app/(with-navigation)/docs/_components/breadcrumbs'
 import { notFound } from 'next/navigation'
 import { InfinitePostGrid } from '../../_components/infinite-post-grid'
 
