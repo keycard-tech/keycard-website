@@ -1,11 +1,11 @@
 import fs from 'fs/promises'
 import path from 'path'
+import { Breadcrumbs } from '~/app/_components/docs/breadcrumbs'
 import { Metadata } from '~/app/_metadata'
 import { formatDate } from '~/app/_utils/format-date'
-import config from '~/config/docs.json'
+import config from '~/config/developers.json'
 import { Link } from '~components/link'
 import { notFound } from 'next/navigation'
-import { Breadcrumbs } from '../_components/breadcrumbs'
 import { generateBreadcrumbs } from '../_utils/generate-breadcrumbs'
 import { getDocumentationArticle } from '../_utils/get-documentation-article'
 
@@ -45,7 +45,7 @@ async function getAllSlugs(
 export const dynamicParams = false
 
 export async function generateStaticParams() {
-  const docsPath = path.resolve('content/docs')
+  const docsPath = path.resolve('content/developers')
   const slugs = await getAllSlugs(docsPath)
   return slugs.map(slug => ({ slug }))
 }
@@ -68,15 +68,15 @@ export async function generateMetadata({ params }: Props) {
 
   const title = findTitle((await params).slug, config)
   if (!title) {
-    throw new Error(
-      'Title not found, article probably missing in config/sidenav.',
-    )
+    return {
+      title: 'Article Not Found',
+      description: 'This developer article is not available yet.',
+    }
   }
 
   return Metadata({
     title,
-    description:
-      'Technical, short-form guides on how to set up and use the app.',
+    description: 'Technical documentation and API references for developers.',
   })
 }
 

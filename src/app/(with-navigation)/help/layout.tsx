@@ -1,6 +1,6 @@
+import Sidenav from '~/app/_components/docs/sidenav'
 import { Metadata } from '~/app/_metadata'
-import config from '~/config/docs.json'
-import Sidenav from './_components/sidenav'
+import config from '~/config/help.json'
 
 type Props = {
   children: React.ReactNode
@@ -22,7 +22,12 @@ export default async function DocsLayout({ children }: Props) {
         </div>
       </div>
 
-      {children}
+      <div
+        className="min-h-[calc(100vh-168px)] lg:min-h-[calc(100vh-168px)]"
+        style={{ minHeight: `${Math.max(config.length * 60 + 200, 800)}px` }}
+      >
+        {children}
+      </div>
     </div>
   )
 }
