@@ -76,6 +76,11 @@ const config = {
         permanent: true,
       },
       {
+        source: '/docs/:path*',
+        destination: '/developers/:path*',
+        permanent: true,
+      },
+      {
         source: '/faq',
         destination: '/help/faq',
         permanent: true,
