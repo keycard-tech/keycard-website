@@ -1,0 +1,61 @@
+[
+  {
+    "title": "Get started",
+    "subItems": [
+      {
+        "title": "Overview",
+        "link": "/help/overview"
+      },
+      {
+        "title": "Get to know your Keycard Shell",
+        "link": "/help/get-to-know-your-keycard-shell"
+      },
+      {
+        "title": "Set up your Keycard",
+        "link": "/help/set-up-your-keycard"
+      },
+      {
+        "title": "Connect Keycard Shell to a wallet app",
+        "link": "/help/connect-keycard-shell-to-a-wallet-app"
+      },
+      {
+        "title": "Keycard and Keycard Shell FAQ",
+        "link": "/help/faq"
+      }
+    ]
+  },
+  {
+    "title": "Sign transactions",
+    "subItems": [
+      {
+        "title": "Sign a transaction using Keycard Shell",
+        "link": "/help/sign-a-transaction-using-keycard-shell"
+      }
+    ]
+  },
+  {
+    "title": "Update and reset"
+  },
+  {
+    "title": "Security features",
+    "subItems": [
+      {
+        "title": "About your Keycard PIN and duress PIN",
+        "link": "/help/about-your-keycard-pin-and-duress-pin"
+      },
+      {
+        "title": "Understand the Slip39 wallet backup standard",
+        "link": "/help/understand-the-slip-39-wallet-backup-standard"
+      }
+    ]
+  },
+  {
+    "title": "Change settings",
+    "subItems": [
+      {
+        "title": "Replace your Keycard Shell battery",
+        "link": "/help/replace-your-keycard-shell-battery"
+      }
+    ]
+  }
+]

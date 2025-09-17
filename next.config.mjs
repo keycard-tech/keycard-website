@@ -70,6 +70,31 @@ const config = {
         destination: 'https://get.keycard.tech/pages/keycard-shell',
         permanent: true,
       },
+      {
+        source: '/docs',
+        destination: '/developers/overview',
+        permanent: true,
+      },
+      {
+        source: '/docs/:path*',
+        destination: '/developers/:path*',
+        permanent: true,
+      },
+      {
+        source: '/faq',
+        destination: '/help/faq',
+        permanent: true,
+      },
+      {
+        source: '/duress_pin',
+        destination: '/help/about-your-keycard-pin-and-duress-pin',
+        permanent: true,
+      },
+      {
+        source: '/slip39',
+        destination: '/help/understand-the-slip-39-wallet-backup-standard',
+        permanent: true,
+      },
     ]
   },
 }

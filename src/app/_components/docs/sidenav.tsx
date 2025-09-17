@@ -5,11 +5,11 @@ import { ChevronRightIcon } from '@status-im/icons/20'
 import { Link } from '~components/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { decodeUriComponent } from '../_utils/decode-uri-component'
+import { decodeUriComponent } from './_utils/decode-uri-component'
 
 interface SidenavItem {
   title: string
-  link: string
+  link?: string
   subItems?: SidenavItem[]
 }
 
@@ -24,11 +24,11 @@ const Sidenav: React.FC<SidenavProps> = ({ items }) => {
   useEffect(() => {
     const match = items.find(
       item =>
-        item.link === decodeUriComponent(pathname) ||
+        (item.link && item.link === decodeUriComponent(pathname)) ||
         item.subItems?.find(
           link => link.link === decodeUriComponent(pathname),
         ) ||
-        decodeUriComponent(pathname).startsWith(item.link), // fallback, leaves root item open
+        (item.link && decodeUriComponent(pathname).startsWith(item.link)), // fallback, leaves root item open
     )
 
     if (!match) {
@@ -49,19 +49,25 @@ const Sidenav: React.FC<SidenavProps> = ({ items }) => {
       >
         {items.map(item => {
           if (item.subItems) {
-            return <SidenavItem key={item.link} {...item} />
+            return <SidenavItem key={item.link || item.title} {...item} />
           }
 
           return (
             <Accordion.Item key={item.title} value={item.title}>
-              <Link
-                href={item.link}
-                className="pl-[22px] text-16 font-500 text-white-95 transition-colors hover:text-white-60 aria-[current=true]:text-orange hover:aria-[current=true]:text-orange-dark"
-                aria-current={pathname === item.link}
-                onClick={() => setLabel(undefined)}
-              >
-                {item.title}
-              </Link>
+              {item.link ? (
+                <Link
+                  href={item.link}
+                  className="block pl-[22px] text-16 font-500 text-white-95 transition-colors hover:text-white-60 aria-[current=true]:text-orange hover:aria-[current=true]:text-orange-dark"
+                  aria-current={pathname === item.link}
+                  onClick={() => setLabel(undefined)}
+                >
+                  {item.title}
+                </Link>
+              ) : (
+                <span className="block pl-[22px] text-16 font-500 text-white-95">
+                  {item.title}
+                </span>
+              )}
             </Accordion.Item>
           )
         })}
@@ -72,7 +78,7 @@ const Sidenav: React.FC<SidenavProps> = ({ items }) => {
 
 type SidenavItemProps = {
   title: string
-  link: string
+  link?: string
   subItems?: SidenavItem[]
 }
 
@@ -92,13 +98,19 @@ const SidenavItem = (props: SidenavItemProps) => {
               <ChevronRightIcon />
             </div>
           </Accordion.Trigger>
-          <Link
-            href={link}
-            className="flex shrink-0 font-500 text-white-95 transition-colors hover:text-white-60 aria-[current=true]:text-orange hover:aria-[current=true]:text-orange-dark"
-            aria-current={pathname === link}
-          >
-            {title}
-          </Link>
+          {link ? (
+            <Link
+              href={link}
+              className="flex shrink-0 font-500 text-white-95 transition-colors hover:text-white-60 aria-[current=true]:text-orange hover:aria-[current=true]:text-orange-dark"
+              aria-current={pathname === link}
+            >
+              {title}
+            </Link>
+          ) : (
+            <span className="flex shrink-0 font-500 text-white-95">
+              {title}
+            </span>
+          )}
         </div>
         <Accordion.Content className="overflow-hidden">
           <div className="overflow-hidden pl-[22px]">
@@ -107,13 +119,19 @@ const SidenavItem = (props: SidenavItemProps) => {
               subItems.map(subItem => {
                 return (
                   <div key={subItem.link} className="pt-2 first:pt-5 last:pb-8">
-                    <Link
-                      href={subItem.link}
-                      className="text-14 font-500 text-white-95 transition-colors hover:text-white-60 aria-[current=true]:text-orange hover:aria-[current=true]:text-orange-dark"
-                      aria-current={pathname === subItem.link}
-                    >
-                      {subItem.title}
-                    </Link>
+                    {subItem.link ? (
+                      <Link
+                        href={subItem.link}
+                        className="block text-14 font-500 text-white-95 transition-colors hover:text-white-60 aria-[current=true]:text-orange hover:aria-[current=true]:text-orange-dark"
+                        aria-current={pathname === subItem.link}
+                      >
+                        {subItem.title}
+                      </Link>
+                    ) : (
+                      <span className="block text-14 font-500 text-white-60">
+                        {subItem.title}
+                      </span>
+                    )}
                   </div>
                 )
               })}
