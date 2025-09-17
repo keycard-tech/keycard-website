@@ -9,20 +9,20 @@ const KeycardShell = () => {
     <section className="relative flex h-[calc(100svh-300px)] flex-col justify-center overflow-hidden rounded-t-28 border border-white-8 bg-white-4 backdrop-blur-[20px] full-view-port lg:h-auto lg:flex-row-reverse lg:items-center lg:justify-normal lg:remove-full-view-port">
       <div className="hidden flex-1 items-center justify-center overflow-hidden lg:flex">
         <Image
-          src="/assets/keycard-shell.gif"
+          src="/assets/keycard-shell.png"
           alt="Keycard Shell Hardware Wallet"
-          width="864"
-          height="1184"
+          width="510"
+          height="758"
           className="max-h-[510px] w-auto object-contain lg:translate-y-1 xl:translate-y-2"
           priority
         />
       </div>
 
       <Image
-        src="/assets/keycard-shell.gif"
+        src="/assets/keycard-shell.png"
         alt="Keycard Shell Hardware Wallet"
-        width="864"
-        height="1184"
+        width="510"
+        height="785"
         className="mt-4 h-auto w-[clamp(300px,85vw,420px)] self-center object-contain lg:hidden"
         priority
         sizes="(max-width:1023px) 85vw"

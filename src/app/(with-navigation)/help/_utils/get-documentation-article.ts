@@ -32,7 +32,7 @@ const frontmatterSchema = z.object({
 })
 
 export async function getDocumentationArticle(slug: string[]) {
-  const basePath = path.resolve(`content/docs/${slug.join('/')}`)
+  const basePath = path.resolve(`content/help/${slug.join('/')}`)
   let filePath = `${basePath}.mdx`
 
   try {
