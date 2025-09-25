@@ -130,7 +130,7 @@ const STEPS = [
       },
     ],
     secondaryDescription:
-      "Your recovery phrase represents access to your crypto assets. Store and share it with anyone. Don't take a photo.",
+      "Your recovery phrase represents access to your wallet and funds. Keep it safe and never share it with anyone. Don't take a photo.",
   },
   {
     title: '3-II. Import an existing key pair',
@@ -217,8 +217,8 @@ const STEPS = [
     ],
     secondaryDescription: (
       <>
-        If your device isn`t authentic, don`t use it. Contact the Keycard team
-        at{' '}
+        If your device isn&apos;t authentic, don&apos;t use it. Contact the
+        Keycard team at{' '}
         <Link className="underline" href="https://discord.gg/uJAXk7jFhZ">
           Discord
         </Link>
@@ -278,8 +278,8 @@ const STEPS = [
     ],
     secondaryDescription: (
       <>
-        If you want see &quot;Keycard&quot; or &quot;Shell&quot; listed in your
-        wallet app, they may still be compatible. Check out{' '}
+        If you don&apos;t see &quot;Keycard&quot; or &quot;Shell&quot; listed in
+        your wallet app, they may still be compatible. Check out{' '}
         <Link className="underline" href="/developers/supported-wallets">
           Wallet Apps Compatible with Keycard Shell
         </Link>{' '}
