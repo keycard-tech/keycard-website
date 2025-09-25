@@ -215,8 +215,16 @@ const STEPS = [
         },
       },
     ],
-    secondaryDescription:
-      "If your device isn't authentic, don't use it. Contact the Keycard team at Discord.",
+    secondaryDescription: (
+      <>
+        If your device isn`t authentic, don`t use it. Contact the Keycard team
+        at{' '}
+        <Link className="underline" href="https://discord.gg/uJAXk7jFhZ">
+          Discord
+        </Link>
+        .
+      </>
+    ),
   },
   {
     title: '5. Connect to wallet app',
@@ -292,11 +300,11 @@ export default function StartShellPage() {
   return (
     <div className="px-5 2xl:px-1">
       <div className="relative -mb-2 -mt-20 hidden justify-center lg:flex">
-        <div className="absolute inset-0 z-20 bg-gradient-to-t from-[transparent] via-[transparent] to-dark-100" />
+        <div className="absolute inset-0 z-20 bg-gradient-to-tr from-[transparent] via-dark-100/[.8] to-dark-100" />
         <Image
           src="/assets/faqs.png"
           alt="Shell Quick Start Guide Background"
-          height={527}
+          height={500}
           width={800}
           className="relative z-10 max-w-full"
         />
@@ -383,10 +391,10 @@ export default function StartShellPage() {
             Get in touch
           </ButtonLink>
           <ButtonLink
-            href="https://x.com/keycard_"
+            href="https://discord.gg/uJAXk7jFhZ"
             variant="secondary"
             className="px-[9px]"
-            aria-label="Keycard on X"
+            aria-label="Keycard on Discord"
           >
             <DiscordIcon />
           </ButtonLink>
