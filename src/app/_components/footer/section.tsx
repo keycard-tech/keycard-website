@@ -1,5 +1,5 @@
 import { ExternalIcon } from '@status-im/icons/20'
-import { Routes } from '~/config/routes'
+import type { Routes } from '~/config/routes'
 import { Link } from '~components/link'
 
 type Props = {

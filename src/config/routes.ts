@@ -1,3 +1,70 @@
+import { useTranslations } from 'next-intl'
+
+export const getRoutes = (t: ReturnType<typeof useTranslations>) =>
+  ({
+    Products: [
+      {
+        name: t('footer.products.keycard.translation'),
+        href: 'https://get.keycard.tech/pages/keycard',
+      },
+      {
+        name: t('footer.products.keycard_shell.translation'),
+        href: 'https://get.keycard.tech/pages/keycard-shell',
+      },
+    ],
+    Info: [
+      { name: t('footer.info.get_started.translation'), href: '/start' },
+      { name: t('footer.info.blog.translation'), href: '/blog' },
+      { name: t('footer.info.help.translation'), href: '/help/overview' },
+      {
+        name: t('footer.info.developers.translation'),
+        href: '/developers/overview',
+      },
+      {
+        name: t('footer.info.affiliates.translation'),
+        href: 'https://affiliates.keycard.tech',
+      },
+    ],
+    Contacts: [
+      { name: t('footer.contacts.about.translation'), href: '/about' },
+      { name: t('footer.contacts.contact.translation'), href: '/contact' },
+      {
+        name: t('footer.contacts.discord.translation'),
+        href: 'https://discord.gg/uJAXk7jFhZ',
+      },
+      {
+        name: t('footer.contacts.x.translation'),
+        href: 'https://x.com/Keycard_',
+      },
+      // { name: 'Email', href: 'mailto:support@keycard.tech' },
+    ],
+    Legal: [
+      {
+        name: t('footer.legal.privacy_policy.translation'),
+        href: '/legal/privacy-policy',
+      },
+      {
+        name: t('footer.legal.terms_of_use.translation'),
+        href: '/legal/terms-of-use',
+      },
+    ],
+    // 'Works with': [
+    //   {
+    //     name: 'Status',
+    //     href: 'https://status.app',
+    //   },
+    //   {
+    //     name: 'WallETH',
+    //     href: 'https://walleth.org',
+    //   },
+    //   {
+    //     name: 'Enno Wallet',
+    //     href: 'https://ennowallet.com/',
+    //   },
+    // ],
+  }) as const
+
+// Keep the original ROUTES for backward compatibility
 export const ROUTES = {
   Products: [
     { name: 'Keycard', href: 'https://get.keycard.tech/pages/keycard' },
@@ -24,20 +91,6 @@ export const ROUTES = {
     { name: 'Privacy policy', href: '/legal/privacy-policy' },
     { name: 'Terms of use', href: '/legal/terms-of-use' },
   ],
-  // 'Works with': [
-  //   {
-  //     name: 'Status',
-  //     href: 'https://status.app',
-  //   },
-  //   {
-  //     name: 'WallETH',
-  //     href: 'https://walleth.org',
-  //   },
-  //   {
-  //     name: 'Enno Wallet',
-  //     href: 'https://ennowallet.com/',
-  //   },
-  // ],
 } as const
 
 export const STATUS_MOBILE_APP_STORE_URL =
@@ -58,4 +111,7 @@ export const STATUS_DESKTOP_DOWNLOAD_URL_LINUX =
 
 export const STATUS_APPS_DESKTOP_URL = 'https://status.app/apps#desktop'
 
-export type Routes = (typeof ROUTES)[keyof typeof ROUTES]
+export type Routes = ReadonlyArray<{
+  readonly name: string
+  readonly href: string
+}>

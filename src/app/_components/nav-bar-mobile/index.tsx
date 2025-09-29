@@ -1,13 +1,15 @@
 'use client'
 
-import { ROUTES } from '~/config/routes'
+import { getRoutes, type Routes } from '~/config/routes'
 import { Button } from '~components/button'
 import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
 import { cx } from 'cva'
 import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion'
+import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { LanguageSelector } from '../language-selector'
 import { Logo } from '../logo'
 import { MenuIcon } from './menu-icon'
 import { Section } from './section'
@@ -16,6 +18,8 @@ const NAV_BAR_HEIGHT = 80
 
 const NavBarMobile = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const t = useTranslations()
+  const ROUTES = getRoutes(t)
   const pathname = usePathname()
   const { scrollY } = useScroll()
   const scrollPositionRef = useRef(0)
@@ -107,12 +111,15 @@ const NavBarMobile = () => {
                     data-umami-event-section="mobile-navbar"
                     data-umami-event-element="button"
                   >
-                    Buy Keycard
+                    {t('common.buy_keycard.translation')}
                   </Button>
                 </BuyKeycardDialog>
               </motion.div>
             )}
           </AnimatePresence>
+
+          <LanguageSelector />
+
           <button
             key={isOpen ? 'menu-open' : 'menu-closed'}
             className="rounded-12 border border-white-12 bg-white-8 text-white-95 transition-colors hover:bg-white-12"
@@ -177,7 +184,7 @@ const NavBarMobile = () => {
                       data-umami-event-section="mobile-menu"
                       data-umami-event-element="button"
                     >
-                      Buy Keycard
+                      {t('common.buy_keycard.translation')}
                     </Button>
                   </BuyKeycardDialog>
                 </motion.li>
@@ -189,8 +196,14 @@ const NavBarMobile = () => {
                 transition={{ delay: 0.2 + 4 * 0.05, duration: 0.3 }}
                 className="grid w-full grid-cols-2 divide-x divide-dashed divide-white-12 border-t border-dashed border-white-12"
               >
-                <Section title="INFO" routes={ROUTES.Info} />
-                <Section title="CONTACTS" routes={ROUTES.Contacts} />
+                <Section
+                  title="INFO"
+                  routes={ROUTES.Info as unknown as Routes}
+                />
+                <Section
+                  title="CONTACTS"
+                  routes={ROUTES.Contacts as unknown as Routes}
+                />
               </motion.div>
             </motion.div>
           </motion.div>

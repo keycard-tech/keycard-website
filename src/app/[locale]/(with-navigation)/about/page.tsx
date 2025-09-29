@@ -1,4 +1,5 @@
 import { Metadata } from '~/app/_metadata'
+import { getTranslations } from 'next-intl/server'
 import Link from 'next/link'
 
 export const metadata = Metadata({
@@ -85,7 +86,9 @@ const STANDARDS = [
   },
 ]
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const t = await getTranslations()
+
   return (
     <div className="px-3 pb-[120px] pt-12 md:px-8 lg:px-20 lg:pt-20">
       {/* Organization JSON-LD for trust signals */}
@@ -121,18 +124,16 @@ export default function AboutPage() {
 
       <header className="mb-8 grid gap-3">
         <h1 className="font-lora text-32 font-500 text-white-95 xl:text-48">
-          About Keycard
+          {t('about.title.translation')}
         </h1>
         <p className="text-white-90 md:text-20">
-          We build sovereign signing tools—open hardware + software that keep
-          your keys in dedicated secure elements and let you verify what you
-          sign. Keycard is part of the{' '}
+          {t('about.subtitle.translation')}{' '}
           <a className="underline" href="https://free.technology/">
-            Institute of Free Technology
+            {t('about.institute_link.translation')}
           </a>
-          , alongside projects like{' '}
+          {t('about.alongside_text.translation')}{' '}
           <a className="underline" href="https://status.app/">
-            Status
+            {t('about.status_link.translation')}
           </a>
           .
         </p>
@@ -140,54 +141,58 @@ export default function AboutPage() {
 
       <section className="grid grid-cols-1 gap-4 lg:grid-cols-3">
         <div className="border-white-10 bg-dark-80 rounded-20 border p-6">
-          <h2 className="mb-2 font-500 text-white-95">Why hardware signers</h2>
+          <h2 className="mb-2 font-500 text-white-95">
+            {t('about.why_hardware.title.translation')}
+          </h2>
           <p className="text-white-90">
-            Self-custody on general-purpose devices is convenient but exposed.
-            Dedicated hardware reduces attack surface and gives focused
-            protection.
+            {t('about.why_hardware.description.translation')}
           </p>
         </div>
         <div className="border-white-10 bg-dark-80 rounded-20 border p-6">
-          <h2 className="mb-2 font-500 text-white-95">What Keycard is</h2>
+          <h2 className="mb-2 font-500 text-white-95">
+            {t('about.what_keycard.title.translation')}
+          </h2>
           <p className="text-white-90">
-            A contactless smart-card hardware wallet and signer (BIP-32 HD),
-            with keys stored and used inside a secure element. Open-source,
-            NFC-first. Works with Keycard Shell.
+            {t('about.what_keycard.description.translation')}
           </p>
         </div>
         <div className="border-white-10 bg-dark-80 rounded-20 border p-6">
-          <h2 className="mb-2 font-500 text-white-95">How we work</h2>
+          <h2 className="mb-2 font-500 text-white-95">
+            {t('about.how_we_work.title.translation')}
+          </h2>
           <p className="text-white-90">
-            Open by default, verifiable, modular. We ship small, auditable parts
-            and improve them in public through docs, forums, and community
-            feedback.
+            {t('about.how_we_work.description.translation')}
           </p>
         </div>
       </section>
 
       <section className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-2">
         <div className="border-white-10 bg-dark-80 rounded-20 border p-6">
-          <h3 className="mb-2 font-500 text-white-95">Our principles</h3>
+          <h3 className="mb-2 font-500 text-white-95">
+            {t('about.principles.title.translation')}
+          </h3>
           <ul className="list-disc pl-5 text-white-90">
-            <li>Keys never leave the secure element.</li>
-            <li>Minimize blind signing; show what you sign.</li>
-            <li>Prefer open designs and reproducible builds.</li>
-            <li>Building in the open. Join our Discord!</li>
+            <li>{t('about.principles.keys_never_leave.translation')}</li>
+            <li>{t('about.principles.minimize_blind_signing.translation')}</li>
+            <li>{t('about.principles.open_designs.translation')}</li>
+            <li>{t('about.principles.building_open.translation')}</li>
           </ul>
         </div>
 
         <div className="border-white-10 bg-dark-80 rounded-20 border p-6">
-          <h3 className="mb-2 font-500 text-white-95">Products</h3>
+          <h3 className="mb-2 font-500 text-white-95">
+            {t('about.products.title.translation')}
+          </h3>
           <ul className="list-disc pl-5 text-white-90">
             <li>
-              <strong>Keycard</strong> — card-sized signer where keys never
-              leave the secure element; inexpensive for backups and multi-signer
-              setups.
+              <strong>{t('about.products.keycard.name.translation')}</strong> —{' '}
+              {t('about.products.keycard.description.translation')}
             </li>
             <li>
-              <strong>Keycard Shell</strong> — turns any Keycard into a full,
-              air-gapped hardware wallet that works with many software wallets
-              via QR and lets you confirm what you sign on a display.
+              <strong>
+                {t('about.products.keycard_shell.name.translation')}
+              </strong>{' '}
+              — {t('about.products.keycard_shell.description.translation')}
             </li>
           </ul>
         </div>
@@ -195,7 +200,9 @@ export default function AboutPage() {
 
       <section className="mt-10 grid grid-cols-1 gap-4 lg:grid-cols-3">
         <div className="border-white-10 bg-dark-80 rounded-20 border p-6">
-          <h3 className="mb-2 font-500 text-white-95">Press & Newsroom</h3>
+          <h3 className="mb-2 font-500 text-white-95">
+            {t('about.press.title.translation')}
+          </h3>
           <ul className="space-y-2 text-white-90">
             {PRESS.map(item => (
               <li key={item.href}>
@@ -216,14 +223,14 @@ export default function AboutPage() {
                 ) : null}
                 {item.kind === 'press-release' ? (
                   <span className="rounded-8 text-white-70 ml-2 border border-white-20 px-2 py-0.5 text-12">
-                    Press release
+                    {t('about.press.press_release.translation')}
                   </span>
                 ) : null}
               </li>
             ))}
           </ul>
           <p className="mt-3 text-12 text-white-60">
-            For media inquiries:{' '}
+            {t('about.press.media_inquiries.translation')}{' '}
             <a className="underline" href="mailto:get@keycard.tech">
               get@keycard.tech
             </a>
@@ -233,7 +240,7 @@ export default function AboutPage() {
         {/* Certifications & Security */}
         <div className="border-white-10 bg-dark-80 rounded-20 border p-6">
           <h3 className="mb-2 font-500 text-white-95">
-            Certifications & Security
+            {t('about.certifications.title.translation')}
           </h3>
           <ul className="space-y-2 text-white-90">
             {CERTS_SECURITY.map(c => (
@@ -256,7 +263,9 @@ export default function AboutPage() {
 
         {/* Partners & Ecosystem */}
         <div className="border-white-10 bg-dark-80 rounded-20 border p-6">
-          <h3 className="mb-2 font-500 text-white-95">Partners & Ecosystem</h3>
+          <h3 className="mb-2 font-500 text-white-95">
+            {t('about.partners.title.translation')}
+          </h3>
           <ul className="space-y-2 text-white-90">
             {PARTNERS.map(p => (
               <li key={p.href}>
@@ -273,8 +282,7 @@ export default function AboutPage() {
           </ul>
           <div className="border-white-15 bg-dark-70 text-white-70 mt-3 rounded-12 border p-3 text-12">
             <p className="mb-1">
-              Works with wallets that support the ERC-4527 QR signing standard
-              for air-gapped devices.
+              {t('about.partners.erc4527_description.translation')}
             </p>
             <ul className="list-disc pl-5">
               {STANDARDS.map(s => (
