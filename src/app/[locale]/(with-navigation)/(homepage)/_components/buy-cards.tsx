@@ -1,3 +1,5 @@
+'use client'
+
 import { KEYCARD_PRODUCTS } from '~/app/_constants/shopify/products'
 import { formatPrice } from '~/app/_utils/format-price'
 import { Button } from '~components/button'
@@ -6,6 +8,7 @@ import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
 import { BuyShellDialog } from '~components/buy-shell-dialog'
 import { Image } from '~components/image'
 import { cx } from 'cva'
+import { useTranslations } from 'next-intl'
 
 type Props = {
   image: string
@@ -63,6 +66,8 @@ const Section = (props: Props) => {
 }
 
 const BuyCards = () => {
+  const t = useTranslations()
+
   return (
     <section className="grid grid-cols-1 gap-10 overflow-clip pb-2 pt-[160px] full-view-port lg:grid-cols-2 lg:flex-row lg:gap-2 lg:pt-[200px] lg:remove-full-view-port">
       <Section
@@ -70,10 +75,17 @@ const BuyCards = () => {
         name="keycard"
         title={
           <>
-            A card shaped <br /> hardware wallet
+            {t('buy_cards.keycard_title.translation')
+              .split('\n')
+              .map((line, index) => (
+                <span key={index}>
+                  {line}
+                  {index === 0 && <br />}
+                </span>
+              ))}
           </>
         }
-        description="Store and trade your crypto in a simple, secure and slim hardware wallet."
+        description={t('buy_cards.keycard_description.translation')}
         buttons={
           <>
             <BuyKeycardDialog>
@@ -84,18 +96,18 @@ const BuyCards = () => {
                 data-umami-event-section="cards"
                 data-umami-event-element="button"
               >
-                Buy Keycard
+                {t('common.buy_keycard.translation')}
               </Button>
             </BuyKeycardDialog>
             <ButtonLink
               href="https://get.keycard.tech/pages/keycard"
               variant="secondary"
             >
-              Learn more
+              {t('common.learn_more.translation')}
             </ButtonLink>
           </>
         }
-        info={`From ${formatPrice({
+        info={`${t('common.from.translation')} ${formatPrice({
           amount: KEYCARD_PRODUCTS.ONE_CARD_SET.price,
         })}`}
       />
@@ -106,10 +118,17 @@ const BuyCards = () => {
         secondName="shell"
         title={
           <>
-            One device for all <br /> your Keycards
+            {t('buy_cards.shell_title.translation')
+              .split('\n')
+              .map((line, index) => (
+                <span key={index}>
+                  {line}
+                  {index === 0 && <br />}
+                </span>
+              ))}
           </>
         }
-        description="Unrivalled security with an infinite number of removable Keycards, each with their own key."
+        description={t('buy_cards.shell_description.translation')}
         buttons={
           <>
             <BuyShellDialog>
@@ -119,18 +138,18 @@ const BuyCards = () => {
                 data-umami-event-section="cards"
                 data-umami-event-element="button"
               >
-                Pre-order
+                {t('common.pre_order.translation')}
               </Button>
             </BuyShellDialog>
             <ButtonLink
               href="https://get.keycard.tech/pages/keycard-shell"
               variant="secondary"
             >
-              Learn more
+              {t('common.learn_more.translation')}
             </ButtonLink>
           </>
         }
-        info="Coming 2025 &middot; Bundled with Keycard"
+        info={t('buy_cards.shell_info.translation')}
       />
     </section>
   )

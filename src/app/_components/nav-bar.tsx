@@ -8,10 +8,12 @@ import {
   useScroll,
   useTransform,
 } from 'framer-motion'
+import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { Button } from './button'
+import { LanguageSelector } from './language-selector'
 import { Logo } from './logo'
 
 const NAV_BAR_HEIGHT = 92
@@ -37,6 +39,7 @@ const links = [
 const NavBar = () => {
   const pathname = usePathname()
   const [variant, setVariant] = useState<'primary' | 'secondary'>('secondary')
+  const t = useTranslations()
 
   const { scrollY } = useScroll()
 
@@ -82,6 +85,8 @@ const NavBar = () => {
           </Link>
         ))}
 
+        <LanguageSelector />
+
         <BuyShellDialog>
           <Button
             variant={variant}
@@ -90,7 +95,7 @@ const NavBar = () => {
             data-umami-event-section="navbar"
             data-umami-event-element="button"
           >
-            Pre-order Shell
+            {t('common.pre_order_shell.translation')}
           </Button>
         </BuyShellDialog>
       </div>

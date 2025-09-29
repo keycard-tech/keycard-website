@@ -1,3 +1,5 @@
+'use client'
+
 import { FirmwareIcon } from '@status-im/icons/20'
 import { GithubIcon } from '@status-im/icons/social'
 import { ButtonLink } from '~components/button-link'
@@ -5,27 +7,33 @@ import { Image } from '~components/image'
 import { Tag } from '~components/tag'
 import { InfinityIcon } from '~icons/infinity'
 import { cx } from 'cva'
+import { useTranslations } from 'next-intl'
 import { createElement } from 'react'
 
-const FEATURES = [
+const getFeatures = (t: ReturnType<typeof useTranslations>) => [
   {
-    title: 'Best-in-class security',
-    description:
-      'Keycard secure element has the highest level of certification provided by Common Criteria.',
+    title: t('features.security.title.translation'),
+    description: t('features.security.description.translation'),
     image: '/assets/feature-keycard.png',
     imageClassName: '!justify-start',
-    badge: { icon: FirmwareIcon, text: 'EAL 6+', gradient: true },
+    badge: {
+      icon: FirmwareIcon,
+      text: t('features.security.badge.translation'),
+      gradient: true,
+    },
     className: 'row-span-2 col-span-1',
   },
   {
-    title: 'Fully open source',
-    description:
-      'Open-source code on an open framework, making it the most open way to design a secure element.',
-    button: { icon: GithubIcon, text: 'View on GitHub' },
+    title: t('features.open_source.title.translation'),
+    description: t('features.open_source.description.translation'),
+    button: {
+      icon: GithubIcon,
+      text: t('features.open_source.button.translation'),
+    },
     className: 'col-span-1',
   },
   {
-    title: 'Airgapped',
+    title: t('features.airgapped.title.translation'),
     description:
       'Through Keycard Shell’s camera or Keycard’s contactless nature, our products can be airgapped.',
     image: '/assets/feature-keycard-shell.png',
@@ -33,21 +41,21 @@ const FEATURES = [
     className: 'row-span-2 col-span-1 flex-col-reverse',
   },
   {
-    title: 'Made to last',
+    title: t('features.durable.title.translation'),
     description:
       'Your keycard has a life expectancy of 25+ years, resists water and dust. It will still securely store your keys.',
     badge: { text: '25+ years' },
     className: 'col-span-1',
   },
   {
-    title: 'Easy to backup',
+    title: t('features.backup.title.translation'),
     description:
       'Securely store your private key on multiple cards. Encrypted, instead of the typical piece of paper.',
     badge: { icon: InfinityIcon, text: 'backups' },
     className: 'col-span-1',
   },
   {
-    title: 'Discreet',
+    title: t('features.discreet.title.translation'),
     description:
       'With its light, small and discreet form factor your Keycard can go unnoticed in your wallet.',
     badge: { text: 'Credit card format' },
@@ -65,13 +73,25 @@ const UnderlinedWord = ({ children }: { children: React.ReactNode }) => (
 )
 
 const KeycardFeatures = () => {
+  const t = useTranslations()
+  const FEATURES = getFeatures(t)
+
   return (
     <section className="max-w-[1352px] px-3 pt-[120px] lg:mx-auto lg:pt-[200px] min-[1512px]:px-0">
       <h2 className="max-w-[665px] font-lora text-32 text-white-95">
-        Join the <UnderlinedWord>open source</UnderlinedWord> revolution of the
-        most <UnderlinedWord>modular</UnderlinedWord> and{' '}
-        <UnderlinedWord>future proof</UnderlinedWord> hardware wallet system
-        ever conceived.
+        {t('features.title.translation')}{' '}
+        <UnderlinedWord>
+          {t('features.open_source_highlight.translation')}
+        </UnderlinedWord>{' '}
+        {t('features.title_continued.translation')}{' '}
+        <UnderlinedWord>
+          {t('features.modular_highlight.translation')}
+        </UnderlinedWord>{' '}
+        {t('features.and_text.translation')}{' '}
+        <UnderlinedWord>
+          {t('features.future_proof_highlight.translation')}
+        </UnderlinedWord>{' '}
+        {t('features.title_end.translation')}
       </h2>
       <div className="grid grid-cols-1 gap-5 pt-20 lg:grid-cols-4 lg:gap-6">
         {FEATURES.map((feature, index) => (

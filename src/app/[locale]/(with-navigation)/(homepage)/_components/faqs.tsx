@@ -1,3 +1,5 @@
+'use client'
+
 import * as Accordion from '@radix-ui/react-accordion'
 import { ChevronDownIcon } from '@status-im/icons/20'
 import { TwitterIcon } from '@status-im/icons/social'
@@ -6,49 +8,47 @@ import { Image } from '~components/image'
 import { JsonLd } from '~components/json-ld'
 import { Link } from '~components/link'
 import { cx } from 'cva'
+import { useTranslations } from 'next-intl'
 
-const faqs = [
+const getFaqs = (t: ReturnType<typeof useTranslations>) => [
   {
-    question: 'What is Keycard for?',
-    answer:
-      'Keycard is a secure hardware wallet for storing and managing your cryptocurrencies.',
+    question: t('faqs.what_is_keycard.question.translation'),
+    answer: t('faqs.what_is_keycard.answer.translation'),
   },
   {
-    question: 'Which assets does Keycard support?',
+    question: t('faqs.which_assets.question.translation'),
     answer: (
       <>
-        Keycard works seamlessly with Ethereum and EVM based assets. It supports
-        all assets on{' '}
+        {t('faqs.which_assets.answer.translation')}{' '}
         <Link
           href="https://tokenlists.org/token-list?url=https://ipfs.io/ipns/tokens.uniswap.org"
           className="underline decoration-1 underline-offset-2 transition-colors hover:text-orange"
         >
-          Uniswap Labs default token list
+          {t('faqs.which_assets.link_text.translation')}
         </Link>
         .
       </>
     ),
-    answerText:
-      'Keycard works seamlessly with Ethereum and EVM based assets. It supports all assets on Uniswap Labs default token list.',
+    answerText: t('faqs.which_assets.answer_text.translation'),
   },
   {
-    question: 'Are my funds safe if I lose my Keycard?',
-    answer:
-      'Yes, your funds are safe. You can recover your assets using your backup seed phrase.',
+    question: t('faqs.funds_safe.question.translation'),
+    answer: t('faqs.funds_safe.answer.translation'),
   },
   {
-    question: 'What wallets support Keycard?',
-    answer:
-      'Keycard is compatible with various software wallets. Please check our documentation for a full list.',
+    question: t('faqs.wallets_support.question.translation'),
+    answer: t('faqs.wallets_support.answer.translation'),
   },
   {
-    question: 'Why should I get a Keycard?',
-    answer:
-      'Keycard is a secure, pocket-sized hardware wallet with a provably genuine, immutable chip to protect your digital assets.',
+    question: t('faqs.why_get_keycard.question.translation'),
+    answer: t('faqs.why_get_keycard.answer.translation'),
   },
 ]
 
 const Faqs = () => {
+  const t = useTranslations()
+  const faqs = getFaqs(t)
+
   return (
     <section className="mx-auto max-w-[1352px] pt-[144px]">
       <div className="flex flex-col items-start justify-between px-3 lg:flex-row lg:items-end min-[1512px]:px-0">
@@ -63,7 +63,7 @@ const Faqs = () => {
             />
           </div>
           <h2 className="mt-14 font-lora text-32 text-white-95 lg:mt-0">
-            Frequently asked questions
+            {t('faqs.title.translation')}
           </h2>
           <Accordion.Root
             className="flex-1 pt-8 lg:max-w-[549px] lg:pt-14"
