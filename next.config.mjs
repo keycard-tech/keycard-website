@@ -71,6 +71,11 @@ const config = {
         permanent: true,
       },
       {
+        source: '/start',
+        destination: '/start/shell',
+        permanent: true,
+      },
+      {
         source: '/docs',
         destination: '/developers/overview',
         permanent: true,
