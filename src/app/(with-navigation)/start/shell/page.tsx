@@ -298,17 +298,7 @@ export const metadata = Metadata({
 
 export default function StartShellPage() {
   return (
-    <div className="px-5 2xl:px-1">
-      <div className="relative -mb-2 -mt-20 hidden justify-center lg:flex">
-        <div className="absolute inset-0 z-20 bg-gradient-to-tr from-[transparent] via-dark-100/[.8] to-dark-100" />
-        <Image
-          src="/assets/faqs.png"
-          alt="Shell Quick Start Guide Background"
-          height={500}
-          width={800}
-          className="relative z-10 max-w-full"
-        />
-      </div>
+    <div className="mt-6 px-5 2xl:px-1">
       <div className="relative z-20 grid grid-flow-row gap-4 py-5">
         <h1 className="font-lora text-32 font-400 text-white-95 lg:text-48">
           Shell Quick Start Guide
