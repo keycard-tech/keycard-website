@@ -7,7 +7,7 @@ export const ROUTES = {
     },
   ],
   Info: [
-    { name: 'Get started', href: '/start' },
+    { name: 'Get started', href: '/start/keycard' },
     { name: 'Blog', href: '/blog' },
     { name: 'Help', href: '/help/overview' },
     { name: 'Developers', href: '/developers/overview' },
