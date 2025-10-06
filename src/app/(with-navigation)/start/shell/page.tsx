@@ -59,7 +59,7 @@ const STEPS = [
   {
     title: '2. Create PIN',
     description:
-      'If this Shell prompts you to create a PIN, it means your Keycard is new, uninitialized, and contains no existing data.',
+      'If the Shell prompts you to create a PIN, it means your Keycard is new, uninitialized, and contains no existing data.',
     subSteps: [
       {
         title: 'a. Create Keycard PIN',
@@ -218,7 +218,7 @@ const STEPS = [
     secondaryDescription: (
       <>
         If your device isn&apos;t authentic, don&apos;t use it. Contact the
-        Keycard team at{' '}
+        Keycard team on{' '}
         <Link className="underline" href="https://discord.gg/uJAXk7jFhZ">
           Discord
         </Link>
