@@ -9,11 +9,11 @@ title: About your Keycard PIN and duress PIN
 
 When [setting up your Keycard](./set-up-your-keycard), you must create a six-digit Keycard PIN (personal identification number). It functions like a password to protect access to your Keycard.
 
-Additionally, you have the option to set a duress PIN, which you can use in situations where someone forces you to unlock your Keycard.
+Optionally, you can set a duress PIN to unlock a decoy wallet if someone forces you to unlock your Keycard.
 
-> ℹ️ **Note:** 
->
-> Keycard Shell prevents you from setting your Keycard PIN and duress PIN to be the same. Otherwise, entering a shared PIN would only grant access to your decoy wallet.
+<Admonition type="note">
+    Keycard Shell prevents you from setting your Keycard PIN and duress PIN to be the same.
+</Admonition>
 
 ## About your Keycard PIN
 
@@ -25,7 +25,11 @@ You can [change your Keycard PIN](./change-your-keycard-pin-or-duress-pin) at an
 
 ## About your duress PIN
 
-After setting your Keycard PIN, you can choose to set a duress PIN. If you skip this step, you can't add one later. This limitation is unavoidable to make the duress PIN undetectable to attackers.
+After setting your Keycard PIN, you can choose to set a duress PIN.
+
+<Admonition type="note">
+    If you skip setting a duress PIN, you can't add one later. This limitation is unavoidable to make the duress PIN undetectable to attackers. To use a duress PIN, you must [factory reset your Keycard](./factory-reset-your-keycard.mdx) and [set up your Keycard](./set-up-your-keycard.mdx) again.
+</Admonition>
 
 When you set a duress PIN, your Keycard automatically creates a decoy wallet. There is no visible way to tell whether you are using the decoy wallet or the regular wallet, or whether a decoy wallet exists. Only you know if you set a duress PIN.
 
@@ -49,12 +53,3 @@ Following these tips can help you create a secure PIN for your Keycard:
 After three wrong attempts at entering your Keycard PIN or duress PIN, your Keycard becomes blocked. You can unlock it by entering your [PUK](./set-a-keycard-puk) (personal unblocking code).
 
 If you don't have a PUK, you can [factory reset](./factory-reset-your-keycard) your Keycard and then [import your wallet accounts](./set-up-your-keycard.mdx#add-a-key-pair) again. This doesn't affect the funds in your wallet accounts. You can always access your funds with your recovery phrase.
-
----
-id: about-your-keycard-pin-and-duress-pin
-title: About your Keycard PIN and duress PIN
----
-
-# About your Keycard PIN and duress PIN
-
-We're working on this content
