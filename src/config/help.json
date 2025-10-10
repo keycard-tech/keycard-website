@@ -44,6 +44,10 @@
     "title": "Security features",
     "subItems": [
       {
+        "title": "Change your Keycard PIN or duress PIN",
+        "link": "/help/change-your-keycard-pin-or-duress-pin"
+      },
+      {
         "title": "About your Keycard PIN and duress PIN",
         "link": "/help/about-your-keycard-pin-and-duress-pin"
       },
