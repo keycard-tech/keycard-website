@@ -1,8 +1,57 @@
 ---
 id: understand-the-slip-39-wallet-backup-standard
-title:  Understand the SLIP39 wallet backup standard
+title: Understand the SLIP39 wallet backup standard
 ---
 
-#  Understand the SLIP39 wallet backup standard
+# Understand the SLIP39 wallet backup standard
 
-We're working on this content
+[SLIP39](https://slip39.com/) is a standard for creating secure and flexible backups of crypto wallets. Instead of giving you one long recovery phrase (like 12 or 24 words), with SLIP39 you can split your wallet backup into several parts of recovery phrases. You decide how many parts you want, and how many are needed to recover your wallet accounts.
+
+You can distribute these parts among people you trust or store them in different locations. This ensures that even if some parts are lost or compromised, the wallet accounts can still be recovered.
+
+> ⚠️ **Caution** 
+>
+> Losing one part may not cause immediate loss of funds, but you must still keep every recovery phrase safe and private. The Keycard team will never ask you for this information, and anyone who does is trying to steal your funds.
+
+## Comparision of SLIP39 and standard backup
+
+| Feature                     | SLIP39 backup                                           | Standard backup                                      |
+|:----------------------------|:--------------------------------------------------------|:-----------------------------------------------------|
+| Recovery phrase             | Several parts of 10 words each                          | One phrase of 12 or 24 words                         |
+| Number of phrases generated | Customizable (1-16)                                     | 1                                                    |
+| Phrases needed for recovery | Customizable (set your own threshold)                   | 1                                                    |
+| Backup redundancy           | Multiple parts stored across people or places           | Risk for single point of failure                     |
+| Word list                   | Words chosen to reduce spelling or pronunciation errors | Higher chance of typos                               |
+| Popularity                  | Gaining traction                                        | Widely supported in hardware wallets and wallet apps |
+
+## Use SLIP39 in Keycard Shell
+
+With Keycard and Keycard Shell, you can create and import SLIP39 wallet accounts. The process is similar to that of standard backups.
+
+- [Generate wallet accounts](./generate-a-key-pair-using-keycard-shell) with SLIP39:
+When generating the recovery phrases, choose how many parts to create and the threshold for recovery. For example, if you want six parts with a threshold of three, Keycard Shell generates six recovery phrases, each 10 words long. You must record all of them, but only three are needed to restore the wallet accounts.
+
+- [Import a wallet account](./import-a-key-pair-to-your-keycard) with SLIP39:
+When importing, enter one recovery phrase for each required part. For example, if your threshold is three, you enter any three sets of 10 words from your recovery phrases.
+
+> ℹ️ **Note** 
+>
+> Keycard and Keycard Shell must work with a wallet app. If you use SLIP39, choose a [wallet app](/docs/supported-wallets) that supports both Keycard and SLIP39, such as Rabby, Sparrow, or BlueWallet.
+
+## SLIP39 FAQ
+
+**Should I choose SLIP39?**
+
+Choose SLIP39 if you want more flexibility and redundancy in your wallet backup. You don't have to be a technical expert to use it. Just make sure you keep all parts safe and accessible.
+
+**What happens if I lose some parts?**
+
+As long as you still have the required number of parts, you can restore your wallet accounts. If you lose too many, you lose access to your wallet accounts permanently.
+
+**Can I convert my existing wallet account into a SLIP39 wallet account?**
+  
+No. Keycard and Keycard Shell don't support converting a standard backup into SLIP39. To use SLIP39, you must create a new wallet account with SLIP39 backup and transfer your assets into it.
+
+**Is SLIP39 the same as multisig?**
+
+No. A SLIP39 wallet account uses a single key. A [multisig](./understand-multisig-with-keycard) wallet account consists of multiple keys.
