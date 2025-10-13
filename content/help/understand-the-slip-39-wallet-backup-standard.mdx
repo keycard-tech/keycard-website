@@ -7,37 +7,73 @@ title: Understand the SLIP39 wallet backup standard
 
 BIP39 is the most common wallet backup standard. It uses a single recovery phrase of 12 or 24 words to restore your wallet accounts.
 
-[SLIP39](https://slip39.com/) is a standard for creating more secure and flexible backups of crypto wallets. Instead of giving you one recovery phrase, with SLIP39 you can split your wallet backup into several parts of recovery phrases. You decide how many parts you want, and how many are needed to recover your wallet accounts.
+[SLIP39](https://github.com/satoshilabs/slips/blob/master/slip-0039.md) is a standard for creating more secure and flexible backups of crypto wallets. Instead of giving you one recovery phrase, with SLIP39 you can split your recovery phrase into parts. You decide how many parts you want, and how many are needed to recover your wallet accounts.
 
-You can distribute these parts among people you trust or store them in different locations. This ensures that even if some parts are lost or compromised, you can still reover your wallet accounts.
+You can distribute these parts among people you trust or store them in different locations. This ensures that even if some parts are lost or compromised, you can still recover your wallet accounts.
 
-> ⚠️ **Caution** 
->
-> Losing one part may not cause immediate loss of funds, but you must still keep every recovery phrase safe and private. The Keycard team will never ask you for this information, and anyone who does is trying to steal your funds.
+<Admonition type="caution">
+    Losing one part may not cause immediate loss of funds, but you must still keep every recovery phrase safe and private. The Keycard team will never ask you for this information, and anyone who does is trying to steal your funds.
+</Admonition>
 
-## Comparision of SLIP39 and BIP39 backup
+## SLIP39 and BIP39 backup comparison
 
-| Aspect                      | SLIP39 backup                                                 | BIP39 backup                                         |
-|:----------------------------|:--------------------------------------------------------------|:-----------------------------------------------------|
-| Recovery phrase             | Several parts of 20 words each                                | One phrase of 12 or 24 words                         |
-| Number of phrases generated | Customizable (1-16)                                           | One                                                  |
-| Phrases needed for recovery | Customizable (set your own threshold)                         | One                                                  |
-| Backup redundancy           | Multiple parts stored across people or places                 | Risk for single point of failure                     |
-| Wallet support              | Limited support compared to BIP39, especially outside Bitcoin | Widely supported in hardware wallets and wallet apps |
+<Table>
+  <TableHead>
+    <TableHeader>Aspect</TableHeader>
+    <TableHeader>SLIP39 backup</TableHeader>
+    <TableHeader>BIP39 backup</TableHeader>
+  </TableHead>
+
+  <TableContent>
+    <TableRow>
+      <TableCell>Recovery phrase</TableCell>
+      <TableCell>Several parts of 20 words each</TableCell>
+      <TableCell>One phrase of 12 or 24 words</TableCell>
+    </TableRow>
+
+    <TableRow>
+      <TableCell>Number of phrases generated</TableCell>
+      <TableCell>Customizable (1-16)</TableCell>
+      <TableCell>One</TableCell>
+    </TableRow>
+
+    <TableRow>
+      <TableCell>Phrases needed for recovery</TableCell>
+      <TableCell>Customizable (set your own threshold)</TableCell>
+      <TableCell>One</TableCell>
+    </TableRow>
+
+    <TableRow>
+      <TableCell>Backup redundancy</TableCell>
+      <TableCell>Multiple parts stored across people or places</TableCell>
+      <TableCell>Risk for single point of failure</TableCell>
+    </TableRow>
+
+    <TableRow>
+      <TableCell>Wallet support</TableCell>
+      <TableCell>Limited support compared to BIP39, especially outside Bitcoin</TableCell>
+      <TableCell>Widely supported in hardware wallets and wallet apps</TableCell>
+    </TableRow>
+  </TableContent>
+</Table>
+
+<Admonition type="note">
+    SLIP39 offers enhanced security through multiple fragments and redundancy, while BIP39 is more established and easier to use for most wallets.
+</Admonition>
 
 ## Use SLIP39 in Keycard Shell
 
 With Keycard and Keycard Shell, you can create and import SLIP39 wallet accounts. The process is similar to that of BIP39 backups.
 
 - [Generate wallet accounts](./set-up-your-keycard#generate-a-new-key-pair) with SLIP39:
-When generating the recovery phrases, choose how many parts to create and the threshold for recovery. For example, if you want six parts with a threshold of three, Keycard Shell generates six recovery phrases, each 20 words long. You must record all of them, but only three are needed to restore the wallet accounts.
+When generating the recovery phrases, choose how many parts to create and the threshold for recovery. For example, if you want six parts with a threshold of three, Keycard Shell generates six recovery phrases, each 20 words long. You must record all of them, but any three are needed to restore the wallet accounts.
 
 - [Import a wallet account](./set-up-your-keycard#import-with-recovery-phrase) with SLIP39:
 When importing, enter one recovery phrase for each required part. For example, if your threshold is three, you enter any three sets of 20 words from your recovery phrases.
 
-> ℹ️ **Note** 
->
-> Keycard and Keycard Shell must work with a wallet app. If you use SLIP39, choose a [wallet app](/docs/supported-wallets) that supports both Keycard and SLIP39, such as Rabby, Sparrow, or BlueWallet.
+<Admonition type="note">
+    Keycard and Keycard Shell work with a wallet app. If you use SLIP39, choose a [wallet app](/docs/supported-wallets) that supports both Keycard and SLIP39, such as Rabby, Sparrow, or BlueWallet.
+</Admonition>
 
 ## SLIP39 FAQ
 
@@ -47,7 +83,7 @@ Choose SLIP39 if you want more flexibility and redundancy in your wallet backup.
 
 **What happens if I lose some parts?**
 
-As long as you still have the required number of parts, you can restore your wallet accounts. If you lose too many, you lose access to your wallet accounts permanently.
+As long as you still have the required number of parts, you can restore your wallet accounts. If you lose more parts than the ones you need to restore your wallet (your threshold), you lose access to your wallet accounts permanently.
 
 **Can I convert my existing wallet account into a SLIP39 wallet account?**
   
