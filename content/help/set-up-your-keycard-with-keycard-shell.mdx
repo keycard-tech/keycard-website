@@ -5,4 +5,70 @@ title: Set up your Keycard
 
 # Set up your Keycard
 
-We're working on this content.
+![Header image showing a Keycard inserted into a Keycard Shell.](/assets/docs/set-up-your-keycard-header.png)
+
+To start using a new Keycard, you need to set a Keycard PIN and optionally a duress PIN, then add a key pair to your Keycard with the Keycard Shell.
+
+The Keycard PIN functions as a password for your Keycard. A duress PIN can unlock a decoy wallet. Check out [About your Keycard PIN and duress PIN](./about-your-keycard-pin-and-duress-pin) to learn more.
+
+## Set up your Keycard
+
+Before you start, [get to know your Keycard Shell](./get-to-know-your-keycard-shell)'s controls.
+
+### Step 1: Set your Keycard PIN and duress PIN
+
+If you skip setting up a duress PIN, you cannot add one later. This restriction prevents attackers from forcing you to reveal it.
+
+Be sure to use different numbers for your Keycard PIN and duress PIN.
+
+1. Insert the Keycard with the chip facing up and push it in all the way. Your Keycard Shell powers on automatically.
+1. Set a Keycard PIN and press **OK**.
+1. Enter the Keycard PIN again and press **OK** to confirm.
+1. Optionally, press and hold **OK** to set a duress PIN. Press **C** to skip this step.
+1. Set a duress PIN and press **OK**.
+1. Enter the duress PIN again and press **OK** to confirm.
+1. Press **OK**.
+
+### Step 2: Add a key pair
+
+There are three methods to add a key pair to your Keycard: generate a new key pair, import with a recovery phrase, or import with a QR code.
+
+A passphrase is an optional extra word or phrase you add to your recovery phrase for extra security. If you set one, you must remember it to recover your wallet.
+
+SLIP39 is an advanced backup method that splits your wallet backup into multiple parts. However, it is not yet widely supported. For more information, check out [Understand the SLIP39 wallet backup standard](./understand-the-slip-39-wallet-backup-standard).
+
+#### Generate a new key pair
+
+1. On your Keycard Shell, select **Generate new key pair**.
+1. Choose your recovery phrase type: 12 or 24 words, or a SLIP39 backup. You can also select whether to use a passphrase. Then press **OK** to confirm the text on the screen.
+1. Skip this step if you choose a 12- or 24-word recovery phrase. If you choose a SLIP39 backup, press ◀ ▶ **Left** / **Right** to set the total number of parts and the threshold number of parts required to recover your wallet. Then press **OK**.
+1. Write down the recovery phrase(s) and press **OK**.
+1. Press **OK** to confirm the text on the screen. Then confirm your recovery phrase by selecting the words as required.
+1. If you choose to set a passphrase, press ▲ ▼ **Up** / **Down** and ◀ ▶ **Left** / **Right** to select letters and set a passphrase. Press and hold **OK** to confirm.
+1. Press **OK**.
+
+> ⚠️ **Caution** 
+>
+> Keep your recovery phrase(s) safe and private. The Keycard team will never ask you for this information, and anyone who does is trying to steal your funds.
+
+#### Import with recovery phrase 
+
+1. On your Keycard Shell, select **Import recovery phrase**.
+1. Select the type of your recovery phrase (12 or 24 words, or a SLIP39 backup) and whether it includes a passphrase.
+1. Press ▲ ▼ **Up** / **Down** and ◀ ▶ **Left** / **Right** to select letters and enter each word of your recovery phrase.
+1. If there is a passphrase, enter it. Press and hold **OK** to confirm.
+1. Press **OK**.
+
+#### Import with QR code
+
+1. On your wallet app or another hardware wallet, prepare your recovery phrase QR code for scanning.
+1. On your Keycard Shell, select **Scan QR**.
+1. If your recovery phrase has a passphrase, select **Add passphrase**; otherwise, select **No passphrase**.
+1. Scan the QR code with your Keycard Shell's camera.
+1. Confirm your recovery phrase by pressing **OK**.
+1. If there is a passphrase, press ▲ ▼ **Up** / **Down** and ◀ ▶ **Left** / **Right** to select letters and enter the passphrase. Press and hold **OK** to confirm.
+1. Press **OK**.
+
+> 💡 **Tip** 
+>
+> After setup, your Keycard is ready. To start managing your crypto, [connect your Keycard Shell to a wallet app](./connect-keycard-shell-to-a-wallet-app.mdx) that supports QR signing to initiate and sign transactions.
