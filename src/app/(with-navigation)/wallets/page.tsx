@@ -13,7 +13,11 @@ type BlockchainType = 'ethereum' | 'bitcoin'
 
 interface Wallet {
   name: string
-  icon: string
+  icon: {
+    url: string
+    width: number
+    height: number
+  }
   type: WalletType[]
   blockchains: BlockchainType[]
   setupGuideUrl: string
@@ -22,70 +26,70 @@ interface Wallet {
 const WALLETS: Wallet[] = [
   {
     name: 'MetaMask',
-    icon: '',
+    icon: { url: '/assets/wallets/metamask.png', width: 104, height: 100 },
     type: ['shell'],
     blockchains: ['ethereum'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-wallet-app',
   },
   {
     name: 'Status',
-    icon: '',
+    icon: { url: '/assets/wallets/status.png', width: 96, height: 96 },
     type: ['keycard'],
     blockchains: ['ethereum'],
     setupGuideUrl: '/start/keycard',
   },
   {
     name: 'Rabby',
-    icon: '',
+    icon: { url: '/assets/wallets/rabby.png', width: 146, height: 147 },
     type: ['shell'],
     blockchains: ['ethereum'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-wallet-app',
   },
   {
     name: 'imToken',
-    icon: '',
+    icon: { url: '/assets/wallets/imtoken.png', width: 112, height: 79 },
     type: ['shell'],
     blockchains: ['ethereum'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-wallet-app',
   },
   {
     name: 'BitGet',
-    icon: '',
+    icon: { url: '/assets/wallets/bitget.png', width: 132, height: 132 },
     type: ['shell'],
     blockchains: ['ethereum', 'bitcoin'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-wallet-app',
   },
   {
     name: 'Unisat',
-    icon: '',
+    icon: { url: '/assets/wallets/unisat.png', width: 82, height: 103 },
     type: ['shell'],
     blockchains: ['bitcoin'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-wallet-app',
   },
   {
     name: 'Specter',
-    icon: '',
+    icon: { url: '/assets/wallets/specter.png', width: 112, height: 102 },
     type: ['shell'],
     blockchains: ['bitcoin'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-wallet-app',
   },
   {
     name: 'Sparrow',
-    icon: '',
+    icon: { url: '/assets/wallets/sparrow.png', width: 114, height: 114 },
     type: ['shell'],
     blockchains: ['bitcoin'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-wallet-app',
   },
   {
     name: 'Nunchuk',
-    icon: '',
+    icon: { url: '/assets/wallets/nunchuk.png', width: 96, height: 96 },
     type: ['shell'],
     blockchains: ['bitcoin'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-wallet-app',
   },
   {
     name: 'Walleth',
-    icon: '',
+    icon: { url: '/assets/wallets/walleth.png', width: 96, height: 81 },
     type: ['keycard'],
     blockchains: ['ethereum'],
     setupGuideUrl: '/start/keycard',
@@ -106,10 +110,10 @@ function WalletCard({ wallet }: { wallet: Wallet }) {
       <div className="mb-4 flex items-center justify-center">
         {wallet.icon ? (
           <Image
-            src={wallet.icon}
+            src={wallet.icon.url}
             alt={`${wallet.name} logo`}
-            width={100}
-            height={100}
+            height={wallet.icon.height}
+            width={wallet.icon.width}
             className="rounded-16"
           />
         ) : (
