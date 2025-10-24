@@ -12,7 +12,7 @@ To start building with Keycard, here are some core concepts that you need to und
 * Keycard has no concept of transaction. It can sign any hash using a supported signature scheme. In the current revision  ECDSA over secp256k1 is the only scheme supported. The hash can be any 256-bit (32 bytes) long hash.
 * Keycard allows loading seeds as defined by BIP-32. You can also load an extended keypair (keypair + chaining code).
 * You can use Keycard to generate entropy (in the form of BIP39 mnemonic) for a new keypair. The generated entropy will be returned but will not be persisted. You need to load the final seed/keypair yourself.
-* You can ask Keycard to generate and persist a keypair internally. Doing this will however prevent any form of backup so it must be used with caution
+* You can ask Keycard to generate and persist a keypair internally. Using this kind of setup will however prevent any form of backup so it must be used with caution, and likely not in everyday use.
 * Any operation involving the wallet or modifying card state (except factory reset) requires user authentication through a PIN.
 * Any communication, with the exception of a few commands, requires setting up a secure channel. The secure channel guarantees confidentiality, integrity and authenticity of the communication.
 * All communication is initiated by the host, which sends a command and wait for the Keycard to respond. The card cannot initiate communication.
