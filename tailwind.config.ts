@@ -68,6 +68,13 @@ export default {
           letterSpacing: '-0.02rem',
         },
       ],
+      15: [
+        '0.9375rem',
+        {
+          lineHeight: '1.25rem',
+          letterSpacing: '-0.01875rem',
+        },
+      ],
       14: [
         '0.875rem',
         {
@@ -120,6 +127,7 @@ export default {
     borderRadius: {
       0: '0px',
       6: '6px',
+      10: '10px',
       12: '12px',
       16: '16px',
       20: '20px',

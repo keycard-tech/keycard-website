@@ -7,6 +7,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { BuyCards } from '../(homepage)/_components/buy-cards'
+import { Tabs, TabsList, TabsTrigger } from './_components/tabs'
 
 type WalletType = 'keycard' | 'shell'
 type BlockchainType = 'ethereum' | 'bitcoin'
@@ -150,7 +151,6 @@ export default function WalletsPage() {
   const [activeTab, setActiveTab] = useState<'all' | 'keycard' | 'shell'>('all')
 
   const filteredWallets = WALLETS.filter(wallet => {
-    console.log(activeTab, setActiveTab)
     if (activeTab === 'all') return true
     return wallet.type.includes(activeTab)
   })
@@ -177,6 +177,19 @@ export default function WalletsPage() {
           </span>
         </p>
       </header>
+
+      <Tabs
+        defaultValue="all"
+        onValueChange={value =>
+          setActiveTab(value as 'keycard' | 'shell' | 'all')
+        }
+      >
+        <TabsList>
+          <TabsTrigger value="all">All</TabsTrigger>
+          <TabsTrigger value="keycard">Keycard</TabsTrigger>
+          <TabsTrigger value="shell">Shell</TabsTrigger>
+        </TabsList>
+      </Tabs>
 
       <div className="mb-12 grid grid-cols-1 gap-3 lg:grid-cols-3 lg:gap-4">
         {filteredWallets.map(wallet => (
