@@ -2,15 +2,18 @@
 
 import { ExternalIcon } from '@status-im/icons/16'
 import { TwitterIcon } from '@status-im/icons/social'
+import { KeycardIcon } from '~/app/_icons/keycard-icon'
+import { KeycardShellIcon } from '~/app/_icons/keycard-shell-icon'
 import { ButtonLink } from '~components/button-link'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
+import { match } from 'ts-pattern'
 import { BuyCards } from '../(homepage)/_components/buy-cards'
 import { Tabs, TabsList, TabsTrigger } from './_components/tabs'
 
-type WalletType = 'keycard' | 'shell'
-type BlockchainType = 'ethereum' | 'bitcoin'
+type WalletType = 'Keycard' | 'Shell'
+type BlockchainType = 'Ethereum' | 'Bitcoin'
 
 interface Wallet {
   name: string
@@ -28,95 +31,120 @@ const WALLETS: Wallet[] = [
   {
     name: 'MetaMask',
     icon: { url: '/assets/wallets/metamask.png', width: 104, height: 100 },
-    type: ['shell'],
-    blockchains: ['ethereum'],
+    type: ['Shell'],
+    blockchains: ['Ethereum'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-wallet-app',
   },
   {
     name: 'Status',
     icon: { url: '/assets/wallets/status.png', width: 96, height: 96 },
-    type: ['keycard'],
-    blockchains: ['ethereum'],
+    type: ['Keycard'],
+    blockchains: ['Ethereum'],
     setupGuideUrl: '/start/keycard',
   },
   {
     name: 'Rabby',
     icon: { url: '/assets/wallets/rabby.png', width: 146, height: 147 },
-    type: ['shell'],
-    blockchains: ['ethereum'],
+    type: ['Shell'],
+    blockchains: ['Ethereum'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-wallet-app',
   },
   {
     name: 'imToken',
     icon: { url: '/assets/wallets/imtoken.png', width: 112, height: 79 },
-    type: ['shell'],
-    blockchains: ['ethereum'],
+    type: ['Shell'],
+    blockchains: ['Ethereum'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-wallet-app',
   },
   {
     name: 'BitGet',
     icon: { url: '/assets/wallets/bitget.png', width: 132, height: 132 },
-    type: ['shell'],
-    blockchains: ['ethereum', 'bitcoin'],
+    type: ['Shell'],
+    blockchains: ['Ethereum', 'Bitcoin'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-wallet-app',
   },
   {
     name: 'Unisat',
     icon: { url: '/assets/wallets/unisat.png', width: 82, height: 103 },
-    type: ['shell'],
-    blockchains: ['bitcoin'],
+    type: ['Shell'],
+    blockchains: ['Bitcoin'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-wallet-app',
   },
   {
     name: 'Specter',
     icon: { url: '/assets/wallets/specter.png', width: 112, height: 102 },
-    type: ['shell'],
-    blockchains: ['bitcoin'],
+    type: ['Shell'],
+    blockchains: ['Bitcoin'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-wallet-app',
   },
   {
     name: 'Sparrow',
     icon: { url: '/assets/wallets/sparrow.png', width: 114, height: 114 },
-    type: ['shell'],
-    blockchains: ['bitcoin'],
+    type: ['Shell'],
+    blockchains: ['Bitcoin'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-wallet-app',
   },
   {
     name: 'Nunchuk',
     icon: { url: '/assets/wallets/nunchuk.png', width: 96, height: 96 },
-    type: ['shell'],
-    blockchains: ['bitcoin'],
+    type: ['Shell'],
+    blockchains: ['Bitcoin'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-wallet-app',
   },
   {
     name: 'Walleth',
     icon: { url: '/assets/wallets/walleth.png', width: 96, height: 81 },
-    type: ['keycard'],
-    blockchains: ['ethereum'],
+    type: ['Keycard'],
+    blockchains: ['Ethereum'],
     setupGuideUrl: '/start/keycard',
   },
 ]
 
-const Badge = ({ children }: { children: React.ReactNode }) => {
+const Badge = ({ children }: { children: WalletType | BlockchainType }) => {
+  const icon = match(children)
+    .with('Keycard', () => <KeycardIcon className="size-5 p-[2px]" />)
+    .with('Shell', () => <KeycardShellIcon className="size-5 p-[2px]" />)
+    .with('Ethereum', () => (
+      <Image
+        src="/assets/wallets/ethereum.png"
+        alt="Ethereum"
+        width={16}
+        height={16}
+        className="size-5 p-[2px]"
+      />
+    ))
+    .with('Bitcoin', () => (
+      <Image
+        src="/assets/wallets/bitcoin.png"
+        alt="Bitcoin"
+        width={16}
+        height={16}
+        className="size-5 p-[2px]"
+      />
+    ))
+    .exhaustive()
+
   return (
-    <div className="flex items-center gap-1 rounded-28 bg-white-10 px-2 py-[3px] text-13 text-white-100">
-      {children}
+    <div className="flex items-center gap-1 rounded-28 bg-white-10 px-2 py-[3px] pl-[2px] text-13 text-white-100">
+      {icon} {children}
     </div>
   )
 }
 
 function WalletCard({ wallet }: { wallet: Wallet }) {
   return (
-    <div className="flex flex-col items-center rounded-20 border border-white-8 bg-white-4 p-6 lg:p-8">
+    <div className="flex flex-col items-center rounded-20 border border-white-8 bg-white-4 p-6">
       <div className="mb-4 flex items-center justify-center">
         {wallet.icon ? (
-          <Image
-            src={wallet.icon.url}
-            alt={`${wallet.name} logo`}
-            height={wallet.icon.height}
-            width={wallet.icon.width}
-            className="rounded-16"
-          />
+          <div className="flex size-[100px] items-center justify-center">
+            <Image
+              src={wallet.icon.url}
+              alt={`${wallet.name} logo`}
+              height={wallet.icon.height}
+              width={wallet.icon.width}
+              className="size-full rounded-16 object-contain"
+            />
+          </div>
         ) : (
           <div className="flex size-[100px] items-center justify-center rounded-16 bg-white-20">
             <span className="text-32 font-500 text-white-60">
@@ -138,7 +166,7 @@ function WalletCard({ wallet }: { wallet: Wallet }) {
       </div>
       <Link
         href={wallet.setupGuideUrl}
-        className="inline-flex items-center gap-1 rounded-12 border border-white-12 bg-white-4 px-4 py-2 text-14 font-500 text-white-95 transition-colors hover:bg-white-8"
+        className="inline-flex items-center gap-1 rounded-12 border border-white-12 bg-white-4 pb-[10px] pl-[14px] pr-[10px] pt-2 text-16 font-500 text-white-95 transition-colors hover:border-white-20 hover:bg-white-8"
       >
         Setup guide
         <ExternalIcon className="text-white-80" />
@@ -148,7 +176,7 @@ function WalletCard({ wallet }: { wallet: Wallet }) {
 }
 
 export default function WalletsPage() {
-  const [activeTab, setActiveTab] = useState<'all' | 'keycard' | 'shell'>('all')
+  const [activeTab, setActiveTab] = useState<'all' | 'Keycard' | 'Shell'>('all')
 
   const filteredWallets = WALLETS.filter(wallet => {
     if (activeTab === 'all') return true
