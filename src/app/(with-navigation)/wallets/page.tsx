@@ -1,7 +1,7 @@
 'use client'
 
 import { ExternalIcon } from '@status-im/icons/16'
-import { TwitterIcon } from '@status-im/icons/social'
+import { DiscordIcon, TwitterIcon } from '@status-im/icons/social'
 import { KeycardIcon } from '~/app/_icons/keycard-icon'
 import { KeycardShellIcon } from '~/app/_icons/keycard-shell-icon'
 import { ButtonLink } from '~components/button-link'
@@ -40,7 +40,7 @@ const WALLETS: Wallet[] = [
     icon: { url: '/assets/wallets/status.png', width: 96, height: 96 },
     type: ['Keycard'],
     blockchains: ['Ethereum'],
-    setupGuideUrl: '/start/keycard',
+    setupGuideUrl: '/help/connect-keycard-shell-to-a-wallet-app',
   },
   {
     name: 'Rabby',
@@ -96,7 +96,7 @@ const WALLETS: Wallet[] = [
     icon: { url: '/assets/wallets/walleth.png', width: 96, height: 81 },
     type: ['Keycard'],
     blockchains: ['Ethereum'],
-    setupGuideUrl: '/start/keycard',
+    setupGuideUrl: '/help/connect-keycard-shell-to-a-wallet-app',
   },
 ]
 
@@ -207,36 +207,44 @@ export default function WalletsPage() {
       </header>
 
       <Tabs
-        defaultValue="all"
+        defaultValue="All"
         onValueChange={value =>
           setActiveTab(value as 'Keycard' | 'Shell' | 'All')
         }
       >
         <TabsList>
-          <TabsTrigger value="all">All</TabsTrigger>
-          <TabsTrigger value="keycard">Keycard</TabsTrigger>
-          <TabsTrigger value="shell">Shell</TabsTrigger>
+          <TabsTrigger value="All">All</TabsTrigger>
+          <TabsTrigger value="Keycard">Keycard</TabsTrigger>
+          <TabsTrigger value="Shell">Shell</TabsTrigger>
         </TabsList>
       </Tabs>
 
-      <div className="mb-12 grid grid-cols-1 gap-3 lg:grid-cols-3 lg:gap-4">
+      <div className="mt-2 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {filteredWallets.map(wallet => (
           <WalletCard key={wallet.name} wallet={wallet} />
         ))}
       </div>
 
-      <div className="mt-14 flex flex-1 flex-col gap-6 rounded-28 border border-white-8 bg-white-4 p-6 pt-5 lg:mt-10 lg:max-w-[435px]">
+      <div className="mt-10 flex flex-1 flex-col gap-6 rounded-28 border border-white-8 bg-white-4 p-6 pt-5 lg:mt-6 lg:max-w-[435px]">
         <div className="flex flex-col gap-[6px]">
           <p className="font-lora text-24 font-400 text-white-95">
-            Still have questions?
+            Have questions?
           </p>
-          <p className="text-16 font-300 text-white-80">
+          <p className="text-16 font-300 text-white-60">
             Reach out to our team or engage with our community on Discord or X.
           </p>
         </div>
         <div className="flex gap-3">
           <ButtonLink href="mailto:support@keycard.tech" variant="secondary">
             Get in touch
+          </ButtonLink>
+          <ButtonLink
+            href="https://discord.gg/uJAXk7jFhZ"
+            variant="secondary"
+            className="px-[9px]"
+            aria-label="Keycard on Discord"
+          >
+            <DiscordIcon />
           </ButtonLink>
           <ButtonLink
             href="https://x.com/keycard_"
