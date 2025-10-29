@@ -28,7 +28,7 @@ export const ROUTES = {
     },
     {
       name: 'Quick Start Guide',
-      href: 'https://keycard.tech/start/shell',
+      href: '/start/shell',
     },
     {
       name: 'Update Shell',
