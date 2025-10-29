@@ -176,10 +176,10 @@ function WalletCard({ wallet }: { wallet: Wallet }) {
 }
 
 export default function WalletsPage() {
-  const [activeTab, setActiveTab] = useState<'all' | 'Keycard' | 'Shell'>('all')
+  const [activeTab, setActiveTab] = useState<'All' | 'Keycard' | 'Shell'>('All')
 
   const filteredWallets = WALLETS.filter(wallet => {
-    if (activeTab === 'all') return true
+    if (activeTab === 'All') return true
     return wallet.type.includes(activeTab)
   })
 
@@ -209,7 +209,7 @@ export default function WalletsPage() {
       <Tabs
         defaultValue="all"
         onValueChange={value =>
-          setActiveTab(value as 'keycard' | 'shell' | 'all')
+          setActiveTab(value as 'Keycard' | 'Shell' | 'All')
         }
       >
         <TabsList>
