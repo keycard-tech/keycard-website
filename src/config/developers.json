@@ -18,6 +18,10 @@
     "link": "/developers/core"
   },
   {
+    "title": "Build your Keycard",
+    "link": "/developers/build"
+  },
+  {
     "title": "Getting Started",
     "link": "/developers/getting-started",
     "subItems": [
