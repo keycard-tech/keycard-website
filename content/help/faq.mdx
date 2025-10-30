@@ -19,7 +19,7 @@ You can't use Keycard Shell without Keycard.
 
 - **How many Keycards can I use with one Keycard Shell device?**
 
-Unlimited. Keycard Shell works with any Keycard, including yours and someone else's.
+Unlimited. You can also share one Keycard Shell device with your friends and family to use with their own Keycards, because Keycard Shell doesn't store private keys or sensitive information.
 
 - **Which cryptocurrencies do Keycard and Keycard Shell support?**
 
@@ -27,13 +27,13 @@ Keycard and Keycard Shell support Bitcoin (BTC), Ethereum (ETH), and ERC-20 toke
 
 - **How many wallets can I use on one Keycard?**
 
-There are unlimited Ethereum and Bitcoin addresses on one Keycard. They are not separate wallets. They are derived from one key pair.
+Your Keycard stores one master key, created from a [BIP39 or SLIP39](./understand-the-slip-39-wallet-backup-standard.mdx) recovery phrase. This master key can generate as many Ethereum and Bitcoin addresses as you need (according to the [BIP32 standard](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) ↗).
 
 - **Can I use my Keycard or Keycard Shell without a wallet app?**
 
 No, you can't use your Keycard or Keycard Shell without a [compatible wallet app](developers/supported-wallets). Wallet apps provide the interface for managing your crypto.
 
-If you use Keycard alone, you must use the [Status app](https://status.app/help/keycard/create-a-status-wallet-account-using-a-keycard). If you use Keycard and Keycard Shell together, there are [a list of options](developers/supported-wallets) such as MetaMask, Rabby and BlueWallet.
+If you use Keycard alone, you must use the [Status app](https://status.app/help/keycard/create-a-status-wallet-account-using-a-keycard). If you use Keycard and Keycard Shell together, there are [a list of options](developers/supported-wallets) such as MetaMask, Rabby and Sparrow.
 
 - **Can I use more than one wallet app with the same Keycard?**
 
@@ -47,9 +47,7 @@ Currently, Keycard Shell can't connect directly to dApps. You need to use a [com
 
 - **Are Keycard and Keycard Shell air-gapped?**
 
-Keycard and Keycard Shell are not permanently air-gapped by design. Keycard supports NFC communication and smart card readers. Keycard Shell connects to your devices via USB.
-
-You can configure both devices to work together in an air-gapped manner. Check out [Keep your keycard and Keycard Shell air-gapped](./keep-your-keycard-and-keycard-shell-air-gapped.mdx) to learn how.
+Keycard Shell operates in an air-gapped way, except when updating its system via USB. You can still perform the update on an offline computer. Keycard supports NFC communication and smart card readers, but when used with Keycard Shell, NFC and card readers are not required. Check out [Keep your keycard and Keycard Shell air-gapped](./keep-your-keycard-and-keycard-shell-air-gapped.mdx) to learn how.
 
 - **What if I lose my Keycard or Keycard Shell?**
 
