@@ -26,7 +26,7 @@ const internalLinkStyles = cva({
   },
 })
 
-const links = [
+export const NAV_BAR_LINKS = [
   { href: 'https://get.keycard.tech/pages/keycard', label: 'Keycard' },
   {
     href: 'https://get.keycard.tech/pages/keycard-shell',
@@ -72,7 +72,7 @@ const NavBar = () => {
       </Link>
 
       <div className="flex items-center gap-4">
-        {links.map(({ href, label }) => (
+        {NAV_BAR_LINKS.map(({ href, label }) => (
           <Link
             key={href}
             href={href}
