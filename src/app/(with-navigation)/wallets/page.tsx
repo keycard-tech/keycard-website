@@ -1,6 +1,5 @@
 'use client'
 
-import { ExternalIcon } from '@status-im/icons/16'
 import { DiscordIcon, TwitterIcon } from '@status-im/icons/social'
 import { KeycardIcon } from '~/app/_icons/keycard-icon'
 import { KeycardShellIcon } from '~/app/_icons/keycard-shell-icon'
@@ -169,7 +168,6 @@ function WalletCard({ wallet }: { wallet: Wallet }) {
         className="inline-flex items-center gap-1 rounded-12 border border-white-12 bg-white-4 pb-[10px] pl-[14px] pr-[10px] pt-2 text-16 font-500 text-white-95 transition-colors hover:border-white-20 hover:bg-white-8"
       >
         Setup guide
-        <ExternalIcon className="text-white-80" />
       </Link>
     </div>
   )
