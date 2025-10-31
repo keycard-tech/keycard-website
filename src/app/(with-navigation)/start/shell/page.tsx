@@ -175,7 +175,7 @@ const STEPS = [
     title: '4. Verify Shell (optional)',
     description: (
       <>
-        Verification checks for malicious extensions or viruses on your Shell.
+        Verification checks that your Shell is authentic and runs a verified firmware.
         You need your phone or computer to complete this process. Check out{' '}
         <Link className="underline" href="/help/verify-your-shell-authenticity">
           Verify your Shell Authenticity

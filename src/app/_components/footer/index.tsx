@@ -6,7 +6,7 @@ import { Section } from './section'
 
 const Footer = () => {
   return (
-    <footer className="mt-auto rounded-28 bg-orange pt-8 selection:bg-dark-60">
+    <footer className="mt-auto rounded-28 bg-grey-100 pt-8 selection:bg-orange">
       <div className="relative">
         <div className="absolute flex items-start pl-6">
           <Link href="/" aria-label="Homepage">
@@ -14,7 +14,7 @@ const Footer = () => {
           </Link>
         </div>
         <div className="m-auto max-w-[1512px]">
-          <div className="grid grid-cols-2 divide-x divide-dashed divide-white-20 lg:grid-cols-5 lg:pl-[152px] lg:pr-0 xl:pl-[282px]">
+          <div className="grid grid-cols-2 divide-dashed divide-white-20 lg:grid-cols-6 lg:divide-x lg:px-0 xl:pl-[36px]">
             <div
               key="empty"
               title="empty"
