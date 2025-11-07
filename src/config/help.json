@@ -41,8 +41,8 @@
     "title": "Update and reset",
     "subItems": [
       {
-        "title": "Factory reset your Keycard",
-        "link": "/help/factory-reset-your-keycard"
+        "title": "Factory reset your Keycard using Keycard Shell",
+        "link": "/help/factory-reset-your-keycard-using-keycard-shell"
       }
     ]
   },
