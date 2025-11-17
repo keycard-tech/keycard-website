@@ -5,4 +5,83 @@ title: About Keycard and Keycard Shell
 
 # About Keycard and Keycard Shell
 
-We're working on this content.
+The Keycard and Keycard Shell provide hardware-level security for your wallet's private keys. These private keys are the fundamental cryptographic component necessary for accessing and controlling your crypto funds.
+
+## What is Keycard?
+
+Keycard is a secure hardware wallet in the form of a contactless smart card. It stores your private keys on a dedicated secure chip, keeping your crypto safe even when used with internet-connected devices.
+
+**Key features:**
+- **Secure chip**: Your private keys never leave the card
+- **NFC support**: Communitcate wirelessly with mobile devices
+- **Open source**: Adapt Keycard to your own [projects](https://github.com/keycard-tech/keycard-ecosystem-projects/) ↗
+- **Status integration**: Supported in [Status](https://status.app/help/keycard/keycard-your-quick-start-guide#manage-your-keycard) ↗ mobile and desktop apps
+
+Keycard works with iOS/Android mobile phones through NFC and with desktop computers using a USB smartcard reader.
+
+## What is Keycard Shell?
+
+Keycard Shell is a companion device that adds extra functionality to Keycard, enabling interaction with more wallet apps and signing transactions via QR codes.
+
+Keycard Shell must work together with Keycard. You can share your Keycard Shell with friends and family to use with their own Keycards, because it doesn't store any private keys or sensitive information.
+
+**Key features:**
+- **Display**: See transaction details clearly on the screen
+- **Wider wallet support**: Works with MetaMask, BlueWallet, Rabby, imToken, [and more](https://keycard.tech/wallets)
+- **Air-gapped operation**: [Sign transactions](./sign-a-transaction-using-keycard-shell.mdx) via QR codes, keeping your private keys offline
+- **SLIP39 support**: [Generate and restore wallets](./set-up-your-keycard-with-keycard-shell.mdx#step-2-add-a-master-key-pair) using SLIP39 recovery phrases
+- **Keycard management**: [Change PIN](./change-your-keycard-pin-or-duress-pin.mdx), [unblock](./unblock-your-keycard.mdx), and [factory reset](./factory-reset-your-keycard-using-keycard-shell.mdx) your Keycard
+
+## Functionality comparison
+
+Keycard and Keycard Shell must work together with a wallet app to manage your crypto assets. They each perform different functions in the overall process.
+
+<Table>
+    <TableHead>
+    <TableHeader>Functionality</TableHeader>
+    <TableHeader>Keycard</TableHeader>
+    <TableHeader>Keycard Shell</TableHeader>
+    <TableHeader>Wallet app</TableHeader>
+    </TableHead>
+
+    <TableContent>
+    <TableRow>
+        <TableCell>Seture private keys</TableCell>
+        <TableCell>✅</TableCell>
+        <TableCell>-</TableCell>
+        <TableCell>-</TableCell>
+    </TableRow>
+
+    <TableRow>
+        <TableCell>Create transactions</TableCell>
+        <TableCell>-</TableCell>
+        <TableCell>-</TableCell>
+        <TableCell>✅</TableCell>
+    </TableRow>
+
+    <TableRow>
+        <TableCell>[Sign transactions](./sign-a-transaction-using-keycard-shell.mdx)</TableCell>
+        <TableCell>-</TableCell>
+        <TableCell>✅</TableCell>
+        <TableCell>Use [Status app](https://status.app/help/keycard/keycard-your-quick-start-guide#manage-your-keycard) ↗ if you don't use Keycard Shell</TableCell>
+    </TableRow>
+
+    <TableRow>
+        <TableCell>[Air-gapped](./keep-your-keycard-and-keycard-shell-air-gapped.mdx)</TableCell>
+        <TableCell>✅, if use with Keycard Shell</TableCell>
+        <TableCell>✅</TableCell>
+        <TableCell>-</TableCell>
+    </TableRow>
+
+    <TableRow>
+        <TableCell>Manage Keycard</TableCell>
+        <TableCell>-</TableCell>
+        <TableCell>✅</TableCell>
+        <TableCell>Use [Status app](https://status.app/help/keycard/keycard-your-quick-start-guide#manage-your-keycard) ↗ if you don't use Keycard Shell</TableCell>
+    </TableRow>
+    </TableContent>
+</Table>
+
+<Admonition type="note">
+    For more common questions about Keycard and Keycard Shell, check out [Keycard and Keycard Shell FAQ](./faq.mdx).
+</Admonition>
