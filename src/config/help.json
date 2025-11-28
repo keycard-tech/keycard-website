@@ -60,6 +60,10 @@
       {
         "title": "Understand the Slip39 wallet backup standard",
         "link": "/help/understand-the-slip-39-wallet-backup-standard"
+      },
+      {
+        "title": "Unblock your Keycard using Keycard Shell",
+        "link": "/help/unblock-your-keycard-using-keycard-shell"
       }
     ]
   },
