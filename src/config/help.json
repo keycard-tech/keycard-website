@@ -3,10 +3,6 @@
     "title": "Get started",
     "subItems": [
       {
-        "title": "Overview",
-        "link": "/help/overview"
-      },
-      {
         "title": "About Keycard and Keycard Shell",
         "link": "/help/about-keycard-and-keycard-shell"
       },
