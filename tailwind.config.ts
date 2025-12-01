@@ -68,11 +68,25 @@ export default {
           letterSpacing: '-0.02rem',
         },
       ],
+      15: [
+        '0.9375rem',
+        {
+          lineHeight: '1.25rem',
+          letterSpacing: '-0.01875rem',
+        },
+      ],
       14: [
         '0.875rem',
         {
           lineHeight: '1.125rem',
           letterSpacing: '-0.0175rem',
+        },
+      ],
+      13: [
+        '0.8125rem',
+        {
+          lineHeight: '1.0625rem',
+          letterSpacing: '-0.01375rem',
         },
       ],
       12: [
@@ -93,6 +107,9 @@ export default {
         60: 'rgba(1, 1, 1, 0.6)',
         8: 'rgba(1, 1, 1, 0.08)',
       },
+      grey: {
+        100: 'rgba(21, 21, 21, 1)',
+      },
       white: {
         100: 'rgba(255, 255, 255, 1)',
         95: 'rgba(255, 255, 255, 0.95)',
@@ -102,6 +119,7 @@ export default {
         40: 'rgba(255, 255, 255, 0.4)',
         20: 'rgba(255, 255, 255, 0.2)',
         12: 'rgba(255, 255, 255, 0.12)',
+        10: 'rgba(255, 255, 255, 0.1)',
         8: 'rgba(255, 255, 255, 0.08)',
         4: 'rgba(255, 255, 255, 0.04)',
       },
@@ -112,6 +130,7 @@ export default {
     borderRadius: {
       0: '0px',
       6: '6px',
+      10: '10px',
       12: '12px',
       16: '16px',
       20: '20px',

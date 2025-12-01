@@ -3,8 +3,8 @@
     "title": "Get started",
     "subItems": [
       {
-        "title": "Overview",
-        "link": "/help/overview"
+        "title": "About Keycard and Keycard Shell",
+        "link": "/help/about-keycard-and-keycard-shell"
       },
       {
         "title": "Get to know your Keycard Shell",
@@ -23,8 +23,8 @@
         "link": "/help/faq"
       },
       {
-        "title": "Verify your Shell authenticity",
-        "link": "/help/verify-your-shell-authenticity"
+        "title": "Verify Keycard Shell authenticity",
+        "link": "/help/verify-keycard-shell-authenticity"
       }
     ]
   },
@@ -38,7 +38,13 @@
     ]
   },
   {
-    "title": "Update and reset"
+    "title": "Update and reset",
+    "subItems": [
+      {
+        "title": "Factory reset your Keycard using Keycard Shell",
+        "link": "/help/factory-reset-your-keycard-using-keycard-shell"
+      }
+    ]
   },
   {
     "title": "Security features",
