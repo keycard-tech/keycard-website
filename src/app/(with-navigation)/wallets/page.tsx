@@ -12,11 +12,11 @@ import { BuyCards } from '../(homepage)/_components/buy-cards'
 import { Tabs, TabsList, TabsTrigger } from './_components/tabs'
 
 type WalletType = 'Keycard' | 'Shell'
-type BlockchainType = 'Ethereum' | 'Bitcoin'
+type BlockchainType = 'Ethereum' | 'Bitcoin' | 'Multisig'
 
 interface Wallet {
   name: string
-  icon: {
+  icon?: {
     url: string
     width: number
     height: number
@@ -73,19 +73,40 @@ const WALLETS: Wallet[] = [
     name: 'Specter',
     icon: { url: '/assets/wallets/specter.png', width: 112, height: 102 },
     type: ['Shell'],
-    blockchains: ['Bitcoin'],
+    blockchains: ['Bitcoin', 'Multisig'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-wallet-app',
   },
   {
     name: 'Sparrow',
     icon: { url: '/assets/wallets/sparrow.png', width: 114, height: 114 },
     type: ['Shell'],
-    blockchains: ['Bitcoin'],
+    blockchains: ['Bitcoin', 'Multisig'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-wallet-app',
   },
   {
     name: 'Nunchuk',
     icon: { url: '/assets/wallets/nunchuk.png', width: 96, height: 96 },
+    type: ['Shell'],
+    blockchains: ['Bitcoin', 'Multisig'],
+    setupGuideUrl: '/help/connect-keycard-shell-to-a-wallet-app',
+  },
+  {
+    name: 'BlueWallet',
+    icon: { url: '/assets/wallets/bluewallet.png', width: 100, height: 100 },
+    type: ['Shell'],
+    blockchains: ['Bitcoin'],
+    setupGuideUrl: '/help/connect-keycard-shell-to-a-wallet-app',
+  },
+  {
+    name: 'Bitcoin Safe',
+    icon: { url: '/assets/wallets/bitcoin-safe.png', width: 100, height: 100 },
+    type: ['Shell'],
+    blockchains: ['Bitcoin'],
+    setupGuideUrl: '/help/connect-keycard-shell-to-a-wallet-app',
+  },
+  {
+    name: 'Bull Bitcoin',
+    icon: { url: '/assets/wallets/bullbitcoin.png', width: 100, height: 100 },
     type: ['Shell'],
     blockchains: ['Bitcoin'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-wallet-app',
@@ -120,6 +141,11 @@ const Badge = ({ children }: { children: WalletType | BlockchainType }) => {
         height={16}
         className="size-5 p-[2px]"
       />
+    ))
+    .with('Multisig', () => (
+      <span className="text-10 flex size-5 items-center justify-center rounded-full bg-white-10 font-500">
+        M
+      </span>
     ))
     .exhaustive()
 
