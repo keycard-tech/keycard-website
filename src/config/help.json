@@ -13,24 +13,16 @@
       {
         "title": "Set up your Keycard with Keycard Shell",
         "link": "/help/set-up-your-keycard-with-keycard-shell"
-      },
-      {
-        "title": "Connect Keycard Shell to a wallet app",
-        "link": "/help/connect-keycard-shell-to-a-wallet-app"
-      },
-      {
-        "title": "Keycard and Keycard Shell FAQ",
-        "link": "/help/faq"
-      },
-      {
-        "title": "Verify Keycard Shell authenticity",
-        "link": "/help/verify-keycard-shell-authenticity"
       }
     ]
   },
   {
-    "title": "Sign transactions",
+    "title": "Use with wallet apps",
     "subItems": [
+      {
+        "title": "Connect Keycard Shell to a wallet app",
+        "link": "/help/connect-keycard-shell-to-a-wallet-app"
+      },
       {
         "title": "Sign a transaction using Keycard Shell",
         "link": "/help/sign-a-transaction-using-keycard-shell"
@@ -38,16 +30,7 @@
     ]
   },
   {
-    "title": "Update and reset",
-    "subItems": [
-      {
-        "title": "Factory reset your Keycard using Keycard Shell",
-        "link": "/help/factory-reset-your-keycard-using-keycard-shell"
-      }
-    ]
-  },
-  {
-    "title": "Security features",
+    "title": "Keycard management",
     "subItems": [
       {
         "title": "Change your Keycard PIN or duress PIN",
@@ -58,17 +41,39 @@
         "link": "/help/about-your-keycard-pin-and-duress-pin"
       },
       {
+        "title": "Factory reset your Keycard using Keycard Shell",
+        "link": "/help/factory-reset-your-keycard-using-keycard-shell"
+      }
+    ]
+  },
+  {
+    "title": "Shell security",
+    "subItems": [
+      {
+        "title": "Verify Keycard Shell authenticity",
+        "link": "/help/verify-keycard-shell-authenticity"
+      },
+      {
         "title": "Understand the Slip39 wallet backup standard",
         "link": "/help/understand-the-slip-39-wallet-backup-standard"
       }
     ]
   },
   {
-    "title": "Change settings",
+    "title": "Shell settings",
     "subItems": [
       {
         "title": "Replace your Keycard Shell battery",
         "link": "/help/replace-your-keycard-shell-battery"
+      }
+    ]
+  },
+  {
+    "title": "FAQ",
+    "subItems": [
+      {
+        "title": "Keycard and Keycard Shell FAQ",
+        "link": "/help/faq"
       }
     ]
   }
