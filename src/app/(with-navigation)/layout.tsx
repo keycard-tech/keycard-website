@@ -11,7 +11,7 @@ export default function WithNavigationLayout({ children }: Props) {
   return (
     <>
       <div className="fixed left-0 top-0 z-30 flex h-[70px] w-full flex-col items-center justify-center bg-orange text-center text-white-100 sm:h-12 sm:flex-row">
-        🎉 Keycard Shell pre-sale has started! &nbsp;
+        🎉 Keycard Shell pre-sale ending soon! &nbsp;
         <div>
           <BuyShellDialog>
             <button
@@ -24,7 +24,7 @@ export default function WithNavigationLayout({ children }: Props) {
               Pre-order
             </button>
           </BuyShellDialog>
-          &nbsp;now for exclusive benefits! 👀
+          &nbsp;in December to still get the exclusive benefits!
         </div>
       </div>
       <NavBar />
