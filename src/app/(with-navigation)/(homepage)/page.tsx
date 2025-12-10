@@ -1,4 +1,5 @@
 import { Metadata } from '~/app/_metadata'
+import { TestimonialsStrip } from '~components/testimonials-strip'
 import { AutoOpenDialogManager } from './_components/auto-open-dialog-manager'
 import { BuyCards } from './_components/buy-cards'
 import { ComparisonTable } from './_components/comparison-table'
@@ -25,6 +26,7 @@ export default function HomePage() {
       <AutoOpenDialogManager />
       <KeycardShell />
       <Keycard />
+      <TestimonialsStrip />
       <KeycardFeatures />
       <ComparisonTable />
       <Faqs />
