@@ -12,6 +12,16 @@ const config = {
         hostname: 'news.keycard.tech',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'unavatar.io',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'pbs.twimg.com',
+        pathname: '/**',
+      },
     ],
   },
   transpilePackages: ['next-mdx-remote'],
