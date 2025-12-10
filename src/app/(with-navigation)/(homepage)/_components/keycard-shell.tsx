@@ -6,7 +6,7 @@ import { JsonLd } from '~components/json-ld'
 
 const KeycardShell = () => {
   return (
-    <section className="relative flex h-[calc(100svh-300px)] flex-col justify-center overflow-hidden rounded-t-28 border border-white-8 bg-white-4 backdrop-blur-[20px] full-view-port lg:h-auto lg:flex-row-reverse lg:items-center lg:justify-normal lg:remove-full-view-port">
+    <section className="relative flex flex-col overflow-hidden rounded-t-28 border border-white-8 bg-white-4 backdrop-blur-[20px] full-view-port lg:h-auto lg:flex-row-reverse lg:items-center lg:justify-normal lg:py-10 lg:remove-full-view-port">
       <div className="hidden flex-1 items-center justify-center overflow-hidden lg:flex">
         <Image
           src="/assets/keycard-shell.png"
@@ -23,12 +23,12 @@ const KeycardShell = () => {
         alt="Keycard Shell Hardware Wallet"
         width="510"
         height="785"
-        className="mt-4 h-auto w-[clamp(300px,85vw,420px)] self-center object-contain lg:hidden"
+        className="absolute inset-y-0 left-[60%] h-full max-h-full -translate-x-1/2 object-contain lg:hidden"
         priority
         sizes="(max-width:1023px) 85vw"
       />
 
-      <div className="relative z-10 flex max-w-[434px] flex-col px-5 pb-5 lg:ml-[72px] lg:p-0">
+      <div className="relative z-10 flex max-w-[434px] flex-col px-5 py-6 lg:ml-[72px] lg:p-0">
         <h1 className="sr-only">
           Keycard Shell - Modular, Air-Gapped Hardware Wallet
         </h1>
