@@ -4,12 +4,15 @@ export function useResizeObserver(elementRef: RefObject<Element | null>) {
   const [columnCount, setColumnCount] = useState(1)
 
   useEffect(() => {
-    const ref = elementRef.current!
+    const ref = elementRef.current
+    if (!ref) return
 
     const resizeObserver = new ResizeObserver(() => {
       const gridSize = ref.clientWidth
-      // @ts-expect-error TODO
-      const itemSize = parseFloat(window.getComputedStyle(ref.firstChild).width)
+      const firstChild = ref.firstElementChild as HTMLElement | null
+      if (!firstChild) return
+
+      const itemSize = parseFloat(window.getComputedStyle(firstChild).width)
       const gapSize = parseFloat(window.getComputedStyle(ref).gap)
 
       const gapCount = Math.floor(
@@ -25,7 +28,7 @@ export function useResizeObserver(elementRef: RefObject<Element | null>) {
     return () => {
       resizeObserver.unobserve(ref)
     }
-  }, [])
+  }, [elementRef])
 
   return columnCount
 }

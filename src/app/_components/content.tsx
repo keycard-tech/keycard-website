@@ -2,6 +2,7 @@ import { BulletIcon, CheckIcon } from '@status-im/icons/20'
 import * as icons from '@status-im/icons/20'
 import { Link } from '~components/link'
 import { cx } from 'cva'
+import Image from 'next/image'
 import {
   Children,
   cloneElement,
@@ -317,7 +318,26 @@ export const baseComponents = {
   },
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   img: (props: any) => {
-    return <img {...props} className="rounded-28" />
+    const { src, alt = '', width, height, className, ...rest } = props
+
+    if (typeof src !== 'string') return null
+
+    const resolvedWidth =
+      typeof width === 'number' ? width : width ? Number(width) : 1200
+    const resolvedHeight =
+      typeof height === 'number' ? height : height ? Number(height) : 675
+
+    return (
+      <Image
+        src={src}
+        alt={alt}
+        width={resolvedWidth}
+        height={resolvedHeight}
+        className={cx('h-auto w-full rounded-28', className)}
+        sizes="(min-width: 1024px) 800px, 100vw"
+        {...rest}
+      />
+    )
   },
   pre: (props: ComponentProps<'pre'>) => (
     <pre
