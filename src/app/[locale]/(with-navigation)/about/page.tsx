@@ -140,7 +140,7 @@ export default async function AboutPage() {
       </header>
 
       <section className="grid grid-cols-1 gap-4 lg:grid-cols-3">
-        <div className="bg-dark-80 rounded-20 border border-white-10 p-6">
+        <div className="rounded-20 border border-white-10 bg-white-4 p-6">
           <h2 className="mb-2 font-500 text-white-95">
             {t('about.why_hardware.title.translation')}
           </h2>
@@ -148,7 +148,7 @@ export default async function AboutPage() {
             {t('about.why_hardware.description.translation')}
           </p>
         </div>
-        <div className="bg-dark-80 rounded-20 border border-white-10 p-6">
+        <div className="rounded-20 border border-white-10 bg-white-4 p-6">
           <h2 className="mb-2 font-500 text-white-95">
             {t('about.what_keycard.title.translation')}
           </h2>
@@ -156,7 +156,7 @@ export default async function AboutPage() {
             {t('about.what_keycard.description.translation')}
           </p>
         </div>
-        <div className="bg-dark-80 rounded-20 border border-white-10 p-6">
+        <div className="rounded-20 border border-white-10 bg-white-4 p-6">
           <h2 className="mb-2 font-500 text-white-95">
             {t('about.how_we_work.title.translation')}
           </h2>
@@ -167,7 +167,7 @@ export default async function AboutPage() {
       </section>
 
       <section className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-2">
-        <div className="bg-dark-80 rounded-20 border border-white-10 p-6">
+        <div className="rounded-20 border border-white-10 bg-white-4 p-6">
           <h3 className="mb-2 font-500 text-white-95">
             {t('about.principles.title.translation')}
           </h3>
@@ -179,7 +179,7 @@ export default async function AboutPage() {
           </ul>
         </div>
 
-        <div className="bg-dark-80 rounded-20 border border-white-10 p-6">
+        <div className="rounded-20 border border-white-10 bg-white-4 p-6">
           <h3 className="mb-2 font-500 text-white-95">
             {t('about.products.title.translation')}
           </h3>
@@ -199,7 +199,7 @@ export default async function AboutPage() {
       </section>
 
       <section className="mt-10 grid grid-cols-1 gap-4 lg:grid-cols-3">
-        <div className="bg-dark-80 rounded-20 border border-white-10 p-6">
+        <div className="rounded-20 border border-white-10 bg-white-4 p-6">
           <h3 className="mb-2 font-500 text-white-95">
             {t('about.press.title.translation')}
           </h3>
@@ -222,7 +222,7 @@ export default async function AboutPage() {
                   <span className="text-white-60"> — {item.date}</span>
                 ) : null}
                 {item.kind === 'press-release' ? (
-                  <span className="rounded-8 text-white-70 ml-2 border border-white-20 px-2 py-0.5 text-12">
+                  <span className="ml-2 rounded-10 border border-white-20 px-2 py-0.5 text-12 text-white-60">
                     {t('about.press.press_release.translation')}
                   </span>
                 ) : null}
@@ -238,7 +238,7 @@ export default async function AboutPage() {
         </div>
 
         {/* Certifications & Security */}
-        <div className="bg-dark-80 rounded-20 border border-white-10 p-6">
+        <div className="rounded-20 border border-white-10 bg-white-4 p-6">
           <h3 className="mb-2 font-500 text-white-95">
             {t('about.certifications.title.translation')}
           </h3>
@@ -262,7 +262,7 @@ export default async function AboutPage() {
         </div>
 
         {/* Partners & Ecosystem */}
-        <div className="bg-dark-80 rounded-20 border border-white-10 p-6">
+        <div className="rounded-20 border border-white-10 bg-white-4 p-6">
           <h3 className="mb-2 font-500 text-white-95">
             {t('about.partners.title.translation')}
           </h3>
@@ -280,7 +280,7 @@ export default async function AboutPage() {
               </li>
             ))}
           </ul>
-          <div className="border-white-15 bg-dark-70 text-white-70 mt-3 rounded-12 border p-3 text-12">
+          <div className="mt-3 rounded-12 border border-white-12 bg-white-8 p-3 text-12 text-white-80">
             <p className="mb-1">
               {t('about.partners.erc4527_description.translation')}
             </p>

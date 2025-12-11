@@ -90,7 +90,7 @@ export const LanguageSelector = () => {
           'hover:bg-white-8',
           'focus:outline-none',
           'focus:ring-2',
-          'focus:ring-orange/50',
+          'focus:ring-orange',
           'focus:ring-offset-2',
           'focus:ring-offset-dark-100',
           'transition-colors',
@@ -101,7 +101,7 @@ export const LanguageSelector = () => {
         ])}
       >
         {/* Globe icon */}
-        <div className="rounded-4 flex size-5 items-center justify-center">
+        <div className="flex size-5 items-center justify-center rounded-6">
           <svg
             width="16"
             height="16"
@@ -170,7 +170,7 @@ export const LanguageSelector = () => {
                   'items-center',
                   'justify-between',
                   'p-2',
-                  'rounded-8',
+                  'rounded-10',
                   'cursor-pointer',
                   'hover:bg-white-8',
                   'focus:bg-white-8',
@@ -183,7 +183,7 @@ export const LanguageSelector = () => {
                   <div className="text-13 font-400 text-white-95">
                     {language.label}
                   </div>
-                  <div className="text-white-70 text-13 font-400">
+                  <div className="text-13 font-400 text-white-60">
                     {language.nativeLabel}
                   </div>
                 </div>

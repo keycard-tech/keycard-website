@@ -25,7 +25,7 @@ export default async function ContactPage() {
       </header>
 
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
-        <div className="bg-dark-80 rounded-20 border border-white-10 p-6">
+        <div className="rounded-20 border border-white-10 bg-white-4 p-6">
           <h2 className="mb-1 font-500 text-white-95">
             {t('contact.product_support.title.translation')}
           </h2>
@@ -43,7 +43,7 @@ export default async function ContactPage() {
           </div>
         </div>
 
-        <div className="bg-dark-80 rounded-20 border border-white-10 p-6">
+        <div className="rounded-20 border border-white-10 bg-white-4 p-6">
           <h2 className="mb-1 font-500 text-white-95">
             {t('contact.partnerships.title.translation')}
           </h2>
@@ -58,7 +58,7 @@ export default async function ContactPage() {
           </a>
         </div>
 
-        <div className="bg-dark-80 rounded-20 border border-white-10 p-6">
+        <div className="rounded-20 border border-white-10 bg-white-4 p-6">
           <h2 className="mb-1 font-500 text-white-95">
             {t('contact.orders.title.translation')}
           </h2>
@@ -73,7 +73,7 @@ export default async function ContactPage() {
           </a>
         </div>
 
-        <div className="bg-dark-80 rounded-20 border border-white-10 p-6">
+        <div className="rounded-20 border border-white-10 bg-white-4 p-6">
           <h2 className="mb-1 font-500 text-white-95">
             {t('contact.get_involved.title.translation')}
           </h2>
