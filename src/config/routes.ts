@@ -24,14 +24,44 @@ export const getRoutes = (
   locale: string,
 ) =>
   ({
-    Products: [
+    Keycard: [
       {
-        name: t('footer.products.keycard.translation'),
+        name: t('footer.keycard.about.translation'),
+        href: '/help/about-keycard-and-keycard-shell',
+      },
+      {
+        name: t('footer.keycard.buy.translation'),
         href: getShopifyUrl(locale, '/pages/keycard'),
       },
       {
-        name: t('footer.products.keycard_shell.translation'),
+        name: t('footer.keycard.get_started.translation'),
+        href: '/start',
+      },
+    ],
+    Shell: [
+      {
+        name: t('footer.shell.about.translation'),
         href: getShopifyUrl(locale, '/pages/keycard-shell'),
+      },
+      {
+        name: t('footer.shell.buy.translation'),
+        href: getShopifyUrl(locale, '/pages/keycard-shell'),
+      },
+      {
+        name: t('footer.shell.owners_hub.translation'),
+        href: 'https://shell.keycard.tech/',
+      },
+      {
+        name: t('footer.shell.quick_start_guide.translation'),
+        href: '/start/shell',
+      },
+      {
+        name: t('footer.shell.update.translation'),
+        href: 'https://shell.keycard.tech/update/',
+      },
+      {
+        name: t('footer.shell.verify.translation'),
+        href: 'https://shell.keycard.tech/verify/',
       },
     ],
     Info: [
