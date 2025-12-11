@@ -52,7 +52,7 @@ const Section = (props: Props) => {
           <p className="pb-2 text-24 font-600 text-white-95">
             {name} <span className="font-200">{secondName}</span>
           </p>
-          <h2 className="flex pb-4 text-center font-lora text-32 font-400 lg:text-48">
+          <h2 className="pb-4 text-center font-lora text-32 font-400 lg:text-48">
             {title}
           </h2>
           <p className="pb-8 text-center text-20 font-300 text-white-80">

@@ -12,7 +12,7 @@ const Hero = () => {
         <div className="flex flex-col items-start justify-between lg:flex-row">
           <div className="pointer-events-auto flex max-w-[664px] flex-col lg:self-end">
             <p className="pb-2 text-24 font-600 text-white-95">keycard</p>
-            <h1 className="flex font-lora text-32 font-400 text-white-95 lg:text-44">
+            <h1 className="font-lora text-32 font-400 text-white-95 lg:text-44">
               Lightweight design, <br /> heavyweight security
             </h1>
             <p className="max-w-[435px] pb-8 pt-4 text-20 font-300 text-white-80">

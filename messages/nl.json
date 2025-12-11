@@ -328,6 +328,16 @@
           "translation": "Privésleutels verlaten de kaart nooit. De kaart is een veilige enclave die privésleutels opslaat en handtekeningen uitvoert.",
           "notes": "comparison::features::no_export::tooltip"
         }
+      },
+      "open_ecosystem": {
+        "name": {
+          "translation": "Open en uitbreidbaar ecosysteem",
+          "notes": "comparison::features::open_ecosystem::name"
+        },
+        "tooltip": {
+          "translation": "Ontwikkelaars en fabrikanten kunnen daarop voortbouwen om het ecosysteem te laten groeien en er voordeel uit te halen",
+          "notes": "comparison::features::open_ecosystem::tooltip"
+        }
       }
     }
   },
