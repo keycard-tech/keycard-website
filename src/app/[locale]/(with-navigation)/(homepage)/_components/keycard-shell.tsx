@@ -42,7 +42,7 @@ const KeycardShell = () => {
         <p className="pb-2 text-24 font-600 text-white-95">
           {t('hero.keycard_shell_title.translation')}
         </p>
-        <p className="flex pb-8 font-lora text-32 font-400 lg:pb-4 lg:text-48">
+        <p className="pb-8 font-lora text-32 font-400 lg:pb-4 lg:text-48">
           {t('hero.keycard_shell_subtitle.translation')
             .split('\n')
             .map((line, index) => (

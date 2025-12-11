@@ -40,7 +40,7 @@ const Keycard = () => {
         <p className="pb-2 text-24 font-600 text-white-95">
           {t('hero.keycard_title.translation')}
         </p>
-        <h1 className="flex pb-8 font-lora text-32 font-400 lg:pb-4 lg:text-48">
+        <h1 className="pb-8 font-lora text-32 font-400 lg:pb-4 lg:text-48">
           {t('hero.keycard_subtitle.translation')
             .split('\n')
             .map((line, index) => (

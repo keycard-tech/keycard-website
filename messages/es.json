@@ -328,6 +328,16 @@
           "translation": "Las claves privadas nunca salen de la tarjeta. La tarjeta es una enclave segura que almacena las claves privadas y realiza las firmas.",
           "notes": "comparison::features::no_export::tooltip"
         }
+      },
+      "open_ecosystem": {
+        "name": {
+          "translation": "Ecosistema abierto y ampliable",
+          "notes": "comparison::features::open_ecosystem::name"
+        },
+        "tooltip": {
+          "translation": "Los desarrolladores y fabricantes pueden construir encima para hacer crecer el ecosistema y beneficiarse de él",
+          "notes": "comparison::features::open_ecosystem::tooltip"
+        }
       }
     }
   },

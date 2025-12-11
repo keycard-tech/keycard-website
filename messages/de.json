@@ -328,6 +328,16 @@
           "translation": "Private Schlüssel verlassen die Karte niemals. Die Karte ist eine sichere Enklave, die private Schlüssel speichert und Signaturen ausführt.",
           "notes": "comparison::features::no_export::tooltip"
         }
+      },
+      "open_ecosystem": {
+        "name": {
+          "translation": "Offenes und erweiterbares Ökosystem",
+          "notes": "comparison::features::open_ecosystem::name"
+        },
+        "tooltip": {
+          "translation": "Entwickler und Hersteller können darauf aufbauen, das Ökosystem ausbauen und davon profitieren",
+          "notes": "comparison::features::open_ecosystem::tooltip"
+        }
       }
     }
   },

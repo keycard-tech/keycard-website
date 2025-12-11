@@ -10,7 +10,7 @@ const Prefooter = () => {
     <section className="relative flex flex-col overflow-hidden px-6 lg:flex-row lg:px-14 lg:pt-[200px] xl:pl-[309px]">
       <div className="relative z-20 flex flex-1 flex-col items-start pb-[120px] pt-[320px] text-left lg:min-w-[450px] lg:py-[200px]">
         <p className="pb-2 text-24 font-600 text-white-95">keycard</p>
-        <h2 className="flex pb-4 font-lora text-32 font-400 text-white-95 md:text-48">
+        <h2 className="pb-4 font-lora text-32 font-400 text-white-95 md:text-48">
           Get the card-shaped <br /> hardware wallet
         </h2>
         <p className="max-w-[435px] pb-10 text-20 font-300 text-white-80">

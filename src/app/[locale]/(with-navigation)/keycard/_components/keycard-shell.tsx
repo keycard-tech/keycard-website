@@ -32,7 +32,7 @@ const KeycardShell = () => {
         <p className="pb-3 text-24 font-600 text-white-95">
           keycard <span className="font-200">shell</span>
         </p>
-        <p className="flex pb-2 font-lora text-32 font-400">
+        <p className="pb-2 font-lora text-32 font-400">
           Multiple Keycards.
           <br />
           One device.

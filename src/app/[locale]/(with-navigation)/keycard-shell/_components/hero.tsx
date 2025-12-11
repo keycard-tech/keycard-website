@@ -22,7 +22,7 @@ const Hero = () => {
             <p className="pb-2 text-24 font-600 text-white-95">
               keycard <span className="font-200">shell</span>
             </p>
-            <h1 className="flex font-lora text-32 font-400 text-white-95 lg:text-44">
+            <h1 className="font-lora text-32 font-400 text-white-95 lg:text-44">
               One secure device,
               <br />
               infinite backups
