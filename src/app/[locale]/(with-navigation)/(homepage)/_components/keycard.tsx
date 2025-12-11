@@ -12,7 +12,7 @@ import { useTranslations } from 'next-intl'
 const Keycard = () => {
   const t = useTranslations()
   return (
-    <section className="relative flex h-[calc(100svh-80px-70px)] flex-col justify-between overflow-clip rounded-b-28 border border-t-0 border-white-8 bg-white-4 px-0 pt-0 full-view-port sm:h-[calc(100svh-80px-48px)] lg:h-auto lg:flex-row lg:px-[72px] lg:py-20 lg:remove-full-view-port">
+    <section className="relative flex min-h-[520px] flex-col justify-between overflow-clip rounded-b-28 border border-t-0 border-white-8 bg-white-4 px-0 pt-0 full-view-port lg:h-auto lg:flex-row lg:px-[72px] lg:py-10 lg:remove-full-view-port">
       <div className="hidden max-h-[350px] flex-1 items-start justify-center lg:flex">
         <Image
           alt="Keycard"
@@ -33,7 +33,7 @@ const Keycard = () => {
         priority
       />
 
-      <div className="relative z-10 flex max-w-[434px] flex-1 flex-col place-content-end px-5 lg:max-w-[500px] lg:pt-0">
+      <div className="relative z-10 flex max-w-[434px] flex-1 flex-col place-content-end px-5 py-6 lg:max-w-[500px] lg:py-0">
         <p className="pb-2 text-24 font-600 text-white-95">
           {t('hero.keycard_title.translation')}
         </p>

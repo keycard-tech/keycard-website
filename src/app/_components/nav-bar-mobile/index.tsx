@@ -6,11 +6,12 @@ import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
 import { cx } from 'cva'
 import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion'
 import { useTranslations } from 'next-intl'
-import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { LanguageSelector } from '../language-selector'
+import { Link } from '../link'
 import { Logo } from '../logo'
+import { NAV_BAR_LINKS } from '../nav-bar'
 import { MenuIcon } from './menu-icon'
 import { Section } from './section'
 
@@ -155,16 +156,16 @@ const NavBarMobile = () => {
               className="flex h-full flex-col items-center justify-center"
             >
               <ul className="flex flex-1 flex-col items-center justify-center gap-4">
-                {ROUTES.Products.map((item, index) => (
+                {NAV_BAR_LINKS.map(({ href, label }, index) => (
                   <motion.li
-                    key={item.name}
+                    key={label}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 + index * 0.05, duration: 0.3 }}
                     className="text-center font-lora text-32 font-400 text-white-95"
                   >
-                    <Link href={item.href} onClick={() => setIsOpen(false)}>
-                      {item.name}
+                    <Link href={href} onClick={() => setIsOpen(false)}>
+                      {label}
                     </Link>
                   </motion.li>
                 ))}

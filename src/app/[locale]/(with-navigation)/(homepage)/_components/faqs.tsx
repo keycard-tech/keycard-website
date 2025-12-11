@@ -57,9 +57,10 @@ const Faqs = () => {
             <Image
               src="/assets/faqs.png"
               alt="FAQ Background"
-              width={736}
-              height={736}
-              className="w-full"
+              width={540}
+              height={540}
+              className="w-[80vw] max-w-[420px]"
+              sizes="(max-width:1023px) 80vw, 420px"
             />
           </div>
           <h2 className="mt-14 font-lora text-32 text-white-95 lg:mt-0">
@@ -86,7 +87,7 @@ const Faqs = () => {
                     )}
                   >
                     {faq.question}
-                    <div className="rounded-[10px] border border-white-12 bg-white-8 p-[6px] hover:border-white-20 hover:bg-white-12">
+                    <div className="rounded-10 border border-white-12 bg-white-8 p-[6px] hover:border-white-20 hover:bg-white-12">
                       <ChevronDownIcon className="text-white-95 transition-transform duration-300 ease-[cubic-bezier(0.87,_0,_0.13,_1)] group-data-[state=open]:rotate-180" />
                     </div>
                   </Accordion.Trigger>
@@ -107,9 +108,10 @@ const Faqs = () => {
             <Image
               src="/assets/faqs.png"
               alt="FAQ Background"
-              height={790}
-              width={1010}
-              className="relative right-[-245px] top-[-40px]"
+              height={360}
+              width={540}
+              className="relative right-[-80px] top-[-10px] w-[540px] max-w-[540px]"
+              sizes="540px"
             />
           </div>
 

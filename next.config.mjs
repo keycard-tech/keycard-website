@@ -16,6 +16,16 @@ const config = {
         hostname: 'news.keycard.tech',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'unavatar.io',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'pbs.twimg.com',
+        pathname: '/**',
+      },
     ],
   },
   transpilePackages: ['next-mdx-remote'],
@@ -72,6 +82,11 @@ const config = {
       {
         source: '/keycard-hell',
         destination: 'https://get.keycard.tech/pages/keycard-shell',
+        permanent: true,
+      },
+      {
+        source: '/start',
+        destination: '/start/shell',
         permanent: true,
       },
       {

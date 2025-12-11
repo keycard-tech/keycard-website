@@ -1,6 +1,6 @@
 import { Metadata } from '~/app/_metadata'
+import { Link } from '~components/link'
 import { getTranslations } from 'next-intl/server'
-import Link from 'next/link'
 
 export const metadata = Metadata({
   title: 'About Keycard',
@@ -140,7 +140,7 @@ export default async function AboutPage() {
       </header>
 
       <section className="grid grid-cols-1 gap-4 lg:grid-cols-3">
-        <div className="border-white-10 bg-dark-80 rounded-20 border p-6">
+        <div className="bg-dark-80 rounded-20 border border-white-10 p-6">
           <h2 className="mb-2 font-500 text-white-95">
             {t('about.why_hardware.title.translation')}
           </h2>
@@ -148,7 +148,7 @@ export default async function AboutPage() {
             {t('about.why_hardware.description.translation')}
           </p>
         </div>
-        <div className="border-white-10 bg-dark-80 rounded-20 border p-6">
+        <div className="bg-dark-80 rounded-20 border border-white-10 p-6">
           <h2 className="mb-2 font-500 text-white-95">
             {t('about.what_keycard.title.translation')}
           </h2>
@@ -156,7 +156,7 @@ export default async function AboutPage() {
             {t('about.what_keycard.description.translation')}
           </p>
         </div>
-        <div className="border-white-10 bg-dark-80 rounded-20 border p-6">
+        <div className="bg-dark-80 rounded-20 border border-white-10 p-6">
           <h2 className="mb-2 font-500 text-white-95">
             {t('about.how_we_work.title.translation')}
           </h2>
@@ -167,7 +167,7 @@ export default async function AboutPage() {
       </section>
 
       <section className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-2">
-        <div className="border-white-10 bg-dark-80 rounded-20 border p-6">
+        <div className="bg-dark-80 rounded-20 border border-white-10 p-6">
           <h3 className="mb-2 font-500 text-white-95">
             {t('about.principles.title.translation')}
           </h3>
@@ -179,7 +179,7 @@ export default async function AboutPage() {
           </ul>
         </div>
 
-        <div className="border-white-10 bg-dark-80 rounded-20 border p-6">
+        <div className="bg-dark-80 rounded-20 border border-white-10 p-6">
           <h3 className="mb-2 font-500 text-white-95">
             {t('about.products.title.translation')}
           </h3>
@@ -199,7 +199,7 @@ export default async function AboutPage() {
       </section>
 
       <section className="mt-10 grid grid-cols-1 gap-4 lg:grid-cols-3">
-        <div className="border-white-10 bg-dark-80 rounded-20 border p-6">
+        <div className="bg-dark-80 rounded-20 border border-white-10 p-6">
           <h3 className="mb-2 font-500 text-white-95">
             {t('about.press.title.translation')}
           </h3>
@@ -238,7 +238,7 @@ export default async function AboutPage() {
         </div>
 
         {/* Certifications & Security */}
-        <div className="border-white-10 bg-dark-80 rounded-20 border p-6">
+        <div className="bg-dark-80 rounded-20 border border-white-10 p-6">
           <h3 className="mb-2 font-500 text-white-95">
             {t('about.certifications.title.translation')}
           </h3>
@@ -262,7 +262,7 @@ export default async function AboutPage() {
         </div>
 
         {/* Partners & Ecosystem */}
-        <div className="border-white-10 bg-dark-80 rounded-20 border p-6">
+        <div className="bg-dark-80 rounded-20 border border-white-10 p-6">
           <h3 className="mb-2 font-500 text-white-95">
             {t('about.partners.title.translation')}
           </h3>
