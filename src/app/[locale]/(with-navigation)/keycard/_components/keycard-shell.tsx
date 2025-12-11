@@ -1,9 +1,15 @@
+'use client'
+
+import { getShopifyUrl } from '~/config/routes'
 import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
 import { BuyShellDialog } from '~components/buy-shell-dialog'
 import { Image } from '~components/image'
+import { useLocale } from 'next-intl'
 
 const KeycardShell = () => {
+  const locale = useLocale()
+  const shellUrl = getShopifyUrl(locale, '/pages/keycard-shell')
   return (
     <section className="relative mx-0 mt-[160px] flex items-center overflow-hidden rounded-28 border border-white-12 lg:mx-6 lg:mt-[200px] xl:mx-20">
       <Image
@@ -46,10 +52,7 @@ const KeycardShell = () => {
               Pre-order
             </Button>
           </BuyShellDialog>
-          <ButtonLink
-            href="https://get.keycard.tech/pages/keycard-shell"
-            variant="secondary"
-          >
+          <ButtonLink href={shellUrl} variant="secondary">
             Learn more
           </ButtonLink>
         </div>

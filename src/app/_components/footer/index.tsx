@@ -1,15 +1,16 @@
 'use client'
 
-import { getRoutes, type Routes } from '~/config/routes'
+import { getRoutes } from '~/config/routes'
 import { Link } from '~components/link'
 import { Logo } from '~components/logo'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { Copyright } from './copyright'
 import { Section } from './section'
 
 const Footer = () => {
   const t = useTranslations()
-  const ROUTES = getRoutes(t)
+  const locale = useLocale()
+  const ROUTES = getRoutes(t, locale)
 
   return (
     <footer className="mt-auto rounded-28 bg-grey-100 pt-8 selection:bg-orange">
@@ -28,11 +29,7 @@ const Footer = () => {
             />
 
             {Object.entries(ROUTES).map(([title, links]) => (
-              <Section
-                key={title}
-                title={title}
-                routes={links as unknown as Routes}
-              />
+              <Section key={title} title={title} routes={links} />
             ))}
           </div>
         </div>

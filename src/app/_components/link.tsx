@@ -6,7 +6,10 @@ const Link = (
   ref: React.Ref<HTMLAnchorElement>,
 ) => {
   const url = typeof props.href === 'string' ? props.href : props.href.pathname!
-  const external = url?.startsWith('http')
+  const external =
+    url?.startsWith('http') ||
+    url?.startsWith('mailto:') ||
+    url?.startsWith('tel:')
 
   if (external) {
     const target = props.target ?? '_blank'

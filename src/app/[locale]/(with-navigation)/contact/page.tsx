@@ -1,6 +1,6 @@
 import { Metadata } from '~/app/_metadata'
-import { getTranslations } from 'next-intl/server'
-import Link from 'next/link'
+import { Link } from '~components/link'
+import { getLocale, getTranslations } from 'next-intl/server'
 
 export const metadata = Metadata({
   title: 'Contact Keycard',
@@ -11,6 +11,7 @@ export const metadata = Metadata({
 
 export default async function ContactPage() {
   const t = await getTranslations()
+  const locale = await getLocale()
   return (
     <div className="px-3 pb-[120px] pt-12 md:px-8 lg:px-20 lg:pt-20">
       <header className="mb-8 grid gap-3">
@@ -23,7 +24,7 @@ export default async function ContactPage() {
       </header>
 
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
-        <div className="border-white-10 bg-dark-80 rounded-20 border p-6">
+        <div className="bg-dark-80 rounded-20 border border-white-10 p-6">
           <h2 className="mb-1 font-500 text-white-95">
             {t('contact.product_support.title.translation')}
           </h2>
@@ -41,7 +42,7 @@ export default async function ContactPage() {
           </div>
         </div>
 
-        <div className="border-white-10 bg-dark-80 rounded-20 border p-6">
+        <div className="bg-dark-80 rounded-20 border border-white-10 p-6">
           <h2 className="mb-1 font-500 text-white-95">
             {t('contact.partnerships.title.translation')}
           </h2>
@@ -56,7 +57,7 @@ export default async function ContactPage() {
           </a>
         </div>
 
-        <div className="bg-dark-80 border-white-10 rounded-20 border p-6">
+        <div className="bg-dark-80 rounded-20 border border-white-10 p-6">
           <h2 className="mb-1 font-500 text-white-95">
             {t('contact.orders.title.translation')}
           </h2>
@@ -65,13 +66,13 @@ export default async function ContactPage() {
           </p>
           <a
             className="mt-3 inline-block underline"
-            href="https://get.keycard.tech/pages/support"
+            href={`https://get.keycard.tech/${locale}/pages/support`}
           >
             {t('contact.orders.help_link.translation')}
           </a>
         </div>
 
-        <div className="border-white-10 bg-dark-80 rounded-20 border p-6">
+        <div className="bg-dark-80 rounded-20 border border-white-10 p-6">
           <h2 className="mb-1 font-500 text-white-95">
             {t('contact.get_involved.title.translation')}
           </h2>

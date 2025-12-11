@@ -1,8 +1,9 @@
 import { defineRouting } from 'next-intl/routing'
+import { I18N_COOKIE, SUPPORTED_LOCALES } from './constants'
 
 export const routing = defineRouting({
   // A list of all locales that are supported
-  locales: ['en', 'fr', 'de', 'es', 'nl'],
+  locales: [...SUPPORTED_LOCALES],
 
   // Used when no locale matches
   defaultLocale: 'en',
@@ -15,10 +16,10 @@ export const routing = defineRouting({
 
   // Mirror the active locale into a shared cookie
   localeCookie: {
-    name: 'lang',
-    path: '/',
-    domain: '.keycard.tech',
-    sameSite: 'lax',
-    maxAge: 60 * 60 * 24 * 365, // 1 year
+    name: I18N_COOKIE.name,
+    path: I18N_COOKIE.path,
+    domain: I18N_COOKIE.domain,
+    sameSite: I18N_COOKIE.sameSite,
+    maxAge: I18N_COOKIE.maxAge,
   },
 })

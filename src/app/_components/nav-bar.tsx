@@ -1,5 +1,6 @@
 'use client'
 
+import { getShopifyUrl } from '~/config/routes'
 import { BuyShellDialog } from '~components/buy-shell-dialog'
 import { cva } from 'cva'
 import {
@@ -8,7 +9,7 @@ import {
   useScroll,
   useTransform,
 } from 'framer-motion'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { Button } from './button'
@@ -28,10 +29,10 @@ const internalLinkStyles = cva({
   },
 })
 
-export const NAV_BAR_LINKS = [
-  { href: 'https://get.keycard.tech/pages/keycard', label: 'Keycard' },
+export const getNavBarLinks = (locale: string) => [
+  { href: getShopifyUrl(locale, '/pages/keycard'), label: 'Keycard' },
   {
-    href: 'https://get.keycard.tech/pages/keycard-shell',
+    href: getShopifyUrl(locale, '/pages/keycard-shell'),
     label: 'Keycard Shell',
   },
 ]
@@ -40,6 +41,8 @@ const NavBar = () => {
   const pathname = usePathname()
   const [variant, setVariant] = useState<'primary' | 'secondary'>('secondary')
   const t = useTranslations()
+  const locale = useLocale()
+  const NAV_BAR_LINKS = getNavBarLinks(locale)
 
   const { scrollY } = useScroll()
 
@@ -80,6 +83,7 @@ const NavBar = () => {
             key={href}
             href={href}
             className={internalLinkStyles({ isActive: pathname === href })}
+            target="_self"
           >
             {label}
           </Link>
