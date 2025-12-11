@@ -435,6 +435,130 @@
     "description": {
       "translation": "Hardware de firma de código abierto del Institute of Free Technology. Las Keycards son firmantes con elemento seguro; Keycard Shell es una wallet air‑gapped con confirmación por QR.",
       "notes": "about::description"
+    },
+    "subtitle": {
+      "translation": "Open-source signing hardware from the",
+      "notes": "about::subtitle"
+    },
+    "institute_link": {
+      "translation": "Institute of Free Technology",
+      "notes": "about::institute_link"
+    },
+    "alongside_text": {
+      "translation": " alongside",
+      "notes": "about::alongside_text"
+    },
+    "status_link": {
+      "translation": "Status",
+      "notes": "about::status_link"
+    },
+    "why_hardware": {
+      "title": {
+        "translation": "Why dedicated hardware",
+        "notes": "about::why_hardware::title"
+      },
+      "description": {
+        "translation": "Air-gapped flows, secure elements, and tamper resistance keep your keys off general-purpose devices.",
+        "notes": "about::why_hardware::description"
+      }
+    },
+    "what_keycard": {
+      "title": {
+        "translation": "What is Keycard?",
+        "notes": "about::what_keycard::title"
+      },
+      "description": {
+        "translation": "A smartcard hardware wallet and Shell enclosure that signs transactions without exposing private keys.",
+        "notes": "about::what_keycard::description"
+      }
+    },
+    "how_we_work": {
+      "title": {
+        "translation": "How we work",
+        "notes": "about::how_we_work::title"
+      },
+      "description": {
+        "translation": "Open-source, security-first, with reproducible builds and public audits.",
+        "notes": "about::how_we_work::description"
+      }
+    },
+    "principles": {
+      "title": {
+        "translation": "Principles",
+        "notes": "about::principles::title"
+      },
+      "keys_never_leave": {
+        "translation": "Keys never leave secure elements",
+        "notes": "about::principles::keys_never_leave"
+      },
+      "minimize_blind_signing": {
+        "translation": "Minimize blind signing",
+        "notes": "about::principles::minimize_blind_signing"
+      },
+      "open_designs": {
+        "translation": "Open designs, open audits",
+        "notes": "about::principles::open_designs"
+      },
+      "building_open": {
+        "translation": "Building in the open with community",
+        "notes": "about::principles::building_open"
+      }
+    },
+    "products": {
+      "title": {
+        "translation": "Products",
+        "notes": "about::products::title"
+      },
+      "keycard": {
+        "name": {
+          "translation": "Keycard",
+          "notes": "about::products::keycard::name"
+        },
+        "description": {
+          "translation": "A slim NFC smartcard hardware wallet.",
+          "notes": "about::products::keycard::description"
+        }
+      },
+      "keycard_shell": {
+        "name": {
+          "translation": "Keycard Shell",
+          "notes": "about::products::keycard_shell::name"
+        },
+        "description": {
+          "translation": "An air-gapped wallet with a QR camera that works with Keycard smartcards.",
+          "notes": "about::products::keycard_shell::description"
+        }
+      }
+    },
+    "press": {
+      "title": {
+        "translation": "Press",
+        "notes": "about::press::title"
+      },
+      "press_release": {
+        "translation": "Press release",
+        "notes": "about::press::press_release"
+      },
+      "media_inquiries": {
+        "translation": "Media inquiries?",
+        "notes": "about::press::media_inquiries"
+      }
+    },
+    "certifications": {
+      "title": {
+        "translation": "Certifications & security",
+        "notes": "about::certifications::title"
+      }
+    },
+    "partners": {
+      "title": {
+        "translation": "Partners & ecosystem",
+        "notes": "about::partners::title"
+      },
+      "erc4527_description": {
+        "translation": "Standards and integrations using the ERC-4527 QR protocol.",
+        "notes": "about::partners::erc4527_description"
+      }
     }
   },
   "contact": {
@@ -456,6 +580,48 @@
         "notes": "contact::product_support::description"
       }
     },
+    "partnerships": {
+      "title": {
+        "translation": "Partnerships & BD",
+        "notes": "contact::partnerships::title"
+      },
+      "description": {
+        "translation": "Integrations, distribution, or bulk orders.",
+        "notes": "contact::partnerships::description"
+      }
+    },
+    "orders": {
+      "title": {
+        "translation": "Orders & shipping",
+        "notes": "contact::orders::title"
+      },
+      "description": {
+        "translation": "Questions about orders, shipping, refunds, or replacements.",
+        "notes": "contact::orders::description"
+      },
+      "help_link": {
+        "translation": "Visit order help",
+        "notes": "contact::orders::help_link"
+      }
+    },
+    "get_involved": {
+      "title": {
+        "translation": "Get involved",
+        "notes": "contact::get_involved::title"
+      },
+      "description": {
+        "translation": "Build with Keycard or learn more about the project.",
+        "notes": "contact::get_involved::description"
+      },
+      "docs_link": {
+        "translation": "Read the docs",
+        "notes": "contact::get_involved::docs_link"
+      },
+      "blog_link": {
+        "translation": "Visit the blog",
+        "notes": "contact::get_involved::blog_link"
+      }
+    },
     "partnerships_bd": {
       "title": {
         "translation": "Alianzas y desarrollo de negocio",
@@ -465,6 +631,20 @@
         "translation": "Integraciones, distribución u órdenes al por mayor.",
         "notes": "contact::partnerships_bd::description"
       }
+    }
+  },
+  "blog": {
+    "title": {
+      "translation": "Keycard Blog",
+      "notes": "blog::title"
+    },
+    "subtitle": {
+      "translation": "Product updates, security, and ecosystem news.",
+      "notes": "blog::subtitle"
+    },
+    "no_posts": {
+      "translation": "No posts yet — check back soon.",
+      "notes": "blog::no_posts"
     }
   },
   "footer": {
@@ -487,6 +667,58 @@
     "institute_of_free_technology": {
       "translation": "Institute of Free Technology",
       "notes": "footer::institute_of_free_technology"
+    },
+    "institute_link": {
+      "translation": "Institute of Free Technology",
+      "notes": "footer::institute_link"
+    },
+    "keycard": {
+      "title": {
+        "translation": "Keycard",
+        "notes": "footer::keycard::title"
+      },
+      "about": {
+        "translation": "Acerca de Keycard",
+        "notes": "footer::keycard::about"
+      },
+      "buy": {
+        "translation": "Comprar Keycard",
+        "notes": "footer::keycard::buy"
+      },
+      "get_started": {
+        "translation": "Empezar",
+        "notes": "footer::keycard::get_started"
+      }
+    },
+    "shell": {
+      "title": {
+        "translation": "Shell",
+        "notes": "footer::shell::title"
+      },
+      "about": {
+        "translation": "Acerca de Shell",
+        "notes": "footer::shell::about"
+      },
+      "buy": {
+        "translation": "Comprar Shell",
+        "notes": "footer::shell::buy"
+      },
+      "owners_hub": {
+        "translation": "Owner's hub",
+        "notes": "footer::shell::owners_hub"
+      },
+      "quick_start_guide": {
+        "translation": "Guía de inicio rápido",
+        "notes": "footer::shell::quick_start_guide"
+      },
+      "update": {
+        "translation": "Actualizar Shell",
+        "notes": "footer::shell::update"
+      },
+      "verify": {
+        "translation": "Verificar Shell",
+        "notes": "footer::shell::verify"
+      }
     },
     "products": {
       "keycard": {
