@@ -2,11 +2,11 @@ import * as Accordion from '@radix-ui/react-accordion'
 import { ChevronDownIcon } from '@status-im/icons/20'
 import { DiscordIcon, TwitterIcon } from '@status-im/icons/social'
 import { Metadata } from '~/app/_metadata'
-import { BuyCards } from '~/app/(with-navigation)/(homepage)/_components/buy-cards'
 import { ButtonLink } from '~components/button-link'
 import { Link } from '~components/link'
 import { cx } from 'cva'
 import Image from 'next/image'
+import { BuyCards } from '../../(homepage)/_components/buy-cards'
 
 const STEPS = [
   {
