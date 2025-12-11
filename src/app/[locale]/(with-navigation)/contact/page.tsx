@@ -1,4 +1,5 @@
 import { Metadata } from '~/app/_metadata'
+import { getShopifyUrl } from '~/config/routes'
 import { Link } from '~components/link'
 import { getLocale, getTranslations } from 'next-intl/server'
 
@@ -66,7 +67,7 @@ export default async function ContactPage() {
           </p>
           <a
             className="mt-3 inline-block underline"
-            href={`https://get.keycard.tech/${locale}/pages/support`}
+            href={getShopifyUrl(locale, '/pages/support')}
           >
             {t('contact.orders.help_link.translation')}
           </a>
