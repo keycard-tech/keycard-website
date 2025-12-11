@@ -1,0 +1,48 @@
+---
+id: update-your-keycard-shell-online
+title: Update your Keycard Shell online
+---
+
+# Update your Keycard Shell online
+
+Regularly updating your Keycard Shell firmware and database keeps your device current with the latest features and security improvements.
+
+<Admonition type="note">
+    To update your Keycard Shell in the air-gapped mode, read [Update your Keycard Shell offline](update-your-keycard-shell-offline.mdx).
+</Admonition>
+
+## Update your Keycard Shell online
+
+In addition to your Keycard and Keycard Shell, you need a computer to access the [update page ↗](https://shell.keycard.tech/update) to complete the update process.
+
+<Admonition type="note">
+   If you use Linux, you must add the following udev rule to the file `/etc/udev/rules.d/50-keycardshell.rules` to grant the required permissions.
+
+   ```Markdown
+   ACTION!="remove", KERNEL=="hidraw*", ATTRS{idVendor}=="1209", ATTRS{idProduct}=="21f7", MODE="0660", TAG+="uaccess"
+   ```  
+</Admonition>
+
+### Step 1: Prepare your Keycard Shell
+
+1. Insert your Keycard into Keycard Shell to power it on.
+1. Enter your Keycard PIN.
+1. Connect your Keycard Shell to your computer using a USB-C cable.
+1. Allow the connection request if you see a security alert from your computer.
+
+### Step 2: Prepare the update page
+
+1. On your computer, open the update page at [https://shell.keycard.tech/update](https://shell.keycard.tech/update).
+1. Click **Update** on the web page.
+1. In the **shell.keycard.tech wants to connect to a HID device** prompt window, select your Keycard Shell device and click **Connect**.
+1. The latest firmware and database version are automatically selected. Unselect if you don't want to install one of the updates.
+
+### Step 3: Update your Keycard Shell
+
+You need to confirm each update individually.
+
+1. On the update web page, click **Transfer to device** to transfer the database update to your Keycard Shell.
+1. On your Keycard Shell, confirm the database update by pressing **OK**.
+1. Return to the update web page, click **Transfer to device** again to transfer the firmware update to your Keycard Shell.
+1. On your Keycard Shell, confirm the firmware update by pressing **OK**.
+1. Press **OK** again.
