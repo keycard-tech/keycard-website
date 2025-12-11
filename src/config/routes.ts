@@ -11,7 +11,12 @@ const normalizeLocale = (locale: string): SupportedLocale =>
 export const getShopifyUrl = (locale: string, path: string) => {
   const normalizedLocale = normalizeLocale(locale)
   const normalizedPath = path.startsWith('/') ? path : `/${path}`
-  return `${SHOPIFY_BASE_URL}/${normalizedLocale}${normalizedPath}`
+  const pathWithLocale =
+    normalizedLocale === 'en'
+      ? normalizedPath
+      : `/${normalizedLocale}${normalizedPath}`
+
+  return `${SHOPIFY_BASE_URL}${pathWithLocale}`
 }
 
 export const getRoutes = (
