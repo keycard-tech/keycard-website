@@ -57,6 +57,20 @@
       "notes": "common::from"
     }
   },
+  "blog": {
+    "title": {
+      "translation": "Blog de Keycard",
+      "notes": "blog::title"
+    },
+    "subtitle": {
+      "translation": "Actualizaciones de producto, seguridad y novedades del ecosistema.",
+      "notes": "blog::subtitle"
+    },
+    "no_posts": {
+      "translation": "Todavía no hay publicaciones — vuelve pronto.",
+      "notes": "blog::no_posts"
+    }
+  },
   "navigation": {
     "about": {
       "translation": "Acerca de",
@@ -437,7 +451,7 @@
       "notes": "about::description"
     },
     "subtitle": {
-      "translation": "Open-source signing hardware from the",
+      "translation": "Hardware de firma de código abierto del",
       "notes": "about::subtitle"
     },
     "institute_link": {
@@ -445,7 +459,7 @@
       "notes": "about::institute_link"
     },
     "alongside_text": {
-      "translation": " alongside",
+      "translation": " junto a",
       "notes": "about::alongside_text"
     },
     "status_link": {
@@ -454,59 +468,59 @@
     },
     "why_hardware": {
       "title": {
-        "translation": "Why dedicated hardware",
+        "translation": "Por qué hardware dedicado",
         "notes": "about::why_hardware::title"
       },
       "description": {
-        "translation": "Air-gapped flows, secure elements, and tamper resistance keep your keys off general-purpose devices.",
+        "translation": "Flujos air‑gapped, elementos seguros y resistencia a manipulaciones mantienen tus claves fuera de dispositivos de propósito general.",
         "notes": "about::why_hardware::description"
       }
     },
     "what_keycard": {
       "title": {
-        "translation": "What is Keycard?",
+        "translation": "¿Qué es Keycard?",
         "notes": "about::what_keycard::title"
       },
       "description": {
-        "translation": "A smartcard hardware wallet and Shell enclosure that signs transactions without exposing private keys.",
+        "translation": "Una hardware wallet en tarjeta inteligente y un estuche Shell que firman transacciones sin exponer claves privadas.",
         "notes": "about::what_keycard::description"
       }
     },
     "how_we_work": {
       "title": {
-        "translation": "How we work",
+        "translation": "Cómo trabajamos",
         "notes": "about::how_we_work::title"
       },
       "description": {
-        "translation": "Open-source, security-first, with reproducible builds and public audits.",
+        "translation": "Código abierto, seguridad ante todo, con compilaciones reproducibles y auditorías públicas.",
         "notes": "about::how_we_work::description"
       }
     },
     "principles": {
       "title": {
-        "translation": "Principles",
+        "translation": "Principios",
         "notes": "about::principles::title"
       },
       "keys_never_leave": {
-        "translation": "Keys never leave secure elements",
+        "translation": "Las claves nunca abandonan los elementos seguros",
         "notes": "about::principles::keys_never_leave"
       },
       "minimize_blind_signing": {
-        "translation": "Minimize blind signing",
+        "translation": "Minimizar el firmado a ciegas",
         "notes": "about::principles::minimize_blind_signing"
       },
       "open_designs": {
-        "translation": "Open designs, open audits",
+        "translation": "Diseños abiertos, auditorías abiertas",
         "notes": "about::principles::open_designs"
       },
       "building_open": {
-        "translation": "Building in the open with community",
+        "translation": "Construimos a la vista con la comunidad",
         "notes": "about::principles::building_open"
       }
     },
     "products": {
       "title": {
-        "translation": "Products",
+        "translation": "Productos",
         "notes": "about::products::title"
       },
       "keycard": {
@@ -515,7 +529,7 @@
           "notes": "about::products::keycard::name"
         },
         "description": {
-          "translation": "A slim NFC smartcard hardware wallet.",
+          "translation": "Una hardware wallet delgada con tarjeta NFC.",
           "notes": "about::products::keycard::description"
         }
       },
@@ -525,38 +539,38 @@
           "notes": "about::products::keycard_shell::name"
         },
         "description": {
-          "translation": "An air-gapped wallet with a QR camera that works with Keycard smartcards.",
+          "translation": "Una wallet air‑gapped con cámara QR que funciona con tarjetas Keycard.",
           "notes": "about::products::keycard_shell::description"
         }
       }
     },
     "press": {
       "title": {
-        "translation": "Press",
+        "translation": "Prensa",
         "notes": "about::press::title"
       },
       "press_release": {
-        "translation": "Press release",
+        "translation": "Nota de prensa",
         "notes": "about::press::press_release"
       },
       "media_inquiries": {
-        "translation": "Media inquiries?",
+        "translation": "¿Consultas de prensa?",
         "notes": "about::press::media_inquiries"
       }
     },
     "certifications": {
       "title": {
-        "translation": "Certifications & security",
+        "translation": "Certificaciones y seguridad",
         "notes": "about::certifications::title"
       }
     },
     "partners": {
       "title": {
-        "translation": "Partners & ecosystem",
+        "translation": "Socios y ecosistema",
         "notes": "about::partners::title"
       },
       "erc4527_description": {
-        "translation": "Standards and integrations using the ERC-4527 QR protocol.",
+        "translation": "Estándares e integraciones con el protocolo QR ERC-4527.",
         "notes": "about::partners::erc4527_description"
       }
     }
@@ -578,6 +592,48 @@
       "description": {
         "translation": "Preguntas, errores, solicitudes de funciones o informes de seguridad.",
         "notes": "contact::product_support::description"
+      }
+    },
+    "partnerships": {
+      "title": {
+        "translation": "Alianzas y desarrollo de negocio",
+        "notes": "contact::partnerships::title"
+      },
+      "description": {
+        "translation": "Integraciones, distribución u órdenes al por mayor.",
+        "notes": "contact::partnerships::description"
+      }
+    },
+    "orders": {
+      "title": {
+        "translation": "Pedidos y envíos",
+        "notes": "contact::orders::title"
+      },
+      "description": {
+        "translation": "Preguntas sobre pedidos, envíos, reembolsos o reemplazos.",
+        "notes": "contact::orders::description"
+      },
+      "help_link": {
+        "translation": "Ir a la ayuda de pedidos",
+        "notes": "contact::orders::help_link"
+      }
+    },
+    "get_involved": {
+      "title": {
+        "translation": "Participa",
+        "notes": "contact::get_involved::title"
+      },
+      "description": {
+        "translation": "Crea con Keycard o conoce más sobre el proyecto.",
+        "notes": "contact::get_involved::description"
+      },
+      "docs_link": {
+        "translation": "Leer la documentación",
+        "notes": "contact::get_involved::docs_link"
+      },
+      "blog_link": {
+        "translation": "Visitar el blog",
+        "notes": "contact::get_involved::blog_link"
       }
     },
     "partnerships": {
