@@ -5,13 +5,13 @@ import { Button } from '~components/button'
 import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
 import { cx } from 'cva'
 import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { usePathname } from 'next/navigation'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { LanguageSelector } from '../language-selector'
 import { Link } from '../link'
 import { Logo } from '../logo'
-import { NAV_BAR_LINKS } from '../nav-bar'
+import { getNavBarLinks } from '../nav-bar'
 import { MenuIcon } from './menu-icon'
 import { Section } from './section'
 
@@ -20,7 +20,9 @@ const NAV_BAR_HEIGHT = 80
 const NavBarMobile = () => {
   const [isOpen, setIsOpen] = useState(false)
   const t = useTranslations()
-  const ROUTES = getRoutes(t)
+  const locale = useLocale()
+  const ROUTES = getRoutes(t, locale)
+  const NAV_BAR_LINKS = getNavBarLinks(locale)
   const pathname = usePathname()
   const { scrollY } = useScroll()
   const scrollPositionRef = useRef(0)
@@ -164,7 +166,11 @@ const NavBarMobile = () => {
                     transition={{ delay: 0.2 + index * 0.05, duration: 0.3 }}
                     className="text-center font-lora text-32 font-400 text-white-95"
                   >
-                    <Link href={href} onClick={() => setIsOpen(false)}>
+                    <Link
+                      href={href}
+                      target="_self"
+                      onClick={() => setIsOpen(false)}
+                    >
                       {label}
                     </Link>
                   </motion.li>

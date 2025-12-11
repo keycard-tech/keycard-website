@@ -2,13 +2,14 @@
 
 import { KEYCARD_PRODUCTS } from '~/app/_constants/shopify/products'
 import { formatPrice } from '~/app/_utils/format-price'
+import { getShopifyUrl } from '~/config/routes'
 import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
 import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
 import { BuyShellDialog } from '~components/buy-shell-dialog'
 import { Image } from '~components/image'
 import { cx } from 'cva'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 
 type Props = {
   image: string
@@ -67,6 +68,7 @@ const Section = (props: Props) => {
 
 const BuyCards = () => {
   const t = useTranslations()
+  const locale = useLocale()
 
   return (
     <section className="grid grid-cols-1 gap-10 overflow-clip pb-2 pt-[160px] full-view-port lg:grid-cols-2 lg:flex-row lg:gap-2 lg:pt-[200px] lg:remove-full-view-port">
@@ -100,7 +102,7 @@ const BuyCards = () => {
               </Button>
             </BuyKeycardDialog>
             <ButtonLink
-              href="https://get.keycard.tech/pages/keycard"
+              href={getShopifyUrl(locale, '/pages/keycard')}
               variant="secondary"
             >
               {t('common.learn_more.translation')}
@@ -142,7 +144,7 @@ const BuyCards = () => {
               </Button>
             </BuyShellDialog>
             <ButtonLink
-              href="https://get.keycard.tech/pages/keycard-shell"
+              href={getShopifyUrl(locale, '/pages/keycard-shell')}
               variant="secondary"
             >
               {t('common.learn_more.translation')}

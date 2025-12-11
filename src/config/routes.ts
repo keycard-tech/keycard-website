@@ -1,15 +1,32 @@
+import { SUPPORTED_LOCALES, type SupportedLocale } from '~/i18n/constants'
 import { useTranslations } from 'next-intl'
 
-export const getRoutes = (t: ReturnType<typeof useTranslations>) =>
+const SHOPIFY_BASE_URL = 'https://get.keycard.tech'
+
+const normalizeLocale = (locale: string): SupportedLocale =>
+  SUPPORTED_LOCALES.includes(locale as SupportedLocale)
+    ? (locale as SupportedLocale)
+    : 'en'
+
+export const getShopifyUrl = (locale: string, path: string) => {
+  const normalizedLocale = normalizeLocale(locale)
+  const normalizedPath = path.startsWith('/') ? path : `/${path}`
+  return `${SHOPIFY_BASE_URL}/${normalizedLocale}${normalizedPath}`
+}
+
+export const getRoutes = (
+  t: ReturnType<typeof useTranslations>,
+  locale: string,
+) =>
   ({
     Products: [
       {
         name: t('footer.products.keycard.translation'),
-        href: 'https://get.keycard.tech/pages/keycard',
+        href: getShopifyUrl(locale, '/pages/keycard'),
       },
       {
         name: t('footer.products.keycard_shell.translation'),
-        href: 'https://get.keycard.tech/pages/keycard-shell',
+        href: getShopifyUrl(locale, '/pages/keycard-shell'),
       },
     ],
     Info: [
@@ -65,6 +82,7 @@ export const getRoutes = (t: ReturnType<typeof useTranslations>) =>
   }) as const
 
 // Keep the original ROUTES for backward compatibility
+const defaultLocale = 'en'
 export const ROUTES = {
   Keycard: [
     {
@@ -73,7 +91,7 @@ export const ROUTES = {
     },
     {
       name: 'Buy Keycard',
-      href: 'https://get.keycard.tech/pages/keycard',
+      href: getShopifyUrl(defaultLocale, '/pages/keycard'),
     },
     {
       name: 'Get Started',
@@ -83,11 +101,11 @@ export const ROUTES = {
   Shell: [
     {
       name: 'About Shell',
-      href: 'https://get.keycard.tech/pages/keycard-shell',
+      href: getShopifyUrl(defaultLocale, '/pages/keycard-shell'),
     },
     {
       name: 'Buy Shell',
-      href: 'https://get.keycard.tech/pages/keycard-shell',
+      href: getShopifyUrl(defaultLocale, '/pages/keycard-shell'),
     },
     {
       name: "Owner's hub",

@@ -32,10 +32,13 @@ export const metadata = Metadata({
   },
 
   alternates: {
-    canonical: '/',
+    canonical: '/en',
     languages: {
-      'en-GB': '/',
-      'ko-KR': '/ko',
+      en: '/en',
+      fr: '/fr',
+      de: '/de',
+      es: '/es',
+      nl: '/nl',
     },
   },
 

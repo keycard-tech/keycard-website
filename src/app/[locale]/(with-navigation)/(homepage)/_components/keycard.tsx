@@ -2,15 +2,18 @@
 
 import { KEYCARD_PRODUCTS } from '~/app/_constants/shopify/products'
 import { formatPrice } from '~/app/_utils/format-price'
+import { getShopifyUrl } from '~/config/routes'
 import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
 import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
 import { Image } from '~components/image'
 import { JsonLd } from '~components/json-ld'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 
 const Keycard = () => {
   const t = useTranslations()
+  const locale = useLocale()
+  const keycardUrl = getShopifyUrl(locale, '/pages/keycard')
   return (
     <section className="relative flex min-h-[520px] flex-col justify-between overflow-clip rounded-b-28 border border-t-0 border-white-8 bg-white-4 px-0 pt-0 full-view-port lg:h-auto lg:flex-row lg:px-[72px] lg:py-10 lg:remove-full-view-port">
       <div className="hidden max-h-[350px] flex-1 items-start justify-center lg:flex">
@@ -51,10 +54,7 @@ const Keycard = () => {
           {t('hero.keycard_description.translation')}
         </p>
         <div className="flex space-x-4">
-          <ButtonLink
-            href="https://get.keycard.tech/pages/keycard"
-            target="_self"
-          >
+          <ButtonLink href={keycardUrl} target="_self">
             {t('hero.discover_keycard.translation')}
           </ButtonLink>
           <BuyKeycardDialog>
@@ -88,7 +88,7 @@ const Keycard = () => {
           sku: 'SKCR02',
           offers: {
             '@type': 'Offer',
-            url: 'https://get.keycard.tech/pages/keycard',
+            url: keycardUrl,
             availability: 'https://schema.org/InStock',
             priceCurrency: 'EUR',
             price: '25',

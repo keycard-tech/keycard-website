@@ -1,9 +1,15 @@
+'use client'
+
+import { getShopifyUrl } from '~/config/routes'
 import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
 import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
 import { Image } from '~components/image'
+import { useLocale } from 'next-intl'
 
 const Keycards = () => {
+  const locale = useLocale()
+  const keycardUrl = getShopifyUrl(locale, '/pages/keycard')
   return (
     <section className="relative mx-auto mt-[120px] min-h-[490px] max-w-[1352px] overflow-clip rounded-28 border border-white-12 lg:mt-0 lg:min-h-[840px]">
       <Image
@@ -33,10 +39,7 @@ const Keycards = () => {
               Buy Keycard
             </Button>
           </BuyKeycardDialog>
-          <ButtonLink
-            href="https://get.keycard.tech/pages/keycard"
-            variant="secondary"
-          >
+          <ButtonLink href={keycardUrl} variant="secondary">
             Learn more
           </ButtonLink>
         </div>

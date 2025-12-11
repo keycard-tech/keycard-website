@@ -1,14 +1,17 @@
 'use client'
 
+import { getShopifyUrl } from '~/config/routes'
 import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
 import { BuyShellDialog } from '~components/buy-shell-dialog'
 import { Image } from '~components/image'
 import { JsonLd } from '~components/json-ld'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 
 const KeycardShell = () => {
   const t = useTranslations()
+  const locale = useLocale()
+  const shellUrl = getShopifyUrl(locale, '/pages/keycard-shell')
   return (
     <section className="relative flex flex-col overflow-hidden rounded-t-28 border border-white-8 bg-white-4 backdrop-blur-[20px] full-view-port lg:h-auto lg:flex-row-reverse lg:items-center lg:justify-normal lg:py-10 lg:remove-full-view-port">
       <div className="hidden flex-1 items-center justify-center overflow-hidden lg:flex">
@@ -53,10 +56,7 @@ const KeycardShell = () => {
           {t('hero.keycard_shell_description.translation')}
         </p>
         <div className="flex gap-4">
-          <ButtonLink
-            href="https://get.keycard.tech/pages/keycard-shell"
-            target="_self"
-          >
+          <ButtonLink href={shellUrl} target="_self">
             {t('hero.discover_shell.translation')}
           </ButtonLink>
           <BuyShellDialog>
@@ -89,7 +89,7 @@ const KeycardShell = () => {
           sku: 'SHELL-001',
           offers: {
             '@type': 'Offer',
-            url: 'https://get.keycard.tech/pages/keycard-shell',
+            url: shellUrl,
             availability: 'https://schema.org/PreOrder',
             priceCurrency: 'EUR',
             price: '99',
