@@ -1,0 +1,55 @@
+---
+id: build
+title: Build your Keycard
+---
+
+# Build your Keycard
+
+if you have a blank JavaCard 3.0.5 card (readily available for purchase on the web) you can build your own Keycard. This is especially useful for developers who want to contribute to the project and/or experiment with it.
+
+Please note that cards built this way will miss the certificate that is present on cards we distribute. This doesn't affect functionality in any way but will cause a warning to appear when using the card with Shell or another Keycard compatible wallet for the first time. Since you built the card yourself you can safely dismiss this warning.
+
+## Compiling and installing from source
+
+compiling and installing from source is probably the best way to proceed, since this will also leave you with a working development environment for all your experiments.
+
+### Requirements
+
+- Linux, Windows or Mac computer
+- OpenJDK 11 (make sure to set the JAVA_HOME environment variable to point this installation)
+- A Javacard 3.0.5 based smartcard with T=1 and SCP02 support. Cards of the JCOP4 family are known to work well.
+- A standard PCSC smartcard reader
+
+### Installation steps
+
+1. Plugin your PCSC reader and insert the card. Make sure no other PCSC reader (or Yubikey) is plugged in
+2. Open your terminal app of choice
+3. Clone the Keycard repo with the command `git clone --recurse-submodules https://github.com/keycard-tech/status-keycard`
+4. Enter the repository with `cd status-keycard`
+5. Build and install the applet with `./gradlew install`
+6. Your card is ready to be used with Keycard Shell or any wallet supporting Keycard
+
+This assume that the smartcard you are using uses the default GlobalPlatform keys (true for most cards sold online) or the Keycard development keys (if you bought a dev card from us). In case you already played with the card and changed the ISD keys yourself, follow the below step. 
+
+### Alternative installations steps
+
+1. Follow step 1-4 above
+2. Execute `./gradlew convertJavacard`
+3. Find the file `keycard.cap` file in the `build` directory.
+4. Install the cap file using your favorite [GlobalPlatform management tool](https://github.com/martinpaljak/GlobalPlatformPro)
+5. Install the Keycard applet, making sure you assign instance AID `A00000080400010101`
+6. Optionally install the other applets in the cap file, you can find all AIDs [here](https://github.com/keycard-tech/status-keycard-java/blob/master/lib/src/main/java/im/status/keycard/applet/Identifiers.java)
+
+### Locking the card
+
+After following the installation steps above your card will still be open to changes. This is very useful during development because you can repeat the installation steps as many times as you want to test changes you made to the app. To make your card immutable, in a way similar to what we do you need to do 2 things:
+
+1. Change the ISD keys to random ones. If you store these you will still be able to reinstall the applet or update to a new version. Since only you will have the keys this is reasonably safe, however you would have to store these keys securely.
+2. Bring the card from the OP_READY lifecycle state to the SECURED one
+
+you can perform these two steps using either your favorite GlobalPlatform management tool or by following these two steps
+
+1. `cd status-keycard`
+2. `./gradlew lock`
+
+**NOTE: THIS PROCEDURE IS NOT REVERSIBLE. THE AUTOMATED LOCKING TOOL DOES NOT PRINT OR STORE THE RANDOMLY GENERATED KEYS ANYWHERE**

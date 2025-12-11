@@ -9,11 +9,11 @@ import {
   useTransform,
 } from 'framer-motion'
 import { useTranslations } from 'next-intl'
-import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { Button } from './button'
 import { LanguageSelector } from './language-selector'
+import { Link } from './link'
 import { Logo } from './logo'
 
 const NAV_BAR_HEIGHT = 92
@@ -28,7 +28,7 @@ const internalLinkStyles = cva({
   },
 })
 
-const links = [
+export const NAV_BAR_LINKS = [
   { href: 'https://get.keycard.tech/pages/keycard', label: 'Keycard' },
   {
     href: 'https://get.keycard.tech/pages/keycard-shell',
@@ -75,7 +75,7 @@ const NavBar = () => {
       </Link>
 
       <div className="flex items-center gap-4">
-        {links.map(({ href, label }) => (
+        {NAV_BAR_LINKS.map(({ href, label }) => (
           <Link
             key={href}
             href={href}

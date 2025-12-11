@@ -66,26 +66,84 @@ export const getRoutes = (t: ReturnType<typeof useTranslations>) =>
 
 // Keep the original ROUTES for backward compatibility
 export const ROUTES = {
-  Products: [
-    { name: 'Keycard', href: 'https://get.keycard.tech/pages/keycard' },
+  Keycard: [
     {
-      name: 'Keycard Shell',
+      name: 'About Keycard',
+      href: '/keycard',
+    },
+    {
+      name: 'Buy Keycard',
+      href: 'https://get.keycard.tech/pages/keycard',
+    },
+    {
+      name: 'Get Started',
+      href: '/start/keycard',
+    },
+  ],
+  Shell: [
+    {
+      name: 'About Shell',
       href: 'https://get.keycard.tech/pages/keycard-shell',
+    },
+    {
+      name: 'Buy Shell',
+      href: 'https://get.keycard.tech/pages/keycard-shell',
+    },
+    {
+      name: "Owner's hub",
+      href: 'https://shell.keycard.tech/',
+    },
+    {
+      name: 'Quick Start Guide',
+      href: '/start/shell',
+    },
+    {
+      name: 'Update Shell',
+      href: 'https://shell.keycard.tech/update/',
+    },
+    {
+      name: 'Verify Shell',
+      href: 'https://shell.keycard.tech/verify/',
     },
   ],
   Info: [
-    { name: 'Get started', href: '/start' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Help', href: '/help/overview' },
-    { name: 'Developers', href: '/developers/overview' },
-    { name: 'Affiliates', href: 'https://affiliates.keycard.tech' },
+    {
+      name: 'About',
+      href: '/about',
+    },
+    {
+      name: 'Blog',
+      href: '/blog',
+    },
+    {
+      name: 'Help',
+      href: '/help/about-keycard-and-keycard-shell',
+    },
+    {
+      name: 'Developers',
+      href: '/developers/overview',
+    },
+    {
+      name: 'Affiliates',
+      href: 'https://affiliates.keycard.tech',
+      external: true,
+    },
   ],
   Contacts: [
-    { name: 'About', href: '/about' },
-    { name: 'Contact', href: '/contact' },
-    { name: 'Discord', href: 'https://discord.gg/uJAXk7jFhZ' },
-    { name: 'X', href: 'https://x.com/Keycard_' },
-    // { name: 'Email', href: 'mailto:support@keycard.tech' },
+    {
+      name: 'Contact us',
+      href: '/contact',
+    },
+    {
+      name: 'Discord',
+      href: 'https://discord.com/invite/uJAXk7jFhZ',
+      external: true,
+    },
+    {
+      name: 'X',
+      href: 'https://x.com/Keycard_',
+      external: true,
+    },
   ],
   Legal: [
     { name: 'Privacy policy', href: '/legal/privacy-policy' },
