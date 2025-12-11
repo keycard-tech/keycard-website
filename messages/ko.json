@@ -57,6 +57,20 @@
       "notes": "common::from"
     }
   },
+  "blog": {
+    "title": {
+      "translation": "Keycard 블로그",
+      "notes": "blog::title"
+    },
+    "subtitle": {
+      "translation": "제품 업데이트, 보안 및 에코시스템 소식.",
+      "notes": "blog::subtitle"
+    },
+    "no_posts": {
+      "translation": "아직 게시물이 없습니다 — 곧 다시 확인해주세요.",
+      "notes": "blog::no_posts"
+    }
+  },
   "navigation": {
     "about": {
       "translation": "소개",
@@ -435,15 +449,15 @@
       "notes": "about::description"
     },
     "subtitle": {
-      "translation": "Open-source signing hardware from the",
+      "translation": "자유 기술 연구소의 오픈 소스 서명 하드웨어",
       "notes": "about::subtitle"
     },
     "institute_link": {
-      "translation": "Institute of Free Technology",
+      "translation": "자유 기술 연구소",
       "notes": "about::institute_link"
     },
     "alongside_text": {
-      "translation": " alongside",
+      "translation": " 와 함께",
       "notes": "about::alongside_text"
     },
     "status_link": {
@@ -452,59 +466,59 @@
     },
     "why_hardware": {
       "title": {
-        "translation": "Why dedicated hardware",
+        "translation": "전용 하드웨어가 필요한 이유",
         "notes": "about::why_hardware::title"
       },
       "description": {
-        "translation": "Air-gapped flows, secure elements, and tamper resistance keep your keys off general-purpose devices.",
+        "translation": "에어갭된 흐름, 보안 요소, 변조 방지로 키를 범용 기기에서 분리합니다.",
         "notes": "about::why_hardware::description"
       }
     },
     "what_keycard": {
       "title": {
-        "translation": "What is Keycard?",
+        "translation": "Keycard란?",
         "notes": "about::what_keycard::title"
       },
       "description": {
-        "translation": "A smartcard hardware wallet and Shell enclosure that signs transactions without exposing private keys.",
+        "translation": "개인 키를 노출하지 않고 트랜잭션을 서명하는 스마트카드 하드웨어 지갑과 Shell 하우징입니다.",
         "notes": "about::what_keycard::description"
       }
     },
     "how_we_work": {
       "title": {
-        "translation": "How we work",
+        "translation": "우리의 방식",
         "notes": "about::how_we_work::title"
       },
       "description": {
-        "translation": "Open-source, security-first, with reproducible builds and public audits.",
+        "translation": "오픈 소스, 보안을 최우선으로, 재현 가능한 빌드와 공개 감사.",
         "notes": "about::how_we_work::description"
       }
     },
     "principles": {
       "title": {
-        "translation": "Principles",
+        "translation": "원칙",
         "notes": "about::principles::title"
       },
       "keys_never_leave": {
-        "translation": "Keys never leave secure elements",
+        "translation": "키는 보안 요소를 벗어나지 않습니다",
         "notes": "about::principles::keys_never_leave"
       },
       "minimize_blind_signing": {
-        "translation": "Minimize blind signing",
+        "translation": "블라인드 서명을 최소화합니다",
         "notes": "about::principles::minimize_blind_signing"
       },
       "open_designs": {
-        "translation": "Open designs, open audits",
+        "translation": "오픈 디자인과 공개 감사",
         "notes": "about::principles::open_designs"
       },
       "building_open": {
-        "translation": "Building in the open with community",
+        "translation": "커뮤니티와 함께 공개적으로 개발",
         "notes": "about::principles::building_open"
       }
     },
     "products": {
       "title": {
-        "translation": "Products",
+        "translation": "제품",
         "notes": "about::products::title"
       },
       "keycard": {
@@ -513,7 +527,7 @@
           "notes": "about::products::keycard::name"
         },
         "description": {
-          "translation": "A slim NFC smartcard hardware wallet.",
+          "translation": "슬림한 NFC 스마트카드 하드웨어 지갑입니다.",
           "notes": "about::products::keycard::description"
         }
       },
@@ -523,38 +537,38 @@
           "notes": "about::products::keycard_shell::name"
         },
         "description": {
-          "translation": "An air-gapped wallet with a QR camera that works with Keycard smartcards.",
+          "translation": "Keycard 스마트카드와 함께 동작하는 QR 카메라 탑재 에어갭 지갑입니다.",
           "notes": "about::products::keycard_shell::description"
         }
       }
     },
     "press": {
       "title": {
-        "translation": "Press",
+        "translation": "보도",
         "notes": "about::press::title"
       },
       "press_release": {
-        "translation": "Press release",
+        "translation": "보도 자료",
         "notes": "about::press::press_release"
       },
       "media_inquiries": {
-        "translation": "Media inquiries?",
+        "translation": "미디어 문의?",
         "notes": "about::press::media_inquiries"
       }
     },
     "certifications": {
       "title": {
-        "translation": "Certifications & security",
+        "translation": "인증 및 보안",
         "notes": "about::certifications::title"
       }
     },
     "partners": {
       "title": {
-        "translation": "Partners & ecosystem",
+        "translation": "파트너 & 에코시스템",
         "notes": "about::partners::title"
       },
       "erc4527_description": {
-        "translation": "Standards and integrations using the ERC-4527 QR protocol.",
+        "translation": "ERC-4527 QR 프로토콜을 사용하는 표준 및 통합.",
         "notes": "about::partners::erc4527_description"
       }
     }
@@ -576,6 +590,48 @@
       "description": {
         "translation": "질문, 버그, 기능 요청 또는 보안 보고서.",
         "notes": "contact::product_support::description"
+      }
+    },
+    "partnerships": {
+      "title": {
+        "translation": "파트너십 및 BD",
+        "notes": "contact::partnerships::title"
+      },
+      "description": {
+        "translation": "통합, 유통 또는 대량 주문.",
+        "notes": "contact::partnerships::description"
+      }
+    },
+    "orders": {
+      "title": {
+        "translation": "주문 및 배송",
+        "notes": "contact::orders::title"
+      },
+      "description": {
+        "translation": "주문, 배송, 환불 또는 교체 관련 문의.",
+        "notes": "contact::orders::description"
+      },
+      "help_link": {
+        "translation": "주문 도움말 보기",
+        "notes": "contact::orders::help_link"
+      }
+    },
+    "get_involved": {
+      "title": {
+        "translation": "함께 참여하기",
+        "notes": "contact::get_involved::title"
+      },
+      "description": {
+        "translation": "Keycard와 함께 빌드하거나 프로젝트를 더 알아보세요.",
+        "notes": "contact::get_involved::description"
+      },
+      "docs_link": {
+        "translation": "문서 읽기",
+        "notes": "contact::get_involved::docs_link"
+      },
+      "blog_link": {
+        "translation": "블로그 방문",
+        "notes": "contact::get_involved::blog_link"
       }
     },
     "partnerships_bd": {

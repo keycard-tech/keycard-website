@@ -57,6 +57,20 @@
       "notes": "common::from"
     }
   },
+  "blog": {
+    "title": {
+      "translation": "Keycard-blog",
+      "notes": "blog::title"
+    },
+    "subtitle": {
+      "translation": "Productupdates, veiligheid en ecosysteemnieuws.",
+      "notes": "blog::subtitle"
+    },
+    "no_posts": {
+      "translation": "Nog geen posts — kom snel terug.",
+      "notes": "blog::no_posts"
+    }
+  },
   "navigation": {
     "about": {
       "translation": "Over",
@@ -437,7 +451,7 @@
       "notes": "about::description"
     },
     "subtitle": {
-      "translation": "Open-source signing hardware from the",
+      "translation": "Open-source ondertekenhardware van het",
       "notes": "about::subtitle"
     },
     "institute_link": {
@@ -445,7 +459,7 @@
       "notes": "about::institute_link"
     },
     "alongside_text": {
-      "translation": " alongside",
+      "translation": " samen met",
       "notes": "about::alongside_text"
     },
     "status_link": {
@@ -454,59 +468,59 @@
     },
     "why_hardware": {
       "title": {
-        "translation": "Why dedicated hardware",
+        "translation": "Waarom dedicated hardware",
         "notes": "about::why_hardware::title"
       },
       "description": {
-        "translation": "Air-gapped flows, secure elements, and tamper resistance keep your keys off general-purpose devices.",
+        "translation": "Air-gapped flows, secure elements en manipulatiebestendigheid houden je sleutels weg van algemene apparaten.",
         "notes": "about::why_hardware::description"
       }
     },
     "what_keycard": {
       "title": {
-        "translation": "What is Keycard?",
+        "translation": "Wat is Keycard?",
         "notes": "about::what_keycard::title"
       },
       "description": {
-        "translation": "A smartcard hardware wallet and Shell enclosure that signs transactions without exposing private keys.",
+        "translation": "Een smartcard-hardwarewallet en Shell-behuizing die transacties ondertekenen zonder privésleutels bloot te stellen.",
         "notes": "about::what_keycard::description"
       }
     },
     "how_we_work": {
       "title": {
-        "translation": "How we work",
+        "translation": "Hoe we werken",
         "notes": "about::how_we_work::title"
       },
       "description": {
-        "translation": "Open-source, security-first, with reproducible builds and public audits.",
+        "translation": "Open source, veiligheid eerst, met reproduceerbare builds en openbare audits.",
         "notes": "about::how_we_work::description"
       }
     },
     "principles": {
       "title": {
-        "translation": "Principles",
+        "translation": "Principes",
         "notes": "about::principles::title"
       },
       "keys_never_leave": {
-        "translation": "Keys never leave secure elements",
+        "translation": "Sleutels verlaten secure elements nooit",
         "notes": "about::principles::keys_never_leave"
       },
       "minimize_blind_signing": {
-        "translation": "Minimize blind signing",
+        "translation": "Blind signing minimaliseren",
         "notes": "about::principles::minimize_blind_signing"
       },
       "open_designs": {
-        "translation": "Open designs, open audits",
+        "translation": "Open ontwerpen, open audits",
         "notes": "about::principles::open_designs"
       },
       "building_open": {
-        "translation": "Building in the open with community",
+        "translation": "Open bouwen met de community",
         "notes": "about::principles::building_open"
       }
     },
     "products": {
       "title": {
-        "translation": "Products",
+        "translation": "Producten",
         "notes": "about::products::title"
       },
       "keycard": {
@@ -515,7 +529,7 @@
           "notes": "about::products::keycard::name"
         },
         "description": {
-          "translation": "A slim NFC smartcard hardware wallet.",
+          "translation": "Een slanke NFC-smartcard-hardwarewallet.",
           "notes": "about::products::keycard::description"
         }
       },
@@ -525,38 +539,38 @@
           "notes": "about::products::keycard_shell::name"
         },
         "description": {
-          "translation": "An air-gapped wallet with a QR camera that works with Keycard smartcards.",
+          "translation": "Een air-gapped wallet met QR-camera die werkt met Keycard-smartcards.",
           "notes": "about::products::keycard_shell::description"
         }
       }
     },
     "press": {
       "title": {
-        "translation": "Press",
+        "translation": "Pers",
         "notes": "about::press::title"
       },
       "press_release": {
-        "translation": "Press release",
+        "translation": "Persbericht",
         "notes": "about::press::press_release"
       },
       "media_inquiries": {
-        "translation": "Media inquiries?",
+        "translation": "Persaanvragen?",
         "notes": "about::press::media_inquiries"
       }
     },
     "certifications": {
       "title": {
-        "translation": "Certifications & security",
+        "translation": "Certificeringen & beveiliging",
         "notes": "about::certifications::title"
       }
     },
     "partners": {
       "title": {
-        "translation": "Partners & ecosystem",
+        "translation": "Partners & ecosysteem",
         "notes": "about::partners::title"
       },
       "erc4527_description": {
-        "translation": "Standards and integrations using the ERC-4527 QR protocol.",
+        "translation": "Standaarden en integraties met het ERC-4527-QR-protocol.",
         "notes": "about::partners::erc4527_description"
       }
     }
@@ -578,6 +592,48 @@
       "description": {
         "translation": "Vragen, bugs, feature‑verzoeken of beveiligingsmeldingen.",
         "notes": "contact::product_support::description"
+      }
+    },
+    "partnerships": {
+      "title": {
+        "translation": "Partnerschappen & BD",
+        "notes": "contact::partnerships::title"
+      },
+      "description": {
+        "translation": "Integraties, distributie of bulkbestellingen.",
+        "notes": "contact::partnerships::description"
+      }
+    },
+    "orders": {
+      "title": {
+        "translation": "Bestellingen & verzending",
+        "notes": "contact::orders::title"
+      },
+      "description": {
+        "translation": "Vragen over bestellingen, verzending, terugbetalingen of vervangingen.",
+        "notes": "contact::orders::description"
+      },
+      "help_link": {
+        "translation": "Ga naar bestelhelp",
+        "notes": "contact::orders::help_link"
+      }
+    },
+    "get_involved": {
+      "title": {
+        "translation": "Doe mee",
+        "notes": "contact::get_involved::title"
+      },
+      "description": {
+        "translation": "Bouw met Keycard of leer meer over het project.",
+        "notes": "contact::get_involved::description"
+      },
+      "docs_link": {
+        "translation": "Lees de docs",
+        "notes": "contact::get_involved::docs_link"
+      },
+      "blog_link": {
+        "translation": "Bezoek de blog",
+        "notes": "contact::get_involved::blog_link"
       }
     },
     "partnerships_bd": {
