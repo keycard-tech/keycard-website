@@ -38,7 +38,7 @@
     "github-slugger": "^2.0.0",
     "google-auth-library": "^9.14.2",
     "google-spreadsheet": "^4.1.4",
-    "next": "15.0.5",
+    "next": "15.0.7",
     "next-mdx-remote": "^5.0.0",
     "react": "19.0.1",
     "react-children-utilities": "^2.10.0",
