@@ -50,7 +50,7 @@ export const ROUTES = {
     },
     {
       name: 'Help',
-      href: '/help/overview',
+      href: '/help/about-keycard-and-keycard-shell',
     },
     {
       name: 'Developers',

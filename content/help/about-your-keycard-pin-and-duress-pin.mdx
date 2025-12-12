@@ -7,7 +7,7 @@ title: About your Keycard PIN and duress PIN
 
 ![Header image of the Keycard Shell's screen displaying the PIN setup process.](/assets/docs/about-your-keycard-pin-and-duress-pin-header.png)
 
-When [setting up your Keycard](./set-up-your-keycard), you must create a six-digit Keycard PIN (personal identification number). It functions like a password to protect access to your Keycard.
+When [setting up your Keycard](./set-up-your-keycard), you must create a six-digit Keycard PIN (Personal Identification Number). This PIN functions like a password to protect access to your Keycard.
 
 Optionally, you can set a duress PIN to unlock a decoy wallet if someone forces you to unlock your Keycard.
 
@@ -23,7 +23,7 @@ The PIN protects access to the Keycard itself, not the funds directly. Your reco
 
 You can [change your Keycard PIN](./change-your-keycard-pin-or-duress-pin) at any time.
 
-## About your duress PIN
+## About your duress PIN and decoy wallet
 
 After setting your Keycard PIN, you can choose to set a duress PIN.
 
@@ -33,23 +33,27 @@ After setting your Keycard PIN, you can choose to set a duress PIN.
 
 When you set a duress PIN, your Keycard automatically creates a decoy wallet. There is no visible way to tell whether you are using the decoy wallet or the regular wallet, or whether a decoy wallet exists. Only you know if you set a duress PIN.
 
-The duress PIN works the same way as your regular Keycard PIN, and the decoy wallet behaves like a regular wallet. You can also send and receive funds using the decoy wallet. It's intended to be a wallet with low value to show to an attacker. You must manually transfer funds into the decoy wallet if you want it to appear to hold value.
+The duress PIN works the same way as your regular Keycard PIN, and the decoy wallet behaves like a regular wallet. You can also send and receive funds using the decoy wallet. It's intended to be a wallet with low value to show to an attacker, instead of your real wallet.
+
+<Admonition type="note">
+    You must manually transfer funds into the decoy wallet if you want it to appear as if it holds value.
+</Admonition>
 
 Your decoy wallet and regular wallet are linked to the same recovery phrase. If you recover your wallet on another Keycard, you restore both wallets at the same time.
 
-[Changing the duress PIN](./change-your-keycard-pin-or-duress-pin) doesn't affect the regular Keycard PIN.
+Your regular PIN and duress PIN operate independently. [Changing one](./change-your-keycard-pin-or-duress-pin) doesn't affect the other.
 
 ## Choose a strong PIN
 
 Following these tips can help you create a secure PIN for your Keycard:
 
 - Avoid simple sequences (for example, 123456) or repeated digits (for example, 111111). Instead, use a mix of numbers that are not easily guessable.
-- Do not use easily obtainable information, such as your birthdate, phone number, or address.
+- Do not use easily obtainable information, such as your birthdate, phone number, card plate, or address.
 - Use a unique PIN for your Keycard that you do not use for other accounts or devices.
 - Consider changing your PIN periodically to enhance security.
 
 ## If you forget your PIN
 
-After three wrong attempts at entering your Keycard PIN or duress PIN, your Keycard becomes blocked. You can unlock it by entering your [PUK](./set-a-keycard-puk) (personal unblocking code).
+After three wrong attempts at entering your Keycard PIN or duress PIN, your Keycard becomes blocked. You can unblock it by entering your [PUK](./set-a-keycard-puk) (Personal Unblocking Code).
 
 If you don't have a PUK, you can [factory reset](./factory-reset-your-keycard) your Keycard and then [import your wallet accounts](./set-up-your-keycard.mdx#add-a-key-pair) again. This doesn't affect the funds in your wallet accounts. You can always access your funds with your recovery phrase.
