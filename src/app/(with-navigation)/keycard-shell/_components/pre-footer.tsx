@@ -40,13 +40,14 @@ const Prefooter = () => {
         <Image
           src="/assets/faqs.png"
           alt="Keycard Shell"
-          width={791}
-          height={521}
+          width={480}
+          height={320}
           draggable={false}
           className={cx([
-            'pointer-events-none absolute left-[80%] top-0 z-0 h-auto max-w-[549px] -translate-x-1/2 select-none md:left-1/2 lg:relative lg:left-1/4 lg:top-12 lg:translate-x-0',
-            'aspect-[791/521] object-contain lg:scale-125',
+            'pointer-events-none absolute left-[80%] top-0 z-0 h-auto w-[380px] max-w-[380px] -translate-x-1/2 select-none md:left-1/2 lg:relative lg:left-1/4 lg:top-4 lg:w-[420px] lg:max-w-[420px] lg:translate-x-0',
+            'aspect-[791/521] object-contain',
           ])}
+          sizes="(max-width:1023px) 380px, 420px"
         />
       </div>
     </section>
