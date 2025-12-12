@@ -178,7 +178,7 @@ const STEPS = [
         Verification checks that your Shell is authentic and runs a verified
         firmware. You need your phone or computer to complete this process.
         Check out{' '}
-        <Link className="underline" href="/help/verify-your-shell-authenticity">
+        <Link className="underline" href="https://shell.keycard.tech/verify/">
           Verify your Shell Authenticity
         </Link>{' '}
         for details.
