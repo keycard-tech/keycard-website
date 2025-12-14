@@ -1,8 +1,6 @@
 'use client'
 
 import { getRoutes, type Routes } from '~/config/routes'
-import { Button } from '~components/button'
-import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
 import { CartBadge } from '~components/cart/cart-badge'
 import { cx } from 'cva'
 import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion'
@@ -100,27 +98,7 @@ const NavBarMobile = () => {
         <div className="flex items-center gap-4">
           <CartBadge />
           <AnimatePresence>
-            {!isOpen && (
-              <motion.div
-                key="button-keycard"
-                initial={{ opacity: 1 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3, ease: 'easeInOut' }}
-              >
-                <BuyKeycardDialog>
-                  <Button
-                    variant="secondary"
-                    data-umami-event="buy-keycard"
-                    data-umami-event-page="global"
-                    data-umami-event-section="mobile-navbar"
-                    data-umami-event-element="button"
-                  >
-                    {t('common.buy_keycard.translation')}
-                  </Button>
-                </BuyKeycardDialog>
-              </motion.div>
-            )}
+            {!isOpen && <motion.div key="button-keycard" />}
           </AnimatePresence>
 
           <LanguageSelector />
@@ -177,26 +155,6 @@ const NavBarMobile = () => {
                     </Link>
                   </motion.li>
                 ))}
-                <motion.li
-                  key="button-keycard"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 + 3 * 0.05, duration: 0.3 }}
-                  className="pt-2 text-center"
-                >
-                  <BuyKeycardDialog>
-                    <Button
-                      variant="primary"
-                      backdropFilter
-                      data-umami-event="buy-keycard"
-                      data-umami-event-page="global"
-                      data-umami-event-section="mobile-menu"
-                      data-umami-event-element="button"
-                    >
-                      {t('common.buy_keycard.translation')}
-                    </Button>
-                  </BuyKeycardDialog>
-                </motion.li>
               </ul>
               <motion.div
                 key="menu-footer"
