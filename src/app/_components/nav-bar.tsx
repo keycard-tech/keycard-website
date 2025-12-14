@@ -2,6 +2,7 @@
 
 import { getShopifyUrl } from '~/config/routes'
 import { BuyShellDialog } from '~components/buy-shell-dialog'
+import { CartBadge } from '~components/cart/cart-badge'
 import { cva } from 'cva'
 import {
   motion,
@@ -90,6 +91,7 @@ const NavBar = () => {
         ))}
 
         <LanguageSelector />
+        <CartBadge />
 
         <BuyShellDialog>
           <Button

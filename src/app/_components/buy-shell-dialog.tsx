@@ -5,49 +5,18 @@ import {
   InfoIcon,
   KeycardCardIcon,
   LabelsIcon,
+  LoadingIcon,
   WorldIcon,
 } from '@status-im/icons/20'
-import { getShopifyUrl } from '~/config/routes'
 import { Image } from '~components/image'
 import { AnimatePresence, motion } from 'framer-motion'
-import { useLocale } from 'next-intl'
-import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { KEYCARD_SHELL } from '../_constants/shopify/products'
-import { useShopifyUTMParamsContext } from '../_providers/shopify-utm-params-provider'
+import { useCart } from '../_providers/cart-provider'
 import { formatPrice } from '../_utils/format-price'
 import { Button } from './button'
 import * as Dialog from './dialog'
 import { Tooltip } from './tooltip'
-
-function getCookie(name: string): string {
-  if (typeof document === 'undefined') return ''
-  const value = `; ${document.cookie}`
-  const parts = value.split(`; ${name}=`)
-  if (parts.length === 2) return parts.pop()?.split(';').shift() || ''
-  return ''
-}
-
-function createCheckoutUrl(locale: string, utmParams: URLSearchParams) {
-  const url = new URL(
-    getShopifyUrl(locale, `/cart/${KEYCARD_SHELL.variantId}:1`),
-  )
-
-  // Add existing UTM params
-  utmParams.forEach((value, key) => {
-    url.searchParams.append(key, value)
-  })
-
-  // 1. Read the BixGrow affiliate ID from the cookie
-  const affiliateId = getCookie('bgaffilite_id')
-
-  // 2. If it exists, append it as a 'ref' parameter
-  if (affiliateId) {
-    url.searchParams.append('bg_ref', affiliateId) // BixGrow Checkout pixel
-  }
-
-  return url.toString()
-}
 
 type Props = {
   children?: React.ReactElement
@@ -75,7 +44,7 @@ const BuyShellDialog = (props: Props) => {
         <Dialog.Description className="sr-only">
           Pre-order Shell
         </Dialog.Description>
-        <Content />
+        <Content onClose={() => setOpen(false)} />
       </Dialog.Content>
     </Dialog.Root>
   )
@@ -83,10 +52,27 @@ const BuyShellDialog = (props: Props) => {
 
 export { BuyShellDialog }
 
-const Content = () => {
-  const router = useRouter()
-  const utmParams = useShopifyUTMParamsContext()
-  const locale = useLocale()
+const Content = ({ onClose }: { onClose?: () => void }) => {
+  const { addItem } = useCart()
+  const [submitError, setSubmitError] = useState<string | null>(null)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const handleAddToCart = async () => {
+    setSubmitError(null)
+    setIsSubmitting(true)
+
+    try {
+      const merchandiseId = `gid://shopify/ProductVariant/${KEYCARD_SHELL.variantId}`
+      await addItem(merchandiseId, 1)
+      onClose?.()
+    } catch (error) {
+      setSubmitError(
+        error instanceof Error ? error.message : 'Unable to update cart',
+      )
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
 
   return (
     <div className="grid h-svh grid-cols-1 gap-6 overflow-auto bg-white-4 p-5 backdrop-blur-[20px] lg:h-auto lg:grid-cols-2 lg:overflow-clip lg:rounded-28 lg:border lg:border-white-12 lg:p-2">
@@ -200,25 +186,31 @@ const Content = () => {
           </div>
         </div>
         <div className="rounded-16 border border-white-12 bg-white-4 p-1">
+          {submitError && (
+            <div className="mb-2 rounded-12 border border-[rgba(255,80,80,0.3)] bg-[rgba(255,80,80,0.1)] px-3 py-2 text-13 text-red">
+              {submitError}
+            </div>
+          )}
           <Button
+            type="button"
             className="w-full justify-center gap-2 font-500"
             data-umami-event="checkout-shell"
             data-umami-event-page="buy-shell-dialog"
             data-umami-event-section="checkout"
             data-umami-event-element="button"
-            onClick={() => {
-              const checkoutUrl = createCheckoutUrl(
-                locale,
-                utmParams || new URLSearchParams(),
-              )
-              window.open(checkoutUrl, '_blank', 'noopener')
-              router.push(`/thank-you?product=shell&checkoutUrl=${checkoutUrl}`)
-            }}
+            onClick={handleAddToCart}
+            disabled={isSubmitting}
           >
-            Checkout <div className="size-1 rounded-full bg-white-40" />
-            {formatPrice({
-              amount: 99,
-            })}
+            {isSubmitting ? (
+              <LoadingIcon className="my-px animate-spin text-white-100" />
+            ) : (
+              <>
+                Add to cart <div className="size-1 rounded-full bg-white-40" />
+                {formatPrice({
+                  amount: 99,
+                })}
+              </>
+            )}
           </Button>
         </div>
 
