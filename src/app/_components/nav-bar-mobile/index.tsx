@@ -3,6 +3,7 @@
 import { getRoutes, type Routes } from '~/config/routes'
 import { Button } from '~components/button'
 import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
+import { CartBadge } from '~components/cart/cart-badge'
 import { cx } from 'cva'
 import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion'
 import { useLocale, useTranslations } from 'next-intl'
@@ -97,6 +98,7 @@ const NavBarMobile = () => {
           <Logo className="h-10" />
         </Link>
         <div className="flex items-center gap-4">
+          <CartBadge />
           <AnimatePresence>
             {!isOpen && (
               <motion.div
