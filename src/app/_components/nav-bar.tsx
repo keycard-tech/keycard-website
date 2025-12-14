@@ -1,7 +1,6 @@
 'use client'
 
 import { getShopifyUrl } from '~/config/routes'
-import { BuyShellDialog } from '~components/buy-shell-dialog'
 import { CartBadge } from '~components/cart/cart-badge'
 import { cva } from 'cva'
 import {
@@ -10,10 +9,9 @@ import {
   useScroll,
   useTransform,
 } from 'framer-motion'
-import { useLocale, useTranslations } from 'next-intl'
+import { useLocale } from 'next-intl'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import { Button } from './button'
 import { LanguageSelector } from './language-selector'
 import { Link } from './link'
 import { Logo } from './logo'
@@ -40,8 +38,7 @@ export const getNavBarLinks = (locale: string) => [
 
 const NavBar = () => {
   const pathname = usePathname()
-  const [variant, setVariant] = useState<'primary' | 'secondary'>('secondary')
-  const t = useTranslations()
+  const [, setVariant] = useState<'primary' | 'secondary'>('secondary')
   const locale = useLocale()
   const NAV_BAR_LINKS = getNavBarLinks(locale)
 
@@ -92,18 +89,6 @@ const NavBar = () => {
 
         <LanguageSelector />
         <CartBadge />
-
-        <BuyShellDialog>
-          <Button
-            variant={variant}
-            data-umami-event="preorder-shell"
-            data-umami-event-page="global"
-            data-umami-event-section="navbar"
-            data-umami-event-element="button"
-          >
-            {t('common.pre_order_shell.translation')}
-          </Button>
-        </BuyShellDialog>
       </div>
     </motion.nav>
   )
