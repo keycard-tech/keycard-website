@@ -1,5 +1,6 @@
 'use client'
 
+import { getShopifyUrl } from '~/config/routes'
 import { BuyShellDialog } from '~components/buy-shell-dialog'
 import { cva } from 'cva'
 import {
@@ -8,10 +9,12 @@ import {
   useScroll,
   useTransform,
 } from 'framer-motion'
-import Link from 'next/link'
+import { useLocale, useTranslations } from 'next-intl'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { Button } from './button'
+import { LanguageSelector } from './language-selector'
+import { Link } from './link'
 import { Logo } from './logo'
 
 const NAV_BAR_HEIGHT = 92
@@ -26,10 +29,10 @@ const internalLinkStyles = cva({
   },
 })
 
-export const NAV_BAR_LINKS = [
-  { href: 'https://get.keycard.tech/pages/keycard', label: 'Keycard' },
+export const getNavBarLinks = (locale: string) => [
+  { href: getShopifyUrl(locale, '/pages/keycard'), label: 'Keycard' },
   {
-    href: 'https://get.keycard.tech/pages/keycard-shell',
+    href: getShopifyUrl(locale, '/pages/keycard-shell'),
     label: 'Keycard Shell',
   },
 ]
@@ -37,6 +40,9 @@ export const NAV_BAR_LINKS = [
 const NavBar = () => {
   const pathname = usePathname()
   const [variant, setVariant] = useState<'primary' | 'secondary'>('secondary')
+  const t = useTranslations()
+  const locale = useLocale()
+  const NAV_BAR_LINKS = getNavBarLinks(locale)
 
   const { scrollY } = useScroll()
 
@@ -77,10 +83,13 @@ const NavBar = () => {
             key={href}
             href={href}
             className={internalLinkStyles({ isActive: pathname === href })}
+            target="_self"
           >
             {label}
           </Link>
         ))}
+
+        <LanguageSelector />
 
         <BuyShellDialog>
           <Button
@@ -90,7 +99,7 @@ const NavBar = () => {
             data-umami-event-section="navbar"
             data-umami-event-element="button"
           >
-            Pre-order Shell
+            {t('common.pre_order_shell.translation')}
           </Button>
         </BuyShellDialog>
       </div>
