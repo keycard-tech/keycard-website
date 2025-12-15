@@ -20,6 +20,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/legal/privacy-policy',
     '/legal/terms-of-use',
     '/help',
+    '/wallets',
+    '/developers',
   ].map(p => ({
     url: base + p,
     lastModified: now,

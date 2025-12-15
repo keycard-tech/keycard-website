@@ -1,10 +1,17 @@
-import { ROUTES } from '~/config/routes'
+'use client'
+
+import { getRoutes } from '~/config/routes'
 import { Link } from '~components/link'
 import { Logo } from '~components/logo'
+import { useLocale, useTranslations } from 'next-intl'
 import { Copyright } from './copyright'
 import { Section } from './section'
 
 const Footer = () => {
+  const t = useTranslations()
+  const locale = useLocale()
+  const ROUTES = getRoutes(t, locale)
+
   return (
     <footer className="mt-auto rounded-28 bg-grey-100 pt-8 selection:bg-orange">
       <div className="relative">
@@ -33,9 +40,9 @@ const Footer = () => {
           <Copyright />
         </span>
         <p className="text-center text-16 font-300 text-white-80 md:text-left">
-          Keycard is part of the{' '}
+          {t('footer.keycard_part_of.translation')}{' '}
           <Link href="https://free.technology" className="hover:text-white-95">
-            Institute of Free Technology
+            {t('footer.institute_link.translation')}
           </Link>
         </p>
       </div>

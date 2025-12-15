@@ -5,7 +5,7 @@ import {
   STATUS_MOBILE_GOOGLE_PLAY_URL,
 } from '~config/routes'
 import { cx } from 'cva'
-import Link from 'next/link'
+import { Link } from './link'
 
 type Props = {
   className?: string
