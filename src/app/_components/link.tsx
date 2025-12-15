@@ -1,12 +1,15 @@
-import NextLink from 'next/link'
+import { Link as IntlLink } from '~/i18n/navigation'
 import { forwardRef } from 'react'
 
 const Link = (
-  props: React.ComponentPropsWithRef<typeof NextLink>,
+  props: React.ComponentPropsWithRef<typeof IntlLink>,
   ref: React.Ref<HTMLAnchorElement>,
 ) => {
   const url = typeof props.href === 'string' ? props.href : props.href.pathname!
-  const external = url?.startsWith('http')
+  const external =
+    url?.startsWith('http') ||
+    url?.startsWith('mailto:') ||
+    url?.startsWith('tel:')
 
   if (external) {
     const target = props.target ?? '_blank'
@@ -19,7 +22,7 @@ const Link = (
     )
   }
 
-  return <NextLink {...props} ref={ref} />
+  return <IntlLink {...props} ref={ref} />
 }
 
 const _Link = forwardRef(Link)

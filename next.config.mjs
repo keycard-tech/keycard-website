@@ -1,3 +1,7 @@
+import createNextIntlPlugin from 'next-intl/plugin'
+
+const withNextIntl = createNextIntlPlugin()
+
 /** @type {import('next').NextConfig} */
 const config = {
   images: {
@@ -10,6 +14,16 @@ const config = {
       {
         protocol: 'https',
         hostname: 'news.keycard.tech',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'unavatar.io',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'pbs.twimg.com',
         pathname: '/**',
       },
     ],
@@ -104,4 +118,4 @@ const config = {
   },
 }
 
-export default config
+export default withNextIntl(config)
