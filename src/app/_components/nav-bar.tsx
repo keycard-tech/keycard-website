@@ -75,7 +75,7 @@ const NavBar = () => {
         <Logo />
       </Link>
 
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-1">
         {NAV_BAR_LINKS.map(({ href, label }) => (
           <Link
             key={href}
