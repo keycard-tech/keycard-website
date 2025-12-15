@@ -12,10 +12,12 @@ import {
   RemoveIcon,
   WorldIcon,
 } from '@status-im/icons/20'
+import { getShopifyUrl } from '~/config/routes'
 import { Image } from '~components/image'
 import { RecommendedIcon } from '~icons/recommended'
 import { cx } from 'cva'
 import { AnimatePresence, motion } from 'framer-motion'
+import { useLocale } from 'next-intl'
 import { useRouter } from 'next/navigation'
 import { useMemo, useState } from 'react'
 import { useController, useForm } from 'react-hook-form'
@@ -46,10 +48,16 @@ function getCookie(name: string): string {
   return ''
 }
 
-function createCheckoutUrl(values: FormValues, utmParams: URLSearchParams) {
-  // Base URL construction remains the same
+function createCheckoutUrl(
+  locale: string,
+  values: FormValues,
+  utmParams: URLSearchParams,
+) {
   const url = new URL(
-    `https://get.keycard.tech/cart/${KEYCARD_PRODUCTS[values.bundleId].variantId}:${values.quantity}`,
+    getShopifyUrl(
+      locale,
+      `/cart/${KEYCARD_PRODUCTS[values.bundleId].variantId}:${values.quantity}`,
+    ),
   )
 
   if (values.includeKeycardReader) {
@@ -119,6 +127,7 @@ const ShopifyForm = () => {
   const { isSubmitting } = formState
 
   const router = useRouter()
+  const locale = useLocale()
   const utmParams = useShopifyUTMParamsContext()
 
   const selectedBundle = watch('bundleId')
@@ -193,7 +202,7 @@ const ShopifyForm = () => {
                         setValue('bundleId', title as FormValues['bundleId'])
                       }}
                       className={cx(
-                        'relative flex flex-col items-start justify-between rounded-20 bg-white-4 px-4 py-3 text-left transition-colors duration-300 hover:[&>span]:-left-1 hover:[&>span]:-top-1 hover:[&>span]:size-[calc(100%+8px)] hover:[&>span]:rounded-[24px]',
+                        'relative flex flex-col items-start justify-between rounded-20 bg-white-4 px-4 py-3 text-left transition-colors duration-300 hover:[&>span]:-left-1 hover:[&>span]:-top-1 hover:[&>span]:size-[calc(100%+8px)] hover:[&>span]:rounded-24',
                         selected
                           ? 'outline outline-4 outline-[transparent]'
                           : '',
@@ -203,7 +212,7 @@ const ShopifyForm = () => {
                         className={cx([
                           'absolute z-0 border transition-all',
                           selected
-                            ? '-left-1 -top-1 size-[calc(100%+8px)] rounded-[24px] border-orange-dark'
+                            ? '-left-1 -top-1 size-[calc(100%+8px)] rounded-24 border-orange-dark'
                             : 'left-0 top-0 size-full rounded-20 border-white-12',
                         ])}
                       />
@@ -326,8 +335,9 @@ const ShopifyForm = () => {
               data-umami-event-element="button"
               onClick={() => {
                 const checkoutUrl = createCheckoutUrl(
+                  locale,
                   form.getValues(),
-                  utmParams,
+                  utmParams || new URLSearchParams(),
                 )
                 window.open(checkoutUrl, '_blank', 'noopener')
                 router.push(

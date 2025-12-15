@@ -1,8 +1,113 @@
 ---
-id: set-up-your-keycard
-title: Set up your Keycard
+id: set-up-your-keycard-with-keycard-shell
+title: Set up your Keycard with Keycard Shell
 ---
 
-# Set up your Keycard
+# Set up your Keycard with Keycard Shell
 
-We're working on this content.
+![Header image showing a Keycard inserted into a Keycard Shell.](/assets/docs/set-up-your-keycard-with-keycard-shell-header.png)
+
+You have two Keycard setup options: [using the Status app ↗](https://status.app/help/keycard/create-a-status-wallet-account-using-a-keycard), or using Keycard Shell. With Keycard Shell, you can connect your Keycard with other popular [wallet apps](/docs/supported-wallets).
+
+To use your Keycard with Keycard Shell, you need to set a Keycard PIN and optionally a duress PIN, then add a key pair to your Keycard.
+
+<Admonition type="note">
+    The Keycard PIN and duress PIN are two different PINs. The Keycard PIN functions as a password for your Keycard. A duress PIN can unlock a decoy wallet that is indistinguishable from your real wallet. You can use it when someone forces you to unlock your Keycard. Check out [About your Keycard PIN and duress PIN](./about-your-keycard-pin-and-duress-pin) to learn more.
+</Admonition>
+
+Before you start, [get to know your Keycard Shell's controls](./get-to-know-your-keycard-shell).
+
+## Step 1: Set your Keycard PIN and duress PIN
+
+If you do not set a duress PIN during setup, you cannot add one later. This limitation is unavoidable to make the duress PIN undetectable to attackers.
+
+Keycard Shell prevents you from setting your Keycard PIN and duress PIN to be the same.
+
+1. Insert the Keycard into your Keycard Shell with the chip facing up and push it in all the way. Your Keycard Shell powers on automatically.
+1. Set a Keycard PIN and press **OK**.
+1. Enter the Keycard PIN again and press **OK** to confirm.
+1. Optionally, press and hold **OK** to set a duress PIN (or press **C** to skip this step).
+1. Set a duress PIN and press **OK**.
+1. Enter the duress PIN again and press **OK** to confirm.
+1. Press **OK**.
+
+## Step 2: Add a master key pair
+
+A key pair consists of a public key (which generates your shareable wallet address) and a private key (which you use to sign transactions and prove ownership). One Keycard can store one master key pair, from which all derived key pairs are created. These derived key pairs corespond to different wallet addresses of your Keycard.
+
+There are three methods to add a master key pair to your Keycard using Keycard Shell:
+- [Generate a new key pair](#method-1-generate-a-new-key-pair)
+- [Import your key pair with a recovery phrase](#method-2-import-your-key-pair-with-a-recovery-phrase)
+- [Import your key pair with a QR code](#method-3-import-your-key-pair-with-a-qr-code)
+
+Keycard and Keycard Shell support the BIP39 protocol (12- or 24-word recovery phrase) and SLIP39 backup standard. SLIP39 is an advanced backup method that splits your wallet backup into multiple parts.
+
+<Admonition type="note">
+    SLIP39 is not yet widely adopted in other hardware wallets. For more information, check out [Understand the SLIP39 wallet backup standard](./understand-the-slip-39-wallet-backup-standard).
+</Admonition>
+
+When you set up a key pair, you can set a passphrase in addition to your recovery phrase. A passphrase is an optional extra word or phrase you add to your recovery phrase for extra security. If you set one, you must remember it to recover your wallet.
+
+### Method 1: Generate a new key pair
+
+1. On your Keycard Shell, select **Generate new key pair**.
+1. Choose your recovery phrase type: 12 or 24 words, or a SLIP39 backup. You can also select whether to use a passphrase. Then press **OK** to confirm the text on the screen.
+1. Proceed depending on your situation.
+
+   <Table>
+         <TableHead>
+           <TableHeader>Recovery phrase</TableHeader>
+           <TableHeader>Steps</TableHeader>
+         </TableHead>
+
+         <TableContent>
+           <TableRow>
+             <TableCell>12- or 24-word recovery phrase</TableCell>
+
+             <TableCell>
+               1. Write down the recovery phrase.
+               1. Press **OK**.
+             </TableCell>
+           </TableRow>
+
+           <TableRow>
+             <TableCell>SLIP39 recovery phrases</TableCell>
+
+             <TableCell>
+               1. Press ◀ / ▶ **Left** / **Right** to set the total number of parts and the threshold number of parts required to recover your wallet. Then press **OK**.
+               1. Write down the recovery phrase parts.
+               1. Press **OK**.
+             </TableCell>
+           </TableRow>
+         </TableContent>
+       </Table>
+
+1. Press **OK** to confirm the text on the screen. Then confirm your recovery phrase by selecting the words as required.
+1. If you choose to set a passphrase, press ▲ / ▼ **Up** / **Down** and ◀ / ▶ **Left** / **Right** to select letters and set a passphrase. Press and hold **OK** to confirm.
+1. Press **OK**.
+
+<Admonition type="caution">
+    Don't take a screenshot of your recovery phrase and don't save your recovery phrase on your phone, computer, or any online services. Keep your recovery phrase(s) safe and private. The Keycard team will never ask you for this information, and anyone who does is trying to steal your funds.
+</Admonition>
+
+### Method 2: Import your key pair with a recovery phrase
+
+1. On your Keycard Shell, select **Import recovery phrase**.
+1. Select the type of your recovery phrase (12 or 24 words, or a SLIP39 backup) and whether it includes a passphrase.
+1. Press ▲ / ▼ **Up** / **Down** and ◀ / ▶ **Left** / **Right** to select letters and enter each word of your recovery phrase. Press and hold **OK** to confirm each word.
+1. If there is a passphrase, enter it. Press and hold **OK** to confirm.
+1. Press **OK**.
+
+### Method 3: Import your key pair with a QR code
+
+1. On your wallet app or another hardware wallet, prepare your recovery phrase QR code for scanning.
+1. On your Keycard Shell, select **Scan QR**.
+1. If your recovery phrase has a passphrase, select **Add passphrase**. Otherwise, select **No passphrase**.
+1. Scan the QR code with your Keycard Shell's camera.
+1. Confirm your recovery phrase by pressing **OK**.
+1. If there is a passphrase, press ▲ / ▼ **Up** / **Down** and ◀ / ▶ **Left** / **Right** to select letters and enter the passphrase. Press and hold **OK** to confirm.
+1. Press **OK**.
+
+<Admonition type="tip">
+    After setup, your Keycard and Keycard Shell are ready. To start managing your crypto, [connect your Keycard Shell to a wallet app](./connect-keycard-shell-to-a-wallet-app.mdx) that supports QR signing to initiate and sign transactions.
+</Admonition>

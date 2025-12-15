@@ -1,15 +1,17 @@
 'use client'
 
-import { ROUTES } from '~/config/routes'
+import { getRoutes, type Routes } from '~/config/routes'
 import { Button } from '~components/button'
 import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
 import { cx } from 'cva'
 import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion'
-import Link from 'next/link'
+import { useLocale, useTranslations } from 'next-intl'
 import { usePathname } from 'next/navigation'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { LanguageSelector } from '../language-selector'
+import { Link } from '../link'
 import { Logo } from '../logo'
-import { NAV_BAR_LINKS } from '../nav-bar'
+import { getNavBarLinks } from '../nav-bar'
 import { MenuIcon } from './menu-icon'
 import { Section } from './section'
 
@@ -17,6 +19,10 @@ const NAV_BAR_HEIGHT = 80
 
 const NavBarMobile = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const t = useTranslations()
+  const locale = useLocale()
+  const ROUTES = getRoutes(t, locale)
+  const NAV_BAR_LINKS = getNavBarLinks(locale)
   const pathname = usePathname()
   const { scrollY } = useScroll()
   const scrollPositionRef = useRef(0)
@@ -108,12 +114,15 @@ const NavBarMobile = () => {
                     data-umami-event-section="mobile-navbar"
                     data-umami-event-element="button"
                   >
-                    Buy Keycard
+                    {t('common.buy_keycard.translation')}
                   </Button>
                 </BuyKeycardDialog>
               </motion.div>
             )}
           </AnimatePresence>
+
+          <LanguageSelector />
+
           <button
             key={isOpen ? 'menu-open' : 'menu-closed'}
             className="rounded-12 border border-white-12 bg-white-8 text-white-95 transition-colors hover:bg-white-12"
@@ -157,7 +166,11 @@ const NavBarMobile = () => {
                     transition={{ delay: 0.2 + index * 0.05, duration: 0.3 }}
                     className="text-center font-lora text-32 font-400 text-white-95"
                   >
-                    <Link href={href} onClick={() => setIsOpen(false)}>
+                    <Link
+                      href={href}
+                      target="_self"
+                      onClick={() => setIsOpen(false)}
+                    >
                       {label}
                     </Link>
                   </motion.li>
@@ -178,7 +191,7 @@ const NavBarMobile = () => {
                       data-umami-event-section="mobile-menu"
                       data-umami-event-element="button"
                     >
-                      Buy Keycard
+                      {t('common.buy_keycard.translation')}
                     </Button>
                   </BuyKeycardDialog>
                 </motion.li>
@@ -190,8 +203,14 @@ const NavBarMobile = () => {
                 transition={{ delay: 0.2 + 4 * 0.05, duration: 0.3 }}
                 className="grid w-full grid-cols-2 divide-x divide-dashed divide-white-12 border-t border-dashed border-white-12"
               >
-                <Section title="INFO" routes={ROUTES.Info} />
-                <Section title="CONTACTS" routes={ROUTES.Contacts} />
+                <Section
+                  title="INFO"
+                  routes={ROUTES.Info as unknown as Routes}
+                />
+                <Section
+                  title="CONTACTS"
+                  routes={ROUTES.Contacts as unknown as Routes}
+                />
               </motion.div>
             </motion.div>
           </motion.div>

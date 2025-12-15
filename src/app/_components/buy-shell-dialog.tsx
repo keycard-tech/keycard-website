@@ -7,8 +7,10 @@ import {
   LabelsIcon,
   WorldIcon,
 } from '@status-im/icons/20'
+import { getShopifyUrl } from '~/config/routes'
 import { Image } from '~components/image'
 import { AnimatePresence, motion } from 'framer-motion'
+import { useLocale } from 'next-intl'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { KEYCARD_SHELL } from '../_constants/shopify/products'
@@ -26,10 +28,9 @@ function getCookie(name: string): string {
   return ''
 }
 
-function createCheckoutUrl(utmParams: URLSearchParams) {
-  // Base URL construction remains the same
+function createCheckoutUrl(locale: string, utmParams: URLSearchParams) {
   const url = new URL(
-    `https://get.keycard.tech/cart/${KEYCARD_SHELL.variantId}:1`,
+    getShopifyUrl(locale, `/cart/${KEYCARD_SHELL.variantId}:1`),
   )
 
   // Add existing UTM params
@@ -85,6 +86,7 @@ export { BuyShellDialog }
 const Content = () => {
   const router = useRouter()
   const utmParams = useShopifyUTMParamsContext()
+  const locale = useLocale()
 
   return (
     <div className="grid h-svh grid-cols-1 gap-6 overflow-auto bg-white-4 p-5 backdrop-blur-[20px] lg:h-auto lg:grid-cols-2 lg:overflow-clip lg:rounded-28 lg:border lg:border-white-12 lg:p-2">
@@ -205,7 +207,10 @@ const Content = () => {
             data-umami-event-section="checkout"
             data-umami-event-element="button"
             onClick={() => {
-              const checkoutUrl = createCheckoutUrl(utmParams)
+              const checkoutUrl = createCheckoutUrl(
+                locale,
+                utmParams || new URLSearchParams(),
+              )
               window.open(checkoutUrl, '_blank', 'noopener')
               router.push(`/thank-you?product=shell&checkoutUrl=${checkoutUrl}`)
             }}
