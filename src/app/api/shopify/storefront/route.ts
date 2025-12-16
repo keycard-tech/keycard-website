@@ -44,9 +44,9 @@ export async function POST(request: NextRequest) {
   const origin = request.headers.get('origin')
   const headers = corsHeaders(origin)
 
-  const token = process.env.SHOPIFY_STOREFRONT_TOKEN
+  const token = process.env.SHOPIFY_STOREFRONT_API_PUBLIC_ACCESS_TOKEN
   const apiVersion = process.env.SHOPIFY_STOREFRONT_API_VERSION
-  const domain = process.env.SHOPIFY_STOREFRONT_DOMAIN
+  const domain = process.env.SHOPIFY_STORE_DOMAIN
 
   if (!token || !apiVersion || !domain) {
     return NextResponse.json(
