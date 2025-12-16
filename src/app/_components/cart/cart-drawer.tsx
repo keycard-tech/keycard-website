@@ -348,9 +348,8 @@ export const CartDrawer = () => {
           className="flex-1 space-y-4 overflow-y-auto pt-3"
           style={{
             WebkitMaskImage:
-              'linear-gradient(transparent 0%, black 4%, black 96%, transparent 100%)',
-            maskImage:
-              'linear-gradient(transparent 0%, black 4%, black 96%, transparent 100%)',
+              'linear-gradient(black 0%, black 96%, transparent 100%)',
+            maskImage: 'linear-gradient(black 0%, black 96%, transparent 100%)',
           }}
         >
           {isLoading ? (
