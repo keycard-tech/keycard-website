@@ -12,18 +12,15 @@ import {
   RemoveIcon,
   WorldIcon,
 } from '@status-im/icons/20'
-import { getShopifyUrl } from '~/config/routes'
 import { Image } from '~components/image'
 import { RecommendedIcon } from '~icons/recommended'
 import { cx } from 'cva'
 import { AnimatePresence, motion } from 'framer-motion'
-import { useLocale } from 'next-intl'
-import { useRouter } from 'next/navigation'
 import { useMemo, useState } from 'react'
 import { useController, useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { KEYCARD_PRODUCTS } from '../_constants/shopify/products'
-import { useShopifyUTMParamsContext } from '../_providers/shopify-utm-params-provider'
+import { useCart } from '../_providers/cart-provider'
 import { formatPrice } from '../_utils/format-price'
 import { Button } from './button'
 import * as Dialog from './dialog'
@@ -39,47 +36,6 @@ const formSchema = z
   .required()
 
 type FormValues = z.infer<typeof formSchema>
-
-function getCookie(name: string): string {
-  if (typeof document === 'undefined') return ''
-  const value = `; ${document.cookie}`
-  const parts = value.split(`; ${name}=`)
-  if (parts.length === 2) return parts.pop()?.split(';').shift() || ''
-  return ''
-}
-
-function createCheckoutUrl(
-  locale: string,
-  values: FormValues,
-  utmParams: URLSearchParams,
-) {
-  const url = new URL(
-    getShopifyUrl(
-      locale,
-      `/cart/${KEYCARD_PRODUCTS[values.bundleId].variantId}:${values.quantity}`,
-    ),
-  )
-
-  if (values.includeKeycardReader) {
-    const readerVariant = `${KEYCARD_PRODUCTS.READER.variantId}:1`
-    url.pathname += `,${readerVariant}`
-  }
-
-  // Add existing UTM params
-  utmParams.forEach((value, key) => {
-    url.searchParams.append(key, value)
-  })
-
-  // 1. Read the BixGrow affiliate ID from the cookie
-  const affiliateId = getCookie('bgaffilite_id')
-
-  // 2. If it exists, append it as a 'ref' parameter
-  if (affiliateId) {
-    url.searchParams.append('bg_ref', affiliateId) // BixGrow Checkout pixel
-  }
-
-  return url.toString()
-}
 
 type Props = {
   children?: React.ReactElement
@@ -105,7 +61,7 @@ const BuyKeycardDialog = (props: Props) => {
         className="fixed left-1/2 top-1/2 z-50 max-h-screen w-screen max-w-[1136px] -translate-x-1/2 -translate-y-1/2 overflow-auto focus:outline-none data-[state=open]:animate-contentShow lg:w-[90vw] lg:overflow-hidden"
       >
         <Dialog.Description className="sr-only">Buy Keycard</Dialog.Description>
-        <ShopifyForm />
+        <ShopifyForm onClose={() => setOpen(false)} />
       </Dialog.Content>
     </Dialog.Root>
   )
@@ -113,7 +69,7 @@ const BuyKeycardDialog = (props: Props) => {
 
 export { BuyKeycardDialog }
 
-const ShopifyForm = () => {
+const ShopifyForm = ({ onClose }: { onClose?: () => void }) => {
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -126,9 +82,8 @@ const ShopifyForm = () => {
   const { formState, watch, setValue } = form
   const { isSubmitting } = formState
 
-  const router = useRouter()
-  const locale = useLocale()
-  const utmParams = useShopifyUTMParamsContext()
+  const { addItem } = useCart()
+  const [submitError, setSubmitError] = useState<string | null>(null)
 
   const selectedBundle = watch('bundleId')
   const quantity = watch('quantity')
@@ -144,6 +99,37 @@ const ShopifyForm = () => {
 
     return bundlePrice * quantity + readerPrice
   }, [selectedBundle, quantity])
+
+  const handleSubmit = async (values: FormValues) => {
+    setSubmitError(null)
+
+    const lines: Array<{ variantId: string; quantity: number }> = [
+      {
+        variantId: KEYCARD_PRODUCTS[values.bundleId].variantId,
+        quantity: values.quantity,
+      },
+    ]
+
+    if (values.includeKeycardReader) {
+      lines.push({
+        variantId: KEYCARD_PRODUCTS.READER.variantId,
+        quantity: 1,
+      })
+    }
+
+    try {
+      for (const line of lines) {
+        const merchandiseId = `gid://shopify/ProductVariant/${line.variantId}`
+        await addItem(merchandiseId, line.quantity)
+      }
+
+      onClose?.()
+    } catch (error) {
+      setSubmitError(
+        error instanceof Error ? error.message : 'Unable to update cart',
+      )
+    }
+  }
 
   return (
     <div className="grid h-svh grid-cols-1 gap-6 overflow-auto bg-white-4 p-5 backdrop-blur-[20px] lg:h-auto lg:grid-cols-2 lg:overflow-clip lg:rounded-28 lg:border lg:border-white-12 lg:p-2">
@@ -182,7 +168,7 @@ const ShopifyForm = () => {
           </Dialog.Close>
         </div>
 
-        <Form {...form} onSubmit={() => {}}>
+        <Form {...form} onSubmit={handleSubmit}>
           <div className="pt-12 lg:pt-10">
             <h3 className="pb-2 text-12 text-white-80 lg:pb-3">
               SELECT BUNDLE
@@ -327,29 +313,26 @@ const ShopifyForm = () => {
             </div>
           </div>
           <div className="rounded-16 border border-white-12 bg-white-4 p-1">
+            {submitError && (
+              <div className="mb-2 rounded-12 border border-[rgba(255,80,80,0.3)] bg-[rgba(255,80,80,0.1)] px-3 py-2 text-13 text-red">
+                {submitError}
+              </div>
+            )}
             <Button
+              type="submit"
               className="w-full justify-center gap-2 font-500"
               data-umami-event="checkout-keycard"
               data-umami-event-page="buy-keycard-dialog"
               data-umami-event-section="checkout"
               data-umami-event-element="button"
-              onClick={() => {
-                const checkoutUrl = createCheckoutUrl(
-                  locale,
-                  form.getValues(),
-                  utmParams || new URLSearchParams(),
-                )
-                window.open(checkoutUrl, '_blank', 'noopener')
-                router.push(
-                  `/thank-you?product=keycard&checkoutUrl=${checkoutUrl}`,
-                )
-              }}
+              disabled={isSubmitting}
             >
               {isSubmitting ? (
                 <LoadingIcon className="my-px animate-spin text-white-100" />
               ) : (
                 <>
-                  Checkout <div className="size-1 rounded-full bg-white-40" />
+                  Add to cart{' '}
+                  <div className="size-1 rounded-full bg-white-40" />
                   {formatPrice({
                     amount: total,
                   })}

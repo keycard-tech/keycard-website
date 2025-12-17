@@ -69,7 +69,7 @@ export const LanguageSelector = ({
   return (
     <div
       className={cx(
-        'flex items-center text-white-95',
+        'flex items-center text-15 font-500 text-white-95',
         showLabel ? 'gap-2' : 'gap-0',
         fullWidth ? 'w-full' : 'min-w-[130px]',
         className,
@@ -82,7 +82,7 @@ export const LanguageSelector = ({
         Language
       </label>
 
-      <div className={cx('relative w-full', fullWidth ? '' : 'max-w-[180px]')}>
+      <div className={cx('relative w-full', fullWidth ? '' : 'max-w-[100px]')}>
         <select
           id={selectId}
           name="language"
@@ -91,40 +91,50 @@ export const LanguageSelector = ({
           aria-label="Language"
           className={cx([
             'appearance-none',
-            'bg-white-8',
-            'border',
-            'border-white-20',
-            'rounded-12',
-            'text-14',
-            'font-400',
+            'border-none',
+            'text-15',
+            'font-500',
             'text-white-95',
-            'px-3',
+            'pl-[14px]',
             'pr-8',
-            'py-2',
-            'min-h-[38px]',
+            'py-1.5',
+            'min-h-[30px]',
             'cursor-pointer',
             'w-full',
             'transition-colors',
             'focus-visible:outline-none',
-            'focus-visible:ring-2',
-            'focus-visible:ring-white-80',
-            'focus-visible:ring-offset-2',
-            'focus-visible:ring-offset-dark-100',
-            'hover:border-white-40',
+            'focus-visible:ring-0',
+            'focus-visible:ring-offset-0',
+            'leading-[1.2]',
           ])}
+          style={{
+            background: 'transparent',
+            borderRadius: 0,
+            fontFamily:
+              'var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+            fontSize: '15px',
+            fontWeight: 500,
+          }}
         >
           {languages.map(language => (
             <option
               key={language.value}
               value={language.value}
               lang={language.value}
+              className="text-15 font-500 text-white-95"
+              style={{
+                fontFamily:
+                  'var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+                fontSize: '15px',
+                fontWeight: 500,
+              }}
             >
               {language.label}
             </option>
           ))}
         </select>
 
-        <span className="pointer-events-none absolute right-2 top-1/2 flex -translate-y-1/2 items-center justify-center text-white-95">
+        <span className="pointer-events-none absolute right-0 top-1/2 flex -translate-y-1/2 items-center justify-center text-white-95">
           <svg
             width="14"
             height="14"
