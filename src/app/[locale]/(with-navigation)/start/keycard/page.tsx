@@ -1,4 +1,4 @@
 export {
   metadata,
   default,
-} from '../../../../../(with-navigation)/start/keycard/page'
+} from '../../../../(with-navigation)/start/keycard/page'
