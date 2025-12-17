@@ -56,6 +56,20 @@ export const testimonials: Testimonial[] = [
     badgeLabel: 'Review score',
   },
   {
+    id: 'patrick-alpha',
+    quote: 'Wow!',
+    author: '@PatrickAlphaC',
+    authorTitle: 'Co-founder, Cyfrin',
+    handle: '@PatrickAlphaC',
+    sourceType: 'tweet',
+    url: 'https://x.com/PatrickAlphaC/status/1987318308752810027',
+    profileImage: getTwitterProfileImage('@PatrickAlphaC'),
+    tweetImage:
+      'https://pbs.twimg.com/amplify_video_thumb/1987318079563378688/img/gh4Z5NC69BQjLh9a.jpg',
+    imageSrc: getTwitterProfileImage('@PatrickAlphaC'),
+    imageAlt: 'Tweet from @PatrickAlphaC about Keycard Shell',
+  },
+  {
     id: 'pol-lanski',
     quote: 'Impressed by how the project is thought out',
     author: '@Pol_Lanski',
