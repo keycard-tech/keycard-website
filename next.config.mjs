@@ -26,6 +26,12 @@ const config = {
         hostname: 'pbs.twimg.com',
         pathname: '/**',
       },
+      // Allow Shopify CDN assets used in Storefront cart/product images.
+      {
+        protocol: 'https',
+        hostname: 'cdn.shopify.com',
+        pathname: '/s/files/**',
+      },
     ],
   },
   transpilePackages: ['next-mdx-remote'],
