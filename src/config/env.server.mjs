@@ -23,6 +23,8 @@ export const envSchema = z.object({
   GOOGLE_SHEET_ID: z.string(),
   GOOGLE_CLIENT_EMAIL: z.string(),
   GOOGLE_SERVICE_PRIVATE_KEY: z.string(),
+  SHOPIFY_STOREFRONT_API_VERSION: z.string(),
+  CART_COOKIE_NAME: z.string(),
 })
 
 const result = envSchema.safeParse(process.env)
