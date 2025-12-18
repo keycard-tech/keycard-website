@@ -16,7 +16,7 @@ const KeycardShell = () => {
     <section className="relative flex flex-col overflow-hidden rounded-t-28 border border-white-8 bg-white-4 backdrop-blur-[20px] full-view-port lg:h-auto lg:flex-row-reverse lg:items-center lg:justify-normal lg:py-10 lg:remove-full-view-port">
       <div className="hidden flex-1 items-center justify-center overflow-hidden lg:flex">
         <Image
-          src="/assets/keycard-shell.png"
+          src="/assets/keycard-shell.webp"
           alt="Keycard Shell Hardware Wallet"
           width="510"
           height="758"
@@ -26,7 +26,7 @@ const KeycardShell = () => {
       </div>
 
       <Image
-        src="/assets/keycard-shell.png"
+        src="/assets/keycard-shell.webp"
         alt="Keycard Shell Hardware Wallet"
         width="510"
         height="785"
@@ -85,7 +85,7 @@ const KeycardShell = () => {
           brand: { '@type': 'Brand', name: 'Keycard' },
           description:
             'A modular, air-gapped hardware wallet that uses Keycard as the secure element.',
-          image: ['https://keycard.tech/assets/keycard-shell.png'],
+          image: ['https://keycard.tech/assets/keycard-shell.webp'],
           sku: 'SHELL-001',
           offers: {
             '@type': 'Offer',

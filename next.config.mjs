@@ -40,27 +40,27 @@ const config = {
     return [
       {
         source: '/images/card-dark.png',
-        destination: '/assets/keycard-shell.png',
+        destination: '/assets/keycard-shell.webp',
         permanent: true,
       },
       {
         source: '/images/card-light.png',
-        destination: '/assets/keycard-shell.png',
+        destination: '/assets/keycard-shell.webp',
         permanent: true,
       },
       {
         source: '/images/integrate-keycard.png',
-        destination: '/assets/keycard-shell.png',
+        destination: '/assets/keycard-shell.webp',
         permanent: true,
       },
       {
         source: '/images/integration-status.png',
-        destination: '/assets/keycard-shell.png',
+        destination: '/assets/keycard-shell.webp',
         permanent: true,
       },
       {
         source: '/images/security-keyvisual.png',
-        destination: '/assets/keycard-shell.png',
+        destination: '/assets/keycard-shell.webp',
         permanent: true,
       },
 
