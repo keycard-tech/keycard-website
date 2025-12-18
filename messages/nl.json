@@ -179,7 +179,7 @@
       "notes": "features::title"
     },
     "open_source_highlight": {
-      "translation": "open‑source‑revolutie",
+      "translation": "open source",
       "notes": "features::open_source_highlight"
     },
     "title_continued": {
@@ -352,6 +352,96 @@
           "translation": "Ontwikkelaars en fabrikanten kunnen daarop voortbouwen om het ecosysteem te laten groeien en er voordeel uit te halen",
           "notes": "comparison::features::open_ecosystem::tooltip"
         }
+      },
+      "card_cannot_be_upgraded": {
+        "name": {
+          "translation": "Kaart kan niet worden geüpgraded",
+          "notes": "comparison::features::card_cannot_be_upgraded::name"
+        },
+        "tooltip": {
+          "translation": "De kaart kan niet worden bijgewerkt met nieuwe firmware",
+          "notes": "comparison::features::card_cannot_be_upgraded::tooltip"
+        }
+      },
+      "full_open_source": {
+        "name": {
+          "translation": "Volledig open source ontwerp",
+          "notes": "comparison::features::full_open_source::name"
+        },
+        "tooltip": {
+          "translation": "Hardware en software zijn volledig open source",
+          "notes": "comparison::features::full_open_source::tooltip"
+        }
+      },
+      "use_with_other_wallets": {
+        "name": {
+          "translation": "Gebruik je kaart met andere wallets",
+          "notes": "comparison::features::use_with_other_wallets::name"
+        },
+        "tooltip": {
+          "translation": "Werkt met verschillende wallet-applicaties",
+          "notes": "comparison::features::use_with_other_wallets::tooltip"
+        }
+      },
+      "no_vendor_app": {
+        "name": {
+          "translation": "Geen leveranciersspecifieke applicatie nodig",
+          "notes": "comparison::features::no_vendor_app::name"
+        },
+        "tooltip": {
+          "translation": "Werkt zonder proprietaire leverancierssoftware",
+          "notes": "comparison::features::no_vendor_app::tooltip"
+        }
+      },
+      "compatible_wallets": {
+        "name": {
+          "translation": "Compatibel met meer dan 10 wallets",
+          "notes": "comparison::features::compatible_wallets::name"
+        },
+        "tooltip": {
+          "translation": "Ondersteund door meer dan 10 verschillende wallet-applicaties",
+          "notes": "comparison::features::compatible_wallets::tooltip"
+        }
+      },
+      "clear_signing": {
+        "name": {
+          "translation": "Duidelijke ondertekening",
+          "notes": "comparison::features::clear_signing::name"
+        },
+        "tooltip": {
+          "translation": "Je ziet wat je ondertekent voordat je een transactie bevestigt",
+          "notes": "comparison::features::clear_signing::tooltip"
+        }
+      },
+      "airgap_capable": {
+        "name": {
+          "translation": "Air-gap-compatibel",
+          "notes": "comparison::features::airgap_capable::name"
+        },
+        "tooltip": {
+          "translation": "Kan volledig offline worden gebruikt zonder directe verbinding",
+          "notes": "comparison::features::airgap_capable::tooltip"
+        }
+      },
+      "camera_qr": {
+        "name": {
+          "translation": "Camera voor QR-code scannen",
+          "notes": "comparison::features::camera_qr::name"
+        },
+        "tooltip": {
+          "translation": "Ingebouwde camera voor QR-code gebaseerde transacties",
+          "notes": "comparison::features::camera_qr::tooltip"
+        }
+      },
+      "removable_battery": {
+        "name": {
+          "translation": "Verwijderbare batterij",
+          "notes": "comparison::features::removable_battery::name"
+        },
+        "tooltip": {
+          "translation": "Batterij kan worden vervangen",
+          "notes": "comparison::features::removable_battery::tooltip"
+        }
       }
     }
   },
@@ -417,6 +507,18 @@
         "translation": "Keycard is een veilige hardware‑wallet op zakformaat met een aantoonbaar echte, onveranderlijke chip om je digitale assets te beschermen.",
         "notes": "faqs::why_get_keycard::answer"
       }
+    },
+    "still_have_questions": {
+      "translation": "Nog vragen?",
+      "notes": "faqs::still_have_questions"
+    },
+    "reach_out": {
+      "translation": "Neem contact op met ons team of ga in gesprek met onze community op Discord of X.",
+      "notes": "faqs::reach_out"
+    },
+    "get_in_touch": {
+      "translation": "Neem contact op",
+      "notes": "faqs::get_in_touch"
     }
   },
   "buy_cards": {
@@ -645,54 +747,16 @@
         "translation": "Integraties, distributie of bulkbestellingen.",
         "notes": "contact::partnerships_bd::description"
       }
-    },
-    "partnerships": {
-      "title": {
-        "translation": "Partnerships & BD",
-        "notes": "contact::partnerships::title"
-      },
-      "description": {
-        "translation": "Integrations, distribution, or bulk orders.",
-        "notes": "contact::partnerships::description"
-      }
-    },
-    "orders": {
-      "title": {
-        "translation": "Orders & shipping",
-        "notes": "contact::orders::title"
-      },
-      "description": {
-        "translation": "Questions about orders, shipping, refunds, or replacements.",
-        "notes": "contact::orders::description"
-      },
-      "help_link": {
-        "translation": "Visit order help",
-        "notes": "contact::orders::help_link"
-      }
-    },
-    "get_involved": {
-      "title": {
-        "translation": "Get involved",
-        "notes": "contact::get_involved::title"
-      },
-      "description": {
-        "translation": "Build with Keycard or learn more about the project.",
-        "notes": "contact::get_involved::description"
-      },
-      "docs_link": {
-        "translation": "Read the docs",
-        "notes": "contact::get_involved::docs_link"
-      },
-      "blog_link": {
-        "translation": "Visit the blog",
-        "notes": "contact::get_involved::blog_link"
-      }
     }
   },
   "footer": {
     "copyright": {
-      "translation": "© Status Research & Development GmbH",
+      "translation": "© Keycard 2025",
       "notes": "footer::copyright"
+    },
+    "copyright_old": {
+      "translation": "© Status Research & Development GmbH",
+      "notes": "footer::copyright_old"
     },
     "terms_of_use": {
       "translation": "Gebruiksvoorwaarden",
@@ -831,20 +895,6 @@
     "go_to_homepage": {
       "translation": "Ga naar de homepage van keycard.tech",
       "notes": "not_found::go_to_homepage"
-    }
-  },
-  "blog": {
-    "title": {
-      "translation": "Keycard Blog",
-      "notes": "blog::title"
-    },
-    "subtitle": {
-      "translation": "Product updates, security, and ecosystem news.",
-      "notes": "blog::subtitle"
-    },
-    "no_posts": {
-      "translation": "No posts yet — check back soon.",
-      "notes": "blog::no_posts"
     }
   }
 }
