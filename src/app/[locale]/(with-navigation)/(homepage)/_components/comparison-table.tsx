@@ -57,9 +57,10 @@ const getFeatures = (t: ReturnType<typeof useTranslations>): Array<Feature> =>
       },
     },
     {
-      name: 'Card cannot be upgraded',
-      tooltip:
-        'The behaviour of the card will never change since the software element is immutably not upgradable. Your keys will never be able to get out of the secure enclave. ',
+      name: t('comparison.features.card_cannot_be_upgraded.name.translation'),
+      tooltip: t(
+        'comparison.features.card_cannot_be_upgraded.tooltip.translation',
+      ),
       keycardShell: {
         featured: true,
       },
@@ -74,8 +75,8 @@ const getFeatures = (t: ReturnType<typeof useTranslations>): Array<Feature> =>
       },
     },
     {
-      name: 'Full open source design',
-      tooltip: 'Software, hardware, casing',
+      name: t('comparison.features.full_open_source.name.translation'),
+      tooltip: t('comparison.features.full_open_source.tooltip.translation'),
       keycardShell: {
         featured: true,
       },
@@ -90,8 +91,10 @@ const getFeatures = (t: ReturnType<typeof useTranslations>): Array<Feature> =>
       },
     },
     {
-      name: 'Use your card with other wallets',
-      tooltip: 'Keycard is integrated in a number of wallets and tools',
+      name: t('comparison.features.use_with_other_wallets.name.translation'),
+      tooltip: t(
+        'comparison.features.use_with_other_wallets.tooltip.translation',
+      ),
       keycardShell: {
         featured: true,
       },
@@ -106,7 +109,8 @@ const getFeatures = (t: ReturnType<typeof useTranslations>): Array<Feature> =>
       },
     },
     {
-      name: 'No vendor specific application needed',
+      name: t('comparison.features.no_vendor_app.name.translation'),
+      tooltip: t('comparison.features.no_vendor_app.tooltip.translation'),
       keycardShell: {
         featured: true,
       },
@@ -137,8 +141,8 @@ const getFeatures = (t: ReturnType<typeof useTranslations>): Array<Feature> =>
       },
     },
     {
-      name: 'Compatible with 10+ wallets',
-      tooltip: 'Can be used with any wallet compatible with QR (EVM or BTC)',
+      name: t('comparison.features.compatible_wallets.name.translation'),
+      tooltip: t('comparison.features.compatible_wallets.tooltip.translation'),
       keycardShell: {
         featured: true,
       },
@@ -153,9 +157,8 @@ const getFeatures = (t: ReturnType<typeof useTranslations>): Array<Feature> =>
       },
     },
     {
-      name: 'Clear signing',
-      tooltip:
-        'Full decoding of EIP-712 messages, ABI decoding of transactions, and dedicated tools for Safe transactions decoding',
+      name: t('comparison.features.clear_signing.name.translation'),
+      tooltip: t('comparison.features.clear_signing.tooltip.translation'),
       keycardShell: {
         featured: true,
       },
@@ -170,7 +173,8 @@ const getFeatures = (t: ReturnType<typeof useTranslations>): Array<Feature> =>
       },
     },
     {
-      name: 'Airgap capable',
+      name: t('comparison.features.airgap_capable.name.translation'),
+      tooltip: t('comparison.features.airgap_capable.tooltip.translation'),
       keycardShell: {
         featured: true,
       },
@@ -185,7 +189,8 @@ const getFeatures = (t: ReturnType<typeof useTranslations>): Array<Feature> =>
       },
     },
     {
-      name: 'Camera to scan QRs',
+      name: t('comparison.features.camera_qr.name.translation'),
+      tooltip: t('comparison.features.camera_qr.tooltip.translation'),
       keycardShell: {
         featured: true,
       },
@@ -200,9 +205,8 @@ const getFeatures = (t: ReturnType<typeof useTranslations>): Array<Feature> =>
       },
     },
     {
-      name: 'Removable battery',
-      tooltip:
-        "Your product will never die because of its battery since it's easy to change",
+      name: t('comparison.features.removable_battery.name.translation'),
+      tooltip: t('comparison.features.removable_battery.tooltip.translation'),
       keycardShell: {
         featured: true,
       },

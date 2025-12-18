@@ -349,8 +349,98 @@
           "notes": "comparison::features::open_ecosystem::name"
         },
         "tooltip": {
-          "translation": "Les développeurs et les fabricants peuvent bâtir dessus pour faire croître l’écosystème et en profiter",
+          "translation": "Les développeurs et les fabricants peuvent bâtir dessus pour faire croître l'écosystème et en profiter",
           "notes": "comparison::features::open_ecosystem::tooltip"
+        }
+      },
+      "card_cannot_be_upgraded": {
+        "name": {
+          "translation": "La carte ne peut pas être mise à niveau",
+          "notes": "comparison::features::card_cannot_be_upgraded::name"
+        },
+        "tooltip": {
+          "translation": "La carte ne peut pas être mise à jour avec un nouveau firmware",
+          "notes": "comparison::features::card_cannot_be_upgraded::tooltip"
+        }
+      },
+      "full_open_source": {
+        "name": {
+          "translation": "Design entièrement open source",
+          "notes": "comparison::features::full_open_source::name"
+        },
+        "tooltip": {
+          "translation": "Le matériel et le logiciel sont entièrement open source",
+          "notes": "comparison::features::full_open_source::tooltip"
+        }
+      },
+      "use_with_other_wallets": {
+        "name": {
+          "translation": "Utilisez votre carte avec d'autres portefeuilles",
+          "notes": "comparison::features::use_with_other_wallets::name"
+        },
+        "tooltip": {
+          "translation": "Fonctionne avec diverses applications de portefeuille",
+          "notes": "comparison::features::use_with_other_wallets::tooltip"
+        }
+      },
+      "no_vendor_app": {
+        "name": {
+          "translation": "Aucune application spécifique au fournisseur requise",
+          "notes": "comparison::features::no_vendor_app::name"
+        },
+        "tooltip": {
+          "translation": "Fonctionne sans logiciel propriétaire du fournisseur",
+          "notes": "comparison::features::no_vendor_app::tooltip"
+        }
+      },
+      "compatible_wallets": {
+        "name": {
+          "translation": "Compatible avec plus de 10 portefeuilles",
+          "notes": "comparison::features::compatible_wallets::name"
+        },
+        "tooltip": {
+          "translation": "Pris en charge par plus de 10 applications de portefeuille différentes",
+          "notes": "comparison::features::compatible_wallets::tooltip"
+        }
+      },
+      "clear_signing": {
+        "name": {
+          "translation": "Signature claire",
+          "notes": "comparison::features::clear_signing::name"
+        },
+        "tooltip": {
+          "translation": "Vous voyez ce que vous signez avant de confirmer une transaction",
+          "notes": "comparison::features::clear_signing::tooltip"
+        }
+      },
+      "airgap_capable": {
+        "name": {
+          "translation": "Capable d'air-gap",
+          "notes": "comparison::features::airgap_capable::name"
+        },
+        "tooltip": {
+          "translation": "Peut être utilisé complètement hors ligne sans connexion directe",
+          "notes": "comparison::features::airgap_capable::tooltip"
+        }
+      },
+      "camera_qr": {
+        "name": {
+          "translation": "Caméra pour scanner les QR",
+          "notes": "comparison::features::camera_qr::name"
+        },
+        "tooltip": {
+          "translation": "Caméra intégrée pour les transactions par code QR",
+          "notes": "comparison::features::camera_qr::tooltip"
+        }
+      },
+      "removable_battery": {
+        "name": {
+          "translation": "Batterie amovible",
+          "notes": "comparison::features::removable_battery::name"
+        },
+        "tooltip": {
+          "translation": "La batterie peut être remplacée",
+          "notes": "comparison::features::removable_battery::tooltip"
         }
       }
     }
@@ -414,9 +504,21 @@
         "notes": "faqs::why_get_keycard::question"
       },
       "answer": {
-        "translation": "Keycard est un portefeuille matériel sécurisé au format de poche, doté d’une puce authentique et immuable pour protéger vos actifs numériques.",
+        "translation": "Keycard est un portefeuille matériel sécurisé au format de poche, doté d'une puce authentique et immuable pour protéger vos actifs numériques.",
         "notes": "faqs::why_get_keycard::answer"
       }
+    },
+    "still_have_questions": {
+      "translation": "Vous avez encore des questions ?",
+      "notes": "faqs::still_have_questions"
+    },
+    "reach_out": {
+      "translation": "Contactez notre équipe ou échangez avec notre communauté sur Discord ou X.",
+      "notes": "faqs::reach_out"
+    },
+    "get_in_touch": {
+      "translation": "Nous contacter",
+      "notes": "faqs::get_in_touch"
     }
   },
   "buy_cards": {
@@ -645,54 +747,16 @@
         "translation": "Intégrations, distribution ou commandes en volume.",
         "notes": "contact::partnerships_bd::description"
       }
-    },
-    "partnerships": {
-      "title": {
-        "translation": "Partnerships & BD",
-        "notes": "contact::partnerships::title"
-      },
-      "description": {
-        "translation": "Integrations, distribution, or bulk orders.",
-        "notes": "contact::partnerships::description"
-      }
-    },
-    "orders": {
-      "title": {
-        "translation": "Orders & shipping",
-        "notes": "contact::orders::title"
-      },
-      "description": {
-        "translation": "Questions about orders, shipping, refunds, or replacements.",
-        "notes": "contact::orders::description"
-      },
-      "help_link": {
-        "translation": "Visit order help",
-        "notes": "contact::orders::help_link"
-      }
-    },
-    "get_involved": {
-      "title": {
-        "translation": "Get involved",
-        "notes": "contact::get_involved::title"
-      },
-      "description": {
-        "translation": "Build with Keycard or learn more about the project.",
-        "notes": "contact::get_involved::description"
-      },
-      "docs_link": {
-        "translation": "Read the docs",
-        "notes": "contact::get_involved::docs_link"
-      },
-      "blog_link": {
-        "translation": "Visit the blog",
-        "notes": "contact::get_involved::blog_link"
-      }
     }
   },
   "footer": {
     "copyright": {
-      "translation": "© Status Research & Development GmbH",
+      "translation": "© Keycard 2025",
       "notes": "footer::copyright"
+    },
+    "copyright_old": {
+      "translation": "© Status Research & Development GmbH",
+      "notes": "footer::copyright_old"
     },
     "terms_of_use": {
       "translation": "Conditions d’utilisation",
@@ -829,22 +893,8 @@
       "notes": "not_found::title"
     },
     "go_to_homepage": {
-      "translation": "Aller à la page d’accueil de keycard.tech",
+      "translation": "Aller à la page d'accueil de keycard.tech",
       "notes": "not_found::go_to_homepage"
-    }
-  },
-  "blog": {
-    "title": {
-      "translation": "Keycard Blog",
-      "notes": "blog::title"
-    },
-    "subtitle": {
-      "translation": "Product updates, security, and ecosystem news.",
-      "notes": "blog::subtitle"
-    },
-    "no_posts": {
-      "translation": "No posts yet — check back soon.",
-      "notes": "blog::no_posts"
     }
   }
 }
