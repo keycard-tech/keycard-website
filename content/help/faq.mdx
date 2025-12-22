@@ -9,11 +9,11 @@ title: Keycard and Keycard Shell FAQ
 
 - **What is the difference between Keycard and Keycard Shell?**
 
-Keycard is a hardware wallet that securely stores the private keys of your crypto. Keycard Shell is a companion device for interacting with wallet apps and signing transactions through QR codes. Check out [About Keycard and Keycard Shell](./about-keycard-and-keycard-shell.mdx) to learn more.
+Keycard is a hardware wallet that securely stores the private keys of your crypto. Keycard Shell is a companion device for interacting with wallet apps and signing transactions through QR codes. Check out [About Keycard and Keycard Shell](./about-keycard-and-keycard-shell) to learn more.
 
 - **Can Keycard and Keycard Shell work independently?**
 
-You can use Keycard without Keycard Shell, if you [use your Keycard along with the Status app](https://status.app/help/keycard/create-a-status-wallet-account-using-a-keycard) ↗. Keycard connects to the Status mobile app via NFC and to the Status desktop app via a USB smart card reader.
+You can use Keycard without Keycard Shell, if you [use your Keycard along with the Status app ↗](https://status.app/help/keycard/create-a-status-wallet-account-using-a-keycard). Keycard connects to the Status mobile app via NFC and to the Status desktop app via a USB smart card reader.
 
 You can't use Keycard Shell without Keycard.
 
@@ -29,27 +29,27 @@ Keycard and Keycard Shell support Bitcoin (BTC), Ethereum (ETH), and ERC-20 toke
 
 - **How many wallets can I use on one Keycard?**
 
-Your Keycard stores one master key, created from a [BIP39 or SLIP39](./understand-the-slip-39-wallet-backup-standard.mdx) recovery phrase. This master key can generate as many Ethereum and Bitcoin wallet addresses as you need (according to the [BIP32 standard](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) ↗).
+Your Keycard stores one master key, created from a [BIP39 or SLIP39](./understand-the-slip-39-wallet-backup-standard) recovery phrase. This master key can generate as many Ethereum and Bitcoin wallet addresses as you need (according to the [BIP32 standard ↗](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki)).
 
 - **Can I use my Keycard or Keycard Shell without a wallet app?**
 
-No, you can't use your Keycard or Keycard Shell without a [compatible wallet app](developers/supported-wallets). Wallet apps provide the interface for managing your crypto.
+No, you can't use your Keycard or Keycard Shell without a [compatible wallet app](https://keycard.tech/en/wallets). Wallet apps provide the interface for managing your crypto.
 
-If you use Keycard alone, you must use the [Status app](https://status.app/help/keycard/create-a-status-wallet-account-using-a-keycard). If you use Keycard and Keycard Shell together, there are [a list of options](developers/supported-wallets) such as MetaMask, Rabby, or Sparrow.
+If you use Keycard alone, you must use the [Status app ↗](https://status.app/help/keycard/create-a-status-wallet-account-using-a-keycard). If you use Keycard and Keycard Shell together, there are [a list of options](https://keycard.tech/en/wallets) such as MetaMask, Rabby, or Sparrow.
 
 - **Can I use more than one wallet app with the same Keycard Shell?**
 
-Yes, you can connect one Keycard Shell to multiple wallet apps following [the same process](./connect-keycard-shell-to-a-wallet-app.mdx), and use any of them as needed.
+Yes, you can connect one Keycard Shell to multiple wallet apps following [the same process](./connect-keycard-shell-to-a-wallet-app), and use any of them as needed.
 
 - **Can I connect Keycard Shell directly to a dApp?**
 
-Currently, Keycard Shell can't connect directly to dApps. You need to use a [compatible wallet app](/developers/supported-wallets) that supports Keycard and Keycard Shell to interact with dApps.
+Currently, Keycard Shell can't connect directly to dApps. You need to use a [compatible wallet app](https://keycard.tech/en/wallets) that supports Keycard and Keycard Shell to interact with dApps.
 
 ## Security and support
 
 - **Are Keycard and Keycard Shell air-gapped?**
 
-Keycard Shell operates in an air-gapped way, except when updating its system via USB. You can still perform the update on an offline computer. Keycard supports NFC communication and smart card readers, but when used with Keycard Shell, NFC and card readers are not required. Check out [Keep your keycard and Keycard Shell air-gapped](./keep-your-keycard-and-keycard-shell-air-gapped.mdx) to learn how.
+Keycard Shell operates in an air-gapped way, except when updating its system via USB. You can still [perform the update on an offline computer](./update-your-keycard-shell-offline). Keycard supports NFC communication and smart card readers, but when used with Keycard Shell, NFC and card readers are not required.
 
 - **What if I lose my Keycard or Keycard Shell?**
 
@@ -65,7 +65,7 @@ No. Your private keys are on Keycard's secure element chip, which prevents cloni
 
 This doesn't affect your access to your funds. You can always access your funds with your recovery phrase.
 
-To reset your Keycard PIN, [factory reset](./factory-reset-your-keycard) your Keycard and then [import your wallet accounts](./set-up-your-keycard.mdx#add-a-key-pair) again. 
+To reset your Keycard PIN, [factory reset](./factory-reset-your-keycard-using-keycard-shell) your Keycard and then [import your wallet accounts](./set-up-your-keycard-with-keycard-shell#add-a-key-pair) again. 
 
 - **How do I get support if I have a problem with my Keycard or Keycard Shell?**
 
