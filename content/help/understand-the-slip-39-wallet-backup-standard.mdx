@@ -7,7 +7,7 @@ title: Understand the SLIP39 wallet backup standard
 
 BIP39 is the most common wallet backup standard. It uses a single recovery phrase of 12 or 24 words to restore your wallet accounts.
 
-[SLIP39](https://github.com/satoshilabs/slips/blob/master/slip-0039.md) is a standard for creating more secure and flexible backups of crypto wallets. Instead of giving you one recovery phrase, with SLIP39 you can split your recovery phrase into parts. You decide how many parts you want, and how many are needed to recover your wallet accounts.
+[SLIP39 ↗](https://github.com/satoshilabs/slips/blob/master/slip-0039.md) is a standard for creating more secure and flexible backups of crypto wallets. Instead of giving you one recovery phrase, with SLIP39 you can split your recovery phrase into parts. You decide how many parts you want, and how many are needed to recover your wallet accounts.
 
 You can distribute these parts among people you trust or store them in different locations. This ensures that even if some parts are lost or compromised, you can still recover your wallet accounts.
 
@@ -65,14 +65,14 @@ You can distribute these parts among people you trust or store them in different
 
 With Keycard and Keycard Shell, you can create and import SLIP39 wallet accounts. The process is similar to that of BIP39 backups.
 
-- [Generate wallet accounts](./set-up-your-keycard#generate-a-new-key-pair) with SLIP39:
+- [Generate wallet accounts](./set-up-your-keycard-with-keycard-shell#generate-a-new-key-pair) with SLIP39:
 When generating the recovery phrases, choose how many parts to create and the threshold for recovery. For example, if you want six parts with a threshold of three, Keycard Shell generates six recovery phrases, each 20 words long. You must record all of them, but any three are needed to restore the wallet accounts.
 
-- [Import a wallet account](./set-up-your-keycard#import-with-recovery-phrase) with SLIP39:
+- [Import a wallet account](./set-up-your-keycard-with-keycard-shell#import-with-recovery-phrase) with SLIP39:
 When importing, enter one recovery phrase for each required part. For example, if your threshold is three, you enter any three sets of 20 words from your recovery phrases.
 
 <Admonition type="note">
-    Keycard and Keycard Shell work with a wallet app. If you use SLIP39, choose a [wallet app](/docs/supported-wallets) that supports both Keycard and SLIP39, such as Rabby, Sparrow, or BlueWallet.
+    Keycard and Keycard Shell work with a wallet app. If you use SLIP39, choose a [wallet app](https://keycard.tech/en/wallets) that supports both Keycard and SLIP39, such as Rabby, Sparrow, or BlueWallet.
 </Admonition>
 
 ## SLIP39 FAQ
