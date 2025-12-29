@@ -9,7 +9,10 @@ const Link = (
   const external =
     url?.startsWith('http') ||
     url?.startsWith('mailto:') ||
-    url?.startsWith('tel:')
+    url?.startsWith('tel:') ||
+    // Treat /en/ URLs as external to avoid double locale prefixing
+    // (legal pages are always canonical at /en/legal/*)
+    url?.startsWith('/en/')
 
   if (external) {
     const target = props.target ?? '_blank'
