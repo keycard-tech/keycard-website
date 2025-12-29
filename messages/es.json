@@ -222,7 +222,7 @@
         "notes": "features::open_source::title"
       },
       "description": {
-        "translation": "Código de código abierto sobre un marco abierto, la forma más abierta de diseñar un elemento seguro.",
+        "translation": "Código abierto sobre un marco abierto, lo que lo convierte en la forma más abierta de diseñar un elemento seguro.",
         "notes": "features::open_source::description"
       },
       "button": {
@@ -339,7 +339,7 @@
           "notes": "comparison::features::no_export::name"
         },
         "tooltip": {
-          "translation": "Las claves privadas nunca salen de la tarjeta. La tarjeta es una enclave segura que almacena las claves privadas y realiza las firmas.",
+          "translation": "Las claves privadas nunca salen de la tarjeta. La tarjeta es un enclave seguro que almacena las claves privadas y realiza las firmas.",
           "notes": "comparison::features::no_export::tooltip"
         }
       },
@@ -351,6 +351,96 @@
         "tooltip": {
           "translation": "Los desarrolladores y fabricantes pueden construir encima para hacer crecer el ecosistema y beneficiarse de él",
           "notes": "comparison::features::open_ecosystem::tooltip"
+        }
+      },
+      "card_cannot_be_upgraded": {
+        "name": {
+          "translation": "La tarjeta no puede actualizarse",
+          "notes": "comparison::features::card_cannot_be_upgraded::name"
+        },
+        "tooltip": {
+          "translation": "La tarjeta no puede actualizarse con nuevo firmware",
+          "notes": "comparison::features::card_cannot_be_upgraded::tooltip"
+        }
+      },
+      "full_open_source": {
+        "name": {
+          "translation": "Diseño totalmente de código abierto",
+          "notes": "comparison::features::full_open_source::name"
+        },
+        "tooltip": {
+          "translation": "El hardware y el software son totalmente de código abierto",
+          "notes": "comparison::features::full_open_source::tooltip"
+        }
+      },
+      "use_with_other_wallets": {
+        "name": {
+          "translation": "Usa tu tarjeta con otros monederos",
+          "notes": "comparison::features::use_with_other_wallets::name"
+        },
+        "tooltip": {
+          "translation": "Funciona con varias aplicaciones de monedero",
+          "notes": "comparison::features::use_with_other_wallets::tooltip"
+        }
+      },
+      "no_vendor_app": {
+        "name": {
+          "translation": "No se necesita aplicación específica del proveedor",
+          "notes": "comparison::features::no_vendor_app::name"
+        },
+        "tooltip": {
+          "translation": "Funciona sin software propietario del proveedor",
+          "notes": "comparison::features::no_vendor_app::tooltip"
+        }
+      },
+      "compatible_wallets": {
+        "name": {
+          "translation": "Compatible con más de 10 monederos",
+          "notes": "comparison::features::compatible_wallets::name"
+        },
+        "tooltip": {
+          "translation": "Compatible con más de 10 aplicaciones de monedero diferentes",
+          "notes": "comparison::features::compatible_wallets::tooltip"
+        }
+      },
+      "clear_signing": {
+        "name": {
+          "translation": "Firma clara",
+          "notes": "comparison::features::clear_signing::name"
+        },
+        "tooltip": {
+          "translation": "Ves lo que firmas antes de confirmar una transacción",
+          "notes": "comparison::features::clear_signing::tooltip"
+        }
+      },
+      "airgap_capable": {
+        "name": {
+          "translation": "Capaz de air-gap",
+          "notes": "comparison::features::airgap_capable::name"
+        },
+        "tooltip": {
+          "translation": "Puede usarse completamente sin conexión",
+          "notes": "comparison::features::airgap_capable::tooltip"
+        }
+      },
+      "camera_qr": {
+        "name": {
+          "translation": "Cámara para escanear QR",
+          "notes": "comparison::features::camera_qr::name"
+        },
+        "tooltip": {
+          "translation": "Cámara integrada para transacciones por código QR",
+          "notes": "comparison::features::camera_qr::tooltip"
+        }
+      },
+      "removable_battery": {
+        "name": {
+          "translation": "Batería extraíble",
+          "notes": "comparison::features::removable_battery::name"
+        },
+        "tooltip": {
+          "translation": "La batería puede reemplazarse",
+          "notes": "comparison::features::removable_battery::tooltip"
         }
       }
     }
@@ -417,6 +507,18 @@
         "translation": "Keycard es una hardware wallet segura de tamaño de bolsillo con un chip demostrablemente auténtico e inmutable para proteger tus activos digitales.",
         "notes": "faqs::why_get_keycard::answer"
       }
+    },
+    "still_have_questions": {
+      "translation": "¿Todavía tienes preguntas?",
+      "notes": "faqs::still_have_questions"
+    },
+    "reach_out": {
+      "translation": "Ponte en contacto con nuestro equipo o interactúa con nuestra comunidad en Discord o X.",
+      "notes": "faqs::reach_out"
+    },
+    "get_in_touch": {
+      "translation": "Ponte en contacto",
+      "notes": "faqs::get_in_touch"
     }
   },
   "buy_cards": {
@@ -636,48 +738,6 @@
         "notes": "contact::get_involved::blog_link"
       }
     },
-    "partnerships": {
-      "title": {
-        "translation": "Partnerships & BD",
-        "notes": "contact::partnerships::title"
-      },
-      "description": {
-        "translation": "Integrations, distribution, or bulk orders.",
-        "notes": "contact::partnerships::description"
-      }
-    },
-    "orders": {
-      "title": {
-        "translation": "Orders & shipping",
-        "notes": "contact::orders::title"
-      },
-      "description": {
-        "translation": "Questions about orders, shipping, refunds, or replacements.",
-        "notes": "contact::orders::description"
-      },
-      "help_link": {
-        "translation": "Visit order help",
-        "notes": "contact::orders::help_link"
-      }
-    },
-    "get_involved": {
-      "title": {
-        "translation": "Get involved",
-        "notes": "contact::get_involved::title"
-      },
-      "description": {
-        "translation": "Build with Keycard or learn more about the project.",
-        "notes": "contact::get_involved::description"
-      },
-      "docs_link": {
-        "translation": "Read the docs",
-        "notes": "contact::get_involved::docs_link"
-      },
-      "blog_link": {
-        "translation": "Visit the blog",
-        "notes": "contact::get_involved::blog_link"
-      }
-    },
     "partnerships_bd": {
       "title": {
         "translation": "Alianzas y desarrollo de negocio",
@@ -689,24 +749,14 @@
       }
     }
   },
-  "blog": {
-    "title": {
-      "translation": "Keycard Blog",
-      "notes": "blog::title"
-    },
-    "subtitle": {
-      "translation": "Product updates, security, and ecosystem news.",
-      "notes": "blog::subtitle"
-    },
-    "no_posts": {
-      "translation": "No posts yet — check back soon.",
-      "notes": "blog::no_posts"
-    }
-  },
   "footer": {
     "copyright": {
-      "translation": "© Status Research & Development GmbH",
+      "translation": "© Keycard 2025",
       "notes": "footer::copyright"
+    },
+    "copyright_old": {
+      "translation": "© Status Research & Development GmbH",
+      "notes": "footer::copyright_old"
     },
     "terms_of_use": {
       "translation": "Términos de uso",
@@ -760,7 +810,7 @@
         "notes": "footer::shell::buy"
       },
       "owners_hub": {
-        "translation": "Owner's hub",
+        "translation": "Área de propietarios",
         "notes": "footer::shell::owners_hub"
       },
       "quick_start_guide": {

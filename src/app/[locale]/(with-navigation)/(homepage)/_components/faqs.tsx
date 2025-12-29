@@ -118,11 +118,10 @@ const Faqs = () => {
           <div className="mt-14 flex flex-1 flex-col gap-6 rounded-28 border border-white-8 bg-white-4 p-6 pt-5 lg:mt-10 lg:max-w-[320px]">
             <div className="flex flex-col gap-[6px]">
               <p className="font-lora text-24 font-400 text-white-95">
-                Still have questions?
+                {t('faqs.still_have_questions.translation')}
               </p>
               <p className="text-16 font-300 text-white-80">
-                Reach out to our team or engage with our community on Discord or
-                X.
+                {t('faqs.reach_out.translation')}
               </p>
             </div>
             <div className="flex gap-3">
@@ -130,7 +129,7 @@ const Faqs = () => {
                 href="mailto:support@keycard.tech"
                 variant="secondary"
               >
-                Get in touch
+                {t('faqs.get_in_touch.translation')}
               </ButtonLink>
               <ButtonLink
                 href="https://x.com/keycard_"
