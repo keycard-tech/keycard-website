@@ -33,7 +33,7 @@
       "notes": "common::coming_2025"
     },
     "bundled_with_keycard": {
-      "translation": "키카드와 함께 번들",
+      "translation": "Keycard와 함께 번들",
       "notes": "common::bundled_with_keycard"
     },
     "pre_order": {
@@ -41,15 +41,15 @@
       "notes": "common::pre_order"
     },
     "buy_keycard": {
-      "translation": "키카드 구매",
+      "translation": "Keycard 구매",
       "notes": "common::buy_keycard"
     },
     "buy_shell": {
-      "translation": "셸 구매",
+      "translation": "Shell 구매",
       "notes": "common::buy_shell"
     },
     "pre_order_shell": {
-      "translation": "셸 사전 주문",
+      "translation": "Shell 사전 주문",
       "notes": "common::pre_order_shell"
     },
     "from": {
@@ -77,11 +77,11 @@
       "notes": "navigation::about"
     },
     "keycard": {
-      "translation": "키카드",
+      "translation": "Keycard",
       "notes": "navigation::keycard"
     },
     "keycard_shell": {
-      "translation": "키카드 셸",
+      "translation": "Keycard Shell",
       "notes": "navigation::keycard_shell"
     },
     "developers": {
@@ -127,7 +127,7 @@
   },
   "top_banner": {
     "pre_sale_started": {
-      "translation": "🎉 키카드 셸 사전 판매가 시작되었습니다!",
+      "translation": "🎉 Keycard Shell 사전 판매가 시작되었습니다!",
       "notes": "top_banner::pre_sale_started"
     },
     "pre_order_now": {
@@ -141,7 +141,7 @@
   },
   "hero": {
     "keycard_shell_title": {
-      "translation": "키카드 셸",
+      "translation": "Keycard Shell",
       "notes": "hero::keycard_shell_title"
     },
     "keycard_shell_subtitle": {
@@ -149,15 +149,15 @@
       "notes": "hero::keycard_shell_subtitle"
     },
     "keycard_shell_description": {
-      "translation": "각각 고유한 키를 가진 무한한 수의 제거 가능한 키카드로 비교할 수 없는 보안을 제공합니다.",
+      "translation": "각각 고유한 키를 가진 무한한 수의 제거 가능한 Keycard로 비교할 수 없는 보안을 제공합니다.",
       "notes": "hero::keycard_shell_description"
     },
     "discover_shell": {
-      "translation": "셸 발견하기",
+      "translation": "Shell 발견하기",
       "notes": "hero::discover_shell"
     },
     "keycard_title": {
-      "translation": "키카드",
+      "translation": "Keycard",
       "notes": "hero::keycard_title"
     },
     "keycard_subtitle": {
@@ -165,11 +165,11 @@
       "notes": "hero::keycard_subtitle"
     },
     "keycard_description": {
-      "translation": "키카드 하드웨어 지갑으로 빠르고 안전하게 암호화폐를 거래하고 백업하세요.",
+      "translation": "Keycard 하드웨어 지갑으로 빠르고 안전하게 암호화폐를 거래하고 백업하세요.",
       "notes": "hero::keycard_description"
     },
     "discover_keycard": {
-      "translation": "키카드 발견하기",
+      "translation": "Keycard 발견하기",
       "notes": "hero::discover_keycard"
     }
   },
@@ -208,7 +208,7 @@
         "notes": "features::security::title"
       },
       "description": {
-        "translation": "키카드 보안 요소는 Common Criteria에서 제공하는 최고 수준의 인증을 받았습니다.",
+        "translation": "Keycard 보안 요소는 Common Criteria에서 제공하는 최고 수준의 인증을 받았습니다.",
         "notes": "features::security::description"
       },
       "badge": {
@@ -236,7 +236,7 @@
         "notes": "features::airgapped::title"
       },
       "description": {
-        "translation": "키카드 셸의 카메라나 키카드의 비접촉 특성을 통해 우리 제품은 에어갭을 구현할 수 있습니다.",
+        "translation": "Keycard Shell의 카메라나 Keycard의 비접촉 특성을 통해 우리 제품은 에어갭을 구현할 수 있습니다.",
         "notes": "features::airgapped::description"
       },
       "badge": {
@@ -250,7 +250,7 @@
         "notes": "features::durable::title"
       },
       "description": {
-        "translation": "귀하의 키카드는 25년 이상의 수명을 가지며, 물과 먼지에 저항합니다. 여전히 키를 안전하게 저장합니다.",
+        "translation": "귀하의 Keycard는 25년 이상의 수명을 가지며, 물과 먼지에 저항합니다. 여전히 키를 안전하게 저장합니다.",
         "notes": "features::durable::description"
       },
       "badge": {
@@ -278,7 +278,7 @@
         "notes": "features::discreet::title"
       },
       "description": {
-        "translation": "가볍고 작으며 은밀한 형태로 귀하의 키카드는 지갑에서 눈에 띄지 않을 수 있습니다.",
+        "translation": "가볍고 작으며 은밀한 형태로 귀하의 Keycard는 지갑에서 눈에 띄지 않을 수 있습니다.",
         "notes": "features::discreet::description"
       },
       "badge": {
@@ -297,11 +297,11 @@
       "notes": "comparison::feature"
     },
     "shell": {
-      "translation": "셸",
+      "translation": "Shell",
       "notes": "comparison::shell"
     },
     "keycard": {
-      "translation": "키카드",
+      "translation": "Keycard",
       "notes": "comparison::keycard"
     },
     "tangem": {
@@ -345,10 +345,84 @@
       },
       "open_ecosystem": {
         "name": {
-          "translation": "개방적이고 확장 가능한 생태계"
+          "translation": "개방적이고 확장 가능한 생태계",
+          "notes": "comparison::features::open_ecosystem::name"
         },
         "tooltip": {
-          "translation": "개발자와 제조업체가 생태계를 성장시키고 이익을 얻을 수 있도록 구축할 수 있습니다"
+          "translation": "개발자와 제조업체가 생태계를 성장시키고 이익을 얻을 수 있도록 구축할 수 있습니다",
+          "notes": "comparison::features::open_ecosystem::tooltip"
+        }
+      },
+      "card_cannot_be_upgraded": {
+        "name": {
+          "translation": "카드를 업그레이드할 수 없습니다"
+        },
+        "tooltip": {
+          "translation": "새 펌웨어로 카드를 업데이트할 수 없습니다"
+        }
+      },
+      "full_open_source": {
+        "name": {
+          "translation": "완전한 오픈 소스 설계"
+        },
+        "tooltip": {
+          "translation": "하드웨어와 소프트웨어가 완전히 오픈 소스입니다"
+        }
+      },
+      "use_with_other_wallets": {
+        "name": {
+          "translation": "다른 지갑과 함께 카드 사용"
+        },
+        "tooltip": {
+          "translation": "다양한 지갑 애플리케이션과 호환됩니다"
+        }
+      },
+      "no_vendor_app": {
+        "name": {
+          "translation": "공급업체별 애플리케이션이 필요하지 않음"
+        },
+        "tooltip": {
+          "translation": "공급업체 전용 소프트웨어 없이 작동합니다"
+        }
+      },
+      "compatible_wallets": {
+        "name": {
+          "translation": "10개 이상의 지갑과 호환"
+        },
+        "tooltip": {
+          "translation": "10개 이상의 다양한 지갑 애플리케이션에서 지원됩니다"
+        }
+      },
+      "clear_signing": {
+        "name": {
+          "translation": "명확한 서명"
+        },
+        "tooltip": {
+          "translation": "거래를 확인하기 전에 서명할 내용을 볼 수 있습니다"
+        }
+      },
+      "airgap_capable": {
+        "name": {
+          "translation": "에어갭 가능"
+        },
+        "tooltip": {
+          "translation": "직접 연결 없이 완전히 오프라인으로 사용할 수 있습니다"
+        }
+      },
+      "camera_qr": {
+        "name": {
+          "translation": "QR 스캔 카메라"
+        },
+        "tooltip": {
+          "translation": "QR 코드 기반 거래를 위한 내장 카메라"
+        }
+      },
+      "removable_battery": {
+        "name": {
+          "translation": "탈착식 배터리"
+        },
+        "tooltip": {
+          "translation": "배터리를 교체할 수 있습니다"
         }
       }
     }
@@ -360,21 +434,21 @@
     },
     "what_is_keycard": {
       "question": {
-        "translation": "키카드는 무엇을 위한 것인가요?",
+        "translation": "Keycard는 무엇을 위한 것인가요?",
         "notes": "faqs::what_is_keycard::question"
       },
       "answer": {
-        "translation": "키카드는 암호화폐를 저장하고 관리하기 위한 안전한 하드웨어 지갑입니다.",
+        "translation": "Keycard는 암호화폐를 저장하고 관리하기 위한 안전한 하드웨어 지갑입니다.",
         "notes": "faqs::what_is_keycard::answer"
       }
     },
     "which_assets": {
       "question": {
-        "translation": "키카드는 어떤 자산을 지원하나요?",
+        "translation": "Keycard는 어떤 자산을 지원하나요?",
         "notes": "faqs::which_assets::question"
       },
       "answer": {
-        "translation": "키카드는 이더리움 및 EVM 기반 자산과 원활하게 작동합니다. 지원합니다",
+        "translation": "Keycard는 이더리움 및 EVM 기반 자산과 원활하게 작동합니다. 지원합니다",
         "notes": "faqs::which_assets::answer"
       },
       "link_text": {
@@ -382,13 +456,13 @@
         "notes": "faqs::which_assets::link_text"
       },
       "answer_text": {
-        "translation": "키카드는 이더리움 및 EVM 기반 자산과 원활하게 작동합니다. Uniswap Labs 기본 토큰 목록의 모든 자산을 지원합니다.",
+        "translation": "Keycard는 이더리움 및 EVM 기반 자산과 원활하게 작동합니다. Uniswap Labs 기본 토큰 목록의 모든 자산을 지원합니다.",
         "notes": "faqs::which_assets::answer_text"
       }
     },
     "funds_safe": {
       "question": {
-        "translation": "키카드를 잃어버리면 자금이 안전한가요?",
+        "translation": "Keycard를 잃어버리면 자금이 안전한가요?",
         "notes": "faqs::funds_safe::question"
       },
       "answer": {
@@ -398,23 +472,35 @@
     },
     "wallets_support": {
       "question": {
-        "translation": "어떤 지갑이 키카드를 지원하나요?",
+        "translation": "어떤 지갑이 Keycard를 지원하나요?",
         "notes": "faqs::wallets_support::question"
       },
       "answer": {
-        "translation": "키카드는 다양한 소프트웨어 지갑과 호환됩니다. 전체 목록은 문서를 확인해 주세요.",
+        "translation": "Keycard는 다양한 소프트웨어 지갑과 호환됩니다. 전체 목록은 문서를 확인해 주세요.",
         "notes": "faqs::wallets_support::answer"
       }
     },
     "why_get_keycard": {
       "question": {
-        "translation": "왜 키카드를 구매해야 하나요?",
+        "translation": "왜 Keycard를 구매해야 하나요?",
         "notes": "faqs::why_get_keycard::question"
       },
       "answer": {
-        "translation": "키카드는 디지털 자산을 보호하는 입증 가능한 진품의 불변 칩을 가진 안전하고 휴대하기 쉬운 하드웨어 지갑입니다.",
+        "translation": "Keycard는 디지털 자산을 보호하는 입증 가능한 진품의 불변 칩을 가진 안전하고 휴대하기 쉬운 하드웨어 지갑입니다.",
         "notes": "faqs::why_get_keycard::answer"
       }
+    },
+    "still_have_questions": {
+      "translation": "아직 질문이 있으신가요?",
+      "notes": "faqs::still_have_questions"
+    },
+    "reach_out": {
+      "translation": "팀에 문의하거나 Discord 또는 X에서 커뮤니티와 소통하세요.",
+      "notes": "faqs::reach_out"
+    },
+    "get_in_touch": {
+      "translation": "문의하기",
+      "notes": "faqs::get_in_touch"
     }
   },
   "buy_cards": {
@@ -435,17 +521,17 @@
       "notes": "buy_cards::shell_description"
     },
     "shell_info": {
-      "translation": "2025년 12월 배송 • 키카드 두 장 포함",
+      "translation": "2025년 12월 배송 • Keycard 두 장 포함",
       "notes": "buy_cards::shell_info"
     }
   },
   "about": {
     "title": {
-      "translation": "키카드 소개",
+      "translation": "Keycard 소개",
       "notes": "about::title"
     },
     "description": {
-      "translation": "자유 기술 연구소의 오픈 소스 서명 하드웨어입니다. 키카드는 보안 요소 서명자이고, 키카드 셸은 QR 확인 기능이 있는 에어갭 지갑입니다.",
+      "translation": "자유 기술 연구소의 오픈 소스 서명 하드웨어입니다. Keycard는 보안 요소 서명자이고, Keycard Shell은 QR 확인 기능이 있는 에어갭 지갑입니다.",
       "notes": "about::description"
     },
     "subtitle": {
@@ -575,7 +661,7 @@
   },
   "contact": {
     "title": {
-      "translation": "키카드 문의",
+      "translation": "Keycard 문의",
       "notes": "contact::title"
     },
     "subtitle": {
@@ -643,54 +729,16 @@
         "translation": "통합, 유통 또는 대량 주문.",
         "notes": "contact::partnerships_bd::description"
       }
-    },
-    "partnerships": {
-      "title": {
-        "translation": "Partnerships & BD",
-        "notes": "contact::partnerships::title"
-      },
-      "description": {
-        "translation": "Integrations, distribution, or bulk orders.",
-        "notes": "contact::partnerships::description"
-      }
-    },
-    "orders": {
-      "title": {
-        "translation": "Orders & shipping",
-        "notes": "contact::orders::title"
-      },
-      "description": {
-        "translation": "Questions about orders, shipping, refunds, or replacements.",
-        "notes": "contact::orders::description"
-      },
-      "help_link": {
-        "translation": "Visit order help",
-        "notes": "contact::orders::help_link"
-      }
-    },
-    "get_involved": {
-      "title": {
-        "translation": "Get involved",
-        "notes": "contact::get_involved::title"
-      },
-      "description": {
-        "translation": "Build with Keycard or learn more about the project.",
-        "notes": "contact::get_involved::description"
-      },
-      "docs_link": {
-        "translation": "Read the docs",
-        "notes": "contact::get_involved::docs_link"
-      },
-      "blog_link": {
-        "translation": "Visit the blog",
-        "notes": "contact::get_involved::blog_link"
-      }
     }
   },
   "footer": {
     "copyright": {
-      "translation": "© Status Research & Development GmbH",
+      "translation": "© Keycard 2025",
       "notes": "footer::copyright"
+    },
+    "copyright_old": {
+      "translation": "© Status Research & Development GmbH",
+      "notes": "footer::copyright_old"
     },
     "terms_of_use": {
       "translation": "이용약관",
@@ -701,7 +749,7 @@
       "notes": "footer::privacy_policy"
     },
     "keycard_part_of": {
-      "translation": "키카드는",
+      "translation": "Keycard는",
       "notes": "footer::keycard_part_of"
     },
     "institute_of_free_technology": {
@@ -714,15 +762,15 @@
     },
     "keycard": {
       "title": {
-        "translation": "키카드",
+        "translation": "Keycard",
         "notes": "footer::keycard::title"
       },
       "about": {
-        "translation": "키카드 소개",
+        "translation": "Keycard 소개",
         "notes": "footer::keycard::about"
       },
       "buy": {
-        "translation": "키카드 구매",
+        "translation": "Keycard 구매",
         "notes": "footer::keycard::buy"
       },
       "get_started": {
@@ -732,15 +780,15 @@
     },
     "shell": {
       "title": {
-        "translation": "셸",
+        "translation": "Shell",
         "notes": "footer::shell::title"
       },
       "about": {
-        "translation": "셸 소개",
+        "translation": "Shell 소개",
         "notes": "footer::shell::about"
       },
       "buy": {
-        "translation": "셸 구매",
+        "translation": "Shell 구매",
         "notes": "footer::shell::buy"
       },
       "owners_hub": {
@@ -752,21 +800,21 @@
         "notes": "footer::shell::quick_start_guide"
       },
       "update": {
-        "translation": "셸 업데이트",
+        "translation": "Shell 업데이트",
         "notes": "footer::shell::update"
       },
       "verify": {
-        "translation": "셸 인증",
+        "translation": "Shell 인증",
         "notes": "footer::shell::verify"
       }
     },
     "products": {
       "keycard": {
-        "translation": "키카드",
+        "translation": "Keycard",
         "notes": "footer::products::keycard"
       },
       "keycard_shell": {
-        "translation": "키카드 셸",
+        "translation": "Keycard Shell",
         "notes": "footer::products::keycard_shell"
       }
     },
@@ -829,20 +877,6 @@
     "go_to_homepage": {
       "translation": "keycard.tech 홈페이지로 이동",
       "notes": "not_found::go_to_homepage"
-    }
-  },
-  "blog": {
-    "title": {
-      "translation": "Keycard Blog",
-      "notes": "blog::title"
-    },
-    "subtitle": {
-      "translation": "Product updates, security, and ecosystem news.",
-      "notes": "blog::subtitle"
-    },
-    "no_posts": {
-      "translation": "No posts yet — check back soon.",
-      "notes": "blog::no_posts"
     }
   }
 }

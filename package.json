@@ -11,7 +11,8 @@
     "format": "prettier --write . --ignore-path .gitignore",
     "check": "tsc --noEmit",
     "env:check": "node -r dotenv/config ./src/config/env.server.mjs dotenv_config_path=./.env && node -r dotenv/config ./src/config/env.client.mjs dotenv_config_path=./.env && :",
-    "clean": "rimraf .next .vercel/output node_modules"
+    "clean": "rimraf .next .vercel/output node_modules",
+    "test:legal-redirects": "node scripts/test-legal-redirects.mjs"
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.6.1",
