@@ -1,18 +1,21 @@
 'use client'
 
-import * as Checkbox from '@radix-ui/react-checkbox'
 import {
-  CheckIcon,
+  AddIcon,
   CloseIcon,
   InfoIcon,
   KeycardCardIcon,
   LabelsIcon,
   LoadingIcon,
+  RemoveIcon,
   WorldIcon,
 } from '@status-im/icons/20'
+import { getShopifyUrl } from '~/config/routes'
+import { CryptoPaymentIcon } from '~components/crypto-payment-icon'
 import { Image } from '~components/image'
-import { RecommendedIcon } from '~icons/recommended'
+import { Link } from '~components/link'
 import { AnimatePresence, motion } from 'framer-motion'
+import { useLocale } from 'next-intl'
 import { useState } from 'react'
 import { KEYCARD_PRODUCTS, KEYCARD_SHELL } from '../_constants/shopify/products'
 import { useCart } from '../_providers/cart-provider'
@@ -20,6 +23,74 @@ import { formatPrice } from '../_utils/format-price'
 import { Button } from './button'
 import * as Dialog from './dialog'
 import { Tooltip } from './tooltip'
+
+type BundleKey = Exclude<keyof typeof KEYCARD_PRODUCTS, 'READER'>
+
+const BUNDLE_OPTIONS: BundleKey[] = [
+  'ONE_CARD_SET',
+  'TWO_CARDS_SET',
+  'THREE_CARDS_SET',
+]
+
+const buildBundlePlan = (cardCount: number) => {
+  const bundles = BUNDLE_OPTIONS.map(bundleKey => ({
+    key: bundleKey,
+    cards: KEYCARD_PRODUCTS[bundleKey].cards,
+    price: KEYCARD_PRODUCTS[bundleKey].price,
+  }))
+  const bestCost = Array.from({ length: cardCount + 1 }, () => Infinity)
+  const choice: Array<BundleKey | null> = Array.from(
+    { length: cardCount + 1 },
+    () => null,
+  )
+  bestCost[0] = 0
+
+  for (let i = 1; i <= cardCount; i += 1) {
+    for (const bundle of bundles) {
+      if (i >= bundle.cards) {
+        const cost = bestCost[i - bundle.cards] + bundle.price
+        if (cost < bestCost[i]) {
+          bestCost[i] = cost
+          choice[i] = bundle.key
+        }
+      }
+    }
+  }
+
+  const counts: Partial<Record<BundleKey, number>> = {}
+  let remaining = cardCount
+
+  while (remaining > 0) {
+    const picked = choice[remaining]
+    if (!picked) break
+    counts[picked] = (counts[picked] ?? 0) + 1
+    remaining -= KEYCARD_PRODUCTS[picked].cards
+  }
+
+  const totalPrice = Number.isFinite(bestCost[cardCount])
+    ? bestCost[cardCount]
+    : 0
+  const regularPrice = cardCount * KEYCARD_PRODUCTS.ONE_CARD_SET.price
+
+  const breakdown = [...BUNDLE_OPTIONS]
+    .sort((a, b) => KEYCARD_PRODUCTS[b].cards - KEYCARD_PRODUCTS[a].cards)
+    .map(bundleKey => {
+      const quantity = counts[bundleKey] ?? 0
+      if (quantity <= 0) return null
+      const cardCount = KEYCARD_PRODUCTS[bundleKey].cards
+      const label = cardCount === 1 ? '1 card' : `${cardCount}-card`
+      return `${quantity}× ${label}`
+    })
+    .filter(Boolean)
+    .join(', ')
+
+  return {
+    counts,
+    totalPrice,
+    regularPrice,
+    breakdown: breakdown || 'No add-ons',
+  }
+}
 
 type Props = {
   children?: React.ReactElement
@@ -57,13 +128,16 @@ export { BuyShellDialog }
 
 const Content = ({ onClose }: { onClose?: () => void }) => {
   const { addItem } = useCart()
+  const locale = useLocale()
   const [submitError, setSubmitError] = useState<string | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [includeKeycardSet, setIncludeKeycardSet] = useState(false)
+  const [cardCount, setCardCount] = useState(0)
 
-  const total =
-    KEYCARD_SHELL.price +
-    (includeKeycardSet ? KEYCARD_PRODUCTS.THREE_CARDS_SET.price : 0)
+  const bundlePlan = buildBundlePlan(cardCount)
+  const total = KEYCARD_SHELL.price + bundlePlan.totalPrice
+  const showBreakdown = cardCount > 0 && bundlePlan.breakdown !== 'No add-ons'
+  const showSavings =
+    cardCount > 0 && bundlePlan.regularPrice > bundlePlan.totalPrice
 
   const handleAddToCart = async () => {
     setSubmitError(null)
@@ -74,11 +148,14 @@ const Content = ({ onClose }: { onClose?: () => void }) => {
         { variantId: KEYCARD_SHELL.variantId, quantity: 1 },
       ]
 
-      if (includeKeycardSet) {
-        lines.push({
-          variantId: KEYCARD_PRODUCTS.THREE_CARDS_SET.variantId,
-          quantity: 1,
-        })
+      for (const bundleKey of BUNDLE_OPTIONS) {
+        const quantity = bundlePlan.counts[bundleKey] ?? 0
+        if (quantity > 0) {
+          lines.push({
+            variantId: KEYCARD_PRODUCTS[bundleKey].variantId,
+            quantity,
+          })
+        }
       }
 
       for (const line of lines) {
@@ -168,37 +245,65 @@ const Content = ({ onClose }: { onClose?: () => void }) => {
         </div>
 
         <div className="pt-6">
-          <h3 className="mb-2 text-12 uppercase text-white-80">
-            Add extra Keycards
-          </h3>
-          <div className="flex items-center justify-between rounded-16 border border-white-12 bg-white-4 p-3 pr-4">
-            <div className="relative flex items-center justify-start">
-              <Checkbox.Root
-                className="flex size-6 appearance-none items-center justify-center rounded-[8px] border border-white-20 bg-white-4 outline-none aria-checked:bg-orange aria-checked:hover:bg-orange-dark [&>svg]:aria-checked:text-white-95"
-                checked={includeKeycardSet}
-                onCheckedChange={checked => setIncludeKeycardSet(!!checked)}
-                aria-label="Add 3-card Keycard set"
-              >
-                <Checkbox.Indicator className="text-white-95">
-                  <CheckIcon className="size-5 text-white-95" />
-                </Checkbox.Indicator>
-              </Checkbox.Root>
-              <div className="ml-3">
-                <div className="flex items-center gap-2 text-16 font-300 text-white-95">
-                  3-card Keycard set
-                  <span className="flex size-5 items-center justify-center rounded-full bg-orange">
-                    <RecommendedIcon />
-                  </span>
-                </div>
-                <div className="text-13 font-300 text-white-60">
-                  Best value for extra cards
-                </div>
+          <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
+            <h3 className="text-12 uppercase text-white-80">
+              Add extra Keycards
+            </h3>
+            <Link
+              href={getShopifyUrl(locale, '/pages/keycard')}
+              className="text-12 text-orange hover:text-orange-dark"
+            >
+              Learn more about Keycard
+            </Link>
+          </div>
+          <div className="rounded-16 border border-white-12 bg-white-4 p-3">
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="text-12 text-white-60">Cards</span>
+              <div className="flex items-center gap-2 rounded-full border border-white-12 bg-white-4 px-3 py-1.5">
+                <button
+                  type="button"
+                  className="rounded-full p-1 transition-colors hover:bg-white-12"
+                  onClick={() => setCardCount(count => Math.max(0, count - 1))}
+                  aria-label="Decrease number of cards"
+                >
+                  <RemoveIcon className="size-[14px]" />
+                </button>
+                <span className="min-w-[28px] text-center text-14 font-600">
+                  {cardCount}
+                </span>
+                <button
+                  type="button"
+                  className="rounded-full p-1 transition-colors hover:bg-white-12"
+                  onClick={() => setCardCount(count => count + 1)}
+                  aria-label="Increase number of cards"
+                >
+                  <AddIcon className="size-[14px]" />
+                </button>
               </div>
-            </div>
-            <div className="text-16 font-300 text-white-80">
-              {formatPrice({
-                amount: KEYCARD_PRODUCTS.THREE_CARDS_SET.price,
-              })}
+              <span className="text-12 text-white-60">
+                {formatPrice({
+                  amount: bundlePlan.totalPrice,
+                })}
+              </span>
+              <span className="ml-auto flex items-center gap-2 text-12 text-white-60">
+                <span>Added: {cardCount}</span>
+                {showBreakdown ? (
+                  <span
+                    className="max-w-[200px] truncate"
+                    title={bundlePlan.breakdown}
+                  >
+                    • {bundlePlan.breakdown}
+                  </span>
+                ) : null}
+                {showSavings ? (
+                  <span className="text-green">
+                    • Save{' '}
+                    {formatPrice({
+                      amount: bundlePlan.regularPrice - bundlePlan.totalPrice,
+                    })}
+                  </span>
+                ) : null}
+              </span>
             </div>
           </div>
         </div>
@@ -291,6 +396,7 @@ const Content = ({ onClose }: { onClose?: () => void }) => {
               width={52}
               height={32}
             />
+            <CryptoPaymentIcon />
           </div>
           <div className="mt-10 flex flex-col items-center gap-[10px] rounded-16 border border-dashed border-white-12 bg-white-4 px-4 py-[14px] text-14 text-white-60 lg:flex-row lg:justify-center lg:gap-2">
             <div className="flex items-center">
