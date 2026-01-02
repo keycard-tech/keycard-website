@@ -31,7 +31,7 @@ const Prefooter = () => {
           </BuyShellDialog>
           <p className="flex items-center gap-2 text-16 font-300 text-white-60 md:gap-2">
             Coming 2025 <span className="size-1 rounded-full bg-white-40" />{' '}
-            Bundled with Keycard
+            Bundled with 2 Keycards
           </p>
         </div>
       </div>
