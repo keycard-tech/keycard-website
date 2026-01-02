@@ -1,6 +1,8 @@
 'use client'
 
+import * as Checkbox from '@radix-ui/react-checkbox'
 import {
+  CheckIcon,
   CloseIcon,
   InfoIcon,
   KeycardCardIcon,
@@ -9,9 +11,10 @@ import {
   WorldIcon,
 } from '@status-im/icons/20'
 import { Image } from '~components/image'
+import { RecommendedIcon } from '~icons/recommended'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
-import { KEYCARD_SHELL } from '../_constants/shopify/products'
+import { KEYCARD_PRODUCTS, KEYCARD_SHELL } from '../_constants/shopify/products'
 import { useCart } from '../_providers/cart-provider'
 import { formatPrice } from '../_utils/format-price'
 import { Button } from './button'
@@ -56,14 +59,32 @@ const Content = ({ onClose }: { onClose?: () => void }) => {
   const { addItem } = useCart()
   const [submitError, setSubmitError] = useState<string | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [includeKeycardSet, setIncludeKeycardSet] = useState(false)
+
+  const total =
+    KEYCARD_SHELL.price +
+    (includeKeycardSet ? KEYCARD_PRODUCTS.THREE_CARDS_SET.price : 0)
 
   const handleAddToCart = async () => {
     setSubmitError(null)
     setIsSubmitting(true)
 
     try {
-      const merchandiseId = `gid://shopify/ProductVariant/${KEYCARD_SHELL.variantId}`
-      await addItem(merchandiseId, 1)
+      const lines: Array<{ variantId: string; quantity: number }> = [
+        { variantId: KEYCARD_SHELL.variantId, quantity: 1 },
+      ]
+
+      if (includeKeycardSet) {
+        lines.push({
+          variantId: KEYCARD_PRODUCTS.THREE_CARDS_SET.variantId,
+          quantity: 1,
+        })
+      }
+
+      for (const line of lines) {
+        const merchandiseId = `gid://shopify/ProductVariant/${line.variantId}`
+        await addItem(merchandiseId, line.quantity)
+      }
       onClose?.()
     } catch (error) {
       setSubmitError(
@@ -131,17 +152,53 @@ const Content = ({ onClose }: { onClose?: () => void }) => {
             <div className="flex items-center gap-2 font-lora">
               <p className="text-24 text-green">
                 {formatPrice({
-                  amount: 99,
+                  amount: KEYCARD_SHELL.price,
                 })}
               </p>
               <p className="font-lora text-24 text-white-95 line-through">
                 {formatPrice({
-                  amount: 149,
+                  amount: KEYCARD_SHELL.compareAtPrice,
                 })}
               </p>
             </div>
             <div className="flex items-center gap-[6px] pt-4 font-300">
               <KeycardCardIcon className="text-white-60" /> Includes 2 Keycards
+            </div>
+          </div>
+        </div>
+
+        <div className="pt-6">
+          <h3 className="mb-2 text-12 uppercase text-white-80">
+            Add extra Keycards
+          </h3>
+          <div className="flex items-center justify-between rounded-16 border border-white-12 bg-white-4 p-3 pr-4">
+            <div className="relative flex items-center justify-start">
+              <Checkbox.Root
+                className="flex size-6 appearance-none items-center justify-center rounded-[8px] border border-white-20 bg-white-4 outline-none aria-checked:bg-orange aria-checked:hover:bg-orange-dark [&>svg]:aria-checked:text-white-95"
+                checked={includeKeycardSet}
+                onCheckedChange={checked => setIncludeKeycardSet(!!checked)}
+                aria-label="Add 3-card Keycard set"
+              >
+                <Checkbox.Indicator className="text-white-95">
+                  <CheckIcon className="size-5 text-white-95" />
+                </Checkbox.Indicator>
+              </Checkbox.Root>
+              <div className="ml-3">
+                <div className="flex items-center gap-2 text-16 font-300 text-white-95">
+                  3-card Keycard set
+                  <span className="flex size-5 items-center justify-center rounded-full bg-orange">
+                    <RecommendedIcon />
+                  </span>
+                </div>
+                <div className="text-13 font-300 text-white-60">
+                  Best value for extra cards
+                </div>
+              </div>
+            </div>
+            <div className="text-16 font-300 text-white-80">
+              {formatPrice({
+                amount: KEYCARD_PRODUCTS.THREE_CARDS_SET.price,
+              })}
             </div>
           </div>
         </div>
@@ -207,7 +264,7 @@ const Content = ({ onClose }: { onClose?: () => void }) => {
               <>
                 Add to cart <div className="size-1 rounded-full bg-white-40" />
                 {formatPrice({
-                  amount: 99,
+                  amount: total,
                 })}
               </>
             )}
