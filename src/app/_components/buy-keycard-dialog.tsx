@@ -145,6 +145,18 @@ const ShopifyForm = ({ onClose }: { onClose?: () => void }) => {
     return bundlesTotal + readerPrice + shellPrice
   }, [bundleQuantities, includeShell])
 
+  const selectedBundles = BUNDLE_OPTIONS.filter(
+    bundleKey => bundleQuantities[bundleKey] > 0,
+  )
+  const checkoutEvent =
+    selectedBundles.length === 1
+      ? KEYCARD_PRODUCTS[selectedBundles[0]].cards === 1
+        ? 'buy-keycard'
+        : `buy-keycard-bundle-${KEYCARD_PRODUCTS[selectedBundles[0]].cards}`
+      : selectedBundles.length > 1
+        ? 'buy-keycard-bundle-multi'
+        : 'buy-keycard-bundle-none'
+
   const handleSubmit = async (values: FormValues) => {
     setSubmitError(null)
 
@@ -391,7 +403,7 @@ const ShopifyForm = ({ onClose }: { onClose?: () => void }) => {
 
           <div className="pb-6">
             <div className="mb-2 flex items-center justify-between">
-              <h3 className="text-12 text-white-80">PRE-ORDER SHELL</h3>
+              <h3 className="text-12 text-white-80">KEYCARD SHELL</h3>
               <Link
                 href={getShopifyUrl(locale, '/pages/keycard-shell')}
                 className="text-12 text-orange hover:text-orange-dark"
@@ -407,7 +419,7 @@ const ShopifyForm = ({ onClose }: { onClose?: () => void }) => {
                   className="flex size-6 appearance-none items-center justify-center rounded-[8px] border border-white-20 bg-white-4 outline-none aria-checked:bg-orange aria-checked:hover:bg-orange-dark [&>svg]:aria-checked:text-white-95"
                   checked={shellField.value}
                   onCheckedChange={shellField.onChange}
-                  aria-label="Add Keycard Shell pre-order"
+                  aria-label="Add Keycard Shell"
                 >
                   <Checkbox.Indicator className="text-white-95">
                     <CheckIcon className="size-5 text-white-95" />
@@ -422,14 +434,9 @@ const ShopifyForm = ({ onClose }: { onClose?: () => void }) => {
                 </label>
               </div>
               <div className="flex gap-2 text-16 font-300 text-white-80">
-                <span className="text-green">
+                <span className="text-white-95">
                   {formatPrice({
                     amount: KEYCARD_SHELL.price,
-                  })}
-                </span>
-                <span className="line-through">
-                  {formatPrice({
-                    amount: KEYCARD_SHELL.compareAtPrice,
                   })}
                 </span>
               </div>
@@ -444,7 +451,7 @@ const ShopifyForm = ({ onClose }: { onClose?: () => void }) => {
             <Button
               type="submit"
               className="w-full justify-center gap-2 font-500"
-              data-umami-event="checkout-keycard"
+              data-umami-event={checkoutEvent}
               data-umami-event-page="buy-keycard-dialog"
               data-umami-event-section="checkout"
               data-umami-event-element="button"

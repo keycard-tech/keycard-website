@@ -3,7 +3,6 @@
 import {
   AddIcon,
   CloseIcon,
-  InfoIcon,
   KeycardCardIcon,
   LabelsIcon,
   LoadingIcon,
@@ -22,7 +21,6 @@ import { useCart } from '../_providers/cart-provider'
 import { formatPrice } from '../_utils/format-price'
 import { Button } from './button'
 import * as Dialog from './dialog'
-import { Tooltip } from './tooltip'
 
 type BundleKey = Exclude<keyof typeof KEYCARD_PRODUCTS, 'READER'>
 
@@ -115,9 +113,7 @@ const BuyShellDialog = (props: Props) => {
         }}
         className="fixed left-1/2 top-1/2 z-50 max-h-screen w-screen max-w-[1136px] -translate-x-1/2 -translate-y-1/2 overflow-auto focus:outline-none data-[state=open]:animate-contentShow lg:w-[90vw] lg:overflow-hidden"
       >
-        <Dialog.Description className="sr-only">
-          Pre-order Shell
-        </Dialog.Description>
+        <Dialog.Description className="sr-only">Buy Shell</Dialog.Description>
         <Content onClose={() => setOpen(false)} />
       </Dialog.Content>
     </Dialog.Root>
@@ -177,7 +173,7 @@ const Content = ({ onClose }: { onClose?: () => void }) => {
       <div className="relative hidden rounded-20 bg-[#010101] lg:block lg:max-h-[70vh] lg:p-4">
         <AnimatePresence>
           <motion.div
-            key="pre-order-shell"
+            key="shell"
             initial={{ opacity: 0, scale: 0.95, y: 40 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.3 }}
@@ -185,7 +181,7 @@ const Content = ({ onClose }: { onClose?: () => void }) => {
           >
             <Image
               src="/assets/keycard-shell.gif"
-              alt="Pre-order Shell (animated)"
+              alt="Keycard Shell (animated)"
               className="h-auto max-h-[48vh] w-full max-w-[336px] object-contain lg:max-w-[448px]"
               width={1052}
               height={768}
@@ -203,12 +199,7 @@ const Content = ({ onClose }: { onClose?: () => void }) => {
       <div className="flex flex-col justify-start lg:p-4 lg:pl-0">
         <div className="flex justify-between lg:items-center">
           <div className="flex flex-col items-start gap-3 lg:flex-row lg:items-center">
-            <Dialog.Title className="font-lora text-32">
-              Pre-order Shell
-            </Dialog.Title>
-            <div className="rounded-16 border border-dashed border-[#FF640020] bg-[#FF640010] px-[14px] py-[7px] text-14 text-orange">
-              Limited time offer
-            </div>
+            <Dialog.Title className="font-lora text-32">Buy Shell</Dialog.Title>
           </div>
           <Dialog.Close asChild>
             <Button
@@ -223,18 +214,11 @@ const Content = ({ onClose }: { onClose?: () => void }) => {
 
         <div className="pt-5 lg:pt-10">
           <div className="rounded-16 bg-white-4 px-4 py-3">
-            <p className="pb-0.5 font-300 text-white-60">
-              Pre-order exclusive price 🔥
-            </p>
+            <p className="pb-0.5 font-300 text-white-60">Price</p>
             <div className="flex items-center gap-2 font-lora">
               <p className="text-24 text-green">
                 {formatPrice({
                   amount: KEYCARD_SHELL.price,
-                })}
-              </p>
-              <p className="font-lora text-24 text-white-95 line-through">
-                {formatPrice({
-                  amount: KEYCARD_SHELL.compareAtPrice,
                 })}
               </p>
             </div>
@@ -308,45 +292,6 @@ const Content = ({ onClose }: { onClose?: () => void }) => {
           </div>
         </div>
 
-        <div className="py-8">
-          <h3 className="mb-2 text-12 uppercase text-white-80">
-            Exclusive Pre-order benefits
-          </h3>
-          <div className="flex items-center justify-between rounded-16 bg-white-4 px-4 py-3">
-            <div className="relative flex items-center justify-start">
-              <div className="flex flex-col gap-0.5 font-300 text-white-95">
-                <div className="flex items-center gap-1">
-                  <div className="mr-0.5 size-1 rounded-full bg-white-60" />{' '}
-                  Status Network Karma
-                  <Tooltip
-                    label={
-                      <div className="flex flex-col gap-3 font-400">
-                        <p>
-                          Each Keycard Shell pre-sale customer will receive a
-                          Karma token airdrop on Status Network.
-                        </p>
-                        <p>
-                          Status Network is the L2 of the Status ecosystem
-                          launching later this year, and Karma plays a major
-                          role in its operation and governance.
-                        </p>
-                        <p>
-                          You&apos;ll receive further instructions on when and
-                          how to receive Karma via the email you used for your
-                          Shell purchase.
-                        </p>
-                      </div>
-                    }
-                  >
-                    <div className="flex">
-                      <InfoIcon className="flex-shrink-0 text-white-40 transition-colors hover:text-white-60" />
-                    </div>
-                  </Tooltip>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         <div className="rounded-16 border border-white-12 bg-white-4 p-1">
           {submitError && (
             <div className="mb-2 rounded-12 border border-[rgba(255,80,80,0.3)] bg-[rgba(255,80,80,0.1)] px-3 py-2 text-13 text-red">
@@ -356,7 +301,7 @@ const Content = ({ onClose }: { onClose?: () => void }) => {
           <Button
             type="button"
             className="w-full justify-center gap-2 font-500"
-            data-umami-event="checkout-shell"
+            data-umami-event="buy-shell"
             data-umami-event-page="buy-shell-dialog"
             data-umami-event-section="checkout"
             data-umami-event-element="button"
@@ -407,7 +352,7 @@ const Content = ({ onClose }: { onClose?: () => void }) => {
 
             <div className="flex items-center">
               <WorldIcon className="mr-1 shrink-0 text-white-95" />
-              Shipping Q4 2025
+              Ships in 3-10 days
             </div>
           </div>
         </div>

@@ -84,7 +84,7 @@ const NavBarMobile = () => {
     <motion.nav
       key="nav-bar-mobile"
       className={cx([
-        'fixed inset-0 top-[70px] z-40 block w-full transition-all sm:top-12 lg:hidden',
+        'fixed inset-0 z-40 block w-full transition-all lg:hidden',
       ])}
       aria-label="Primary"
       animate={{

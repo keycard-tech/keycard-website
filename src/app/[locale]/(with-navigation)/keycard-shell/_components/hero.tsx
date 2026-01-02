@@ -34,17 +34,18 @@ const Hero = () => {
             <div className="flex flex-col items-start gap-5 md:flex-row md:items-center">
               <BuyShellDialog>
                 <Button
-                  data-umami-event="preorder-shell"
+                  data-umami-event="buy-shell"
                   data-umami-event-page="shell"
                   data-umami-event-section="hero"
                   data-umami-event-element="button"
                 >
-                  Pre-order
+                  Buy now
                 </Button>
               </BuyShellDialog>
               <p className="flex items-center gap-2 text-16 font-300 text-white-60">
-                Coming 2025 <span className="size-1 rounded-full bg-white-40" />{' '}
-                Bundled with 2 Keycards
+                Ships in 3-10 days{' '}
+                <span className="size-1 rounded-full bg-white-40" /> Bundled
+                with 2 Keycards
               </p>
             </div>
           </div>

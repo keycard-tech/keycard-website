@@ -25,19 +25,19 @@
       "notes": "common::discover"
     },
     "pre_order_now": {
-      "translation": "Reservar ahora",
+      "translation": "Comprar ahora",
       "notes": "common::pre_order_now"
     },
     "coming_2025": {
-      "translation": "Disponible en 2025",
+      "translation": "Envío en 3-10 días",
       "notes": "common::coming_2025"
     },
     "bundled_with_keycard": {
-      "translation": "Incluido con Keycard",
+      "translation": "Incluye 2 Keycards",
       "notes": "common::bundled_with_keycard"
     },
     "pre_order": {
-      "translation": "Reserva",
+      "translation": "Comprar ahora",
       "notes": "common::pre_order"
     },
     "buy_keycard": {
@@ -49,7 +49,7 @@
       "notes": "common::buy_shell"
     },
     "pre_order_shell": {
-      "translation": "Reservar Shell",
+      "translation": "Comprar Shell",
       "notes": "common::pre_order_shell"
     },
     "from": {
@@ -127,15 +127,15 @@
   },
   "top_banner": {
     "pre_sale_started": {
-      "translation": "🎉 ¡Ha comenzado la preventa de Keycard Shell!",
+      "translation": "🎉 ¡Keycard Shell ya está en envío!",
       "notes": "top_banner::pre_sale_started"
     },
     "pre_order_now": {
-      "translation": "Reservar",
+      "translation": "Comprar ahora",
       "notes": "top_banner::pre_order_now"
     },
     "exclusive_benefits": {
-      "translation": "ahora y obtén ventajas exclusivas. 👀",
+      "translation": "Envío en 3-10 días",
       "notes": "top_banner::exclusive_benefits"
     }
   },

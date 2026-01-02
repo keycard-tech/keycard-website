@@ -143,7 +143,7 @@ const BuyCards = () => {
           <>
             <BuyShellDialog>
               <Button
-                data-umami-event="preorder-shell"
+                data-umami-event="buy-shell"
                 data-umami-event-page="homepage"
                 data-umami-event-section="cards"
                 data-umami-event-element="button"
