@@ -19,7 +19,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useMemo, useState } from 'react'
 import { useController, useForm } from 'react-hook-form'
 import { z } from 'zod'
-import { KEYCARD_PRODUCTS } from '../_constants/shopify/products'
+import { KEYCARD_PRODUCTS, KEYCARD_SHELL } from '../_constants/shopify/products'
 import { useCart } from '../_providers/cart-provider'
 import { formatPrice } from '../_utils/format-price'
 import { Button } from './button'
@@ -32,6 +32,7 @@ const formSchema = z
     bundleId: z.enum(['ONE_CARD_SET', 'TWO_CARDS_SET', 'THREE_CARDS_SET']),
     quantity: z.number(),
     includeKeycardReader: z.boolean(),
+    includeShell: z.boolean(),
   })
   .required()
 
@@ -75,6 +76,7 @@ const ShopifyForm = ({ onClose }: { onClose?: () => void }) => {
     defaultValues: {
       bundleId: 'THREE_CARDS_SET',
       includeKeycardReader: true,
+      includeShell: false,
       quantity: 1,
     },
     mode: 'onTouched',
@@ -87,18 +89,24 @@ const ShopifyForm = ({ onClose }: { onClose?: () => void }) => {
 
   const selectedBundle = watch('bundleId')
   const quantity = watch('quantity')
+  const includeShell = watch('includeShell')
 
   const { field } = useController({
     control: form.control,
     name: 'includeKeycardReader',
   })
+  const { field: shellField } = useController({
+    control: form.control,
+    name: 'includeShell',
+  })
 
   const total = useMemo(() => {
     const bundlePrice = KEYCARD_PRODUCTS[selectedBundle].price
     const readerPrice = 0 // includeReader ? 22 : 0
+    const shellPrice = includeShell ? KEYCARD_SHELL.price : 0
 
-    return bundlePrice * quantity + readerPrice
-  }, [selectedBundle, quantity])
+    return bundlePrice * quantity + readerPrice + shellPrice
+  }, [includeShell, selectedBundle, quantity])
 
   const handleSubmit = async (values: FormValues) => {
     setSubmitError(null)
@@ -113,6 +121,13 @@ const ShopifyForm = ({ onClose }: { onClose?: () => void }) => {
     if (values.includeKeycardReader) {
       lines.push({
         variantId: KEYCARD_PRODUCTS.READER.variantId,
+        quantity: 1,
+      })
+    }
+
+    if (values.includeShell) {
+      lines.push({
+        variantId: KEYCARD_SHELL.variantId,
         quantity: 1,
       })
     }
@@ -307,6 +322,45 @@ const ShopifyForm = ({ onClose }: { onClose?: () => void }) => {
                   {' '}
                   {formatPrice({
                     amount: Number(KEYCARD_PRODUCTS.READER.price),
+                  })}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="pb-6">
+            <h3 className="mb-2 text-12 text-white-80">PRE-ORDER SHELL</h3>
+            <div className="flex items-center justify-between space-x-3 rounded-16 border border-white-12 bg-white-4 p-3 pr-4">
+              <div className="relative flex items-center justify-start">
+                <Checkbox.Root
+                  {...form.register('includeShell')}
+                  id="includeShell"
+                  className="flex size-6 appearance-none items-center justify-center rounded-[8px] border border-white-20 bg-white-4 outline-none aria-checked:bg-orange aria-checked:hover:bg-orange-dark [&>svg]:aria-checked:text-white-95"
+                  checked={shellField.value}
+                  onCheckedChange={shellField.onChange}
+                  aria-label="Add Keycard Shell pre-order"
+                >
+                  <Checkbox.Indicator className="text-white-95">
+                    <CheckIcon className="size-5 text-white-95" />
+                  </Checkbox.Indicator>
+                </Checkbox.Root>
+
+                <label
+                  className="ml-3 mr-2 text-16 font-300 text-white-95"
+                  htmlFor="includeShell"
+                >
+                  Add Keycard Shell (includes 2 Keycards)
+                </label>
+              </div>
+              <div className="flex gap-2 text-16 font-300 text-white-80">
+                <span className="text-green">
+                  {formatPrice({
+                    amount: KEYCARD_SHELL.price,
+                  })}
+                </span>
+                <span className="line-through">
+                  {formatPrice({
+                    amount: KEYCARD_SHELL.compareAtPrice,
                   })}
                 </span>
               </div>
