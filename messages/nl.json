@@ -25,19 +25,19 @@
       "notes": "common::discover"
     },
     "pre_order_now": {
-      "translation": "Nu pre-orderen",
+      "translation": "Nu kopen",
       "notes": "common::pre_order_now"
     },
     "coming_2025": {
-      "translation": "Verkrijgbaar in 2025",
+      "translation": "Verzending binnen 3-10 dagen",
       "notes": "common::coming_2025"
     },
     "bundled_with_keycard": {
-      "translation": "Gebundeld met Keycard",
+      "translation": "Gebundeld met 2 Keycards",
       "notes": "common::bundled_with_keycard"
     },
     "pre_order": {
-      "translation": "Pre-order",
+      "translation": "Nu kopen",
       "notes": "common::pre_order"
     },
     "buy_keycard": {
@@ -49,7 +49,7 @@
       "notes": "common::buy_shell"
     },
     "pre_order_shell": {
-      "translation": "Shell pre-orderen",
+      "translation": "Shell kopen",
       "notes": "common::pre_order_shell"
     },
     "from": {
@@ -127,15 +127,15 @@
   },
   "top_banner": {
     "pre_sale_started": {
-      "translation": "🎉 De pre-sale van Keycard Shell is gestart!",
+      "translation": "🎉 Keycard Shell wordt nu verzonden!",
       "notes": "top_banner::pre_sale_started"
     },
     "pre_order_now": {
-      "translation": "Pre-orderen",
+      "translation": "Nu kopen",
       "notes": "top_banner::pre_order_now"
     },
     "exclusive_benefits": {
-      "translation": "nu en krijg exclusieve voordelen. 👀",
+      "translation": "Verzending binnen 3-10 dagen",
       "notes": "top_banner::exclusive_benefits"
     }
   },

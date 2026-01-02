@@ -61,7 +61,7 @@ const KeycardShell = () => {
           </ButtonLink>
           <BuyShellDialog>
             <Button
-              data-umami-event="preorder-shell"
+              data-umami-event="buy-shell"
               data-umami-event-page="homepage"
               data-umami-event-section="hero"
               data-umami-event-element="button"
@@ -90,9 +90,9 @@ const KeycardShell = () => {
           offers: {
             '@type': 'Offer',
             url: shellUrl,
-            availability: 'https://schema.org/PreOrder',
+            availability: 'https://schema.org/InStock',
             priceCurrency: 'EUR',
-            price: '99',
+            price: '149',
           },
         }}
       />

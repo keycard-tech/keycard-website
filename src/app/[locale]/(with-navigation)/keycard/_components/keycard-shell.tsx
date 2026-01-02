@@ -44,12 +44,12 @@ const KeycardShell = () => {
         <div className="flex gap-4">
           <BuyShellDialog>
             <Button
-              data-umami-event="preorder-shell"
+              data-umami-event="buy-shell"
               data-umami-event-page="keycard"
               data-umami-event-section="shell"
               data-umami-event-element="button"
             >
-              Pre-order
+              Buy now
             </Button>
           </BuyShellDialog>
           <ButtonLink href={shellUrl} variant="secondary">
@@ -57,8 +57,9 @@ const KeycardShell = () => {
           </ButtonLink>
         </div>
         <p className="flex items-center gap-2 pt-6 text-16 font-300 text-white-60 md:gap-2">
-          Coming 2025 <span className="size-1 rounded-full bg-white-40" />{' '}
-          Bundled with 2 Keycards
+          Ships in 3-10 days{' '}
+          <span className="size-1 rounded-full bg-white-40" /> Bundled with 2
+          Keycards
         </p>
       </div>
     </section>
