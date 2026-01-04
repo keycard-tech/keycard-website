@@ -52,11 +52,11 @@ export const LazyBackground = (props: Props) => {
       }
     }
 
-    const timeout = window.setTimeout(show, 500)
+    const timeout = setTimeout(show, 500)
 
     return () => {
       canceled = true
-      window.clearTimeout(timeout)
+      clearTimeout(timeout)
     }
   }, [])
 
