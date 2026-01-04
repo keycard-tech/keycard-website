@@ -78,6 +78,7 @@ const NavBarMobile = () => {
       className={cx([
         'fixed inset-0 top-[70px] z-40 block w-full transition-all sm:top-12 lg:hidden',
       ])}
+      aria-label="Primary"
       animate={{
         height: isOpen ? '100%' : '80px',
       }}
@@ -107,7 +108,9 @@ const NavBarMobile = () => {
             key={isOpen ? 'menu-open' : 'menu-closed'}
             className="rounded-12 border border-white-12 bg-white-8 text-white-95 transition-colors hover:bg-white-12"
             onClick={() => setIsOpen(!isOpen)}
-            aria-label="Menu"
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
           >
             <MenuIcon isOpen={isOpen} />
           </button>
@@ -117,6 +120,7 @@ const NavBarMobile = () => {
         {isOpen && (
           <motion.div
             key="menu"
+            id="mobile-menu"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'calc(100% - 150px)' }}
             exit={{ opacity: 0 }}
