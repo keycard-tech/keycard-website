@@ -10,7 +10,7 @@ export const metadata = Metadata({
   title: { default: 'Keycard Developers', template: '%s — Keycard Developers' },
   description:
     'Documentation for Keycard and Keycard Shell: setup, recovery, SDKs, and developer guides.',
-  alternates: { canonical: '/docs' },
+  alternates: { canonical: '/developers' },
 })
 
 export default async function DevelopersLayout({ children }: Props) {
