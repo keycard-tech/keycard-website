@@ -116,29 +116,32 @@ const SidenavItem = (props: SidenavItemProps) => {
   return (
     <Accordion.Item value={title}>
       <div>
-        <div className="flex gap-0.5">
-          <Accordion.Trigger
-            className="group flex items-center gap-0.5"
-            aria-label={`Toggle ${title} section`}
-          >
-            <div className="transition-transform group-aria-expanded:rotate-90">
-              <ChevronRightIcon />
-            </div>
+        <Accordion.Header className="flex">
+          <Accordion.Trigger asChild aria-label={`Toggle ${title} section`}>
+            {link ? (
+              <Link
+                href={link}
+                className="group flex items-center gap-0.5 font-500 text-white-95 transition-colors hover:text-white-60 aria-[current=true]:text-orange hover:aria-[current=true]:text-orange-dark"
+                aria-current={normalizedPathname === link}
+              >
+                <div className="transition-transform group-aria-expanded:rotate-90">
+                  <ChevronRightIcon />
+                </div>
+                <span className="shrink-0">{title}</span>
+              </Link>
+            ) : (
+              <button
+                type="button"
+                className="group flex items-center gap-0.5 font-500 text-white-95 transition-colors hover:text-white-60"
+              >
+                <div className="transition-transform group-aria-expanded:rotate-90">
+                  <ChevronRightIcon />
+                </div>
+                <span className="shrink-0">{title}</span>
+              </button>
+            )}
           </Accordion.Trigger>
-          {link ? (
-            <Link
-              href={link}
-              className="flex shrink-0 font-500 text-white-95 transition-colors hover:text-white-60 aria-[current=true]:text-orange hover:aria-[current=true]:text-orange-dark"
-              aria-current={normalizedPathname === link}
-            >
-              {title}
-            </Link>
-          ) : (
-            <span className="flex shrink-0 font-500 text-white-95">
-              {title}
-            </span>
-          )}
-        </div>
+        </Accordion.Header>
         <Accordion.Content className="overflow-hidden">
           <div className="overflow-hidden pl-[22px]">
             {subItems &&
