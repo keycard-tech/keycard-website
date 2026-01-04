@@ -27,6 +27,10 @@ You can also share one Keycard Shell device with your friends and family to use 
 
 Keycard and Keycard Shell support Bitcoin (BTC), Ethereum (ETH), and ERC-20 tokens.
 
+- **Is there a bitcoin-only mode?**
+
+There is no separate bitcoin-only firmware. You can use Keycard Shell with Bitcoin-only wallets (PSBT over QR/UR or USB) and simply avoid Ethereum features. Advanced builders can compile a custom firmware or database that omits ETH data. See [Keycard Shell internals](/developers/keycard-shell) for details.
+
 - **How many wallets can I use on one Keycard?**
 
 Your Keycard stores one master key, created from a [BIP39 or SLIP39](./understand-the-slip-39-wallet-backup-standard) recovery phrase. This master key can generate as many Ethereum and Bitcoin wallet addresses as you need (according to the [BIP32 standard ↗](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki)).
@@ -45,6 +49,10 @@ Yes, you can connect one Keycard Shell to multiple wallet apps following [the sa
 
 Currently, Keycard Shell can't connect directly to dApps. You need to use a [compatible wallet app](https://keycard.tech/en/wallets) that supports Keycard and Keycard Shell to interact with dApps.
 
+- **Can I build my own Keycard Shell?**
+
+Yes. Keycard Shell is open source, including hardware files and firmware. DIY builds are advanced and require your own hardware and firmware signing keys. See [Build a DIY Keycard Shell](./diy-keycard-shell).
+
 ## Security and support
 
 - **Are Keycard and Keycard Shell air-gapped?**
@@ -60,6 +68,10 @@ Lost Keycard Shell: Your funds are secure because Keycard Shell stores no privat
 - **Can someone copy my Keycard?**
 
 No. Your private keys are on Keycard's secure element chip, which prevents cloning or extraction of the keys by design.
+
+- **Can I run my own firmware on Keycard Shell?**
+
+Official Keycard Shell devices only accept signed firmware updates. To run custom firmware you must build your own device (or a dev unit) with a bootloader key you control. See [Keycard Shell internals](/developers/keycard-shell).
 
 - **What should I do if I forget my Keycard PIN?**
 
