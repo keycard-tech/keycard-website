@@ -16,7 +16,7 @@ export const metadata = Metadata({
 export default async function DevelopersLayout({ children }: Props) {
   return (
     <div className="relative mt-[84px] w-full">
-      <div className="absolute bottom-0 left-0 top-12 border-white-12 lg:border-r">
+      <div className="absolute bottom-0 left-0 top-12 z-10 border-white-12 lg:border-r">
         <div className="sticky top-[148px] hidden lg:block">
           <Sidenav items={config} />
         </div>
