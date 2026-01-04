@@ -252,6 +252,10 @@
     ]
   },
   {
+    "title": "Keycard Shell internals",
+    "link": "/developers/keycard-shell"
+  },
+  {
     "title": "Contact",
     "link": "/developers/contact"
   }
