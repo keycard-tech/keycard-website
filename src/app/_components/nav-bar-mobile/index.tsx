@@ -120,63 +120,64 @@ const NavBarMobile = () => {
         {isOpen && (
           <motion.div
             key="menu"
-            id="mobile-menu"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'calc(100% - 150px)' }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2, ease: 'easeInOut' }}
             className="fixed inset-x-0 top-20 z-30 overflow-hidden"
           >
-            <motion.div
-              key="menu-content"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.3 }}
-              exit={{
-                opacity: 0,
-                transition: {
-                  duration: 0.3,
-                  delay: 0,
-                },
-              }}
-              className="flex h-full flex-col items-center justify-center"
-            >
-              <ul className="flex flex-1 flex-col items-center justify-center gap-4">
-                {NAV_BAR_LINKS.map(({ href, label }, index) => (
-                  <motion.li
-                    key={label}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2 + index * 0.05, duration: 0.3 }}
-                    className="text-center font-lora text-32 font-400 text-white-95"
-                  >
-                    <Link
-                      href={href}
-                      target="_self"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {label}
-                    </Link>
-                  </motion.li>
-                ))}
-              </ul>
+            <div id="mobile-menu" className="h-full">
               <motion.div
-                key="menu-footer"
+                key="menu-content"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 + 4 * 0.05, duration: 0.3 }}
-                className="grid w-full grid-cols-2 divide-x divide-dashed divide-white-12 border-t border-dashed border-white-12"
+                transition={{ delay: 0.1, duration: 0.3 }}
+                exit={{
+                  opacity: 0,
+                  transition: {
+                    duration: 0.3,
+                    delay: 0,
+                  },
+                }}
+                className="flex h-full flex-col items-center justify-center"
               >
-                <Section
-                  title="INFO"
-                  routes={ROUTES.Info as unknown as Routes}
-                />
-                <Section
-                  title="CONTACTS"
-                  routes={ROUTES.Contacts as unknown as Routes}
-                />
+                <ul className="flex flex-1 flex-col items-center justify-center gap-4">
+                  {NAV_BAR_LINKS.map(({ href, label }, index) => (
+                    <motion.li
+                      key={label}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2 + index * 0.05, duration: 0.3 }}
+                      className="text-center font-lora text-32 font-400 text-white-95"
+                    >
+                      <Link
+                        href={href}
+                        target="_self"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {label}
+                      </Link>
+                    </motion.li>
+                  ))}
+                </ul>
+                <motion.div
+                  key="menu-footer"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 + 4 * 0.05, duration: 0.3 }}
+                  className="grid w-full grid-cols-2 divide-x divide-dashed divide-white-12 border-t border-dashed border-white-12"
+                >
+                  <Section
+                    title="INFO"
+                    routes={ROUTES.Info as unknown as Routes}
+                  />
+                  <Section
+                    title="CONTACTS"
+                    routes={ROUTES.Contacts as unknown as Routes}
+                  />
+                </motion.div>
               </motion.div>
-            </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
