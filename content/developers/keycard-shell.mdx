@@ -1,0 +1,89 @@
+---
+id: keycard-shell
+title: Keycard Shell internals
+---
+
+# Keycard Shell internals
+
+Keycard Shell is the UI and transport layer around the Keycard applet. The Keycard stores and signs keys; the Shell handles QR and USB workflows.
+
+## Architecture and trust model
+
+- **Keycard holds the keys.** Shell talks to the Keycard over the ISO-7816 smartcard interface and never stores private keys.
+- **User confirmation is required.** Requests coming from QR or USB are displayed on-device and require explicit approval.
+- **Air-gapped by default.** QR workflows are fully offline. USB data transfer is optional and can be disabled in settings.
+
+## QR formats (EIP-4527 + UR)
+
+Keycard Shell uses the EIP-4527 animated QR format and the Blockchain Commons UR encoding for sign requests and responses.
+
+References:
+
+- [EIP-4527: QR codes for signing data](https://eips.ethereum.org/EIPS/eip-4527)
+- [UR overview](https://developer.blockchaincommons.com/ur/)
+- [UR PSBTs](https://developer.blockchaincommons.com/ur/psbts/)
+
+Supported UR payloads are defined in the CDDL file:
+
+- [UR CDDL definitions](https://github.com/keycard-tech/keycard-shell/blob/master/cddl/ur.cddl)
+
+Examples of UR types used by Shell include:
+
+- Ethereum sign requests and responses (`eth-sign-request`, `eth-signature`)
+- Bitcoin PSBT sign requests (`crypto-psbt`)
+- Bitcoin message sign requests and responses (`btc-sign-request`, `btc-signature`)
+- Multi-account exports (`crypto-multi-accounts`) for wallet integrations
+
+## USB HID protocol
+
+When USB data is enabled, Shell enumerates as a USB HID device (VID 0x1209, PID 0x21f7) and speaks an APDU-like protocol.
+
+Full protocol details and command list live here:
+
+- [Keycard Shell USB protocol](https://github.com/keycard-tech/keycard-shell/blob/master/docs/USB.md)
+
+Highlights:
+
+- C-APDU format: `CLA(0xe0) + INS + P1 + P2 + Lc + Data`.
+- Command chaining is used for payloads over 255 bytes.
+- `GET RESPONSE` is used for multi-chunk responses (`SW=0x61XX`).
+- Commands include GET DEVICE INFO, GET PUBLIC, SIGN ETH TX, SIGN EIP-712, SIGN PSBT, and firmware/database updates.
+
+## Clear signing database
+
+Clear signing for contract calls uses an on-device database containing chains, ERC-20 metadata, and Ethereum ABIs.
+
+Primary sources and tooling:
+
+- Database format and flash layout: [FLASHMAP.md](https://github.com/keycard-tech/keycard-shell/blob/master/docs/FLASHMAP.md)
+- Database build tooling: [shell-db.md](https://github.com/keycard-tech/keycard-shell/blob/master/docs/shell-db.md)
+- ABI source list and build pipeline: [eth-abi-repo](https://github.com/keycard-tech/eth-abi-repo)
+
+You can reproduce database builds from source JSON inputs and verify the hash (signature excluded) with `tools/database-hash.py`.
+
+## Firmware security and custom builds
+
+Keycard Shell firmware images are signed. The bootloader verifies a secp256k1 signature with an embedded public key before booting:
+
+- [Bootloader verification code](https://github.com/keycard-tech/keycard-shell/blob/master/bootloader/bootloader.c)
+
+Official devices only accept signed firmware updates. To run custom firmware you must build your own device (or a dev unit) with a bootloader key you control.
+
+Build notes:
+
+- [Keycard Shell build notes](https://github.com/keycard-tech/keycard-shell/blob/master/README.md)
+- Use STM32CubeIDE and GNU Tools for STM32 (13.3.rel1)
+- Provide `deployment/bootloader-pubkey.txt` and `deployment/fw-test-key.txt`
+- Use `tools/firmware-hash.py` to verify a build against a release tag
+- Use `tools/create-image.py` to generate a full flashable image
+
+## Bitcoin-only usage
+
+There is no separate "bitcoin-only" firmware. You can use Keycard Shell with Bitcoin-only wallets (QR/UR PSBT flows or USB SIGN PSBT) and simply avoid Ethereum features. Advanced builders can compile custom firmware or databases that omit ETH chain/token/ABI data.
+
+## Hardware files (DIY)
+
+Hardware design files are open source and live in the Keycard Shell repo:
+
+- Schematics and Gerbers: [Electronics and BOM](https://github.com/keycard-tech/keycard-shell/tree/master/hardware/shell/pilot_run/electronics_and_bom)
+- Mechanical CAD and case: [Mechanical design files](https://github.com/keycard-tech/keycard-shell/tree/master/hardware/shell/pilot_run/mechanical)
