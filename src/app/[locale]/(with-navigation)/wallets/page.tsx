@@ -5,11 +5,19 @@ import { KeycardIcon } from '~/app/_icons/keycard-icon'
 import { KeycardShellIcon } from '~/app/_icons/keycard-shell-icon'
 import { ButtonLink } from '~components/button-link'
 import { Link } from '~components/link'
+import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import { useState } from 'react'
 import { match } from 'ts-pattern'
-import { BuyCards } from '../(homepage)/_components/buy-cards'
 import { Tabs, TabsList, TabsTrigger } from './_components/tabs'
+
+const BuyCards = dynamic(
+  () => import('../(homepage)/_components/buy-cards').then(m => m.BuyCards),
+  {
+    ssr: false,
+    loading: () => <div className="min-h-[320px]" aria-hidden="true" />,
+  },
+)
 
 type WalletType = 'Keycard' | 'Shell'
 type BlockchainType = 'Ethereum' | 'Bitcoin' | 'Multisig'
