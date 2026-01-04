@@ -5,7 +5,7 @@ title: Build your Keycard
 
 # Build your Keycard
 
-if you have a blank JavaCard 3.0.5 card (readily available for purchase on the web) you can build your own Keycard. This is especially useful for developers who want to contribute to the project and/or experiment with it.
+if you have a blank JavaCard 3.0.4+ card (readily available for purchase on the web) you can build your own Keycard. This is especially useful for developers who want to contribute to the project and/or experiment with it.
 
 Please note that cards built this way will miss the certificate that is present on cards we distribute. This doesn't affect functionality in any way but will cause a warning to appear when using the card with Shell or another Keycard compatible wallet for the first time. Since you built the card yourself you can safely dismiss this warning.
 
@@ -17,7 +17,7 @@ compiling and installing from source is probably the best way to proceed, since 
 
 - Linux, Windows or Mac computer
 - OpenJDK 11 (make sure to set the JAVA_HOME environment variable to point this installation)
-- A Javacard 3.0.5 based smartcard with T=1 and SCP02 support. Cards of the JCOP4 family are known to work well.
+- A Javacard 3.0.4+ smartcard with T=1 and SCP02 support. Cards of the JCOP4 family are known to work well. JavaCard 3.0.5 is recommended for best compatibility.
 - A standard PCSC smartcard reader
 
 ### Installation steps
@@ -53,3 +53,7 @@ you can perform these two steps using either your favorite GlobalPlatform manage
 2. `./gradlew lock`
 
 **NOTE: THIS PROCEDURE IS NOT REVERSIBLE. THE AUTOMATED LOCKING TOOL DOES NOT PRINT OR STORE THE RANDOMLY GENERATED KEYS ANYWHERE**
+
+## Building a DIY Keycard Shell
+
+If you want to build a full Keycard Shell (hardware + firmware) and use your own Keycards, see the [Keycard Shell internals](/developers/keycard-shell) page for build notes, firmware signing, and hardware sources.
