@@ -32,6 +32,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const orderedLocales = (available: Set<string>) =>
     locales.filter(locale => available.has(locale))
 
+  const isSupportedLocale = (
+    value: string,
+  ): value is (typeof SUPPORTED_LOCALES)[number] =>
+    (SUPPORTED_LOCALES as readonly string[]).includes(value)
+
   const isDir = async (dir: string) => {
     try {
       const stat = await fs.stat(dir)
@@ -57,7 +62,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       entries
         .filter(entry => entry.isDirectory())
         .map(entry => entry.name)
-        .filter(name => locales.includes(name))
+        .filter(isSupportedLocale)
         .forEach(name => available.add(name))
     } catch {}
     return available
