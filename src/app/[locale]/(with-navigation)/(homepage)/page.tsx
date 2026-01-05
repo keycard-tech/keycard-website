@@ -1,20 +1,12 @@
 import { Metadata } from '~/app/_metadata'
 import { TestimonialsStrip } from '~components/testimonials-strip'
-import dynamic from 'next/dynamic'
 import { AutoOpenDialogManager } from './_components/auto-open-dialog-manager'
+import { BuyCards } from './_components/buy-cards-client'
 import { ComparisonTable } from './_components/comparison-table'
 import { Faqs } from './_components/faqs'
 import { Keycard } from './_components/keycard'
 import { KeycardFeatures } from './_components/keycard-features'
 import { KeycardShell } from './_components/keycard-shell'
-
-const BuyCards = dynamic(
-  () => import('./_components/buy-cards').then(module => module.BuyCards),
-  {
-    ssr: false,
-    loading: () => <div className="min-h-[320px]" aria-hidden="true" />,
-  },
-)
 
 export const metadata = Metadata({
   title: {
