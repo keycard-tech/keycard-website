@@ -5,16 +5,8 @@ import { Metadata } from '~/app/_metadata'
 import { ButtonLink } from '~components/button-link'
 import { Link } from '~components/link'
 import { cx } from 'cva'
-import dynamic from 'next/dynamic'
 import Image from 'next/image'
-
-const BuyCards = dynamic(
-  () => import('../../(homepage)/_components/buy-cards').then(m => m.BuyCards),
-  {
-    ssr: false,
-    loading: () => <div className="min-h-[320px]" aria-hidden="true" />,
-  },
-)
+import { BuyCards } from '../../(homepage)/_components/buy-cards-client'
 
 const STEPS = [
   {
