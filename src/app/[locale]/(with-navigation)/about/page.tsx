@@ -3,7 +3,7 @@ import { Link } from '~components/link'
 import { getTranslations } from 'next-intl/server'
 
 export const metadata = Metadata({
-  title: 'About Keycard',
+  title: 'About Keycard Hardware Wallets',
   description:
     'Open-source signing hardware from the Institute of Free Technology. Keycards are secure-element signers; Keycard Shell is an air-gapped wallet with QR confirmation.',
   openGraph: { url: '/about' },
@@ -125,6 +125,7 @@ export default async function AboutPage() {
       <header className="mb-8 grid gap-3">
         <h1 className="font-lora text-32 font-500 text-white-95 xl:text-48">
           {t('about.title.translation')}
+          <span className="sr-only"> hardware wallet</span>
         </h1>
         <p className="text-white-90 md:text-20">
           {t('about.subtitle.translation')}{' '}
@@ -168,9 +169,9 @@ export default async function AboutPage() {
 
       <section className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-2">
         <div className="rounded-20 border border-white-10 bg-white-4 p-6">
-          <h3 className="mb-2 font-500 text-white-95">
+          <h2 className="mb-2 font-500 text-white-95">
             {t('about.principles.title.translation')}
-          </h3>
+          </h2>
           <ul className="list-disc pl-5 text-white-90">
             <li>{t('about.principles.keys_never_leave.translation')}</li>
             <li>{t('about.principles.minimize_blind_signing.translation')}</li>
@@ -180,9 +181,9 @@ export default async function AboutPage() {
         </div>
 
         <div className="rounded-20 border border-white-10 bg-white-4 p-6">
-          <h3 className="mb-2 font-500 text-white-95">
+          <h2 className="mb-2 font-500 text-white-95">
             {t('about.products.title.translation')}
-          </h3>
+          </h2>
           <ul className="list-disc pl-5 text-white-90">
             <li>
               <strong>{t('about.products.keycard.name.translation')}</strong> —{' '}
@@ -200,9 +201,9 @@ export default async function AboutPage() {
 
       <section className="mt-10 grid grid-cols-1 gap-4 lg:grid-cols-3">
         <div className="rounded-20 border border-white-10 bg-white-4 p-6">
-          <h3 className="mb-2 font-500 text-white-95">
+          <h2 className="mb-2 font-500 text-white-95">
             {t('about.press.title.translation')}
-          </h3>
+          </h2>
           <ul className="space-y-2 text-white-90">
             {PRESS.map(item => (
               <li key={item.href}>
@@ -239,9 +240,9 @@ export default async function AboutPage() {
 
         {/* Certifications & Security */}
         <div className="rounded-20 border border-white-10 bg-white-4 p-6">
-          <h3 className="mb-2 font-500 text-white-95">
+          <h2 className="mb-2 font-500 text-white-95">
             {t('about.certifications.title.translation')}
-          </h3>
+          </h2>
           <ul className="space-y-2 text-white-90">
             {CERTS_SECURITY.map(c => (
               <li key={c.href}>
@@ -263,9 +264,9 @@ export default async function AboutPage() {
 
         {/* Partners & Ecosystem */}
         <div className="rounded-20 border border-white-10 bg-white-4 p-6">
-          <h3 className="mb-2 font-500 text-white-95">
+          <h2 className="mb-2 font-500 text-white-95">
             {t('about.partners.title.translation')}
-          </h3>
+          </h2>
           <ul className="space-y-2 text-white-90">
             {PARTNERS.map(p => (
               <li key={p.href}>

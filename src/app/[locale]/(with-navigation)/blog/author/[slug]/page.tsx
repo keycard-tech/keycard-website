@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props) {
   }
 
   return Metadata({
-    title: response.author.name ?? response.author.slug,
+    title: `${response.author.name ?? response.author.slug} — Keycard Blog`,
   })
 }
 
@@ -65,6 +65,8 @@ export default async function BlogAuthorPage(props: Props) {
           <h1 className="font-lora text-32 font-600 lg:text-48">
             {author.name}
           </h1>
+          <h2 className="text-16 font-300 text-white-95">Keycard blog author</h2>
+          <h2 className="sr-only">Keycard blog updates</h2>
           {author.meta_description && (
             <p className="text-24 font-600 text-white-95">
               {author.meta_description}
@@ -72,6 +74,10 @@ export default async function BlogAuthorPage(props: Props) {
           )}
         </div>
 
+        <h2 className="mb-4 font-lora text-24 font-400 text-white-95">
+          Articles by {author.name}
+        </h2>
+        <h2 className="sr-only">More posts from Keycard</h2>
         <InfinitePostGrid
           type="author"
           initialPosts={posts}
