@@ -6,15 +6,22 @@ import { ButtonLink } from '~components/button-link'
 import { BuyShellDialog } from '~components/buy-shell-dialog'
 import { Image } from '~components/image'
 import { JsonLd } from '~components/json-ld'
+import { motion, useReducedMotion } from 'framer-motion'
 import { useLocale, useTranslations } from 'next-intl'
 
 const KeycardShell = () => {
   const t = useTranslations()
   const locale = useLocale()
   const shellUrl = getShopifyUrl(locale, '/pages/keycard-shell')
+  const reduceMotion = useReducedMotion()
+  const floatAnimation = reduceMotion ? { y: 0 } : { y: [0, -8, 0] }
   return (
     <section className="relative flex flex-col overflow-hidden rounded-t-28 border border-white-8 bg-white-4 backdrop-blur-[20px] full-view-port lg:h-auto lg:flex-row-reverse lg:items-center lg:justify-normal lg:py-10 lg:remove-full-view-port">
-      <div className="hidden flex-1 items-center justify-center overflow-hidden lg:flex">
+      <motion.div
+        className="hidden flex-1 items-center justify-center overflow-hidden lg:flex"
+        animate={floatAnimation}
+        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+      >
         <Image
           src="/assets/keycard-shell.webp"
           alt="Keycard Shell Hardware Wallet"
@@ -23,17 +30,23 @@ const KeycardShell = () => {
           className="max-h-[510px] w-auto object-contain lg:translate-y-1 xl:translate-y-2"
           priority
         />
-      </div>
+      </motion.div>
 
-      <Image
-        src="/assets/keycard-shell.webp"
-        alt="Keycard Shell Hardware Wallet"
-        width="510"
-        height="785"
-        className="absolute inset-y-0 left-[60%] h-full max-h-full -translate-x-1/2 object-contain lg:hidden"
-        priority
-        sizes="(max-width:1023px) 85vw"
-      />
+      <motion.div
+        className="absolute inset-y-0 left-[60%] h-full max-h-full -translate-x-1/2 lg:hidden"
+        animate={floatAnimation}
+        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+      >
+        <Image
+          src="/assets/keycard-shell.webp"
+          alt="Keycard Shell Hardware Wallet"
+          width="510"
+          height="785"
+          className="size-full object-contain"
+          priority
+          sizes="(max-width:1023px) 85vw"
+        />
+      </motion.div>
 
       <div className="relative z-10 flex max-w-[434px] flex-col px-5 py-6 lg:ml-[72px] lg:p-0">
         <h1 className="sr-only">
