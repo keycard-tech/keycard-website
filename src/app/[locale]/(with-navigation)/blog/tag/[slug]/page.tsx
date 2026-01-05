@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props) {
   }
 
   return Metadata({
-    title: response.tag.name ?? response.tag.slug,
+    title: `${response.tag.name ?? response.tag.slug} — Keycard Blog`,
   })
 }
 
@@ -56,9 +56,17 @@ export default async function BlogTagPage(props: Props) {
       <div className="mx-auto max-w-[1184px] px-5 py-8 lg:py-12">
         <div className="mb-12 grid gap-2">
           <h1 className="font-lora text-32 font-600 lg:text-48">{tag.name}</h1>
-          {tag.description && <div className="text-16">{tag.description}</div>}
+          <h2 className="text-16 font-300 text-white-95">Keycard blog tag</h2>
+          <h2 className="sr-only">Keycard blog updates</h2>
+          {tag.description && (
+            <p className="text-16 text-white-90">{tag.description}</p>
+          )}
         </div>
 
+        <h2 className="mb-4 font-lora text-24 font-400 text-white-95">
+          Articles tagged {tag.name}
+        </h2>
+        <h2 className="sr-only">More posts from Keycard</h2>
         <InfinitePostGrid
           type="tag"
           initialPosts={posts}
