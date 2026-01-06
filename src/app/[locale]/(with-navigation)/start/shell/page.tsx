@@ -302,13 +302,16 @@ export default function StartShellPage() {
     <div className="mt-6 px-5 2xl:px-1">
       <div className="relative z-20 grid grid-flow-row gap-4 py-5">
         <h1 className="font-lora text-32 font-400 text-white-95 lg:text-48">
-          Shell Quick Start Guide
+          Keycard Shell Quick Start Guide
         </h1>
-        <p className="font-inter text-20 font-300 text-white-95">
-          All you need to know to start using Shell
-        </p>
+        <h2 className="font-inter text-20 font-300 text-white-95">
+          All you need to know to start using Keycard Shell
+        </h2>
       </div>
 
+      <h2 className="mt-4 font-lora text-24 font-400 text-white-95">
+        Keycard Shell setup steps
+      </h2>
       <Accordion.Root
         className="flex-1"
         type="single"
@@ -370,9 +373,10 @@ export default function StartShellPage() {
       </Accordion.Root>
       <div className="my-10 flex flex-1 flex-col gap-6 rounded-28 border border-white-8 bg-white-4 p-6 pt-5 sm:max-w-[350px] lg:mb-0 lg:mt-6 lg:max-w-[434px]">
         <div className="flex flex-col gap-[6px]">
-          <p className="font-lora text-24 font-400 text-white-95">
-            Have questions?
-          </p>
+          <h2 className="font-lora text-24 font-400 text-white-95">
+            Have questions?{' '}
+            <span className="sr-only">Keycard Shell support</span>
+          </h2>
           <p className="text-16 font-300 text-white-80">
             Reach out to our team or engage with our community on Discord or X.
           </p>
