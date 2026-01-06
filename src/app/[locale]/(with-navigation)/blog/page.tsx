@@ -17,15 +17,30 @@ export default async function BlogPage() {
         <h1 className="font-lora text-48 font-600">
           {t('blog.title.translation')}
         </h1>
-        <div className="text-20">{t('blog.subtitle.translation')}</div>
+        <h2 className="text-20 font-300 text-white-95">
+          {t('blog.subtitle.translation')}
+        </h2>
       </div>
 
       {initialPosts.length > 0 ? (
         <div>
-          <div className="mb-[44px] 2xl:mb-12">
-            {highlightedPost && <HighlightedPostCard post={highlightedPost} />}
-          </div>
+          <h2 className="mb-4 font-lora text-24 font-400 text-white-95">
+            Latest updates
+          </h2>
+          {highlightedPost && (
+            <>
+              <h2 className="mb-4 font-lora text-24 font-400 text-white-95">
+                Featured article
+              </h2>
+              <div className="mb-[44px] 2xl:mb-12">
+                <HighlightedPostCard post={highlightedPost} />
+              </div>
+            </>
+          )}
 
+          <h2 className="mb-4 font-lora text-24 font-400 text-white-95">
+            All Keycard blog posts
+          </h2>
           <InfinitePostGrid
             type="posts"
             initialPosts={initialPosts}

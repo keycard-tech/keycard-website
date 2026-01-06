@@ -8,7 +8,7 @@ import { Link } from '~components/link'
 import Image from 'next/image'
 import { useState } from 'react'
 import { match } from 'ts-pattern'
-import { BuyCards } from '../(homepage)/_components/buy-cards'
+import { BuyCards } from '../(homepage)/_components/buy-cards-client'
 import { Tabs, TabsList, TabsTrigger } from './_components/tabs'
 
 type WalletType = 'Keycard' | 'Shell'
@@ -218,7 +218,7 @@ export default function WalletsPage() {
             Wallets compatible with Keycard Shell
           </span>
         </h1>
-        <p className="text-16 text-white-90 lg:text-20">
+        <h2 className="text-16 text-white-90 lg:text-20">
           <span className="hidden lg:inline">
             Step-by-step guides for wallets fully supported by Keycard and
             Keycard Shell.
@@ -227,9 +227,12 @@ export default function WalletsPage() {
             Step-by-step guides for ERC-4527 wallets fully supported by Keycard
             Shell.
           </span>
-        </p>
+        </h2>
       </header>
 
+      <h2 className="font-lora text-24 font-400 text-white-95">
+        Filter wallet apps by device
+      </h2>
       <Tabs
         defaultValue="All"
         onValueChange={value =>
@@ -243,6 +246,9 @@ export default function WalletsPage() {
         </TabsList>
       </Tabs>
 
+      <h2 className="mt-8 font-lora text-24 font-400 text-white-95">
+        Wallet setup guides
+      </h2>
       <div className="mt-2 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {filteredWallets.map(wallet => (
           <WalletCard key={wallet.name} wallet={wallet} />
@@ -251,9 +257,9 @@ export default function WalletsPage() {
 
       <div className="mt-10 flex flex-1 flex-col gap-6 rounded-28 border border-white-8 bg-white-4 p-6 pt-5 lg:mt-6 lg:max-w-[435px]">
         <div className="flex flex-col gap-[6px]">
-          <p className="font-lora text-24 font-400 text-white-95">
-            Have questions?
-          </p>
+          <h2 className="font-lora text-24 font-400 text-white-95">
+            Have questions? <span className="sr-only">Wallet support</span>
+          </h2>
           <p className="text-16 font-300 text-white-60">
             Reach out to our team or engage with our community on Discord or X.
           </p>
