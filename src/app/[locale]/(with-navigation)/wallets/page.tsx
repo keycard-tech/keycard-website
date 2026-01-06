@@ -8,7 +8,7 @@ import { Link } from '~components/link'
 import Image from 'next/image'
 import { useState } from 'react'
 import { match } from 'ts-pattern'
-import { BuyCards } from '../(homepage)/_components/buy-cards'
+import { BuyCards } from '../(homepage)/_components/buy-cards-client'
 import { Tabs, TabsList, TabsTrigger } from './_components/tabs'
 
 type WalletType = 'Keycard' | 'Shell'
