@@ -4,6 +4,7 @@ import { getPostBySlug, getPostSlugs } from '~/app/_lib/ghost'
 import { Metadata } from '~/app/_metadata'
 import { formatDate } from '~/app/_utils/format-date'
 import { Image } from '~components/image'
+import { getLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { createElement, Fragment } from 'react'
 import rehypeParse from 'rehype-parse'
@@ -48,6 +49,7 @@ export default async function BlogDetailPage(props: Props) {
     return notFound()
   }
 
+  const locale = await getLocale()
   const { result } = await unified()
     .use(rehypeParse, { fragment: true })
     .use(rehypeReact, {
@@ -78,10 +80,42 @@ export default async function BlogDetailPage(props: Props) {
 
   const author = post.primary_author!
   const tag = post.primary_tag
+  const articleUrl = `https://keycard.tech/${locale}/blog/${post.slug}`
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.excerpt,
+    image: post.feature_image ? [post.feature_image] : undefined,
+    datePublished: post.published_at,
+    dateModified: post.updated_at ?? post.published_at,
+    author: author?.name
+      ? {
+          '@type': 'Person',
+          name: author.name,
+        }
+      : undefined,
+    publisher: {
+      '@type': 'Organization',
+      name: 'Keycard',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://keycard.tech/opengraph-image.png',
+      },
+    },
+    mainEntityOfPage: articleUrl,
+    url: articleUrl,
+  }
 
   return (
     <>
       <Breadcrumbs items={breadcrumbs} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
       <div className="m-auto max-w-[664px] px-5 py-8 xl:py-12">
         <div className="gap-3">
           {tag && <PostTag size="32" tag={tag} />}

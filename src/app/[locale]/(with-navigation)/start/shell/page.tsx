@@ -6,7 +6,7 @@ import { ButtonLink } from '~components/button-link'
 import { Link } from '~components/link'
 import { cx } from 'cva'
 import Image from 'next/image'
-import { BuyCards } from '../../(homepage)/_components/buy-cards'
+import { BuyCards } from '../../(homepage)/_components/buy-cards-client'
 
 const STEPS = [
   {
