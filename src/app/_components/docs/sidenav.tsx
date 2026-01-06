@@ -2,9 +2,10 @@
 
 import * as Accordion from '@radix-ui/react-accordion'
 import { ChevronRightIcon } from '@status-im/icons/20'
+import { SUPPORTED_LOCALES } from '~/i18n/constants'
 import { Link } from '~components/link'
 import { usePathname } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { decodeUriComponent } from './_utils/decode-uri-component'
 
 interface SidenavItem {
@@ -20,15 +21,27 @@ interface SidenavProps {
 const Sidenav: React.FC<SidenavProps> = ({ items }) => {
   const [label, setLabel] = useState<string>()
   const pathname = usePathname()
+  const normalizedPathname = useMemo(() => {
+    const decoded = decodeUriComponent(pathname)
+    const segments = decoded.split('/')
+    const maybeLocale = segments[1]
+    if (
+      SUPPORTED_LOCALES.includes(
+        maybeLocale as (typeof SUPPORTED_LOCALES)[number],
+      )
+    ) {
+      const rest = segments.slice(2).join('/')
+      return rest ? `/${rest}` : '/'
+    }
+    return decoded
+  }, [pathname])
 
   useEffect(() => {
     const match = items.find(
       item =>
-        (item.link && item.link === decodeUriComponent(pathname)) ||
-        item.subItems?.find(
-          link => link.link === decodeUriComponent(pathname),
-        ) ||
-        (item.link && decodeUriComponent(pathname).startsWith(item.link)), // fallback, leaves root item open
+        (item.link && item.link === normalizedPathname) ||
+        item.subItems?.find(link => link.link === normalizedPathname) ||
+        (item.link && normalizedPathname.startsWith(item.link)), // fallback, leaves root item open
     )
 
     if (!match) {
@@ -36,7 +49,7 @@ const Sidenav: React.FC<SidenavProps> = ({ items }) => {
     }
 
     setLabel(match.title)
-  }, [pathname, items])
+  }, [normalizedPathname, items])
 
   return (
     <nav className="flex w-[255px] flex-col items-start justify-start border-r border-white-12 p-6">
@@ -58,7 +71,7 @@ const Sidenav: React.FC<SidenavProps> = ({ items }) => {
                 <Link
                   href={item.link}
                   className="block pl-[22px] text-16 font-500 text-white-95 transition-colors hover:text-white-60 aria-[current=true]:text-orange hover:aria-[current=true]:text-orange-dark"
-                  aria-current={pathname === item.link}
+                  aria-current={normalizedPathname === item.link}
                   onClick={() => setLabel(undefined)}
                 >
                   {item.title}
@@ -85,33 +98,50 @@ type SidenavItemProps = {
 const SidenavItem = (props: SidenavItemProps) => {
   const { title, link, subItems } = props
   const pathname = usePathname()
+  const normalizedPathname = useMemo(() => {
+    const decoded = decodeUriComponent(pathname)
+    const segments = decoded.split('/')
+    const maybeLocale = segments[1]
+    if (
+      SUPPORTED_LOCALES.includes(
+        maybeLocale as (typeof SUPPORTED_LOCALES)[number],
+      )
+    ) {
+      const rest = segments.slice(2).join('/')
+      return rest ? `/${rest}` : '/'
+    }
+    return decoded
+  }, [pathname])
 
   return (
     <Accordion.Item value={title}>
       <div>
-        <div className="flex gap-0.5">
-          <Accordion.Trigger
-            className="group flex items-center gap-0.5"
-            aria-label={`Toggle ${title} section`}
-          >
-            <div className="transition-transform group-aria-expanded:rotate-90">
-              <ChevronRightIcon />
-            </div>
+        <Accordion.Header className="flex">
+          <Accordion.Trigger asChild aria-label={`Toggle ${title} section`}>
+            {link ? (
+              <Link
+                href={link}
+                className="group flex items-center gap-0.5 font-500 text-white-95 transition-colors hover:text-white-60 aria-[current=true]:text-orange hover:aria-[current=true]:text-orange-dark"
+                aria-current={normalizedPathname === link}
+              >
+                <div className="transition-transform group-aria-expanded:rotate-90">
+                  <ChevronRightIcon />
+                </div>
+                <span className="shrink-0">{title}</span>
+              </Link>
+            ) : (
+              <button
+                type="button"
+                className="group flex items-center gap-0.5 font-500 text-white-95 transition-colors hover:text-white-60"
+              >
+                <div className="transition-transform group-aria-expanded:rotate-90">
+                  <ChevronRightIcon />
+                </div>
+                <span className="shrink-0">{title}</span>
+              </button>
+            )}
           </Accordion.Trigger>
-          {link ? (
-            <Link
-              href={link}
-              className="flex shrink-0 font-500 text-white-95 transition-colors hover:text-white-60 aria-[current=true]:text-orange hover:aria-[current=true]:text-orange-dark"
-              aria-current={pathname === link}
-            >
-              {title}
-            </Link>
-          ) : (
-            <span className="flex shrink-0 font-500 text-white-95">
-              {title}
-            </span>
-          )}
-        </div>
+        </Accordion.Header>
         <Accordion.Content className="overflow-hidden">
           <div className="overflow-hidden pl-[22px]">
             {subItems &&
@@ -123,7 +153,7 @@ const SidenavItem = (props: SidenavItemProps) => {
                       <Link
                         href={subItem.link}
                         className="block text-14 font-500 text-white-95 transition-colors hover:text-white-60 aria-[current=true]:text-orange hover:aria-[current=true]:text-orange-dark"
-                        aria-current={pathname === subItem.link}
+                        aria-current={normalizedPathname === subItem.link}
                       >
                         {subItem.title}
                       </Link>

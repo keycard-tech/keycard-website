@@ -7,7 +7,7 @@ title: Hardware Specification
 
 ## Keycard
 
-Keycard applet runs on any JavaCard 3.0.4+ (see [applet installation](/docs/getting-started#getting-started-with-keycard))
+Keycard applet runs on any JavaCard 3.0.4+ (see [applet installation](/developers/getting-started#getting-started-with-keycard))
 
 We use for manufacturing:
 - **model:** NXP JCOP4
@@ -16,5 +16,8 @@ We use for manufacturing:
 
 ## Keycard Shell
 
-- **interfaces:** 12 keys keyboard, on/off button, TFT color display, 900mAh BL-4C battery, USBC port, smartcard reader
-- **more details:** on our github [repo](https://github.com/keycard-tech/keycard-shell).
+- **MCU:** STM32H5
+- **interfaces:** 12-key keypad, power button, TFT color display, camera, smartcard reader, USB-C
+- **battery:** replaceable BL-4C
+- **flash map:** 2MB dual-bank flash, with 32KB bootloader + 608KB firmware + 384KB data per bank
+- **more details:** hardware files, schematics, and firmware sources are in the [Keycard Shell repo](https://github.com/keycard-tech/keycard-shell).

@@ -1,0 +1,25 @@
+---
+id: diy-keycard-shell
+title: Build a DIY Keycard Shell (advanced)
+---
+
+# Build a DIY Keycard Shell (advanced)
+
+Keycard Shell is fully open source. You can build your own device, run your own firmware, and pair it with your own Keycards. This is an advanced workflow intended for builders and developers.
+
+<Admonition type="tip">
+  Production Keycard Shell devices only accept signed firmware updates. To run custom firmware you must build your own device (or a dev unit) with a bootloader key you control.
+</Admonition>
+
+## DIY overview
+
+1. **Build or install the Keycard applet.** Start with [Build your Keycard](/developers/build) and install the applet on a JavaCard 3.0.4+ card (3.0.5 recommended).
+1. **Build the Shell hardware.** Use the open-source schematics, PCB files, and mechanical designs from the Keycard Shell repo.
+3. **Build and sign firmware.** Compile the firmware with STM32CubeIDE and sign it with your own bootloader key. Use the create-image tooling to generate a flashable image.
+4. **(Optional) Build a custom database.** Generate a clear-signing database that matches your supported chains and ABIs.
+5. **Assemble and test.** Insert your Keycard and complete onboarding like a production device.
+
+## Source materials and build notes
+
+- [Keycard Shell repo](https://github.com/keycard-tech/keycard-shell)
+- [Keycard Shell internals](/developers/keycard-shell)
