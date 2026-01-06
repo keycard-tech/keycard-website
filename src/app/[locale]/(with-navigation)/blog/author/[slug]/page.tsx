@@ -65,7 +65,9 @@ export default async function BlogAuthorPage(props: Props) {
           <h1 className="font-lora text-32 font-600 lg:text-48">
             {author.name}
           </h1>
-          <h2 className="text-16 font-300 text-white-95">Keycard blog author</h2>
+          <h2 className="text-16 font-300 text-white-95">
+            Keycard blog author
+          </h2>
           <h2 className="sr-only">Keycard blog updates</h2>
           {author.meta_description && (
             <p className="text-24 font-600 text-white-95">
