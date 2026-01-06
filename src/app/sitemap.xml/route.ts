@@ -25,8 +25,12 @@ const renderAlternates = (
   const languages = alternates?.languages
   if (!languages) return ''
 
-  return Object.entries(languages)
-    .filter(([, href]) => typeof href === 'string' && href.length > 0)
+  const entries = Object.entries(languages).filter(
+    (entry): entry is [string, string] =>
+      typeof entry[1] === 'string' && entry[1].length > 0,
+  )
+
+  return entries
     .map(
       ([locale, href]) =>
         `    <xhtml:link rel="alternate" hreflang="${escapeXml(
