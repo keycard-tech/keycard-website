@@ -4,7 +4,7 @@ import { Link } from '~components/link'
 import { getLocale, getTranslations } from 'next-intl/server'
 
 export const metadata = Metadata({
-  title: 'Contact Keycard',
+  title: 'Contact Keycard Support',
   description:
     'Reach product support or partnerships/BD. We reply within 1 business day.',
   openGraph: { url: '/contact' },

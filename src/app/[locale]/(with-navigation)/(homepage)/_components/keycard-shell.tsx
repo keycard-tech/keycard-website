@@ -49,9 +49,9 @@ const KeycardShell = () => {
       </motion.div>
 
       <div className="relative z-10 flex max-w-[434px] flex-col px-5 py-6 lg:ml-[72px] lg:p-0">
-        <h1 className="sr-only">
+        <h2 className="sr-only">
           Keycard Shell - Modular, Air-Gapped Hardware Wallet
-        </h1>
+        </h2>
         <p className="pb-2 text-24 font-600 text-white-95">
           {t('hero.keycard_shell_title.translation')}
         </p>
