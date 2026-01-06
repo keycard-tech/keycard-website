@@ -1,7 +1,7 @@
 import { Metadata } from '~/app/_metadata'
 import { TestimonialsStrip } from '~components/testimonials-strip'
 import { AutoOpenDialogManager } from './_components/auto-open-dialog-manager'
-import { BuyCards } from './_components/buy-cards'
+import { BuyCards } from './_components/buy-cards-client'
 import { ComparisonTable } from './_components/comparison-table'
 import { Faqs } from './_components/faqs'
 import { Keycard } from './_components/keycard'

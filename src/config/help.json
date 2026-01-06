@@ -75,8 +75,21 @@
     "title": "Shell settings",
     "subItems": [
       {
+        "title": "Enable or disable data transfer on Keycard Shell",
+        "link": "/help/enable-or-disable-data-transfer-on-keycard-shell"
+      },
+      {
         "title": "Replace your Keycard Shell battery",
         "link": "/help/replace-your-keycard-shell-battery"
+      }
+    ]
+  },
+  {
+    "title": "Advanced",
+    "subItems": [
+      {
+        "title": "Build a DIY Keycard Shell (advanced)",
+        "link": "/help/diy-keycard-shell"
       }
     ]
   },
