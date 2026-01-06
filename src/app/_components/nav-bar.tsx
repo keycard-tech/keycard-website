@@ -94,6 +94,7 @@ const NavBar = () => {
   return (
     <motion.nav
       className="fixed left-0 top-12 z-30 hidden w-full items-center justify-between px-8 py-6 text-white-95 lg:flex"
+      aria-label="Primary"
       style={{
         backgroundColor,
         backdropFilter,
