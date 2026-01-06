@@ -1,4 +1,4 @@
-import { Background } from '~components/3d/background'
+import { LazyBackground } from '~components/3d/lazy-background'
 import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
 import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
@@ -102,7 +102,7 @@ export default async function ThankyouPage(props: Props) {
           />
         </div>
       ) : (
-        <Background variant="thank-you" />
+        <LazyBackground variant="thank-you" />
       )}
 
       <div
