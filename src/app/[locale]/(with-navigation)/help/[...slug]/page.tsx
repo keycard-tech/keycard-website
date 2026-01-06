@@ -5,6 +5,7 @@ import { Metadata } from '~/app/_metadata'
 import { formatDate } from '~/app/_utils/format-date'
 import config from '~/config/help.json'
 import { Link } from '~components/link'
+import { getLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { generateBreadcrumbs } from '../_utils/generate-breadcrumbs'
 import { getDocumentationArticle } from '../_utils/get-documentation-article'
@@ -111,9 +112,40 @@ const Page = async (props: Props) => {
 
   const breadcrumbs = generateBreadcrumbs((await params).slug, meta.title)
 
+  const locale = await getLocale()
+  const articleUrl = `https://keycard.tech/${locale}/help/${(
+    await params
+  ).slug.join('/')}`
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: meta.title,
+    dateModified: meta.lastEdited,
+    author: {
+      '@type': 'Organization',
+      name: 'Keycard',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Keycard',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://keycard.tech/opengraph-image.png',
+      },
+    },
+    mainEntityOfPage: articleUrl,
+    url: articleUrl,
+  }
+
   return (
     <div>
       <Breadcrumbs items={breadcrumbs} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
       <div className="flex flex-1 justify-center gap-[139px] px-5 py-20 lg:pl-[250px] xl:pr-[140px]">
         <div className="w-full max-w-[664px]">
           <div className="mb-1 text-16 font-300 text-white-80">
