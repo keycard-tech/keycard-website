@@ -123,7 +123,7 @@ const BuyShellDialog = (props: Props) => {
 export { BuyShellDialog }
 
 const Content = ({ onClose }: { onClose?: () => void }) => {
-  const { addItem } = useCart()
+  const { addItem, cart } = useCart()
   const locale = useLocale()
   const [submitError, setSubmitError] = useState<string | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -140,6 +140,10 @@ const Content = ({ onClose }: { onClose?: () => void }) => {
     setIsSubmitting(true)
 
     try {
+      const readerMerchandiseId = `gid://shopify/ProductVariant/${KEYCARD_PRODUCTS.READER.variantId}`
+      const cartHasReader =
+        cart?.lines?.some(line => line.merchandise.id === readerMerchandiseId) ??
+        false
       const lines: Array<{ variantId: string; quantity: number }> = [
         { variantId: KEYCARD_SHELL.variantId, quantity: 1 },
       ]
@@ -152,6 +156,13 @@ const Content = ({ onClose }: { onClose?: () => void }) => {
             quantity,
           })
         }
+      }
+
+      if (cardCount > 0 && !cartHasReader) {
+        lines.push({
+          variantId: KEYCARD_PRODUCTS.READER.variantId,
+          quantity: 1,
+        })
       }
 
       for (const line of lines) {
