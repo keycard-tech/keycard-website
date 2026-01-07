@@ -13,6 +13,10 @@ const KeycardShell = () => {
   const t = useTranslations()
   const locale = useLocale()
   const shellUrl = getShopifyUrl(locale, '/pages/keycard-shell')
+  const learnMoreLabel = t('common.learn_more.translation')
+  const shellLearnMoreLabel = `${learnMoreLabel} ${t(
+    'navigation.keycard_shell.translation',
+  )}`
   const reduceMotion = useReducedMotion()
   const floatAnimation = reduceMotion ? { y: 0 } : { y: [0, -8, 0] }
   return (
@@ -69,7 +73,11 @@ const KeycardShell = () => {
           {t('hero.keycard_shell_description.translation')}
         </p>
         <div className="flex gap-4">
-          <ButtonLink href={shellUrl} target="_self">
+          <ButtonLink
+            href={shellUrl}
+            target="_self"
+            aria-label={shellLearnMoreLabel}
+          >
             {t('hero.discover_shell.translation')}
           </ButtonLink>
           <BuyShellDialog>
