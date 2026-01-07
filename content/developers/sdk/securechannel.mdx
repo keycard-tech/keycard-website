@@ -23,7 +23,7 @@ You must verify that the public key returned by ```Certificate.verifyIdentity```
 
 Clients wishing to communicate with the card, need to pair with it first. This allows creating secure channels resistant not only to passive but also to active MITM attacks. Although pairing allows the card and the client to authenticate each other, the card does not grant access to any operation with the wallet until the user is authenticated (by verifying its PIN). To establish the pairing, the client needs to know the pairing password. After it is established, the pairing info (not the password) must be stored as securely as possible on the client for subsequent sessions. You should store the pairing information together with the instance UID to simplify handling of multiple cards.
 
-Only 5 clients can be paired at once, but it is possible to unpair previously paired clients.
+Only 10 clients can be permanently paired at once, but it is possible to unpair previously paired clients. Most importantly, an ephemeral pairing slot is available for one-time interactions with the card.
 
 Using the SDK, pairing is a simple operation
 
