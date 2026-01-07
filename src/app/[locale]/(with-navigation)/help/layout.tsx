@@ -1,17 +1,28 @@
 import Sidenav from '~/app/_components/docs/sidenav'
 import { Metadata } from '~/app/_metadata'
+import { buildLocaleAlternates } from '~/app/_utils/metadata'
 import config from '~/config/help.json'
 
 type Props = {
   children: React.ReactNode
 }
 
-export const metadata = Metadata({
-  title: { default: 'Keycard Help', template: '%s — Keycard Help' },
-  description:
-    'Help articles and guides for using Keycard products and Keycard Shell.',
-  alternates: { canonical: '/help' },
-})
+type MetadataProps = {
+  params: Promise<{
+    locale: string
+  }>
+}
+
+export async function generateMetadata({ params }: MetadataProps) {
+  const { locale } = await params
+
+  return Metadata({
+    title: { default: 'Keycard Help', template: '%s — Keycard Help' },
+    description:
+      'Help articles and guides for using Keycard products and Keycard Shell.',
+    alternates: buildLocaleAlternates(locale, '/help'),
+  })
+}
 
 export default async function DocsLayout({ children }: Props) {
   return (

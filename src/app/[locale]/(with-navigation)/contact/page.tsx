@@ -1,14 +1,31 @@
 import { Metadata } from '~/app/_metadata'
+import {
+  buildLocaleAlternates,
+  buildLocalizedPath,
+  resolveLocale,
+} from '~/app/_utils/metadata'
 import { getShopifyUrl } from '~/config/routes'
 import { Link } from '~components/link'
 import { getLocale, getTranslations } from 'next-intl/server'
 
-export const metadata = Metadata({
-  title: 'Contact Keycard Support',
-  description:
-    'Reach product support or partnerships/BD. We reply within 1 business day.',
-  openGraph: { url: '/contact' },
-})
+type MetadataProps = {
+  params: Promise<{
+    locale: string
+  }>
+}
+
+export async function generateMetadata({ params }: MetadataProps) {
+  const { locale } = await params
+  const activeLocale = resolveLocale(locale)
+
+  return Metadata({
+    title: 'Contact Keycard Support',
+    description:
+      'Reach product support or partnerships/BD. We reply within 1 business day.',
+    alternates: buildLocaleAlternates(locale, '/contact'),
+    openGraph: { url: buildLocalizedPath(activeLocale, '/contact') },
+  })
+}
 
 export default async function ContactPage() {
   const t = await getTranslations()

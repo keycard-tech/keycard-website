@@ -1,13 +1,30 @@
 import { Metadata } from '~/app/_metadata'
+import {
+  buildLocaleAlternates,
+  buildLocalizedPath,
+  resolveLocale,
+} from '~/app/_utils/metadata'
 import { Link } from '~components/link'
 import { getTranslations } from 'next-intl/server'
 
-export const metadata = Metadata({
-  title: 'About Keycard Hardware Wallets',
-  description:
-    'Open-source signing hardware from the Institute of Free Technology. Keycards are secure-element signers; Keycard Shell is an air-gapped wallet with QR confirmation.',
-  openGraph: { url: '/about' },
-})
+type MetadataProps = {
+  params: Promise<{
+    locale: string
+  }>
+}
+
+export async function generateMetadata({ params }: MetadataProps) {
+  const { locale } = await params
+  const activeLocale = resolveLocale(locale)
+
+  return Metadata({
+    title: 'About Keycard Hardware Wallets',
+    description:
+      'Open-source signing hardware from the Institute of Free Technology. Keycards are secure-element signers; Keycard Shell is an air-gapped wallet with QR confirmation.',
+    alternates: buildLocaleAlternates(locale, '/about'),
+    openGraph: { url: buildLocalizedPath(activeLocale, '/about') },
+  })
+}
 
 const PRESS: {
   name: string

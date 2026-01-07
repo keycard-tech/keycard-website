@@ -1,9 +1,33 @@
 import { getPosts } from '~/app/_lib/ghost'
+import { Metadata } from '~/app/_metadata'
+import {
+  buildLocaleAlternates,
+  buildLocalizedPath,
+  resolveLocale,
+} from '~/app/_utils/metadata'
 import { getTranslations } from 'next-intl/server'
 import { HighlightedPostCard } from './_components/highlighted-post-card'
 import { InfinitePostGrid } from './_components/infinite-post-grid'
 
 export const revalidate = 3600 // 1 hour
+
+type MetadataProps = {
+  params: Promise<{
+    locale: string
+  }>
+}
+
+export async function generateMetadata({ params }: MetadataProps) {
+  const { locale } = await params
+  const activeLocale = resolveLocale(locale)
+
+  return Metadata({
+    title: 'Blog',
+    description: 'Thoughts, stories and ideas.',
+    alternates: buildLocaleAlternates(locale, '/blog'),
+    openGraph: { url: buildLocalizedPath(activeLocale, '/blog') },
+  })
+}
 
 export default async function BlogPage() {
   const t = await getTranslations()

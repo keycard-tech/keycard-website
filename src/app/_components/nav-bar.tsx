@@ -93,7 +93,7 @@ const NavBar = () => {
 
   return (
     <motion.nav
-      className="fixed left-0 top-12 z-30 hidden w-full items-center justify-between px-8 py-6 text-white-95 lg:flex"
+      className="fixed left-0 top-0 z-30 hidden w-full items-center justify-between px-8 py-6 text-white-95 lg:flex"
       aria-label="Primary"
       style={{
         backgroundColor,
@@ -118,13 +118,13 @@ const NavBar = () => {
             </Link>
             {subItems && subItems.length > 0 && (
               <div className="opacity-0 group-hover:opacity-100 invisible absolute left-0 top-full z-30 mt-3 min-w-[200px] translate-y-1 transition-all duration-200 group-hover:visible group-hover:translate-y-0">
-                <div className="bg-grey-100/95 shadow-black/40 flex flex-col gap-2 rounded-20 border border-white-12 p-3 shadow-lg backdrop-blur-xl">
+                <div className="flex flex-col gap-2 rounded-20 border border-white-12 bg-grey-100 p-3 shadow-lg">
                   {subItems.map(item => (
                     <Link
                       key={item.href}
                       href={item.href}
                       target="_self"
-                      className="rounded-16 border border-white-12 bg-white-4 px-4 py-2 text-14 font-500 text-white-95 transition-colors hover:bg-white-8"
+                      className="rounded-16 border border-white-12 bg-white-8 px-4 py-2 text-14 font-500 text-white-95 transition-colors hover:bg-white-12"
                     >
                       {item.label}
                     </Link>
