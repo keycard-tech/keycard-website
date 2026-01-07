@@ -2,6 +2,7 @@ import * as Accordion from '@radix-ui/react-accordion'
 import { ChevronDownIcon } from '@status-im/icons/20'
 import { DiscordIcon, TwitterIcon } from '@status-im/icons/social'
 import { Metadata } from '~/app/_metadata'
+import { buildLocaleAlternates } from '~/app/_utils/metadata'
 import { ButtonLink } from '~components/button-link'
 import { Link } from '~components/link'
 import { cx } from 'cva'
@@ -290,12 +291,22 @@ const STEPS = [
   },
 ]
 
-export const metadata = Metadata({
-  title: 'Get Started — Keycard & Keycard Shell',
-  description:
-    'Set up your Keycard and Keycard Shell, pair supported wallets, and learn best practices for backups and recovery.',
-  alternates: { canonical: '/start' },
-})
+type MetadataProps = {
+  params: Promise<{
+    locale: string
+  }>
+}
+
+export async function generateMetadata({ params }: MetadataProps) {
+  const { locale } = await params
+
+  return Metadata({
+    title: 'Get Started — Keycard & Keycard Shell',
+    description:
+      'Set up your Keycard and Keycard Shell, pair supported wallets, and learn best practices for backups and recovery.',
+    alternates: buildLocaleAlternates(locale, '/start'),
+  })
+}
 
 export default function StartShellPage() {
   return (

@@ -69,6 +69,13 @@ const Section = (props: Props) => {
 const BuyCards = () => {
   const t = useTranslations()
   const locale = useLocale()
+  const learnMoreLabel = t('common.learn_more.translation')
+  const keycardLearnMoreLabel = `${learnMoreLabel} ${t(
+    'navigation.keycard.translation',
+  )}`
+  const shellLearnMoreLabel = `${learnMoreLabel} ${t(
+    'navigation.keycard_shell.translation',
+  )}`
 
   return (
     <section className="grid grid-cols-1 gap-10 overflow-clip pb-2 pt-[160px] full-view-port lg:grid-cols-2 lg:flex-row lg:gap-2 lg:pt-[200px] lg:remove-full-view-port">
@@ -104,8 +111,9 @@ const BuyCards = () => {
             <ButtonLink
               href={getShopifyUrl(locale, '/pages/keycard')}
               variant="secondary"
+              aria-label={keycardLearnMoreLabel}
             >
-              {t('common.learn_more.translation')}
+              {learnMoreLabel}
             </ButtonLink>
           </>
         }
@@ -146,8 +154,9 @@ const BuyCards = () => {
             <ButtonLink
               href={getShopifyUrl(locale, '/pages/keycard-shell')}
               variant="secondary"
+              aria-label={shellLearnMoreLabel}
             >
-              {t('common.learn_more.translation')}
+              {learnMoreLabel}
             </ButtonLink>
           </>
         }
