@@ -113,6 +113,8 @@ const ShopifyForm = ({ onClose }: { onClose?: () => void }) => {
     name: 'includeShell',
   })
   const includeShell = shellField.value
+  const shellCompareAt = KEYCARD_SHELL.compareAtPrice
+  const showShellDiscount = shellCompareAt > KEYCARD_SHELL.price
 
   const primaryBundle = useMemo(() => {
     let bestKey: BundleKey = 'THREE_CARDS_SET'
@@ -434,11 +436,18 @@ const ShopifyForm = ({ onClose }: { onClose?: () => void }) => {
                 </label>
               </div>
               <div className="flex gap-2 text-16 font-300 text-white-80">
-                <span className="text-white-95">
+                <span className="text-green">
                   {formatPrice({
                     amount: KEYCARD_SHELL.price,
                   })}
                 </span>
+                {showShellDiscount ? (
+                  <span className="text-white-60 line-through">
+                    {formatPrice({
+                      amount: shellCompareAt,
+                    })}
+                  </span>
+                ) : null}
               </div>
             </div>
           </div>

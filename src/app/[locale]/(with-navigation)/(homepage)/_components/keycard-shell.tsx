@@ -113,7 +113,7 @@ const KeycardShell = () => {
             url: shellUrl,
             availability: 'https://schema.org/InStock',
             priceCurrency: 'EUR',
-            price: '149',
+            price: '109',
           },
         }}
       />

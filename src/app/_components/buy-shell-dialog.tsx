@@ -130,6 +130,8 @@ const Content = ({ onClose }: { onClose?: () => void }) => {
   const [cardCount, setCardCount] = useState(0)
 
   const bundlePlan = buildBundlePlan(cardCount)
+  const shellCompareAt = KEYCARD_SHELL.compareAtPrice
+  const showShellDiscount = shellCompareAt > KEYCARD_SHELL.price
   const total = KEYCARD_SHELL.price + bundlePlan.totalPrice
   const showBreakdown = cardCount > 0 && bundlePlan.breakdown !== 'No add-ons'
   const showSavings =
@@ -142,8 +144,9 @@ const Content = ({ onClose }: { onClose?: () => void }) => {
     try {
       const readerMerchandiseId = `gid://shopify/ProductVariant/${KEYCARD_PRODUCTS.READER.variantId}`
       const cartHasReader =
-        cart?.lines?.some(line => line.merchandise.id === readerMerchandiseId) ??
-        false
+        cart?.lines?.some(
+          line => line.merchandise.id === readerMerchandiseId,
+        ) ?? false
       const lines: Array<{ variantId: string; quantity: number }> = [
         { variantId: KEYCARD_SHELL.variantId, quantity: 1 },
       ]
@@ -232,6 +235,13 @@ const Content = ({ onClose }: { onClose?: () => void }) => {
                   amount: KEYCARD_SHELL.price,
                 })}
               </p>
+              {showShellDiscount ? (
+                <p className="text-16 text-white-60 line-through">
+                  {formatPrice({
+                    amount: shellCompareAt,
+                  })}
+                </p>
+              ) : null}
             </div>
             <div className="flex items-center gap-[6px] pt-4 font-300">
               <KeycardCardIcon className="text-white-60" /> Includes 2 Keycards

@@ -36,5 +36,6 @@ export const KEYCARD_PRODUCTS = {
 export const KEYCARD_SHELL = {
   variantId: '51010483126536',
   name: 'Shell',
-  price: 149,
+  price: 109,
+  compareAtPrice: 149,
 } as const
