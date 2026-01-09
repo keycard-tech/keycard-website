@@ -3,6 +3,12 @@ import { Breadcrumbs } from '~/app/_components/docs/breadcrumbs'
 import { getPostBySlug, getPostSlugs } from '~/app/_lib/ghost'
 import { Metadata } from '~/app/_metadata'
 import { formatDate } from '~/app/_utils/format-date'
+import {
+  buildLocaleAlternates,
+  buildLocalizedPath,
+  resolveLocale,
+} from '~/app/_utils/metadata'
+import { SUPPORTED_LOCALES } from '~/i18n/constants'
 import { Image } from '~components/image'
 import { getLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
@@ -18,26 +24,35 @@ export const dynamicParams = true
 
 export async function generateStaticParams() {
   const slugs = await getPostSlugs()
-  return slugs.map(slug => ({ slug })) satisfies Array<Awaited<Props['params']>>
+  return slugs.flatMap(slug =>
+    SUPPORTED_LOCALES.map(locale => ({ slug, locale })),
+  ) satisfies Array<Awaited<Props['params']>>
 }
 
 export async function generateMetadata({ params }: Props) {
-  const post = (await getPostBySlug((await params).slug))!
+  const resolvedParams = await params
+  const post = (await getPostBySlug(resolvedParams.slug))!
+  const activeLocale = resolveLocale(resolvedParams.locale)
 
   return Metadata({
     title: post.title!,
     description: post.excerpt,
+    alternates: buildLocaleAlternates(
+      resolvedParams.locale,
+      `/blog/${post.slug}`,
+    ),
     openGraph: {
       type: 'article',
       title: post.og_title ?? undefined,
       description: post.og_description ?? undefined,
       images: [post.og_image ?? post.feature_image!],
+      url: buildLocalizedPath(activeLocale, `/blog/${post.slug}`),
     },
   })
 }
 
 type Props = {
-  params: Promise<{ slug: string }>
+  params: Promise<{ slug: string; locale: string }>
 }
 
 export default async function BlogDetailPage(props: Props) {

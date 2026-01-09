@@ -12,14 +12,18 @@ import {
   RemoveIcon,
   WorldIcon,
 } from '@status-im/icons/20'
+import { getShopifyUrl } from '~/config/routes'
+import { CryptoPaymentIcon } from '~components/crypto-payment-icon'
 import { Image } from '~components/image'
+import { Link } from '~components/link'
 import { RecommendedIcon } from '~icons/recommended'
 import { cx } from 'cva'
 import { AnimatePresence, motion } from 'framer-motion'
+import { useLocale } from 'next-intl'
 import { useMemo, useState } from 'react'
 import { useController, useForm } from 'react-hook-form'
 import { z } from 'zod'
-import { KEYCARD_PRODUCTS } from '../_constants/shopify/products'
+import { KEYCARD_PRODUCTS, KEYCARD_SHELL } from '../_constants/shopify/products'
 import { useCart } from '../_providers/cart-provider'
 import { formatPrice } from '../_utils/format-price'
 import { Button } from './button'
@@ -29,9 +33,8 @@ import { Tooltip } from './tooltip'
 
 const formSchema = z
   .object({
-    bundleId: z.enum(['ONE_CARD_SET', 'TWO_CARDS_SET', 'THREE_CARDS_SET']),
-    quantity: z.number(),
     includeKeycardReader: z.boolean(),
+    includeShell: z.boolean(),
   })
   .required()
 
@@ -42,6 +45,14 @@ type Props = {
   open?: boolean
   onOpenChange?: (open: boolean) => void
 }
+
+type BundleKey = Exclude<keyof typeof KEYCARD_PRODUCTS, 'READER'>
+
+const BUNDLE_OPTIONS: BundleKey[] = [
+  'ONE_CARD_SET',
+  'TWO_CARDS_SET',
+  'THREE_CARDS_SET',
+]
 
 const BuyKeycardDialog = (props: Props) => {
   const { children, ...rest } = props
@@ -73,46 +84,116 @@ const ShopifyForm = ({ onClose }: { onClose?: () => void }) => {
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      bundleId: 'THREE_CARDS_SET',
       includeKeycardReader: true,
-      quantity: 1,
+      includeShell: false,
     },
     mode: 'onTouched',
   })
-  const { formState, watch, setValue } = form
+  const { formState } = form
   const { isSubmitting } = formState
 
   const { addItem } = useCart()
+  const locale = useLocale()
   const [submitError, setSubmitError] = useState<string | null>(null)
 
-  const selectedBundle = watch('bundleId')
-  const quantity = watch('quantity')
+  const [bundleQuantities, setBundleQuantities] = useState<
+    Record<BundleKey, number>
+  >({
+    ONE_CARD_SET: 0,
+    TWO_CARDS_SET: 0,
+    THREE_CARDS_SET: 1,
+  })
 
   const { field } = useController({
     control: form.control,
     name: 'includeKeycardReader',
   })
+  const { field: shellField } = useController({
+    control: form.control,
+    name: 'includeShell',
+  })
+  const includeShell = shellField.value
+  const shellCompareAt = KEYCARD_SHELL.compareAtPrice
+  const showShellDiscount = shellCompareAt > KEYCARD_SHELL.price
+
+  const primaryBundle = useMemo(() => {
+    let bestKey: BundleKey = 'THREE_CARDS_SET'
+    let bestQuantity = 0
+
+    for (const bundleKey of BUNDLE_OPTIONS) {
+      const quantity = bundleQuantities[bundleKey] ?? 0
+      if (
+        quantity > bestQuantity ||
+        (quantity === bestQuantity &&
+          KEYCARD_PRODUCTS[bundleKey].cards > KEYCARD_PRODUCTS[bestKey].cards)
+      ) {
+        bestKey = bundleKey
+        bestQuantity = quantity
+      }
+    }
+
+    return bestQuantity > 0 ? bestKey : 'THREE_CARDS_SET'
+  }, [bundleQuantities])
 
   const total = useMemo(() => {
-    const bundlePrice = KEYCARD_PRODUCTS[selectedBundle].price
+    const bundlesTotal = BUNDLE_OPTIONS.reduce(
+      (sum, bundleKey) =>
+        sum + KEYCARD_PRODUCTS[bundleKey].price * bundleQuantities[bundleKey],
+      0,
+    )
     const readerPrice = 0 // includeReader ? 22 : 0
+    const shellPrice = includeShell ? KEYCARD_SHELL.price : 0
 
-    return bundlePrice * quantity + readerPrice
-  }, [selectedBundle, quantity])
+    return bundlesTotal + readerPrice + shellPrice
+  }, [bundleQuantities, includeShell])
+
+  const selectedBundles = BUNDLE_OPTIONS.filter(
+    bundleKey => bundleQuantities[bundleKey] > 0,
+  )
+  const checkoutEvent =
+    selectedBundles.length === 1
+      ? KEYCARD_PRODUCTS[selectedBundles[0]].cards === 1
+        ? 'buy-keycard'
+        : `buy-keycard-bundle-${KEYCARD_PRODUCTS[selectedBundles[0]].cards}`
+      : selectedBundles.length > 1
+        ? 'buy-keycard-bundle-multi'
+        : 'buy-keycard-bundle-none'
 
   const handleSubmit = async (values: FormValues) => {
     setSubmitError(null)
 
-    const lines: Array<{ variantId: string; quantity: number }> = [
-      {
-        variantId: KEYCARD_PRODUCTS[values.bundleId].variantId,
-        quantity: values.quantity,
-      },
-    ]
+    const totalBundles = BUNDLE_OPTIONS.reduce(
+      (sum, bundleKey) => sum + bundleQuantities[bundleKey],
+      0,
+    )
+
+    if (totalBundles === 0) {
+      setSubmitError('Select at least one Keycard set')
+      return
+    }
+
+    const lines: Array<{ variantId: string; quantity: number }> = []
+
+    for (const bundleKey of BUNDLE_OPTIONS) {
+      const quantity = bundleQuantities[bundleKey]
+      if (quantity > 0) {
+        lines.push({
+          variantId: KEYCARD_PRODUCTS[bundleKey].variantId,
+          quantity,
+        })
+      }
+    }
 
     if (values.includeKeycardReader) {
       lines.push({
         variantId: KEYCARD_PRODUCTS.READER.variantId,
+        quantity: 1,
+      })
+    }
+
+    if (values.includeShell) {
+      lines.push({
+        variantId: KEYCARD_SHELL.variantId,
         quantity: 1,
       })
     }
@@ -136,7 +217,7 @@ const ShopifyForm = ({ onClose }: { onClose?: () => void }) => {
       <div className="hidden h-full rounded-20 bg-[#0C0C0C] lg:block">
         <AnimatePresence>
           <motion.div
-            key={selectedBundle}
+            key={primaryBundle}
             initial={{ opacity: 0, scale: 0.95, y: 40 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.3 }}
@@ -144,8 +225,8 @@ const ShopifyForm = ({ onClose }: { onClose?: () => void }) => {
           >
             <Image
               className="w-auto"
-              src={KEYCARD_PRODUCTS[selectedBundle].image}
-              alt={`${KEYCARD_PRODUCTS[selectedBundle].name} keycard`}
+              src={KEYCARD_PRODUCTS[primaryBundle].image}
+              alt={`${KEYCARD_PRODUCTS[primaryBundle].name} keycard`}
               width={400}
               height={300}
               priority
@@ -170,84 +251,93 @@ const ShopifyForm = ({ onClose }: { onClose?: () => void }) => {
 
         <Form {...form} onSubmit={handleSubmit}>
           <div className="pt-12 lg:pt-10">
-            <h3 className="pb-2 text-12 text-white-80 lg:pb-3">
-              SELECT BUNDLE
-            </h3>
+            <h3 className="pb-2 text-12 text-white-80 lg:pb-3">SELECT SETS</h3>
 
             <div className="grid grid-cols-3 gap-4 lg:gap-6">
-              {Object.entries(KEYCARD_PRODUCTS)
-                .filter(([title]) => title !== 'READER')
-                .map(([title, product]) => {
-                  const selected = selectedBundle === title
+              {[...BUNDLE_OPTIONS].reverse().map(bundleKey => {
+                const product = KEYCARD_PRODUCTS[bundleKey]
+                const quantity = bundleQuantities[bundleKey]
+                const selected = quantity > 0
 
-                  return (
-                    <button
-                      key={title}
-                      type="button"
-                      onClick={() => {
-                        setValue('bundleId', title as FormValues['bundleId'])
-                      }}
-                      className={cx(
-                        'relative flex flex-col items-start justify-between rounded-20 bg-white-4 px-4 py-3 text-left transition-colors duration-300 hover:[&>span]:-left-1 hover:[&>span]:-top-1 hover:[&>span]:size-[calc(100%+8px)] hover:[&>span]:rounded-24',
+                return (
+                  <div
+                    key={bundleKey}
+                    className={cx(
+                      'relative flex cursor-pointer flex-col items-start justify-between rounded-20 bg-white-4 px-4 py-3 text-left transition-colors duration-300',
+                      selected ? 'outline outline-4 outline-[transparent]' : '',
+                    )}
+                    onClick={() =>
+                      setBundleQuantities(prev => ({
+                        ...prev,
+                        [bundleKey]: prev[bundleKey] + 1,
+                      }))
+                    }
+                  >
+                    <span
+                      className={cx([
+                        'pointer-events-none absolute z-0 border transition-all',
                         selected
-                          ? 'outline outline-4 outline-[transparent]'
-                          : '',
+                          ? '-left-1 -top-1 size-[calc(100%+8px)] rounded-24 border-orange-dark'
+                          : 'left-0 top-0 size-full rounded-20 border-white-12',
+                      ])}
+                    />
+
+                    <div className="font-300 text-white-60">
+                      {product.cards === 1
+                        ? '1 card'
+                        : `${product.cards} card set`}
+                    </div>
+                    <div className="flex w-full items-center justify-between font-lora text-24 font-400">
+                      {formatPrice({
+                        amount: Number(product.price),
+                      })}
+                      {!!product.tag && (
+                        <Tooltip label={product.tag}>
+                          <div className="z-50 flex size-5 items-center justify-center rounded-full bg-orange">
+                            <RecommendedIcon />
+                          </div>
+                        </Tooltip>
                       )}
-                    >
-                      <span
-                        className={cx([
-                          'absolute z-0 border transition-all',
-                          selected
-                            ? '-left-1 -top-1 size-[calc(100%+8px)] rounded-24 border-orange-dark'
-                            : 'left-0 top-0 size-full rounded-20 border-white-12',
-                        ])}
-                      />
-
-                      <div className="font-300 text-white-60">
-                        {product.cards} card set
-                      </div>
-                      <div className="flex w-full items-center justify-between font-lora text-24 font-400">
-                        {formatPrice({
-                          amount: Number(product.price),
-                        })}
-                        {!!product.tag && (
-                          <Tooltip label={product.tag}>
-                            <div className="z-50 flex size-5 items-center justify-center rounded-full bg-orange">
-                              <RecommendedIcon />
-                            </div>
-                          </Tooltip>
-                        )}
-                      </div>
-                    </button>
-                  )
-                })
-                .reverse()}
-            </div>
-          </div>
-
-          <div className="pt-8">
-            <h3 className="pb-2 text-12 text-white-80">NUMBER OF SETS</h3>
-            <div className="flex items-center gap-4 rounded-16 border border-white-12 bg-white-4 p-1">
-              <Button
-                type="button"
-                variant="dark"
-                onClick={() => setValue('quantity', Math.max(1, quantity - 1))}
-                className="justify-center px-[9px] text-center text-white-100"
-                disabled={quantity === 1}
-                aria-label="Decrease quantity"
-              >
-                <RemoveIcon />
-              </Button>
-              <span className="flex-1 text-center text-16">{quantity}</span>
-              <Button
-                type="button"
-                variant="dark"
-                onClick={() => setValue('quantity', quantity + 1)}
-                className="justify-center px-[9px] text-center text-white-100"
-                aria-label="Increase quantity"
-              >
-                <AddIcon />
-              </Button>
+                    </div>
+                    <div className="mt-3 flex w-full items-center gap-2 rounded-16 border border-white-12 bg-white-4 p-1">
+                      <Button
+                        type="button"
+                        variant="dark"
+                        onClick={event => {
+                          event.stopPropagation()
+                          setBundleQuantities(prev => ({
+                            ...prev,
+                            [bundleKey]: Math.max(0, prev[bundleKey] - 1),
+                          }))
+                        }}
+                        className="justify-center px-[9px] text-center text-white-100"
+                        disabled={quantity === 0}
+                        aria-label={`Decrease ${product.cards} card set quantity`}
+                      >
+                        <RemoveIcon />
+                      </Button>
+                      <span className="flex-1 text-center text-16">
+                        {quantity}
+                      </span>
+                      <Button
+                        type="button"
+                        variant="dark"
+                        onClick={event => {
+                          event.stopPropagation()
+                          setBundleQuantities(prev => ({
+                            ...prev,
+                            [bundleKey]: prev[bundleKey] + 1,
+                          }))
+                        }}
+                        className="justify-center px-[9px] text-center text-white-100"
+                        aria-label={`Increase ${product.cards} card set quantity`}
+                      >
+                        <AddIcon />
+                      </Button>
+                    </div>
+                  </div>
+                )
+              })}
             </div>
           </div>
 
@@ -312,6 +402,55 @@ const ShopifyForm = ({ onClose }: { onClose?: () => void }) => {
               </div>
             </div>
           </div>
+
+          <div className="pb-6">
+            <div className="mb-2 flex items-center justify-between">
+              <h3 className="text-12 text-white-80">KEYCARD SHELL</h3>
+              <Link
+                href={getShopifyUrl(locale, '/pages/keycard-shell')}
+                className="text-12 text-orange hover:text-orange-dark"
+              >
+                Learn more about Shell
+              </Link>
+            </div>
+            <div className="flex items-center justify-between space-x-3 rounded-16 border border-white-12 bg-white-4 p-3 pr-4">
+              <div className="relative flex items-center justify-start">
+                <Checkbox.Root
+                  {...form.register('includeShell')}
+                  id="includeShell"
+                  className="flex size-6 appearance-none items-center justify-center rounded-[8px] border border-white-20 bg-white-4 outline-none aria-checked:bg-orange aria-checked:hover:bg-orange-dark [&>svg]:aria-checked:text-white-95"
+                  checked={shellField.value}
+                  onCheckedChange={shellField.onChange}
+                  aria-label="Add Keycard Shell"
+                >
+                  <Checkbox.Indicator className="text-white-95">
+                    <CheckIcon className="size-5 text-white-95" />
+                  </Checkbox.Indicator>
+                </Checkbox.Root>
+
+                <label
+                  className="ml-3 mr-2 text-16 font-300 text-white-95"
+                  htmlFor="includeShell"
+                >
+                  Add Keycard Shell (includes 2 Keycards)
+                </label>
+              </div>
+              <div className="flex gap-2 text-16 font-300 text-white-80">
+                <span className="text-green">
+                  {formatPrice({
+                    amount: KEYCARD_SHELL.price,
+                  })}
+                </span>
+                {showShellDiscount ? (
+                  <span className="text-white-60 line-through">
+                    {formatPrice({
+                      amount: shellCompareAt,
+                    })}
+                  </span>
+                ) : null}
+              </div>
+            </div>
+          </div>
           <div className="rounded-16 border border-white-12 bg-white-4 p-1">
             {submitError && (
               <div className="mb-2 rounded-12 border border-[rgba(255,80,80,0.3)] bg-[rgba(255,80,80,0.1)] px-3 py-2 text-13 text-red">
@@ -321,7 +460,7 @@ const ShopifyForm = ({ onClose }: { onClose?: () => void }) => {
             <Button
               type="submit"
               className="w-full justify-center gap-2 font-500"
-              data-umami-event="checkout-keycard"
+              data-umami-event={checkoutEvent}
               data-umami-event-page="buy-keycard-dialog"
               data-umami-event-section="checkout"
               data-umami-event-element="button"
@@ -361,6 +500,7 @@ const ShopifyForm = ({ onClose }: { onClose?: () => void }) => {
                 width={52}
                 height={32}
               />
+              <CryptoPaymentIcon />
             </div>
             <div className="mt-10 flex flex-col items-center gap-[10px] rounded-16 border border-dashed border-white-12 bg-white-4 px-4 py-[14px] text-14 text-white-60 lg:flex-row lg:justify-center lg:gap-2">
               <div className="flex items-center">

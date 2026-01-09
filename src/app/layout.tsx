@@ -31,17 +31,6 @@ export const metadata = Metadata({
     template: '%s — Keycard',
   },
 
-  alternates: {
-    canonical: '/en',
-    languages: {
-      en: '/en',
-      fr: '/fr',
-      de: '/de',
-      es: '/es',
-      nl: '/nl',
-    },
-  },
-
   twitter: {
     card: 'summary_large_image',
     site: '@keycard_',

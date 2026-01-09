@@ -1,6 +1,8 @@
 import { Breadcrumbs } from '~/app/_components/docs/breadcrumbs'
 import { getAuthorSlugs, getPostsByAuthorSlug } from '~/app/_lib/ghost'
 import { Metadata } from '~/app/_metadata'
+import { buildLocaleAlternates } from '~/app/_utils/metadata'
+import { SUPPORTED_LOCALES } from '~/i18n/constants'
 import { notFound } from 'next/navigation'
 import { Avatar } from '../../_components/avatar'
 import { InfinitePostGrid } from '../../_components/infinite-post-grid'
@@ -11,22 +13,29 @@ export const dynamicParams = true
 export async function generateStaticParams() {
   const slugs = await getAuthorSlugs()
 
-  return slugs.map(slug => ({ slug })) satisfies Array<Awaited<Props['params']>>
+  return slugs.flatMap(slug =>
+    SUPPORTED_LOCALES.map(locale => ({ slug, locale })),
+  ) satisfies Array<Awaited<Props['params']>>
 }
 
 export async function generateMetadata({ params }: Props) {
-  const response = await getPostsByAuthorSlug((await params).slug)
+  const resolvedParams = await params
+  const response = await getPostsByAuthorSlug(resolvedParams.slug)
   if (!response) {
     return notFound()
   }
 
   return Metadata({
     title: `${response.author.name ?? response.author.slug} — Keycard Blog`,
+    alternates: buildLocaleAlternates(
+      resolvedParams.locale,
+      `/blog/author/${response.author.slug}`,
+    ),
   })
 }
 
 type Props = {
-  params: Promise<{ slug: string }>
+  params: Promise<{ slug: string; locale: string }>
 }
 
 export default async function BlogAuthorPage(props: Props) {

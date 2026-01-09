@@ -3,6 +3,7 @@ import path from 'path'
 import { Breadcrumbs } from '~/app/_components/docs/breadcrumbs'
 import { Metadata } from '~/app/_metadata'
 import { formatDate } from '~/app/_utils/format-date'
+import { buildLocaleAlternates } from '~/app/_utils/metadata'
 import config from '~/config/developers.json'
 import { Link } from '~components/link'
 import { notFound } from 'next/navigation'
@@ -66,7 +67,8 @@ export async function generateMetadata({ params }: Props) {
     return null
   }
 
-  const title = findTitle((await params).slug, config)
+  const resolvedParams = await params
+  const title = findTitle(resolvedParams.slug, config)
   if (!title) {
     return {
       title: 'Article Not Found',
@@ -77,12 +79,17 @@ export async function generateMetadata({ params }: Props) {
   return Metadata({
     title,
     description: 'Technical documentation and API references for developers.',
+    alternates: buildLocaleAlternates(
+      resolvedParams.locale,
+      `/developers/${resolvedParams.slug.join('/')}`,
+    ),
   })
 }
 
 type Props = {
   params: Promise<{
     slug: string[]
+    locale: string
   }>
 }
 

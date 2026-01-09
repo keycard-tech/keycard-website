@@ -14,6 +14,10 @@ const Keycard = () => {
   const t = useTranslations()
   const locale = useLocale()
   const keycardUrl = getShopifyUrl(locale, '/pages/keycard')
+  const learnMoreLabel = t('common.learn_more.translation')
+  const keycardLearnMoreLabel = `${learnMoreLabel} ${t(
+    'navigation.keycard.translation',
+  )}`
   return (
     <section className="relative flex min-h-[520px] flex-col justify-between overflow-clip rounded-b-28 border border-t-0 border-white-8 bg-white-4 px-0 pt-0 full-view-port lg:h-auto lg:flex-row lg:px-[72px] lg:py-10 lg:remove-full-view-port">
       <div className="hidden max-h-[350px] flex-1 items-start justify-center lg:flex">
@@ -54,7 +58,11 @@ const Keycard = () => {
           {t('hero.keycard_description.translation')}
         </p>
         <div className="flex space-x-4">
-          <ButtonLink href={keycardUrl} target="_self">
+          <ButtonLink
+            href={keycardUrl}
+            target="_self"
+            aria-label={keycardLearnMoreLabel}
+          >
             {t('hero.discover_keycard.translation')}
           </ButtonLink>
           <BuyKeycardDialog>
