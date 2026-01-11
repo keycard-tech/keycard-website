@@ -5,6 +5,7 @@ import { Metadata } from '~/app/_metadata'
 import { formatDate } from '~/app/_utils/format-date'
 import { buildLocaleAlternates } from '~/app/_utils/metadata'
 import config from '~/config/help.json'
+import { SUPPORTED_LOCALES } from '~/i18n/constants'
 import { Link } from '~components/link'
 import { getLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
@@ -49,7 +50,9 @@ export const dynamicParams = false
 export async function generateStaticParams() {
   const docsPath = path.resolve('content/help')
   const slugs = await getAllSlugs(docsPath)
-  return slugs.map(slug => ({ slug }))
+  return slugs.flatMap(slug =>
+    SUPPORTED_LOCALES.map(locale => ({ slug, locale })),
+  )
 }
 
 export async function generateMetadata({ params }: Props) {
