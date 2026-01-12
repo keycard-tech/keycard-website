@@ -106,20 +106,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       0.8,
       now,
     ),
-    ...addLocalizedRoutes(
-      ['/help'],
-      helpLocaleList,
-      'weekly' as const,
-      0.8,
-      now,
-    ),
-    ...addLocalizedRoutes(
-      ['/developers/overview'],
-      developerLocaleList,
-      'weekly' as const,
-      0.8,
-      now,
-    ),
   ]
 
   const legalRoutes: MetadataRoute.Sitemap = await Promise.all(

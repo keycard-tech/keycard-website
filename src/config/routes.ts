@@ -67,7 +67,10 @@ export const getRoutes = (
     Info: [
       { name: t('footer.info.get_started.translation'), href: '/start' },
       { name: t('footer.info.blog.translation'), href: '/blog' },
-      { name: t('footer.info.help.translation'), href: '/help' },
+      {
+        name: t('footer.info.help.translation'),
+        href: '/help/about-keycard-and-keycard-shell',
+      },
       {
         name: t('footer.info.developers.translation'),
         href: '/developers/overview',
