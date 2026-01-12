@@ -16,8 +16,50 @@ const NON_ENGLISH_LOCALES_REGEX =
       ).join('|')
     : '(?!x)x' // Never matches if empty
 
+const mapLegacyPath = (path: string) => {
+  if (path === '/about-us') return '/en/about'
+  if (path === '/faq') return '/en/help/faq'
+  if (path === '/duress_pin') {
+    return '/en/help/about-your-keycard-pin-and-duress-pin'
+  }
+  if (path === '/slip39') {
+    return '/en/help/understand-the-slip-39-wallet-backup-standard'
+  }
+  if (path === '/help') return '/en/help/about-keycard-and-keycard-shell'
+  if (path.startsWith('/help/')) return `/en${path}`
+  if (path === '/start') return '/en/start/shell'
+  if (path.startsWith('/start/')) return `/en${path}`
+  if (path === '/blog') return '/en/blog'
+  if (path.startsWith('/blog/')) return `/en${path}`
+  if (path === '/docs') return '/en/developers/overview'
+  if (path.startsWith('/docs/')) {
+    return `/en/developers${path.replace(/^\/docs/, '')}`
+  }
+  if (path === '/developers') return '/en/developers/overview'
+  if (path.startsWith('/developers/')) return `/en${path}`
+
+  return null
+}
+
 export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
+
+  if (pathname.length > 1 && pathname.endsWith('/')) {
+    const trimmed = pathname.replace(/\/+$/, '')
+    const firstSegment = trimmed.split('/')[1]
+    const isLocalePath = SUPPORTED_LOCALES.some(
+      locale => locale === firstSegment,
+    )
+
+    const destination =
+      (!isLocalePath && mapLegacyPath(trimmed)) || trimmed || '/'
+
+    if (destination) {
+      const targetUrl = request.nextUrl.clone()
+      targetUrl.pathname = destination
+      return NextResponse.redirect(targetUrl, { status: 308 })
+    }
+  }
 
   // Redirect legacy .html URLs to canonical routes (permanent, single-hop).
   if (pathname.endsWith('.html')) {
@@ -81,12 +123,21 @@ export default function middleware(request: NextRequest) {
     pathname === '/blog' ||
     pathname === '/blog/' ||
     pathname.startsWith('/blog/') ||
+    pathname === '/help' ||
+    pathname === '/help/' ||
+    pathname.startsWith('/help/') ||
+    pathname === '/start' ||
+    pathname === '/start/' ||
+    pathname.startsWith('/start/') ||
     pathname === '/docs' ||
     pathname === '/docs/' ||
     pathname.startsWith('/docs/') ||
     pathname === '/developers' ||
     pathname === '/developers/' ||
-    pathname.startsWith('/developers/')
+    pathname.startsWith('/developers/') ||
+    pathname === '/faq' ||
+    pathname === '/duress_pin' ||
+    pathname === '/slip39'
 
   if (shouldBypassI18n) {
     return NextResponse.next()

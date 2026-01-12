@@ -35,6 +35,7 @@ const config = {
     ],
   },
   transpilePackages: ['next-mdx-remote'],
+  skipTrailingSlashRedirect: true,
 
   async redirects() {
     return [
@@ -147,22 +148,37 @@ const config = {
       },
       {
         source: '/start',
-        destination: '/start/shell',
+        destination: '/en/start/shell',
+        permanent: true,
+      },
+      {
+        source: '/start/:path*',
+        destination: '/en/start/:path*',
+        permanent: true,
+      },
+      {
+        source: '/help',
+        destination: '/en/help/about-keycard-and-keycard-shell',
+        permanent: true,
+      },
+      {
+        source: '/help/:path*',
+        destination: '/en/help/:path*',
         permanent: true,
       },
       {
         source: '/faq',
-        destination: '/help/faq',
+        destination: '/en/help/faq',
         permanent: true,
       },
       {
         source: '/duress_pin',
-        destination: '/help/about-your-keycard-pin-and-duress-pin',
+        destination: '/en/help/about-your-keycard-pin-and-duress-pin',
         permanent: true,
       },
       {
         source: '/slip39',
-        destination: '/help/understand-the-slip-39-wallet-backup-standard',
+        destination: '/en/help/understand-the-slip-39-wallet-backup-standard',
         permanent: true,
       },
     ]
