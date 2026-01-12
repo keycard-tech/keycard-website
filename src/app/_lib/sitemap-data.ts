@@ -130,6 +130,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // 2) Docs from filesystem
   const urls: MetadataRoute.Sitemap = [...staticRoutes, ...legalRoutes]
 
+  const isRedirectOnlyUrl = (url: string) => {
+    try {
+      const pathname = new URL(url).pathname
+      return /^\/[^/]+\/help\/?$/.test(pathname)
+    } catch {
+      return false
+    }
+  }
+
   async function walk(
     dir: string,
     basePath: string,
@@ -199,5 +208,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
   )
 
-  return [...urls, ...blogEntries]
+  const filteredUrls = urls.filter(entry => !isRedirectOnlyUrl(entry.url))
+
+  return [...filteredUrls, ...blogEntries]
 }
