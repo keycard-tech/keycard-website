@@ -121,6 +121,14 @@ const LEGACY_TESTS = [
     to: '/en/help/about-keycard-and-keycard-shell',
   },
   {
+    from: '/en/help',
+    to: '/en/help/about-keycard-and-keycard-shell',
+  },
+  {
+    from: '/en/help/',
+    to: '/en/help/about-keycard-and-keycard-shell',
+  },
+  {
     from: '/help/faq',
     to: '/en/help/faq',
   },
