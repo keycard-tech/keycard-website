@@ -74,6 +74,24 @@ export default function middleware(request: NextRequest) {
     return NextResponse.redirect(targetUrl, { status: 308 })
   }
 
+  const shouldBypassI18n =
+    pathname === '/' ||
+    pathname === '/about-us' ||
+    pathname === '/about-us/' ||
+    pathname === '/blog' ||
+    pathname === '/blog/' ||
+    pathname.startsWith('/blog/') ||
+    pathname === '/docs' ||
+    pathname === '/docs/' ||
+    pathname.startsWith('/docs/') ||
+    pathname === '/developers' ||
+    pathname === '/developers/' ||
+    pathname.startsWith('/developers/')
+
+  if (shouldBypassI18n) {
+    return NextResponse.next()
+  }
+
   // Get the hash fragment from the original URL
   const hash = request.url.split('#')[1]
 

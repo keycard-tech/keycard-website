@@ -1,5 +1,5 @@
 import { buildLocalizedPath, resolveLocale } from '~/app/_utils/metadata'
-import { redirect } from 'next/navigation'
+import { permanentRedirect } from 'next/navigation'
 
 type Props = {
   params: Promise<{ locale: string }>
@@ -7,7 +7,7 @@ type Props = {
 
 export default async function DevelopersPage({ params }: Props) {
   const { locale } = await params
-  return redirect(
+  return permanentRedirect(
     buildLocalizedPath(resolveLocale(locale), '/developers/overview'),
   )
 }

@@ -91,18 +91,53 @@ const config = {
         permanent: true,
       },
       {
-        source: '/start',
-        destination: '/start/shell',
+        source: '/',
+        destination: '/en',
+        permanent: true,
+      },
+      {
+        source: '/blog',
+        destination: '/en/blog',
+        permanent: true,
+      },
+      {
+        source: '/blog/:path*',
+        destination: '/en/blog/:path*',
+        permanent: true,
+      },
+      {
+        source: '/developers',
+        destination: '/en/developers/overview',
+        permanent: true,
+      },
+      {
+        source: '/developers/:path*',
+        destination: '/en/developers/:path*',
         permanent: true,
       },
       {
         source: '/docs',
-        destination: '/developers/overview',
+        destination: '/en/developers/overview',
         permanent: true,
       },
       {
         source: '/docs/:path*',
-        destination: '/developers/:path*',
+        destination: '/en/developers/:path*',
+        permanent: true,
+      },
+      {
+        source: '/about-us',
+        destination: '/en/about',
+        permanent: true,
+      },
+      {
+        source: '/en/developers',
+        destination: '/en/developers/overview',
+        permanent: true,
+      },
+      {
+        source: '/start',
+        destination: '/start/shell',
         permanent: true,
       },
       {
