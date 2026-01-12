@@ -114,7 +114,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       now,
     ),
     ...addLocalizedRoutes(
-      ['/developers'],
+      ['/developers/overview'],
       developerLocaleList,
       'weekly' as const,
       0.8,
