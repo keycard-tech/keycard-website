@@ -19,6 +19,30 @@ const NON_ENGLISH_LOCALES_REGEX =
 export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
+  // Redirect legacy .html URLs to canonical routes (permanent, single-hop).
+  if (pathname.endsWith('.html')) {
+    let destination: string | null = null
+
+    if (pathname === '/index.html') {
+      destination = '/en'
+    } else if (pathname === '/about-us/index.html') {
+      destination = '/en/about'
+    } else if (pathname.startsWith('/docs/')) {
+      const withoutPrefix = pathname.replace(/^\/docs/, '')
+      const withoutHtml = withoutPrefix.replace(/\.html$/, '')
+      destination = `/en/developers${withoutHtml}`
+    } else if (pathname.startsWith('/developers/')) {
+      const withoutHtml = pathname.replace(/\.html$/, '')
+      destination = `/en${withoutHtml}`
+    }
+
+    if (destination) {
+      const targetUrl = request.nextUrl.clone()
+      targetUrl.pathname = destination
+      return NextResponse.redirect(targetUrl, { status: 308 })
+    }
+  }
+
   // Handle legal page redirects for SEO canonicalization
   // Legal pages should only be accessible at /en/legal/* (English-only)
   if (pathname === '/legal' || pathname.startsWith('/legal/')) {
@@ -74,6 +98,6 @@ export const config = {
   // - API routes (/api/*)
   // - _next (Next.js internals)
   // - _static (inside /public)
-  // - files with extensions (e.g. favicon.ico)
-  matcher: '/((?!api|_next|_static|.*\\..*).*)',
+  // - files with extensions (e.g. favicon.ico), but allow .html for legacy redirects
+  matcher: '/((?!api|_next|_static|.*\\.(?!html$)).*)',
 }
