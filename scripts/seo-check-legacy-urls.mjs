@@ -37,6 +37,10 @@ const LEGACY_TESTS = [
     to: '/en/about',
   },
   {
+    from: '/about-us/',
+    to: '/en/about',
+  },
+  {
     from: '/index.html',
     to: '/en',
   },
@@ -49,7 +53,15 @@ const LEGACY_TESTS = [
     to: '/en/blog',
   },
   {
+    from: '/blog/',
+    to: '/en/blog',
+  },
+  {
     from: '/developers',
+    to: '/en/developers/overview',
+  },
+  {
+    from: '/developers/',
     to: '/en/developers/overview',
   },
   {
@@ -61,6 +73,10 @@ const LEGACY_TESTS = [
     to: '/en/developers/overview',
   },
   {
+    from: '/docs/',
+    to: '/en/developers/overview',
+  },
+  {
     from: '/docs/overview',
     to: '/en/developers/overview',
   },
@@ -69,8 +85,56 @@ const LEGACY_TESTS = [
     to: '/en/developers/apdu',
   },
   {
+    from: '/docs/apdu/',
+    to: '/en/developers/apdu',
+  },
+  {
     from: '/docs/sdk',
     to: '/en/developers/sdk',
+  },
+  {
+    from: '/docs/sdk/',
+    to: '/en/developers/sdk',
+  },
+  {
+    from: '/start',
+    to: '/en/start/shell',
+  },
+  {
+    from: '/start/',
+    to: '/en/start/shell',
+  },
+  {
+    from: '/start/shell',
+    to: '/en/start/shell',
+  },
+  {
+    from: '/start/keycard',
+    to: '/en/start/keycard',
+  },
+  {
+    from: '/help',
+    to: '/en/help/about-keycard-and-keycard-shell',
+  },
+  {
+    from: '/help/',
+    to: '/en/help/about-keycard-and-keycard-shell',
+  },
+  {
+    from: '/help/faq',
+    to: '/en/help/faq',
+  },
+  {
+    from: '/faq',
+    to: '/en/help/faq',
+  },
+  {
+    from: '/duress_pin',
+    to: '/en/help/about-your-keycard-pin-and-duress-pin',
+  },
+  {
+    from: '/slip39',
+    to: '/en/help/understand-the-slip-39-wallet-backup-standard',
   },
   {
     from: '/docs/apdu/opensecurechannel.html?ref=our.status.im',
