@@ -111,6 +111,11 @@ const config = {
         permanent: true,
       },
       {
+        source: '/developers/:path*.html',
+        destination: '/en/developers/:path*',
+        permanent: true,
+      },
+      {
         source: '/developers/:path*',
         destination: '/en/developers/:path*',
         permanent: true,
@@ -118,6 +123,11 @@ const config = {
       {
         source: '/docs',
         destination: '/en/developers/overview',
+        permanent: true,
+      },
+      {
+        source: '/docs/:path*.html',
+        destination: '/en/developers/:path*',
         permanent: true,
       },
       {
