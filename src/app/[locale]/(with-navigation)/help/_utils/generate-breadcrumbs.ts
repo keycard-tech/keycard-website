@@ -18,7 +18,7 @@ export const generateBreadcrumbs = (
   const breadcrumbs: Breadcrumb[] = [
     {
       label: 'Help',
-      href: '/help',
+      href: '/help/about-keycard-and-keycard-shell',
     },
   ]
 
