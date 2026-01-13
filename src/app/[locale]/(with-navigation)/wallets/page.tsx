@@ -105,6 +105,13 @@ const WALLETS: Wallet[] = [
     setupGuideUrl: '/help/connect-keycard-shell-to-a-wallet-app',
   },
   {
+    name: 'Cove',
+    icon: { url: '/assets/wallets/cove.png', width: 100, height: 100 },
+    type: ['Shell'],
+    blockchains: ['Bitcoin'],
+    setupGuideUrl: '/help/connect-keycard-shell-to-a-wallet-app',
+  },
+  {
     name: 'Bull Bitcoin',
     icon: { url: '/assets/wallets/bullbitcoin.png', width: 100, height: 100 },
     type: ['Shell'],

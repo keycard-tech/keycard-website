@@ -75,6 +75,10 @@ const features = [
         image: '/assets/keycard-shell/wallets/specter.png',
       },
       {
+        name: 'Cove',
+        image: '/assets/keycard-shell/wallets/cove.png',
+      },
+      {
         name: 'Blue',
         image: '/assets/keycard-shell/wallets/blue.png',
       },

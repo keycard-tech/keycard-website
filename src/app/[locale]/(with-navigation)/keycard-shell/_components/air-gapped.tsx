@@ -32,6 +32,11 @@ const WALLETS = [
     image: '/assets/keycard-shell/wallets/blue.png',
   },
   {
+    name: 'Cove',
+    network: 'Bitcoin',
+    image: '/assets/keycard-shell/wallets/cove.png',
+  },
+  {
     name: 'Sparrow',
     network: 'Bitcoin',
     image: '/assets/keycard-shell/wallets/sparrow.png',
@@ -44,6 +49,8 @@ const WALLETS = [
 ]
 
 const AirGapped = () => {
+  const lastRowSize = WALLETS.length % 2 === 0 ? 2 : 1
+
   return (
     <section className="relative -order-1 grid items-center overflow-y-clip px-3 pb-[498px] pt-[120px] lg:mb-[100px] lg:grid-cols-2 lg:pb-[100px]">
       <div className="relative order-last lg:order-first">
@@ -73,25 +80,36 @@ const AirGapped = () => {
             TRANSACTION SIGNING WITH
           </div>
           <div className="grid grid-cols-2">
-            {WALLETS.map((wallet, index) => (
-              <div
-                key={index}
-                className="flex items-center space-x-3 border-b border-dashed border-white-20 py-3 even:border-l even:border-white-20 even:pl-3 [&:nth-child(-n+2)]:pt-0 [&:nth-last-child(-n+2)]:border-b-0 [&:nth-last-child(-n+2)]:pb-0"
-              >
-                <div className="flex size-10 items-center justify-center rounded-28 bg-dark-60">
-                  <Image
-                    src={wallet.image}
-                    alt={`${wallet.name} icon`}
-                    height={40}
-                    width={40}
-                  />
+            {WALLETS.map((wallet, index) => {
+              const isFirstRow = index < 2
+              const isLastRow = index >= WALLETS.length - lastRowSize
+              const itemClassName = [
+                'flex items-center space-x-3 border-b border-dashed border-white-20 py-3 even:border-l even:border-white-20 even:pl-3',
+                isFirstRow ? 'pt-0' : null,
+                isLastRow ? 'border-b-0 pb-0' : null,
+              ]
+                .filter(Boolean)
+                .join(' ')
+
+              return (
+                <div key={index} className={itemClassName}>
+                  <div className="flex size-10 items-center justify-center rounded-28 bg-dark-60">
+                    <Image
+                      src={wallet.image}
+                      alt={`${wallet.name} icon`}
+                      height={40}
+                      width={40}
+                    />
+                  </div>
+                  <div>
+                    <div className="font-500">{wallet.name}</div>
+                    <div className="text-16 text-white-80">
+                      {wallet.network}
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <div className="font-500">{wallet.name}</div>
-                  <div className="text-16 text-white-80">{wallet.network}</div>
-                </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </div>
