@@ -45,7 +45,7 @@ export const getNavBarLinks = (locale: string): NavBarLink[] => [
     label: 'Keycard',
     subItems: [
       { href: '/start/keycard', label: 'Start guide' },
-      { href: '/help', label: 'Help' },
+      { href: '/help/about-keycard-and-keycard-shell', label: 'Help' },
       { href: '/help/faq', label: 'FAQ' },
     ],
   },
@@ -54,7 +54,7 @@ export const getNavBarLinks = (locale: string): NavBarLink[] => [
     label: 'Keycard Shell',
     subItems: [
       { href: '/start/shell', label: 'Start guide' },
-      { href: '/help', label: 'Help' },
+      { href: '/help/about-keycard-and-keycard-shell', label: 'Help' },
       { href: '/help/faq', label: 'FAQ' },
       {
         href: 'https://shell.keycard.tech/verify/',
