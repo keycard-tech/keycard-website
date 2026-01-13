@@ -75,12 +75,28 @@ const features = [
         image: '/assets/keycard-shell/wallets/specter.png',
       },
       {
+        name: 'Nunchuk',
+        image: '/assets/keycard-shell/wallets/nunchuk.png',
+      },
+      {
         name: 'Cove',
         image: '/assets/keycard-shell/wallets/cove.png',
       },
       {
         name: 'Blue',
         image: '/assets/keycard-shell/wallets/blue.png',
+      },
+      {
+        name: 'Bitcoin Safe',
+        image: '/assets/keycard-shell/wallets/bitcoin-safe.png',
+      },
+      {
+        name: 'Bull Bitcoin',
+        image: '/assets/keycard-shell/wallets/bullbitcoin.png',
+      },
+      {
+        name: 'Bitget',
+        image: '/assets/keycard-shell/wallets/bitget.png',
       },
     ],
   },
@@ -122,7 +138,7 @@ const FeaturesGrid = () => {
 
                 {feature.badge && <Tag>{feature.badge.text}</Tag>}
                 {feature.icons && (
-                  <div className="flex items-center gap-3">
+                  <div className="flex flex-wrap items-center gap-3">
                     {feature.icons?.map((icon, index) => (
                       <Tooltip key={index} label={icon.name}>
                         <Image
