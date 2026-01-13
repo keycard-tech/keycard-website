@@ -43,13 +43,21 @@ const mapLegacyPath = (path: string) => {
 
 export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
+  const firstSegment = pathname.split('/')[1]
+  const isLocalePath = SUPPORTED_LOCALES.some(locale => locale === firstSegment)
+
+  if (
+    isLocalePath &&
+    (pathname === `/${firstSegment}/help` ||
+      pathname === `/${firstSegment}/help/`)
+  ) {
+    const targetUrl = request.nextUrl.clone()
+    targetUrl.pathname = `/${firstSegment}/help/about-keycard-and-keycard-shell`
+    return NextResponse.redirect(targetUrl, { status: 308 })
+  }
 
   if (pathname.length > 1 && pathname.endsWith('/')) {
     const trimmed = pathname.replace(/\/+$/, '')
-    const firstSegment = trimmed.split('/')[1]
-    const isLocalePath = SUPPORTED_LOCALES.some(
-      locale => locale === firstSegment,
-    )
 
     const destination =
       (!isLocalePath && mapLegacyPath(trimmed)) || trimmed || '/'
