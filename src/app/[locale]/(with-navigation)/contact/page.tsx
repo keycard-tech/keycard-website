@@ -98,7 +98,7 @@ export default async function ContactPage() {
             {t('contact.get_involved.description.translation')}
           </p>
           <div className="mt-3 flex flex-col gap-2">
-            <Link className="underline" href="/docs/overview">
+            <Link className="underline" href="/developers/overview">
               {t('contact.get_involved.docs_link.translation')}
             </Link>
             <Link className="underline" href="/blog">
