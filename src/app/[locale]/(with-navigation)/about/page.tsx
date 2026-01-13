@@ -84,7 +84,7 @@ const PARTNERS = [
   },
   {
     name: 'Docs',
-    href: 'https://keycard.tech/docs',
+    href: 'https://keycard.tech/en/developers/overview',
   },
 ]
 
@@ -322,7 +322,7 @@ export default async function AboutPage() {
 
       <div className="mt-10 flex flex-wrap gap-3">
         <Link
-          href="/docs/overview"
+          href="/developers/overview"
           className="rounded-12 border border-white-20 px-4 py-2 text-white-95"
         >
           Read the docs

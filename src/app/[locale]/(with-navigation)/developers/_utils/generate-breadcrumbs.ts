@@ -12,7 +12,7 @@ export const generateBreadcrumbs = (
   const breadcrumbs: Breadcrumb[] = [
     {
       label: 'Developers',
-      href: '/developers',
+      href: '/developers/overview',
     },
   ]
 
