@@ -7,15 +7,16 @@ type Props = {
     label: string
     href: string
   }>
+  action?: React.ReactNode
 }
 
 const Breadcrumbs = (props: Props) => {
-  const { items } = props
+  const { items, action } = props
 
   return (
     <div className="mx-[-8px] border-y border-white-12 px-5 py-3 lg:px-8">
-      <div className="flex items-center gap-2">
-        <div className="flex items-center gap-2 overflow-x-scroll whitespace-nowrap scrollbar-none">
+      <div className="flex items-center gap-3">
+        <div className="flex min-w-0 flex-1 items-center gap-2 overflow-x-scroll whitespace-nowrap scrollbar-none">
           {items.map((item, index) => {
             if (index === items.length - 1) {
               return (
@@ -43,6 +44,7 @@ const Breadcrumbs = (props: Props) => {
             )
           })}
         </div>
+        {action && <div className="shrink-0">{action}</div>}
       </div>
     </div>
   )
