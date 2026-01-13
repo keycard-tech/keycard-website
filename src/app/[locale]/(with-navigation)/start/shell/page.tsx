@@ -13,12 +13,12 @@ const STEPS = [
   {
     title: '1. Prepare devices',
     description:
-      'Inside the box, there are two Keycards and one Keycard Shell. Make sure the security sticker at the opening is intact to ensure the devices are not tampered with.',
+      'Inside the box, there is one Shell and two Keycards.',
     subSteps: [
       {
         title: 'a. Open back cover',
         description:
-          'Gently press the back cover and slide it downward to remove.',
+          'Gently press the back cover on its upper part and slide it downward to remove.',
         image: {
           src: '/assets/start/part-1-a.png',
           width: 280,
@@ -28,7 +28,7 @@ const STEPS = [
       {
         title: 'b. Insert battery',
         description:
-          'Insert the battery into the slot. Slide the back cover upward to close.',
+          'Insert the battery into its slot. Slide the back cover upward to close.',
         image: {
           src: '/assets/start/part-1-b.png',
           width: 280,
@@ -48,7 +48,7 @@ const STEPS = [
     ],
     secondaryDescription: (
       <>
-        If the screen stays off, charge the Shell with a USB-C cable and try
+        If the screen stays off, first make sure your card is pushed all the way. If it is, charge the Shell with a USB-C cable and try
         again later. Check out{' '}
         <Link className="underline" href="/help/faq">
           FAQ
@@ -60,7 +60,7 @@ const STEPS = [
   {
     title: '2. Create PIN',
     description:
-      'If the Shell prompts you to create a PIN, it means your Keycard is new, uninitialized, and contains no existing data.',
+      'If Shell prompts you to create a PIN, it means your Keycard is new, uninitialized, and contains no existing secrets.',
     subSteps: [
       {
         title: 'a. Create Keycard PIN',
@@ -177,7 +177,7 @@ const STEPS = [
     description: (
       <>
         Verification checks that your Shell is authentic and runs a verified
-        firmware. You need your phone or computer to complete this process.
+        firmware. You need your phone or a computer with a camera to complete this process.
         Check out{' '}
         <Link className="underline" href="https://shell.keycard.tech/verify/">
           Verify your Shell Authenticity
@@ -229,26 +229,26 @@ const STEPS = [
     ),
   },
   {
-    title: '5. Connect to wallet app',
+    title: '5. Connect to a software wallet',
     description: (
       <>
-        Connect the Keycard to a{' '}
+        Connect Shell to a{' '}
         <Link className="underline" href="/developers/supported-wallets">
-          wallet app
+          software wallet
         </Link>{' '}
         and use it as an interface for managing funds. Check out{' '}
         <Link
           className="underline"
-          href="/help/connect-keycard-shell-to-a-wallet-app"
+          href="/wallets/"
         >
-          Connect Keycard and Shell to a wallet app
+          Connect Keycard and Shell to a software wallet
         </Link>{' '}
         for more info.
       </>
     ),
     subSteps: [
       {
-        title: 'a. Set up in a wallet app',
+        title: 'a. Set up in a software wallet',
         description:
           'In your software wallet, select the option to add a hardware wallet. Tap "Continue" and follow instruction.',
         image: {
@@ -270,7 +270,7 @@ const STEPS = [
       {
         title: 'c. Select the accounts to connect',
         description:
-          'In your wallet app, select the Keycard accounts and set up.',
+          'In your software wallet, select the Keycard accounts and set up.',
         image: {
           src: '/assets/start/part-5-c.png',
           width: 280,
@@ -281,9 +281,9 @@ const STEPS = [
     secondaryDescription: (
       <>
         If you don&apos;t see &quot;Keycard&quot; or &quot;Shell&quot; listed in
-        your wallet app, they may still be compatible. Check out{' '}
-        <Link className="underline" href="/developers/supported-wallets">
-          Wallet Apps Compatible with Keycard Shell
+        your software wallet, they may still be compatible. Check out a list of{' '}
+        <Link className="underline" href="/wallets/">
+          compatible software wallets
         </Link>{' '}
         for the full list.
       </>
