@@ -4,6 +4,7 @@ import * as Accordion from '@radix-ui/react-accordion'
 import { ChevronRightIcon } from '@status-im/icons/20'
 import { SUPPORTED_LOCALES } from '~/i18n/constants'
 import { Link } from '~components/link'
+import { cx } from 'cva'
 import { usePathname } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
 import { decodeUriComponent } from './_utils/decode-uri-component'
@@ -16,9 +17,11 @@ interface SidenavItem {
 
 interface SidenavProps {
   items: SidenavItem[]
+  className?: string
+  onNavigate?: () => void
 }
 
-const Sidenav: React.FC<SidenavProps> = ({ items }) => {
+const Sidenav: React.FC<SidenavProps> = ({ items, className, onNavigate }) => {
   const [label, setLabel] = useState<string>()
   const pathname = usePathname()
   const normalizedPathname = useMemo(() => {
@@ -52,7 +55,12 @@ const Sidenav: React.FC<SidenavProps> = ({ items }) => {
   }, [normalizedPathname, items])
 
   return (
-    <nav className="flex w-[255px] flex-col items-start justify-start border-r border-white-12 p-6">
+    <nav
+      className={cx(
+        'flex w-[255px] flex-col items-start justify-start border-r border-white-12 p-6',
+        className,
+      )}
+    >
       <Accordion.Root
         type="single"
         collapsible
@@ -62,7 +70,13 @@ const Sidenav: React.FC<SidenavProps> = ({ items }) => {
       >
         {items.map(item => {
           if (item.subItems) {
-            return <SidenavItem key={item.link || item.title} {...item} />
+            return (
+              <SidenavItem
+                key={item.link || item.title}
+                onNavigate={onNavigate}
+                {...item}
+              />
+            )
           }
 
           return (
@@ -72,7 +86,10 @@ const Sidenav: React.FC<SidenavProps> = ({ items }) => {
                   href={item.link}
                   className="block pl-[22px] text-16 font-500 text-white-95 transition-colors hover:text-white-60 aria-[current=true]:text-orange hover:aria-[current=true]:text-orange-dark"
                   aria-current={normalizedPathname === item.link}
-                  onClick={() => setLabel(undefined)}
+                  onClick={() => {
+                    setLabel(undefined)
+                    onNavigate?.()
+                  }}
                 >
                   {item.title}
                 </Link>
@@ -93,10 +110,11 @@ type SidenavItemProps = {
   title: string
   link?: string
   subItems?: SidenavItem[]
+  onNavigate?: () => void
 }
 
 const SidenavItem = (props: SidenavItemProps) => {
-  const { title, link, subItems } = props
+  const { title, link, subItems, onNavigate } = props
   const pathname = usePathname()
   const normalizedPathname = useMemo(() => {
     const decoded = decodeUriComponent(pathname)
@@ -123,6 +141,7 @@ const SidenavItem = (props: SidenavItemProps) => {
                 href={link}
                 className="group flex items-center gap-0.5 font-500 text-white-95 transition-colors hover:text-white-60 aria-[current=true]:text-orange hover:aria-[current=true]:text-orange-dark"
                 aria-current={normalizedPathname === link}
+                onClick={onNavigate}
               >
                 <div className="transition-transform group-aria-expanded:rotate-90">
                   <ChevronRightIcon />
@@ -154,6 +173,7 @@ const SidenavItem = (props: SidenavItemProps) => {
                         href={subItem.link}
                         className="block text-14 font-500 text-white-95 transition-colors hover:text-white-60 aria-[current=true]:text-orange hover:aria-[current=true]:text-orange-dark"
                         aria-current={normalizedPathname === subItem.link}
+                        onClick={onNavigate}
                       >
                         {subItem.title}
                       </Link>
