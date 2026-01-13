@@ -41,6 +41,12 @@ const mapLegacyPath = (path: string) => {
   return null
 }
 
+const buildRedirectUrl = (request: NextRequest, pathname: string) => {
+  const url = new URL(request.url)
+  url.pathname = pathname
+  return url
+}
+
 export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
   const firstSegment = pathname.split('/')[1]
@@ -51,9 +57,10 @@ export default function middleware(request: NextRequest) {
     (pathname === `/${firstSegment}/help` ||
       pathname === `/${firstSegment}/help/`)
   ) {
-    const targetUrl = request.nextUrl.clone()
-    targetUrl.pathname = `/${firstSegment}/help/about-keycard-and-keycard-shell`
-    return NextResponse.redirect(targetUrl, { status: 308 })
+    const destination = `/${firstSegment}/help/about-keycard-and-keycard-shell`
+    return NextResponse.redirect(buildRedirectUrl(request, destination), {
+      status: 308,
+    })
   }
 
   if (pathname.length > 1 && pathname.endsWith('/')) {
@@ -63,9 +70,9 @@ export default function middleware(request: NextRequest) {
       (!isLocalePath && mapLegacyPath(trimmed)) || trimmed || '/'
 
     if (destination) {
-      const targetUrl = request.nextUrl.clone()
-      targetUrl.pathname = destination
-      return NextResponse.redirect(targetUrl, { status: 308 })
+      return NextResponse.redirect(buildRedirectUrl(request, destination), {
+        status: 308,
+      })
     }
   }
 
@@ -87,9 +94,9 @@ export default function middleware(request: NextRequest) {
     }
 
     if (destination) {
-      const targetUrl = request.nextUrl.clone()
-      targetUrl.pathname = destination
-      return NextResponse.redirect(targetUrl, { status: 308 })
+      return NextResponse.redirect(buildRedirectUrl(request, destination), {
+        status: 308,
+      })
     }
   }
 
@@ -102,10 +109,9 @@ export default function middleware(request: NextRequest) {
     const canonicalPath = legalPath.replace(/\/+$/, '')
 
     // Preserve query params and hash by cloning nextUrl (Next.js idiom)
-    const targetUrl = request.nextUrl.clone()
-    targetUrl.pathname = canonicalPath
-
-    return NextResponse.redirect(targetUrl, { status: 308 })
+    return NextResponse.redirect(buildRedirectUrl(request, canonicalPath), {
+      status: 308,
+    })
   }
 
   // Redirect non-English legal locales to English canonical URLs
@@ -118,10 +124,9 @@ export default function middleware(request: NextRequest) {
     const canonicalPath = `/en/legal${legalPath}`.replace(/\/+$/, '')
 
     // Preserve query params and hash by cloning nextUrl (Next.js idiom)
-    const targetUrl = request.nextUrl.clone()
-    targetUrl.pathname = canonicalPath
-
-    return NextResponse.redirect(targetUrl, { status: 308 })
+    return NextResponse.redirect(buildRedirectUrl(request, canonicalPath), {
+      status: 308,
+    })
   }
 
   const shouldBypassI18n =
