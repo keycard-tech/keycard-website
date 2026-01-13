@@ -17,6 +17,8 @@ type Props = {
   title: string
   triggerLabel?: string
   className?: string
+  compact?: boolean
+  ariaLabel?: string
 }
 
 const DocsNavDrawer = ({
@@ -24,14 +26,21 @@ const DocsNavDrawer = ({
   title,
   triggerLabel = 'Browse',
   className,
+  compact = false,
+  ariaLabel,
 }: Props) => {
   const [open, setOpen] = useState(false)
+  const shouldShowLabel = triggerLabel.trim().length > 0
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger asChild>
-        <Button variant="secondary" className={`gap-2 ${className ?? ''}`}>
-          {triggerLabel}
+        <Button
+          variant="secondary"
+          className={`${compact ? 'size-8 justify-center px-0' : 'gap-2'} ${className ?? ''}`}
+          aria-label={ariaLabel ?? triggerLabel}
+        >
+          {shouldShowLabel && triggerLabel}
           <ChevronDownIcon
             className={`transition-transform ${open ? 'rotate-180' : ''}`}
           />

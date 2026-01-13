@@ -8,10 +8,11 @@ type Props = {
     href: string
   }>
   action?: React.ReactNode
+  actionPlacement?: 'inline' | 'right'
 }
 
 const Breadcrumbs = (props: Props) => {
-  const { items, action } = props
+  const { items, action, actionPlacement = 'right' } = props
 
   return (
     <div className="mx-[-8px] border-y border-white-12 px-5 py-3 lg:px-8">
@@ -22,9 +23,12 @@ const Breadcrumbs = (props: Props) => {
               return (
                 <div
                   key={item.label + index}
-                  className="text-16 font-500 text-white-60"
+                  className="flex items-center gap-2 text-16 font-500 text-white-60"
                 >
-                  {item.label}
+                  <span>{item.label}</span>
+                  {action && actionPlacement === 'inline' && (
+                    <span className="shrink-0">{action}</span>
+                  )}
                 </div>
               )
             }
@@ -44,7 +48,9 @@ const Breadcrumbs = (props: Props) => {
             )
           })}
         </div>
-        {action && <div className="shrink-0">{action}</div>}
+        {action && actionPlacement === 'right' && (
+          <div className="shrink-0">{action}</div>
+        )}
       </div>
     </div>
   )

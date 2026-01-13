@@ -152,11 +152,14 @@ const Page = async (props: Props) => {
     <div>
       <Breadcrumbs
         items={breadcrumbs}
+        actionPlacement="inline"
         action={
           <DocsNavDrawer
             items={config}
             title="Help center"
-            triggerLabel="Browse"
+            triggerLabel=""
+            ariaLabel="Browse help articles"
+            compact
             className="lg:hidden"
           />
         }
