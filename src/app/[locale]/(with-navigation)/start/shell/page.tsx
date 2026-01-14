@@ -97,7 +97,7 @@ const STEPS = [
     ),
   },
   {
-    title: '3-I. Generate new key pair',
+    title: '3-I. Generate a new key pair',
     description:
       'If you want to begin with new addresses, select Generate new key pair on Shell.',
     subSteps: [
@@ -232,16 +232,16 @@ const STEPS = [
     title: '5. Connect to a software wallet',
     description: (
       <>
-        Connect Shell to a{' '}
-        <Link className="underline" href="/developers/supported-wallets">
+        Connect Shell to a compatible{' '}
+        <Link className="underline" href="/wallets">
           software wallet
         </Link>{' '}
         and use it as an interface for managing funds. Check out{' '}
         <Link
           className="underline"
-          href="/wallets/"
+          href="/help/connect-keycard-shell-to-a-wallet-app"
         >
-          Connect Keycard and Shell to a software wallet
+         this article
         </Link>{' '}
         for more info.
       </>
