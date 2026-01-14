@@ -33,7 +33,7 @@ Key features:
 - **Air-gapped operation**: [Sign transactions](./sign-a-transaction-using-keycard-shell) via QR codes, keeping your private keys offline
 - **SLIP39 support**: [Generate and restore wallets](./set-up-your-keycard-with-keycard-shell#step-2-add-a-master-key-pair) using SLIP39 recovery phrases
 - **Keycard management**: [Change PIN](./change-your-keycard-pin-or-duress-pin), [unblock](./unblock-your-keycard-using-keycard-shell), and [factory reset](./factory-reset-your-keycard-using-keycard-shell) your Keycard
-- **Open source**: Firmware and hardware are open source. Advanced users can [build a DIY Keycard Shell](./diy-keycard-shell).
+- **Open source**: Firmware and hardware are open source. Advanced users can [build a DIY Keycard Shell](/developers/diy-keycard-shell).
 
 <Admonition type="note">
     Keycard and Keycard Shell are deliberately air-gapped and have no connection to the blockchain. The software wallet you use with Keycard or Keycard Shell constructs the complete transaction and only asks the hardware to sign it, keeping your private keys offline.
@@ -55,7 +55,7 @@ Keycard and Keycard Shell must work together with a software wallet to manage yo
         <TableRow>
             <TableCell>Secure private keys</TableCell>
             <TableCell>✅ (Secure element)</TableCell>
-            <TableCell>🔗 (Only with inserted Keycard)</TableCell>
+            <TableCell>🔗 (With inserted Keycard)</TableCell>
             <TableCell>❌ (Keys stay on Keycard)</TableCell>
         </TableRow>
 
