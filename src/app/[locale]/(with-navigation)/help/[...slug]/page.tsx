@@ -1,6 +1,7 @@
 import fs from 'fs/promises'
 import path from 'path'
 import { Breadcrumbs } from '~/app/_components/docs/breadcrumbs'
+import { DocsNavDrawer } from '~/app/_components/docs/docs-nav-drawer'
 import { Metadata } from '~/app/_metadata'
 import { formatDate } from '~/app/_utils/format-date'
 import { buildLocaleAlternates } from '~/app/_utils/metadata'
@@ -149,7 +150,20 @@ const Page = async (props: Props) => {
 
   return (
     <div>
-      <Breadcrumbs items={breadcrumbs} />
+      <Breadcrumbs
+        items={breadcrumbs}
+        actionPlacement="inline"
+        action={
+          <DocsNavDrawer
+            items={config}
+            title="Help center"
+            triggerLabel=""
+            ariaLabel="Browse help articles"
+            compact
+            className="lg:hidden"
+          />
+        }
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
