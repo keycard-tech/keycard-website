@@ -9,74 +9,76 @@ title: Keycard and Keycard Shell FAQ
 
 - **What is the difference between Keycard and Keycard Shell?**
 
-Keycard stores your private keys. Shell is a companion device that lets you interact with software wallets and sign transactions via QR codes. Learn more: [About Keycard and Shell](./about-keycard-and-keycard-shell).
+Keycard is a hardware wallet that securely stores the private keys of your crypto. Keycard Shell is a companion device for interacting with software wallets and signing transactions through QR codes. Check out [About Keycard and Keycard Shell](./about-keycard-and-keycard-shell) to learn more.
 
-- **Can Keycard and Shell work independently?**
+- **Can Keycard and Keycard Shell work independently?**
 
-Yes, you can use Keycard without Shell via [Status app ↗](https://status.app/help/keycard/create-a-status-wallet-account-using-a-keycard) or other [compatible wallets](/wallets). Keycard connects to mobile wallets via NFC and desktop wallets via USB smart card reader.
+You can use Keycard without Keycard Shell, if you [use your Keycard along with the Status app ↗](https://status.app/help/keycard/create-a-status-wallet-account-using-a-keycard) or any [compatible wallets](./wallets). Keycard connects to mobile software wallets via NFC and to desktop software wallets via a USB smart card reader.
 
-No, Shell requires Keycard to function.
+You can't use Keycard Shell without Keycard.
 
-- **How many Keycards can I use with one Shell?**
+- **How many Keycards can I use with one Keycard Shell device?**
 
-Unlimited. You can share one Shell with friends and family because it doesn't store private keys or sensitive information.
+You can use an unlimited number of Keycards with one Keycard Shell. 
 
-- **Which blockchains do Keycard and Shell support?**
+You can also share one Keycard Shell device with your friends and family to use with their own Keycards, because Keycard Shell doesn't store private keys or sensitive information.
 
-Ethereum, all EVM-based blockchains, and Bitcoin. We're actively working on supporting more blockchains. 
+- **Which blockchains do Keycard and Keycard Shell support?**
+
+Keycard and Keycard Shell supports Ethereum, all EVM based blockchains and Bitcoin. We are working on support of more blockchain actively. 
 
 - **Is there a bitcoin-only mode?**
 
-No separate firmware. Use Shell with Bitcoin-only wallets (PSBT over QR/UR or USB) and avoid Ethereum features. Advanced users can compile custom firmware that omits ETH data. See [Shell internals](/developers/keycard-shell).
+There is no separate bitcoin-only firmware. You can use Keycard Shell with Bitcoin-only wallets (PSBT over QR/UR or USB) and simply avoid Ethereum features. Advanced builders can compile a custom firmware or database that omits ETH data. See [Keycard Shell internals](/developers/keycard-shell) for details.
 
 - **How many wallets can I use on one Keycard?**
 
-Your Keycard stores one master key from a [BIP39 or SLIP39](./understand-the-slip-39-wallet-backup-standard) recovery phrase. This generates unlimited Ethereum and Bitcoin addresses ([BIP32 standard ↗](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki)).
+Your Keycard stores one master key, created from a [BIP39 or SLIP39](./understand-the-slip-39-wallet-backup-standard) recovery phrase. This master key can generate as many Ethereum and Bitcoin wallet addresses as you need (according to the [BIP32 standard ↗](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki)).
 
-- **Can I use Keycard or Shell without a software wallet?**
+- **Can I use my Keycard or Keycard Shell without a software wallet?**
 
-No. Software wallets provide the interface for managing crypto, creating transactions, and connecting to the blockchain. See [compatible wallets](https://keycard.tech/en/wallets) (10+ options).
+No, you can't use your Keycard or Keycard Shell without a compatible software wallet. There are [10+ software wallet](https://keycard.tech/en/wallets) that you can use with Shell or Keycard. Software wallets are needed because they provide the interface for managing your crypto and creating your transactions, and they provide connection to the blockchain.
 
-Use Keycard alone with [Status app ↗](https://status.app/help/keycard/create-a-status-wallet-account-using-a-keycard) or [Sparrow](https://sparrowwallet.com/). Use Keycard with Shell for MetaMask, Rabby, Sparrow, and [more](https://keycard.tech/en/wallets).
+If you don't have a Shell or want to use Keycard by itself, you can use Keycard directly with [Status app ↗](https://status.app/help/keycard/create-a-status-wallet-account-using-a-keycard) or a software wallet which has integrated with Keycard (for instance [Sparrow](https://sparrowwallet.com/) for bitcoin). If you use Keycard and Keycard Shell together, there are [a list of options](https://keycard.tech/en/wallets) such as MetaMask, Rabby, or Sparrow.
 
-- **Can I use multiple software wallets with one Shell?**
+- **Can I use more than one software wallet with the same Keycard Shell?**
+Yes, you can connect one Keycard Shell to multiple software wallets following [the same process](./connect-keycard-shell-to-a-software-wallet), and use any of them as needed.
 
-Yes. [Connect your Shell](./connect-keycard-shell-to-a-software-wallet) to multiple wallets and switch between them.
+- **Can I connect Keycard Shell directly to a dApp?**
 
-- **Can I connect Shell directly to a dApp?**
+Yes if the dApp integrates managment of QR codes directly (EIP-4527 for EVM or UR for BTC). Note that in this case, you should be particularly cautious about checking what you are actually signing on your Shell screen because you can hardly trust what your browser is showing you. 
 
-Yes, if the dApp supports QR codes directly (EIP-4527 for EVM or UR for BTC). Always verify what you're signing on your Shell screen—you can't trust what your browser shows. 
-
-- **Can I build my own Shell?**
-
-Yes. Shell is fully open source. DIY builds require your own hardware and firmware signing keys (advanced). See [Build a DIY Shell](/developers/diy-keycard-shell).
+- **Can I build my own Keycard Shell?**
+Yes. Keycard Shell is fully open source, including hardware files and firmware. DIY builds are advanced and require your own hardware and firmware signing keys. See [Build a DIY Keycard Shell](/developers/diy-keycard-shell).
 
 ## Security and support
 
-- **Are Keycard and Shell air-gapped?**
+- **Are Keycard and Keycard Shell air-gapped?**
 
-Shell operates air-gapped via QR codes. To update firmware or database, connect via USB or [update offline](./update-your-keycard-shell-offline). Keycard supports NFC and smart card readers, but these aren't needed with Shell.
+Keycard Shell operates in an air-gapped way because it interfaces with software wallet with QR codes. If you want to upgrade your firmware or your Shell database you need to connect your Shell to USB, or if you want to keep a firm air-gaped setup you can [perform the update on an offline computer](./update-your-keycard-shell-offline). Keycard supports NFC communication and smart card readers, but when used with Keycard Shell, NFC and card readers are not required.
 
-- **What if I lose my Keycard or Shell?**
+- **What if I lose my Keycard or Keycard Shell?**
 
-Lost Keycard: Your funds are safe if your PIN stays private. The card blocks after three wrong PIN attempts. Restore your wallet with your recovery phrase on a new device. For maximum security, transfer funds to a new wallet immediately.
+Lost Keycard: Your funds are safe if your Keycard PIN remains private. Your card will be totally blocked after three wrong attempts on the PIN.  Use your recovery phrase to restore your wallet on a new device. For maximum security, transfer your funds to a new wallet address immediately after restoration.
 
-Lost Shell: Your funds are secure because Shell stores no private keys or information. [Buy a replacement Shell](https://get.keycard.tech/pages/keycard-shell) to use with your existing Keycard.
+Lost Keycard Shell: Your funds are secure because Keycard Shell stores no private keys or any private information including public keys or transaction history. You can [purchase a replacement Keycard Shell](https://get.keycard.tech/pages/keycard-shell) to use with your existing Keycard.
 
 - **Can someone copy my Keycard?**
 
-No. The secure element chip prevents key cloning or extraction.
+No. Your private keys are on Keycard's secure element chip, which prevents cloning or extraction of the keys by design.
 
-- **Can I run my own firmware on Shell?**
+- **Can I run my own firmware on Keycard Shell?**
 
-Official Shell devices only accept signed firmware. For custom firmware, build your own device with a bootloader key you control. See [Shell internals](/developers/keycard-shell).
+Official Keycard Shell devices only accept signed firmware updates. To run custom firmware you must build your own device (or a dev unit) with a bootloader key you control. See [Keycard Shell internals](/developers/keycard-shell).
 
-- **What if I forget my PIN?**
+- **What should I do if I forget my Keycard PIN?**
 
-Your funds are safe. Access them with your recovery phrase.
+This doesn't affect your access to your funds. You can always access your funds with your recovery phrase.
 
-To reset your PIN, [factory reset](./factory-reset-your-keycard-using-keycard-shell) your Keycard, then [import your wallet](./set-up-your-keycard-with-keycard-shell#add-a-key-pair) again. 
+To reset your Keycard PIN, [factory reset](./factory-reset-your-keycard-using-keycard-shell) your Keycard and then [import your wallet accounts](./set-up-your-keycard-with-keycard-shell#add-a-key-pair) again. 
 
-- **How do I get support?**
+- **How do I get support if I have a problem with my Keycard or Keycard Shell?**
 
-Visit the [Help page](https://keycard.tech/en/help/about-keycard-and-keycard-shell) or ask questions in the [Keycard community](https://discord.gg/uJAXk7jFhZ) on Discord.
+If you need help with your Keycard or Keycard Shell, visit the [Help page](https://keycard.tech/en/help/about-keycard-and-keycard-shell) for guidance. 
+
+You can also ask questions in the [Keycard community](https://discord.gg/uJAXk7jFhZ) on Discord.
