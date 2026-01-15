@@ -32,7 +32,7 @@ const WALLETS: Wallet[] = [
     icon: { url: '/assets/wallets/metamask.png', width: 104, height: 100 },
     type: ['Shell'],
     blockchains: ['Ethereum'],
-    setupGuideUrl: '/help/connect-keycard-shell-to-metamask.mdx',
+    setupGuideUrl: '/help/connect-keycard-shell-to-metamask',
   },
   {
     name: 'Status',
