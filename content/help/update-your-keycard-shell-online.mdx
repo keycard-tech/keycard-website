@@ -13,7 +13,7 @@ Regularly updating your Keycard Shell firmware and database keeps your device cu
 
 ## Update your Keycard Shell online
 
-In addition to your Keycard and Keycard Shell, you need a computer to access the [update page ↗](https://shell.keycard.tech/update) to complete the update process.
+In addition to your Keycard and Keycard Shell, you need a computer to access the [update page ↗](https://shell.keycard.tech/update) and complete the update process.
 
 Make sure you [enable data transfer](./enable-or-disable-data-transfer-on-keycard-shell) on your Keycard Shell before starting the update process.
 
@@ -22,7 +22,7 @@ Make sure you [enable data transfer](./enable-or-disable-data-transfer-on-keycar
 
    ```Markdown
    ACTION!="remove", KERNEL=="hidraw*", ATTRS{idVendor}=="1209", ATTRS{idProduct}=="21f7", MODE="0660", TAG+="uaccess"
-   ```  
+   ```
 </Admonition>
 
 ### Step 1: Prepare your Keycard Shell
@@ -34,14 +34,16 @@ Make sure you [enable data transfer](./enable-or-disable-data-transfer-on-keycar
 
 ### Step 2: Prepare the update page
 
-1. On your computer, open the update page at [https://shell.keycard.tech/update](https://shell.keycard.tech/update).
-2. Click **Update**.
-3. In the **shell.keycard.tech wants to connect to a HID device** prompt window, select your Keycard Shell device and click **Connect**.
-4. The latest firmware and database version are automatically selected. Unselect if you don't want to install one of the updates.
+The update page displays the latest available firmware and database versions. Your Keycard Shell may already be up to date on one or both of these versions.
+
+1. On your computer, open the update page at [https://shell.keycard.tech/update](https://shell.keycard.tech/update). Before you continue, confirm the URL is exactly `https://shell.keycard.tech/update`.
+1. Click **Update**.
+1. In the **shell.keycard.tech wants to connect to a HID device** prompt window, select your Keycard Shell device and click **Connect**.
+1. The latest firmware and database version are automatically selected. Unselect the updates you don't want to install.
 
 ### Step 3: Update your Keycard Shell
 
-You need to confirm each update individually.
+You need to confirm each update individually if you selected both.
 
 1. On the update web page, click **Transfer to device** to transfer the database update to your Keycard Shell.
 2. On your Keycard Shell, confirm the database update by pressing **OK**.
