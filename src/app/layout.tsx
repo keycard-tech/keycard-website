@@ -2,7 +2,7 @@ import { Analytics } from '@vercel/analytics/next'
 import { clientEnv } from '~/config/env.client.mjs'
 import { cx } from 'cva'
 import { NextIntlClientProvider } from 'next-intl'
-import { getMessages } from 'next-intl/server'
+import { getLocale, getMessages } from 'next-intl/server'
 import { Inter, Lora } from 'next/font/google'
 import Script from 'next/script'
 import { Metadata } from './_metadata'
@@ -31,17 +31,6 @@ export const metadata = Metadata({
     template: '%s — Keycard',
   },
 
-  alternates: {
-    canonical: '/en',
-    languages: {
-      en: '/en',
-      fr: '/fr',
-      de: '/de',
-      es: '/es',
-      nl: '/nl',
-    },
-  },
-
   twitter: {
     card: 'summary_large_image',
     site: '@keycard_',
@@ -53,10 +42,11 @@ type Props = {
 }
 
 export default async function RootLayout({ children }: Props) {
+  const locale = await getLocale()
   const messages = await getMessages()
 
   return (
-    <html lang="en">
+    <html lang={locale}>
       <head>
         {/* Shopify cookie banner script */}
         <Script

@@ -2,22 +2,23 @@ import * as Accordion from '@radix-ui/react-accordion'
 import { ChevronDownIcon } from '@status-im/icons/20'
 import { DiscordIcon, TwitterIcon } from '@status-im/icons/social'
 import { Metadata } from '~/app/_metadata'
+import { buildLocaleAlternates } from '~/app/_utils/metadata'
 import { ButtonLink } from '~components/button-link'
 import { Link } from '~components/link'
 import { cx } from 'cva'
 import Image from 'next/image'
-import { BuyCards } from '../../(homepage)/_components/buy-cards'
+import { BuyCards } from '../../(homepage)/_components/buy-cards-client'
 
 const STEPS = [
   {
     title: '1. Prepare devices',
     description:
-      'Inside the box, there are two Keycards and one Keycard Shell. Make sure the security sticker at the opening is intact to ensure the devices are not tampered with.',
+      'Inside the box, there is one Shell and two Keycards.',
     subSteps: [
       {
         title: 'a. Open back cover',
         description:
-          'Gently press the back cover and slide it downward to remove.',
+          'Gently press the back cover on its upper part and slide it downward to remove.',
         image: {
           src: '/assets/start/part-1-a.png',
           width: 280,
@@ -27,7 +28,7 @@ const STEPS = [
       {
         title: 'b. Insert battery',
         description:
-          'Insert the battery into the slot. Slide the back cover upward to close.',
+          'Insert the battery into its slot. Slide the back cover upward to close.',
         image: {
           src: '/assets/start/part-1-b.png',
           width: 280,
@@ -47,7 +48,7 @@ const STEPS = [
     ],
     secondaryDescription: (
       <>
-        If the screen stays off, charge the Shell with a USB-C cable and try
+        If the screen stays off, first make sure your card is pushed all the way. If it is, charge the Shell with a USB-C cable and try
         again later. Check out{' '}
         <Link className="underline" href="/help/faq">
           FAQ
@@ -59,7 +60,7 @@ const STEPS = [
   {
     title: '2. Create PIN',
     description:
-      'If the Shell prompts you to create a PIN, it means your Keycard is new, uninitialized, and contains no existing data.',
+      'If Shell prompts you to create a PIN, it means your Keycard is new, uninitialized, and contains no existing secrets.',
     subSteps: [
       {
         title: 'a. Create Keycard PIN',
@@ -96,7 +97,7 @@ const STEPS = [
     ),
   },
   {
-    title: '3-I. Generate new key pair',
+    title: '3-I. Generate a new key pair',
     description:
       'If you want to begin with new addresses, select Generate new key pair on Shell.',
     subSteps: [
@@ -176,7 +177,7 @@ const STEPS = [
     description: (
       <>
         Verification checks that your Shell is authentic and runs a verified
-        firmware. You need your phone or computer to complete this process.
+        firmware. You need your phone or a computer with a camera to complete this process.
         Check out{' '}
         <Link className="underline" href="https://shell.keycard.tech/verify/">
           Verify your Shell Authenticity
@@ -228,26 +229,26 @@ const STEPS = [
     ),
   },
   {
-    title: '5. Connect to wallet app',
+    title: '5. Connect to a software wallet',
     description: (
       <>
-        Connect the Keycard to a{' '}
-        <Link className="underline" href="/developers/supported-wallets">
-          wallet app
+        Connect Shell to a compatible{' '}
+        <Link className="underline" href="/wallets">
+          software wallet
         </Link>{' '}
         and use it as an interface for managing funds. Check out{' '}
         <Link
           className="underline"
           href="/help/connect-keycard-shell-to-a-wallet-app"
         >
-          Connect Keycard and Shell to a wallet app
+         this article
         </Link>{' '}
         for more info.
       </>
     ),
     subSteps: [
       {
-        title: 'a. Set up in a wallet app',
+        title: 'a. Set up in a software wallet',
         description:
           'In your software wallet, select the option to add a hardware wallet. Tap "Continue" and follow instruction.',
         image: {
@@ -269,7 +270,7 @@ const STEPS = [
       {
         title: 'c. Select the accounts to connect',
         description:
-          'In your wallet app, select the Keycard accounts and set up.',
+          'In your software wallet, select the Keycard accounts and set up.',
         image: {
           src: '/assets/start/part-5-c.png',
           width: 280,
@@ -280,9 +281,9 @@ const STEPS = [
     secondaryDescription: (
       <>
         If you don&apos;t see &quot;Keycard&quot; or &quot;Shell&quot; listed in
-        your wallet app, they may still be compatible. Check out{' '}
-        <Link className="underline" href="/developers/supported-wallets">
-          Wallet Apps Compatible with Keycard Shell
+        your software wallet, they may still be compatible. Check out a list of{' '}
+        <Link className="underline" href="/wallets/">
+          compatible software wallets
         </Link>{' '}
         for the full list.
       </>
@@ -290,25 +291,38 @@ const STEPS = [
   },
 ]
 
-export const metadata = Metadata({
-  title: 'Get Started — Keycard & Keycard Shell',
-  description:
-    'Set up your Keycard and Keycard Shell, pair supported wallets, and learn best practices for backups and recovery.',
-  alternates: { canonical: '/start' },
-})
+type MetadataProps = {
+  params: Promise<{
+    locale: string
+  }>
+}
+
+export async function generateMetadata({ params }: MetadataProps) {
+  const { locale } = await params
+
+  return Metadata({
+    title: 'Get Started — Keycard & Keycard Shell',
+    description:
+      'Set up your Keycard and Keycard Shell, pair supported wallets, and learn best practices for backups and recovery.',
+    alternates: buildLocaleAlternates(locale, '/start'),
+  })
+}
 
 export default function StartShellPage() {
   return (
     <div className="mt-6 px-5 2xl:px-1">
       <div className="relative z-20 grid grid-flow-row gap-4 py-5">
         <h1 className="font-lora text-32 font-400 text-white-95 lg:text-48">
-          Shell Quick Start Guide
+          Keycard Shell Quick Start Guide
         </h1>
-        <p className="font-inter text-20 font-300 text-white-95">
-          All you need to know to start using Shell
-        </p>
+        <h2 className="font-inter text-20 font-300 text-white-95">
+          All you need to know to start using Keycard Shell
+        </h2>
       </div>
 
+      <h2 className="mt-4 font-lora text-24 font-400 text-white-95">
+        Keycard Shell setup steps
+      </h2>
       <Accordion.Root
         className="flex-1"
         type="single"
@@ -370,9 +384,10 @@ export default function StartShellPage() {
       </Accordion.Root>
       <div className="my-10 flex flex-1 flex-col gap-6 rounded-28 border border-white-8 bg-white-4 p-6 pt-5 sm:max-w-[350px] lg:mb-0 lg:mt-6 lg:max-w-[434px]">
         <div className="flex flex-col gap-[6px]">
-          <p className="font-lora text-24 font-400 text-white-95">
-            Have questions?
-          </p>
+          <h2 className="font-lora text-24 font-400 text-white-95">
+            Have questions?{' '}
+            <span className="sr-only">Keycard Shell support</span>
+          </h2>
           <p className="text-16 font-300 text-white-80">
             Reach out to our team or engage with our community on Discord or X.
           </p>

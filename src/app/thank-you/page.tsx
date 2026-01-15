@@ -1,4 +1,4 @@
-import { Background } from '~components/3d/background'
+import { LazyBackground } from '~components/3d/lazy-background'
 import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
 import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
@@ -22,15 +22,15 @@ const productConfig = {
     description: 'You will be redirected to the checkout experience.',
     buttonText: 'Take me home',
     promptText: 'Want to up your game?',
-    promptDescription: 'Keycard Shell is coming in 2025',
-    promptImage: '/assets/pre-order-shell.png',
-    promptImageAlt: 'Pre-order Shell',
-    promptButtonText: 'Pre-order',
+    promptDescription: 'Keycard Shell ships in 3-10 days',
+    promptImage: '/assets/keycard-shell.webp',
+    promptImageAlt: 'Keycard Shell',
+    promptButtonText: 'Buy Shell',
     dialog: BuyShellDialog,
   },
   shell: {
     title: 'Thanks for choosing Keycard!',
-    description: 'You will be redirected to complete your pre-order.',
+    description: 'You will be redirected to complete your purchase.',
     buttonText: 'Continue exploring',
     promptText: "Don't want to wait?",
     promptDescription: 'Get started with Keycard today',
@@ -102,7 +102,7 @@ export default async function ThankyouPage(props: Props) {
           />
         </div>
       ) : (
-        <Background variant="thank-you" />
+        <LazyBackground variant="thank-you" />
       )}
 
       <div

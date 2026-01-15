@@ -45,10 +45,9 @@ export async function getDocumentationArticle(slug: string[]) {
   }
 
   try {
-    const [fileContent, { mtime: lastEdited }] = await Promise.all([
-      fs.readFile(filePath, 'utf8'),
-      fs.stat(filePath),
-    ])
+    const fileContent = await fs.readFile(filePath, 'utf8')
+    // Use build time as the last edited date
+    const lastEdited = new Date()
 
     let extractedHeadings: Heading[] = []
 

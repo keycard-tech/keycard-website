@@ -1,9 +1,27 @@
 import { Metadata } from '~/app/_metadata'
+import { buildLocaleAlternates } from '~/app/_utils/metadata'
+import { SUPPORTED_LOCALES } from '~/i18n/constants'
 import { getLegalDocumentContent } from '../_utils/get-legal-document-content'
 
-export const metadata = Metadata({
-  title: 'Terms of Use',
-})
+type MetadataProps = {
+  params: Promise<{
+    locale: string
+  }>
+}
+
+export async function generateMetadata({ params }: MetadataProps) {
+  const { locale } = await params
+  const legalLocales = [SUPPORTED_LOCALES[0]]
+
+  return Metadata({
+    title: 'Terms of Use',
+    alternates: buildLocaleAlternates(
+      locale,
+      '/legal/terms-of-use',
+      legalLocales,
+    ),
+  })
+}
 
 export default async function TermsOfUsePage() {
   const { meta, content } = await getLegalDocumentContent('terms-of-use')

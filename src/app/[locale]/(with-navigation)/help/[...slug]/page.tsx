@@ -1,10 +1,14 @@
 import fs from 'fs/promises'
 import path from 'path'
 import { Breadcrumbs } from '~/app/_components/docs/breadcrumbs'
+import { DocsNavDrawer } from '~/app/_components/docs/docs-nav-drawer'
 import { Metadata } from '~/app/_metadata'
 import { formatDate } from '~/app/_utils/format-date'
+import { buildLocaleAlternates } from '~/app/_utils/metadata'
 import config from '~/config/help.json'
+import { SUPPORTED_LOCALES } from '~/i18n/constants'
 import { Link } from '~components/link'
+import { getLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { generateBreadcrumbs } from '../_utils/generate-breadcrumbs'
 import { getDocumentationArticle } from '../_utils/get-documentation-article'
@@ -47,7 +51,9 @@ export const dynamicParams = false
 export async function generateStaticParams() {
   const docsPath = path.resolve('content/help')
   const slugs = await getAllSlugs(docsPath)
-  return slugs.map(slug => ({ slug }))
+  return slugs.flatMap(slug =>
+    SUPPORTED_LOCALES.map(locale => ({ slug, locale })),
+  )
 }
 
 export async function generateMetadata({ params }: Props) {
@@ -76,7 +82,8 @@ export async function generateMetadata({ params }: Props) {
     return null
   }
 
-  const title = findTitle((await params).slug, config)
+  const resolvedParams = await params
+  const title = findTitle(resolvedParams.slug, config)
   if (!title) {
     return {
       title: 'Article Not Found',
@@ -87,12 +94,17 @@ export async function generateMetadata({ params }: Props) {
   return Metadata({
     title,
     description: 'Help documentation and guides for using Keycard products.',
+    alternates: buildLocaleAlternates(
+      resolvedParams.locale,
+      `/help/${resolvedParams.slug.join('/')}`,
+    ),
   })
 }
 
 type Props = {
   params: Promise<{
     slug: string[]
+    locale: string
   }>
 }
 
@@ -111,9 +123,53 @@ const Page = async (props: Props) => {
 
   const breadcrumbs = generateBreadcrumbs((await params).slug, meta.title)
 
+  const locale = await getLocale()
+  const articleUrl = `https://keycard.tech/${locale}/help/${(
+    await params
+  ).slug.join('/')}`
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: meta.title,
+    dateModified: meta.lastEdited,
+    author: {
+      '@type': 'Organization',
+      name: 'Keycard',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Keycard',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://keycard.tech/opengraph-image.png',
+      },
+    },
+    mainEntityOfPage: articleUrl,
+    url: articleUrl,
+  }
+
   return (
     <div>
-      <Breadcrumbs items={breadcrumbs} />
+      <Breadcrumbs
+        items={breadcrumbs}
+        actionPlacement="inline"
+        action={
+          <DocsNavDrawer
+            items={config}
+            title="Help center"
+            triggerLabel=""
+            ariaLabel="Browse help articles"
+            compact
+            className="lg:hidden"
+          />
+        }
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
       <div className="flex flex-1 justify-center gap-[139px] px-5 py-20 lg:pl-[250px] xl:pr-[140px]">
         <div className="w-full max-w-[664px]">
           <div className="mb-1 text-16 font-300 text-white-80">

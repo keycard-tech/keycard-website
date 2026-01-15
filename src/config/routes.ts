@@ -67,7 +67,10 @@ export const getRoutes = (
     Info: [
       { name: t('footer.info.get_started.translation'), href: '/start' },
       { name: t('footer.info.blog.translation'), href: '/blog' },
-      { name: t('footer.info.help.translation'), href: '/help' },
+      {
+        name: t('footer.info.help.translation'),
+        href: '/help/about-keycard-and-keycard-shell',
+      },
       {
         name: t('footer.info.developers.translation'),
         href: '/developers/overview',
@@ -93,11 +96,11 @@ export const getRoutes = (
     Legal: [
       {
         name: t('footer.legal.privacy_policy.translation'),
-        href: '/legal/privacy-policy',
+        href: '/en/legal/privacy-policy',
       },
       {
         name: t('footer.legal.terms_of_use.translation'),
-        href: '/legal/terms-of-use',
+        href: '/en/legal/terms-of-use',
       },
     ],
     // 'Works with': [
@@ -199,8 +202,8 @@ export const ROUTES = {
     },
   ],
   Legal: [
-    { name: 'Privacy policy', href: '/legal/privacy-policy' },
-    { name: 'Terms of use', href: '/legal/terms-of-use' },
+    { name: 'Privacy policy', href: '/en/legal/privacy-policy' },
+    { name: 'Terms of use', href: '/en/legal/terms-of-use' },
   ],
 } as const
 

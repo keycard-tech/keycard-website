@@ -1,9 +1,12 @@
 import fs from 'fs/promises'
 import path from 'path'
 import { Breadcrumbs } from '~/app/_components/docs/breadcrumbs'
+import { DocsNavDrawer } from '~/app/_components/docs/docs-nav-drawer'
 import { Metadata } from '~/app/_metadata'
 import { formatDate } from '~/app/_utils/format-date'
+import { buildLocaleAlternates } from '~/app/_utils/metadata'
 import config from '~/config/developers.json'
+import { SUPPORTED_LOCALES } from '~/i18n/constants'
 import { Link } from '~components/link'
 import { notFound } from 'next/navigation'
 import { generateBreadcrumbs } from '../_utils/generate-breadcrumbs'
@@ -47,7 +50,9 @@ export const dynamicParams = false
 export async function generateStaticParams() {
   const docsPath = path.resolve('content/developers')
   const slugs = await getAllSlugs(docsPath)
-  return slugs.map(slug => ({ slug }))
+  return slugs.flatMap(slug =>
+    SUPPORTED_LOCALES.map(locale => ({ slug, locale })),
+  )
 }
 
 export async function generateMetadata({ params }: Props) {
@@ -66,7 +71,8 @@ export async function generateMetadata({ params }: Props) {
     return null
   }
 
-  const title = findTitle((await params).slug, config)
+  const resolvedParams = await params
+  const title = findTitle(resolvedParams.slug, config)
   if (!title) {
     return {
       title: 'Article Not Found',
@@ -77,12 +83,17 @@ export async function generateMetadata({ params }: Props) {
   return Metadata({
     title,
     description: 'Technical documentation and API references for developers.',
+    alternates: buildLocaleAlternates(
+      resolvedParams.locale,
+      `/developers/${resolvedParams.slug.join('/')}`,
+    ),
   })
 }
 
 type Props = {
   params: Promise<{
     slug: string[]
+    locale: string
   }>
 }
 
@@ -103,7 +114,20 @@ const Page = async (props: Props) => {
 
   return (
     <div>
-      <Breadcrumbs items={breadcrumbs} />
+      <Breadcrumbs
+        items={breadcrumbs}
+        actionPlacement="inline"
+        action={
+          <DocsNavDrawer
+            items={config}
+            title="Developer docs"
+            triggerLabel=""
+            ariaLabel="Browse developer docs"
+            compact
+            className="lg:hidden"
+          />
+        }
+      />
       <div className="flex flex-1 justify-center gap-[139px] px-5 py-20 lg:pl-[250px] xl:pr-[140px]">
         <div className="w-full max-w-[664px]">
           <div className="mb-1 text-16 font-300 text-white-80">

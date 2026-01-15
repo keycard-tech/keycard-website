@@ -22,6 +22,10 @@
     "link": "/developers/build"
   },
   {
+    "title": "Build a DIY Keycard Shell",
+    "link": "/developers/diy-keycard-shell"
+  },
+  {
     "title": "Getting Started",
     "link": "/developers/getting-started",
     "subItems": [
@@ -250,6 +254,10 @@
         "link": "/developers/hardware-specification#keycard-shell"
       }
     ]
+  },
+  {
+    "title": "Keycard Shell internals",
+    "link": "/developers/keycard-shell"
   },
   {
     "title": "Contact",
