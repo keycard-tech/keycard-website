@@ -81,7 +81,7 @@ const WALLETS: Wallet[] = [
     icon: { url: '/assets/wallets/sparrow.png', width: 114, height: 114 },
     type: ['Shell'],
     blockchains: ['Bitcoin', 'Multisig'],
-    setupGuideUrl: '/help/connect-keycard-shell-to-a-wallet-app',
+    setupGuideUrl: '/help/connect-keycard-shell-to-sparrow-wallet',
   },
   {
     name: 'Nunchuk',
