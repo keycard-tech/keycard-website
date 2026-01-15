@@ -83,11 +83,16 @@ export async function generateMetadata({ params }: Props) {
   }
 
   const resolvedParams = await params
-  const title = findTitle(resolvedParams.slug, config)
+  let title = findTitle(resolvedParams.slug, config)
   if (!title) {
-    return {
-      title: 'Article Not Found',
-      description: 'This article is not available yet.',
+    try {
+      const article = await getDocumentationArticle(resolvedParams.slug)
+      title = article.meta.title
+    } catch (err) {
+      return {
+        title: 'Article Not Found',
+        description: 'This article is not available yet.',
+      }
     }
   }
 
