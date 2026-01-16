@@ -7,7 +7,7 @@ title: Overview
 
 ## What is Keycard?
 
-Keycard is a hardware wallet that stores private keys on a dedicated secure chip. Designed as an open-source contactless smart card, it functions as a [BIP-32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) HD wallet, supporting key generation, derivation, and signing. It also allows exporting keys defined in the context of [EIP-1581](https://eips.ethereum.org/EIPS/eip-1581). 
+Keycard is a hardware wallet that stores private keys and performs signatures on a dedicated secure chip with a very high level of hardware security. Designed as an open-source contactless smart card, it functions as a [BIP-32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) HD wallet, supporting key generation, derivation, and signing. It also allows exporting keys defined in the context of [EIP-1581](https://eips.ethereum.org/EIPS/eip-1581). 
 The most obvious case for integration of Keycard is crypto wallets (ETH, BTC, etc), however it can be used in other systems where a BIP-32 key tree is used and/or you perform authentication/identification.
 
 It’s natively integrated with all [Status apps](https://status.app) and works on iOS/Android mobile phones and desktops with a USB smartcard reader. Learn more about keycard [here](https://get.keycard.tech/pages/keycard).
@@ -32,21 +32,6 @@ The current applet version is listed in the [status-keycard releases](https://gi
 
 This documentation applies to the current protocol version. [Semantic versioning](https://semver.org) is used throughout the project, with the omission of the patch number for the applet, but not the SDK and related tools.
 
-## Get in touch
-
-Join our [discord](https://discord.gg/uJAXk7jFhZ)
-
-To raise issues/bugs/feature requests, please do so in our [GitHub repos](resources)
-
-If you use email you can reach the team [here](mailto:support@keycard.tech)
-
-## Keycard Recent Highlights
-
-The most obvious case for integration of Keycard is crypto wallets (ETH, BTC, etc), however it can be used in other systems where a BIP-32 key tree is used and/or you perform authentication/identification.
-
-### For users: Duress PIN
-
-A feature added in version 3.1.0 of the applet is a duress PIN, which is completely transparent in the API and undetectable. It changes the keys generated during derivation in a deterministic way. Wallets should make sure they account for this by hiding balance and wallet address until proper authentication, and eventually be able to transparently switch to using the addresses generated after inserting the duress PIN.
 
 ### For developers: Our API
 
@@ -57,3 +42,11 @@ To further simplify integration, we have developed a Java-based API which can be
 If you use a different language, please first refer to the [Java SDK](sdk) documentation for a high level overview of how to perform different tasks with the Keycard. Then, please check the [protocol documentation](apdu) out for the low-level details.
 
 Besides the hardware wallet functionality, you find a second applet with a different purpose and security model. This applet, internally called Cash applet, does not share any data with the wallet and provides a single keypair which can be used to sign any piece of information. Unlike the wallet applet, the cash applet does not require a PIN or SecureChannel and can be tapped on 3rd party terminal. This enable convenient in-person interactions at the expense of security. For this reason the keypair in the Cash applet should not hold any funds at all, but should instead be used in concert with smartcontracts in scenarios with lower security requirements. It is especially suited for signing EIP-712 formatted metatx. Some examples can include ticketing, small payments, etc. It is worth repeating that the Wallet and Cash applet, while living on the same card, do not share any data or key and are completely independent from each other. In order to easily integrate Keycard with any dApp, we defined a small extension to the [Web3 API](web3).
+
+## Get in touch
+
+Join our [discord](https://discord.gg/uJAXk7jFhZ)
+
+To raise issues/bugs/feature requests, please do so in our [GitHub repos](resources)
+
+If you use email you can reach the team [here](mailto:support@keycard.tech)
