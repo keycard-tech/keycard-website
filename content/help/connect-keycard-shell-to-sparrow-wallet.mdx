@@ -1,0 +1,61 @@
+---
+id: connect-keycard-shell-to-sparrow-wallet
+title: Connect Keycard Shell to Sparrow Wallet
+---
+
+# Connect Keycard Shell to Sparrow Wallet
+
+![A header image showing the Sparrow Wallet logo and a Keycard Shell device](/assets/docs/connect-keycard-shell-to-sparrow-wallet-header.png)
+
+You can use your Keycard and Keycard Shell with Sparrow Wallet to manage crypto assets, interact with dApps, and access all available Sparrow Wallet features.
+
+<Admonition type="note">
+    Currently, Keycard Shell doesn't appear on Sparrow Wallet's list of supported hardware wallets, but you can still connect it to Sparrow using the **Keystone** option.
+</Admonition>
+
+## What to expect
+
+- You can use Sparrow to [import your regular (single-signature) Bitcoin wallet](#import-keycard-bitcoin-wallet-to-sparrow) or [create a multi-signature wallet](#create-a-multisig-wallet-with-keycard-in-sparrow) that include your Keycard as one of the cosigners.
+- If you have multiple Keycards, you can use each of them as separate cosigners in a multisig wallet.
+- After connecting to Sparrow, your wallet private keys remain on your Keycard, and Sparrow has no access to them.
+- Sparrow is an interface to manage your crypto assets. For any transactions generated during use, sign with Keycard Shell.
+- You can still connect your Keycard Shell to other [supported wallet apps](https://keycard.tech/wallets).
+
+## Import Keycard Bitcoin wallet to Sparrow
+
+### Step 1: Prepare your Keycard Shell
+
+1. Insert your Keycard into Keycard Shell to power it on. 
+1. Enter your Keycard PIN and press **OK**.
+1. Select **Connect software wallet**.
+1. Press **OK** to confirm the text on the screen.
+1. Select **Bitcoin**.
+
+### Step 2: Connect to Sparrow
+
+1. In Sparrow Wallet on the top bar menu, select **File** > **Import Wallet**.
+1. Find **Keystone** and select **Scan** on the right.
+1. Scan the QR code displayed on the Keycard Shell screen using your computer camera.
+1. In Sparrow Wallet, select script type (Legacy, Nested SegWit, or Native SegWit) and then select **Import**.
+1. Enter a name for your wallet and select **Create Wallet**.
+1. Optionally, set a password for your wallet and select **Set Password**. To continue without a password, select **No password**.
+
+## Create a multisig wallet with Keycard in Sparrow
+
+### Step 1: Prepare your Keycard Shell
+
+1. Insert your Keycard into Keycard Shell to power it on. 
+1. Enter your Keycard PIN and press **OK**.
+1. Select **Connect software wallet**.
+1. Press **OK** to confirm the text on the screen.
+1. Select **Bitcoin MultiSig**.
+
+### Step 2: Create a multisig wallet in Sparrow
+
+1. In Sparrow Wallet on the top bar menu, select **File** > **New Wallet**.
+1. Enter a name for your wallet and select **Create Wallet**.
+1. For **Policy Type**, select **Multi Signature**. For **Script Type**, select **Legacy**, **Nested SegWit**, or **Native SegWit**.
+1. For **Cosigners**, slide to set the number of required signatures and total cosigners.
+1. Under **Keystore**, for each cosigner wallet, select **Airgapped Hardware Wallet**. Then find **Keystone multisig** and then select **Scan** on the right.
+1. Scan the QR code displayed on the Keycard Shell screen using your computer camera.
+1. Optionally, set a password for your wallet and select **Set Password**. To continue without a password, select **No password**.

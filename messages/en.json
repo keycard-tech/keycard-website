@@ -1,0 +1,900 @@
+{
+  "common": {
+    "get_started": {
+      "translation": "Get Started",
+      "notes": "common::get_started"
+    },
+    "learn_more": {
+      "translation": "Learn More",
+      "notes": "common::learn_more"
+    },
+    "buy_now": {
+      "translation": "Buy Now",
+      "notes": "common::buy_now"
+    },
+    "download": {
+      "translation": "Download",
+      "notes": "common::download"
+    },
+    "read_docs": {
+      "translation": "Read Docs",
+      "notes": "common::read_docs"
+    },
+    "discover": {
+      "translation": "Discover",
+      "notes": "common::discover"
+    },
+    "pre_order_now": {
+      "translation": "Buy now",
+      "notes": "common::pre_order_now"
+    },
+    "coming_2025": {
+      "translation": "Ships in 3-10 days",
+      "notes": "common::coming_2025"
+    },
+    "bundled_with_keycard": {
+      "translation": "Bundled with 2 Keycards",
+      "notes": "common::bundled_with_keycard"
+    },
+    "pre_order": {
+      "translation": "Buy now",
+      "notes": "common::pre_order"
+    },
+    "buy_keycard": {
+      "translation": "Buy Keycard",
+      "notes": "common::buy_keycard"
+    },
+    "buy_shell": {
+      "translation": "Buy Shell",
+      "notes": "common::buy_shell"
+    },
+    "pre_order_shell": {
+      "translation": "Buy Shell",
+      "notes": "common::pre_order_shell"
+    },
+    "from": {
+      "translation": "From",
+      "notes": "common::from"
+    }
+  },
+  "navigation": {
+    "about": {
+      "translation": "About",
+      "notes": "navigation::about"
+    },
+    "keycard": {
+      "translation": "Keycard",
+      "notes": "navigation::keycard"
+    },
+    "keycard_shell": {
+      "translation": "Keycard Shell",
+      "notes": "navigation::keycard_shell"
+    },
+    "developers": {
+      "translation": "Developers",
+      "notes": "navigation::developers"
+    },
+    "help": {
+      "translation": "Help",
+      "notes": "navigation::help"
+    },
+    "blog": {
+      "translation": "Blog",
+      "notes": "navigation::blog"
+    },
+    "contact": {
+      "translation": "Contact",
+      "notes": "navigation::contact"
+    },
+    "get_started": {
+      "translation": "Get started",
+      "notes": "navigation::get_started"
+    },
+    "affiliates": {
+      "translation": "Affiliates",
+      "notes": "navigation::affiliates"
+    },
+    "discord": {
+      "translation": "Discord",
+      "notes": "navigation::discord"
+    },
+    "x": {
+      "translation": "X",
+      "notes": "navigation::x"
+    },
+    "privacy_policy": {
+      "translation": "Privacy policy",
+      "notes": "navigation::privacy_policy"
+    },
+    "terms_of_use": {
+      "translation": "Terms of use",
+      "notes": "navigation::terms_of_use"
+    }
+  },
+  "top_banner": {
+    "pre_sale_started": {
+      "translation": "🎉 Keycard Shell is now shipping!",
+      "notes": "top_banner::pre_sale_started"
+    },
+    "pre_order_now": {
+      "translation": "Buy now",
+      "notes": "top_banner::pre_order_now"
+    },
+    "exclusive_benefits": {
+      "translation": "Ships in 3-10 days",
+      "notes": "top_banner::exclusive_benefits"
+    }
+  },
+  "hero": {
+    "keycard_shell_title": {
+      "translation": "keycard shell",
+      "notes": "hero::keycard_shell_title"
+    },
+    "keycard_shell_subtitle": {
+      "translation": "One secure device,\ninfinite backups",
+      "notes": "hero::keycard_shell_subtitle"
+    },
+    "keycard_shell_description": {
+      "translation": "Unrivalled security with an infinite number of removable Keycards, each with their own key.",
+      "notes": "hero::keycard_shell_description"
+    },
+    "discover_shell": {
+      "translation": "Discover Shell",
+      "notes": "hero::discover_shell"
+    },
+    "keycard_title": {
+      "translation": "keycard",
+      "notes": "hero::keycard_title"
+    },
+    "keycard_subtitle": {
+      "translation": "Lightweight design\nheavyweight security",
+      "notes": "hero::keycard_subtitle"
+    },
+    "keycard_description": {
+      "translation": "Trade swiftly and safely back up your assets with Keycard hardware wallets.",
+      "notes": "hero::keycard_description"
+    },
+    "discover_keycard": {
+      "translation": "Discover Keycard",
+      "notes": "hero::discover_keycard"
+    }
+  },
+  "features": {
+    "title": {
+      "translation": "Join the",
+      "notes": "features::title"
+    },
+    "open_source_highlight": {
+      "translation": "open source",
+      "notes": "features::open_source_highlight"
+    },
+    "title_continued": {
+      "translation": "revolution of the most",
+      "notes": "features::title_continued"
+    },
+    "modular_highlight": {
+      "translation": "modular",
+      "notes": "features::modular_highlight"
+    },
+    "and_text": {
+      "translation": "and",
+      "notes": "features::and_text"
+    },
+    "future_proof_highlight": {
+      "translation": "future proof",
+      "notes": "features::future_proof_highlight"
+    },
+    "title_end": {
+      "translation": "hardware wallet system ever conceived.",
+      "notes": "features::title_end"
+    },
+    "security": {
+      "title": {
+        "translation": "Best-in-class security",
+        "notes": "features::security::title"
+      },
+      "description": {
+        "translation": "Keycard secure element has the highest level of certification provided by Common Criteria.",
+        "notes": "features::security::description"
+      },
+      "badge": {
+        "translation": "EAL 6+",
+        "notes": "features::security::badge"
+      }
+    },
+    "open_source": {
+      "title": {
+        "translation": "Fully open source",
+        "notes": "features::open_source::title"
+      },
+      "description": {
+        "translation": "Open-source code on an open framework, making it the most open way to design a secure element.",
+        "notes": "features::open_source::description"
+      },
+      "button": {
+        "translation": "View on GitHub",
+        "notes": "features::open_source::button"
+      }
+    },
+    "airgapped": {
+      "title": {
+        "translation": "Airgapped",
+        "notes": "features::airgapped::title"
+      },
+      "description": {
+        "translation": "Through Keycard Shell's camera or Keycard's contactless nature, our products can be airgapped.",
+        "notes": "features::airgapped::description"
+      },
+      "badge": {
+        "translation": "0 cables",
+        "notes": "features::airgapped::badge"
+      }
+    },
+    "durable": {
+      "title": {
+        "translation": "Made to last",
+        "notes": "features::durable::title"
+      },
+      "description": {
+        "translation": "Your keycard has a life expectancy of 25+ years, resists water and dust. It will still securely store your keys.",
+        "notes": "features::durable::description"
+      },
+      "badge": {
+        "translation": "25+ years",
+        "notes": "features::durable::badge"
+      }
+    },
+    "backup": {
+      "title": {
+        "translation": "Easy to backup",
+        "notes": "features::backup::title"
+      },
+      "description": {
+        "translation": "Securely store your private key on multiple cards. Encrypted, instead of the typical piece of paper.",
+        "notes": "features::backup::description"
+      },
+      "badge": {
+        "translation": "backups",
+        "notes": "features::backup::badge"
+      }
+    },
+    "discreet": {
+      "title": {
+        "translation": "Discreet",
+        "notes": "features::discreet::title"
+      },
+      "description": {
+        "translation": "With its light, small and discreet form factor your Keycard can go unnoticed in your wallet.",
+        "notes": "features::discreet::description"
+      },
+      "badge": {
+        "translation": "Credit card format",
+        "notes": "features::discreet::badge"
+      }
+    }
+  },
+  "comparison": {
+    "title": {
+      "translation": "Going one step further.",
+      "notes": "comparison::title"
+    },
+    "feature": {
+      "translation": "Feature",
+      "notes": "comparison::feature"
+    },
+    "shell": {
+      "translation": "Shell",
+      "notes": "comparison::shell"
+    },
+    "keycard": {
+      "translation": "Keycard",
+      "notes": "comparison::keycard"
+    },
+    "tangem": {
+      "translation": "Tangem",
+      "notes": "comparison::tangem"
+    },
+    "ledger": {
+      "translation": "Ledger Nano X",
+      "notes": "comparison::ledger"
+    },
+    "features": {
+      "eth_chains_btc": {
+        "name": {
+          "translation": "ETH chains and BTC",
+          "notes": "comparison::features::eth_chains_btc::name"
+        },
+        "tooltip": {
+          "translation": "Supports Ethereum, any EVM chains (L2s), BTC, BTC multisigs",
+          "notes": "comparison::features::eth_chains_btc::tooltip"
+        }
+      },
+      "many_cards": {
+        "name": {
+          "translation": "Many cards, many keys",
+          "notes": "comparison::features::many_cards::name"
+        },
+        "tooltip": {
+          "translation": "Unlimited number of cards can be used with different keys for ease of use and backups",
+          "notes": "comparison::features::many_cards::tooltip"
+        }
+      },
+      "no_export": {
+        "name": {
+          "translation": "Card can't export private keys",
+          "notes": "comparison::features::no_export::name"
+        },
+        "tooltip": {
+          "translation": "Private keys can never get out of the card. The card is a secure enclave that stores private keys, and performs signatures.",
+          "notes": "comparison::features::no_export::tooltip"
+        }
+      },
+      "open_ecosystem": {
+        "name": {
+          "translation": "Open and expandable ecosystem",
+          "notes": "comparison::features::open_ecosystem::name"
+        },
+        "tooltip": {
+          "translation": "Developers and manufacturers can build on top to grow the ecosystem and benefit from it",
+          "notes": "comparison::features::open_ecosystem::tooltip"
+        }
+      },
+      "card_cannot_be_upgraded": {
+        "name": {
+          "translation": "Card cannot be upgraded",
+          "notes": "comparison::features::card_cannot_be_upgraded::name"
+        },
+        "tooltip": {
+          "translation": "The card cannot be updated with new firmware",
+          "notes": "comparison::features::card_cannot_be_upgraded::tooltip"
+        }
+      },
+      "full_open_source": {
+        "name": {
+          "translation": "Full open source design",
+          "notes": "comparison::features::full_open_source::name"
+        },
+        "tooltip": {
+          "translation": "Hardware and software are fully open source",
+          "notes": "comparison::features::full_open_source::tooltip"
+        }
+      },
+      "use_with_other_wallets": {
+        "name": {
+          "translation": "Use your card with other wallets",
+          "notes": "comparison::features::use_with_other_wallets::name"
+        },
+        "tooltip": {
+          "translation": "Works with various wallet applications",
+          "notes": "comparison::features::use_with_other_wallets::tooltip"
+        }
+      },
+      "no_vendor_app": {
+        "name": {
+          "translation": "No vendor specific application needed",
+          "notes": "comparison::features::no_vendor_app::name"
+        },
+        "tooltip": {
+          "translation": "Works without proprietary vendor software",
+          "notes": "comparison::features::no_vendor_app::tooltip"
+        }
+      },
+      "compatible_wallets": {
+        "name": {
+          "translation": "Compatible with 10+ wallets",
+          "notes": "comparison::features::compatible_wallets::name"
+        },
+        "tooltip": {
+          "translation": "Supported by more than 10 different wallet applications",
+          "notes": "comparison::features::compatible_wallets::tooltip"
+        }
+      },
+      "clear_signing": {
+        "name": {
+          "translation": "Clear signing",
+          "notes": "comparison::features::clear_signing::name"
+        },
+        "tooltip": {
+          "translation": "You see what you sign before confirming a transaction",
+          "notes": "comparison::features::clear_signing::tooltip"
+        }
+      },
+      "airgap_capable": {
+        "name": {
+          "translation": "Airgap capable",
+          "notes": "comparison::features::airgap_capable::name"
+        },
+        "tooltip": {
+          "translation": "Can be used completely offline without direct connection",
+          "notes": "comparison::features::airgap_capable::tooltip"
+        }
+      },
+      "camera_qr": {
+        "name": {
+          "translation": "Camera to scan QRs",
+          "notes": "comparison::features::camera_qr::name"
+        },
+        "tooltip": {
+          "translation": "Built-in camera for QR code based transactions",
+          "notes": "comparison::features::camera_qr::tooltip"
+        }
+      },
+      "removable_battery": {
+        "name": {
+          "translation": "Removable battery",
+          "notes": "comparison::features::removable_battery::name"
+        },
+        "tooltip": {
+          "translation": "Battery can be replaced",
+          "notes": "comparison::features::removable_battery::tooltip"
+        }
+      }
+    }
+  },
+  "faqs": {
+    "title": {
+      "translation": "Frequently asked questions",
+      "notes": "faqs::title"
+    },
+    "what_is_keycard": {
+      "question": {
+        "translation": "What is Keycard for?",
+        "notes": "faqs::what_is_keycard::question"
+      },
+      "answer": {
+        "translation": "Keycard is a secure hardware wallet for storing and managing your cryptocurrencies.",
+        "notes": "faqs::what_is_keycard::answer"
+      }
+    },
+    "which_assets": {
+      "question": {
+        "translation": "Which assets does Keycard support?",
+        "notes": "faqs::which_assets::question"
+      },
+      "answer": {
+        "translation": "Keycard works seamlessly with Ethereum and EVM based assets. It supports",
+        "notes": "faqs::which_assets::answer"
+      },
+      "link_text": {
+        "translation": "Uniswap Labs default token list",
+        "notes": "faqs::which_assets::link_text"
+      },
+      "answer_text": {
+        "translation": "Keycard works seamlessly with Ethereum and EVM based assets. It supports all assets on Uniswap Labs default token list.",
+        "notes": "faqs::which_assets::answer_text"
+      }
+    },
+    "funds_safe": {
+      "question": {
+        "translation": "Are my funds safe if I lose my Keycard?",
+        "notes": "faqs::funds_safe::question"
+      },
+      "answer": {
+        "translation": "Yes, your funds are safe. You can recover your assets using your backup seed phrase.",
+        "notes": "faqs::funds_safe::answer"
+      }
+    },
+    "wallets_support": {
+      "question": {
+        "translation": "What wallets support Keycard?",
+        "notes": "faqs::wallets_support::question"
+      },
+      "answer": {
+        "translation": "Keycard is compatible with various software wallets. Please check our documentation for a full list.",
+        "notes": "faqs::wallets_support::answer"
+      }
+    },
+    "why_get_keycard": {
+      "question": {
+        "translation": "Why should I get a Keycard?",
+        "notes": "faqs::why_get_keycard::question"
+      },
+      "answer": {
+        "translation": "Keycard is a secure, pocket-sized hardware wallet with a provably genuine, immutable chip to protect your digital assets.",
+        "notes": "faqs::why_get_keycard::answer"
+      }
+    },
+    "still_have_questions": {
+      "translation": "Still have questions?",
+      "notes": "faqs::still_have_questions"
+    },
+    "reach_out": {
+      "translation": "Reach out to our team or engage with our community on Discord or X.",
+      "notes": "faqs::reach_out"
+    },
+    "get_in_touch": {
+      "translation": "Get in touch",
+      "notes": "faqs::get_in_touch"
+    }
+  },
+  "buy_cards": {
+    "keycard_title": {
+      "translation": "A card shaped hardware wallet",
+      "notes": "buy_cards::keycard_title"
+    },
+    "keycard_description": {
+      "translation": "Store and trade your crypto in a simple, secure and slim hardware wallet.",
+      "notes": "buy_cards::keycard_description"
+    },
+    "shell_title": {
+      "translation": "A modular air-gapped hardware wallet",
+      "notes": "buy_cards::shell_title"
+    },
+    "shell_description": {
+      "translation": "The most open, modular and future-proof hardware wallet system ever conceived.",
+      "notes": "buy_cards::shell_description"
+    },
+    "shell_info": {
+      "translation": "Shipping December 2025 • Comes with two Keycards",
+      "notes": "buy_cards::shell_info"
+    }
+  },
+  "about": {
+    "title": {
+      "translation": "About Keycard",
+      "notes": "about::title"
+    },
+    "description": {
+      "translation": "Open-source signing hardware from the Institute of Free Technology. Keycards are secure-element signers; Keycard Shell is an air-gapped wallet with QR confirmation.",
+      "notes": "about::description"
+    },
+    "subtitle": {
+      "translation": "Open-source signing hardware from the",
+      "notes": "about::subtitle"
+    },
+    "institute_link": {
+      "translation": "Institute of Free Technology",
+      "notes": "about::institute_link"
+    },
+    "alongside_text": {
+      "translation": " alongside",
+      "notes": "about::alongside_text"
+    },
+    "status_link": {
+      "translation": "Status",
+      "notes": "about::status_link"
+    },
+    "why_hardware": {
+      "title": {
+        "translation": "Why dedicated hardware",
+        "notes": "about::why_hardware::title"
+      },
+      "description": {
+        "translation": "Air-gapped flows, secure elements, and tamper resistance keep your keys off general-purpose devices.",
+        "notes": "about::why_hardware::description"
+      }
+    },
+    "what_keycard": {
+      "title": {
+        "translation": "What is Keycard?",
+        "notes": "about::what_keycard::title"
+      },
+      "description": {
+        "translation": "A smartcard hardware wallet and Shell enclosure that signs transactions without exposing private keys.",
+        "notes": "about::what_keycard::description"
+      }
+    },
+    "how_we_work": {
+      "title": {
+        "translation": "How we work",
+        "notes": "about::how_we_work::title"
+      },
+      "description": {
+        "translation": "Open-source, security-first, with reproducible builds and public audits.",
+        "notes": "about::how_we_work::description"
+      }
+    },
+    "principles": {
+      "title": {
+        "translation": "Principles",
+        "notes": "about::principles::title"
+      },
+      "keys_never_leave": {
+        "translation": "Keys never leave secure elements",
+        "notes": "about::principles::keys_never_leave"
+      },
+      "minimize_blind_signing": {
+        "translation": "Minimize blind signing",
+        "notes": "about::principles::minimize_blind_signing"
+      },
+      "open_designs": {
+        "translation": "Open designs, open audits",
+        "notes": "about::principles::open_designs"
+      },
+      "building_open": {
+        "translation": "Building in the open with community",
+        "notes": "about::principles::building_open"
+      }
+    },
+    "products": {
+      "title": {
+        "translation": "Products",
+        "notes": "about::products::title"
+      },
+      "keycard": {
+        "name": {
+          "translation": "Keycard",
+          "notes": "about::products::keycard::name"
+        },
+        "description": {
+          "translation": "A slim NFC smartcard hardware wallet.",
+          "notes": "about::products::keycard::description"
+        }
+      },
+      "keycard_shell": {
+        "name": {
+          "translation": "Keycard Shell",
+          "notes": "about::products::keycard_shell::name"
+        },
+        "description": {
+          "translation": "An air-gapped wallet with a QR camera that works with Keycard smartcards.",
+          "notes": "about::products::keycard_shell::description"
+        }
+      }
+    },
+    "press": {
+      "title": {
+        "translation": "Press",
+        "notes": "about::press::title"
+      },
+      "press_release": {
+        "translation": "Press release",
+        "notes": "about::press::press_release"
+      },
+      "media_inquiries": {
+        "translation": "Media inquiries?",
+        "notes": "about::press::media_inquiries"
+      }
+    },
+    "certifications": {
+      "title": {
+        "translation": "Certifications & security",
+        "notes": "about::certifications::title"
+      }
+    },
+    "partners": {
+      "title": {
+        "translation": "Partners & ecosystem",
+        "notes": "about::partners::title"
+      },
+      "erc4527_description": {
+        "translation": "Standards and integrations using the ERC-4527 QR protocol.",
+        "notes": "about::partners::erc4527_description"
+      }
+    }
+  },
+  "contact": {
+    "title": {
+      "translation": "Contact Keycard",
+      "notes": "contact::title"
+    },
+    "subtitle": {
+      "translation": "We reply within 1 business day.",
+      "notes": "contact::subtitle"
+    },
+    "product_support": {
+      "title": {
+        "translation": "Product support",
+        "notes": "contact::product_support::title"
+      },
+      "description": {
+        "translation": "Questions, bugs, feature requests, or security reports.",
+        "notes": "contact::product_support::description"
+      }
+    },
+    "partnerships": {
+      "title": {
+        "translation": "Partnerships & BD",
+        "notes": "contact::partnerships::title"
+      },
+      "description": {
+        "translation": "Integrations, distribution, or bulk orders.",
+        "notes": "contact::partnerships::description"
+      }
+    },
+    "orders": {
+      "title": {
+        "translation": "Orders & shipping",
+        "notes": "contact::orders::title"
+      },
+      "description": {
+        "translation": "Questions about orders, shipping, refunds, or replacements.",
+        "notes": "contact::orders::description"
+      },
+      "help_link": {
+        "translation": "Visit order help",
+        "notes": "contact::orders::help_link"
+      }
+    },
+    "get_involved": {
+      "title": {
+        "translation": "Get involved",
+        "notes": "contact::get_involved::title"
+      },
+      "description": {
+        "translation": "Build with Keycard or learn more about the project.",
+        "notes": "contact::get_involved::description"
+      },
+      "docs_link": {
+        "translation": "Read the docs",
+        "notes": "contact::get_involved::docs_link"
+      },
+      "blog_link": {
+        "translation": "Visit the blog",
+        "notes": "contact::get_involved::blog_link"
+      }
+    },
+    "partnerships_bd": {
+      "title": {
+        "translation": "Partnerships & BD",
+        "notes": "contact::partnerships_bd::title"
+      },
+      "description": {
+        "translation": "Integrations, distribution, or bulk orders.",
+        "notes": "contact::partnerships_bd::description"
+      }
+    }
+  },
+  "blog": {
+    "title": {
+      "translation": "Keycard Blog",
+      "notes": "blog::title"
+    },
+    "subtitle": {
+      "translation": "Product updates, security, and ecosystem news.",
+      "notes": "blog::subtitle"
+    },
+    "no_posts": {
+      "translation": "No posts yet — check back soon.",
+      "notes": "blog::no_posts"
+    }
+  },
+  "footer": {
+    "copyright": {
+      "translation": "© Keycard 2025",
+      "notes": "footer::copyright"
+    },
+    "copyright_old": {
+      "translation": "© Status Research & Development GmbH",
+      "notes": "footer::copyright_old"
+    },
+    "terms_of_use": {
+      "translation": "Terms of Use",
+      "notes": "footer::terms_of_use"
+    },
+    "privacy_policy": {
+      "translation": "Privacy Policy",
+      "notes": "footer::privacy_policy"
+    },
+    "keycard_part_of": {
+      "translation": "Keycard is part of the",
+      "notes": "footer::keycard_part_of"
+    },
+    "institute_of_free_technology": {
+      "translation": "Institute of Free Technology",
+      "notes": "footer::institute_of_free_technology"
+    },
+    "institute_link": {
+      "translation": "Institute of Free Technology",
+      "notes": "footer::institute_link"
+    },
+    "keycard": {
+      "title": {
+        "translation": "Keycard",
+        "notes": "footer::keycard::title"
+      },
+      "about": {
+        "translation": "About Keycard",
+        "notes": "footer::keycard::about"
+      },
+      "buy": {
+        "translation": "Buy Keycard",
+        "notes": "footer::keycard::buy"
+      },
+      "get_started": {
+        "translation": "Get Started",
+        "notes": "footer::keycard::get_started"
+      }
+    },
+    "shell": {
+      "title": {
+        "translation": "Shell",
+        "notes": "footer::shell::title"
+      },
+      "about": {
+        "translation": "About Shell",
+        "notes": "footer::shell::about"
+      },
+      "buy": {
+        "translation": "Buy Shell",
+        "notes": "footer::shell::buy"
+      },
+      "owners_hub": {
+        "translation": "Owner's hub",
+        "notes": "footer::shell::owners_hub"
+      },
+      "quick_start_guide": {
+        "translation": "Quick Start Guide",
+        "notes": "footer::shell::quick_start_guide"
+      },
+      "update": {
+        "translation": "Update Shell",
+        "notes": "footer::shell::update"
+      },
+      "verify": {
+        "translation": "Verify Shell",
+        "notes": "footer::shell::verify"
+      }
+    },
+    "products": {
+      "keycard": {
+        "translation": "Keycard",
+        "notes": "footer::products::keycard"
+      },
+      "keycard_shell": {
+        "translation": "Keycard Shell",
+        "notes": "footer::products::keycard_shell"
+      }
+    },
+    "info": {
+      "get_started": {
+        "translation": "Get started",
+        "notes": "footer::info::get_started"
+      },
+      "blog": {
+        "translation": "Blog",
+        "notes": "footer::info::blog"
+      },
+      "help": {
+        "translation": "Help",
+        "notes": "footer::info::help"
+      },
+      "developers": {
+        "translation": "Developers",
+        "notes": "footer::info::developers"
+      },
+      "affiliates": {
+        "translation": "Affiliates",
+        "notes": "footer::info::affiliates"
+      }
+    },
+    "contacts": {
+      "about": {
+        "translation": "About",
+        "notes": "footer::contacts::about"
+      },
+      "contact": {
+        "translation": "Contact",
+        "notes": "footer::contacts::contact"
+      },
+      "discord": {
+        "translation": "Discord",
+        "notes": "footer::contacts::discord"
+      },
+      "x": {
+        "translation": "X",
+        "notes": "footer::contacts::x"
+      }
+    },
+    "legal": {
+      "privacy_policy": {
+        "translation": "Privacy policy",
+        "notes": "footer::legal::privacy_policy"
+      },
+      "terms_of_use": {
+        "translation": "Terms of use",
+        "notes": "footer::legal::terms_of_use"
+      }
+    }
+  },
+  "not_found": {
+    "title": {
+      "translation": "The page you were looking for wasn't found",
+      "notes": "not_found::title"
+    },
+    "go_to_homepage": {
+      "translation": "Go to keycard.tech homepage",
+      "notes": "not_found::go_to_homepage"
+    }
+  }
+}

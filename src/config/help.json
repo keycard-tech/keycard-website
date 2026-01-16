@@ -17,15 +17,27 @@
     ]
   },
   {
-    "title": "Use with wallet apps",
+    "title": "Use with software wallets",
     "subItems": [
       {
-        "title": "Connect Keycard Shell to a wallet app",
-        "link": "/help/connect-keycard-shell-to-a-wallet-app"
+        "title": "Connect Keycard Shell to a software wallet",
+        "link": "/help/connect-keycard-shell-to-a-software-wallet"
       },
       {
         "title": "Sign a transaction using Keycard Shell",
         "link": "/help/sign-a-transaction-using-keycard-shell"
+      },
+      {
+        "title": "Receive crypto",
+        "link": "/help/receive-crypto"
+      },
+      {
+        "title": "Disconnect from software wallet",
+        "link": "/help/disconnect-from-software-wallet"
+      },
+      {
+        "title": "List of compatible wallets",
+        "link": "/help/list-of-compatible-wallets"
       }
     ]
   },
@@ -43,6 +55,18 @@
       {
         "title": "Factory reset your Keycard using Keycard Shell",
         "link": "/help/factory-reset-your-keycard-using-keycard-shell"
+      },
+      {
+        "title": "Change pairing password",
+        "link": "/help/change-pairing-password"
+      },
+      {
+        "title": "Set a Keycard PUK",
+        "link": "/help/set-a-keycard-puk"
+      },
+      {
+        "title": "Name your Keycard",
+        "link": "/help/name-your-keycard"
       }
     ]
   },
@@ -56,6 +80,22 @@
       {
         "title": "Understand the Slip39 wallet backup standard",
         "link": "/help/understand-the-slip-39-wallet-backup-standard"
+      },
+      {
+        "title": "Update your Keycard Shell online",
+        "link": "/help/update-your-keycard-shell-online"
+      },
+      {
+        "title": "Update your Keycard Shell offline",
+        "link": "/help/update-your-keycard-shell-offline"
+      },
+      {
+        "title": "Unblock your Keycard using Keycard Shell",
+        "link": "/help/unblock-your-keycard-using-keycard-shell"
+      },
+      {
+        "title": "Enable or disable data transfer on Keycard Shell",
+        "link": "/help/enable-or-disable-data-transfer-on-keycard-shell"
       }
     ]
   },
@@ -65,6 +105,18 @@
       {
         "title": "Replace your Keycard Shell battery",
         "link": "/help/replace-your-keycard-shell-battery"
+      },
+      {
+        "title": "Change screen brightness",
+        "link": "/help/change-screen-brightness"
+      },
+      {
+        "title": "Set an auto turn-off time",
+        "link": "/help/set-an-auto-turn-off-time"
+      },
+      {
+        "title": "Charge Shell",
+        "link": "/help/charge-shell"
       }
     ]
   },

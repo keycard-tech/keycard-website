@@ -1,6 +1,8 @@
 import { Analytics } from '@vercel/analytics/next'
 import { clientEnv } from '~/config/env.client.mjs'
 import { cx } from 'cva'
+import { NextIntlClientProvider } from 'next-intl'
+import { getLocale, getMessages } from 'next-intl/server'
 import { Inter, Lora } from 'next/font/google'
 import Script from 'next/script'
 import { Metadata } from './_metadata'
@@ -29,10 +31,6 @@ export const metadata = Metadata({
     template: '%s — Keycard',
   },
 
-  alternates: {
-    canonical: '/',
-  },
-
   twitter: {
     card: 'summary_large_image',
     site: '@keycard_',
@@ -43,9 +41,12 @@ type Props = {
   children: React.ReactNode
 }
 
-export default function RootLayout({ children }: Props) {
+export default async function RootLayout({ children }: Props) {
+  const locale = await getLocale()
+  const messages = await getMessages()
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <head>
         {/* Shopify cookie banner script */}
         <Script
@@ -119,19 +120,21 @@ export default function RootLayout({ children }: Props) {
         )}
         suppressHydrationWarning
       >
-        <Providers>
-          <div className="flex min-h-screen w-full justify-center overflow-clip">
-            <div className="flex min-h-screen w-full flex-col p-2 pt-0">
-              {children}
+        <NextIntlClientProvider messages={messages}>
+          <Providers>
+            <div className="flex min-h-screen w-full justify-center overflow-clip">
+              <div className="flex min-h-screen w-full flex-col p-2 pt-0">
+                {children}
+              </div>
             </div>
-          </div>
-          <script
-            suppressHydrationWarning
-            dangerouslySetInnerHTML={{
-              __html: `(${platformScript.toString()})()`,
-            }}
-          />
-        </Providers>
+            <script
+              suppressHydrationWarning
+              dangerouslySetInnerHTML={{
+                __html: `(${platformScript.toString()})()`,
+              }}
+            />
+          </Providers>
+        </NextIntlClientProvider>
 
         {/* Vercel Analytics */}
         <Analytics />

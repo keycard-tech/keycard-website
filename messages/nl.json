@@ -1,0 +1,900 @@
+{
+  "common": {
+    "get_started": {
+      "translation": "Aan de slag",
+      "notes": "common::get_started"
+    },
+    "learn_more": {
+      "translation": "Meer informatie",
+      "notes": "common::learn_more"
+    },
+    "buy_now": {
+      "translation": "Nu kopen",
+      "notes": "common::buy_now"
+    },
+    "download": {
+      "translation": "Downloaden",
+      "notes": "common::download"
+    },
+    "read_docs": {
+      "translation": "Documentatie lezen",
+      "notes": "common::read_docs"
+    },
+    "discover": {
+      "translation": "Ontdekken",
+      "notes": "common::discover"
+    },
+    "pre_order_now": {
+      "translation": "Nu kopen",
+      "notes": "common::pre_order_now"
+    },
+    "coming_2025": {
+      "translation": "Verzending binnen 3-10 dagen",
+      "notes": "common::coming_2025"
+    },
+    "bundled_with_keycard": {
+      "translation": "Gebundeld met 2 Keycards",
+      "notes": "common::bundled_with_keycard"
+    },
+    "pre_order": {
+      "translation": "Nu kopen",
+      "notes": "common::pre_order"
+    },
+    "buy_keycard": {
+      "translation": "Keycard kopen",
+      "notes": "common::buy_keycard"
+    },
+    "buy_shell": {
+      "translation": "Shell kopen",
+      "notes": "common::buy_shell"
+    },
+    "pre_order_shell": {
+      "translation": "Shell kopen",
+      "notes": "common::pre_order_shell"
+    },
+    "from": {
+      "translation": "Vanaf",
+      "notes": "common::from"
+    }
+  },
+  "blog": {
+    "title": {
+      "translation": "Keycard-blog",
+      "notes": "blog::title"
+    },
+    "subtitle": {
+      "translation": "Productupdates, veiligheid en ecosysteemnieuws.",
+      "notes": "blog::subtitle"
+    },
+    "no_posts": {
+      "translation": "Nog geen posts — kom snel terug.",
+      "notes": "blog::no_posts"
+    }
+  },
+  "navigation": {
+    "about": {
+      "translation": "Over",
+      "notes": "navigation::about"
+    },
+    "keycard": {
+      "translation": "Keycard",
+      "notes": "navigation::keycard"
+    },
+    "keycard_shell": {
+      "translation": "Keycard Shell",
+      "notes": "navigation::keycard_shell"
+    },
+    "developers": {
+      "translation": "Ontwikkelaars",
+      "notes": "navigation::developers"
+    },
+    "help": {
+      "translation": "Help",
+      "notes": "navigation::help"
+    },
+    "blog": {
+      "translation": "Blog",
+      "notes": "navigation::blog"
+    },
+    "contact": {
+      "translation": "Contact",
+      "notes": "navigation::contact"
+    },
+    "get_started": {
+      "translation": "Aan de slag",
+      "notes": "navigation::get_started"
+    },
+    "affiliates": {
+      "translation": "Affiliates",
+      "notes": "navigation::affiliates"
+    },
+    "discord": {
+      "translation": "Discord",
+      "notes": "navigation::discord"
+    },
+    "x": {
+      "translation": "X",
+      "notes": "navigation::x"
+    },
+    "privacy_policy": {
+      "translation": "Privacybeleid",
+      "notes": "navigation::privacy_policy"
+    },
+    "terms_of_use": {
+      "translation": "Gebruiksvoorwaarden",
+      "notes": "navigation::terms_of_use"
+    }
+  },
+  "top_banner": {
+    "pre_sale_started": {
+      "translation": "🎉 Keycard Shell wordt nu verzonden!",
+      "notes": "top_banner::pre_sale_started"
+    },
+    "pre_order_now": {
+      "translation": "Nu kopen",
+      "notes": "top_banner::pre_order_now"
+    },
+    "exclusive_benefits": {
+      "translation": "Verzending binnen 3-10 dagen",
+      "notes": "top_banner::exclusive_benefits"
+    }
+  },
+  "hero": {
+    "keycard_shell_title": {
+      "translation": "keycard shell",
+      "notes": "hero::keycard_shell_title"
+    },
+    "keycard_shell_subtitle": {
+      "translation": "Eén veilig apparaat,\nonceindig veel back-ups",
+      "notes": "hero::keycard_shell_subtitle"
+    },
+    "keycard_shell_description": {
+      "translation": "Ongeëvenaarde beveiliging met een onbeperkt aantal verwijderbare Keycards, elk met zijn eigen sleutel.",
+      "notes": "hero::keycard_shell_description"
+    },
+    "discover_shell": {
+      "translation": "Shell ontdekken",
+      "notes": "hero::discover_shell"
+    },
+    "keycard_title": {
+      "translation": "keycard",
+      "notes": "hero::keycard_title"
+    },
+    "keycard_subtitle": {
+      "translation": "Licht ontwerp\nmaximale beveiliging",
+      "notes": "hero::keycard_subtitle"
+    },
+    "keycard_description": {
+      "translation": "Handel snel en maak veilig back-ups van je assets met de Keycard‑hardware‑wallets.",
+      "notes": "hero::keycard_description"
+    },
+    "discover_keycard": {
+      "translation": "Keycard ontdekken",
+      "notes": "hero::discover_keycard"
+    }
+  },
+  "features": {
+    "title": {
+      "translation": "Doe mee aan de",
+      "notes": "features::title"
+    },
+    "open_source_highlight": {
+      "translation": "open source",
+      "notes": "features::open_source_highlight"
+    },
+    "title_continued": {
+      "translation": "van het meest",
+      "notes": "features::title_continued"
+    },
+    "modular_highlight": {
+      "translation": "modulaire",
+      "notes": "features::modular_highlight"
+    },
+    "and_text": {
+      "translation": "en",
+      "notes": "features::and_text"
+    },
+    "future_proof_highlight": {
+      "translation": "toekomstbestendige",
+      "notes": "features::future_proof_highlight"
+    },
+    "title_end": {
+      "translation": "hardware‑wallet‑systeem dat ooit is ontworpen.",
+      "notes": "features::title_end"
+    },
+    "security": {
+      "title": {
+        "translation": "Beveiliging van topniveau",
+        "notes": "features::security::title"
+      },
+      "description": {
+        "translation": "Het secure element van Keycard heeft het hoogste certificeringsniveau dat door Common Criteria wordt toegekend.",
+        "notes": "features::security::description"
+      },
+      "badge": {
+        "translation": "EAL 6+",
+        "notes": "features::security::badge"
+      }
+    },
+    "open_source": {
+      "title": {
+        "translation": "Volledig open source",
+        "notes": "features::open_source::title"
+      },
+      "description": {
+        "translation": "Open‑sourcecode op een open framework – de meest open manier om een secure element te ontwerpen.",
+        "notes": "features::open_source::description"
+      },
+      "button": {
+        "translation": "Bekijken op GitHub",
+        "notes": "features::open_source::button"
+      }
+    },
+    "airgapped": {
+      "title": {
+        "translation": "Air‑gapped",
+        "notes": "features::airgapped::title"
+      },
+      "description": {
+        "translation": "Via de camera van Keycard Shell of het contactloze karakter van Keycard kunnen onze producten volledig air‑gapped gebruikt worden.",
+        "notes": "features::airgapped::description"
+      },
+      "badge": {
+        "translation": "0 kabels",
+        "notes": "features::airgapped::badge"
+      }
+    },
+    "durable": {
+      "title": {
+        "translation": "Gemaakt om lang mee te gaan",
+        "notes": "features::durable::title"
+      },
+      "description": {
+        "translation": "Je Keycard heeft een levensduur van meer dan 25 jaar en is bestand tegen water en stof. Ze blijft je sleutels veilig bewaren.",
+        "notes": "features::durable::description"
+      },
+      "badge": {
+        "translation": "25+ jaar",
+        "notes": "features::durable::badge"
+      }
+    },
+    "backup": {
+      "title": {
+        "translation": "Eenvoudig back‑uppen",
+        "notes": "features::backup::title"
+      },
+      "description": {
+        "translation": "Sla je privésleutel veilig op meerdere kaarten op. Versleuteld, in plaats van op het gebruikelijke stukje papier.",
+        "notes": "features::backup::description"
+      },
+      "badge": {
+        "translation": "back‑ups",
+        "notes": "features::backup::badge"
+      }
+    },
+    "discreet": {
+      "title": {
+        "translation": "Onopvallend",
+        "notes": "features::discreet::title"
+      },
+      "description": {
+        "translation": "Door het lichte, kleine en onopvallende formaat valt je Keycard nauwelijks op in je portemonnee.",
+        "notes": "features::discreet::description"
+      },
+      "badge": {
+        "translation": "Creditcard‑formaat",
+        "notes": "features::discreet::badge"
+      }
+    }
+  },
+  "comparison": {
+    "title": {
+      "translation": "Nog een stap verder.",
+      "notes": "comparison::title"
+    },
+    "feature": {
+      "translation": "Functie",
+      "notes": "comparison::feature"
+    },
+    "shell": {
+      "translation": "Shell",
+      "notes": "comparison::shell"
+    },
+    "keycard": {
+      "translation": "Keycard",
+      "notes": "comparison::keycard"
+    },
+    "tangem": {
+      "translation": "Tangem",
+      "notes": "comparison::tangem"
+    },
+    "ledger": {
+      "translation": "Ledger Nano X",
+      "notes": "comparison::ledger"
+    },
+    "features": {
+      "eth_chains_btc": {
+        "name": {
+          "translation": "ETH‑netwerken en BTC",
+          "notes": "comparison::features::eth_chains_btc::name"
+        },
+        "tooltip": {
+          "translation": "Ondersteunt Ethereum, alle EVM‑chains (L2's), BTC en BTC‑multisigs.",
+          "notes": "comparison::features::eth_chains_btc::tooltip"
+        }
+      },
+      "many_cards": {
+        "name": {
+          "translation": "Veel kaarten, veel sleutels",
+          "notes": "comparison::features::many_cards::name"
+        },
+        "tooltip": {
+          "translation": "Een onbeperkt aantal kaarten kan met verschillende sleutels worden gebruikt voor gebruiksgemak en back‑ups.",
+          "notes": "comparison::features::many_cards::tooltip"
+        }
+      },
+      "no_export": {
+        "name": {
+          "translation": "De kaart kan geen privésleutels exporteren",
+          "notes": "comparison::features::no_export::name"
+        },
+        "tooltip": {
+          "translation": "Privésleutels verlaten de kaart nooit. De kaart is een veilige enclave die privésleutels opslaat en handtekeningen uitvoert.",
+          "notes": "comparison::features::no_export::tooltip"
+        }
+      },
+      "open_ecosystem": {
+        "name": {
+          "translation": "Open en uitbreidbaar ecosysteem",
+          "notes": "comparison::features::open_ecosystem::name"
+        },
+        "tooltip": {
+          "translation": "Ontwikkelaars en fabrikanten kunnen daarop voortbouwen om het ecosysteem te laten groeien en er voordeel uit te halen",
+          "notes": "comparison::features::open_ecosystem::tooltip"
+        }
+      },
+      "card_cannot_be_upgraded": {
+        "name": {
+          "translation": "Kaart kan niet worden geüpgraded",
+          "notes": "comparison::features::card_cannot_be_upgraded::name"
+        },
+        "tooltip": {
+          "translation": "De kaart kan niet worden bijgewerkt met nieuwe firmware",
+          "notes": "comparison::features::card_cannot_be_upgraded::tooltip"
+        }
+      },
+      "full_open_source": {
+        "name": {
+          "translation": "Volledig open source ontwerp",
+          "notes": "comparison::features::full_open_source::name"
+        },
+        "tooltip": {
+          "translation": "Hardware en software zijn volledig open source",
+          "notes": "comparison::features::full_open_source::tooltip"
+        }
+      },
+      "use_with_other_wallets": {
+        "name": {
+          "translation": "Gebruik je kaart met andere wallets",
+          "notes": "comparison::features::use_with_other_wallets::name"
+        },
+        "tooltip": {
+          "translation": "Werkt met verschillende wallet-applicaties",
+          "notes": "comparison::features::use_with_other_wallets::tooltip"
+        }
+      },
+      "no_vendor_app": {
+        "name": {
+          "translation": "Geen leveranciersspecifieke applicatie nodig",
+          "notes": "comparison::features::no_vendor_app::name"
+        },
+        "tooltip": {
+          "translation": "Werkt zonder proprietaire leverancierssoftware",
+          "notes": "comparison::features::no_vendor_app::tooltip"
+        }
+      },
+      "compatible_wallets": {
+        "name": {
+          "translation": "Compatibel met meer dan 10 wallets",
+          "notes": "comparison::features::compatible_wallets::name"
+        },
+        "tooltip": {
+          "translation": "Ondersteund door meer dan 10 verschillende wallet-applicaties",
+          "notes": "comparison::features::compatible_wallets::tooltip"
+        }
+      },
+      "clear_signing": {
+        "name": {
+          "translation": "Duidelijke ondertekening",
+          "notes": "comparison::features::clear_signing::name"
+        },
+        "tooltip": {
+          "translation": "Je ziet wat je ondertekent voordat je een transactie bevestigt",
+          "notes": "comparison::features::clear_signing::tooltip"
+        }
+      },
+      "airgap_capable": {
+        "name": {
+          "translation": "Air-gap-compatibel",
+          "notes": "comparison::features::airgap_capable::name"
+        },
+        "tooltip": {
+          "translation": "Kan volledig offline worden gebruikt zonder directe verbinding",
+          "notes": "comparison::features::airgap_capable::tooltip"
+        }
+      },
+      "camera_qr": {
+        "name": {
+          "translation": "Camera voor QR-code scannen",
+          "notes": "comparison::features::camera_qr::name"
+        },
+        "tooltip": {
+          "translation": "Ingebouwde camera voor QR-code gebaseerde transacties",
+          "notes": "comparison::features::camera_qr::tooltip"
+        }
+      },
+      "removable_battery": {
+        "name": {
+          "translation": "Verwijderbare batterij",
+          "notes": "comparison::features::removable_battery::name"
+        },
+        "tooltip": {
+          "translation": "Batterij kan worden vervangen",
+          "notes": "comparison::features::removable_battery::tooltip"
+        }
+      }
+    }
+  },
+  "faqs": {
+    "title": {
+      "translation": "Veelgestelde vragen",
+      "notes": "faqs::title"
+    },
+    "what_is_keycard": {
+      "question": {
+        "translation": "Waarvoor is Keycard bedoeld?",
+        "notes": "faqs::what_is_keycard::question"
+      },
+      "answer": {
+        "translation": "Keycard is een veilige hardware‑wallet voor het bewaren en beheren van je cryptovaluta.",
+        "notes": "faqs::what_is_keycard::answer"
+      }
+    },
+    "which_assets": {
+      "question": {
+        "translation": "Welke assets ondersteunt Keycard?",
+        "notes": "faqs::which_assets::question"
+      },
+      "answer": {
+        "translation": "Keycard werkt naadloos met Ethereum en EVM‑gebaseerde assets. Het ondersteunt",
+        "notes": "faqs::which_assets::answer"
+      },
+      "link_text": {
+        "translation": "standaardtokenlijst van Uniswap Labs",
+        "notes": "faqs::which_assets::link_text"
+      },
+      "answer_text": {
+        "translation": "Keycard werkt naadloos met Ethereum en EVM‑gebaseerde assets. Het ondersteunt alle assets op de standaardtokenlijst van Uniswap Labs.",
+        "notes": "faqs::which_assets::answer_text"
+      }
+    },
+    "funds_safe": {
+      "question": {
+        "translation": "Zijn mijn fondsen veilig als ik mijn Keycard verlies?",
+        "notes": "faqs::funds_safe::question"
+      },
+      "answer": {
+        "translation": "Ja, je fondsen zijn veilig. Je kunt je assets herstellen met je back‑up seed phrase.",
+        "notes": "faqs::funds_safe::answer"
+      }
+    },
+    "wallets_support": {
+      "question": {
+        "translation": "Welke wallets ondersteunen Keycard?",
+        "notes": "faqs::wallets_support::question"
+      },
+      "answer": {
+        "translation": "Keycard is compatibel met diverse software‑wallets. Raadpleeg onze documentatie voor een volledige lijst.",
+        "notes": "faqs::wallets_support::answer"
+      }
+    },
+    "why_get_keycard": {
+      "question": {
+        "translation": "Waarom zou ik een Keycard nemen?",
+        "notes": "faqs::why_get_keycard::question"
+      },
+      "answer": {
+        "translation": "Keycard is een veilige hardware‑wallet op zakformaat met een aantoonbaar echte, onveranderlijke chip om je digitale assets te beschermen.",
+        "notes": "faqs::why_get_keycard::answer"
+      }
+    },
+    "still_have_questions": {
+      "translation": "Nog vragen?",
+      "notes": "faqs::still_have_questions"
+    },
+    "reach_out": {
+      "translation": "Neem contact op met ons team of ga in gesprek met onze community op Discord of X.",
+      "notes": "faqs::reach_out"
+    },
+    "get_in_touch": {
+      "translation": "Neem contact op",
+      "notes": "faqs::get_in_touch"
+    }
+  },
+  "buy_cards": {
+    "keycard_title": {
+      "translation": "Een hardware‑wallet in kaartvorm",
+      "notes": "buy_cards::keycard_title"
+    },
+    "keycard_description": {
+      "translation": "Bewaar en verhandel je crypto in een eenvoudige, veilige en slanke hardware‑wallet.",
+      "notes": "buy_cards::keycard_description"
+    },
+    "shell_title": {
+      "translation": "Een modulaire, air‑gapped hardware‑wallet",
+      "notes": "buy_cards::shell_title"
+    },
+    "shell_description": {
+      "translation": "Het meest open, modulaire en toekomstbestendige hardware‑wallet‑systeem dat ooit is bedacht.",
+      "notes": "buy_cards::shell_description"
+    },
+    "shell_info": {
+      "translation": "Verzending in december 2025 • Inclusief twee Keycards",
+      "notes": "buy_cards::shell_info"
+    }
+  },
+  "about": {
+    "title": {
+      "translation": "Over Keycard",
+      "notes": "about::title"
+    },
+    "description": {
+      "translation": "Open‑source‑tekenhardware van het Institute of Free Technology. Keycards zijn secure‑element‑signers; Keycard Shell is een air‑gapped wallet met QR‑bevestiging.",
+      "notes": "about::description"
+    },
+    "subtitle": {
+      "translation": "Open-source ondertekenhardware van het",
+      "notes": "about::subtitle"
+    },
+    "institute_link": {
+      "translation": "Institute of Free Technology",
+      "notes": "about::institute_link"
+    },
+    "alongside_text": {
+      "translation": " samen met",
+      "notes": "about::alongside_text"
+    },
+    "status_link": {
+      "translation": "Status",
+      "notes": "about::status_link"
+    },
+    "why_hardware": {
+      "title": {
+        "translation": "Waarom dedicated hardware",
+        "notes": "about::why_hardware::title"
+      },
+      "description": {
+        "translation": "Air-gapped flows, secure elements en manipulatiebestendigheid houden je sleutels weg van algemene apparaten.",
+        "notes": "about::why_hardware::description"
+      }
+    },
+    "what_keycard": {
+      "title": {
+        "translation": "Wat is Keycard?",
+        "notes": "about::what_keycard::title"
+      },
+      "description": {
+        "translation": "Een smartcard-hardwarewallet en Shell-behuizing die transacties ondertekenen zonder privésleutels bloot te stellen.",
+        "notes": "about::what_keycard::description"
+      }
+    },
+    "how_we_work": {
+      "title": {
+        "translation": "Hoe we werken",
+        "notes": "about::how_we_work::title"
+      },
+      "description": {
+        "translation": "Open source, veiligheid eerst, met reproduceerbare builds en openbare audits.",
+        "notes": "about::how_we_work::description"
+      }
+    },
+    "principles": {
+      "title": {
+        "translation": "Principes",
+        "notes": "about::principles::title"
+      },
+      "keys_never_leave": {
+        "translation": "Sleutels verlaten secure elements nooit",
+        "notes": "about::principles::keys_never_leave"
+      },
+      "minimize_blind_signing": {
+        "translation": "Blind signing minimaliseren",
+        "notes": "about::principles::minimize_blind_signing"
+      },
+      "open_designs": {
+        "translation": "Open ontwerpen, open audits",
+        "notes": "about::principles::open_designs"
+      },
+      "building_open": {
+        "translation": "Open bouwen met de community",
+        "notes": "about::principles::building_open"
+      }
+    },
+    "products": {
+      "title": {
+        "translation": "Producten",
+        "notes": "about::products::title"
+      },
+      "keycard": {
+        "name": {
+          "translation": "Keycard",
+          "notes": "about::products::keycard::name"
+        },
+        "description": {
+          "translation": "Een slanke NFC-smartcard-hardwarewallet.",
+          "notes": "about::products::keycard::description"
+        }
+      },
+      "keycard_shell": {
+        "name": {
+          "translation": "Keycard Shell",
+          "notes": "about::products::keycard_shell::name"
+        },
+        "description": {
+          "translation": "Een air-gapped wallet met QR-camera die werkt met Keycard-smartcards.",
+          "notes": "about::products::keycard_shell::description"
+        }
+      }
+    },
+    "press": {
+      "title": {
+        "translation": "Pers",
+        "notes": "about::press::title"
+      },
+      "press_release": {
+        "translation": "Persbericht",
+        "notes": "about::press::press_release"
+      },
+      "media_inquiries": {
+        "translation": "Persaanvragen?",
+        "notes": "about::press::media_inquiries"
+      }
+    },
+    "certifications": {
+      "title": {
+        "translation": "Certificeringen & beveiliging",
+        "notes": "about::certifications::title"
+      }
+    },
+    "partners": {
+      "title": {
+        "translation": "Partners & ecosysteem",
+        "notes": "about::partners::title"
+      },
+      "erc4527_description": {
+        "translation": "Standaarden en integraties met het ERC-4527-QR-protocol.",
+        "notes": "about::partners::erc4527_description"
+      }
+    }
+  },
+  "contact": {
+    "title": {
+      "translation": "Contact opnemen met Keycard",
+      "notes": "contact::title"
+    },
+    "subtitle": {
+      "translation": "We reageren binnen één werkdag.",
+      "notes": "contact::subtitle"
+    },
+    "product_support": {
+      "title": {
+        "translation": "Productsupport",
+        "notes": "contact::product_support::title"
+      },
+      "description": {
+        "translation": "Vragen, bugs, feature‑verzoeken of beveiligingsmeldingen.",
+        "notes": "contact::product_support::description"
+      }
+    },
+    "partnerships": {
+      "title": {
+        "translation": "Partnerschappen & BD",
+        "notes": "contact::partnerships::title"
+      },
+      "description": {
+        "translation": "Integraties, distributie of bulkbestellingen.",
+        "notes": "contact::partnerships::description"
+      }
+    },
+    "orders": {
+      "title": {
+        "translation": "Bestellingen & verzending",
+        "notes": "contact::orders::title"
+      },
+      "description": {
+        "translation": "Vragen over bestellingen, verzending, terugbetalingen of vervangingen.",
+        "notes": "contact::orders::description"
+      },
+      "help_link": {
+        "translation": "Ga naar bestelhelp",
+        "notes": "contact::orders::help_link"
+      }
+    },
+    "get_involved": {
+      "title": {
+        "translation": "Doe mee",
+        "notes": "contact::get_involved::title"
+      },
+      "description": {
+        "translation": "Bouw met Keycard of leer meer over het project.",
+        "notes": "contact::get_involved::description"
+      },
+      "docs_link": {
+        "translation": "Lees de docs",
+        "notes": "contact::get_involved::docs_link"
+      },
+      "blog_link": {
+        "translation": "Bezoek de blog",
+        "notes": "contact::get_involved::blog_link"
+      }
+    },
+    "partnerships_bd": {
+      "title": {
+        "translation": "Partnerschappen & BD",
+        "notes": "contact::partnerships_bd::title"
+      },
+      "description": {
+        "translation": "Integraties, distributie of bulkbestellingen.",
+        "notes": "contact::partnerships_bd::description"
+      }
+    }
+  },
+  "footer": {
+    "copyright": {
+      "translation": "© Keycard 2025",
+      "notes": "footer::copyright"
+    },
+    "copyright_old": {
+      "translation": "© Status Research & Development GmbH",
+      "notes": "footer::copyright_old"
+    },
+    "terms_of_use": {
+      "translation": "Gebruiksvoorwaarden",
+      "notes": "footer::terms_of_use"
+    },
+    "privacy_policy": {
+      "translation": "Privacybeleid",
+      "notes": "footer::privacy_policy"
+    },
+    "keycard_part_of": {
+      "translation": "Keycard is onderdeel van het",
+      "notes": "footer::keycard_part_of"
+    },
+    "institute_of_free_technology": {
+      "translation": "Institute of Free Technology",
+      "notes": "footer::institute_of_free_technology"
+    },
+    "institute_link": {
+      "translation": "Institute of Free Technology",
+      "notes": "footer::institute_link"
+    },
+    "keycard": {
+      "title": {
+        "translation": "Keycard",
+        "notes": "footer::keycard::title"
+      },
+      "about": {
+        "translation": "Over Keycard",
+        "notes": "footer::keycard::about"
+      },
+      "buy": {
+        "translation": "Keycard kopen",
+        "notes": "footer::keycard::buy"
+      },
+      "get_started": {
+        "translation": "Aan de slag",
+        "notes": "footer::keycard::get_started"
+      }
+    },
+    "shell": {
+      "title": {
+        "translation": "Shell",
+        "notes": "footer::shell::title"
+      },
+      "about": {
+        "translation": "Over Shell",
+        "notes": "footer::shell::about"
+      },
+      "buy": {
+        "translation": "Shell kopen",
+        "notes": "footer::shell::buy"
+      },
+      "owners_hub": {
+        "translation": "Eigenaarshub",
+        "notes": "footer::shell::owners_hub"
+      },
+      "quick_start_guide": {
+        "translation": "Snelstartgids",
+        "notes": "footer::shell::quick_start_guide"
+      },
+      "update": {
+        "translation": "Shell bijwerken",
+        "notes": "footer::shell::update"
+      },
+      "verify": {
+        "translation": "Shell verifiëren",
+        "notes": "footer::shell::verify"
+      }
+    },
+    "products": {
+      "keycard": {
+        "translation": "Keycard",
+        "notes": "footer::products::keycard"
+      },
+      "keycard_shell": {
+        "translation": "Keycard Shell",
+        "notes": "footer::products::keycard_shell"
+      }
+    },
+    "info": {
+      "get_started": {
+        "translation": "Aan de slag",
+        "notes": "footer::info::get_started"
+      },
+      "blog": {
+        "translation": "Blog",
+        "notes": "footer::info::blog"
+      },
+      "help": {
+        "translation": "Help",
+        "notes": "footer::info::help"
+      },
+      "developers": {
+        "translation": "Ontwikkelaars",
+        "notes": "footer::info::developers"
+      },
+      "affiliates": {
+        "translation": "Affiliates",
+        "notes": "footer::info::affiliates"
+      }
+    },
+    "contacts": {
+      "about": {
+        "translation": "Over",
+        "notes": "footer::contacts::about"
+      },
+      "contact": {
+        "translation": "Contact",
+        "notes": "footer::contacts::contact"
+      },
+      "discord": {
+        "translation": "Discord",
+        "notes": "footer::contacts::discord"
+      },
+      "x": {
+        "translation": "X",
+        "notes": "footer::contacts::x"
+      }
+    },
+    "legal": {
+      "privacy_policy": {
+        "translation": "Privacybeleid",
+        "notes": "footer::legal::privacy_policy"
+      },
+      "terms_of_use": {
+        "translation": "Gebruiksvoorwaarden",
+        "notes": "footer::legal::terms_of_use"
+      }
+    }
+  },
+  "not_found": {
+    "title": {
+      "translation": "De pagina die je zocht, is niet gevonden.",
+      "notes": "not_found::title"
+    },
+    "go_to_homepage": {
+      "translation": "Ga naar de homepage van keycard.tech",
+      "notes": "not_found::go_to_homepage"
+    }
+  }
+}

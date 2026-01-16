@@ -1,3 +1,126 @@
+import { SUPPORTED_LOCALES, type SupportedLocale } from '~/i18n/constants'
+import { useTranslations } from 'next-intl'
+
+const SHOPIFY_BASE_URL = 'https://get.keycard.tech'
+
+const normalizeLocale = (locale: string): SupportedLocale =>
+  SUPPORTED_LOCALES.includes(locale as SupportedLocale)
+    ? (locale as SupportedLocale)
+    : 'en'
+
+export const getShopifyUrl = (locale: string, path: string) => {
+  const normalizedLocale = normalizeLocale(locale)
+  const normalizedPath = path.startsWith('/') ? path : `/${path}`
+  const pathWithLocale =
+    normalizedLocale === 'en'
+      ? normalizedPath
+      : `/${normalizedLocale}${normalizedPath}`
+
+  return `${SHOPIFY_BASE_URL}${pathWithLocale}`
+}
+
+export const getRoutes = (
+  t: ReturnType<typeof useTranslations>,
+  locale: string,
+) =>
+  ({
+    Keycard: [
+      {
+        name: t('footer.keycard.about.translation'),
+        href: '/help/about-keycard-and-keycard-shell',
+      },
+      {
+        name: t('footer.keycard.buy.translation'),
+        href: getShopifyUrl(locale, '/pages/keycard'),
+      },
+      {
+        name: t('footer.keycard.get_started.translation'),
+        href: '/start',
+      },
+    ],
+    Shell: [
+      {
+        name: t('footer.shell.about.translation'),
+        href: getShopifyUrl(locale, '/pages/keycard-shell'),
+      },
+      {
+        name: t('footer.shell.buy.translation'),
+        href: getShopifyUrl(locale, '/pages/keycard-shell'),
+      },
+      {
+        name: t('footer.shell.owners_hub.translation'),
+        href: 'https://shell.keycard.tech/',
+      },
+      {
+        name: t('footer.shell.quick_start_guide.translation'),
+        href: '/start/shell',
+      },
+      {
+        name: t('footer.shell.update.translation'),
+        href: 'https://shell.keycard.tech/update/',
+      },
+      {
+        name: t('footer.shell.verify.translation'),
+        href: 'https://shell.keycard.tech/verify/',
+      },
+    ],
+    Info: [
+      { name: t('footer.info.get_started.translation'), href: '/start' },
+      { name: t('footer.info.blog.translation'), href: '/blog' },
+      {
+        name: t('footer.info.help.translation'),
+        href: '/help/about-keycard-and-keycard-shell',
+      },
+      {
+        name: t('footer.info.developers.translation'),
+        href: '/developers/overview',
+      },
+      {
+        name: t('footer.info.affiliates.translation'),
+        href: 'https://affiliates.keycard.tech',
+      },
+    ],
+    Contacts: [
+      { name: t('footer.contacts.about.translation'), href: '/about' },
+      { name: t('footer.contacts.contact.translation'), href: '/contact' },
+      {
+        name: t('footer.contacts.discord.translation'),
+        href: 'https://discord.gg/uJAXk7jFhZ',
+      },
+      {
+        name: t('footer.contacts.x.translation'),
+        href: 'https://x.com/Keycard_',
+      },
+      // { name: 'Email', href: 'mailto:support@keycard.tech' },
+    ],
+    Legal: [
+      {
+        name: t('footer.legal.privacy_policy.translation'),
+        href: '/en/legal/privacy-policy',
+      },
+      {
+        name: t('footer.legal.terms_of_use.translation'),
+        href: '/en/legal/terms-of-use',
+      },
+    ],
+    // 'Works with': [
+    //   {
+    //     name: 'Status',
+    //     href: 'https://status.app',
+    //   },
+    //   {
+    //     name: 'WallETH',
+    //     href: 'https://walleth.org',
+    //   },
+    //   {
+    //     name: 'Enno Wallet',
+    //     href: 'https://ennowallet.com/',
+    //   },
+    // ],
+  }) as const
+
+// Keep the original ROUTES for backward compatibility
+const defaultLocale = 'en'
 export const ROUTES = {
   Keycard: [
     {
@@ -6,7 +129,7 @@ export const ROUTES = {
     },
     {
       name: 'Buy Keycard',
-      href: 'https://get.keycard.tech/pages/keycard',
+      href: getShopifyUrl(defaultLocale, '/pages/keycard'),
     },
     {
       name: 'Get Started',
@@ -16,11 +139,11 @@ export const ROUTES = {
   Shell: [
     {
       name: 'About Shell',
-      href: 'https://get.keycard.tech/pages/keycard-shell',
+      href: getShopifyUrl(defaultLocale, '/pages/keycard-shell'),
     },
     {
       name: 'Buy Shell',
-      href: 'https://get.keycard.tech/pages/keycard-shell',
+      href: getShopifyUrl(defaultLocale, '/pages/keycard-shell'),
     },
     {
       name: "Owner's hub",
@@ -79,8 +202,8 @@ export const ROUTES = {
     },
   ],
   Legal: [
-    { name: 'Privacy policy', href: '/legal/privacy-policy' },
-    { name: 'Terms of use', href: '/legal/terms-of-use' },
+    { name: 'Privacy policy', href: '/en/legal/privacy-policy' },
+    { name: 'Terms of use', href: '/en/legal/terms-of-use' },
   ],
 } as const
 
@@ -102,4 +225,7 @@ export const STATUS_DESKTOP_DOWNLOAD_URL_LINUX =
 
 export const STATUS_APPS_DESKTOP_URL = 'https://status.app/apps#desktop'
 
-export type Routes = (typeof ROUTES)[keyof typeof ROUTES]
+export type Routes = ReadonlyArray<{
+  readonly name: string
+  readonly href: string
+}>

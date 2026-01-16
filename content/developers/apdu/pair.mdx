@@ -8,7 +8,7 @@ title: PAIR
 * CLA = 0x80
 * INS = 0x12
 * P1 = pairing phase
-* P2 = 0x00
+* P2 = pairing mode
 * Data = see below
 * Response Data = see below
 * Response SW = 0x9000 on success, 0x6A80 if the data is in the wrong format, 0x6982 if client cryptogram verification fails, 0x6A84 if all available pairing slot are taken, 0x6A86 if P1 is invalid or is 0x01 but the first phase was not completed, 0x6985 if a secure channel is open
@@ -17,6 +17,11 @@ title: PAIR
 P1:
 * 0x00: First step
 * 0x01: Final step
+
+P2:
+* 0x00: prefer persistent pairing slot, fallback to ephemeral
+* 0x01: ephemeral pairing slot
+* 0x02: persistent pairing slot
 
 Data:
 * On first step: a 256-bit random client challenge

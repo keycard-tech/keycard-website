@@ -1,0 +1,164 @@
+import { baseComponents } from '~/app/_components/content'
+import { Breadcrumbs } from '~/app/_components/docs/breadcrumbs'
+import { getPostBySlug, getPostSlugs } from '~/app/_lib/ghost'
+import { Metadata } from '~/app/_metadata'
+import { formatDate } from '~/app/_utils/format-date'
+import {
+  buildLocaleAlternates,
+  buildLocalizedPath,
+  resolveLocale,
+} from '~/app/_utils/metadata'
+import { SUPPORTED_LOCALES } from '~/i18n/constants'
+import { Image } from '~components/image'
+import { getLocale } from 'next-intl/server'
+import { notFound } from 'next/navigation'
+import { createElement, Fragment } from 'react'
+import rehypeParse from 'rehype-parse'
+import rehypeReact from 'rehype-react'
+import { unified } from 'unified'
+import { PostAuthor } from '../_components/post-author'
+import { PostTag } from '../_components/post-tag'
+
+export const revalidate = 3600 // 1 hour
+export const dynamicParams = true
+
+export async function generateStaticParams() {
+  const slugs = await getPostSlugs()
+  return slugs.flatMap(slug =>
+    SUPPORTED_LOCALES.map(locale => ({ slug, locale })),
+  ) satisfies Array<Awaited<Props['params']>>
+}
+
+export async function generateMetadata({ params }: Props) {
+  const resolvedParams = await params
+  const post = (await getPostBySlug(resolvedParams.slug))!
+  const activeLocale = resolveLocale(resolvedParams.locale)
+
+  return Metadata({
+    title: post.title!,
+    description: post.excerpt,
+    alternates: buildLocaleAlternates(
+      resolvedParams.locale,
+      `/blog/${post.slug}`,
+    ),
+    openGraph: {
+      type: 'article',
+      title: post.og_title ?? undefined,
+      description: post.og_description ?? undefined,
+      images: [post.og_image ?? post.feature_image!],
+      url: buildLocalizedPath(activeLocale, `/blog/${post.slug}`),
+    },
+  })
+}
+
+type Props = {
+  params: Promise<{ slug: string; locale: string }>
+}
+
+export default async function BlogDetailPage(props: Props) {
+  const { params } = props
+
+  const post = await getPostBySlug((await params).slug)
+
+  if (!post) {
+    return notFound()
+  }
+
+  const locale = await getLocale()
+  const { result } = await unified()
+    .use(rehypeParse, { fragment: true })
+    .use(rehypeReact, {
+      createElement,
+      Fragment,
+      components: baseComponents,
+    })
+    .process(post.html!)
+
+  // root
+  const breadcrumbs = [
+    {
+      label: 'Blog',
+      href: '/blog',
+    },
+    {
+      label: post.title!,
+      href: `/blog/${post.slug}`,
+    },
+  ]
+
+  if (post.primary_tag) {
+    breadcrumbs.splice(1, 0, {
+      label: post.primary_tag.name ?? post.primary_tag.slug,
+      href: `/blog/tag/${post.primary_tag.slug}`,
+    })
+  }
+
+  const author = post.primary_author!
+  const tag = post.primary_tag
+  const articleUrl = `https://keycard.tech/${locale}/blog/${post.slug}`
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.excerpt,
+    image: post.feature_image ? [post.feature_image] : undefined,
+    datePublished: post.published_at,
+    dateModified: post.updated_at ?? post.published_at,
+    author: author?.name
+      ? {
+          '@type': 'Person',
+          name: author.name,
+        }
+      : undefined,
+    publisher: {
+      '@type': 'Organization',
+      name: 'Keycard',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://keycard.tech/opengraph-image.png',
+      },
+    },
+    mainEntityOfPage: articleUrl,
+    url: articleUrl,
+  }
+
+  return (
+    <>
+      <Breadcrumbs items={breadcrumbs} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
+      <div className="m-auto max-w-[664px] px-5 py-8 xl:py-12">
+        <div className="gap-3">
+          {tag && <PostTag size="32" tag={tag} />}
+
+          <h1 className="my-4 font-lora text-32 font-600 xl:text-48">
+            {post.title!}
+          </h1>
+
+          <div className="mt-auto flex h-5 items-center gap-1">
+            <PostAuthor author={author} />
+            <div className="text-14 text-white-95">
+              on {formatDate(new Date(post.published_at!))}
+            </div>
+          </div>
+        </div>
+
+        <div className="mx-auto w-full max-w-[1504px] px-0 py-6 xl:py-10">
+          <Image
+            src={post.feature_image!}
+            className="aspect-[83/38] size-full rounded-28 object-cover"
+            width={664}
+            height={304}
+            alt={post.feature_image_alt! ?? post.title}
+          />
+        </div>
+
+        <div className="py-6">{result}</div>
+      </div>
+    </>
+  )
+}

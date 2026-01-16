@@ -172,8 +172,8 @@
         "link": "/developers/build"
       },
       {
-        "title": "Build Your Own Shell",
-        "link": "https://github.com/keycard-tech/keycard-shell"
+        "title": "Build a DIY Keycard Shell",
+        "link": "/developers/diy-keycard-shell"
       }
     ]
   },
@@ -182,7 +182,7 @@
     "subItems": [
       {
         "title": "Keycard Shell Internals",
-        "link": "https://keycard.tech/en/developers/keycard-shell"
+        "link": "/developers/keycard-shell"
       },
       {
         "title": "Hardware Spec: Keycard",

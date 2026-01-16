@@ -1,3 +1,7 @@
+import createNextIntlPlugin from 'next-intl/plugin'
+
+const withNextIntl = createNextIntlPlugin()
+
 /** @type {import('next').NextConfig} */
 const config = {
   images: {
@@ -22,35 +26,42 @@ const config = {
         hostname: 'pbs.twimg.com',
         pathname: '/**',
       },
+      // Allow Shopify CDN assets used in Storefront cart/product images.
+      {
+        protocol: 'https',
+        hostname: 'cdn.shopify.com',
+        pathname: '/s/files/**',
+      },
     ],
   },
   transpilePackages: ['next-mdx-remote'],
+  skipTrailingSlashRedirect: true,
 
   async redirects() {
     return [
       {
         source: '/images/card-dark.png',
-        destination: '/assets/keycard-shell.png',
+        destination: '/assets/keycard-shell.webp',
         permanent: true,
       },
       {
         source: '/images/card-light.png',
-        destination: '/assets/keycard-shell.png',
+        destination: '/assets/keycard-shell.webp',
         permanent: true,
       },
       {
         source: '/images/integrate-keycard.png',
-        destination: '/assets/keycard-shell.png',
+        destination: '/assets/keycard-shell.webp',
         permanent: true,
       },
       {
         source: '/images/integration-status.png',
-        destination: '/assets/keycard-shell.png',
+        destination: '/assets/keycard-shell.webp',
         permanent: true,
       },
       {
         source: '/images/security-keyvisual.png',
-        destination: '/assets/keycard-shell.png',
+        destination: '/assets/keycard-shell.webp',
         permanent: true,
       },
 
@@ -81,37 +92,97 @@ const config = {
         permanent: true,
       },
       {
-        source: '/start',
-        destination: '/start/shell',
+        source: '/',
+        destination: '/en',
+        permanent: true,
+      },
+      {
+        source: '/blog',
+        destination: '/en/blog',
+        permanent: true,
+      },
+      {
+        source: '/blog/:path*',
+        destination: '/en/blog/:path*',
+        permanent: true,
+      },
+      {
+        source: '/developers',
+        destination: '/en/developers/overview',
+        permanent: true,
+      },
+      {
+        source: '/developers/:path*.html',
+        destination: '/en/developers/:path*',
+        permanent: true,
+      },
+      {
+        source: '/developers/:path*',
+        destination: '/en/developers/:path*',
         permanent: true,
       },
       {
         source: '/docs',
-        destination: '/developers/overview',
+        destination: '/en/developers/overview',
+        permanent: true,
+      },
+      {
+        source: '/docs/:path*.html',
+        destination: '/en/developers/:path*',
         permanent: true,
       },
       {
         source: '/docs/:path*',
-        destination: '/developers/:path*',
+        destination: '/en/developers/:path*',
+        permanent: true,
+      },
+      {
+        source: '/about-us',
+        destination: '/en/about',
+        permanent: true,
+      },
+      {
+        source: '/en/developers',
+        destination: '/en/developers/overview',
+        permanent: true,
+      },
+      {
+        source: '/start',
+        destination: '/en/start/shell',
+        permanent: true,
+      },
+      {
+        source: '/start/:path*',
+        destination: '/en/start/:path*',
+        permanent: true,
+      },
+      {
+        source: '/help',
+        destination: '/en/help/about-keycard-and-keycard-shell',
+        permanent: true,
+      },
+      {
+        source: '/help/:path*',
+        destination: '/en/help/:path*',
         permanent: true,
       },
       {
         source: '/faq',
-        destination: '/help/faq',
+        destination: '/en/help/faq',
         permanent: true,
       },
       {
         source: '/duress_pin',
-        destination: '/help/about-your-keycard-pin-and-duress-pin',
+        destination: '/en/help/about-your-keycard-pin-and-duress-pin',
         permanent: true,
       },
       {
         source: '/slip39',
-        destination: '/help/understand-the-slip-39-wallet-backup-standard',
+        destination: '/en/help/understand-the-slip-39-wallet-backup-standard',
         permanent: true,
       },
     ]
   },
 }
 
-export default config
+export default withNextIntl(config)
