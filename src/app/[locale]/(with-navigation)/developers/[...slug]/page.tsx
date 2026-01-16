@@ -58,7 +58,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props) {
   const findTitle = (slug: string[], docs: typeof config): string | null => {
     for (const doc of docs) {
-      if (doc.link.split('/').slice(2).join('/') === slug.join('/')) {
+      if (doc.link?.split('/').slice(2).join('/') === slug.join('/')) {
         return doc.title
       }
       if (doc.subItems) {
