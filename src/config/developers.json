@@ -1,75 +1,20 @@
 [
   {
     "title": "Overview",
-    "link": "/developers/overview",
+    "link": "/developers/overview"
+  },
+  {
+    "title": "Integrate Keycard",
     "subItems": [
       {
-        "title": "What is Keycard?",
-        "link": "/developers/overview#what-is-keycard"
+        "title": "Getting Started",
+        "link": "/developers/getting-started"
       },
       {
-        "title": "What is Keycard Shell?",
-        "link": "/developers/overview#what-is-keycard-shell"
+        "title": "Core Concepts",
+        "link": "/developers/core"
       }
     ]
-  },
-  {
-    "title": "Core concepts",
-    "link": "/developers/core"
-  },
-  {
-    "title": "Build your Keycard",
-    "link": "/developers/build"
-  },
-  {
-    "title": "Build a DIY Keycard Shell",
-    "link": "/developers/diy-keycard-shell"
-  },
-  {
-    "title": "Getting Started",
-    "link": "/developers/getting-started",
-    "subItems": [
-      {
-        "title": "Getting Started with Keycard",
-        "link": "/developers/getting-started#getting-started-with-keycard"
-      },
-      {
-        "title": "Getting Started with Keycard Shell",
-        "link": "/developers/getting-started#getting-started-with-keycard-shell"
-      },
-      {
-        "title": "Tips and Best Practices",
-        "link": "/developers/getting-started#tips-and-best-practices"
-      }
-    ]
-  },
-  {
-    "title": "Supported Wallets",
-    "link": "/developers/supported-wallets",
-    "subItems": [
-      {
-        "title": "Wallets for Keycard",
-        "link": "/developers/supported-wallets#wallets-for-keycard"
-      },
-      {
-        "title": "Wallets for Keycard Shell",
-        "link": "/developers/supported-wallets#wallets-for-keycard-shell"
-      }
-    ]
-  },
-  {
-    "title": "Troubleshooting",
-    "link": "/developers/troubleshooting",
-    "subItems": [
-      {
-        "title": "Common Issues",
-        "link": "/developers/troubleshooting#common-issues"
-      }
-    ]
-  },
-  {
-    "title": "Updating Firmware",
-    "link": "/developers/updating-firmware"
   },
   {
     "title": "Java SDK",
@@ -118,11 +63,7 @@
     ]
   },
   {
-    "title": "Web3 API Extension",
-    "link": "/developers/web3"
-  },
-  {
-    "title": "APDU API",
+    "title": "APDU Reference",
     "link": "/developers/apdu",
     "subItems": [
       {
@@ -224,40 +165,50 @@
     ]
   },
   {
-    "title": "Resources",
-    "link": "/developers/resources",
+    "title": "Build Your Own Hardware",
     "subItems": [
       {
-        "title": "Github Repositories",
-        "link": "/developers/resources#github-repositories"
+        "title": "Build Your Own Keycard",
+        "link": "/developers/build"
       },
       {
-        "title": "Tools",
-        "link": "/developers/resources#tools"
-      },
-      {
-        "title": "Brand Assets",
-        "link": "/developers/resources#keycard-and-keycard-shell-brand-assets"
+        "title": "Build a DIY Keycard Shell",
+        "link": "/developers/diy-keycard-shell"
       }
     ]
   },
   {
-    "title": "Hardware Specifications",
-    "link": "/developers/hardware-specification",
+    "title": "Resources",
     "subItems": [
       {
-        "title": "Keycard",
+        "title": "Keycard Shell Internals",
+        "link": "/developers/keycard-shell"
+      },
+      {
+        "title": "Hardware Spec: Keycard",
         "link": "/developers/hardware-specification#keycard"
       },
       {
-        "title": "Keycard Shell",
+        "title": "Hardware Spec: Shell",
         "link": "/developers/hardware-specification#keycard-shell"
+      },
+      {
+        "title": "GitHub Repositories",
+        "link": "/developers/github-repositories"
+      },
+      {
+        "title": "Tools",
+        "link": "/developers/tools"
+      },
+      {
+        "title": "Brand Assets",
+        "link": "/developers/brand-assets"
+      },
+      {
+        "title": "Web3 API Extension",
+        "link": "/developers/web3"
       }
     ]
-  },
-  {
-    "title": "Keycard Shell internals",
-    "link": "/developers/keycard-shell"
   },
   {
     "title": "Contact",
