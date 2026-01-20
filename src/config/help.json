@@ -74,8 +74,8 @@
     "title": "Shell security",
     "subItems": [
       {
-        "title": "Verify Keycard Shell authenticity",
-        "link": "/help/verify-keycard-shell-authenticity"
+        "title": "Verify your Keycard Shell authenticity",
+        "link": "/help/verify-your-keycard-shell-authenticity"
       },
       {
         "title": "Understand the Slip39 wallet backup standard",
@@ -86,8 +86,8 @@
         "link": "/help/update-your-keycard-shell-online"
       },
       {
-        "title": "Update your Keycard Shell offline",
-        "link": "/help/update-your-keycard-shell-offline"
+        "title": "Update your Keycard Shell in air gapped mode",
+        "link": "/help/update-your-keycard-shell-in-air-gapped-mode"
       },
       {
         "title": "Unblock your Keycard using Keycard Shell",
