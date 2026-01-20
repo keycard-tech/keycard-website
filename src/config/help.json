@@ -86,8 +86,8 @@
         "link": "/help/update-your-keycard-shell-online"
       },
       {
-        "title": "Update your Keycard Shell offline",
-        "link": "/help/update-your-keycard-shell-offline"
+        "title": "Update your Keycard Shell in air gapped mode",
+        "link": "/help/update-your-keycard-shell-in-air-gapped-mode"
       },
       {
         "title": "Unblock your Keycard using Keycard Shell",
