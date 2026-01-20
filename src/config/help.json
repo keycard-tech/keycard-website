@@ -74,8 +74,8 @@
     "title": "Shell security",
     "subItems": [
       {
-        "title": "Verify Keycard Shell authenticity",
-        "link": "/help/verify-keycard-shell-authenticity"
+        "title": "Verify your Keycard Shell authenticity",
+        "link": "/help/verify-your-keycard-shell-authenticity"
       },
       {
         "title": "Understand the Slip39 wallet backup standard",
