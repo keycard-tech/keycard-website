@@ -12,8 +12,7 @@ import { BuyCards } from '../../(homepage)/_components/buy-cards-client'
 const STEPS = [
   {
     title: '1. Prepare devices',
-    description:
-      'Inside the box, there is one Shell and two Keycards.',
+    description: 'Inside the box, there is one Shell and two Keycards.',
     subSteps: [
       {
         title: 'a. Open back cover',
@@ -48,8 +47,9 @@ const STEPS = [
     ],
     secondaryDescription: (
       <>
-        If the screen stays off, first make sure your card is pushed all the way. If it is, charge the Shell with a USB-C cable and try
-        again later. Check out{' '}
+        If the screen stays off, first make sure your card is pushed all the
+        way. If it is, charge the Shell with a USB-C cable and try again later.
+        Check out{' '}
         <Link className="underline" href="/help/faq">
           FAQ
         </Link>{' '}
@@ -177,8 +177,8 @@ const STEPS = [
     description: (
       <>
         Verification checks that your Shell is authentic and runs a verified
-        firmware. You need your phone or a computer with a camera to complete this process.
-        Check out{' '}
+        firmware. You need your phone or a computer with a camera to complete
+        this process. Check out{' '}
         <Link className="underline" href="https://shell.keycard.tech/verify/">
           Verify your Shell Authenticity
         </Link>{' '}
@@ -239,9 +239,9 @@ const STEPS = [
         and use it as an interface for managing funds. Check out{' '}
         <Link
           className="underline"
-          href="/help/connect-keycard-shell-to-a-wallet-app"
+          href="/help/connect-keycard-shell-to-a-software-wallet"
         >
-         this article
+          this article
         </Link>{' '}
         for more info.
       </>
