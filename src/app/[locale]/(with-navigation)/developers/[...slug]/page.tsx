@@ -7,7 +7,6 @@ import { formatDate } from '~/app/_utils/format-date'
 import { buildLocaleAlternates } from '~/app/_utils/metadata'
 import config from '~/config/developers.json'
 import { SUPPORTED_LOCALES } from '~/i18n/constants'
-import { Link } from '~components/link'
 import { notFound } from 'next/navigation'
 import { generateBreadcrumbs } from '../_utils/generate-breadcrumbs'
 import { getDocumentationArticle } from '../_utils/get-documentation-article'
@@ -72,11 +71,16 @@ export async function generateMetadata({ params }: Props) {
   }
 
   const resolvedParams = await params
-  const title = findTitle(resolvedParams.slug, config)
+  let title = findTitle(resolvedParams.slug, config)
   if (!title) {
-    return {
-      title: 'Article Not Found',
-      description: 'This developer article is not available yet.',
+    try {
+      const article = await getDocumentationArticle(resolvedParams.slug)
+      title = article.meta.title
+    } catch (err) {
+      return {
+        title: 'Article Not Found',
+        description: 'This developer article is not available yet.',
+      }
     }
   }
 
@@ -153,14 +157,13 @@ const Page = async (props: Props) => {
                 </div>
                 <div className="flex flex-col gap-[6px]">
                   {meta.headings.map((heading, index) => (
-                    <Link
+                    <a
                       key={heading.value + index}
-                      href={{ hash: heading.slug }}
+                      href={`#${heading.slug}`}
+                      className="text-14 font-500 text-white-95 hover:text-orange"
                     >
-                      <div className="text-14 font-500 text-white-95 hover:text-orange">
-                        {heading.value}
-                      </div>
-                    </Link>
+                      {heading.value}
+                    </a>
                   ))}
                 </div>
               </div>

@@ -7,7 +7,6 @@ import { formatDate } from '~/app/_utils/format-date'
 import { buildLocaleAlternates } from '~/app/_utils/metadata'
 import config from '~/config/help.json'
 import { SUPPORTED_LOCALES } from '~/i18n/constants'
-import { Link } from '~components/link'
 import { getLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { generateBreadcrumbs } from '../_utils/generate-breadcrumbs'
@@ -200,14 +199,13 @@ const Page = async (props: Props) => {
                 </div>
                 <div className="flex flex-col gap-[6px]">
                   {meta.headings.map((heading, index) => (
-                    <Link
+                    <a
                       key={heading.value + index}
-                      href={{ hash: heading.slug }}
+                      href={`#${heading.slug}`}
+                      className="text-14 font-500 text-white-95 hover:text-orange"
                     >
-                      <div className="text-14 font-500 text-white-95 hover:text-orange">
-                        {heading.value}
-                      </div>
-                    </Link>
+                      {heading.value}
+                    </a>
                   ))}
                 </div>
               </div>
