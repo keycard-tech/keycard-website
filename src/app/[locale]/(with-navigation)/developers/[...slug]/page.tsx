@@ -76,7 +76,7 @@ export async function generateMetadata({ params }: Props) {
     try {
       const article = await getDocumentationArticle(resolvedParams.slug)
       title = article.meta.title
-    } catch (err) {
+    } catch {
       return {
         title: 'Article Not Found',
         description: 'This developer article is not available yet.',
