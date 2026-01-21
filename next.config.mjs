@@ -26,6 +26,16 @@ const config = {
         hostname: 'pbs.twimg.com',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'lh7-rt.googleusercontent.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'our.status.im',
+        pathname: '/**',
+      },
       // Allow Shopify CDN assets used in Storefront cart/product images.
       {
         protocol: 'https',
@@ -102,6 +112,16 @@ const config = {
         permanent: true,
       },
       {
+        source: '/blog/tag/security1',
+        destination: '/en/blog/tag/security',
+        permanent: true,
+      },
+      {
+        source: '/:locale(en|fr|de|es|nl)/blog/tag/security1',
+        destination: '/:locale/blog/tag/security',
+        permanent: true,
+      },
+      {
         source: '/blog/:path*',
         destination: '/en/blog/:path*',
         permanent: true,
@@ -159,6 +179,38 @@ const config = {
       {
         source: '/help',
         destination: '/en/help/about-keycard-and-keycard-shell',
+        permanent: true,
+      },
+      {
+        source: '/help/overview',
+        destination: '/en/help/about-keycard-and-keycard-shell',
+        permanent: true,
+      },
+      {
+        source: '/:locale(en|fr|de|es|nl)/help/overview',
+        destination: '/:locale/help/about-keycard-and-keycard-shell',
+        permanent: true,
+      },
+      {
+        source: '/help/connect-keycard-shell-to-a-wallet-app',
+        destination: '/en/help/connect-keycard-shell-to-a-software-wallet',
+        permanent: true,
+      },
+      {
+        source:
+          '/:locale(en|fr|de|es|nl)/help/connect-keycard-shell-to-a-wallet-app',
+        destination: '/:locale/help/connect-keycard-shell-to-a-software-wallet',
+        permanent: true,
+      },
+      {
+        source: '/help/understand-multisig-with-keycard',
+        destination: '/en/help/connect-keycard-shell-to-sparrow-wallet',
+        permanent: true,
+      },
+      {
+        source:
+          '/:locale(en|fr|de|es|nl)/help/understand-multisig-with-keycard',
+        destination: '/:locale/help/connect-keycard-shell-to-sparrow-wallet',
         permanent: true,
       },
       {
