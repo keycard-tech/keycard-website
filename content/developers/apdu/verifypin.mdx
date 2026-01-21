@@ -15,3 +15,5 @@ title: VERIFY PIN
 * Capability: Credentials management
 
 Used to verify the user PIN. On correct PIN entry the card returns 0x9000, the retry counter is reset and the PIN is marked as authenticated for the entire session (until the application is deselected or the card reset/teared). On error, the number of remaining retries is decreased and the SW 0x63CX, where X is the number of available retries is returned. When the number of remaining retries reaches 0 the PIN is blocked. When the PIN is blocked this command always returns 0x63C0, even if the PIN is inserted correctly.
+
+After a successful VERIFY PIN, subsequent key derivation, export, and signing commands operate on the wallet view associated with the verified PIN (regular or duress).
