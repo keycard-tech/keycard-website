@@ -35,6 +35,10 @@ There is no separate bitcoin-only firmware. You can use Keycard Shell with Bitco
 
 Your Keycard stores one master key, created from a [BIP39 or SLIP39](./understand-the-slip-39-wallet-backup-standard) recovery phrase. This master key can generate as many Ethereum and Bitcoin wallet addresses as you need (according to the [BIP32 standard ↗](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki)).
 
+- **Does the duress PIN create a separate seed or a different derivation path?**
+
+No. The duress PIN unlocks a decoy wallet that uses the same recovery phrase and standard derivation paths, but produces a different set of addresses. See [About your Keycard PIN and duress PIN](./about-your-keycard-pin-and-duress-pin).
+
 - **Can I use my Keycard or Keycard Shell without a software wallet?**
 
 No, you can't use your Keycard or Keycard Shell without a compatible software wallet. There are [10+ software wallet](https://keycard.tech/en/wallets) that you can use with Shell or Keycard. Software wallets are needed because they provide the interface for managing your crypto and creating your transactions, and they provide connection to the blockchain.
