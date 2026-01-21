@@ -63,17 +63,24 @@ export default function middleware(request: NextRequest) {
     })
   }
 
-  if (pathname.length > 1 && pathname.endsWith('/')) {
-    const trimmed = pathname.replace(/\/+$/, '')
+  const normalizedPath =
+    pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname
+  const indexStrippedPath =
+    normalizedPath === '/index'
+      ? '/'
+      : normalizedPath.endsWith('/index')
+        ? normalizedPath.replace(/\/index$/, '')
+        : normalizedPath
 
+  if (indexStrippedPath !== pathname) {
     const destination =
-      (!isLocalePath && mapLegacyPath(trimmed)) || trimmed || '/'
+      (!isLocalePath && mapLegacyPath(indexStrippedPath)) ||
+      indexStrippedPath ||
+      '/'
 
-    if (destination) {
-      return NextResponse.redirect(buildRedirectUrl(request, destination), {
-        status: 308,
-      })
-    }
+    return NextResponse.redirect(buildRedirectUrl(request, destination), {
+      status: 308,
+    })
   }
 
   // Redirect legacy .html URLs to canonical routes (permanent, single-hop).
