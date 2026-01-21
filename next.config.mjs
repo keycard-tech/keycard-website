@@ -202,6 +202,11 @@ const config = {
         destination: '/:locale/help/verify-keycard-shell-authenticity',
         permanent: true,
       },
+      {
+        source: '/:locale/help/charge-shell',
+        destination: '/:locale/help/charge-keycard-shell',
+        permanent: true,
+      },
     ]
   },
 }
