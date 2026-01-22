@@ -233,6 +233,32 @@ const config = {
         destination: '/en/help/understand-the-slip-39-wallet-backup-standard',
         permanent: true,
       },
+      // Article renames: remove "your" from URLs
+      {
+        source: '/:locale/help/replace-your-keycard-shell-battery',
+        destination: '/:locale/help/replace-keycard-shell-battery',
+        permanent: true,
+      },
+      {
+        source: '/:locale/help/update-your-keycard-shell-online',
+        destination: '/:locale/help/update-keycard-shell-online',
+        permanent: true,
+      },
+      {
+        source: '/:locale/help/update-your-keycard-shell-in-air-gapped-mode',
+        destination: '/:locale/help/update-keycard-shell-in-air-gapped-mode',
+        permanent: true,
+      },
+      {
+        source: '/:locale/help/verify-your-keycard-shell-authenticity',
+        destination: '/:locale/help/verify-keycard-shell-authenticity',
+        permanent: true,
+      },
+      {
+        source: '/:locale/help/charge-shell',
+        destination: '/:locale/help/charge-keycard-shell',
+        permanent: true,
+      },
     ]
   },
 }
