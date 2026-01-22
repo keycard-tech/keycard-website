@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: MetadataProps) {
     title: 'Get Started — Keycard & Keycard Shell',
     description:
       'Set up your Keycard and Keycard Shell, pair supported wallets, and learn best practices for backups and recovery.',
-    alternates: buildLocaleAlternates(locale, '/start'),
+    alternates: buildLocaleAlternates(locale, '/start/keycard'),
   })
 }
 

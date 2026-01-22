@@ -20,7 +20,10 @@ export async function generateMetadata({ params }: MetadataProps) {
     title: { default: 'Keycard Help', template: '%s — Keycard Help' },
     description:
       'Help articles and guides for using Keycard products and Keycard Shell.',
-    alternates: buildLocaleAlternates(locale, '/help'),
+    alternates: buildLocaleAlternates(
+      locale,
+      '/help/about-keycard-and-keycard-shell',
+    ),
   })
 }
 
