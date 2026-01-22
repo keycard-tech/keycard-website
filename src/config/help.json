@@ -74,20 +74,20 @@
     "title": "Shell security",
     "subItems": [
       {
-        "title": "Verify your Keycard Shell authenticity",
-        "link": "/help/verify-your-keycard-shell-authenticity"
+        "title": "Verify Keycard Shell authenticity",
+        "link": "/help/verify-keycard-shell-authenticity"
       },
       {
         "title": "Understand the Slip39 wallet backup standard",
         "link": "/help/understand-the-slip-39-wallet-backup-standard"
       },
       {
-        "title": "Update your Keycard Shell online",
-        "link": "/help/update-your-keycard-shell-online"
+        "title": "Update Keycard Shell online",
+        "link": "/help/update-keycard-shell-online"
       },
       {
-        "title": "Update your Keycard Shell in air gapped mode",
-        "link": "/help/update-your-keycard-shell-in-air-gapped-mode"
+        "title": "Update Keycard Shell in air gapped mode",
+        "link": "/help/update-keycard-shell-in-air-gapped-mode"
       },
       {
         "title": "Unblock your Keycard using Keycard Shell",
@@ -103,8 +103,8 @@
     "title": "Shell settings",
     "subItems": [
       {
-        "title": "Replace your Keycard Shell battery",
-        "link": "/help/replace-your-keycard-shell-battery"
+        "title": "Replace Keycard Shell battery",
+        "link": "/help/replace-keycard-shell-battery"
       },
       {
         "title": "Change screen brightness",
@@ -115,8 +115,8 @@
         "link": "/help/set-an-auto-turn-off-time"
       },
       {
-        "title": "Charge Shell",
-        "link": "/help/charge-shell"
+        "title": "Charge Keycard Shell",
+        "link": "/help/charge-keycard-shell"
       }
     ]
   },
