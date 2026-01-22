@@ -16,6 +16,10 @@ const NON_ENGLISH_LOCALES_REGEX =
       ).join('|')
     : '(?!x)x' // Never matches if empty
 
+const SUPPORTED_LOCALES_REGEX = SUPPORTED_LOCALES.map(locale =>
+  locale.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'),
+).join('|')
+
 const mapLegacyPath = (path: string) => {
   if (path === '/about-us') return '/en/about'
   if (path === '/faq') return '/en/help/faq'
@@ -47,6 +51,71 @@ const buildRedirectUrl = (request: NextRequest, pathname: string) => {
   return url
 }
 
+const canonicalizePath = (pathname: string) => {
+  let nextPath = pathname
+
+  // Canonicalize legacy help slugs.
+  nextPath = nextPath.replace(
+    new RegExp(
+      `^(?:/(${SUPPORTED_LOCALES_REGEX}))?/help/verify-your-shell-authenticity$`,
+    ),
+    (_match, locale: string | undefined) =>
+      locale
+        ? `/${locale}/help/verify-keycard-shell-authenticity`
+        : '/help/verify-keycard-shell-authenticity',
+  )
+  nextPath = nextPath.replace(
+    new RegExp(
+      `^(?:/(${SUPPORTED_LOCALES_REGEX}))?/help/verify-your-keycard-shell-authenticity$`,
+    ),
+    (_match, locale: string | undefined) =>
+      locale
+        ? `/${locale}/help/verify-keycard-shell-authenticity`
+        : '/help/verify-keycard-shell-authenticity',
+  )
+
+  // Canonicalize accidental duplicate docs segments (e.g. /developers/apdu/apdu/*).
+  nextPath = nextPath.replace(
+    new RegExp(
+      `^/(${SUPPORTED_LOCALES_REGEX})/developers/(apdu|sdk)/\\2(/.*)?$`,
+    ),
+    (_match, locale: string, section: string, rest: string | undefined) =>
+      `/${locale}/developers/${section}${rest ?? ''}`,
+  )
+  nextPath = nextPath.replace(
+    /^\/developers\/(apdu|sdk)\/\1(\/.*)?$/,
+    (_match, section: string, rest: string | undefined) =>
+      `/developers/${section}${rest ?? ''}`,
+  )
+
+  // Redirect deprecated developer docs pages.
+  nextPath = nextPath.replace(
+    new RegExp(`^(?:/(${SUPPORTED_LOCALES_REGEX}))?/developers/resources$`),
+    (_match, locale: string | undefined) =>
+      locale
+        ? `/${locale}/developers/github-repositories`
+        : '/developers/github-repositories',
+  )
+  nextPath = nextPath.replace(
+    new RegExp(
+      `^(?:/(${SUPPORTED_LOCALES_REGEX}))?/developers/supported-wallets$`,
+    ),
+    (_match, locale: string | undefined) =>
+      locale ? `/${locale}/wallets` : '/wallets',
+  )
+  nextPath = nextPath.replace(
+    new RegExp(
+      `^(?:/(${SUPPORTED_LOCALES_REGEX}))?/developers/updating-firmware$`,
+    ),
+    (_match, locale: string | undefined) =>
+      locale
+        ? `/${locale}/help/update-keycard-shell-online`
+        : '/help/update-keycard-shell-online',
+  )
+
+  return nextPath
+}
+
 export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
   const firstSegment = pathname.split('/')[1]
@@ -71,12 +140,11 @@ export default function middleware(request: NextRequest) {
       : normalizedPath.endsWith('/index')
         ? normalizedPath.replace(/\/index$/, '')
         : normalizedPath
+  const canonicalPath = canonicalizePath(indexStrippedPath)
 
-  if (indexStrippedPath !== pathname) {
+  if (canonicalPath !== pathname) {
     const destination =
-      (!isLocalePath && mapLegacyPath(indexStrippedPath)) ||
-      indexStrippedPath ||
-      '/'
+      (!isLocalePath && mapLegacyPath(canonicalPath)) || canonicalPath || '/'
 
     return NextResponse.redirect(buildRedirectUrl(request, destination), {
       status: 308,
