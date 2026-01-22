@@ -353,29 +353,35 @@ export default function StartShellPage() {
               )}
             >
               <div className="py-5 pr-14">{step.description}</div>
-              <div className="-mx-1 flex gap-4 overflow-x-auto px-1 pb-2">
-                {step.subSteps.map((subStep, subStepIndex) => (
-                  <div
-                    key={subStepIndex}
-                    className="flex min-w-[330px] max-w-[330px] flex-col justify-between gap-3 rounded-28 border border-white-8 bg-white-4 px-6 pb-6 pt-5"
-                  >
-                    <div className="flex flex-col gap-[6px]">
-                      <h3 className="text-20 font-300 text-white-95">
-                        {subStep.title}
-                      </h3>
-                      <p className="text-16 font-300 text-white-60">
-                        {subStep.description}
-                      </p>
+              <div className="relative -mx-1">
+                <div className="flex gap-4 overflow-x-auto px-1 pb-2 pr-14">
+                  {step.subSteps.map((subStep, subStepIndex) => (
+                    <div
+                      key={subStepIndex}
+                      className="flex min-w-[330px] max-w-[330px] flex-col justify-between gap-3 rounded-28 border border-white-8 bg-white-4 px-6 pb-6 pt-5"
+                    >
+                      <div className="flex flex-col gap-[6px]">
+                        <h3 className="text-20 font-300 text-white-95">
+                          {subStep.title}
+                        </h3>
+                        <p className="text-16 font-300 text-white-60">
+                          {subStep.description}
+                        </p>
+                      </div>
+                      <Image
+                        src={subStep.image.src}
+                        alt={subStep.title}
+                        width={subStep.image.width}
+                        height={subStep.image.height}
+                        className="max-w-[280px] rounded-24 bg-[#181716]"
+                      />
                     </div>
-                    <Image
-                      src={subStep.image.src}
-                      alt={subStep.title}
-                      width={subStep.image.width}
-                      height={subStep.image.height}
-                      className="max-w-[280px] rounded-24 bg-[#181716]"
-                    />
-                  </div>
-                ))}
+                  ))}
+                </div>
+                <div
+                  aria-hidden="true"
+                  className="to-transparent pointer-events-none absolute inset-y-0 right-0 w-14 bg-gradient-to-l from-dark-100"
+                />
               </div>
               <div className="py-5 pr-14">{step.secondaryDescription}</div>
             </Accordion.Content>
