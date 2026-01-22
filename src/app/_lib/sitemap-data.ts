@@ -100,7 +100,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes: MetadataRoute.Sitemap = [
     ...addLocalizedRoutes(['/'], locales, 'weekly' as const, 1, now),
     ...addLocalizedRoutes(
-      ['/blog', '/start', '/about', '/contact', '/wallets'],
+      [
+        '/blog',
+        '/start',
+        '/start/keycard',
+        '/start/shell',
+        '/about',
+        '/contact',
+        '/wallets',
+      ],
       locales,
       'weekly' as const,
       0.8,
