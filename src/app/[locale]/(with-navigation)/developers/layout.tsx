@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: MetadataProps) {
     },
     description:
       'Documentation for Keycard and Keycard Shell: setup, recovery, SDKs, and developer guides.',
-    alternates: buildLocaleAlternates(locale, '/developers'),
+    alternates: buildLocaleAlternates(locale, '/developers/overview'),
   })
 }
 

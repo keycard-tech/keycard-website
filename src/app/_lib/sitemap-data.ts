@@ -100,7 +100,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes: MetadataRoute.Sitemap = [
     ...addLocalizedRoutes(['/'], locales, 'weekly' as const, 1, now),
     ...addLocalizedRoutes(
-      ['/blog', '/start', '/about', '/contact', '/wallets'],
+      [
+        '/blog',
+        '/start',
+        '/start/keycard',
+        '/start/shell',
+        '/about',
+        '/contact',
+        '/wallets',
+      ],
       locales,
       'weekly' as const,
       0.8,
@@ -157,10 +165,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           [...parts, entry.name],
         )
       } else if (/\.(md|mdx)$/i.test(entry.name)) {
-        const slug = [...parts, entry.name.replace(/\.(md|mdx)$/i, '')].join(
-          '/',
-        )
-        const contentPath = `${basePath}/${slug}`.replace(/\/+/g, '/')
+        const nameWithoutExt = entry.name.replace(/\.(md|mdx)$/i, '')
+        const slugParts =
+          nameWithoutExt === 'index' ? parts : [...parts, nameWithoutExt]
+        const slug = slugParts.join('/')
+        const contentPath = slug
+          ? `${basePath}/${slug}`.replace(/\/+/g, '/')
+          : basePath
         const filePath = path.join(dir, entry.name)
         const lastModified = await getFileMtime(filePath)
         urls.push({
