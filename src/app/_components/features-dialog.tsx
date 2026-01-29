@@ -38,27 +38,27 @@ const features: Array<Feature> = [
   },
   {
     name: 'dApp interactions',
-    mobile: 'Q1 2025',
+    mobile: true,
     desktop: true,
   },
   {
     name: 'Backup',
-    mobile: 'Q1 2025',
+    mobile: true,
     desktop: true,
   },
   {
     name: 'Change PIN',
-    mobile: 'Q1 2025',
+    mobile: true,
     desktop: true,
   },
   {
     name: 'Unlock',
-    mobile: 'Q1 2025',
+    mobile: true,
     desktop: true,
   },
   {
     name: 'Factory reset',
-    mobile: 'Q1 2025',
+    mobile: true,
     desktop: true,
   },
 ] as const
