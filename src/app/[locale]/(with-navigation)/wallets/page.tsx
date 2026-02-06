@@ -12,7 +12,8 @@ import { BuyCards } from '../(homepage)/_components/buy-cards-client'
 import { Tabs, TabsList, TabsTrigger } from './_components/tabs'
 
 type WalletType = 'Keycard' | 'Shell'
-type BlockchainType = 'Ethereum' | 'Bitcoin' | 'Multisig'
+type BlockchainType = 'Ethereum' | 'Bitcoin'
+type PlatformType = 'Mobile' | 'Desktop' | 'Extension'
 
 interface Wallet {
   name: string
@@ -23,6 +24,7 @@ interface Wallet {
   }
   type: WalletType[]
   blockchains: BlockchainType[]
+  platform: PlatformType[]
   setupGuideUrl: string
 }
 
@@ -32,6 +34,7 @@ const WALLETS: Wallet[] = [
     icon: { url: '/assets/wallets/metamask.png', width: 104, height: 100 },
     type: ['Shell'],
     blockchains: ['Ethereum'],
+    platform: ['Mobile', 'Extension'],
     setupGuideUrl: '/help/connect-keycard-shell-to-metamask',
   },
   {
@@ -39,6 +42,7 @@ const WALLETS: Wallet[] = [
     icon: { url: '/assets/wallets/status.png', width: 96, height: 96 },
     type: ['Keycard'],
     blockchains: ['Ethereum'],
+    platform: ['Mobile', 'Desktop'],
     setupGuideUrl: 'https://status.app/help/keycard',
   },
   {
@@ -46,6 +50,7 @@ const WALLETS: Wallet[] = [
     icon: { url: '/assets/wallets/rabby.png', width: 146, height: 147 },
     type: ['Shell'],
     blockchains: ['Ethereum'],
+    platform: ['Mobile', 'Extension'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-software-wallet',
   },
   {
@@ -53,6 +58,7 @@ const WALLETS: Wallet[] = [
     icon: { url: '/assets/wallets/imtoken.png', width: 112, height: 79 },
     type: ['Shell'],
     blockchains: ['Ethereum'],
+    platform: ['Mobile'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-software-wallet',
   },
   {
@@ -60,6 +66,7 @@ const WALLETS: Wallet[] = [
     icon: { url: '/assets/wallets/bitget.png', width: 132, height: 132 },
     type: ['Shell'],
     blockchains: ['Ethereum', 'Bitcoin'],
+    platform: ['Mobile', 'Extension'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-software-wallet',
   },
   {
@@ -67,27 +74,31 @@ const WALLETS: Wallet[] = [
     icon: { url: '/assets/wallets/unisat.png', width: 82, height: 103 },
     type: ['Shell'],
     blockchains: ['Bitcoin'],
+    platform: ['Extension'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-software-wallet',
   },
   {
     name: 'Specter',
     icon: { url: '/assets/wallets/specter.png', width: 112, height: 102 },
     type: ['Shell'],
-    blockchains: ['Bitcoin', 'Multisig'],
+    blockchains: ['Bitcoin'],
+    platform: ['Desktop'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-software-wallet',
   },
   {
     name: 'Sparrow',
     icon: { url: '/assets/wallets/sparrow.png', width: 114, height: 114 },
     type: ['Shell'],
-    blockchains: ['Bitcoin', 'Multisig'],
+    blockchains: ['Bitcoin'],
+    platform: ['Desktop'],
     setupGuideUrl: '/help/connect-keycard-shell-to-sparrow-wallet',
   },
   {
     name: 'Nunchuk',
     icon: { url: '/assets/wallets/nunchuk.png', width: 96, height: 96 },
     type: ['Shell'],
-    blockchains: ['Bitcoin', 'Multisig'],
+    blockchains: ['Bitcoin'],
+    platform: ['Mobile', 'Desktop'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-software-wallet',
   },
   {
@@ -95,6 +106,7 @@ const WALLETS: Wallet[] = [
     icon: { url: '/assets/wallets/bluewallet.png', width: 100, height: 100 },
     type: ['Shell'],
     blockchains: ['Bitcoin'],
+    platform: ['Mobile', 'Desktop'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-software-wallet',
   },
   {
@@ -102,6 +114,7 @@ const WALLETS: Wallet[] = [
     icon: { url: '/assets/wallets/bitcoin-safe.png', width: 100, height: 100 },
     type: ['Shell'],
     blockchains: ['Bitcoin'],
+    platform: ['Desktop'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-software-wallet',
   },
   {
@@ -109,6 +122,7 @@ const WALLETS: Wallet[] = [
     icon: { url: '/assets/wallets/cove.png', width: 100, height: 100 },
     type: ['Shell'],
     blockchains: ['Bitcoin'],
+    platform: ['Mobile'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-software-wallet',
   },
   {
@@ -116,6 +130,7 @@ const WALLETS: Wallet[] = [
     icon: { url: '/assets/wallets/bullbitcoin.png', width: 100, height: 100 },
     type: ['Shell'],
     blockchains: ['Bitcoin'],
+    platform: ['Mobile'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-software-wallet',
   },
   {
@@ -123,11 +138,51 @@ const WALLETS: Wallet[] = [
     icon: { url: '/assets/wallets/walleth.png', width: 96, height: 81 },
     type: ['Keycard'],
     blockchains: ['Ethereum'],
+    platform: ['Mobile'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-software-wallet',
   },
 ]
 
-const Badge = ({ children }: { children: WalletType | BlockchainType }) => {
+const MobileIcon = ({ className }: { className?: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 20 20"
+    fill="currentColor"
+    className={className}
+  >
+    <path d="M7 2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H7Zm3 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" />
+  </svg>
+)
+
+const DesktopIcon = ({ className }: { className?: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 20 20"
+    fill="currentColor"
+    className={className}
+  >
+    <path
+      fillRule="evenodd"
+      d="M2 4.25A2.25 2.25 0 0 1 4.25 2h11.5A2.25 2.25 0 0 1 18 4.25v8.5A2.25 2.25 0 0 1 15.75 15h-4v2h2a.75.75 0 0 1 0 1.5h-7.5a.75.75 0 0 1 0-1.5h2v-2H4.25A2.25 2.25 0 0 1 2 12.75v-8.5Z"
+      clipRule="evenodd"
+    />
+  </svg>
+)
+
+const ExtensionIcon = ({ className }: { className?: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 20 20"
+    fill="currentColor"
+    className={className}
+  >
+    <path d="M10 2.5a.75.75 0 0 1 .75.75v1a2.25 2.25 0 0 1 2.25 2.25h1a.75.75 0 0 1 0 1.5h-1v1a.75.75 0 0 1-1.5 0v-1h-1a.75.75 0 0 1 0-1.5h1A.75.75 0 0 0 12.25 5.75v-1h-1a.75.75 0 0 1 0-1.5h-1v-1A.75.75 0 0 1 10 2.5ZM3.5 7A2.5 2.5 0 0 1 6 4.5h1.75a.75.75 0 0 1 0 1.5H6a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1v-1.75a.75.75 0 0 1 1.5 0V14a2.5 2.5 0 0 1-2.5 2.5H6A2.5 2.5 0 0 1 3.5 14V7Z" />
+  </svg>
+)
+
+type BadgeType = WalletType | BlockchainType | PlatformType
+
+const Badge = ({ children }: { children: BadgeType }) => {
   const icon = match(children)
     .with('Keycard', () => <KeycardIcon className="size-5 p-[2px]" />)
     .with('Shell', () => <KeycardShellIcon className="size-5 p-[2px]" />)
@@ -149,11 +204,9 @@ const Badge = ({ children }: { children: WalletType | BlockchainType }) => {
         className="size-5 p-[2px]"
       />
     ))
-    .with('Multisig', () => (
-      <span className="flex size-5 items-center justify-center rounded-full bg-white-10 text-[10px] font-500">
-        M
-      </span>
-    ))
+    .with('Mobile', () => <MobileIcon className="size-5 p-[2px]" />)
+    .with('Desktop', () => <DesktopIcon className="size-5 p-[2px]" />)
+    .with('Extension', () => <ExtensionIcon className="size-5 p-[2px]" />)
     .exhaustive()
 
   return (
@@ -192,6 +245,9 @@ function WalletCard({ wallet }: { wallet: Wallet }) {
         {wallet.type.map(type => (
           <Badge key={type}>{type}</Badge>
         ))}
+        {wallet.platform.map(p => (
+          <Badge key={p}>{p}</Badge>
+        ))}
         {wallet.blockchains.map(blockchain => (
           <Badge key={blockchain}>{blockchain}</Badge>
         ))}
@@ -207,11 +263,22 @@ function WalletCard({ wallet }: { wallet: Wallet }) {
 }
 
 export default function WalletsPage() {
-  const [activeTab, setActiveTab] = useState<'All' | 'Keycard' | 'Shell'>('All')
+  const [activeHardware, setActiveHardware] = useState<'All' | WalletType>(
+    'All',
+  )
+  const [activePlatform, setActivePlatform] = useState<'All' | PlatformType>(
+    'All',
+  )
+  const [activeAsset, setActiveAsset] = useState<'All' | BlockchainType>('All')
 
   const filteredWallets = WALLETS.filter(wallet => {
-    if (activeTab === 'All') return true
-    return wallet.type.includes(activeTab)
+    if (activeHardware !== 'All' && !wallet.type.includes(activeHardware))
+      return false
+    if (activePlatform !== 'All' && !wallet.platform.includes(activePlatform))
+      return false
+    if (activeAsset !== 'All' && !wallet.blockchains.includes(activeAsset))
+      return false
+    return true
   })
 
   return (
@@ -238,29 +305,77 @@ export default function WalletsPage() {
       </header>
 
       <h2 className="font-lora text-24 font-400 text-white-95">
-        Filter wallet apps by device
+        Filter software wallets
       </h2>
-      <Tabs
-        defaultValue="All"
-        onValueChange={value =>
-          setActiveTab(value as 'Keycard' | 'Shell' | 'All')
-        }
-      >
-        <TabsList>
-          <TabsTrigger value="All">All</TabsTrigger>
-          <TabsTrigger value="Keycard">Keycard</TabsTrigger>
-          <TabsTrigger value="Shell">Shell</TabsTrigger>
-        </TabsList>
-      </Tabs>
 
-      <h2 className="mt-8 font-lora text-24 font-400 text-white-95">
-        Wallet setup guides
-      </h2>
-      <div className="mt-2 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {filteredWallets.map(wallet => (
-          <WalletCard key={wallet.name} wallet={wallet} />
-        ))}
+      <div className="mt-4 flex flex-col gap-2">
+        <div className="flex items-center gap-2">
+          <span className="w-[120px] shrink-0 text-14 font-500 text-white-60">
+            By platform
+          </span>
+          <Tabs
+            defaultValue="All"
+            onValueChange={value =>
+              setActivePlatform(value as 'All' | PlatformType)
+            }
+          >
+            <TabsList>
+              <TabsTrigger value="All">All</TabsTrigger>
+              <TabsTrigger value="Mobile">Mobile</TabsTrigger>
+              <TabsTrigger value="Desktop">Desktop</TabsTrigger>
+              <TabsTrigger value="Extension">Browser extension</TabsTrigger>
+            </TabsList>
+          </Tabs>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <span className="w-[120px] shrink-0 text-14 font-500 text-white-60">
+            By assets
+          </span>
+          <Tabs
+            defaultValue="All"
+            onValueChange={value =>
+              setActiveAsset(value as 'All' | BlockchainType)
+            }
+          >
+            <TabsList>
+              <TabsTrigger value="All">All</TabsTrigger>
+              <TabsTrigger value="Bitcoin">Bitcoin</TabsTrigger>
+              <TabsTrigger value="Ethereum">Ethereum</TabsTrigger>
+            </TabsList>
+          </Tabs>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <span className="w-[120px] shrink-0 text-14 font-500 text-white-60">
+            Integrates with
+          </span>
+          <Tabs
+            defaultValue="All"
+            onValueChange={value =>
+              setActiveHardware(value as 'All' | WalletType)
+            }
+          >
+            <TabsList>
+              <TabsTrigger value="All">All</TabsTrigger>
+              <TabsTrigger value="Keycard">Keycard</TabsTrigger>
+              <TabsTrigger value="Shell">Shell</TabsTrigger>
+            </TabsList>
+          </Tabs>
+        </div>
       </div>
+
+      {filteredWallets.length > 0 ? (
+        <div className="mt-2 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {filteredWallets.map(wallet => (
+            <WalletCard key={wallet.name} wallet={wallet} />
+          ))}
+        </div>
+      ) : (
+        <p className="mt-4 text-16 text-white-60">
+          No wallets match these filters. Try adjusting your selection.
+        </p>
+      )}
 
       <div className="mt-10 flex flex-1 flex-col gap-6 rounded-28 border border-white-8 bg-white-4 p-6 pt-5 lg:mt-6 lg:max-w-[435px]">
         <div className="flex flex-col gap-[6px]">
