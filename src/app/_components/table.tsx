@@ -57,7 +57,9 @@ export function TableRow(props: {
 }) {
   const { children } = props
 
-  return <tr>{children}</tr>
+  return (
+    <tr className="border-b border-white-12 last:border-b-0">{children}</tr>
+  )
 }
 
 export function TableHeader(props: { children: React.ReactNode }) {
