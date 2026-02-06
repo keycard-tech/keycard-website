@@ -1,0 +1,109 @@
+---
+id: other-derivation-paths-support
+title: Other derivation paths 
+---
+
+# Other derivation paths 
+
+## Connection to the software wallet for advanced users 
+
+Keycard holds the user's seed privately and has the ability to derive and sign with any keypair derived from the seed. However, when Shell is connected to a software wallet, Shell provides a list of public keys the software wallet can access. 
+
+In some cases, advanced users might want to use some specific derivation paths with their software wallet:
+- On Ethereum, if they use keypairs that have been set up by Ledger Live or Ledger Legacy.
+- On Bitcoin, if they want to use alternate accounts (with an account number different from 0, see table below), or Bitcoin testnet.
+
+In these cases, the user will connect Shell to their software wallet by going to **Connect to software wallet** > **Others** and choose among the different options. 
+
+## List of derivation paths a software wallet can use
+
+<Table>
+    <TableHead>
+        <TableHeader>Menu Item</TableHeader>
+        <TableHeader>xPub provided to software wallet in the QR</TableHeader>
+        <TableHeader>Software wallet can access</TableHeader>
+    </TableHead>
+
+    <TableContent>
+        <TableRow>
+            <TableCell>Ethereum</TableCell>
+            <TableCell>m/44'/60'/0' (bip44)</TableCell>
+            <TableCell>m/44'/60'/0'/x/x</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Bitcoin</TableCell>
+            <TableCell>m/84'/0'/0' (native segwit)<br/>m/49'/0'/0' (nested segwit)<br/>m/44'/0'/0' (legacy)</TableCell>
+            <TableCell>m/84'/0'/0'/x/x (native segwit)<br/>m/49'/0'/0'/x/x (nested segwit)<br/>m/44'/0'/0'/x/x (legacy)</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Bitcoin MultiSig</TableCell>
+            <TableCell>m/48'/0'/0'/2' (P2WSH)<br/>m/48'/0'/0'/1' (P2WSH-P2SH)<br/>m/45' (P2SH)</TableCell>
+            <TableCell>m/48'/0'/0'/2'/x/x (P2WSH)<br/>m/48'/0'/0'/1'/x/x (P2WSH-P2SH)<br/>m/45'/x/x/x (P2SH)</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Bitget</TableCell>
+            <TableCell>m/84'/0'/0' (native segwit)<br/>m/49'/0'/0' (nested segwit)<br/>m/44'/0'/0' (legacy)<br/>m/44'/60'/0' (bip44)</TableCell>
+            <TableCell>m/84'/0'/0'/x/x (native segwit)<br/>m/49'/0'/0'/x/x (nested segwit)<br/>m/44'/0'/0'/x/x (legacy)<br/>m/44'/60'/0'/x/x</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Others - Ledger Live</TableCell>
+            <TableCell>user chose N in Shell UI<br/>m/44'/60'/N'</TableCell>
+            <TableCell>m/44'/60'/N'/x/x</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Others - Ledger Legacy</TableCell>
+            <TableCell>m/44'/60'/0'<br/>Shell indicates that paths are intended to have only 1 level down</TableCell>
+            <TableCell>m/44'/60'/0'/x</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Others - Bitcoin (alt accounts)</TableCell>
+            <TableCell>user chose N in Shell UI<br/>m/84'/0'/N' (native segwit)<br/>m/49'/0'/N' (nested segwit)<br/>m/44'/0'/N' (legacy)</TableCell>
+            <TableCell>m/84'/0'/N'/x/x (native segwit)<br/>m/49'/0'/N'/x/x (nested segwit)<br/>m/44'/0'/N'/x/x (legacy)</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Others - Bitcoin MultiSig (alt accounts)</TableCell>
+            <TableCell>user chose N in Shell UI<br/>m/48'/0'/N'/2' (P2WSH)<br/>m/48'/0'/N'/1' (P2WSH-P2SH)<br/>m/45' (account N ignored) (P2SH)</TableCell>
+            <TableCell>m/48'/0'/N'/2'/x/x (P2WSH)<br/>m/48'/0'/N'/1'/x/x (P2WSH-P2SH)<br/>m/45'/x/x/x (P2SH)</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Others - Bitcoin Testnet</TableCell>
+            <TableCell>user chose N in Shell UI<br/>m/84'/1'/N' (native segwit)<br/>m/49'/1'/N' (nested segwit)<br/>m/44'/1'/N' (legacy)</TableCell>
+            <TableCell>m/84'/1'/N'/x/x (native segwit)<br/>m/49'/1'/N'/x/x (nested segwit)<br/>m/44'/1'/N'/x/x (legacy)</TableCell>
+        </TableRow>
+    </TableContent>
+</Table>
+
+## Addresses menu
+
+On the main Shell menu, the **Addresses** entry allows you to choose **Ethereum** or **Bitcoin**. The addresses shown to the user are the following.
+
+<Table>
+    <TableHead>
+        <TableHeader>Menu Item</TableHeader>
+        <TableHeader>Shell shows these addresses</TableHeader>
+    </TableHead>
+
+    <TableContent>
+        <TableRow>
+            <TableCell>Ethereum</TableCell>
+            <TableCell>m/44'/60'/0'/0/N<br/>user changes N by going left/right with arrow keys</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Bitcoin</TableCell>
+            <TableCell>m/84'/0'/0'/0/N (native segwit)<br/>user changes N by going left/right with arrow keys</TableCell>
+        </TableRow>
+    </TableContent>
+</Table>
+
+<Admonition type="note">
+  If you want to check the public keys of other derivation paths, use your software wallet.
+</Admonition>
