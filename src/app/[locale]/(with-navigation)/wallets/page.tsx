@@ -88,7 +88,7 @@ const WALLETS: Wallet[] = [
   {
     name: 'Sparrow',
     icon: { url: '/assets/wallets/sparrow.png', width: 114, height: 114 },
-    type: ['Shell'],
+    type: ['Keycard', 'Shell'],
     blockchains: ['Bitcoin'],
     platform: ['Desktop'],
     setupGuideUrl: '/help/connect-keycard-shell-to-sparrow-wallet',
