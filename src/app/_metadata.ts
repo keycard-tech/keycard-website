@@ -15,10 +15,6 @@ export function Metadata(input: Input): Metadata {
   if (outputOg['description'] == null && input.description) {
     outputOg['description'] = input.description
   }
-  if (outputOg['images'] == null) {
-    outputOg['images'] = ['/opengraph-image.png']
-  }
-
   return {
     ...rest,
     openGraph: outputOg as NonNullable<Metadata['openGraph']>,
