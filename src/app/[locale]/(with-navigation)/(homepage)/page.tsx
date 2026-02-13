@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: MetadataProps) {
       absolute: 'Keycard: Open-Source Air-Gapped Crypto Hardware Wallet',
     },
     description:
-      'Secure your crypto with Keycard hardware. Air-gapped, contactless NFC, and fully open-source. Keycard Shell for cold storage, Keycard for everyday access.',
+      'Secure your crypto with Keycard hardware. Air-gapped, contactless NFC, and open-source. Use Keycard Shell for modular cold storage and Keycard for everyday access.',
     alternates: buildLocaleAlternates(locale, '/'),
   })
 }
