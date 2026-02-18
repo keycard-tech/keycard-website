@@ -168,7 +168,7 @@ const config = {
       },
       {
         source: '/start',
-        destination: '/en/start/shell',
+        destination: '/en/start',
         permanent: true,
       },
       {

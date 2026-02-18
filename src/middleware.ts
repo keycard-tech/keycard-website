@@ -31,7 +31,7 @@ const mapLegacyPath = (path: string) => {
   }
   if (path === '/help') return '/en/help/about-keycard-and-keycard-shell'
   if (path.startsWith('/help/')) return `/en${path}`
-  if (path === '/start') return '/en/start/shell'
+  if (path === '/start') return '/en/start'
   if (path.startsWith('/start/')) return `/en${path}`
   if (path === '/blog') return '/en/blog'
   if (path.startsWith('/blog/')) return `/en${path}`
