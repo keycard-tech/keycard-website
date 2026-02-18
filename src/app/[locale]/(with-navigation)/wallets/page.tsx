@@ -26,6 +26,7 @@ interface Wallet {
   blockchains: BlockchainType[]
   platform: PlatformType[]
   setupGuideUrl: string
+  websiteUrl: string
 }
 
 const WALLETS: Wallet[] = [
@@ -36,6 +37,7 @@ const WALLETS: Wallet[] = [
     blockchains: ['Ethereum'],
     platform: ['Mobile', 'Extension'],
     setupGuideUrl: '/help/connect-keycard-shell-to-metamask',
+    websiteUrl: 'https://metamask.io',
   },
   {
     name: 'Status',
@@ -44,6 +46,7 @@ const WALLETS: Wallet[] = [
     blockchains: ['Ethereum'],
     platform: ['Mobile', 'Desktop'],
     setupGuideUrl: 'https://status.app/help/keycard',
+    websiteUrl: 'https://status.app',
   },
   {
     name: 'Rabby',
@@ -52,6 +55,7 @@ const WALLETS: Wallet[] = [
     blockchains: ['Ethereum'],
     platform: ['Mobile', 'Extension'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-software-wallet',
+    websiteUrl: 'https://rabby.io',
   },
   {
     name: 'imToken',
@@ -60,6 +64,7 @@ const WALLETS: Wallet[] = [
     blockchains: ['Ethereum'],
     platform: ['Mobile'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-software-wallet',
+    websiteUrl: 'https://token.im',
   },
   {
     name: 'BitGet',
@@ -68,6 +73,7 @@ const WALLETS: Wallet[] = [
     blockchains: ['Ethereum', 'Bitcoin'],
     platform: ['Mobile', 'Extension'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-software-wallet',
+    websiteUrl: 'https://web3.bitget.com',
   },
   {
     name: 'Unisat',
@@ -76,6 +82,7 @@ const WALLETS: Wallet[] = [
     blockchains: ['Bitcoin'],
     platform: ['Extension'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-software-wallet',
+    websiteUrl: 'https://unisat.io',
   },
   {
     name: 'Specter',
@@ -84,6 +91,7 @@ const WALLETS: Wallet[] = [
     blockchains: ['Bitcoin'],
     platform: ['Desktop'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-software-wallet',
+    websiteUrl: 'https://specter.solutions/desktop',
   },
   {
     name: 'Sparrow',
@@ -92,6 +100,7 @@ const WALLETS: Wallet[] = [
     blockchains: ['Bitcoin'],
     platform: ['Desktop'],
     setupGuideUrl: '/help/connect-keycard-shell-to-sparrow-wallet',
+    websiteUrl: 'https://sparrowwallet.com',
   },
   {
     name: 'Nunchuk',
@@ -100,6 +109,7 @@ const WALLETS: Wallet[] = [
     blockchains: ['Bitcoin'],
     platform: ['Mobile', 'Desktop'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-software-wallet',
+    websiteUrl: 'https://nunchuk.io',
   },
   {
     name: 'BlueWallet',
@@ -108,6 +118,7 @@ const WALLETS: Wallet[] = [
     blockchains: ['Bitcoin'],
     platform: ['Mobile', 'Desktop'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-software-wallet',
+    websiteUrl: 'https://bluewallet.io',
   },
   {
     name: 'Bitcoin Safe',
@@ -116,6 +127,7 @@ const WALLETS: Wallet[] = [
     blockchains: ['Bitcoin'],
     platform: ['Desktop'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-software-wallet',
+    websiteUrl: 'https://bitcoin-safe.org',
   },
   {
     name: 'Cove',
@@ -124,6 +136,7 @@ const WALLETS: Wallet[] = [
     blockchains: ['Bitcoin'],
     platform: ['Mobile'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-software-wallet',
+    websiteUrl: 'https://covebitcoinwallet.com',
   },
   {
     name: 'Bull Bitcoin',
@@ -132,6 +145,7 @@ const WALLETS: Wallet[] = [
     blockchains: ['Bitcoin'],
     platform: ['Mobile'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-software-wallet',
+    websiteUrl: 'https://wallet.bullbitcoin.com',
   },
   {
     name: 'Walleth',
@@ -140,6 +154,7 @@ const WALLETS: Wallet[] = [
     blockchains: ['Ethereum'],
     platform: ['Mobile'],
     setupGuideUrl: '/help/connect-keycard-shell-to-a-software-wallet',
+    websiteUrl: 'https://walleth.org',
   },
 ]
 
@@ -219,7 +234,12 @@ const Badge = ({ children }: { children: BadgeType }) => {
 function WalletCard({ wallet }: { wallet: Wallet }) {
   return (
     <div className="flex flex-col items-center rounded-20 border border-white-8 bg-white-4 p-6">
-      <div className="mb-4 flex items-center justify-center">
+      <a
+        href={wallet.websiteUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:opacity-80 mb-4 flex items-center justify-center transition-opacity"
+      >
         {wallet.icon ? (
           <div className="flex size-[100px] items-center justify-center">
             <Image
@@ -237,7 +257,7 @@ function WalletCard({ wallet }: { wallet: Wallet }) {
             </span>
           </div>
         )}
-      </div>
+      </a>
       <h3 className="mb-4 text-center font-lora text-24 font-400 text-white-95">
         {wallet.name}
       </h3>
