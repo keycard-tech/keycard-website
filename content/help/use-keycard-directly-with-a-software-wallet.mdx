@@ -1,0 +1,53 @@
+---
+id: use-keycard-directly-with-a-software-wallet
+title: Use Keycard directly with a software wallet
+---
+
+# Use Keycard directly with a software wallet
+
+Keycard is a versatile smart card that works in multiple configurations. While you can use Keycard with Shell, you can also connect Keycard directly to a [compatible software wallet](https://keycard.tech/en/wallets) — either on mobile or desktop.
+
+## Mobile Wallets
+
+When using a mobile software wallet, interaction is simple and wireless: just tap your Keycard against your phone's NFC area to authenticate or sign transactions. No additional hardware is required.
+
+## Desktop Wallets
+
+When using a desktop software wallet, you'll need a USB smart card reader to connect your Keycard to your computer.
+
+### Choosing a Card Reader
+
+Any smart card reader compliant with **ISO 7816** will work with Keycard. This includes both **contact** readers (where the card is physically inserted) and **NFC/contactless** readers.
+
+We sell a compact card reader that works great with Keycard: [Buy it here](https://get.keycard.tech/products/keycard-reader-for-desktop?variant=50331110965512)
+
+### Using Our Card Reader
+
+Our reader has a simple rotating mechanism. Here's how to use it:
+
+1. Start with the reader closed.
+2. Rotate the inner part to open the card slot.
+3. Insert your Keycard with the **logo facing up**.
+4. Plug the reader into your computer's USB port.
+
+![How to use the USB reader: 1. Take the USB reader, 2. Open it, 3. Insert the card, 4. Insert in PC.](/assets/docs/use-keycard-directly-with-a-software-wallet-reader-instructions.png)
+
+<Admonition type="note">
+    Steps 3 and 4 are of course interchangeable — you can plug the reader into your computer first and insert the card afterward, or insert the card first and then connect.
+</Admonition>
+
+### Linux Users
+
+If your card reader is not automatically detected on Linux, you may need to ensure that the **pcsc** service is installed and **pcscd** is running.
+
+<Admonition type="note">
+    Linux commands to install and run pcsc might depend on your Linux distro. The one below apply to  Debian/Ubuntu-based distributions.
+
+    ```bash
+    sudo apt-get install pcscd
+    sudo apt-get install python-usb
+    sudo systemctl enable pcscd.service
+    sudo systemctl start pcscd.service
+    sudo systemctl status pcscd.service
+    ```
+</Admonition>

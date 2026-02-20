@@ -38,6 +38,10 @@
       {
         "title": "List of compatible wallets",
         "link": "/help/list-of-compatible-wallets"
+      },
+      {
+        "title": "Use Keycard directly with a software wallet",
+        "link": "/help/use-keycard-directly-with-a-software-wallet"
       }
     ]
   },
