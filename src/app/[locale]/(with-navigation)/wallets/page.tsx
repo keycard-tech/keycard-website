@@ -44,7 +44,7 @@ const WALLETS: Wallet[] = [
     icon: { url: '/assets/wallets/status.png', width: 96, height: 96 },
     type: ['Keycard'],
     blockchains: ['Ethereum'],
-    platform: ['Mobile', 'Desktop'],
+    platform: ['Desktop'],
     setupGuideUrl: 'https://status.app/help/keycard',
     websiteUrl: 'https://status.app',
   },
