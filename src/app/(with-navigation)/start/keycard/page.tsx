@@ -4,7 +4,6 @@ import { buildLocaleAlternates } from '~/app/_utils/metadata'
 import { ButtonLink } from '~components/button-link'
 import { DownloadStatusForDesktop } from '~components/download-status-for-desktop'
 import { Link } from '~components/link'
-import { Tooltip } from '~components/tooltip'
 import Image from 'next/image'
 
 type MetadataProps = {
@@ -40,8 +39,8 @@ export default function StartKeycardPage() {
       {/* Step 1 */}
       <div className="mt-14 grid grid-flow-row gap-3">
         <h2 className="mb-6 flex justify-start gap-3 font-lora text-32 font-400 text-white-95">
-          <span className="text-orange">1</span> Find out which wallet you can
-          use with Keycard
+          <span className="text-orange">1</span> Find out which wallet you want
+          to use with Keycard
         </h2>
         <div className="flex flex-col gap-4 rounded-28 border border-white-8 bg-white-4 p-6">
           <p className="font-inter text-16 font-300 text-white-80">
@@ -84,23 +83,76 @@ export default function StartKeycardPage() {
             height={32}
           />
         </h2>
-        <p className="mb-6 font-inter text-16 font-300 text-white-80">
-          Currently, only Status Desktop supports Keycard. Keycard support is
-          coming back soon to{' '}
-          <Tooltip label="Keycard is still supported on Status Mobile with 'Status Legacy app.">
-            <span className="cursor-help border-b border-dashed border-white-40 text-white-80">
-              Status Mobile
-            </span>
-          </Tooltip>
+        <div className="mb-6 rounded-16 border border-dashed border-white-12 bg-white-4 px-4 py-[14px] font-inter text-14 font-300 text-white-60">
+          <span className="font-400 text-white-80">Note:</span> Status Mobile is
+          currently migrating from its legacy UI to a new unified app. Keycard
+          is supported on Status Legacy for now, and will return to the unified
+          Status app in v2.37.{' '}
+          <Link
+            href="https://status.app/blog/legacy-mobile-app-v2-34-4-unified-mobile-app-and-whats-next"
+            className="text-white-80 underline underline-offset-2 hover:text-white-60"
+          >
+            See this article for more details
+          </Link>
           .
-        </p>
+        </div>
 
         {/* Sub-step 2.1 */}
         <h3 className="mb-4 flex items-center justify-start gap-3 font-lora text-24 font-400 text-white-95">
           <span className="text-orange">2.1</span> Download Status
         </h3>
-        <div className="mb-6">
-          <DownloadStatusForDesktop />
+        <div className="mb-6 flex flex-col gap-3 lg:flex-row">
+          <div className="flex-1">
+            <DownloadStatusForDesktop />
+          </div>
+          <div className="flex flex-1 flex-col rounded-28 border border-white-8 bg-white-4 p-6 pt-5">
+            <div className="mb-6 flex flex-col gap-[6px]">
+              <div className="flex items-center gap-2">
+                <Image
+                  src="/assets/keycard/status-legacy-logo.png"
+                  alt="Status Legacy"
+                  width={28}
+                  height={28}
+                  className="size-7 rounded-full"
+                />
+                <p className="font-lora text-24 font-400 text-white-95">
+                  Download Status Legacy for mobile
+                </p>
+              </div>
+              <p className="font-300 text-white-80">
+                Available for iOS and Android
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <Link href="https://apps.apple.com/us/app/status-ethereum-crypto-wallet/id1178893006">
+                <Image
+                  src="/assets/keycard/appstore.png"
+                  width={140}
+                  height={40}
+                  alt="Download on App Store"
+                  className="h-10 w-auto"
+                />
+              </Link>
+              <Link href="https://play.google.com/store/apps/details?id=im.status.ethereum">
+                <Image
+                  src="/assets/keycard/googleplay.png"
+                  width={142}
+                  height={40}
+                  alt="Get it on Google Play"
+                  className="h-10 w-auto"
+                />
+              </Link>
+              <Link href="https://f-droid.org/en/packages/im.status.ethereum">
+                <Image
+                  src="/assets/keycard/fdroid.png"
+                  width={120}
+                  height={40}
+                  alt="Get it on F-Droid"
+                  className="h-10 w-auto"
+                />
+              </Link>
+            </div>
+          </div>
         </div>
 
         {/* Sub-step 2.2 */}
