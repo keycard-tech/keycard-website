@@ -26,20 +26,8 @@ Compiling and installing from source is probably the best way to proceed, since 
 
 ```bash
 brew install openjdk@11
-sudo ln -sfn /opt/homebrew/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
-```
-
-Add these lines to your `~/.zshrc`:
-
-```bash
 export JAVA_HOME=/opt/homebrew/opt/openjdk@11/libexec/openjdk.jdk/Contents/Home
 export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
-```
-
-Then reload and verify:
-
-```bash
-source ~/.zshrc
 java -version   # should show openjdk version "11.0.x"
 ```
 
@@ -51,11 +39,11 @@ sudo apt install openjdk-11-jdk pcscd libpcsclite-dev
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 ```
 
-Add the `export` line to your `~/.bashrc` to make it permanent.
-
 #### Windows
 
-Download and install OpenJDK 11 from [Adoptium](https://adoptium.net/temurin/releases/?version=11) (select Windows, x64, JDK, `.msi`). Check the option to set JAVA_HOME during installation. Open a new terminal to verify with `java -version`.
+Download and install OpenJDK 11 from [Adoptium](https://adoptium.net/temurin/releases/?version=11) (select Windows, x64, JDK, `.msi`). You can either 
+- check the option to set JAVA_HOME during installation, or 
+- Open a new terminal and run command `set JAVA_HOME=C:\Program Files\Eclipse Adoptium\jdk-11`
 
 ### Installation steps
 
