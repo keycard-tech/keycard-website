@@ -5,20 +5,45 @@ title: Build your Keycard
 
 # Build your Keycard
 
-if you have a blank JavaCard 3.0.4+ card (readily available for purchase on the web) you can build your own Keycard. This is especially useful for developers who want to contribute to the project and/or experiment with it.
+If you have a blank JavaCard 3.0.4+ card (readily available for purchase on the web) you can build your own Keycard. This is especially useful for developers who want to contribute to the project and/or experiment with it.
 
 Please note that cards built this way will miss the certificate that is present on cards we distribute. This doesn't affect functionality in any way but will cause a warning to appear when using the card with Shell or another Keycard compatible wallet for the first time. Since you built the card yourself you can safely dismiss this warning.
 
 ## Compiling and installing from source
 
-compiling and installing from source is probably the best way to proceed, since this will also leave you with a working development environment for all your experiments.
+Compiling and installing from source is probably the best way to proceed, since this will also leave you with a working development environment for all your experiments.
 
 ### Requirements
 
 - Linux, Windows or Mac computer
-- OpenJDK 11 (make sure to set the JAVA_HOME environment variable to point this installation)
+- OpenJDK 11 (this specific version is required — newer JDKs are not compatible with the JavaCard build tools)
 - A Javacard 3.0.4+ smartcard with T=1 and SCP02 support. Cards of the JCOP4 family are known to work well. JavaCard 3.0.5 is recommended for best compatibility.
 - A standard PCSC smartcard reader
+
+### Setting up OpenJDK 11
+
+#### macOS
+
+```bash
+brew install openjdk@11
+export JAVA_HOME=/opt/homebrew/opt/openjdk@11/libexec/openjdk.jdk/Contents/Home
+export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
+java -version   # should show openjdk version "11.0.x"
+```
+
+#### Linux (Debian/Ubuntu)
+
+```bash
+sudo apt update
+sudo apt install openjdk-11-jdk pcscd libpcsclite-dev
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+```
+
+#### Windows
+
+Download and install OpenJDK 11 from [Adoptium](https://adoptium.net/temurin/releases/?version=11) (select Windows, x64, JDK, `.msi`). You can either 
+- check the option to set JAVA_HOME during installation, or 
+- Open a new terminal and run command `set JAVA_HOME=C:\Program Files\Eclipse Adoptium\jdk-11`
 
 ### Installation steps
 
@@ -26,10 +51,12 @@ compiling and installing from source is probably the best way to proceed, since 
 2. Open your terminal app of choice
 3. Clone the Keycard repo with the command `git clone --recurse-submodules https://github.com/keycard-tech/status-keycard`
 4. Enter the repository with `cd status-keycard`
-5. Build and install the applet with `./gradlew install`
-6. Your card is ready to be used with Keycard Shell or any wallet supporting Keycard
+5. Build and install the applet:
+   - macOS / Linux: `./gradlew install`
+   - Windows: `gradlew.bat install`
+6. When you see `BUILD SUCCESSFUL`, your card is ready to be used with Keycard Shell or any wallet supporting Keycard.
 
-This assume that the smartcard you are using uses the default GlobalPlatform keys (true for most cards sold online) or the Keycard development keys (if you bought a dev card from us). In case you already played with the card and changed the ISD keys yourself, follow the below step. 
+This assume that the smartcard you are using uses the default GlobalPlatform keys (true for most cards sold online) or the Keycard development keys (if you bought a development card from us). In case you already played with the card and changed the ISD keys yourself, follow the below step. 
 
 ### Alternative installations steps
 
