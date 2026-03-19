@@ -107,24 +107,15 @@ export default function StartKeycardPage() {
           </div>
           <div className="flex flex-1 flex-col rounded-28 border border-white-8 bg-white-4 p-6 pt-5">
             <div className="mb-6 flex flex-col gap-[6px]">
-              <div className="flex items-center gap-2">
-                <Image
-                  src="/assets/keycard/status-legacy-logo.png"
-                  alt="Status Legacy"
-                  width={28}
-                  height={28}
-                  className="size-7 rounded-full"
-                />
-                <p className="font-lora text-24 font-400 text-white-95">
-                  Download Status Legacy for mobile
-                </p>
-              </div>
+              <p className="font-lora text-24 font-400 text-white-95">
+                Download Status for mobile
+              </p>
               <p className="font-300 text-white-80">
                 Available for iOS and Android
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
-              <Link href="https://apps.apple.com/us/app/status-ethereum-crypto-wallet/id1178893006">
+              <Link href="https://apps.apple.com/us/app/status-privacy-super-app/id6754166924">
                 <Image
                   src="/assets/keycard/appstore.png"
                   width={140}
@@ -133,21 +124,12 @@ export default function StartKeycardPage() {
                   className="h-10 w-auto"
                 />
               </Link>
-              <Link href="https://play.google.com/store/apps/details?id=im.status.ethereum">
+              <Link href="https://play.google.com/store/apps/details?id=app.status.mobile">
                 <Image
                   src="/assets/keycard/googleplay.png"
                   width={142}
                   height={40}
                   alt="Get it on Google Play"
-                  className="h-10 w-auto"
-                />
-              </Link>
-              <Link href="https://f-droid.org/en/packages/im.status.ethereum">
-                <Image
-                  src="/assets/keycard/fdroid.png"
-                  width={120}
-                  height={40}
-                  alt="Get it on F-Droid"
                   className="h-10 w-auto"
                 />
               </Link>
