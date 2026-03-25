@@ -1,9 +1,7 @@
 'use client'
 
 import { getShopifyUrl } from '~/config/routes'
-import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
-import { BuyShellDialog } from '~components/buy-shell-dialog'
 import { Image } from '~components/image'
 import { JsonLd } from '~components/json-ld'
 import { motion, useReducedMotion } from 'framer-motion'
@@ -80,17 +78,6 @@ const KeycardShell = () => {
           >
             {t('hero.discover_shell.translation')}
           </ButtonLink>
-          <BuyShellDialog>
-            <Button
-              data-umami-event="buy-shell"
-              data-umami-event-page="homepage"
-              data-umami-event-section="hero"
-              data-umami-event-element="button"
-              variant="secondary"
-            >
-              {t('common.pre_order_now.translation')}
-            </Button>
-          </BuyShellDialog>
         </div>
         <p className="flex items-center gap-2 pt-6 text-16 font-300 text-white-60">
           {t('common.coming_2025.translation')}{' '}

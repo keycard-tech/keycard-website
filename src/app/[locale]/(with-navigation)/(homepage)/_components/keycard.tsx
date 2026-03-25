@@ -1,11 +1,7 @@
 'use client'
 
-import { KEYCARD_PRODUCTS } from '~/app/_constants/shopify/products'
-import { formatPrice } from '~/app/_utils/format-price'
 import { getShopifyUrl } from '~/config/routes'
-import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
-import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
 import { Image } from '~components/image'
 import { JsonLd } from '~components/json-ld'
 import { useLocale, useTranslations } from 'next-intl'
@@ -65,24 +61,7 @@ const Keycard = () => {
           >
             {t('hero.discover_keycard.translation')}
           </ButtonLink>
-          <BuyKeycardDialog>
-            <Button
-              data-umami-event="buy-keycard"
-              data-umami-event-page="homepage"
-              data-umami-event-section="hero"
-              data-umami-event-element="button"
-              variant="secondary"
-            >
-              {t('common.buy_now.translation')}
-            </Button>
-          </BuyKeycardDialog>
         </div>
-        <p className="pb-8 pt-6 text-16 font-300 text-white-60 lg:pb-0">
-          {t('common.from.translation')}{' '}
-          {formatPrice({
-            amount: KEYCARD_PRODUCTS.ONE_CARD_SET.price,
-          })}
-        </p>
       </div>
       <JsonLd
         data={{
