@@ -1,11 +1,8 @@
 'use client'
 
-import { KEYCARD_PRODUCTS } from '~/app/_constants/shopify/products'
-import { formatPrice } from '~/app/_utils/format-price'
 import { getShopifyUrl } from '~/config/routes'
 import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
-import { BuyKeycardDialog } from '~components/buy-keycard-dialog'
 import { BuyShellDialog } from '~components/buy-shell-dialog'
 import { Image } from '~components/image'
 import { cx } from 'cva'
@@ -59,7 +56,9 @@ const Section = (props: Props) => {
             {description}
           </p>
           <div className="flex space-x-4">{buttons}</div>
-          <p className="pt-6 text-16 font-300 text-white-60">{info}</p>
+          {info ? (
+            <p className="pt-6 text-16 font-300 text-white-60">{info}</p>
+          ) : null}
         </div>
       </div>
     </div>
@@ -97,17 +96,6 @@ const BuyCards = () => {
         description={t('buy_cards.keycard_description.translation')}
         buttons={
           <>
-            <BuyKeycardDialog>
-              <Button
-                variant="primary"
-                data-umami-event="buy-keycard"
-                data-umami-event-page="homepage"
-                data-umami-event-section="cards"
-                data-umami-event-element="button"
-              >
-                {t('common.buy_keycard.translation')}
-              </Button>
-            </BuyKeycardDialog>
             <ButtonLink
               href={getShopifyUrl(locale, '/pages/keycard')}
               variant="secondary"
@@ -117,9 +105,7 @@ const BuyCards = () => {
             </ButtonLink>
           </>
         }
-        info={`${t('common.from.translation')} ${formatPrice({
-          amount: KEYCARD_PRODUCTS.ONE_CARD_SET.price,
-        })}`}
+        info=""
       />
       <Section
         image="/assets/bottom-keycard-shell.png"
