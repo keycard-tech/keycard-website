@@ -1,9 +1,7 @@
 'use client'
 
 import { getShopifyUrl } from '~/config/routes'
-import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
-import { BuyShellDialog } from '~components/buy-shell-dialog'
 import { Image } from '~components/image'
 import { useLocale } from 'next-intl'
 
@@ -42,25 +40,10 @@ const KeycardShell = () => {
           and modular.
         </p>
         <div className="flex gap-4">
-          <BuyShellDialog>
-            <Button
-              data-umami-event="buy-shell"
-              data-umami-event-page="keycard"
-              data-umami-event-section="shell"
-              data-umami-event-element="button"
-            >
-              Buy now
-            </Button>
-          </BuyShellDialog>
           <ButtonLink href={shellUrl} variant="secondary">
             Learn more
           </ButtonLink>
         </div>
-        <p className="flex items-center gap-2 pt-6 text-16 font-300 text-white-60 md:gap-2">
-          Ships in 3-10 days{' '}
-          <span className="size-1 rounded-full bg-white-40" /> Bundled with 2
-          Keycards
-        </p>
       </div>
     </section>
   )
