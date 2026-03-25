@@ -1,9 +1,7 @@
 'use client'
 
 import { getShopifyUrl } from '~/config/routes'
-import { Button } from '~components/button'
 import { ButtonLink } from '~components/button-link'
-import { BuyShellDialog } from '~components/buy-shell-dialog'
 import { Image } from '~components/image'
 import { cx } from 'cva'
 import { useLocale, useTranslations } from 'next-intl'
@@ -127,16 +125,6 @@ const BuyCards = () => {
         description={t('buy_cards.shell_description.translation')}
         buttons={
           <>
-            <BuyShellDialog>
-              <Button
-                data-umami-event="buy-shell"
-                data-umami-event-page="homepage"
-                data-umami-event-section="cards"
-                data-umami-event-element="button"
-              >
-                {t('common.pre_order.translation')}
-              </Button>
-            </BuyShellDialog>
             <ButtonLink
               href={getShopifyUrl(locale, '/pages/keycard-shell')}
               variant="secondary"
@@ -146,7 +134,7 @@ const BuyCards = () => {
             </ButtonLink>
           </>
         }
-        info={t('buy_cards.shell_info.translation')}
+        info=""
       />
     </section>
   )
