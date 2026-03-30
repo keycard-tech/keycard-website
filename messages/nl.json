@@ -145,15 +145,15 @@
       "notes": "hero::keycard_shell_title"
     },
     "keycard_shell_subtitle": {
-      "translation": "Eén veilig apparaat,\nonceindig veel back-ups",
+      "translation": "De hardware wallet\ndie niets te verbergen heeft",
       "notes": "hero::keycard_shell_subtitle"
     },
     "keycard_shell_description": {
-      "translation": "Ongeëvenaarde beveiliging met een onbeperkt aantal verwijderbare Keycards, elk met zijn eigen sleutel.",
+      "translation": "Volledig open-source hardware en software. Air-gapped QR-ondertekening met 15+ compatibele wallets. Je sleutels leven op smartcards en blijven onder jouw controle.",
       "notes": "hero::keycard_shell_description"
     },
     "discover_shell": {
-      "translation": "Shell ontdekken",
+      "translation": "Shell kopen",
       "notes": "hero::discover_shell"
     },
     "keycard_title": {
@@ -169,7 +169,7 @@
       "notes": "hero::keycard_description"
     },
     "discover_keycard": {
-      "translation": "Keycard ontdekken",
+      "translation": "Keycard kopen",
       "notes": "hero::discover_keycard"
     }
   },
