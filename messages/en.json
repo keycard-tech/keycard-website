@@ -131,15 +131,15 @@
       "notes": "hero::keycard_shell_title"
     },
     "keycard_shell_subtitle": {
-      "translation": "One secure device,\ninfinite backups",
+      "translation": "The hardware wallet\nwhich has nothing to hide",
       "notes": "hero::keycard_shell_subtitle"
     },
     "keycard_shell_description": {
-      "translation": "Unrivalled security with an infinite number of removable Keycards, each with their own key.",
+      "translation": "Fully open source hardware and software. Air-gapped QR signing with 15+ compatible wallets. Your keys live on smartcards and remain under your control.",
       "notes": "hero::keycard_shell_description"
     },
     "discover_shell": {
-      "translation": "Discover Shell",
+      "translation": "Buy Shell",
       "notes": "hero::discover_shell"
     },
     "keycard_title": {
@@ -155,7 +155,7 @@
       "notes": "hero::keycard_description"
     },
     "discover_keycard": {
-      "translation": "Discover Keycard",
+      "translation": "Buy Keycard",
       "notes": "hero::discover_keycard"
     }
   },

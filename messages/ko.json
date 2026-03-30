@@ -145,15 +145,15 @@
       "notes": "hero::keycard_shell_title"
     },
     "keycard_shell_subtitle": {
-      "translation": "하나의 안전한 기기,\n무한한 백업",
+      "translation": "숨길 것이 없는\n하드웨어 월렛",
       "notes": "hero::keycard_shell_subtitle"
     },
     "keycard_shell_description": {
-      "translation": "각각 고유한 키를 가진 무한한 수의 제거 가능한 Keycard로 비교할 수 없는 보안을 제공합니다.",
+      "translation": "하드웨어와 소프트웨어가 모두 완전 오픈소스입니다. 15개 이상의 호환 월렛에서 에어갭 QR 서명을 지원합니다. 키는 스마트카드에 저장되며 언제나 사용자의 통제 아래 있습니다.",
       "notes": "hero::keycard_shell_description"
     },
     "discover_shell": {
-      "translation": "Shell 발견하기",
+      "translation": "Shell 구매하기",
       "notes": "hero::discover_shell"
     },
     "keycard_title": {
@@ -169,7 +169,7 @@
       "notes": "hero::keycard_description"
     },
     "discover_keycard": {
-      "translation": "Keycard 발견하기",
+      "translation": "Keycard 구매하기",
       "notes": "hero::discover_keycard"
     }
   },
