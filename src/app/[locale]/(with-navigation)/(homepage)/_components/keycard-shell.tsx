@@ -64,9 +64,9 @@ const KeycardShell = () => {
               </span>
             ))}
         </h1>
-        <p className="pb-8 text-20 font-300 text-white-80">
+        <h2 className="pb-8 text-20 font-300 text-white-80">
           {t('hero.keycard_shell_description.translation')}
-        </p>
+        </h2>
         <div className="flex gap-4">
           <ButtonLink
             href={shellUrl}
