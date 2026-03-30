@@ -31,9 +31,6 @@ export async function generateMetadata({ params }: MetadataProps) {
 export default function HomePage() {
   return (
     <>
-      <h1 className="sr-only">
-        Keycard — Modular, Open-Source Crypto Hardware
-      </h1>
       <AutoOpenDialogManager />
       <KeycardShell />
       <Keycard />

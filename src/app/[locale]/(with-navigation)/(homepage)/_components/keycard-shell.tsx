@@ -51,13 +51,10 @@ const KeycardShell = () => {
       </motion.div>
 
       <div className="relative z-10 flex max-w-[434px] flex-col px-5 py-6 lg:ml-[72px] lg:p-0">
-        <h2 className="sr-only">
-          Keycard Shell - Modular, Air-Gapped Hardware Wallet
-        </h2>
         <p className="pb-2 text-24 font-600 text-white-95">
           {t('hero.keycard_shell_title.translation')}
         </p>
-        <p className="pb-8 font-lora text-32 font-400 lg:pb-4 lg:text-48">
+        <h1 className="pb-8 font-lora text-32 font-400 lg:pb-4 lg:text-48">
           {t('hero.keycard_shell_subtitle.translation')
             .split('\n')
             .map((line, index) => (
@@ -66,7 +63,7 @@ const KeycardShell = () => {
                 {index === 0 && <br />}
               </span>
             ))}
-        </p>
+        </h1>
         <p className="pb-8 text-20 font-300 text-white-80">
           {t('hero.keycard_shell_description.translation')}
         </p>
