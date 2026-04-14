@@ -131,15 +131,15 @@
       "notes": "hero::keycard_shell_title"
     },
     "keycard_shell_subtitle": {
-      "translation": "The hardware wallet\nwhich has nothing to hide",
+      "translation": "The most secure, modular hardware wallet for your crypto. One shell, many keycards.",
       "notes": "hero::keycard_shell_subtitle"
     },
     "keycard_shell_description": {
-      "translation": "Fully open source hardware and software. Air-gapped QR signing with 15+ compatible wallets. Your keys live on smartcards and remain under your control.",
+      "translation": "Non-upgradable EAL6+ secure element. Air-gapped by design. Works with Safe, MetaMask, Rabby, Sparrow and 15+ more. Never sign an important transaction blindly again. Trusted by the founders of Safe, Dappnode and Cyfrin.",
       "notes": "hero::keycard_shell_description"
     },
     "discover_shell": {
-      "translation": "Buy Shell",
+      "translation": "Get the starter kit",
       "notes": "hero::discover_shell"
     },
     "keycard_title": {
