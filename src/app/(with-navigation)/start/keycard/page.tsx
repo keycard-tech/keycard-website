@@ -54,7 +54,7 @@ export default function StartKeycardPage() {
             </Link>{' '}
             for setup instructions, or browse the{' '}
             <a
-              href="https://keycard.tech/en/wallets"
+              href="https://docs.keycard.tech/en/wallets"
               className="text-white-95 underline underline-offset-2 hover:text-white-60"
               target="_blank"
               rel="noopener noreferrer"

@@ -45,8 +45,8 @@ const WALLETS: Wallet[] = [
     type: ['Keycard'],
     blockchains: ['Ethereum'],
     platform: ['Mobile', 'Desktop'],
-    setupGuideUrl: 'https://keycard.tech/en/start/keycard',
-    websiteUrl: 'https://keycard.tech/en/start/keycard',
+    setupGuideUrl: 'https://docs.keycard.tech/en/start/keycard',
+    websiteUrl: 'https://docs.keycard.tech/en/start/keycard',
   },
   {
     name: 'Rabby',
