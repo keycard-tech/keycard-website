@@ -84,7 +84,7 @@ const PARTNERS = [
   },
   {
     name: 'Docs',
-    href: 'https://keycard.tech/en/developers/overview',
+    href: 'https://docs.keycard.tech/en/developers/overview',
   },
 ]
 

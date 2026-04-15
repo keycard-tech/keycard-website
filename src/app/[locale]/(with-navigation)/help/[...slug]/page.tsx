@@ -128,7 +128,7 @@ const Page = async (props: Props) => {
   const breadcrumbs = generateBreadcrumbs((await params).slug, meta.title)
 
   const locale = await getLocale()
-  const articleUrl = `https://keycard.tech/${locale}/help/${(
+  const articleUrl = `https://docs.keycard.tech/${locale}/help/${(
     await params
   ).slug.join('/')}`
   const structuredData = {

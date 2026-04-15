@@ -95,7 +95,7 @@ export default async function BlogDetailPage(props: Props) {
 
   const author = post.primary_author!
   const tag = post.primary_tag
-  const articleUrl = `https://keycard.tech/${locale}/blog/${post.slug}`
+  const articleUrl = `https://docs.keycard.tech/${locale}/blog/${post.slug}`
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
