@@ -1,3 +1,3 @@
 export async function GET() {
-  return Response.redirect('https://keycard.tech/sitemap.xml', 301)
+  return Response.redirect('https://docs.keycard.tech/sitemap.xml', 301)
 }

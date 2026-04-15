@@ -4,9 +4,9 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: { userAgent: '*', allow: '/' },
     sitemap: [
-      'https://keycard.tech/sitemap.xml',
+      'https://docs.keycard.tech/sitemap.xml',
       'https://get.keycard.tech/sitemap.xml',
     ],
-    // host: 'https://keycard.tech', // optional
+    // host: 'https://docs.keycard.tech', // optional
   }
 }
