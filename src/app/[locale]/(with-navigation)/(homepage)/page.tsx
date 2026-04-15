@@ -56,7 +56,7 @@ export default function HomePage() {
               Technical docs
             </p>
             <h2 className="mb-2 font-lora text-24 font-400 text-white-95">
-              I build with Keycard
+              I build with Keycard and Shell
             </h2>
             <p className="mb-6 font-inter text-16 font-300 text-white-60">
               API reference, protocol details, firmware internals, and
