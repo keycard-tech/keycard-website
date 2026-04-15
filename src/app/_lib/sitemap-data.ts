@@ -7,7 +7,7 @@ import type { MetadataRoute } from 'next'
 export const revalidate = 3600
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const base = 'https://keycard.tech'
+  const base = 'https://docs.keycard.tech'
   const now = new Date()
 
   const locales = [...SUPPORTED_LOCALES]

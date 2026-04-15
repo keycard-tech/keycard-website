@@ -3,7 +3,7 @@ import { CartAddEvent } from '@theme/events'
 const CART_COOKIE_NAME = 'kc_cart_id'
 const CART_COOKIE_DOMAIN = '.keycard.tech'
 const CART_MAX_AGE_SECONDS = 60 * 60 * 24 * 30
-const PROXY_URL = 'https://keycard.tech/api/shopify/storefront'
+const PROXY_URL = 'https://docs.keycard.tech/api/shopify/storefront'
 
 const shouldUseSharedDomain = () =>
   typeof window !== 'undefined' &&

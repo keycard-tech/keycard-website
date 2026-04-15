@@ -1,7 +1,7 @@
 /**
  * Shopify storefront helper.
  * Usage: load on get.keycard.tech (e.g. theme.liquid)
- * <script src="https://keycard.tech/shopify-lang-sync.js" defer></script>
+ * <script src="https://docs.keycard.tech/shopify-lang-sync.js" defer></script>
  */
 (function syncShopifyLocaleToCookie() {
   const COOKIE_NAME = 'lang'

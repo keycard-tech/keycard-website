@@ -24,7 +24,7 @@ const inter = Inter({
 })
 
 export const metadata = Metadata({
-  metadataBase: new URL('https://keycard.tech/'),
+  metadataBase: new URL('https://docs.keycard.tech/'),
 
   title: {
     default: 'Keycard',
@@ -144,7 +144,7 @@ export default async function RootLayout({ children }: Props) {
           strategy="afterInteractive"
           src="https://umami.bi.status.im/script.js"
           data-website-id="a335ad8b-deef-4960-b565-3d4e21b7a8e5"
-          data-domains="keycard.tech"
+          data-domains="keycard.tech,docs.keycard.tech"
         />
       </body>
     </html>

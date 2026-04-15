@@ -90,7 +90,7 @@ const KeycardShell = () => {
           brand: { '@type': 'Brand', name: 'Keycard' },
           description:
             'A modular, air-gapped hardware wallet that uses Keycard as the secure element.',
-          image: ['https://keycard.tech/assets/keycard-shell.webp'],
+          image: ['https://docs.keycard.tech/assets/keycard-shell.webp'],
           sku: 'SHELL-001',
           offers: {
             '@type': 'Offer',

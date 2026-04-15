@@ -71,7 +71,7 @@ const Keycard = () => {
           brand: { '@type': 'Brand', name: 'Keycard' },
           description:
             'A smart card with secure element for storing keys and transacting via NFC.',
-          image: ['https://keycard.tech/assets/keycard/card.png'],
+          image: ['https://docs.keycard.tech/assets/keycard/card.png'],
           sku: 'SKCR02',
           offers: {
             '@type': 'Offer',

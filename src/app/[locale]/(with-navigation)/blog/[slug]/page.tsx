@@ -115,7 +115,7 @@ export default async function BlogDetailPage(props: Props) {
       name: 'Keycard',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://keycard.tech/opengraph-image.png',
+        url: 'https://docs.keycard.tech/opengraph-image.png',
       },
     },
     mainEntityOfPage: articleUrl,

@@ -4,6 +4,7 @@ export const dynamic = 'force-dynamic'
 
 const ALLOWED_ORIGINS = [
   'https://keycard.tech',
+  'https://docs.keycard.tech',
   'https://get.keycard.tech',
   'http://localhost:3000',
 ]
