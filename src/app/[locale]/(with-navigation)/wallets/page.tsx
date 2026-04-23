@@ -156,6 +156,15 @@ const WALLETS: Wallet[] = [
     setupGuideUrl: '/help/connect-keycard-shell-to-a-software-wallet',
     websiteUrl: 'https://walleth.org',
   },
+  {
+    name: 'Ambire',
+    icon: { url: '/assets/wallets/ambire.svg', width: 100, height: 100 },
+    type: ['Shell'],
+    blockchains: ['Ethereum'],
+    platform: ['Extension'],
+    setupGuideUrl: '/help/connect-keycard-shell-to-a-software-wallet',
+    websiteUrl: 'https://www.ambire.com',
+  },
 ]
 
 const MobileIcon = ({ className }: { className?: string }) => (
@@ -248,6 +257,7 @@ function WalletCard({ wallet }: { wallet: Wallet }) {
               height={wallet.icon.height}
               width={wallet.icon.width}
               className="size-full rounded-16 object-contain"
+              unoptimized={wallet.icon.url.endsWith('.svg')}
             />
           </div>
         ) : (
