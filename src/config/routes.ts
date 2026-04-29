@@ -3,6 +3,9 @@ import { useTranslations } from 'next-intl'
 
 const SHOPIFY_BASE_URL = 'https://get.keycard.tech'
 
+/** Primary marketing storefront (distinct from docs at docs.keycard.tech) */
+export const KEYCARD_TECH_URL = 'https://keycard.tech'
+
 const normalizeLocale = (locale: string): SupportedLocale =>
   SUPPORTED_LOCALES.includes(locale as SupportedLocale)
     ? (locale as SupportedLocale)
@@ -31,7 +34,7 @@ export const getRoutes = (
       },
       {
         name: t('footer.keycard.buy.translation'),
-        href: getShopifyUrl(locale, '/pages/keycard'),
+        href: getShopifyUrl(locale, '/products/keycard'),
       },
       {
         name: t('footer.keycard.get_started.translation'),
@@ -129,7 +132,7 @@ export const ROUTES = {
     },
     {
       name: 'Buy Keycard',
-      href: getShopifyUrl(defaultLocale, '/pages/keycard'),
+      href: getShopifyUrl(defaultLocale, '/products/keycard'),
     },
     {
       name: 'Get Started',

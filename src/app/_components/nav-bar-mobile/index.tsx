@@ -1,6 +1,6 @@
 'use client'
 
-import { getRoutes, type Routes } from '~/config/routes'
+import { getRoutes, KEYCARD_TECH_URL, type Routes } from '~/config/routes'
 import { CartBadge } from '~components/cart/cart-badge'
 import { cx } from 'cva'
 import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion'
@@ -101,7 +101,12 @@ const NavBarMobile = () => {
       }}
     >
       <div className="flex items-center justify-between p-5">
-        <Link href="/" className="text-white-95" aria-label="Homepage">
+        <Link
+          href={KEYCARD_TECH_URL}
+          target="_self"
+          className="text-white-95"
+          aria-label="Homepage"
+        >
           <Logo className="h-10" />
         </Link>
         <div className="flex items-center gap-4">

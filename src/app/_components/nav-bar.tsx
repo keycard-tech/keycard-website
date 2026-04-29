@@ -1,6 +1,6 @@
 'use client'
 
-import { getShopifyUrl } from '~/config/routes'
+import { getShopifyUrl, KEYCARD_TECH_URL } from '~/config/routes'
 import { CartBadge } from '~components/cart/cart-badge'
 import { cva } from 'cva'
 import {
@@ -101,7 +101,7 @@ const NavBar = () => {
         WebkitBackdropFilter: backdropFilter,
       }}
     >
-      <Link href="/" aria-label="Homepage">
+      <Link href={KEYCARD_TECH_URL} target="_self" aria-label="Homepage">
         <Logo />
       </Link>
 
