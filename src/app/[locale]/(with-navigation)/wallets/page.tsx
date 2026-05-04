@@ -148,15 +148,6 @@ const WALLETS: Wallet[] = [
     websiteUrl: 'https://wallet.bullbitcoin.com',
   },
   {
-    name: 'Walleth',
-    icon: { url: '/assets/wallets/walleth.png', width: 96, height: 81 },
-    type: ['Keycard'],
-    blockchains: ['Ethereum'],
-    platform: ['Mobile'],
-    setupGuideUrl: '/help/connect-keycard-shell-to-a-software-wallet',
-    websiteUrl: 'https://walleth.org',
-  },
-  {
     name: 'Ambire',
     icon: { url: '/assets/wallets/ambire.svg', width: 100, height: 100 },
     type: ['Shell'],
