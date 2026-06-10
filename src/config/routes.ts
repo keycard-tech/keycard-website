@@ -94,6 +94,10 @@ export const getRoutes = (
         name: t('footer.contacts.x.translation'),
         href: 'https://x.com/Keycard_',
       },
+      {
+        name: t('footer.contacts.youtube.translation'),
+        href: 'https://www.youtube.com/@Keycard_tech/',
+      },
       // { name: 'Email', href: 'mailto:support@keycard.tech' },
     ],
     Legal: [
@@ -201,6 +205,11 @@ export const ROUTES = {
     {
       name: 'X',
       href: 'https://x.com/Keycard_',
+      external: true,
+    },
+    {
+      name: 'YouTube',
+      href: 'https://www.youtube.com/@Keycard_tech/',
       external: true,
     },
   ],
