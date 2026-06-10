@@ -874,6 +874,10 @@
       "x": {
         "translation": "X",
         "notes": "footer::contacts::x"
+      },
+      "youtube": {
+        "translation": "YouTube",
+        "notes": "footer::contacts::youtube"
       }
     },
     "legal": {
