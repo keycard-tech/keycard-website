@@ -52,6 +52,7 @@
     "react-dom": "19.0.1",
     "react-error-boundary": "^5.0.0",
     "react-hook-form": "^7.53.1",
+    "rehype-sanitize": "^6.0.0",
     "server-only": "^0.0.1",
     "three": "^0.170.0",
     "three-stdlib": "^2.34.0",
