@@ -1,6 +1,7 @@
-import { baseComponents } from '~/app/_components/content'
 import { Breadcrumbs } from '~/app/_components/docs/breadcrumbs'
+import { JsonLd } from '~/app/_components/json-ld'
 import { getPostBySlug, getPostSlugs } from '~/app/_lib/ghost'
+import { renderGhostHtml } from '~/app/_lib/ghost/render-html'
 import { Metadata } from '~/app/_metadata'
 import { formatDate } from '~/app/_utils/format-date'
 import {
@@ -12,10 +13,6 @@ import { SUPPORTED_LOCALES } from '~/i18n/constants'
 import { Image } from '~components/image'
 import { getLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
-import { createElement, Fragment } from 'react'
-import rehypeParse from 'rehype-parse'
-import rehypeReact from 'rehype-react'
-import { unified } from 'unified'
 import { PostAuthor } from '../_components/post-author'
 import { PostTag } from '../_components/post-tag'
 
@@ -65,14 +62,7 @@ export default async function BlogDetailPage(props: Props) {
   }
 
   const locale = await getLocale()
-  const { result } = await unified()
-    .use(rehypeParse, { fragment: true })
-    .use(rehypeReact, {
-      createElement,
-      Fragment,
-      components: baseComponents,
-    })
-    .process(post.html!)
+  const result = await renderGhostHtml(post.html!)
 
   // root
   const breadcrumbs = [
@@ -125,12 +115,7 @@ export default async function BlogDetailPage(props: Props) {
   return (
     <>
       <Breadcrumbs items={breadcrumbs} />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(structuredData),
-        }}
-      />
+      <JsonLd data={structuredData} />
       <div className="m-auto max-w-[664px] px-5 py-8 xl:py-12">
         <div className="gap-3">
           {tag && <PostTag size="32" tag={tag} />}

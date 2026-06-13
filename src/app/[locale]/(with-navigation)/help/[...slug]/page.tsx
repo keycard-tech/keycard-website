@@ -2,6 +2,7 @@ import fs from 'fs/promises'
 import path from 'path'
 import { Breadcrumbs } from '~/app/_components/docs/breadcrumbs'
 import { DocsNavDrawer } from '~/app/_components/docs/docs-nav-drawer'
+import { JsonLd } from '~/app/_components/json-ld'
 import { Metadata } from '~/app/_metadata'
 import { formatDate } from '~/app/_utils/format-date'
 import { buildLocaleAlternates } from '~/app/_utils/metadata'
@@ -168,12 +169,7 @@ const Page = async (props: Props) => {
           />
         }
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(structuredData),
-        }}
-      />
+      <JsonLd data={structuredData} />
       <div className="flex flex-1 justify-center gap-[139px] px-5 py-20 lg:pl-[250px] xl:pr-[140px]">
         <div className="w-full max-w-[664px]">
           <div className="mb-1 text-16 font-300 text-white-80">

@@ -1,3 +1,4 @@
+import { JsonLd } from '~/app/_components/json-ld'
 import { Metadata } from '~/app/_metadata'
 import {
   buildLocaleAlternates,
@@ -106,38 +107,33 @@ const STANDARDS = [
 export default async function AboutPage() {
   const t = await getTranslations()
 
+  const organizationStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Keycard',
+    url: 'https://keycard.tech',
+    parentOrganization: {
+      '@type': 'Organization',
+      name: 'Institute of Free Technology',
+      url: 'https://free.technology',
+    },
+    sameAs: [
+      'https://status.app/keycard',
+      'https://github.com/keycard-tech',
+      'https://x.com/keycard_',
+    ],
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        contactType: 'partnerships',
+        email: 'get@keycard.tech',
+      },
+    ],
+  }
+
   return (
     <div className="px-3 pb-[120px] pt-12 md:px-8 lg:px-20 lg:pt-20">
-      {/* Organization JSON-LD for trust signals */}
-      <script
-        type="application/ld+json"
-        // Note: avoid user PII here; this is org-level structured data.
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'Organization',
-            name: 'Keycard',
-            url: 'https://keycard.tech',
-            parentOrganization: {
-              '@type': 'Organization',
-              name: 'Institute of Free Technology',
-              url: 'https://free.technology',
-            },
-            sameAs: [
-              'https://status.app/keycard',
-              'https://github.com/keycard-tech',
-              'https://x.com/keycard_',
-            ],
-            contactPoint: [
-              {
-                '@type': 'ContactPoint',
-                contactType: 'partnerships',
-                email: 'get@keycard.tech',
-              },
-            ],
-          }),
-        }}
-      />
+      <JsonLd data={organizationStructuredData} />
 
       <header className="mb-8 grid gap-3">
         <h1 className="font-lora text-32 font-500 text-white-95 xl:text-48">
