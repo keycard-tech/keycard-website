@@ -1,0 +1,44 @@
+---
+id: verify-your-keycards-seed-and-addresses
+title: Verify your Keycard's seed and addresses
+---
+
+# Verify your Keycard's seed and addresses
+
+If you have multiple Keycards or haven't used one in a while, you may want to confirm which seed it stores or check that a specific address belongs to it. Shell gives you three ways to do this.
+
+## Check the seed fingerprint
+
+By default, your Keycard's name is the fingerprint of its seed. Shell displays it on the first line of the main menu.
+
+If you noted the fingerprint during setup, compare it with what Shell shows. A match confirms the card holds the seed you expect.
+
+<Admonition type="note">
+    If you renamed your Keycard, the fingerprint is no longer visible on the main screen. Use one of the methods below instead.
+</Admonition>
+
+## Verify the recovery phrase
+
+For a definitive check, you can enter your recovery phrase and Shell will confirm whether it matches the seed stored on the card.
+
+1. Insert your Keycard and enter your PIN.
+2. Go to **Settings** > **Keycard** > **Verify Mnemonic**.
+3. Enter your recovery phrase using one of these methods:
+    - Type each word using ▲ / ▼ **Up** / **Down** and ◀ / ▶ **Left** / **Right**. Press and hold **OK** to confirm each word. This works with 12-word, 24-word, and SLIP39 recovery phrases.
+    - Select **Scan QR** to scan a SeedQR code with Shell's camera.
+4. Shell confirms whether the recovery phrase matches the seed on the card.
+
+## Browse your addresses
+
+To verify that a specific address belongs to your Keycard, you can browse all derived addresses directly on Shell's trusted screen and compare with what your software wallet displays.
+
+1. Insert your Keycard and enter your PIN.
+2. Go to **Addresses** > **Bitcoin**.
+3. Use ◀ / ▶ **Left** / **Right** to move through addresses one index at a time.
+4. To jump to a specific index, press the **orange key**, type the index number, and confirm.
+
+Compare the address shown on Shell with the one in your software wallet. If they match, the address belongs to this Keycard.
+
+<Admonition type="tip">
+    Always verify receive addresses on Shell's screen before sharing them. This protects against malware on your computer that could swap addresses. For more on viewing addresses, see [Receive crypto](./receive-crypto).
+</Admonition>

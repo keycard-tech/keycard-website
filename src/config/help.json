@@ -71,6 +71,10 @@
       {
         "title": "Name your Keycard",
         "link": "/help/name-your-keycard"
+      },
+      {
+        "title": "Verify your Keycard's seed and addresses",
+        "link": "/help/verify-your-keycards-seed-and-addresses"
       }
     ]
   },
