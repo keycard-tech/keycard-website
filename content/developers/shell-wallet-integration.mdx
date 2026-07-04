@@ -12,11 +12,7 @@ Two transports are available:
 - **QR codes (air-gapped)** — the default flow, fully offline.
 - **USB** — an APDU-like protocol over USB HID, for desktop wallets that prefer a cable.
 
-## Trust model
-
-- **Keycard holds the keys.** Shell talks to the Keycard over the ISO-7816 smartcard interface and never stores private keys.
-- **User confirmation is required.** Requests coming from QR or USB are displayed on-device and require explicit approval.
-- **Air-gapped by default.** QR workflows are fully offline. USB data transfer is optional and can be disabled in settings.
+Either way, every request is displayed on-device and requires explicit user approval before Shell signs it with the Keycard.
 
 ## QR integration (EIP-4527 + UR)
 

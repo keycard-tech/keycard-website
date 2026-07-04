@@ -21,7 +21,7 @@
     ]
   },
   {
-    "title": "Keycard SDK (Java)",
+    "title": "Keycard SDK",
     "link": "/developers/sdk",
     "subItems": [
       {
@@ -67,7 +67,7 @@
     ]
   },
   {
-    "title": "Keycard APDU Reference",
+    "title": "Keycard API",
     "link": "/developers/apdu",
     "subItems": [
       {
