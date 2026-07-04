@@ -9,25 +9,94 @@ Everything Keycard ships is developed in the open under the [keycard-tech](https
 
 ## Core repositories
 
-| Repository | What it is |
-| --- | --- |
-| [status-keycard](https://github.com/keycard-tech/status-keycard) | The JavaCard applet — key management, BIP-32 derivation, signing, secure channel. This is what runs on the card. |
-| [keycard-shell](https://github.com/keycard-tech/keycard-shell) | Keycard Shell firmware **and** hardware: [schematics + BOM](https://github.com/keycard-tech/keycard-shell/tree/master/hardware/shell/pilot_run/electronics_and_bom) and [3D mechanical files](https://github.com/keycard-tech/keycard-shell/tree/master/hardware/shell/pilot_run/mechanical). |
-| [eth-abi-repo](https://github.com/keycard-tech/eth-abi-repo) | The contract ABI database powering Shell's clear signing. Open to contributions — see [Contribute](/developers/contribute). |
-| [keycard-cli](https://github.com/keycard-tech/keycard-cli) | Command-line tool to install, initialize and manage Keycards with a USB reader. |
+<Table>
+    <TableHead>
+        <TableHeader>Repository</TableHeader>
+        <TableHeader>What it is</TableHeader>
+    </TableHead>
+
+    <TableContent>
+        <TableRow>
+            <TableCell>[status-keycard](https://github.com/keycard-tech/status-keycard)</TableCell>
+            <TableCell>The JavaCard applet — key management, BIP-32 derivation, signing, secure channel. This is what runs on the card.</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>[keycard-shell](https://github.com/keycard-tech/keycard-shell)</TableCell>
+            <TableCell>Keycard Shell firmware **and** hardware: [schematics + BOM](https://github.com/keycard-tech/keycard-shell/tree/master/hardware/shell/pilot_run/electronics_and_bom) and [3D mechanical files](https://github.com/keycard-tech/keycard-shell/tree/master/hardware/shell/pilot_run/mechanical).</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>[eth-abi-repo](https://github.com/keycard-tech/eth-abi-repo)</TableCell>
+            <TableCell>The contract ABI database powering Shell's clear signing. Open to contributions — see [Contribute](/developers/contribute).</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>[keycard-cli](https://github.com/keycard-tech/keycard-cli)</TableCell>
+            <TableCell>Command-line tool to install, initialize and manage Keycards with a USB reader.</TableCell>
+        </TableRow>
+    </TableContent>
+</Table>
 
 ## SDKs
 
-| Language | Repository | Maintained by |
-| --- | --- | --- |
-| Java (desktop + Android) | [status-keycard-java](https://github.com/keycard-tech/status-keycard-java) | Keycard team — the reference SDK, [fully documented here](/developers/sdk) |
-| Go | [keycard-go](https://github.com/keycard-tech/keycard-go) | Keycard team |
-| Swift | [Keycard.swift](https://github.com/keycard-tech/Keycard.swift) | Keycard team |
-| Go (Status bindings) | [status-keycard-go](https://github.com/keycard-tech/status-keycard-go) | Status |
-| TypeScript | [keycard-sdk](https://github.com/choppu/keycard-sdk) | Community (choppu) |
-| React Native | [react-native-keycard](https://github.com/choppu/react-native-keycard) | Community (choppu) |
-| Python | [keycard-py](https://github.com/mmlado/keycard-py) | Community (mmlado) |
-| Nim | [keycard-nim](https://github.com/mmlado/keycard-nim) | Community (mmlado) |
+<Table>
+    <TableHead>
+        <TableHeader>Language</TableHeader>
+        <TableHeader>Repository</TableHeader>
+        <TableHeader>Maintained by</TableHeader>
+    </TableHead>
+
+    <TableContent>
+        <TableRow>
+            <TableCell>Java (desktop + Android)</TableCell>
+            <TableCell>[status-keycard-java](https://github.com/keycard-tech/status-keycard-java)</TableCell>
+            <TableCell>Keycard team — the reference SDK, [fully documented here](/developers/sdk)</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Go</TableCell>
+            <TableCell>[keycard-go](https://github.com/keycard-tech/keycard-go)</TableCell>
+            <TableCell>Keycard team</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Swift</TableCell>
+            <TableCell>[Keycard.swift](https://github.com/keycard-tech/Keycard.swift)</TableCell>
+            <TableCell>Keycard team</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Go (Status bindings)</TableCell>
+            <TableCell>[status-keycard-go](https://github.com/keycard-tech/status-keycard-go)</TableCell>
+            <TableCell>Status</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>TypeScript</TableCell>
+            <TableCell>[keycard-sdk](https://github.com/choppu/keycard-sdk)</TableCell>
+            <TableCell>Community (choppu)</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>React Native</TableCell>
+            <TableCell>[react-native-keycard](https://github.com/choppu/react-native-keycard)</TableCell>
+            <TableCell>Community (choppu)</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Python</TableCell>
+            <TableCell>[keycard-py](https://github.com/mmlado/keycard-py)</TableCell>
+            <TableCell>Community (mmlado)</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Nim</TableCell>
+            <TableCell>[keycard-nim](https://github.com/mmlado/keycard-nim)</TableCell>
+            <TableCell>Community (mmlado)</TableCell>
+        </TableRow>
+    </TableContent>
+</Table>
 
 Working in another language? The [APDU reference](/developers/apdu) is a complete protocol specification — the community SDKs above all started from it.
 
