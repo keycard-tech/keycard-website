@@ -152,6 +152,16 @@ const config = {
         permanent: true,
       },
       {
+        source: '/:locale(en|fr|de|es|nl|ko)/developers/keycard-shell',
+        destination: '/:locale/developers/shell-api',
+        permanent: true,
+      },
+      {
+        source: '/developers/keycard-shell',
+        destination: '/en/developers/shell-api',
+        permanent: true,
+      },
+      {
         source: '/developers/contact',
         destination: '/en/developers/contribute',
         permanent: true,

@@ -13,6 +13,10 @@
       {
         "title": "Core Concepts",
         "link": "/developers/core"
+      },
+      {
+        "title": "Integrate a Wallet with Shell",
+        "link": "/developers/shell-wallet-integration"
       }
     ]
   },
@@ -165,25 +169,8 @@
     ]
   },
   {
-    "title": "Hardware",
-    "subItems": [
-      {
-        "title": "Hardware Specification",
-        "link": "/developers/hardware-specification"
-      },
-      {
-        "title": "Keycard Shell Internals",
-        "link": "/developers/keycard-shell"
-      },
-      {
-        "title": "Build Your Own Keycard",
-        "link": "/developers/build"
-      },
-      {
-        "title": "Build a DIY Keycard Shell",
-        "link": "/developers/diy-keycard-shell"
-      }
-    ]
+    "title": "Shell API Reference",
+    "link": "/developers/shell-api"
   },
   {
     "title": "Ecosystem & Community",
@@ -201,5 +188,22 @@
         "link": "/developers/brand-assets"
       }
     ]
+  },
+  {
+    "title": "Build Your Own",
+    "subItems": [
+      {
+        "title": "Build Your Own Keycard",
+        "link": "/developers/build"
+      },
+      {
+        "title": "Build a DIY Keycard Shell",
+        "link": "/developers/diy-keycard-shell"
+      }
+    ]
+  },
+  {
+    "title": "Hardware Specification",
+    "link": "/developers/hardware-specification"
   }
 ]
