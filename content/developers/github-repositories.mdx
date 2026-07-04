@@ -1,24 +1,53 @@
 ---
 id: github-repositories
-title: GitHub Repositories
+title: Ecosystem & Repositories
 ---
 
-# GitHub Repositories
+# Ecosystem & Repositories
 
-* [Keycard Javacard applet](https://github.com/keycard-tech/status-keycard)
-* [Keycard Shell software](https://github.com/keycard-tech/keycard-pro/)
-* [Keycard Shell schematics](https://github.com/keycard-tech/keycard-shell/tree/master/hardware/shell/pilot_run/electronics_and_bom)
-* [Keycard Shell 3D case](https://github.com/keycard-tech/keycard-shell/tree/master/hardware/shell/pilot_run/mechanical)
-* [Java SDK](https://github.com/keycard-tech/status-keycard-java)
-* [Go SDK](https://github.com/keycard-tech/keycard-go/)
-* [Swift SDK](https://github.com/keycard-tech/Keycard.swift)
-* [Keycard on Ledger](https://github.com/keycard-tech/keycard-ledger)
-* [React Native library](https://github.com/choppu/react-native-keycard)
-* [Go Status library](https://github.com/keycard-tech/status-keycard-go)
-* [Python SDK](https://github.com/mmlado/keycard-py) by mmlado
-* [Typescript SDK](https://github.com/choppu/keycard-sdk) by choppu
-* [Nim SDK](https://github.com/mmlado/keycard-nim) by mmlado
+Everything Keycard ships is developed in the open under the [keycard-tech](https://github.com/keycard-tech) GitHub organization. This page maps what exists: the core repositories, the SDKs, the tools, and what has already been built on top.
 
-## Community Contribution
+## Core repositories
 
-View our community contributions [on our GitHub](https://github.com/keycard-tech/keycard-ecosystem-projects/).
+| Repository | What it is |
+| --- | --- |
+| [status-keycard](https://github.com/keycard-tech/status-keycard) | The JavaCard applet — key management, BIP-32 derivation, signing, secure channel. This is what runs on the card. |
+| [keycard-shell](https://github.com/keycard-tech/keycard-shell) | Keycard Shell firmware **and** hardware: [schematics + BOM](https://github.com/keycard-tech/keycard-shell/tree/master/hardware/shell/pilot_run/electronics_and_bom) and [3D mechanical files](https://github.com/keycard-tech/keycard-shell/tree/master/hardware/shell/pilot_run/mechanical). |
+| [eth-abi-repo](https://github.com/keycard-tech/eth-abi-repo) | The contract ABI database powering Shell's clear signing. Open to contributions — see [Contribute](/developers/contribute). |
+| [keycard-cli](https://github.com/keycard-tech/keycard-cli) | Command-line tool to install, initialize and manage Keycards with a USB reader. |
+
+## SDKs
+
+| Language | Repository | Maintained by |
+| --- | --- | --- |
+| Java (desktop + Android) | [status-keycard-java](https://github.com/keycard-tech/status-keycard-java) | Keycard team — the reference SDK, [fully documented here](/developers/sdk) |
+| Go | [keycard-go](https://github.com/keycard-tech/keycard-go) | Keycard team |
+| Swift | [Keycard.swift](https://github.com/keycard-tech/Keycard.swift) | Keycard team |
+| Go (Status bindings) | [status-keycard-go](https://github.com/keycard-tech/status-keycard-go) | Status |
+| TypeScript | [keycard-sdk](https://github.com/choppu/keycard-sdk) | Community (choppu) |
+| React Native | [react-native-keycard](https://github.com/choppu/react-native-keycard) | Community (choppu) |
+| Python | [keycard-py](https://github.com/mmlado/keycard-py) | Community (mmlado) |
+| Nim | [keycard-nim](https://github.com/mmlado/keycard-nim) | Community (mmlado) |
+
+Working in another language? The [APDU reference](/developers/apdu) is a complete protocol specification — the community SDKs above all started from it.
+
+## Tools
+
+- [Keycard CLI](https://github.com/keycard-tech/keycard-cli) — install and manage applets from the command line
+- [Keycard Desktop](https://github.com/choppu/keycard-desktop) — community desktop card manager
+- [Keycard Connect](https://github.com/keycard-tech/keycard-connect) — Android app for card initialization and credential management
+- [Status Desktop](https://github.com/status-im/status-desktop/) and [Status Mobile](https://github.com/status-im/status-mobile) — full wallets with native Keycard support
+
+## What has been built
+
+- **15+ compatible wallets** — MetaMask, Rabby, Sparrow, Nunchuk and more work with Keycard Shell today. See the [full list](/wallets).
+- **Ecosystem projects** — hackathon projects, integrations and experiments are collected in [keycard-ecosystem-projects](https://github.com/keycard-tech/keycard-ecosystem-projects). Built something? Open a PR to add it.
+- **Ledger integration** — an experimental [Keycard app for Ledger](https://github.com/keycard-tech/keycard-ledger) devices.
+- **Shell owner's hub** — [shell.keycard.tech](https://shell.keycard.tech/) hosts [device verification](https://shell.keycard.tech/verify) and the [clear signing DB version history](https://shell.keycard.tech/update/db-version-history).
+
+## Talks & deep dives
+
+- [Interview at EthCC Cannes (2026)](https://www.youtube.com/watch?v=nIoUvV-fy9U&t=558s) — full Shell demo and the open source philosophy behind it
+- [ETH Staker community podcast (2026)](https://www.youtube.com/watch?v=nr5sAq8_THw)
+- [Keycard at Devcon Osaka (2020)](https://www.youtube.com/watch?v=D3uw3tyo99I) and [EthCC Paris (2020)](https://www.youtube.com/watch?v=ujg_FJAXBcs)
+- Independent reviews: [Wallet Beat](https://walletbeat.eth.limo/hww/summary/) (ranked #1), [hardware-wallets.net](https://www.hardware-wallets.net/keycard-shell-review/) (93%), [The Bitcoin Hole](https://thebitcoinhole.com/hardware-wallets/keycard-shell)
