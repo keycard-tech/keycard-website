@@ -137,6 +137,26 @@ const config = {
         permanent: true,
       },
       {
+        source: '/:locale(en|fr|de|es|nl|ko)/developers/tools',
+        destination: '/:locale/developers/github-repositories',
+        permanent: true,
+      },
+      {
+        source: '/developers/tools',
+        destination: '/en/developers/github-repositories',
+        permanent: true,
+      },
+      {
+        source: '/:locale(en|fr|de|es|nl|ko)/developers/contact',
+        destination: '/:locale/developers/contribute',
+        permanent: true,
+      },
+      {
+        source: '/developers/contact',
+        destination: '/en/developers/contribute',
+        permanent: true,
+      },
+      {
         source: '/developers',
         destination: '/en/developers/overview',
         permanent: true,

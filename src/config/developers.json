@@ -165,25 +165,16 @@
     ]
   },
   {
-    "title": "Under the Hood",
+    "title": "Hardware",
     "subItems": [
+      {
+        "title": "Hardware Specification",
+        "link": "/developers/hardware-specification"
+      },
       {
         "title": "Keycard Shell Internals",
         "link": "/developers/keycard-shell"
       },
-      {
-        "title": "Hardware Spec: Keycard",
-        "link": "/developers/hardware-specification#keycard"
-      },
-      {
-        "title": "Hardware Spec: Shell",
-        "link": "/developers/hardware-specification#keycard-shell"
-      }
-    ]
-  },
-  {
-    "title": "Build Your Own Hardware",
-    "subItems": [
       {
         "title": "Build Your Own Keycard",
         "link": "/developers/build"
@@ -206,17 +197,9 @@
         "link": "/developers/contribute"
       },
       {
-        "title": "Tools",
-        "link": "/developers/tools"
-      },
-      {
         "title": "Brand Assets",
         "link": "/developers/brand-assets"
       }
     ]
-  },
-  {
-    "title": "Contact",
-    "link": "/developers/contact"
   }
 ]
