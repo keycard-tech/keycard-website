@@ -1,20 +1,23 @@
 ---
 id: sdk_overview
-title: Java SDK
+title: Keycard SDK (Java)
 ---
-# Overview
 
-This is an SDK essentially a Java library for development of applications for Status Keycard that can be installed via tools klike Gradle or Maven in your project.
+# Keycard SDK (Java)
+
+This is the reference SDK for integrating Keycard into an application. It is a Java library covering the full card protocol — connection, pairing, secure channel, key management and signing — and runs on desktop (via `javax.smartcardio` and a USB reader) and on Android (via the on-board NFC reader). Installable with Gradle or Maven.
+
+Working in another language? Go and Swift SDKs are maintained by the team, and community ports exist for Python, TypeScript, Nim and React Native — see the [ecosystem page](/developers/github-repositories). All of them implement the same [APDU protocol](/developers/apdu) documented in this section's counterpart.
 
 See the sub-sections below for more details:
 
-* [Installation](/developers/sdk/installation)
-* [Card Connection](/developers/sdk/connection)
-* [Preparation](/developers/sdk/preparation)
-* [Secure Channel](/developers/sdk/securechannel)
-* [Authentication](/developers/sdk/authentication)
-* [Wallet Creation](/developers/sdk/create_wallet)
-* [Derivation & Signing](/developers/sdk/derivation_sign)
-* [Pinless Signing](/developers/sdk/pinless)
-* [Exporting Keys](/developers/sdk/export)
-* [Cash Applet](/developers/sdk/cash)
+- [Installation](/developers/sdk/installation)
+- [Card Connection](/developers/sdk/connection)
+- [Preparation](/developers/sdk/preparation)
+- [Secure Channel](/developers/sdk/securechannel)
+- [Authentication](/developers/sdk/authentication)
+- [Wallet Creation](/developers/sdk/create_wallet)
+- [Derivation & Signing](/developers/sdk/derivation_sign)
+- [Pinless Signing](/developers/sdk/pinless)
+- [Exporting Keys](/developers/sdk/export)
+- [Cash Applet](/developers/sdk/cash)

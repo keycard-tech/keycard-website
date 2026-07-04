@@ -4,7 +4,7 @@
     "link": "/developers/overview"
   },
   {
-    "title": "Integrate Keycard",
+    "title": "Keycard",
     "subItems": [
       {
         "title": "Getting Started",
@@ -15,13 +15,13 @@
         "link": "/developers/core"
       },
       {
-        "title": "Integrate a Wallet with Shell",
-        "link": "/developers/shell-wallet-integration"
+        "title": "Build Your Own Keycard",
+        "link": "/developers/build"
       }
     ]
   },
   {
-    "title": "Java SDK",
+    "title": "Keycard SDK (Java)",
     "link": "/developers/sdk",
     "subItems": [
       {
@@ -67,7 +67,7 @@
     ]
   },
   {
-    "title": "APDU Reference",
+    "title": "Keycard APDU Reference",
     "link": "/developers/apdu",
     "subItems": [
       {
@@ -169,8 +169,25 @@
     ]
   },
   {
-    "title": "Shell API Reference",
-    "link": "/developers/shell-api"
+    "title": "Keycard Shell",
+    "subItems": [
+      {
+        "title": "Integrate a Wallet with Shell",
+        "link": "/developers/shell-wallet-integration"
+      },
+      {
+        "title": "Shell API Reference",
+        "link": "/developers/shell-api"
+      },
+      {
+        "title": "Build Your Own Shell",
+        "link": "/developers/diy-keycard-shell"
+      }
+    ]
+  },
+  {
+    "title": "Hardware Specification",
+    "link": "/developers/hardware-specification"
   },
   {
     "title": "Ecosystem & Community",
@@ -188,22 +205,5 @@
         "link": "/developers/brand-assets"
       }
     ]
-  },
-  {
-    "title": "Build Your Own",
-    "subItems": [
-      {
-        "title": "Build Your Own Keycard",
-        "link": "/developers/build"
-      },
-      {
-        "title": "Build a DIY Keycard Shell",
-        "link": "/developers/diy-keycard-shell"
-      }
-    ]
-  },
-  {
-    "title": "Hardware Specification",
-    "link": "/developers/hardware-specification"
   }
 ]
