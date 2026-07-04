@@ -127,6 +127,16 @@ const config = {
         permanent: true,
       },
       {
+        source: '/:locale(en|fr|de|es|nl|ko)/developers/web3',
+        destination: '/:locale/developers/overview',
+        permanent: true,
+      },
+      {
+        source: '/developers/web3',
+        destination: '/en/developers/overview',
+        permanent: true,
+      },
+      {
         source: '/developers',
         destination: '/en/developers/overview',
         permanent: true,

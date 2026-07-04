@@ -165,6 +165,23 @@
     ]
   },
   {
+    "title": "Under the Hood",
+    "subItems": [
+      {
+        "title": "Keycard Shell Internals",
+        "link": "/developers/keycard-shell"
+      },
+      {
+        "title": "Hardware Spec: Keycard",
+        "link": "/developers/hardware-specification#keycard"
+      },
+      {
+        "title": "Hardware Spec: Shell",
+        "link": "/developers/hardware-specification#keycard-shell"
+      }
+    ]
+  },
+  {
     "title": "Build Your Own Hardware",
     "subItems": [
       {
@@ -178,23 +195,15 @@
     ]
   },
   {
-    "title": "Resources",
+    "title": "Ecosystem & Community",
     "subItems": [
       {
-        "title": "Keycard Shell Internals",
-        "link": "/developers/keycard-shell"
-      },
-      {
-        "title": "Hardware Spec: Keycard",
-        "link": "/developers/hardware-specification#keycard"
-      },
-      {
-        "title": "Hardware Spec: Shell",
-        "link": "/developers/hardware-specification#keycard-shell"
-      },
-      {
-        "title": "GitHub Repositories",
+        "title": "Ecosystem & Repositories",
         "link": "/developers/github-repositories"
+      },
+      {
+        "title": "Contribute",
+        "link": "/developers/contribute"
       },
       {
         "title": "Tools",
@@ -203,10 +212,6 @@
       {
         "title": "Brand Assets",
         "link": "/developers/brand-assets"
-      },
-      {
-        "title": "Web3 API Extension",
-        "link": "/developers/web3"
       }
     ]
   },
