@@ -9,14 +9,20 @@ The machine interfaces of Keycard Shell: QR payload formats, the USB protocol, a
 
 ## QR payloads (UR types)
 
-Sign requests and responses are encoded as [Blockchain Commons UR](https://developer.blockchaincommons.com/ur/) payloads inside [EIP-4527](https://eips.ethereum.org/EIPS/eip-4527) animated QR codes.
+Sign requests and responses travel as animated QR codes encoded with [Blockchain Commons UR](https://developer.blockchaincommons.com/ur/) — a chain-agnostic transport. Each chain then defines its own UR payload types on top of it.
 
-UR types used by Shell:
+Chain-agnostic:
 
-- `eth-sign-request` / `eth-signature` — Ethereum transactions and messages
-- `crypto-psbt` — Bitcoin PSBT sign requests ([UR PSBTs](https://developer.blockchaincommons.com/ur/psbts/))
-- `btc-sign-request` / `btc-signature` — Bitcoin message signing
 - `crypto-multi-accounts` — account export for wallet integrations
+
+Ethereum / EVM (defined by [EIP-4527](https://eips.ethereum.org/EIPS/eip-4527)):
+
+- `eth-sign-request` / `eth-signature` — transactions, messages and EIP-712 typed data
+
+Bitcoin (defined by the [Blockchain Commons specs](https://developer.blockchaincommons.com/ur/psbts/)):
+
+- `crypto-psbt` — PSBT sign requests
+- `btc-sign-request` / `btc-signature` — message signing
 
 The authoritative payload definitions are in the CDDL file: [ur.cddl](https://github.com/keycard-tech/keycard-shell/blob/master/cddl/ur.cddl).
 

@@ -14,17 +14,25 @@ Two transports are available:
 
 Either way, every request is displayed on-device and requires explicit user approval before Shell signs it with the Keycard.
 
-## QR integration (EIP-4527 + UR)
+## QR integration
 
-Shell uses the [EIP-4527](https://eips.ethereum.org/EIPS/eip-4527) animated QR format with [Blockchain Commons UR](https://developer.blockchaincommons.com/ur/) encoding for sign requests and responses — the same standards used across the QR-signer ecosystem.
+All QR flows use [Blockchain Commons UR](https://developer.blockchaincommons.com/ur/) encoding — the chain-agnostic standard for transporting binary payloads in animated QR codes, used across the QR-signer ecosystem. What differs per chain is the payload type carried inside the URs.
 
-The flow for a wallet:
+The flow is the same for every chain:
 
 1. **Account import** — Shell exports accounts as `crypto-multi-accounts`; your wallet scans the QR and derives addresses from the xpub.
-2. **Sign request** — your wallet displays the payload as an animated QR (`eth-sign-request`, `crypto-psbt` or `btc-sign-request`); the user scans it with Shell's camera.
-3. **Signature** — Shell displays the decoded transaction for approval, signs with the Keycard, and returns the signature as a QR (`eth-signature`, signed PSBT, `btc-signature`) that your wallet scans back.
+2. **Sign request** — your wallet displays the payload as an animated QR; the user scans it with Shell's camera.
+3. **Signature** — Shell displays the decoded transaction for approval, signs with the Keycard, and returns the signature as a QR that your wallet scans back.
 
-The exact payloads Shell accepts are specified in the [Shell API reference](/developers/shell-api).
+### EVM wallets
+
+Ethereum payloads follow [EIP-4527](https://eips.ethereum.org/EIPS/eip-4527), which defines the UR types for this flow: `eth-sign-request` in, `eth-signature` back. Transactions, personal messages and EIP-712 typed data are all covered.
+
+### Bitcoin wallets
+
+Bitcoin signing uses the standard [PSBT-over-UR](https://developer.blockchaincommons.com/ur/psbts/) types: `crypto-psbt` for transactions and `btc-sign-request`/`btc-signature` for message signing. No Ethereum-specific standard is involved.
+
+The exact payload definitions Shell accepts are specified in the [Shell API reference](/developers/shell-api).
 
 ## USB integration
 
