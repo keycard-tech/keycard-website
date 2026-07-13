@@ -28,12 +28,6 @@ All hardware design files are open source, in the [Keycard Shell repo](https://g
 
 ## Building and signing firmware
 
-The bootloader verifies a secp256k1 signature with an embedded public key before booting ([bootloader verification code](https://github.com/keycard-tech/keycard-shell/blob/master/bootloader/bootloader.c)), so your build must be signed with your own keys:
-
-- Follow the [Keycard Shell build notes](https://github.com/keycard-tech/keycard-shell/blob/master/README.md)
-- Use STM32CubeIDE and GNU Tools for STM32 (13.3.rel1)
-- Provide `deployment/bootloader-pubkey.txt` and `deployment/fw-test-key.txt`
-- Use `tools/firmware-hash.py` to verify a build against a release tag
-- Use `tools/create-image.py` to generate a full flashable image
+The bootloader verifies a secp256k1 signature with an embedded public key before booting ([bootloader verification code](https://github.com/keycard-tech/keycard-shell/blob/master/bootloader/bootloader.c)), so your build must be signed with your own keys. Follow the [Keycard Shell build notes](https://github.com/keycard-tech/keycard-shell/blob/master/README.md) for the full toolchain setup, signing procedure and image creation.
 
 For the database format and tooling used in step 4, see the [Shell API reference](/developers/shell-api).

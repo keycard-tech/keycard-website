@@ -11,18 +11,19 @@ The machine interfaces of Keycard Shell: QR payload formats, the USB protocol, a
 
 Sign requests and responses travel as animated QR codes encoded with [Blockchain Commons UR](https://developer.blockchaincommons.com/ur/) — a chain-agnostic transport. Each chain then defines its own UR payload types on top of it.
 
-Chain-agnostic:
-
-- `crypto-multi-accounts` — account export for wallet integrations
-
 Ethereum / EVM (defined by [EIP-4527](https://eips.ethereum.org/EIPS/eip-4527)):
 
+- `crypto-hdkey` — account export
 - `eth-sign-request` / `eth-signature` — transactions, messages and EIP-712 typed data
 
 Bitcoin (defined by the [Blockchain Commons specs](https://developer.blockchaincommons.com/ur/psbts/)):
 
+- `crypto-account` — account export
 - `crypto-psbt` — PSBT sign requests
-- `btc-sign-request` / `btc-signature` — message signing
+
+<Admonition type="note">
+  `crypto-multi-accounts`, `btc-sign-request` and `btc-signature` are Keystone extensions. Shell can parse them for compatibility with wallets that use the Keystone protocol (e.g. Bitget), but they are not part of the core specs above.
+</Admonition>
 
 The authoritative payload definitions are in the CDDL file: [ur.cddl](https://github.com/keycard-tech/keycard-shell/blob/master/cddl/ur.cddl).
 
