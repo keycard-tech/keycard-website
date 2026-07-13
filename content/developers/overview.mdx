@@ -5,48 +5,46 @@ title: Overview
 
 # Overview
 
+Keycard is open hardware for self-custody: a secure element smartcard that signs transactions on-chip, and Shell, a companion device that turns it into a full hardware wallet. Every layer is open source under MIT — the applet, the firmware, the schematics, the enclosure — and everything speaks standard protocols. If you can talk BIP-32, APDUs or animated QR codes, you can build on it.
+
 ## What is Keycard?
 
-Keycard is a hardware wallet that stores private keys and performs signatures on a dedicated secure chip with a very high level of hardware security. Designed as an open-source contactless smart card, it functions as a [BIP-32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) HD wallet, supporting key generation, derivation, and signing. It also allows exporting keys defined in the context of [EIP-1581](https://eips.ethereum.org/EIPS/eip-1581). 
-The most obvious case for integration of Keycard is crypto wallets (ETH, BTC, etc), however it can be used in other systems where a BIP-32 key tree is used and/or you perform authentication/identification.
+Keycard is a contactless smart card that stores private keys and performs signatures on a dedicated secure chip (NXP JCOP4, certified [EAL6+](https://en.wikipedia.org/wiki/Evaluation_Assurance_Level)). It functions as a [BIP-32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) HD wallet, supporting key generation, derivation and signing, and allows exporting keys defined in the context of [EIP-1581](https://eips.ethereum.org/EIPS/eip-1581). Keys never leave the card: the hash to sign goes in, the signature comes out.
 
-It’s natively integrated with all [Status apps](https://status.app) and works on iOS/Android mobile phones and desktops with a USB smartcard reader. Learn more about keycard [here](https://get.keycard.tech/pages/keycard).
+The most obvious integration case is crypto wallets (ETH, BTC, etc.), but Keycard fits any system that uses a BIP-32 key tree or needs hardware-backed authentication and identification.
 
-Keycard communicates via NFC contactless interface and ISO-7816-1 contact interface. Communication with Keycard happens through a simple APDU interface, together with a secure channel guaranteeing confidentiality, authentication and integrity of all commands.
+Keycard communicates via NFC and the ISO-7816 contact interface. Communication happens through a simple APDU interface, with a secure channel guaranteeing confidentiality, authentication and integrity of all commands. It works on iOS/Android phones and on desktops with a USB smartcard reader; several wallets integrate it directly today — see the [full list](/wallets).
 
 ## What is Keycard Shell?
 
-[Keycard Shell](https://get.keycard.tech/pages/keycard-shell) is a companion device designed to enhance the Keycard experience. It’s a full fledged hardware wallet  in which you insert your Keycard. This way you add to Keycard a range of connectivity options: keypad, display, camera and usb port. Keycard Shell is compatible with wallets like MetaMask, imToken, Rabby, BlueWallet and more. 
+[Keycard Shell](https://get.keycard.tech/pages/keycard-shell) is a full-fledged hardware wallet in which you insert your Keycard. It adds a keypad, a display, a camera and a USB port — and stays deliberately stateless: remove the card and the Shell forgets everything.
 
-Keycard Shell enables QR code scanning ([EIP-4527](https://eips.ethereum.org/EIPS/eip-4527)) and transaction verification directly on the device, bridging the gap between Keycard’s secure chip and wallets that don’t natively support NFC-based hardware wallets. Announced in [March 2025](/blog/announcing-keycard-shell), it evolved from a design journey starting in 2022 ([Keycard Origins](/blog/keycard-origins-shells-design-journey-from-concept-to-prototype)).
+Shell enables air-gapped QR signing (animated [UR](https://developer.blockchaincommons.com/ur/) QR codes — [EIP-4527](https://eips.ethereum.org/EIPS/eip-4527) for EVM, PSBT for Bitcoin) and on-device transaction verification with clear signing (ABI decoding, ERC-20 names, EIP-712, Bitcoin PSBT). This makes Keycard compatible with wallets like MetaMask, Rabby, Sparrow, BlueWallet and [many more](/wallets). Announced in [March 2025](/blog/announcing-keycard-shell), it evolved from a design journey starting in 2022 ([Keycard Origins](/blog/keycard-origins-shells-design-journey-from-concept-to-prototype)).
 
-If you want deeper technical details (USB protocol, QR formats, firmware signing, DIY hardware), see [Keycard Shell internals](/developers/keycard-shell).
+## Why build on it?
 
-## The ecosystem
+**Everything is open.** The [applet](https://github.com/keycard-tech/status-keycard), the [Shell firmware, schematics, BOM and 3D files](https://github.com/keycard-tech/keycard-shell) are all public and MIT licensed. Keycard Shell is the only multi-chain hardware wallet with fully open hardware. There is nothing you cannot inspect, fork or reuse.
 
-Keycard is open source technology that anyone can use to create a new level of self custody, and new use cases in crypto. Keycard is part of many projects that you can discover [here](https://github.com/keycard-tech/keycard-ecosystem-projects/)
+**Standard protocols only.** BIP-32/39 key management, ISO-7816 APDUs, EIP-4527 and [Blockchain Commons UR](https://developer.blockchaincommons.com/ur/) QR encoding, PSBT for Bitcoin, EIP-712 typed data. No proprietary formats, no vendor lock-in: an integration you write against Keycard follows the same standards as the rest of the ecosystem.
+
+**The secure element is the signer.** Unlike most hardware wallets, keys are not exported to a general-purpose MCU for signing — all cryptographic operations run inside the EAL6+ certified chip, and the applet is immutable once the card is locked. The host (phone, desktop, Shell) never sees key material.
+
+**People you may know already trust it.** Keycard Shell ranks [#1 on Wallet Beat](https://walletbeat.eth.limo/hww/summary/) and scored [93% on hardware-wallets.net](https://www.hardware-wallets.net/keycard-shell-review/). Ledger's co-founder called it ["a hardware wallet security designed the right way"](https://x.com/BTChip/status/1790748671291621651), Safe's CEO ["an amazing piece of open-source hardware"](https://x.com/SchorLukas/status/1986013483352383929) — and even [Keystone's CTO agrees](https://x.com/aaron1sme/status/2021526484800925741).
+
+## Choose your path
+
+**Integrate Keycard into your wallet or app.** Start with [Getting Started](/developers/getting-started) and [Core Concepts](/developers/core), then use the [Keycard SDK](/developers/sdk) (Java, desktop and Android). SDKs also exist for Go, Swift, Python, TypeScript and more — see the [ecosystem page](/developers/github-repositories). If you work in another language, the [Keycard API](/developers/apdu) documents the card protocol — everything you need to implement it yourself.
+
+**Understand how it works.** [Core Concepts](/developers/core) covers the card lifecycle and credentials model, the [Shell API reference](/developers/shell-api) covers the QR formats, USB protocol and clear signing database, and the [hardware specification](/developers/hardware-specification) lists the exact chips and certifications.
+
+**Build your own hardware.** You can [build your own Keycard](/developers/build) on any compatible JavaCard, and [build your own Shell](/developers/diy-keycard-shell) from the published schematics and firmware.
+
+**Contribute.** From adding contract ABIs (better clear signing for everyone) to porting SDKs — see [how to contribute](/developers/contribute).
 
 ## Versioning
 
-The current applet version is listed in the [status-keycard releases](https://github.com/keycard-tech/status-keycard/releases).
-
-This documentation applies to the current protocol version. [Semantic versioning](https://semver.org) is used throughout the project, with the omission of the patch number for the applet, but not the SDK and related tools.
-
-
-### For developers: Our API
-
-To further simplify integration, we have developed a Java-based API which can be used on both desktop and Android systems. On the desktop it uses the javax.smartcardio to interface with the card, which is compatible with most USB readers. On Android it uses the on-board NFC reader. If you develop in Java or any other language available, this is the easiest way to use the Keycard. You can also find a Go and Swift SDK and more resources [here](github-repositories)
-
-[Read the SDK documentation](sdk)
-
-If you use a different language, please first refer to the [Java SDK](sdk) documentation for a high level overview of how to perform different tasks with the Keycard. Then, please check the [protocol documentation](apdu) out for the low-level details.
-
-Besides the hardware wallet functionality, you find a second applet with a different purpose and security model. This applet, internally called Cash applet, does not share any data with the wallet and provides a single keypair which can be used to sign any piece of information. Unlike the wallet applet, the cash applet does not require a PIN or SecureChannel and can be tapped on 3rd party terminal. This enable convenient in-person interactions at the expense of security. For this reason the keypair in the Cash applet should not hold any funds at all, but should instead be used in concert with smartcontracts in scenarios with lower security requirements. It is especially suited for signing EIP-712 formatted metatx. Some examples can include ticketing, small payments, etc. It is worth repeating that the Wallet and Cash applet, while living on the same card, do not share any data or key and are completely independent from each other. In order to easily integrate Keycard with any dApp, we defined a small extension to the [Web3 API](web3).
+The current applet version is listed in the [status-keycard releases](https://github.com/keycard-tech/status-keycard/releases). This documentation applies to the current protocol version. [Semantic versioning](https://semver.org) is used throughout the project, with the omission of the patch number for the applet, but not the SDK and related tools.
 
 ## Get in touch
 
-Join our [discord](https://discord.gg/uJAXk7jFhZ)
-
-To raise issues/bugs/feature requests, please do so in our [GitHub repos](github-repositories)
-
-If you use email you can reach the team [here](mailto:support@keycard.tech)
+Join the [Discord](https://discord.gg/uJAXk7jFhZ) to talk to the team, follow [@Keycard_](https://x.com/Keycard_) for news, raise issues in the [GitHub repos](/developers/github-repositories), or email [support@keycard.tech](mailto:support@keycard.tech).

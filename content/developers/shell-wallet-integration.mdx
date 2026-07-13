@@ -1,0 +1,53 @@
+---
+id: shell-wallet-integration
+title: Integrate a Wallet with Keycard Shell
+---
+
+# Integrate a Wallet with Keycard Shell
+
+Keycard Shell works with software wallets the same way as other QR-based signers: the wallet builds transactions and broadcasts them; Shell verifies and signs them with the Keycard inside. If your wallet already supports EIP-4527 animated QR codes or PSBT-over-UR, supporting Shell requires little to no extra work.
+
+Two transports are available:
+
+- **QR codes (air-gapped)** — the default flow, fully offline.
+- **USB** — an APDU-like protocol over USB HID, for desktop wallets that prefer a cable.
+
+Either way, every request is displayed on-device and requires explicit user approval before Shell signs it with the Keycard.
+
+## QR integration
+
+All QR flows use [Blockchain Commons UR](https://developer.blockchaincommons.com/ur/) encoding — the chain-agnostic standard for transporting binary payloads in animated QR codes, used across the QR-signer ecosystem. What differs per chain is the payload type carried inside the URs.
+
+The flow is the same for every chain:
+
+1. **Account import** — Shell exports accounts as `crypto-hdkey` (Ethereum) or `crypto-account` (Bitcoin); your wallet scans the QR and derives addresses from the xpub.
+2. **Sign request** — your wallet displays the payload as an animated QR; the user scans it with Shell's camera.
+3. **Signature** — Shell displays the decoded transaction for approval, signs with the Keycard, and returns the signature as a QR that your wallet scans back.
+
+### EVM wallets
+
+Ethereum payloads follow [EIP-4527](https://eips.ethereum.org/EIPS/eip-4527), which defines the UR types for this flow: `eth-sign-request` in, `eth-signature` back. Transactions, personal messages and EIP-712 typed data are all covered.
+
+### Bitcoin wallets
+
+Bitcoin signing uses the standard [PSBT-over-UR](https://developer.blockchaincommons.com/ur/psbts/) type: `crypto-psbt` for transactions. No Ethereum-specific standard is involved.
+
+The exact payload definitions Shell accepts are specified in the [Shell API reference](/developers/shell-api).
+
+## USB integration
+
+When USB data is enabled, Shell enumerates as a USB HID device and speaks an APDU-like protocol with commands for account export, transaction signing (ETH, EIP-712, PSBT) and device information. See the [Shell API reference](/developers/shell-api) for the protocol details.
+
+For the USB path, the [shelljs](https://github.com/keycard-tech/shelljs) TypeScript library (built on Ledger's `hw-transport`) wraps these commands — get public key, sign Ethereum transactions/messages/EIP-712, sign PSBT, and firmware/database updates — so a web or Node.js wallet doesn't have to implement the protocol by hand.
+
+## Clear signing
+
+Shell decodes what it signs: contract calls, ERC-20 transfers and EIP-712 messages are displayed in human-readable form using an on-device database of chains, token metadata and contract ABIs. If your dApp's or protocol's contracts are not yet decoded, [add their ABIs](/developers/contribute) to the open database — it improves the experience for every wallet.
+
+## Bitcoin-only wallets
+
+There is no separate "bitcoin-only" firmware, and none is needed: Bitcoin wallets integrate through standard PSBT flows (QR/UR or USB) and simply never touch the Ethereum features.
+
+## Test and list your integration
+
+Wallets that work with Keycard Shell today include MetaMask, Rabby, Sparrow and BlueWallet — see the [full list](/wallets). Once your integration works, tell the team on [Discord](https://discord.gg/uJAXk7jFhZ) to get it listed.

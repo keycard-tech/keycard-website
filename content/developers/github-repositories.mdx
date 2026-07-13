@@ -1,24 +1,119 @@
 ---
 id: github-repositories
-title: GitHub Repositories
+title: Ecosystem & Repositories
 ---
 
-# GitHub Repositories
+# Ecosystem & Repositories
 
-* [Keycard Javacard applet](https://github.com/keycard-tech/status-keycard)
-* [Keycard Shell software](https://github.com/keycard-tech/keycard-pro/)
-* [Keycard Shell schematics](https://github.com/keycard-tech/keycard-shell/tree/master/hardware/shell/pilot_run/electronics_and_bom)
-* [Keycard Shell 3D case](https://github.com/keycard-tech/keycard-shell/tree/master/hardware/shell/pilot_run/mechanical)
-* [Java SDK](https://github.com/keycard-tech/status-keycard-java)
-* [Go SDK](https://github.com/keycard-tech/keycard-go/)
-* [Swift SDK](https://github.com/keycard-tech/Keycard.swift)
-* [Keycard on Ledger](https://github.com/keycard-tech/keycard-ledger)
-* [React Native library](https://github.com/choppu/react-native-keycard)
-* [Go Status library](https://github.com/keycard-tech/status-keycard-go)
-* [Python SDK](https://github.com/mmlado/keycard-py) by mmlado
-* [Typescript SDK](https://github.com/choppu/keycard-sdk) by choppu
-* [Nim SDK](https://github.com/mmlado/keycard-nim) by mmlado
+Everything Keycard ships is developed in the open under the [keycard-tech](https://github.com/keycard-tech) GitHub organization. This page maps what exists: the core repositories, the SDKs and the tools.
 
-## Community Contribution
+## Core repositories
 
-View our community contributions [on our GitHub](https://github.com/keycard-tech/keycard-ecosystem-projects/).
+<Table>
+    <TableHead>
+        <TableHeader>Repository</TableHeader>
+        <TableHeader>What it is</TableHeader>
+    </TableHead>
+
+    <TableContent>
+        <TableRow>
+            <TableCell>[status-keycard](https://github.com/keycard-tech/status-keycard)</TableCell>
+            <TableCell>The JavaCard applet — key management, BIP-32 derivation, signing, secure channel. This is what runs on the card.</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>[keycard-shell](https://github.com/keycard-tech/keycard-shell)</TableCell>
+            <TableCell>Keycard Shell firmware **and** hardware: [schematics + BOM](https://github.com/keycard-tech/keycard-shell/tree/master/hardware/shell/pilot_run/electronics_and_bom) and [3D mechanical files](https://github.com/keycard-tech/keycard-shell/tree/master/hardware/shell/pilot_run/mechanical).</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>[eth-abi-repo](https://github.com/keycard-tech/eth-abi-repo)</TableCell>
+            <TableCell>The contract ABI database powering Shell's clear signing. Open to contributions — see [Contribute](/developers/contribute).</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>[keycard-cli](https://github.com/keycard-tech/keycard-cli)</TableCell>
+            <TableCell>Command-line tool to install, initialize and manage Keycards with a USB reader.</TableCell>
+        </TableRow>
+    </TableContent>
+</Table>
+
+## SDKs
+
+<Table>
+    <TableHead>
+        <TableHeader>Language</TableHeader>
+        <TableHeader>Repository</TableHeader>
+        <TableHeader>Maintained by</TableHeader>
+    </TableHead>
+
+    <TableContent>
+        <TableRow>
+            <TableCell>Java (desktop + Android)</TableCell>
+            <TableCell>[status-keycard-java](https://github.com/keycard-tech/status-keycard-java)</TableCell>
+            <TableCell>Keycard team — the reference SDK, [fully documented here](/developers/sdk)</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Go</TableCell>
+            <TableCell>[keycard-go](https://github.com/keycard-tech/keycard-go)</TableCell>
+            <TableCell>Keycard team</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Rust</TableCell>
+            <TableCell>[keycard-rs](https://github.com/keycard-tech/keycard-rs)</TableCell>
+            <TableCell>Keycard team</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Swift</TableCell>
+            <TableCell>[Keycard.swift](https://github.com/keycard-tech/Keycard.swift)</TableCell>
+            <TableCell>Keycard team</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Go (Status bindings)</TableCell>
+            <TableCell>[status-keycard-go](https://github.com/keycard-tech/status-keycard-go)</TableCell>
+            <TableCell>Status</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>TypeScript</TableCell>
+            <TableCell>[keycard-sdk](https://github.com/choppu/keycard-sdk)</TableCell>
+            <TableCell>Community (choppu)</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>React Native</TableCell>
+            <TableCell>[react-native-keycard](https://github.com/choppu/react-native-keycard)</TableCell>
+            <TableCell>Community (choppu)</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Python</TableCell>
+            <TableCell>[keycard-py](https://github.com/mmlado/keycard-py)</TableCell>
+            <TableCell>Community (mmlado)</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Nim</TableCell>
+            <TableCell>[keycard-nim](https://github.com/mmlado/keycard-nim)</TableCell>
+            <TableCell>Community (mmlado)</TableCell>
+        </TableRow>
+    </TableContent>
+</Table>
+
+Working in another language? The [Keycard API](/developers/apdu) is a complete protocol specification — the community SDKs above all started from it.
+
+## Ecosystem projects
+
+A curated list of third-party projects, integrations and experiments built with Keycard is maintained in the [keycard-ecosystem-projects](https://github.com/keycard-tech/keycard-ecosystem-projects) repository.
+
+## Tools
+
+- [Keycard CLI](https://github.com/keycard-tech/keycard-cli) — install and manage applets from the command line
+- [Keycard Desktop](https://github.com/choppu/keycard-desktop) — community desktop card manager
+- [Keycard Connect](https://github.com/keycard-tech/keycard-connect) — Android app for card initialization and credential management
+- Wallets with direct Keycard integration (Status mobile, Status desktop, Sparrow) — see the [full list](/wallets)
+

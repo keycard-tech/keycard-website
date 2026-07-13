@@ -1,9 +1,9 @@
 ---
 id: diy-keycard-shell
-title: Build a DIY Keycard Shell (advanced)
+title: Build Your Own Shell
 ---
 
-# Build a DIY Keycard Shell (advanced)
+# Build Your Own Shell
 
 Keycard Shell is fully open source. You can build your own device, run your own firmware, and pair it with your own Keycards. This is an advanced workflow intended for builders and developers.
 
@@ -11,15 +11,23 @@ Keycard Shell is fully open source. You can build your own device, run your own 
   Production Keycard Shell devices only accept signed firmware updates. To run custom firmware you must build your own device (or a dev unit) with a bootloader key you control.
 </Admonition>
 
-## DIY overview
+## Build overview
 
-1. **Build or install the Keycard applet.** Start with [Build your Keycard](/developers/build) and install the applet on a JavaCard 3.0.4+ card (3.0.5 recommended).
+1. **Build or install the Keycard applet.** Start with [Build Your Own Keycard](/developers/build) and install the applet on a JavaCard 3.0.4+ card (3.0.5 recommended).
 2. **Build the Shell hardware.** Use the open-source schematics, PCB files, and mechanical designs from the Keycard Shell repo.
 3. **Build and sign firmware.** Compile the firmware with STM32CubeIDE and sign it with your own bootloader key. Use the create-image tooling to generate a flashable image.
 4. **(Optional) Build a custom database.** Generate a clear-signing database that matches your supported chains and ABIs.
 5. **Assemble and test.** Insert your Keycard and complete onboarding like a production device.
 
-## Source materials and build notes
+## Hardware files
 
-- [Keycard Shell repo](https://github.com/keycard-tech/keycard-shell)
-- [Keycard Shell internals](/developers/keycard-shell)
+All hardware design files are open source, in the [Keycard Shell repo](https://github.com/keycard-tech/keycard-shell/tree/master/hardware):
+
+- Electronic bill of materials, schematics and layout
+- Mechanical bill of materials and full 3D definition of all parts
+
+## Building and signing firmware
+
+The bootloader verifies a secp256k1 signature with an embedded public key before booting ([bootloader verification code](https://github.com/keycard-tech/keycard-shell/blob/master/bootloader/bootloader.c)), so your build must be signed with your own keys. Follow the [Keycard Shell build notes](https://github.com/keycard-tech/keycard-shell/blob/master/README.md) for the full toolchain setup, signing procedure and image creation.
+
+For the database format and tooling used in step 4, see the [Shell API reference](/developers/shell-api).

@@ -5,19 +5,212 @@ title: Hardware Specification
 
 # Hardware Specification
 
+Complete hardware characteristics of both devices. Keycard and Keycard Shell are open hardware: schematics, bill of materials and 3D files are published in the [keycard-shell repository](https://github.com/keycard-tech/keycard-shell), and the official certification documents are [available on GitHub](https://github.com/keycard-tech/keycard-shell/tree/master/hardware/shell/serial_run/CERTIFICATION-OFFICIALCERTIFICATES).
+
 ## Keycard
 
-Keycard applet runs on any JavaCard 3.0.4+ (see [applet installation](/developers/getting-started#getting-started-with-keycard))
+<Table>
+    <TableHead>
+        <TableHeader>Characteristic</TableHeader>
+        <TableHeader>Specification</TableHeader>
+    </TableHead>
 
-We use for manufacturing:
-- **model:** NXP JCOP4
-- **interfaces:** NFC, ISO7816
-- **EAL6+ certified**
+    <TableContent>
+        <TableRow>
+            <TableCell>Secure element</TableCell>
+            <TableCell>NXP JCOP4 P71 JavaCard</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Security certification</TableCell>
+            <TableCell>Common Criteria EAL6+ ([certificate](https://sec-certs.org/cc/f29f88756682e034/), [TÜV certification report](https://www.tuv-nederland.nl/assets/files/cerfiticaten/2022/09/nscib-cc-180212-cr5-1.0.pdf))</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Random number generation</TableCell>
+            <TableCell>Hardware TRNG, AIS-31 PTG.2 compliant ([Security Target Lite](https://commoncriteriaportal.org/files/epfiles/NSCIB-CC-180212_3-STLite.pdf))</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Form factor</TableCell>
+            <TableCell>Standard ISO 7816 smartcard (credit-card size)</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Interfaces</TableCell>
+            <TableCell>ISO 7816 contact + ISO 14443 NFC</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Applets</TableCell>
+            <TableCell>Keycard (HD wallet), NDEF (NFC tag), Ident (authenticity)</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Power</TableCell>
+            <TableCell>None required — powered by the reader or NFC field; no battery, no moving parts</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Durability</TableCell>
+            <TableCell>Water-resistant, dust-resistant, X-ray resistant; 20+ year lifespan</TableCell>
+        </TableRow>
+    </TableContent>
+</Table>
+
+The applet itself is not tied to our card: it runs on any JavaCard supporting the required algorithms — see the [card requirements](https://github.com/keycard-tech/status-keycard#what-kind-of-smartcards-can-i-use) and [Build Your Own Keycard](/developers/build).
 
 ## Keycard Shell
 
-- **MCU:** STM32H573
-- **interfaces:** 12-key keypad, power button, TFT color display, camera, smartcard reader, USB-C
-- **battery:** replaceable BL-4C 800mAh battery
-- **flash map:** 2MB dual-bank flash, with 32KB bootloader + 608KB firmware + 384KB data per bank
-- **more details:** hardware files, schematics, and firmware sources are in the [Keycard Shell repo](https://github.com/keycard-tech/keycard-shell).
+<Table>
+    <TableHead>
+        <TableHeader>Characteristic</TableHeader>
+        <TableHeader>Specification</TableHeader>
+    </TableHead>
+
+    <TableContent>
+        <TableRow>
+            <TableCell>Microcontroller</TableCell>
+            <TableCell>STM32H573, PSA Level 3 and SESIP3 certified ([PSA certificate](https://www.psacertified.org/products/stm32h57x/))</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Display</TableCell>
+            <TableCell>2.0" TFT IPS colour screen, 240 × 320 pixels, adjustable brightness</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Input</TableCell>
+            <TableCell>12-key keypad ('0'–'9', Cancel, OK — hard rubber with durable coating) + on/off button</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Camera</TableCell>
+            <TableCell>CMOS with global shutter — captures the full frame at once, required for reliable animated QR scanning</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Card reader</TableCell>
+            <TableCell>ISO 7816 smartcard reader (contact only, no NFC)</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>USB</TableCell>
+            <TableCell>USB-C; works with any charger (PD or non-PD); data lines can be disabled in software</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Radio</TableCell>
+            <TableCell>None — no WiFi, Bluetooth or cellular. Air-gapped operation: no RF hardware + USB data off switch</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Battery</TableCell>
+            <TableCell>Nokia BL-4C 800 mAh Li-Po — user-replaceable without tools, ~$3 worldwide, form factor available for 25+ years</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Flash memory</TableCell>
+            <TableCell>2 MB dual-bank: 32 KB bootloader + 608 KB firmware + 384 KB data per bank</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Boot</TableCell>
+            <TableCell>20 ms boot time; auto on/off at card insertion</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Enclosure</TableCell>
+            <TableCell>ABS plastic, dust resistant, pocket-sized, no branding or crypto identifiers</TableCell>
+        </TableRow>
+    </TableContent>
+</Table>
+
+For the USB protocol, QR payload formats and flash layout details, see the [Shell API reference](/developers/shell-api).
+
+## Certifications
+
+### Security (components)
+
+<Table>
+    <TableHead>
+        <TableHeader>Standard</TableHeader>
+        <TableHeader>Scope</TableHeader>
+    </TableHead>
+
+    <TableContent>
+        <TableRow>
+            <TableCell>Common Criteria EAL6+</TableCell>
+            <TableCell>NXP JCOP4 P71 secure element (Keycard)</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>PSA Level 3 / SESIP3</TableCell>
+            <TableCell>STM32H573 microcontroller (Shell)</TableCell>
+        </TableRow>
+    </TableContent>
+</Table>
+
+<Admonition type="note">
+  PSA Level 3 imposes 35 days of white-box testing, vulnerability analysis and
+  penetration testing to verify that a chip's PSA Root of Trust can withstand
+  substantial hardware and software attacks, including physical tampering and
+  side-channel attacks.
+</Admonition>
+
+### Product compliance (Keycard Shell)
+
+<Table>
+    <TableHead>
+        <TableHeader>Standard</TableHeader>
+        <TableHeader>Scope</TableHeader>
+    </TableHead>
+
+    <TableContent>
+        <TableRow>
+            <TableCell>CE / FCC / ICES</TableCell>
+            <TableCell>Full compliance — EU / US / Canada</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>CB report (IEC 62368-1)</TableCell>
+            <TableCell>Safety (international)</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>EMC Directive 2014/30/EU</TableCell>
+            <TableCell>EMC — Europe</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>FCC Part 15 B / ICES-003 B</TableCell>
+            <TableCell>EMC — US, Canada</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>RoHS / REACH</TableCell>
+            <TableCell>Hazardous substances — Europe</TableCell>
+        </TableRow>
+    </TableContent>
+</Table>
+
+### Battery (BL-4C)
+
+<Table>
+    <TableHead>
+        <TableHeader>Standard</TableHeader>
+        <TableHeader>Scope</TableHeader>
+    </TableHead>
+
+    <TableContent>
+        <TableRow>
+            <TableCell>IEC 62133 / UL 2054 / EU Directive 2023/1542</TableCell>
+            <TableCell>Safety</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>UN 38.3 / MSDS</TableCell>
+            <TableCell>Transport</TableCell>
+        </TableRow>
+    </TableContent>
+</Table>

@@ -1,20 +1,88 @@
 ---
 id: sdk_overview
-title: Java SDK
+title: Keycard SDK
 ---
-# Overview
 
-This is an SDK essentially a Java library for development of applications for Status Keycard that can be installed via tools klike Gradle or Maven in your project.
+# Keycard SDK
+
+SDKs are available for integrating Keycard in most environments:
+
+<Table>
+    <TableHead>
+        <TableHeader>Language</TableHeader>
+        <TableHeader>Repository</TableHeader>
+        <TableHeader>Maintained by</TableHeader>
+    </TableHead>
+
+    <TableContent>
+        <TableRow>
+            <TableCell>Java (desktop + Android)</TableCell>
+            <TableCell>[status-keycard-java](https://github.com/keycard-tech/status-keycard-java)</TableCell>
+            <TableCell>Keycard team</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Go</TableCell>
+            <TableCell>[keycard-go](https://github.com/keycard-tech/keycard-go)</TableCell>
+            <TableCell>Keycard team</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Rust</TableCell>
+            <TableCell>[keycard-rs](https://github.com/keycard-tech/keycard-rs)</TableCell>
+            <TableCell>Keycard team</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Swift</TableCell>
+            <TableCell>[Keycard.swift](https://github.com/keycard-tech/Keycard.swift)</TableCell>
+            <TableCell>Keycard team</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>TypeScript</TableCell>
+            <TableCell>[keycard-sdk](https://github.com/choppu/keycard-sdk)</TableCell>
+            <TableCell>Community (choppu)</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>React Native</TableCell>
+            <TableCell>[react-native-keycard](https://github.com/choppu/react-native-keycard)</TableCell>
+            <TableCell>Community (choppu)</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Python</TableCell>
+            <TableCell>[keycard-py](https://github.com/mmlado/keycard-py)</TableCell>
+            <TableCell>Community (mmlado)</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Nim</TableCell>
+            <TableCell>[keycard-nim](https://github.com/mmlado/keycard-nim)</TableCell>
+            <TableCell>Community (mmlado)</TableCell>
+        </TableRow>
+    </TableContent>
+</Table>
+
+<Admonition type="note">
+  This documentation uses the **Java SDK** as the reference: it is maintained
+  by the Keycard team, covers the full protocol, and runs on desktop (via
+  `javax.smartcardio` and a USB reader) and Android (via NFC). The concepts in
+  these pages — connection, pairing, secure channel, derivation, signing — map
+  directly onto every other SDK. If your language has no SDK yet, the [Keycard
+  API](/developers/apdu) documents the underlying protocol.
+</Admonition>
 
 See the sub-sections below for more details:
 
-* [Installation](/developers/sdk/installation)
-* [Card Connection](/developers/sdk/connection)
-* [Preparation](/developers/sdk/preparation)
-* [Secure Channel](/developers/sdk/securechannel)
-* [Authentication](/developers/sdk/authentication)
-* [Wallet Creation](/developers/sdk/create_wallet)
-* [Derivation & Signing](/developers/sdk/derivation_sign)
-* [Pinless Signing](/developers/sdk/pinless)
-* [Exporting Keys](/developers/sdk/export)
-* [Cash Applet](/developers/sdk/cash)
+- [Installation](/developers/sdk/installation)
+- [Card Connection](/developers/sdk/connection)
+- [Preparation](/developers/sdk/preparation)
+- [Secure Channel](/developers/sdk/securechannel)
+- [Authentication](/developers/sdk/authentication)
+- [Wallet Creation](/developers/sdk/create_wallet)
+- [Derivation & Signing](/developers/sdk/derivation_sign)
+- [Pinless Signing](/developers/sdk/pinless)
+- [Exporting Keys](/developers/sdk/export)
+- [Cash Applet](/developers/sdk/cash)

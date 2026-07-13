@@ -1,0 +1,54 @@
+---
+id: shell-api
+title: Shell API Reference
+---
+
+# Shell API Reference
+
+The machine interfaces of Keycard Shell: QR payload formats, the USB protocol, and the clear signing database. For the wallet-side view of these interfaces, see [Integrate a Wallet with Keycard Shell](/developers/shell-wallet-integration).
+
+## QR payloads (UR types)
+
+Sign requests and responses travel as animated QR codes encoded with [Blockchain Commons UR](https://developer.blockchaincommons.com/ur/) — a chain-agnostic transport. Each chain then defines its own UR payload types on top of it.
+
+Ethereum / EVM (defined by [EIP-4527](https://eips.ethereum.org/EIPS/eip-4527)):
+
+- `crypto-hdkey` — account export
+- `eth-sign-request` / `eth-signature` — transactions, messages and EIP-712 typed data
+
+Bitcoin (defined by the [Blockchain Commons specs](https://developer.blockchaincommons.com/ur/psbts/)):
+
+- `crypto-account` — account export
+- `crypto-psbt` — PSBT sign requests
+
+<Admonition type="note">
+  `crypto-multi-accounts`, `btc-sign-request` and `btc-signature` are Keystone extensions. Shell can parse them for compatibility with wallets that use the Keystone protocol (e.g. Bitget), but they are not part of the core specs above.
+</Admonition>
+
+The authoritative payload definitions are in the CDDL file: [ur.cddl](https://github.com/keycard-tech/keycard-shell/blob/master/cddl/ur.cddl).
+
+## USB protocol
+
+When USB data is enabled, Shell enumerates as a USB HID device (VID `0x1209`, PID `0x21f7`) and speaks an APDU-like protocol:
+
+- C-APDU format: `CLA(0xe0) + INS + P1 + P2 + Lc + Data`
+- Command chaining for payloads over 255 bytes
+- `GET RESPONSE` for multi-chunk responses (`SW=0x61XX`)
+- Commands include GET DEVICE INFO, GET PUBLIC, SIGN ETH TX, SIGN EIP-712, SIGN PSBT, and firmware/database updates
+
+The full protocol specification and command list: [USB.md](https://github.com/keycard-tech/keycard-shell/blob/master/docs/USB.md).
+
+## Clear signing database
+
+Clear signing for contract calls uses an on-device database containing chains, ERC-20 metadata, and Ethereum ABIs.
+
+- Database format and flash layout: [FLASHMAP.md](https://github.com/keycard-tech/keycard-shell/blob/master/docs/FLASHMAP.md)
+- Database build tooling: [shell-db.md](https://github.com/keycard-tech/keycard-shell/blob/master/docs/shell-db.md)
+- ABI source list and build pipeline: [eth-abi-repo](https://github.com/keycard-tech/eth-abi-repo)
+- Published database versions: [version history](https://shell.keycard.tech/update/db-version-history)
+
+Database builds are reproducible from the source JSON inputs; verify the hash (signature excluded) with `tools/database-hash.py`.
+
+## Firmware signing
+
+Shell firmware images are signed: the bootloader verifies a secp256k1 signature with an embedded public key before booting ([bootloader verification code](https://github.com/keycard-tech/keycard-shell/blob/master/bootloader/bootloader.c)). Official devices only accept signed firmware updates — to run custom firmware, see [Build Your Own Shell](/developers/diy-keycard-shell).

@@ -1,0 +1,52 @@
+---
+id: contribute
+title: Contribute
+---
+
+# Contribute
+
+Keycard is built in the open by a small team, and outside contributions have shaped it from the start — community members maintain SDKs in four languages.
+
+<Admonition type="tip">
+  For inspiration, browse
+  [keycard-ecosystem-projects](https://github.com/keycard-tech/keycard-ecosystem-projects):
+  a curated collection of what the community has already built with Keycard —
+  integrations, hackathon projects and experiments. Built something? Open a PR
+  to add yours.
+</Admonition>
+
+Whatever your background, there is a useful way in. Roughly in order of effort:
+
+## Join the conversation
+
+The team is active on [Discord](https://discord.gg/uJAXk7jFhZ) — integration questions, feature discussions and security topics all happen there. It's the fastest way to get unblocked and the best place to sound out an idea before building it.
+
+## Report issues
+
+Found a bug, a gap in the docs, or unexpected behavior? Open an issue on the relevant repository — [status-keycard](https://github.com/keycard-tech/status-keycard) for the applet, [keycard-shell](https://github.com/keycard-tech/keycard-shell) for the Shell, or any of the [other repos](/developers/github-repositories).
+
+<Admonition type="caution">
+  For security vulnerabilities, please contact the team privately at
+  [support@keycard.tech](mailto:support@keycard.tech) instead of opening a
+  public issue.
+</Admonition>
+
+## Add contract ABIs
+
+The easiest high-impact contribution. Keycard Shell's clear signing — showing users exactly what a transaction does instead of a raw hash — relies on an open database of contract ABIs and token metadata: [eth-abi-repo](https://github.com/keycard-tech/eth-abi-repo). Every ABI added means one more contract whose transactions are displayed in a human-readable form, for every Shell owner. If a dApp you use shows up as raw calldata, add its contracts.
+
+## Build an integration
+
+Adding Keycard support to a wallet or app is well-trodden ground: start from the [Keycard SDK documentation](/developers/sdk) or one of the [other SDKs](/developers/github-repositories), and ask on Discord if you hit a wall. If your language has no SDK yet, the [Keycard API](/developers/apdu) is a complete specification of the card protocol — the Python, TypeScript and Nim SDKs were all built from it by community members.
+
+Built something? Add it to [keycard-ecosystem-projects](https://github.com/keycard-tech/keycard-ecosystem-projects) so others can find it.
+
+## Hack the hardware
+
+Shell's schematics, BOM and 3D files are published under MIT. You can [build your own Keycard](/developers/build) on a blank JavaCard, [build your own Shell](/developers/diy-keycard-shell), design a custom enclosure, or fork the firmware entirely. If you make something interesting, the team wants to see it — share it on Discord.
+
+## Get in touch
+
+- [Discord](https://discord.gg/uJAXk7jFhZ) — the main channel to the team
+- [GitHub](https://github.com/keycard-tech) — issues and pull requests
+- [support@keycard.tech](mailto:support@keycard.tech) — email, including security reports

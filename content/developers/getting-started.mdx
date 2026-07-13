@@ -5,15 +5,20 @@ title: Getting Started
 
 # Getting Started
 
-Keycard ships with pre-installed applets, ready for initialization. This guide covers setting up your Keycard and using it with Keycard Shell.
+This guide gets you from a blank card to a working development setup: initializing a Keycard, reinstalling applets for testing, and knowing which card hardware the applet runs on. Keycard ships with pre-installed applets, ready for initialization.
+
+<Admonition type="tip">
+  Before integrating, skim [Core Concepts](/developers/core) for the card
+  lifecycle and credentials model (PIN, PUK, pairing). Once your card is set
+  up, continue with the [Keycard SDK](/developers/sdk) — or the [Keycard
+  API](/developers/apdu) if you're implementing the protocol directly.
+</Admonition>
 
 ## Getting Started with Keycard
 
-To begin, download the [Status mobile app](https://status.app/apps#mobile) on Android, iOS or the [Status desktop app](https://status.app/apps#desktop) on Windows, MacOS or Linux. Alternatively use [Keycard Connect](https://github.com/keycard-tech/keycard-connect) on Android. 
+For developers, the recommended path is [Keycard CLI](https://github.com/keycard-tech/keycard-cli) with a USB reader: it exposes every applet command, handles initialization, credential changes, key management and pairing-slot cleanup, and the repository contains example scripts for common workflows.
 
-These apps help initialize your Keycard with a pairing key, PIN, PUK, and BIP39 seed. Follow the in-app prompts to pair your Keycard via NFC.
-
-Keycard connect also provides basic functionality like changing credentials, changing or removing keys and clear pairing slots. The last functionality is especially useful if you are integrating with Keycard and accidentally fill all pairing slots. Using the "Unpair others" button will remove all pairing except the Keycard Connect's one.
+For end-users, any wallet that integrates Keycard directly will handle initialization in-app — currently Status mobile (NFC), Status desktop and Sparrow (USB reader); see the [full list](/wallets).
 
 ### Applet Installation
 
@@ -21,25 +26,7 @@ Keycard applets are pre-installed. In some cases you might want to reset the app
 
 ### Card Requirements
 
-The Keycard applet can be installed not only on our cards, but on any card which meets the following requirements:
-
-* JavaCard 3.0.4 or later.
-* Cipher.ALG_AES_BLOCK_128_CBC_NOPAD
-* Cipher.ALG_AES_CBC_ISO9797_M2
-* KeyAgreement.ALG_EC_SVDP_DH_PLAIN
-* KeyAgreement.ALG_EC_SVDP_DH_PLAIN_XY (defined in JavaCard 3.0.5 but available on some 3.0.4 cards nonetheless)
-* KeyPair.ALG_EC_FP (generation of 256-bit keys)
-* MessageDigest.ALG_SHA_256
-* MessageDigest.ALG_SHA_512
-* RandomData.ALG_SECURE_RANDOM
-* Signature.ALG_AES_MAC_128_NOPAD
-* Signature.ALG_ECDSA_SHA_256
-
-Best performance is achieved if the card supports:
-
-* Signature.ALG_HMAC_SHA_512
-
-Keycard requires about 10kb of NVM. All allocations, instantiations and checks are performed at installation time, so if installation succeeds, the applet will work fine.
+The Keycard applet can be installed not only on our cards, but on any JavaCard that supports the required cryptographic algorithms — see the up-to-date list in the [status-keycard README](https://github.com/keycard-tech/status-keycard#what-kind-of-smartcards-can-i-use). All allocations, instantiations and checks are performed at installation time, so if installation succeeds, the applet will work fine.
 
 ### Verifying Firmware Integrity
 

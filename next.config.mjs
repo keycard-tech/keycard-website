@@ -127,6 +127,46 @@ const config = {
         permanent: true,
       },
       {
+        source: '/:locale(en|fr|de|es|nl|ko)/developers/web3',
+        destination: '/:locale/developers/overview',
+        permanent: true,
+      },
+      {
+        source: '/developers/web3',
+        destination: '/en/developers/overview',
+        permanent: true,
+      },
+      {
+        source: '/:locale(en|fr|de|es|nl|ko)/developers/tools',
+        destination: '/:locale/developers/github-repositories',
+        permanent: true,
+      },
+      {
+        source: '/developers/tools',
+        destination: '/en/developers/github-repositories',
+        permanent: true,
+      },
+      {
+        source: '/:locale(en|fr|de|es|nl|ko)/developers/contact',
+        destination: '/:locale/developers/contribute',
+        permanent: true,
+      },
+      {
+        source: '/:locale(en|fr|de|es|nl|ko)/developers/keycard-shell',
+        destination: '/:locale/developers/shell-api',
+        permanent: true,
+      },
+      {
+        source: '/developers/keycard-shell',
+        destination: '/en/developers/shell-api',
+        permanent: true,
+      },
+      {
+        source: '/developers/contact',
+        destination: '/en/developers/contribute',
+        permanent: true,
+      },
+      {
         source: '/developers',
         destination: '/en/developers/overview',
         permanent: true,
