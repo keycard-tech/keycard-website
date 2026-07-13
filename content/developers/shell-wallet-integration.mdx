@@ -14,10 +14,6 @@ Two transports are available:
 
 Either way, every request is displayed on-device and requires explicit user approval before Shell signs it with the Keycard.
 
-## Supporting library
-
-The fastest path to a working integration is [shelljs](https://github.com/keycard-tech/shelljs) — a TypeScript library that handles UR encoding/decoding and the Shell USB protocol, so your wallet doesn't need to implement either from scratch.
-
 ## QR integration
 
 All QR flows use [Blockchain Commons UR](https://developer.blockchaincommons.com/ur/) encoding — the chain-agnostic standard for transporting binary payloads in animated QR codes, used across the QR-signer ecosystem. What differs per chain is the payload type carried inside the URs.
@@ -41,6 +37,8 @@ The exact payload definitions Shell accepts are specified in the [Shell API refe
 ## USB integration
 
 When USB data is enabled, Shell enumerates as a USB HID device and speaks an APDU-like protocol with commands for account export, transaction signing (ETH, EIP-712, PSBT) and device information. See the [Shell API reference](/developers/shell-api) for the protocol details.
+
+For the USB path, the [shelljs](https://github.com/keycard-tech/shelljs) TypeScript library (built on Ledger's `hw-transport`) wraps these commands — get public key, sign Ethereum transactions/messages/EIP-712, sign PSBT, and firmware/database updates — so a web or Node.js wallet doesn't have to implement the protocol by hand.
 
 ## Clear signing
 
