@@ -6,7 +6,8 @@ import { KeycardShellIcon } from '~/app/_icons/keycard-shell-icon'
 import { ButtonLink } from '~components/button-link'
 import { Link } from '~components/link'
 import Image from 'next/image'
-import { useState } from 'react'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { Suspense } from 'react'
 import { match } from 'ts-pattern'
 import { BuyCards } from '../(homepage)/_components/buy-cards-client'
 import { Tabs, TabsList, TabsTrigger } from './_components/tabs'
@@ -283,14 +284,40 @@ function WalletCard({ wallet }: { wallet: Wallet }) {
   )
 }
 
-export default function WalletsPage() {
-  const [activeHardware, setActiveHardware] = useState<'All' | WalletType>(
-    'All',
+const PLATFORMS: PlatformType[] = ['Mobile', 'Desktop', 'Extension']
+const ASSETS: BlockchainType[] = ['Bitcoin', 'Ethereum']
+const HARDWARE: WalletType[] = ['Keycard', 'Shell']
+
+// Read a query-string value case-insensitively and map it back to its
+// canonical filter label, falling back to 'All' for missing/unknown values.
+function parseFilter<T extends string>(
+  raw: string | null,
+  allowed: readonly T[],
+): 'All' | T {
+  if (!raw) return 'All'
+  return (
+    allowed.find(value => value.toLowerCase() === raw.toLowerCase()) ?? 'All'
   )
-  const [activePlatform, setActivePlatform] = useState<'All' | PlatformType>(
-    'All',
-  )
-  const [activeAsset, setActiveAsset] = useState<'All' | BlockchainType>('All')
+}
+
+function WalletsContent() {
+  const searchParams = useSearchParams()
+  const router = useRouter()
+  const pathname = usePathname()
+
+  const activePlatform = parseFilter(searchParams.get('platform'), PLATFORMS)
+  const activeAsset = parseFilter(searchParams.get('asset'), ASSETS)
+  const activeHardware = parseFilter(searchParams.get('hardware'), HARDWARE)
+
+  // Reflect a filter change in the URL so the selection is shareable and
+  // survives a reload. 'All' is the default, so it drops the param entirely.
+  const setFilter = (key: 'platform' | 'asset' | 'hardware', value: string) => {
+    const params = new URLSearchParams(searchParams.toString())
+    if (value === 'All') params.delete(key)
+    else params.set(key, value.toLowerCase())
+    const query = params.toString()
+    router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false })
+  }
 
   const filteredWallets = WALLETS.filter(wallet => {
     if (activeHardware !== 'All' && !wallet.type.includes(activeHardware))
@@ -335,10 +362,8 @@ export default function WalletsPage() {
             By platform
           </span>
           <Tabs
-            defaultValue="All"
-            onValueChange={value =>
-              setActivePlatform(value as 'All' | PlatformType)
-            }
+            value={activePlatform}
+            onValueChange={value => setFilter('platform', value)}
           >
             <TabsList>
               <TabsTrigger value="All">All</TabsTrigger>
@@ -354,10 +379,8 @@ export default function WalletsPage() {
             By assets
           </span>
           <Tabs
-            defaultValue="All"
-            onValueChange={value =>
-              setActiveAsset(value as 'All' | BlockchainType)
-            }
+            value={activeAsset}
+            onValueChange={value => setFilter('asset', value)}
           >
             <TabsList>
               <TabsTrigger value="All">All</TabsTrigger>
@@ -372,10 +395,8 @@ export default function WalletsPage() {
             Integrates with
           </span>
           <Tabs
-            defaultValue="All"
-            onValueChange={value =>
-              setActiveHardware(value as 'All' | WalletType)
-            }
+            value={activeHardware}
+            onValueChange={value => setFilter('hardware', value)}
           >
             <TabsList>
               <TabsTrigger value="All">All</TabsTrigger>
@@ -432,5 +453,13 @@ export default function WalletsPage() {
 
       <BuyCards />
     </div>
+  )
+}
+
+export default function WalletsPage() {
+  return (
+    <Suspense>
+      <WalletsContent />
+    </Suspense>
   )
 }
