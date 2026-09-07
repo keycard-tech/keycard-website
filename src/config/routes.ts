@@ -98,6 +98,10 @@ export const getRoutes = (
         name: t('footer.contacts.youtube.translation'),
         href: 'https://www.youtube.com/@Keycard_tech/',
       },
+      {
+        name: t('footer.contacts.reddit.translation'),
+        href: 'https://www.reddit.com/r/keycard_tech/',
+      },
       // { name: 'Email', href: 'mailto:support@keycard.tech' },
     ],
     Legal: [
