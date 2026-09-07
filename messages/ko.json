@@ -860,6 +860,10 @@
       "youtube": {
         "translation": "YouTube",
         "notes": "footer::contacts::youtube"
+      },
+      "reddit": {
+        "translation": "Reddit",
+        "notes": "footer::contacts::reddit"
       }
     },
     "legal": {
