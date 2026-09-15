@@ -838,6 +838,10 @@
       "affiliates": {
         "translation": "제휴사",
         "notes": "footer::info::affiliates"
+      },
+      "resellers": {
+        "translation": "리셀러",
+        "notes": "footer::info::resellers"
       }
     },
     "contacts": {

@@ -856,6 +856,10 @@
       "affiliates": {
         "translation": "Affiliés",
         "notes": "footer::info::affiliates"
+      },
+      "resellers": {
+        "translation": "Revendeurs",
+        "notes": "footer::info::resellers"
       }
     },
     "contacts": {

@@ -82,6 +82,10 @@ export const getRoutes = (
         name: t('footer.info.affiliates.translation'),
         href: 'https://affiliates.keycard.tech',
       },
+      {
+        name: t('footer.info.resellers.translation'),
+        href: 'https://keycard.tech/resellers',
+      },
     ],
     Contacts: [
       { name: t('footer.contacts.about.translation'), href: '/about' },
