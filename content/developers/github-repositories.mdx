@@ -69,7 +69,7 @@ Everything Keycard ships is developed in the open under the [keycard-tech](https
         <TableRow>
             <TableCell>Swift</TableCell>
             <TableCell>[Keycard.swift](https://github.com/keycard-tech/Keycard.swift)</TableCell>
-            <TableCell>Keycard team</TableCell>
+            <TableCell>Keycard team — applet 3.x only, 4.0 support pending</TableCell>
         </TableRow>
 
         <TableRow>
@@ -106,6 +106,13 @@ Everything Keycard ships is developed in the open under the [keycard-tech](https
 
 Working in another language? The [Keycard API](/developers/apdu) is a complete protocol specification — the community SDKs above all started from it.
 
+<Admonition type="caution">
+  Applet 4.0 changed the secure channel, so an SDK only works with a 4.0 card if
+  it implements that protocol. The Java, Go and Rust SDKs and the CLI do. The
+  Swift SDK currently speaks 3.x only. Check the repository before you commit to
+  one.
+</Admonition>
+
 ## Ecosystem projects
 
 A curated list of third-party projects, integrations and experiments built with Keycard is maintained in the [keycard-ecosystem-projects](https://github.com/keycard-tech/keycard-ecosystem-projects) repository.
@@ -114,6 +121,5 @@ A curated list of third-party projects, integrations and experiments built with 
 
 - [Keycard CLI](https://github.com/keycard-tech/keycard-cli) — install and manage applets from the command line
 - [Keycard Desktop](https://github.com/choppu/keycard-desktop) — community desktop card manager
-- [Keycard Connect](https://github.com/keycard-tech/keycard-connect) — Android app for card initialization and credential management
 - Wallets with direct Keycard integration (Status mobile, Status desktop, Sparrow) — see the [full list](/wallets)
 

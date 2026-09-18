@@ -60,3 +60,17 @@ BIP32KeyPair keypair = new BIP32KeyPair(privKey, chainCode, pubKey);
 // Loads the keypair
 cmdSet.loadKey(keypair).checkOK();
 ```
+
+## Loading a LEE seed
+
+Since applet 4.0 a seed can be loaded in a mode that additionally derives the [LEE](https://github.com/logos-blockchain/logos-execution-zone) keytree from the same seed. Nothing else about the wallet changes; the extra keychain becomes readable with `exportLEEKey`.
+
+```java
+// Loads the seed and enables LEE mode
+cmdSet.loadLEEKey(seed).checkOK();
+
+// Confirm the card is in LEE mode
+boolean leeMode = new ApplicationInfo(cmdSet.select().checkOK().getData()).isLEEMode();
+```
+
+Loading an ordinary key or seed turns LEE mode off again.

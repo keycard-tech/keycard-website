@@ -7,34 +7,47 @@ title: SIGN
 
 * CLA = 0x80
 * INS = 0xC0
-* P1 = derivation options
+* P1 = 0x01
 * P2 = signing algorithm
-* Data = the hash to sign (32 bytes) | sequence of 32-bit integers (if P1=01 or P1=02)
+* Data = the hash to sign (32 bytes) | tweak (32 bytes, only if P2 = 0x03) | sequence of 32-bit integers
 * Response = signature
-* Response SW = 0x9000 on success, 0x6A80 if the data is less than 32-byte long (36 bytes if P1=01 or P1=02), 0x6A88 if P1=0x03 but no PIN-less path is defined, 0x6A81 if the algorithm specified in P2 is not supported
-* Preconditions: Secure Channel must be opened, user PIN must be verified (or a PIN-less key must be active), a valid keypair must be loaded
-
-P1:
-
-- 0x00 = Current key
-- 0x01 = Derive
-- 0x02 = Derive and make current
-- 0x03 = PIN-less path
+* Response SW = 0x9000 on success, 0x6A80 if the data is shorter than the algorithm requires, 0x6A86 if P1 or P2 are invalid, 0x6A81 if the algorithm specified in P2 is not supported
+* Preconditions: Secure Channel must be opened, user PIN must be verified, a valid keypair must be loaded
 
 P2:
 
 - 0x00: ECDSA over secp256k1
-- 0x01: EDDSA over ed25519
-- 0x02: BLS12-381
+- 0x01: EDDSA over ed25519 (reserved, not implemented)
+- 0x02: BLS12-381 (reserved, not implemented)
 - 0x03: BIP340 Schnorr
 
-note that not all implementations support all algorithms. Keycard supports only P2=0x00 at the moment.
+Note that not all implementations support all algorithms. The Keycard applet implements `P2 = 0x00` and, since 4.0, `P2 = 0x03`.
 
-Response Data format:
+P1 must be `0x01`: the key path is always taken from the data field. An empty path means the master key. Since 4.0 there is no "current key" on the card — see the version note below.
 
-- Tag 0x80 = raw signature
+## Signing data layout
 
-if P2 = 0x00 (ECDSA) the signature must include the recovery ID and thus the raw signature is encoded on 65 bytes as (r,s,recId). If calculating the recovery ID on card is too expensive the card is allowed to use the format below:
+<Table>
+    <TableHead>
+        <TableHeader>P2</TableHeader>
+        <TableHeader>Data field</TableHeader>
+    </TableHead>
+
+    <TableContent>
+        <TableRow>
+            <TableCell>0x00 (ECDSA)</TableCell>
+            <TableCell>hash (32) ‖ path</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>0x03 (Schnorr)</TableCell>
+            <TableCell>hash (32) ‖ tweak (32) ‖ path</TableCell>
+        </TableRow>
+    </TableContent>
+</Table>
+
+The hash can be produced by any algorithm, as long as it is 32 bytes long.
+
+## Response Data format
 
 - Tag 0xA0 = signature template
   - Tag 0x80 = ECC public key component
@@ -42,10 +55,24 @@ if P2 = 0x00 (ECDSA) the signature must include the recovery ID and thus the raw
     - Tag 0x02 = R value
     - Tag 0x02 = S value
 
-the client must accept either format. If receiving the signature template the you require the recovery ID, this can be calculated by applying the same algorithm used for public key recovery from a transaction starting with a recovery ID of 0. If the public key matches the one returned in the template, then you have found the recovery ID, otherwise you try again by incrementing the recovery ID.
+If calculating the recovery ID on card is too expensive the card is allowed to return the template above instead of a raw signature, in which case a client that needs the recovery ID can derive it by trying recovery IDs from 0 and checking which one recovers the public key returned in the template. Implementations that do return a recovery ID use:
 
-Returns the signature, using the scheme specified by the P2 parameter, of the given hash. The hash can be calculated using any algorithm, but must be 32-bytes long.
+- Tag 0x80 = raw signature (65 bytes: r, s, recId)
 
-P1 = 0x01 derives the path given in the data field without changing the current path of the card. P1 = 0x02 derives the path but also changes the current path of the card. The source for derivation can be set by OR'ing P1 with the constants defined in the DERIVE KEY command. This allows deriving from master, parent or current.
+A client must accept either format.
 
-P1 = 0x03 is specifically thought for POS transactions. It can be executed without Secure Channel (since no sensitive info is transmitted) and does not require PIN authentication. The current derivation path on the card remains unchanged, but the signing process is performed using the PIN-less derivation path previously defined using the SET PINLESS PATH command.
+## Schnorr signing
+
+Introduced in 4.0, `P2 = 0x03` produces a [BIP-340](https://github.com/bitcoin/bips/blob/master/bip-0340.mediawiki) signature, as used by Bitcoin Taproot. The mandatory 32-byte tweak is added to the derived private key before signing, which is what makes Taproot key-path spending possible; pass 32 zero bytes for an untweaked key.
+
+The signature is returned as:
+
+- Tag 0xA0 = signature template
+  - Tag 0x80 = ECC public key component
+  - Tag 0x88 = raw signature (64 bytes: 32-byte x-only public key, 32-byte signature)
+
+The returned public key is the tweaked one, so it is the key the signature must be verified against.
+
+## Version note
+
+Before 4.0, P1 could additionally be `0x00` (sign with the key left active by a previous **DERIVE KEY**), `0x02` (derive and make current) or `0x03` (sign with the pinless path, the one case where no secure channel and no PIN were needed). Those options are gone: **DERIVE KEY** no longer exists and neither does pinless signing, so `0x01` with an explicit path is the only form, and a secure channel plus PIN verification are always required.

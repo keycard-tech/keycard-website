@@ -5,6 +5,23 @@ title: CHANGELOG
 
 # Changelog
 
+This documents the protocol history. Applet 4.0 cards and applet 3.x cards are **both in the field and 3.x cards cannot be upgraded**, so clients must expect to meet either. See [Changes in 4.0](/developers/apdu/changes-in-4) for a migration-oriented summary, and the individual command pages for per-command `4.0` details.
+
+## Version 4.0
+* **BREAKING** Replaced the secure channel with a new, pairing-less protocol (SecureChannel v2). The **PAIR**, **UNPAIR** and **MUTUALLY AUTHENTICATE** commands are gone, as is the pairing password/secret
+* **BREAKING** Card authentication is now based on a factory-installed identity certificate, returned in the **SELECT** response. The **IDENT** command is gone
+* **BREAKING** Removed the **SET PINLESS PATH** command and pinless signing in general
+* **BREAKING** Removed the **DERIVE KEY** command. The derivation path must be carried in each **SIGN**/**EXPORT KEY** command
+* **BREAKING** Removed the Instance UID, the secure channel public key and the pairing slot count from the **SELECT** response. Added an application status byte and the identity certificate
+* **BREAKING** Removed the key path response from **GET STATUS** (`P1 = 0x01`)
+* **BREAKING** Requires JavaCard 3.0.5 and an additional `keycard-math` package installed on the card
+* Added BIP340/BIP341 Schnorr signing (Taproot compatible) with optional key tweaking, selected with **SIGN** `P2 = 0x03`
+* Added [LEE](https://github.com/logos-blockchain/logos-execution-zone) support: seeds loaded with **LOAD KEY** `P1 = 0x04` and the new **EXPORT LEE** command
+* Added the **EXPORT BIP85** command for deterministic entropy derivation
+* Added the **ECDH** command, restricted to NIP-44 and EIP-1581 paths
+* Added the **GET CHALLENGE** command to get random data from the card
+* **GET DATA** can now segment large NDEF records across multiple responses
+
 ## Version 3.2
 * Added Ephemeral pairing slot in PAIR command
 * LOAD (Seed) command can now accepts SLIP39 seeds

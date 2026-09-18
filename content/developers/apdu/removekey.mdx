@@ -13,4 +13,4 @@ title: REMOVE KEY
 * Preconditions: Secure Channel must be opened, user PIN must be verified
 * Capability: Key management
 
-Removes the key from the card, bringing it back to an uninitialized state. No signing operation is possible after this command until a new LOAD KEY command is performed.
+Removes the key from the card, bringing it back to an uninitialized state. No signing operation is possible after this command until a new LOAD KEY command is performed. Since 4.0 this also clears any [LEE](/developers/apdu/exportlee) key material and drops the card out of LEE mode.

@@ -1,0 +1,118 @@
+---
+id: apdu_changes_in_4
+title: Changes in 4.0
+---
+
+# Changes in 4.0
+
+Applet 4.0 is the largest protocol revision since 2.0. **Cards cannot be upgraded from 3.x to 4.0** — the applet is locked on shipped cards — so both versions will be in the field indefinitely and clients should support both. This page is the migration checklist; each command page documents its own version differences.
+
+## Detecting the version
+
+The applet version is the `0x02` field of the [SELECT](/developers/apdu/select) response. Version 4.0 is `0x0400`. Branch on it before doing anything else:
+
+```
+if (appVersion >= 0x0400) use SecureChannel v2 (certificate based)
+else                      use SecureChannel v1 (pairing based)
+```
+
+Everything else follows from that choice.
+
+## Breaking changes
+
+<Table>
+    <TableHead>
+        <TableHeader> </TableHeader>
+        <TableHeader>3.x</TableHeader>
+        <TableHeader>4.0</TableHeader>
+    </TableHead>
+
+    <TableContent>
+        <TableRow>
+            <TableCell>Channel establishment</TableCell>
+            <TableCell>[PAIR](/developers/apdu/pair) → OPEN SECURE CHANNEL → [MUTUALLY AUTHENTICATE](/developers/apdu/mutuallyauthenticate)</TableCell>
+            <TableCell>[OPEN SECURE CHANNEL](/developers/apdu/opensecurechannel) only</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Card authentication</TableCell>
+            <TableCell>pairing cryptograms</TableCell>
+            <TableCell>factory certificate + transcript signature</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Client state to persist</TableCell>
+            <TableCell>pairing secret, per card</TableCell>
+            <TableCell>nothing</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Credentials at INIT</TableCell>
+            <TableCell>PIN, PUK, pairing password</TableCell>
+            <TableCell>PIN, PUK</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Command transport</TableCell>
+            <TableCell>only the data field encrypted, per-command INS</TableCell>
+            <TableCell>whole APDU encrypted, wrapped in [SECURED APDU](/developers/apdu/securedapdu)</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Card identity check</TableCell>
+            <TableCell>[IDENT](/developers/apdu/ident) command</TableCell>
+            <TableCell>certificate in the SELECT response</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Current key path</TableCell>
+            <TableCell>set by [DERIVE KEY](/developers/apdu/derivekey), read with GET STATUS</TableCell>
+            <TableCell>no such state; every command carries its path</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Pinless signing</TableCell>
+            <TableCell>[SET PINLESS PATH](/developers/apdu/setpinlesspath)</TableCell>
+            <TableCell>removed</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>SELECT response</TableCell>
+            <TableCell>Instance UID, channel public key, pairing slots</TableCell>
+            <TableCell>status byte, identity certificate</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Unsigned commands</TableCell>
+            <TableCell>SELECT, OPEN SC, FACTORY RESET, GET DATA, pinless SIGN</TableCell>
+            <TableCell>SELECT, OPEN SC, FACTORY RESET</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Platform</TableCell>
+            <TableCell>JavaCard 3.0.4+</TableCell>
+            <TableCell>JavaCard 3.0.5 + `keycard-math` package</TableCell>
+        </TableRow>
+    </TableContent>
+</Table>
+
+## What clients must do
+
+**Drop pairing entirely for 4.0 cards.** There is no pairing password, no pairing index, no pairing slot to store or clean up. Any "pair this card" step in an onboarding flow becomes a no-op on 4.0, and any persisted pairing record is dead weight for those cards.
+
+**Verify the certificate instead.** Read the 98-byte certificate from the SELECT response, recover the CA public key from its `r`/`s`/`v` fields and check it against your anchors — see [Card identity](/developers/apdu/overview#card-identity). Do this before the first INIT, when the card is still worthless to an attacker.
+
+**Always pass a path.** There is no card state to remember, which removes an entire category of "signed with the wrong key" bugs. A path of zero length means the master key.
+
+**Track state locally.** The card no longer answers "which path is active". Clients that displayed or relied on it must keep their own notion of it.
+
+**Expect everything to need a secure channel.** Notably `GET DATA` used to work unauthenticated. Only SELECT, the handshake and factory reset are still exempt.
+
+**Re-key local storage if you used the Instance UID.** It is gone. The Key UID identifies the wallet; the certificate public key identifies the card across reinstalls.
+
+## New capabilities
+
+* **Schnorr signatures** — [SIGN](/developers/apdu/sign) with `P2 = 0x03`, BIP-340/BIP-341 compatible, with optional key tweaking. Enough for Bitcoin Taproot key-path spends.
+* **ECDH** — [ECDH](/developers/apdu/ecdh) over NIP-44 and EIP-1581 subtrees, which is what Nostr encrypted DMs need.
+* **BIP-85** — [EXPORT BIP85](/developers/apdu/exportbip85) for deterministic entropy that other BIP-85 tools can reproduce from the same seed.
+* **LEE** — [LOAD KEY](/developers/apdu/loadkey) `P1 = 0x04` and [EXPORT LEE](/developers/apdu/exportlee).
+* **GET CHALLENGE** — [GET CHALLENGE](/developers/apdu/getchallenge) for card-sourced randomness.
+* **Segmented NDEF reads** — [GET DATA](/developers/apdu/getdata) with an offset.
+
+## Migration order
+
+1. Branch on the applet version after SELECT.
+2. Add the certificate verification path and the CA anchors; keep `IDENT` for 3.x.
+3. Add SecureChannel v2 next to v1, keeping v1 for older cards.
+4. Make the derivation path mandatory in your signing calls — on 3.x the same call works, it only has to keep setting the current path too.
+5. Remove any pinless-signing code paths you can, rather than version-gating them.

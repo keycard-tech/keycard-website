@@ -9,18 +9,60 @@ title: INIT
 * INS = 0xFE
 * P1 = 0x00
 * P2 = 0x00
-* Data = EC public key (LV encoded) | IV | encrypted payload
-* Response SW = 0x9000 on success, 0x6D00 if the applet is already initialized, 0x6A80 if the data is invalid
+* Data = the encrypted payload
+* Response SW = 0x9000 on success, 0x6A80 if the data is invalid, 0x6D00 if the applet is already initialized
 * Capability: Credentials management
 
-This command is only available when the applet is in pre-initialized state and successful execution brings the applet in the initialized state. This command is needed to allow securely storing secrets on the applet at a different moment and place than installation is taking place. Currently these are the PIN, PUK and pairing password.
+This command is only available when the applet is in pre-initialized state and successful execution brings the applet to the initialized state. It stores the user authentication credentials — nothing more. Creating a wallet is a separate step, done with [LOAD KEY](/developers/apdu/loadkey) or [GENERATE KEY](/developers/apdu/generatekey).
 
-The client must take the public key received after the SELECT command, generate a random keypair and perform EC-DH to generate an AES key. It must then generate a random IV and encrypt the payload using AES-CBC with ISO/IEC 9797-1 Method 2 padding.
+## Payload
 
-They payload is the concatenation of the PIN (6 digits/bytes), PUK (12 digits/bytes) and, if the Secure Channel capability is implemented, pairing secret (32 bytes).
-Additionally, since version 3.1 of the applet, the max number of PIN attempts (1 byte), the max number of PUK attempts (1 bytes) and a duress PIN (6 digits/bytes) can be specified.
-If these are not specified, the default values will be respectively, 3, 5 and the first half of the PUK.
+The payload is the concatenation of:
 
-This scheme guarantees protection against passive MITM attacks. Since the applet has no "owner" before the execution of this command, protection against active MITM cannot be provided at this stage. However since the communication happens locally (either through NFC or contacted interface) the realization of such an attack at this point is unrealistic.
+<Table>
+    <TableHead>
+        <TableHeader>Field</TableHeader>
+        <TableHeader>Size</TableHeader>
+        <TableHeader>Required</TableHeader>
+    </TableHead>
 
-After successful execution, this command cannot be executed anymore. The regular SecureChannel (with pairing) is active and PIN and PUK are initialized.
+    <TableContent>
+        <TableRow>
+            <TableCell>PIN</TableCell>
+            <TableCell>6 digits</TableCell>
+            <TableCell>yes</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>PUK</TableCell>
+            <TableCell>12 digits</TableCell>
+            <TableCell>yes</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Max PIN retries</TableCell>
+            <TableCell>1 byte</TableCell>
+            <TableCell>no, default 3</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Max PUK retries</TableCell>
+            <TableCell>1 byte</TableCell>
+            <TableCell>no, default 5</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Duress PIN</TableCell>
+            <TableCell>6 digits</TableCell>
+            <TableCell>no, defaults to the first half of the PUK</TableCell>
+        </TableRow>
+    </TableContent>
+</Table>
+
+Retry limits are validated against the ranges 2–10 for the PIN and 3–12 for the PUK. The duress PIN works as described in [VERIFY PIN](/developers/apdu/verifypin).
+
+## Transport
+
+The payload never travels in the clear. The client generates a throwaway secp256k1 key pair, performs EC-DH with the card and encrypts the payload with AES-CBC using ISO/IEC 9797-1 Method 2 padding and a random IV. The [secure channel](/developers/apdu/opensecurechannel) is then established normally.
+
+Before 4.0 the one-shot encryption key was derived from the card's ephemeral public key returned by **SELECT**; since 4.0 **SELECT** returns the identity certificate instead and the initialization payload is carried over the same secure channel used by every other command. The command is also available before the card holds a PIN, which is what makes the "is this card initialized?" check in the **SELECT** status byte useful.
+
+Since the card has no owner at this point, protection against an active MITM cannot be provided here — the scheme protects the credentials against passive eavesdropping. In practice the exchange happens locally over NFC or the contacted interface, where such an attack is unrealistic. Card authenticity at this stage is established from the certificate in the **SELECT** response, which the client should verify before sending any credential.
+
+After successful execution this command cannot be executed again.

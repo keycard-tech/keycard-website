@@ -5,6 +5,14 @@ title: UNPAIR
 
 # UNPAIR
 
+<Admonition type="caution">
+  **Removed in 4.0.** There are no pairing slots to free — nothing is persisted
+  on the card per client. Applet 3.x cards are still in the field and cannot be
+  upgraded, so clients that manage 3.x cards still need this command.
+</Admonition>
+
+## Specification (applet 3.x)
+
 * CLA = 0x80
 * INS = 0x13
 * P1 = the index to unpair

@@ -18,15 +18,17 @@ try {
 }
 ```
 
-if the PIN is wrong, you will receive an error SW in the format 0x63CX where X is the number of attempts remaining. When the number of remaining attempts is 0, the card is blocked. The user must then enter the PUK and a new PIN to restore access to the card. The maximum number of retries for the PUK is 5. To simplify things, the `APDUResponse.checkAuthOK()` method can be used to verify if the authentication was correct, and if not throw a `WrongPINException` which contains the number of remaining attempts.
+if the PIN is wrong, you will receive an error SW in the format 0x63CX where X is the number of attempts remaining. When the number of remaining attempts is 0, the card is blocked. The user must then enter the PUK and a new PIN to restore access to the card. To simplify things, the `APDUResponse.checkAuthOK()` method can be used to verify if the authentication was correct, and if not throw a `WrongPINException` which contains the number of remaining attempts.
 
 ```java
 cmdSet.unblockPIN(puk, newPIN).checkAuthOK();
 ```
 
-## Changing credentials
+## The duress PIN
 
-All credentials of the Keycard can be changed (PIN, PUK, pairing password). Changing the pairing password does not invalidate existing pairings, but applies to the ones which can be created in the future. Changing credentials, requires user authentication.
+The duress PIN is verified through the same call. Both PINs are accepted and the response is identical either way — that is the point. What differs is the wallet the session sees: authenticating with the duress PIN switches the derivation chain, so the same BIP-32 paths yield a different set of keys. If your application caches addresses per path, it must not assume a session that authenticated with a duress PIN is looking at the same wallet.
+
+## Changing credentials
 
 ```java
 // Changes the user PIN
@@ -34,7 +36,11 @@ cmdSet.changePIN("123456").checkOK();
 
 // Changes the PUK
 cmdSet.changePUK("123456123456").checkOK();
-
-// Changes the pairing password
-cmdSet.changePairingPassword("my pairing password").checkOK();
 ```
+
+To change the duress PIN, authenticate with the duress PIN first and then call `changePIN` with the new value — the card replaces whichever PIN is currently authenticated.
+
+<Admonition type="note">
+  `changePairingPassword` only applies to applet 3.x cards, where pairing still
+  exists. On 4.0 it has nothing to change and the card rejects the command.
+</Admonition>

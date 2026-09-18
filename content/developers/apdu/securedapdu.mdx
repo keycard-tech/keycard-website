@@ -1,0 +1,49 @@
+---
+id: apdu_securedapdu
+title: SECURED APDU
+---
+
+# SECURED APDU
+
+* CLA = 0x80
+* INS = 0x18
+* P1 = 0x00
+* P2 = 0x00
+* Data = an AES-128-CCM encrypted APDU, followed by the 8-byte authentication tag
+* Response Data = an AES-128-CCM encrypted response, followed by the 8-byte authentication tag
+* Response SW = 0x9000 on success, 0x6982 if the authentication tag is invalid
+* Capability: Secure Channel
+
+Introduced in 4.0, this is the transport for every command once a SecureChannel v2 session is open. The command itself — **VERIFY PIN**, **SIGN**, and all the others — is a normal Keycard APDU, but it is encrypted in full and sent as the data field of a SECURED APDU instead of being sent directly.
+
+## Wire format
+
+```
+C-APDU: 80 18 00 00 LC' || Ciphertext || Tag(8)
+R-APDU:                                              Ciphertext || Tag(8) || SW
+```
+
+The plaintext of the command is the complete inner APDU, header included:
+
+```
+CLA || INS || P1 || P2 || LC || Data
+```
+
+The plaintext of the response is the response data followed by the two-byte status word of the inner command. Because the wrapper always answers `0x9000`, clients must read the real status word from the last two bytes of the decrypted payload.
+
+Nothing is passed as CCM additional authenticated data: the inner header is encrypted rather than authenticated in the clear, so command type, parameters and status word are all hidden from a passive observer.
+
+## Session state
+
+A single 13-byte counter is shared by both directions and starts at zero after each handshake. A command and the reply to it use the same counter value, then it is incremented; the two independent direction keys keep the `(key, nonce)` pairs unique. Out-of-order messages fail tag verification, so the channel is strictly request/response. A tag failure or a counter overflow resets the session and requires a fresh [OPEN SECURE CHANNEL](/developers/apdu/opensecurechannel).
+
+The inner APDU is limited to 247 bytes of plaintext and the response to 245 bytes, so commands carrying large payloads — a seed import, an NDEF record — must be split by the client.
+
+<Admonition type="note">
+  SDKs handle this transport transparently: you build the logical command and the
+  SDK wraps, encrypts and unwraps it.
+</Admonition>
+
+## Version note
+
+SecureChannel v1 had no equivalent command. On applet versions below 4.0 each command keeps its own instruction byte and only its data field is encrypted. See [Secure Channel v1 (legacy)](/developers/apdu/opensecurechannel#secure-channel-v1-legacy).

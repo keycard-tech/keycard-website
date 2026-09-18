@@ -16,20 +16,32 @@ allprojects {
 }
 ```
 
-Then, you must import the correct dependency. In case you are building an Android-based project, you need to add this line
+Then you must import the correct dependency. On the desktop (a USB reader via `javax.smartcardio`):
 
 ```groovy
 dependencies {
-  implementation 'com.github.status-im.status-keycard-java:android:3.0.2'
+  implementation 'com.github.keycard-tech.status-keycard-java:desktop:4.0.0'
 }
 ```
 
-If you are working on the desktop, then you need this line instead
+On Android, depend on the platform-neutral module and wire the NFC transport yourself:
 
 ```groovy
 dependencies {
-  implementation 'com.github.status-im.status-keycard-java:desktop:3.0.2'
+  implementation 'com.github.keycard-tech.status-keycard-java:lib:4.0.0'
 }
 ```
 
-In both case, you will have the same SDK, except for the way connection with the card is established.
+`lib` contains the whole protocol — command sets, secure channel, parsing — and depends on nothing but BouncyCastle. You implement `im.status.keycard.io.CardChannel` over your `IsoDep` connection and pass it to `KeycardCommandSet`.
+
+<Admonition type="caution">
+  Version 4.0.0 of the SDK is the first that speaks the applet 4.0 secure
+  channel, and it still supports 3.x cards. Earlier 3.x releases cannot talk to a
+  4.0 card at all.
+
+  Two things changed alongside the protocol. The JitPack coordinates moved from
+  `com.github.status-im.*` to `com.github.keycard-tech.*` when the repository
+  moved; the old coordinates only resolve to the old releases. And the packaged
+  Android NFC helpers are not part of the 4.0.0 publication, which is why
+  Android builds take `lib` — see [Card Connection](/developers/sdk/connection).
+</Admonition>

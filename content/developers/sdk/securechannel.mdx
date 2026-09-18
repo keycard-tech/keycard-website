@@ -5,54 +5,72 @@ title: Secure Channel
 
 # Secure Channel
 
-Communication with the card happens over a Secure Channel to protect sensitive information being transmitted. The Secure Channel relies on a pairing mechanism for mutual authentication.
+Communication with the card happens over a Secure Channel. Since applet 4.0 the channel is authenticated by a certificate the card is programmed with at the factory, so there is nothing to pair and nothing to persist. The SDK picks the protocol version automatically from the applet version reported at selection, so the same code works with 4.0 and 3.x cards.
 
-## Verifying card genuinity
-Although this step is optional, it is highly recommended to verify that the applet on card is genuine. It is necessary to do this only once before pairing with the card. You can do this with
+## Card authenticity
 
-```java
-// challenge is a random 256-bit (32-bytes) challenge
-byte[] authData = cmdSet.identifyCard(challenge).checkOK().getData();
-// returns null if invalid or the public key of the signing authority/
-byte[] pubKey = Certificate.verifyIdentity(challenge, authData);
-```
+The card proves its identity with a 98-byte certificate returned in the **SELECT** response. The SDK verifies it during the handshake and throws if it does not check out — you do not call anything explicitly, you only have to tell the SDK which certification authorities you trust.
 
-You must verify that the public key returned by ```Certificate.verifyIdentity``` is that of a certification authority you trust.
-
-## Pairing
-
-Clients wishing to communicate with the card, need to pair with it first. This allows creating secure channels resistant not only to passive but also to active MITM attacks. Although pairing allows the card and the client to authenticate each other, the card does not grant access to any operation with the wallet until the user is authenticated (by verifying its PIN). To establish the pairing, the client needs to know the pairing password. After it is established, the pairing info (not the password) must be stored as securely as possible on the client for subsequent sessions. You should store the pairing information together with the instance UID to simplify handling of multiple cards.
-
-Only 10 clients can be permanently paired at once, but it is possible to unpair previously paired clients. Most importantly, an ephemeral pairing slot is available for one-time interactions with the card.
-
-Using the SDK, pairing is a simple operation
+The default constructor trusts the Keycard production CA, which is the right choice for almost every integration. Pass your own anchors when you also need to accept test cards:
 
 ```java
-// pairingPassword is usually provided by the user. This method throws an exception if pairing fails.
-cmdSet.autoPair(pairingPassword);
-// Retrieves the pairing object from the command set. This is what must be persisted (together with the instance UID)
-Pairing pairing = cmdSet.getPairing();
-// The pairing object can be serialized by calling
-pairing.toByteArray();
-// or the convenience method
-pairing.toBase64();
+// Production cards only — this is the default
+KeycardCommandSet cmdSet = new KeycardCommandSet(cardChannel);
+
+// Production cards plus cards from the Keycard test CA
+KeycardCommandSet cmdSet = new KeycardCommandSet(cardChannel, Arrays.asList(
+    KeycardCommandSet.DEFAULT_CA_PUBLIC_KEY,
+    TEST_CA_PUBLIC_KEY));
 ```
 
-If you have already paired, you should instead load the persisted pairing information in the command set
+<Table>
+    <TableHead>
+        <TableHeader>CA</TableHeader>
+        <TableHeader>Compressed secp256k1 public key (33 bytes, hex)</TableHeader>
+    </TableHead>
+
+    <TableContent>
+        <TableRow>
+            <TableCell>Keycard production</TableCell>
+            <TableCell>`029a9b9ee1e7a71bdf45b3f9c58c99866ff1294d2c1e304e228a86e10c3343501c`</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Keycard test cards</TableCell>
+            <TableCell>`025877220aaae6e54a6f974602d5995c0fe24a3ea7ddabd8644bec795b9da00743`</TableCell>
+        </TableRow>
+    </TableContent>
+</Table>
+
+A card built by yourself carries no certificate, or one from a CA you did not add. Rather than adding its CA you can pin the card identity directly, which is usually what you want in a lab:
 
 ```java
-// serializedPairing can be either the byte array or base64 string representation
-Pairing pairing = new Pairing(serializedPairing);
-// Sets the pairing info in the command set. This must be done before further operation is possible
-cmdSet.setPairing(pairing);
+KeycardCommandSet cmdSet = new KeycardCommandSet(
+    cardChannel,
+    Collections.emptyList(),
+    Arrays.asList(trustedCardPublicKey)); // compressed, 33 bytes
 ```
+
+Once a card has been accepted, the SDK pins its identity for the rest of the session, so a substituted card mid-session is rejected.
 
 ## Opening the Secure Channel
 
-After a pairing has been established, a secure channel can be opened. Before opening a secure channel, the card won't allow sending any command. This guarantees secrecy, integrity and authenticity of the commands. Opening a secure channel must be performed every time the applet is selected (this means also after a power loss). After opening it, the SDK handles the secure channel transparently, encrypting and signing all command APDUs and decrypting and verifying the signature of all responses. To open a secure channel all you need to do is
+A session must be opened every time the applet is selected — including after the card leaves the field, since the card forgets the session when it is deselected. After that the SDK handles the channel transparently, encrypting commands and decrypting responses.
 
 ```java
 cmdSet.autoOpenSecureChannel();
 ```
 
+That is the whole call. There is no pairing step before it and no return value to store.
 
+## Persisting nothing
+
+Earlier versions required each client to pair with each card and keep the resulting pairing secret. That is gone on 4.0: no `autoPair`, no `setPairing`, no pairing password, and nothing to write to secure storage. Code that still carries a pairing record for a 4.0 card can delete it.
+
+<Admonition type="note">
+  When the SDK selects a card running applet 3.x it transparently falls back to
+  the previous protocol, which does need a pairing. If you still support those
+  cards, keep the pairing code path and call `autoPair` only when
+  `cmdSet.getApplicationInfo().getAppVersion() < 0x0400`. The underlying
+  differences are described in
+  [Secure Channel v1 (legacy)](/developers/apdu/opensecurechannel#secure-channel-v1-legacy).
+</Admonition>
