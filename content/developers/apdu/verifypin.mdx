@@ -16,4 +16,8 @@ title: VERIFY PIN
 
 Used to verify the user PIN. On correct PIN entry the card returns 0x9000, the retry counter is reset and the PIN is marked as authenticated for the entire session (until the application is deselected or the card reset/teared). On error, the number of remaining retries is decreased and the SW 0x63CX, where X is the number of available retries is returned. When the number of remaining retries reaches 0 the PIN is blocked. When the PIN is blocked this command always returns 0x63C0, even if the PIN is inserted correctly.
 
-After a successful VERIFY PIN, subsequent key derivation, export, and signing commands operate on the wallet view associated with the verified PIN (regular or duress).
+## Duress PIN
+
+Both the regular PIN and the duress PIN are accepted by this command and nothing in the response reveals which one was used. What changes is the key material the rest of the session operates on: authenticating with the duress PIN switches the active chain code, so the same BIP-32 paths deterministically yield a different set of keys and addresses. The session in progress is the only signal a client has of which wallet view is active.
+
+Since 4.0 the duress chain code also drives the LEE keytree, so a card in [LEE mode](/developers/apdu/exportlee) presents a different LEE key set under the duress PIN as well.

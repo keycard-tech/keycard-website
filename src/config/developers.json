@@ -53,12 +53,16 @@
         "link": "/developers/sdk/derivation_sign"
       },
       {
-        "title": "Pinless Signing",
-        "link": "/developers/sdk/pinless"
-      },
-      {
         "title": "Exporting Keys",
         "link": "/developers/sdk/export"
+      },
+      {
+        "title": "Removed in 4.0",
+        "subItems": []
+      },
+      {
+        "title": "Pinless Signing",
+        "link": "/developers/sdk/pinless"
       },
       {
         "title": "Cash Applet",
@@ -79,6 +83,10 @@
         "link": "/developers/apdu/changelog"
       },
       {
+        "title": "Changes in 4.0",
+        "link": "/developers/apdu/changes-in-4"
+      },
+      {
         "title": "SELECT",
         "link": "/developers/apdu/select"
       },
@@ -87,28 +95,20 @@
         "link": "/developers/apdu/init"
       },
       {
-        "title": "IDENT",
-        "link": "/developers/apdu/ident"
-      },
-      {
         "title": "OPEN SECURE CHANNEL",
         "link": "/developers/apdu/opensecurechannel"
       },
       {
-        "title": "MUTUALLY AUTHENTICATE",
-        "link": "/developers/apdu/mutuallyauthenticate"
-      },
-      {
-        "title": "PAIR",
-        "link": "/developers/apdu/pair"
-      },
-      {
-        "title": "UNPAIR",
-        "link": "/developers/apdu/unpair"
+        "title": "SECURED APDU",
+        "link": "/developers/apdu/securedapdu"
       },
       {
         "title": "GET STATUS",
         "link": "/developers/apdu/getstatus"
+      },
+      {
+        "title": "GET CHALLENGE",
+        "link": "/developers/apdu/getchallenge"
       },
       {
         "title": "VERIFY PIN",
@@ -127,10 +127,6 @@
         "link": "/developers/apdu/loadkey"
       },
       {
-        "title": "DERIVE KEY",
-        "link": "/developers/apdu/derivekey"
-      },
-      {
         "title": "GENERATE MNEMONIC",
         "link": "/developers/apdu/generatemnemonic"
       },
@@ -147,12 +143,20 @@
         "link": "/developers/apdu/sign"
       },
       {
-        "title": "SET PINLESS PATH",
-        "link": "/developers/apdu/setpinlesspath"
-      },
-      {
         "title": "EXPORT KEY",
         "link": "/developers/apdu/exportkey"
+      },
+      {
+        "title": "EXPORT LEE",
+        "link": "/developers/apdu/exportlee"
+      },
+      {
+        "title": "EXPORT BIP85",
+        "link": "/developers/apdu/exportbip85"
+      },
+      {
+        "title": "ECDH",
+        "link": "/developers/apdu/ecdh"
       },
       {
         "title": "STORE DATA",
@@ -165,6 +169,34 @@
       {
         "title": "FACTORY RESET",
         "link": "/developers/apdu/factoryreset"
+      },
+      {
+        "title": "Removed in 4.0",
+        "subItems": []
+      },
+      {
+        "title": "DERIVE KEY",
+        "link": "/developers/apdu/derivekey"
+      },
+      {
+        "title": "SET PINLESS PATH",
+        "link": "/developers/apdu/setpinlesspath"
+      },
+      {
+        "title": "PAIR",
+        "link": "/developers/apdu/pair"
+      },
+      {
+        "title": "UNPAIR",
+        "link": "/developers/apdu/unpair"
+      },
+      {
+        "title": "MUTUALLY AUTHENTICATE",
+        "link": "/developers/apdu/mutuallyauthenticate"
+      },
+      {
+        "title": "IDENT",
+        "link": "/developers/apdu/ident"
       }
     ]
   },

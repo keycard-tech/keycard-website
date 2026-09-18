@@ -1,0 +1,28 @@
+---
+id: apdu_exportlee
+title: EXPORT LEE
+---
+
+# EXPORT LEE
+
+* CLA = 0x80
+* INS = 0xC3
+* P1 = ignored
+* P2 = 0x00
+* Data = a sequence of 32-bit integers (most significant byte first). Empty for the master key.
+* Response Data = LEE key template
+* Response SW = 0x9000 on success, 0x6985 if the card is not in LEE mode or the PIN is not verified
+* Preconditions: Secure Channel must be opened, user PIN must be verified, a LEE seed must be loaded
+
+Introduced in 4.0 alongside [LEE](https://github.com/logos-blockchain/logos-execution-zone) support. A card enters LEE mode when a seed is loaded with [LOAD KEY](/developers/apdu/loadkey) `P1 = 0x04`, which derives a second, independent keychain alongside the BIP-32 one. The mode is visible in the [SELECT](/developers/apdu/select) status byte.
+
+Response Data format:
+- Tag 0xA1 = key template
+ - Tag 0x84 = ASK (32 bytes)
+ - Tag 0x83 = NSK (32 bytes)
+ - Tag 0x85 = VSK_D (32 bytes)
+ - Tag 0x86 = VSK_Z (32 bytes)
+
+The four components are the LEE key material derived at the requested path. Exporting them requires user authentication, exactly like [EXPORT KEY](/developers/apdu/exportkey).
+
+Loading a plain BIP-32 seed (`P1 = 0x03`) clears the LEE keychain and the card leaves LEE mode.

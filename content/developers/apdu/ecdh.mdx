@@ -1,0 +1,32 @@
+---
+id: apdu_ecdh
+title: ECDH
+---
+
+# ECDH
+
+* CLA = 0x80
+* INS = 0xC5
+* P1 = 0x01
+* P2 = 0x00
+* Data = a peer ECC public key (65 bytes, uncompressed point: `0x04 || X || Y`) followed by a sequence of 32-bit integers (most significant byte first)
+* Response Data = the 32-byte X coordinate of the ECDH shared secret
+* Response SW = 0x9000 on success, 0x6A80 if the data is malformed or the point is not on the curve, 0x6A86 if P1 or P2 are invalid
+* Preconditions: Secure Channel must be opened, user PIN must be verified, a valid keypair must be loaded
+
+Introduced in 4.0, this command performs an EC-DH key agreement between the key derived at the given path and the peer public key, without ever exposing the private key.
+
+## Path restriction
+
+Derivation is refused unless the path belongs to one of the two agreed subtrees, at a depth of at least 5 components:
+
+| Subtree | Prefix | Used by |
+| --- | --- | --- |
+| NIP-44 | `m/44'/1237'/…` | Nostr encrypted direct messages |
+| EIP-1581 | `m/43'/60'/1581'/…` | Keycard agreed-secret subtree |
+
+Any other path returns SW 0x6985. This mirrors the rule [EXPORT KEY](/developers/apdu/exportkey) applies to private key export: the transaction-signing subtree is never usable for key agreement.
+
+## Interpreting the result
+
+The returned value is a **raw shared secret**, not an encryption key. Protocols are expected to run it through their own key derivation function host-side — NIP-44, for example, applies HKDF-extract with the salt `"nip44-v2"`.

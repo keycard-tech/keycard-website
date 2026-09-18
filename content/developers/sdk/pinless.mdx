@@ -5,24 +5,40 @@ title: Pinless signing
 
 # Pinless signing
 
-The card offers the option to define a BIP32 path which can be used to sign transactions (or meta-transactions) without requiring a PIN. The **SIGN** command also has the option to sign with this pinless path (if defined) without having to know its value in advance. Since in such a scenario no sensitive data is being transferred, signing using the pinless path can be done without opening a Secure Channel.
+<Admonition type="caution">
+  **Removed in 4.0.** Every signature now requires a verified PIN over an open
+  secure channel. Applet 3.x cards are still in the field and cannot be
+  upgraded, so this page stays for clients that must support them — but do not
+  build new features on pinless signing.
+</Admonition>
 
-There are several scenarios made possible by this feature. One example, is the ability to use the card for payments at POS terminals. Pairing with every terminal is not practical and inserting the PIN on an untrusted device (the terminal is owned by a 3rd party) is not safe, since it could be logged. Pinless signing with no Secure Channel solves both issues.
+## Why it was removed
 
-Since the wallet assigned to pinless signing is basically unprotected, it must not hold great value. One option is to consider the funds in that account like pocket cash. You put a little of your favourite cryptocurrency and should someone get hold of the card, you lost maybe the equivalent of $5. Another option, valid when using Ethereum, is to not hold any value in that wallet at all. Instead it can be used to sign meta-transactions and actual fund allocation can be handled by a smart contract through a dApp. Of course in this case the POS must be compatible with the specific payment scheme for this to work properly.
+The feature let a card sign with one fixed BIP-32 path with no PIN and no secure channel, on the theory that the wallet assigned to it holds only pocket money. In practice that assumption was hard to enforce: whoever got hold of a card could drain that path forever, with no way for the owner to notice, and the "just pocket money" path was set by a different piece of software than the one spending from it.
 
-## Defining a pinless path
+The payment flows it was designed for are better served by a [Keycard Shell](/developers/diy-keycard-shell), where each signature is confirmed on the device's own screen — which bounds the damage the same way, without trusting the host.
 
-Defining which path is used for pinless signing, of course, requires PIN authentication and thus a Secure Channel. This means that only the owner can define which wallet is allocated for this operation. Then SDK call to set the pinless path is
+## Specification (applet 3.x)
+
+Signing using the pinless path can be done without opening a Secure Channel. Since in such a scenario no sensitive data is being transferred, the reasoning was that neither encryption nor authentication was needed.
+
+### Defining a pinless path
+
+Defining which path is used for pinless signing requires PIN authentication and thus a Secure Channel. This means only the owner can define which wallet is allocated for this operation. The SDK call is
 
 ```java
 cmdSet.setPinlessPath("m/44'/0'/0'/0/200").checkOK();
 ```
 
-## Signing with pinless path
+### Signing with pinless path
 
-When a pinless path is defined, a wallet (or POS terminal, or whatever) can invoke the `signPinless` method without having to know the path. If no pinless path was defined, the Status Word 0x6A88 will be returned. As mentioned before, opening a Secure Channel and authenticating with PIN before sending this command is allowed but not necessary.
+When a pinless path is defined, a wallet (or POS terminal) can invoke `signPinless` without knowing the path. If no pinless path was defined, the Status Word 0x6A88 is returned. Opening a Secure Channel and authenticating with the PIN before sending this command is allowed but not necessary.
 
 ```java
 cmdSet.signPinless(hashToSign).checkOK();
 ```
+
+### Alternatives on 4.0
+
+* For unattended signing where the service must not hold the key, use a Shell and its on-device confirmation step.
+* Where a device genuinely cannot prompt for a PIN, keep the value in the account low and treat the path as public — the same advice applied here before, but the card no longer pretends to enforce it.

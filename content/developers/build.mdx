@@ -7,7 +7,7 @@ title: Build Your Own Keycard
 
 If you have a blank JavaCard 3.0.5+ card (readily available for purchase on the web) you can build your own Keycard. This is especially useful for developers who want to contribute to the project and/or experiment with it.
 
-Please note that cards built this way will miss the certificate that is present on cards we distribute. This doesn't affect functionality in any way but will cause a warning to appear when using the card with Shell or another Keycard compatible wallet for the first time. Since you built the card yourself you can safely dismiss this warning.
+Please note that cards built this way will not carry a certificate from the Keycard certification authority. Since applet 4.0 the applet refuses every command until an identity is provisioned, so you must load a self-signed or test certificate before the card will respond — see [Provisioning an identity](#provisioning-an-identity). Wallets will also warn that the card is not from a CA they trust; for a card you built yourself you can safely pin its identity instead.
 
 ## Compiling and installing from source
 
@@ -17,7 +17,7 @@ Compiling and installing from source is probably the best way to proceed, since 
 
 - Linux, Windows or Mac computer
 - OpenJDK 11 (this specific version is required — newer JDKs are not compatible with the JavaCard build tools)
-- A Javacard 3.0.5+ smartcard with T=1 and SCP02 support. Cards of the JCOP4 family are known to work well. We sell and ship this type of keycards for developers on [our shop](https://keycard.tech/products/keycard-for-developers). For detailed requirements about the card, we recommend to check this[readme.me](https://.com/keycard-tech/status-keycard/blob/master/README.md#what-kind-of-smartcards-can-i-use) in keycard github repository.
+- A Javacard 3.0.5+ smartcard with T=1 and SCP02 support. Cards of the JCOP4 family are known to work well. We sell and ship this type of keycards for developers on [our shop](https://keycard.tech/products/keycard-for-developers). For detailed requirements about the card, we recommend to check the [card requirements](https://github.com/keycard-tech/status-keycard#what-kind-of-smartcards-can-i-use) in the keycard github repository.
 - A standard PCSC smartcard reader
 
 ### Setting up OpenJDK 11
@@ -54,9 +54,23 @@ Download and install OpenJDK 11 from [Adoptium](https://adoptium.net/temurin/rel
 5. Build and install the applet:
    - macOS / Linux: `./gradlew install`
    - Windows: `gradlew.bat install`
-6. When you see `BUILD SUCCESSFUL`, your card is ready to be used with Keycard Shell or any wallet supporting Keycard.
+6. When you see `BUILD SUCCESSFUL`, the applets are installed. The install task loads both the `keycard-math` support package (required since 4.0) and the Keycard package, then installs the Keycard, NDEF, Cash and Ident applets.
+7. [Provision an identity](#provisioning-an-identity) before initializing the card, otherwise every command is rejected.
 
 This assume that the smartcard you are using uses the default GlobalPlatform keys (true for most cards sold online) or the Keycard development keys (if you bought a development card from us). In case you already played with the card and changed the ISD keys yourself, follow the below step. 
+
+### Provisioning an identity
+
+Since 4.0 the Keycard applet will not answer anything — not even SELECT — until a valid identity certificate has been loaded, because the secure channel authenticates the card with that key. The [Keycard CLI](https://github.com/keycard-tech/keycard-cli) does this for you:
+
+```bash
+# Generate a random identity and a certificate from the test CA, then load it
+keycard load-ident --test
+```
+
+This is fine for development. The card then works with the CLI and SDKs when they are told to trust the test CA, and with wallets when they are given the card identity to pin. For a card you intend to use for real, generate the certificate under your own CA and load it with `keycard load-ident --hex`, and make sure the CA public key is the one your clients trust.
+
+Cards bought from us already carry a production identity and need none of this.
 
 ### Alternative installations steps
 

@@ -11,6 +11,13 @@ Before you can send commands to the Keycard, you must first connect to the card.
 
 On Android, the NFC connection handling must happen on a thread separate from the UI thread. The SDK provides the class `NFCCardManager` to handle this. This an example activity starting the NFC reader and handling the connection to the card. Refer to the comments in the example for more information.
 
+<Admonition type="note">
+  `NFCCardManager` ships with the 3.x `android` artifact. That module is not
+  published for SDK 4.0.0, so on current versions you implement
+  `im.status.keycard.io.CardChannel` over your own `IsoDep` connection — the
+  listener pattern below is still the shape to aim for.
+</Admonition>
+
 ```java
 public class MainActivity extends AppCompatActivity {
   private NfcAdapter nfcAdapter;

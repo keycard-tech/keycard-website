@@ -8,9 +8,15 @@ title: GET DATA
 * CLA = 0x80
 * INS = 0xCA
 * P1 = 0x00 for public data, 0x01 for NDEF data, 0x02 for Cash data
-* P2 = 0x00
-* Response SW = 0x9000 on success, 0x6A86 on undefined P1
-* Response Data = the data as previously stored by STORE DATA command
+* P2 = byte offset divided by 4, only used for NDEF data
+* Response SW = 0x9000 on success, 0x6A86 on undefined P1 or if the offset is past the end of the data
+* Response Data = the data as previously stored by the STORE DATA command
 * Capabilities: NDEF for P1 = 0x01
 
-Notably, this command does not require an open secure channel
+Reading NDEF records is segmented, since a record can be up to 512 bytes and a secure channel response carries at most 245. `P2` is the offset in 4-byte words, so valid values are multiples of 4 in the underlying byte offset. The card returns as much as fits, at most a multiple of 4 bytes; the client keeps requesting the next segment until the returned length is shorter than requested. Passing an offset at or past the end of the record returns 0x6A86.
+
+Public and Cash data are small enough to always fit in one response and ignore `P2`.
+
+## Version note
+
+Since 4.0 every command except [SELECT](/developers/apdu/select), the secure channel handshake and [FACTORY RESET](/developers/apdu/factoryreset) travels inside a secure channel, so this command now requires one. Before 4.0 it could be read unauthenticated, which is what allowed a phone to read the NDEF record without a session.

@@ -145,6 +145,11 @@ const LEGACY_TESTS = [
     to: '/en/help/understand-the-slip-39-wallet-backup-standard',
   },
   {
+    // Pairing no longer exists on applet 4.0; the article was removed.
+    from: '/en/help/change-pairing-password',
+    to: '/en/help/about-keycard-and-keycard-shell',
+  },
+  {
     from: '/docs/apdu/opensecurechannel.html?ref=our.status.im',
     to: '/en/developers/apdu/opensecurechannel?ref=our.status.im',
   },

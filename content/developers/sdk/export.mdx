@@ -8,46 +8,54 @@ title: Exporting Keys
 
 Sorry for the long title, but let's make it immediately clear: the keys used to sign transactions never leave the card and cannot be exported. You can however export any public key as well as the private key of keypaths defined in the [EIP-1581 specifications](https://eips.ethereum.org/EIPS/eip-1581). Those keys, by design, are not to be used for transactions but are instead usable for operations with lower security concerns where caching or storing the key outside the card might be beneficial from an UX point of view. Of course, exporting a key always requires user authentication.
 
-## Exporting the current key
-
-```java
-// Exports the current public key. This is allowed for any key path
-BIP32KeyPair publicKey = BIP32KeyPair.fromTLV(cmdSet.exportCurrentKey(KeycardCommandSet.EXPORT_KEY_P2_PUBLIC_ONLY).checkOK().getData());
-
-// Exports the entire key pair. This is only allowed for key path following the EIP-1581 definition
-BIP32KeyPair keypair = BIP32KeyPair.fromTLV(cmdSet.exportCurrentKey(KeycardCommandSet.EXPORT_KEY_P2_PRIVATE_AND_PUBLIC).checkOK().getData());
-```
-
 ## Derive & export
 
-The export command is very powerful, since it allows you to derive & export a key in one step. You have the option to make the derived and exported key active or leave the active key untouched. You can also decide whether to export only the public key or the entire keypair (following the rules defined above).
-
-A very convenient use case is deriving an account key and retrieving the public key in one step. This is faster than doing it with two commands (derive key and export public), because every command processed has some overhead. Example
+Since 4.0 there is one export call, and it always takes a path. The second argument asks the card to make the exported path the current one, which is only meaningful on 3.x cards; pass `false` and your code works on both.
 
 ```java
-// The first parameter is the keypath, the second tells whether that you want to make the derived & exported key current
+// The first parameter is the keypath, the second tells whether you want to make the derived & exported key current
 // and the third tells that you only want the public key to be exported.
-BIP32KeyPair publicKey = BIP32KeyPair.fromTLV(cmdSet.exportKey("m/44'/0'/0'/0/0", true, KeycardCommandSet.EXPORT_KEY_P2_PUBLIC_ONLY).checkOK().getData());
-
-// The line above is equivalent to
-// cmdSet.deriveKey("m/44'/0'/0'/0/0").checkOK();
-// BIP32KeyPair publicKey = BIP32KeyPair.fromTLV(cmdSet.exportCurrentKey(KeycardCommandSet.EXPORT_KEY_P2_PUBLIC_ONLY).checkOK().getData());
+BIP32KeyPair publicKey = BIP32KeyPair.fromTLV(
+    cmdSet.exportKey("m/44'/0'/0'/0/0", false, KeycardCommandSet.EXPORT_KEY_P2_PUBLIC_ONLY).checkOK().getData());
 ```
 
-Another use case, is to export keys defined by EIP-1581 without changing the current active key, since you won't be signing with the exported key using the card
+Exporting private keys is restricted to EIP-1581 paths:
 
 ```java
-// Let's assume the current active path is "m/44'/0'/0'/0/0"
-
-// The first parameter is the key path, the second tells that you do not want to make it current and the third that you
-// want the entire keypair, not only the public key
-BIP32KeyPair keypair = BIP32KeyPair.fromTLV(cmdSet.exportKey("m/43'/60'/1581'/0'/0", false, false).checkOK().getData());
-
-// At this point, the current active path would still be "m/44'/0'/0'/0/0"
+// The first parameter is the key path, the second that you do not want to make it current, the third that you want the
+// entire keypair, not only the public key
+BIP32KeyPair keypair = BIP32KeyPair.fromTLV(
+    cmdSet.exportKey("m/43'/60'/1581'/0'/0", false, KeycardCommandSet.EXPORT_KEY_P2_PRIVATE_AND_PUBLIC).checkOK().getData());
 ```
 
-For non EIP-1581 paths you can also export the extended public key, including the chain code. This allows, for non-hardened keys, to derive child public keys.
+## Extended public keys
+
+For non EIP-1581 paths you can also export the extended public key, including the chain code. This allows, for non-hardened keys, to derive child public keys on the host.
 
 ```java
-BIP32KeyPair keypair = BIP32KeyPair.fromTLV(cmdSet.exportKey("m/44'/0'/0'/0", false, KeycardCommandSet.EXPORT_KEY_P2_EXTENDED_PUBLIC).checkOK().getData());
+BIP32KeyPair keypair = BIP32KeyPair.fromTLV(
+    cmdSet.exportKey("m/44'/0'/0'/0", false, KeycardCommandSet.EXPORT_KEY_P2_EXTENDED_PUBLIC).checkOK().getData());
 ```
+
+Since 4.0 the master key cannot be exported in extended form. An extended master key lets the holder derive every non-hardened descendant of the wallet, so the card requires at least one level of hardened derivation below master.
+
+## LEE keys
+
+A card holding a LEE seed exports its LEE key material through a separate call. See [EXPORT LEE](/developers/apdu/exportlee) for the four components returned.
+
+```java
+byte[] leeKey = cmdSet.exportLEEKey("m/0'/0'").checkOK().getData();
+```
+
+## BIP-85 entropy
+
+BIP-85 entropy is deterministic: the same seed and path always produce the same bytes, and any other BIP-85 tool can reproduce them. The path must live under `m/83696968'` with every component hardened.
+
+```java
+// 32 bytes of entropy from the given BIP-85 path
+byte[] entropy = cmdSet.exportBIP85("m/83696968'/0'/0'", 32).checkOK().getData();
+```
+
+## Version note
+
+`exportCurrentKey(p2)` sends no path, which on a 3.x card means "whatever path is currently active". A 4.0 card has no active path and ignores the parameter entirely, so the same call silently exports the **master** key instead. Always pass the path explicitly with `exportKey(path, ...)` — it behaves correctly on both generations.
