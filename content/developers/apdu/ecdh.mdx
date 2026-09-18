@@ -20,10 +20,26 @@ Introduced in 4.0, this command performs an EC-DH key agreement between the key 
 
 Derivation is refused unless the path belongs to one of the two agreed subtrees, at a depth of at least 5 components:
 
-| Subtree | Prefix | Used by |
-| --- | --- | --- |
-| NIP-44 | `m/44'/1237'/…` | Nostr encrypted direct messages |
-| EIP-1581 | `m/43'/60'/1581'/…` | Keycard agreed-secret subtree |
+<Table>
+    <TableHead>
+        <TableHeader>Subtree</TableHeader>
+        <TableHeader>Prefix</TableHeader>
+        <TableHeader>Used by</TableHeader>
+    </TableHead>
+
+    <TableContent>
+        <TableRow>
+            <TableCell>NIP-44</TableCell>
+            <TableCell>`m/44'/1237'/…`</TableCell>
+            <TableCell>Nostr encrypted direct messages</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>EIP-1581</TableCell>
+            <TableCell>`m/43'/60'/1581'/…`</TableCell>
+            <TableCell>Keycard agreed-secret subtree</TableCell>
+        </TableRow>
+    </TableContent>
+</Table>
 
 Any other path returns SW 0x6985. This mirrors the rule [EXPORT KEY](/developers/apdu/exportkey) applies to private key export: the transaction-signing subtree is never usable for key agreement.
 

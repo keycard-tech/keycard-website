@@ -23,10 +23,23 @@ KeycardCommandSet cmdSet = new KeycardCommandSet(cardChannel, Arrays.asList(
     TEST_CA_PUBLIC_KEY));
 ```
 
-| CA | Compressed secp256k1 public key (33 bytes, hex) |
-| --- | --- |
-| Keycard production | `029a9b9ee1e7a71bdf45b3f9c58c99866ff1294d2c1e304e228a86e10c3343501c` |
-| Keycard test cards | `025877220aaae6e54a6f974602d5995c0fe24a3ea7ddabd8644bec795b9da00743` |
+<Table>
+    <TableHead>
+        <TableHeader>CA</TableHeader>
+        <TableHeader>Compressed secp256k1 public key (33 bytes, hex)</TableHeader>
+    </TableHead>
+
+    <TableContent>
+        <TableRow>
+            <TableCell>Keycard production</TableCell>
+            <TableCell>`029a9b9ee1e7a71bdf45b3f9c58c99866ff1294d2c1e304e228a86e10c3343501c`</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Keycard test cards</TableCell>
+            <TableCell>`025877220aaae6e54a6f974602d5995c0fe24a3ea7ddabd8644bec795b9da00743`</TableCell>
+        </TableRow>
+    </TableContent>
+</Table>
 
 A card built by yourself carries no certificate, or one from a CA you did not add. Rather than adding its CA you can pin the card identity directly, which is usually what you want in a lab:
 

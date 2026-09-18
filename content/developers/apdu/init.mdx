@@ -19,13 +19,41 @@ This command is only available when the applet is in pre-initialized state and s
 
 The payload is the concatenation of:
 
-| Field | Size | Required |
-| --- | --- | --- |
-| PIN | 6 digits | yes |
-| PUK | 12 digits | yes |
-| Max PIN retries | 1 byte | no, default 3 |
-| Max PUK retries | 1 byte | no, default 5 |
-| Duress PIN | 6 digits | no, defaults to the first half of the PUK |
+<Table>
+    <TableHead>
+        <TableHeader>Field</TableHeader>
+        <TableHeader>Size</TableHeader>
+        <TableHeader>Required</TableHeader>
+    </TableHead>
+
+    <TableContent>
+        <TableRow>
+            <TableCell>PIN</TableCell>
+            <TableCell>6 digits</TableCell>
+            <TableCell>yes</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>PUK</TableCell>
+            <TableCell>12 digits</TableCell>
+            <TableCell>yes</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Max PIN retries</TableCell>
+            <TableCell>1 byte</TableCell>
+            <TableCell>no, default 3</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Max PUK retries</TableCell>
+            <TableCell>1 byte</TableCell>
+            <TableCell>no, default 5</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Duress PIN</TableCell>
+            <TableCell>6 digits</TableCell>
+            <TableCell>no, defaults to the first half of the PUK</TableCell>
+        </TableRow>
+    </TableContent>
+</Table>
 
 Retry limits are validated against the ranges 2–10 for the PIN and 3–12 for the PUK. The duress PIN works as described in [VERIFY PIN](/developers/apdu/verifypin).
 

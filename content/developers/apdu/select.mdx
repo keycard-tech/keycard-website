@@ -39,11 +39,27 @@ The response is the Application Info template which contains:
 
 Introduced in 4.0, a single byte reports the card state in one round trip:
 
-| Bit | Meaning |
-| --- | --- |
-| 0x10 | The card is initialized (PIN and PUK are set) |
-| 0x20 | A LEE seed is loaded ([LEE](/developers/apdu/exportlee) mode) |
-| 0x0F | Remaining PIN attempts, valid only when the initialized bit is set |
+<Table>
+    <TableHead>
+        <TableHeader>Bit</TableHeader>
+        <TableHeader>Meaning</TableHeader>
+    </TableHead>
+
+    <TableContent>
+        <TableRow>
+            <TableCell>0x10</TableCell>
+            <TableCell>The card is initialized (PIN and PUK are set)</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>0x20</TableCell>
+            <TableCell>A LEE seed is loaded ([LEE](/developers/apdu/exportlee) mode)</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>0x0F</TableCell>
+            <TableCell>Remaining PIN attempts, valid only when the initialized bit is set</TableCell>
+        </TableRow>
+    </TableContent>
+</Table>
 
 Clients use the initialized bit to decide whether [INIT](/developers/apdu/init) is needed, without having to open a secure channel first.
 

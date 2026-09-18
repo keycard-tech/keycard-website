@@ -36,12 +36,31 @@ This documentation reflects version 4.0 of the applet.
 
 Every genuine Keycard holds a persistent secp256k1 key pair — the *authentikey* — loaded together with a 98-byte certificate at production time. The certificate is the concatenation of:
 
-| Field | Size |
-| --- | --- |
-| Authentikey public key, compressed | 33 bytes |
-| CA signature `r` | 32 bytes |
-| CA signature `s` | 32 bytes |
-| Recovery id `v` | 1 byte |
+<Table>
+    <TableHead>
+        <TableHeader>Field</TableHeader>
+        <TableHeader>Size</TableHeader>
+    </TableHead>
+
+    <TableContent>
+        <TableRow>
+            <TableCell>Authentikey public key, compressed</TableCell>
+            <TableCell>33 bytes</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>CA signature `r`</TableCell>
+            <TableCell>32 bytes</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>CA signature `s`</TableCell>
+            <TableCell>32 bytes</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Recovery id `v`</TableCell>
+            <TableCell>1 byte</TableCell>
+        </TableRow>
+    </TableContent>
+</Table>
 
 `r`, `s` and `v` are a CA ECDSA signature over the compressed public key. Because the recovery id is included, the client recovers the CA public key from the certificate itself and checks it against the anchors it trusts — no CA key needs to be transmitted. The certificate carries no serial number and no expiry.
 
@@ -51,10 +70,23 @@ The certificate is verified once, at the first connection, and then again on eve
 
 Known CA anchors (compressed secp256k1 public keys, 33 bytes):
 
-| CA | Public key |
-| --- | --- |
-| Keycard production | `029a9b9ee1e7a71bdf45b3f9c58c99866ff1294d2c1e304e228a86e10c3343501c` |
-| Keycard test cards | `025877220aaae6e54a6f974602d5995c0fe24a3ea7ddabd8644bec795b9da00743` |
+<Table>
+    <TableHead>
+        <TableHeader>CA</TableHeader>
+        <TableHeader>Public key</TableHeader>
+    </TableHead>
+
+    <TableContent>
+        <TableRow>
+            <TableCell>Keycard production</TableCell>
+            <TableCell>`029a9b9ee1e7a71bdf45b3f9c58c99866ff1294d2c1e304e228a86e10c3343501c`</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Keycard test cards</TableCell>
+            <TableCell>`025877220aaae6e54a6f974602d5995c0fe24a3ea7ddabd8644bec795b9da00743`</TableCell>
+        </TableRow>
+    </TableContent>
+</Table>
 
 ## Capabilities
 

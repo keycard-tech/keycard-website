@@ -20,19 +20,71 @@ Everything else follows from that choice.
 
 ## Breaking changes
 
-| | 3.x | 4.0 |
-| --- | --- | --- |
-| Channel establishment | [PAIR](/developers/apdu/pair) → OPEN SECURE CHANNEL → [MUTUALLY AUTHENTICATE](/developers/apdu/mutuallyauthenticate) | [OPEN SECURE CHANNEL](/developers/apdu/opensecurechannel) only |
-| Card authentication | pairing cryptograms | factory certificate + transcript signature |
-| Client state to persist | pairing secret, per card | nothing |
-| Credentials at INIT | PIN, PUK, pairing password | PIN, PUK |
-| Command transport | only the data field encrypted, per-command INS | whole APDU encrypted, wrapped in [SECURED APDU](/developers/apdu/securedapdu) |
-| Card identity check | [IDENT](/developers/apdu/ident) command | certificate in the SELECT response |
-| Current key path | set by [DERIVE KEY](/developers/apdu/derivekey), read with GET STATUS | no such state; every command carries its path |
-| Pinless signing | [SET PINLESS PATH](/developers/apdu/setpinlesspath) | removed |
-| SELECT response | Instance UID, channel public key, pairing slots | status byte, identity certificate |
-| Unsigned commands | SELECT, OPEN SC, FACTORY RESET, GET DATA, pinless SIGN | SELECT, OPEN SC, FACTORY RESET |
-| Platform | JavaCard 3.0.4+ | JavaCard 3.0.5 + `keycard-math` package |
+<Table>
+    <TableHead>
+        <TableHeader> </TableHeader>
+        <TableHeader>3.x</TableHeader>
+        <TableHeader>4.0</TableHeader>
+    </TableHead>
+
+    <TableContent>
+        <TableRow>
+            <TableCell>Channel establishment</TableCell>
+            <TableCell>[PAIR](/developers/apdu/pair) → OPEN SECURE CHANNEL → [MUTUALLY AUTHENTICATE](/developers/apdu/mutuallyauthenticate)</TableCell>
+            <TableCell>[OPEN SECURE CHANNEL](/developers/apdu/opensecurechannel) only</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Card authentication</TableCell>
+            <TableCell>pairing cryptograms</TableCell>
+            <TableCell>factory certificate + transcript signature</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Client state to persist</TableCell>
+            <TableCell>pairing secret, per card</TableCell>
+            <TableCell>nothing</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Credentials at INIT</TableCell>
+            <TableCell>PIN, PUK, pairing password</TableCell>
+            <TableCell>PIN, PUK</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Command transport</TableCell>
+            <TableCell>only the data field encrypted, per-command INS</TableCell>
+            <TableCell>whole APDU encrypted, wrapped in [SECURED APDU](/developers/apdu/securedapdu)</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Card identity check</TableCell>
+            <TableCell>[IDENT](/developers/apdu/ident) command</TableCell>
+            <TableCell>certificate in the SELECT response</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Current key path</TableCell>
+            <TableCell>set by [DERIVE KEY](/developers/apdu/derivekey), read with GET STATUS</TableCell>
+            <TableCell>no such state; every command carries its path</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Pinless signing</TableCell>
+            <TableCell>[SET PINLESS PATH](/developers/apdu/setpinlesspath)</TableCell>
+            <TableCell>removed</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>SELECT response</TableCell>
+            <TableCell>Instance UID, channel public key, pairing slots</TableCell>
+            <TableCell>status byte, identity certificate</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Unsigned commands</TableCell>
+            <TableCell>SELECT, OPEN SC, FACTORY RESET, GET DATA, pinless SIGN</TableCell>
+            <TableCell>SELECT, OPEN SC, FACTORY RESET</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Platform</TableCell>
+            <TableCell>JavaCard 3.0.4+</TableCell>
+            <TableCell>JavaCard 3.0.5 + `keycard-math` package</TableCell>
+        </TableRow>
+    </TableContent>
+</Table>
 
 ## What clients must do
 

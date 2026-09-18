@@ -27,10 +27,23 @@ P1 must be `0x01`: the key path is always taken from the data field. An empty pa
 
 ## Signing data layout
 
-| P2 | Data field |
-| --- | --- |
-| 0x00 (ECDSA) | hash (32) ‖ path |
-| 0x03 (Schnorr) | hash (32) ‖ tweak (32) ‖ path |
+<Table>
+    <TableHead>
+        <TableHeader>P2</TableHeader>
+        <TableHeader>Data field</TableHeader>
+    </TableHead>
+
+    <TableContent>
+        <TableRow>
+            <TableCell>0x00 (ECDSA)</TableCell>
+            <TableCell>hash (32) ‖ path</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>0x03 (Schnorr)</TableCell>
+            <TableCell>hash (32) ‖ tweak (32) ‖ path</TableCell>
+        </TableRow>
+    </TableContent>
+</Table>
 
 The hash can be produced by any algorithm, as long as it is 32 bytes long.
 
