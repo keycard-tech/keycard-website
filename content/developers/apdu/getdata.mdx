@@ -19,4 +19,4 @@ Public and Cash data are small enough to always fit in one response and ignore `
 
 ## Version note
 
-Since 4.0 every command except [SELECT](/developers/apdu/select), the secure channel handshake and [FACTORY RESET](/developers/apdu/factoryreset) travels inside a secure channel, so this command now requires one. Before 4.0 it could be read unauthenticated, which is what allowed a phone to read the NDEF record without a session.
+Since 4.0 this command requires a secure channel.

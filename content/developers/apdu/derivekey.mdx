@@ -8,10 +8,7 @@ title: DERIVE KEY
 <Admonition type="caution">
   **Removed in 4.0.** The card no longer keeps a current key path at all. Every
   [SIGN](/developers/apdu/sign) and [EXPORT KEY](/developers/apdu/exportkey)
-  carries the path it applies to, which removes the class of bugs where a
-  forgotten derivation makes a wallet sign with the wrong key. Applet 3.x cards
-  are still in the field and cannot be upgraded, so clients supporting them
-  still implement this command.
+  carries the path it applies to.
 </Admonition>
 
 ## Specification (applet 3.x)

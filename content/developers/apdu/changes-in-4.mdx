@@ -88,15 +88,13 @@ Everything else follows from that choice.
 
 ## What clients must do
 
-**Drop pairing entirely for 4.0 cards.** There is no pairing password, no pairing index, no pairing slot to store or clean up. Any "pair this card" step in an onboarding flow becomes a no-op on 4.0, and any persisted pairing record is dead weight for those cards.
+**Drop pairing entirely for 4.0 cards.** There is no pairing password, no pairing index, no pairing slot to store or clean up.
 
-**Verify the certificate instead.** Read the 98-byte certificate from the SELECT response, recover the CA public key from its `r`/`s`/`v` fields and check it against your anchors — see [Card identity](/developers/apdu/overview#card-identity). Do this before the first INIT, when the card is still worthless to an attacker.
+**Verify the certificate instead.** Read the 98-byte certificate from the SELECT response, recover the CA public key from its `r`/`s`/`v` fields and check it against your anchors — see [Card identity](/developers/apdu/overview#card-identity).
 
 **Always pass a path.** There is no card state to remember, which removes an entire category of "signed with the wrong key" bugs. A path of zero length means the master key.
 
-**Track state locally.** The card no longer answers "which path is active". Clients that displayed or relied on it must keep their own notion of it.
-
-**Expect everything to need a secure channel.** Notably `GET DATA` used to work unauthenticated. Only SELECT, the handshake and factory reset are still exempt.
+**Expect everything to need a secure channel.** Notably `GET DATA` used to work without one. Only SELECT, the handshake and factory reset are still exempt.
 
 **Re-key local storage if you used the Instance UID.** It is gone. The Key UID identifies the wallet; the certificate public key identifies the card across reinstalls.
 

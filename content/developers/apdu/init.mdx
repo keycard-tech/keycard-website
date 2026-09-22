@@ -63,6 +63,4 @@ The payload never travels in the clear. The client generates a throwaway secp256
 
 Before 4.0 the one-shot encryption key was derived from the card's ephemeral public key returned by **SELECT**; since 4.0 **SELECT** returns the identity certificate instead and the initialization payload is carried over the same secure channel used by every other command. The command is also available before the card holds a PIN, which is what makes the "is this card initialized?" check in the **SELECT** status byte useful.
 
-Since the card has no owner at this point, protection against an active MITM cannot be provided here — the scheme protects the credentials against passive eavesdropping. In practice the exchange happens locally over NFC or the contacted interface, where such an attack is unrealistic. Card authenticity at this stage is established from the certificate in the **SELECT** response, which the client should verify before sending any credential.
-
 After successful execution this command cannot be executed again.
