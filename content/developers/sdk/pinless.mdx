@@ -7,16 +7,8 @@ title: Pinless signing
 
 <Admonition type="caution">
   **Removed in 4.0.** Every signature now requires a verified PIN over an open
-  secure channel. Applet 3.x cards are still in the field and cannot be
-  upgraded, so this page stays for clients that must support them — but do not
-  build new features on pinless signing.
+  secure channel.
 </Admonition>
-
-## Why it was removed
-
-The feature let a card sign with one fixed BIP-32 path with no PIN and no secure channel, on the theory that the wallet assigned to it holds only pocket money. In practice that assumption was hard to enforce: whoever got hold of a card could drain that path forever, with no way for the owner to notice, and the "just pocket money" path was set by a different piece of software than the one spending from it.
-
-The payment flows it was designed for are better served by a [Keycard Shell](/developers/diy-keycard-shell), where each signature is confirmed on the device's own screen — which bounds the damage the same way, without trusting the host.
 
 ## Specification (applet 3.x)
 
