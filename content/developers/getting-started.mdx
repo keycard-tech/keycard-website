@@ -9,20 +9,28 @@ This guide gets you from a blank card to a working development setup: initializi
 
 <Admonition type="tip">
   Before integrating, skim [Core Concepts](/developers/core) for the card
-  lifecycle and credentials model (PIN, PUK, pairing). Once your card is set
-  up, continue with the [Keycard SDK](/developers/sdk) — or the [Keycard
-  API](/developers/apdu) if you're implementing the protocol directly.
+  lifecycle and credentials model (PIN, PUK, the identity certificate). Once
+  your card is set up, continue with the [Keycard SDK](/developers/sdk) — or the
+  [Keycard API](/developers/apdu) if you're implementing the protocol directly.
+  If you are migrating from an older integration, read
+  [Changes in 4.0](/developers/apdu/changes-in-4) first.
 </Admonition>
 
 ## Getting Started with Keycard
 
-For developers, the recommended path is [Keycard CLI](https://github.com/keycard-tech/keycard-cli) with a USB reader: it exposes every applet command, handles initialization, credential changes, key management and pairing-slot cleanup, and the repository contains example scripts for common workflows.
+For developers, the recommended path is [Keycard CLI](https://github.com/keycard-tech/keycard-cli) with a USB reader: it exposes every applet command, handles initialization, credential changes and key management, and the repository contains example scripts for common workflows.
 
 For end-users, any wallet that integrates Keycard directly will handle initialization in-app — currently Status mobile (NFC), Status desktop and Sparrow (USB reader); see the [full list](/wallets).
 
 ### Applet Installation
 
-Keycard applets are pre-installed. In some cases you might want to reset the applet status completely for testing purposes. This is done by reinstalling the applet, which can be accomplished using the [Keycard CLI](https://github.com/keycard-tech/keycard-cli). To use the Keycard CLI, a USB reader is needed to be able to communicate with the card. The repository contains example scripts for applet reinstallation.
+Keycard applets are pre-installed. In some cases you might want to reset the applet status completely for testing purposes. This is done by reinstalling the applet, which can be accomplished using the [Keycard CLI](https://github.com/keycard-tech/keycard-cli) with a USB reader:
+
+```bash
+keycard install --applet-file PATH_TO_CAP_FILE
+```
+
+The repository contains example scripts for applet reinstallation. Since applet 4.0 the card also needs an identity certificate before it will respond — see [Build Your Own Keycard](/developers/build#provisioning-an-identity).
 
 ### Card Requirements
 
@@ -30,5 +38,5 @@ The Keycard applet can be installed not only on our cards, but on any JavaCard t
 
 ### Verifying Firmware Integrity
 
-After initialization, verify the firmware by checking the applet version via Keycard CLI. Ensure it matches the latest release (e.g., 3.1) on [GitHub](https://github.com/keycard-tech/status-keycard/releases).
+After initialization, verify the firmware by checking the applet version via Keycard CLI. Ensure it matches the latest release (e.g., 4.0) on [GitHub](https://github.com/keycard-tech/status-keycard/releases). A genuine card also reports a certificate signed by the Keycard CA, which is what the CLI and compatible wallets check to confirm the card was not tampered with.
 

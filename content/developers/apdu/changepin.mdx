@@ -17,6 +17,14 @@ title: CHANGEPIN
 Used to change a PIN or secret. In case of invalid format, the code 0x6A80 is returned. If the conditions match, the PIN or secret is updated. The no-error SW 0x9000 is returned.
 
 P1:
-* 0x00: User PIN. Must be 6-digits. The updated PIN is authenticated for the rest of the session. 
+* 0x00: User PIN. Must be 6-digits. The updated PIN is authenticated for the rest of the session.
 * 0x01: Applet PUK. Must be 12-digits.
-* 0x02: Pairing secret. Must be 32-bytes long. Existing pairings are not broken, but new pairings will need to use the new secret. Only implemented if the Secure Channel capability is implemented.
+* 0x02: Pairing secret. Must be 32-bytes long. Existing pairings are not broken, but new pairings will need to use the new secret. **Removed in 4.0** — pairing no longer exists.
+
+## Changing the duress PIN
+
+The duress PIN is changed through `P1 = 0x00` like the regular PIN: authenticate with the duress PIN first, then send the new value. Whichever PIN is currently authenticated is the one being replaced.
+
+## Version note
+
+`P1 = 0x02` is rejected with 0x6A86 on 4.0 cards.

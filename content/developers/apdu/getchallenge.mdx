@@ -1,0 +1,20 @@
+---
+id: apdu_getchallenge
+title: GET CHALLENGE
+---
+
+# GET CHALLENGE
+
+* CLA = 0x80
+* INS = 0x84
+* P1 = number of bytes to return
+* P2 = 0x00
+* Response Data = `P1` bytes from the card true random number generator
+* Response SW = 0x9000 on success, 0x6A86 if P1 is 0 or greater than 245
+* Preconditions: Secure Channel must be opened
+
+Introduced in 4.0, this command returns freshly generated random data from the card TRNG. It is useful whenever a protocol needs randomness that must not come from the host — nonces, ephemeral secrets, salt — and want to attribute it to the card rather than to the machine driving it.
+
+Since the response travels over the secure channel, the bytes are guaranteed to be exactly what the card produced. The maximum length in a single command is 245 bytes, the secure channel response limit; longer values must be requested with multiple commands.
+
+The command is also available on an uninitialized card, before [INIT](/developers/apdu/init), which makes it usable during provisioning flows.

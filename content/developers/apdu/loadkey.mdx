@@ -19,6 +19,7 @@ P1:
 * 0x01 = ECC SECP256k1 keypair
 * 0x02 = ECC SECP256k1 extended keypair
 * 0x03 = Binary seed as defined in [BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki)
+* 0x04 = Binary seed in LEE mode (since 4.0)
 
 Data:
 
@@ -27,7 +28,15 @@ If P1 is 0x01 or 0x02
   - Tag 0x80 = ECC public key component (can be omitted)
   - Tag 0x81 = ECC private key component
   - Tag 0x82 = chain code (if P1=0x02)
-  
-If P1 is 0x03 a 64 byte sequence generated according to the BIP39 specifications is expected. The master key will be generated according to the [BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) specifications. This is only supported if the hardware supports public key derivation.
 
-This command is used to load or replace the keypair used for signing on the card. The PIN-less path will be reset. Unless a DERIVE KEY is sent, a subsequent SIGN command will use this keypair for signature.
+If P1 is 0x03 or 0x04 a sequence of 16 to 64 bytes generated according to the BIP39 or SLIP39 specifications is expected. The master key will be generated according to the [BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) specifications. This is only supported if the hardware supports public key derivation.
+
+This command is used to load or replace the keypair used for signing on the card. Loading a key replaces the previous one completely; since there is no persistent key path on the card, the next command simply carries the path it wants to use.
+
+## LEE mode
+
+`P1 = 0x04` derives the LEE keytree from the seed alongside the BIP-32 one and puts the card in LEE mode, reported by the [SELECT](/developers/apdu/select) status byte and used by [EXPORT LEE](/developers/apdu/exportlee). Loading a seed with `P1 = 0x03`, or loading a plain keypair, clears the LEE keytree and leaves LEE mode. See the [LEE specification](https://github.com/logos-blockchain/logos-execution-zone) for what the derived material is used for.
+
+## Version note
+
+Before 4.0, loading a key also reset the pinless path. That concept no longer exists.

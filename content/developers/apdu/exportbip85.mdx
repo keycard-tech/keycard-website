@@ -1,0 +1,25 @@
+---
+id: apdu_exportbip85
+title: EXPORT BIP85
+---
+
+# EXPORT BIP85
+
+* CLA = 0x80
+* INS = 0xC4
+* P1 = number of entropy bytes to return (1 to 64)
+* P2 = 0x00
+* Data = a sequence of 32-bit integers (most significant byte first)
+* Response Data = the derived entropy, `P1` bytes long
+* Response SW = 0x9000 on success, 0x6A86 if P1 is out of range, 0x6A80 if the path is not a valid BIP85 path
+* Preconditions: Secure Channel must be opened, user PIN must be verified, a valid keypair must be loaded
+
+Introduced in 4.0, this command implements [BIP-85](https://github.com/bitcoin/bips/blob/master/bip-0085.mediawiki): deterministic entropy derived from the keychain on card, so the same path always yields the same output and the derived secret can be reproduced on any other BIP-85 compatible device from the same seed.
+
+Entropy is the first `P1` bytes of `HMAC-SHA512(key = "bip-entropy-from-k", data = derived private key)`.
+
+## Path restriction
+
+The path must start with `m/83696968'`, have at least two components and have every component hardened; anything else returns SW 0x6A80. A typical path is `m/83696968'/0'/0'`, where the trailing components are the application type and the key index defined by BIP-85.
+
+Nothing is stored on the card: the derivation is transient and the current key path is left untouched.

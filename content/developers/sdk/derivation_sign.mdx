@@ -5,52 +5,74 @@ title: Derivation & signing
 
 # Derivation & signing
 
-Signing is the main goal of the Keycard and indeed any hardware wallet. The Keycard performs signing with the currently active key. Key derivation is used to select the active key to a specific key BIP32 key path. 
+Signing is the main goal of the Keycard and indeed any hardware wallet. The Keycard signs with the key at the path you give it, and since applet 4.0 that is the only way to ask: the path travels with the command.
 
 ## Key derivation
 
-As mentioned before, the Keycard is a BIP32 compatible wallet. This means that it can perform key derivation as defined by the BIP32 specification in order to create a hierarchical deterministic wallet. When deriving a key, this key becomes active.
+The Keycard is a BIP-32 compatible wallet, so it derives keys as defined by the BIP-32 specification to create a hierarchical deterministic wallet. The maximum depth of a key path is 10 components, excluding the master key.
 
-When creating or importing a wallet to the Keycard, the active key is the master key. Note that the maximum depth of the key path is 10, excluding the master key.
-
-Key derivation requires user authentication
-
-Since a line of code is worth a thousand words, below is an example of deriving a standard key path
+On 4.0 there is no "current key" on the card at all, so there is nothing to derive ahead of time — pass the path to the command that needs it:
 
 ```java
-cmdSet.deriveKey("m/44'/0'/0'/0/0").checkOK();
+// Sign with the key at this path, without changing any card state
+cmdSet.signWithPath(hash, "m/84'/0'/0'/0/0", false).checkOK();
+
+// Export the public key at this path
+BIP32KeyPair keyPair = BIP32KeyPair.fromTLV(
+    cmdSet.exportKey("m/84'/0'/0'/0/0", false, KeycardCommandSet.EXPORT_KEY_P2_PUBLIC_ONLY).checkOK().getData());
 ```
 
-You can also read the current active path with with
-
-```java
-// you can then get is as a string with currentPath.toString()
-KeyPath currentPath = new KeyPath(cmdSet.getStatus(KeycardCommandSet.GET_STATUS_P1_KEY_PATH).checkOK().getData());
-```
+<Admonition type="note">
+  `deriveKey()` and `getStatus(GET_STATUS_P1_KEY_PATH)` exist for applet 3.x
+  cards, which keep a current path between commands. If you still support them,
+  call `deriveKey` before `sign` when the card reports a version below `0x0400`;
+  on 4.0 the path in the signing call is what counts and the card has no path to
+  report. Prefer `signWithPath`/`exportKey` everywhere — they work on both.
+</Admonition>
 
 ## Signing
 
-Your Keycard has been initialized, has a wallet and you have derived the keypath you need. You can now perform transactions by signing them with the card. Since the Keycard has no user input/output capabilities, it would be useless to transfer the entire transaction to the card for signing. You should instead calculate the transaction hash, according to the rules of the cryptocurrency you are handling and send that for signature instead. This also means, that you can handle anything which requires ECDSA signatures over SECP256k1 curve, regardless of the used hashing algorithm (at the condition that it output a 256-bit hash of course). This opens the door to signing transactions for the most common cryptocurrencies, but also makes it usable outside the realm of crypto transactions.
+Since the Keycard has no user input/output capabilities, it would be useless to transfer an entire transaction to the card for signing. You should instead calculate the transaction hash, according to the rules of the cryptocurrency you are handling, and send that for signature. This also means you can handle anything which requires ECDSA signatures over the secp256k1 curve, regardless of the hashing algorithm used, as long as it outputs a 256-bit hash. This opens the door to signing transactions for the most common cryptocurrencies, but also makes it usable outside the realm of crypto transactions.
 
-Signing is done as
+Signing is done by naming the key to sign with:
 
 ```java
 // hash is the hash to sign, for example the Keccak-256 hash of an Ethereum transaction
 // the signature object contains r, s, recId and the public key associated to this signature
-RecoverableSignature signature = new RecoverableSignature(hash, cmdSet.sign(hash).checkOK().getData());
+APDUResponse resp = cmdSet.signWithPath(hash, "m/44'/60'/0'/0/0", false).checkOK();
+RecoverableSignature signature = new RecoverableSignature(hash, resp.getData());
 ```
 
-Signing requires user authentication.
+Signing requires user authentication. Since 4.0 that is unconditionally true — there is no pinless path.
 
-## Combined derivation and sign
+<Admonition type="caution">
+  `cmdSet.sign(hash)`, with no path, sends the old "sign with the current key"
+  instruction. A 4.0 card rejects it with SW 0x6A86. Use `signWithPath` in code
+  that has to work with current cards — it works on 3.x too.
+</Admonition>
 
-Since version 2.2 of the Keycard API, it is possible to combine derivation and sign in a single step. Additionally, it is possible to choose whether the given path becomes the current path or not. Example
+## Schnorr signatures
+
+Introduced in 4.0, `P2 = 0x03` selects [BIP-340](https://github.com/bitcoin/bips/blob/master/bip-0340.mediawiki) Schnorr, as used by Bitcoin Taproot. The 32-byte key tweak is part of the call; pass null for an untweaked key.
 
 ```java
-// hash is the hash to sign, the second argument is the path to use, in the same format as for the DERIVE KEY command
-// the third argument is a flag indicating whether the derived key should become the current key or not
+byte[] tweak = ...; // 32 bytes, or null for no tweak
+APDUResponse resp = cmdSet
+    .signWithPath(hash, "m/86'/0'/0'/0/0", KeycardCommandSet.SIGN_P2_BIP340_SCHNORR, false, tweak)
+    .checkOK();
+```
+
+The tweak is added to the derived private key before signing, which is exactly what Taproot key-path spending requires. The public key returned alongside the signature is the tweaked one, so verify against that rather than the plain derived key.
+
+## Combined derivation and signing
+
+This has always been the recommended form, and since 4.0 it is the only form:
+
+```java
+// the second argument is the path to sign with, the third whether the derived key becomes the current key
+// (irrelevant on 4.0 cards, which keep no path)
 APDUResponse resp = cmdSet.signWithPath(hash, "m/44'/0'/0'/0/0", false);
 RecoverableSignature signature = new RecoverableSignature(hash, resp.checkOK().getData());
 ```
 
-this method of signing is now actually the recommended method since it does not rely on existing card state.
+Because the command carries everything it needs, signing does not depend on what the last command happened to leave on the card.

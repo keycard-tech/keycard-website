@@ -7,51 +7,70 @@ title: OPEN SECURE CHANNEL
 
 * CLA = 0x80
 * INS = 0x10
-* P1 = the pairing index
+* P1 = 0x00
 * P2 = 0x00
-* Data = An EC-256 public key on the SECP256k1 curve encoded as an uncompressed point.
-* Response Data = A 256-bit salt and a 128-bit seed IV
-* Response SW = 0x9000 on success, 0x6A86 if P1 is invalid, 0x6A80 if the data is not a public key
+* Data = a 256-bit HKDF salt followed by a 256-bit client ephemeral public key on the secp256k1 curve, encoded as an uncompressed point (65 bytes)
+* Response Data = the card ephemeral public key (65 bytes) followed by an ECDSA signature over the handshake transcript
+* Response SW = 0x9000 on success, 0x6A80 if the data is malformed, 0x6985 if the card identity is not provisioned
 * Capability: Secure Channel
 
-This APDU is the first step to establish a Secure Channel session. A session is aborted when the application is deselected, either directly or because of a card reset/tear.
+This APDU is the first step of the SecureChannel v2 handshake, introduced in 4.0. The protocol needs no pairing: the card proves its identity with its factory [identity certificate](/developers/apdu/overview#card-identity), so a client can connect to a card it has never seen before. A session is aborted when the application is deselected, either directly or because of a card reset/tear.
 
-The card generates a random 256-bit salt which is sent to the client. Both the client and the card do the following for key derivation
+## Handshake
 
-1. Use their private key and the counterpart public key to generate a secret using the EC-DH algorithm.
-2. The generated secret, the pairing key and the salt are concatenated and the SHA-512 of the concatenated value is calculated.
-3. The output of the SHA-512 algorithm is split in two parts of 256-bit. The first part is used as the encryption key and the second part is used as the MAC key for further communication.
+The client generates an ephemeral secp256k1 key pair and a random 256-bit HKDF salt, and sends `salt || client_eph_pub`. The card then:
 
-The seed IV is used by the client as the IV for the next encrypted APDU.
+1. Generates its own ephemeral key pair.
+2. Computes `shared_X`, the X coordinate of the ECDH shared secret between the two ephemeral keys.
+3. Derives the session keys with HKDF-SHA256:
+
+   ```
+   PRK       = HMAC-SHA256(salt, shared_X)
+   OKM       = HKDF-Expand(PRK, "sc_v2_ccm", 32)
+   key_h2c   = OKM[0..15]
+   key_c2h   = OKM[16..31]
+   ```
+
+   The two directions use independent keys. `key_h2c` encrypts host-to-card traffic, `key_c2h` card-to-host traffic.
+4. Signs the transcript `"sc_v2_ccm" || salt || client_eph_pub || card_eph_pub` with its authentikey.
+5. Responds with `card_eph_pub || signature`.
+
+The client verifies that signature using the public key from the certificate received in the [SELECT](/developers/apdu/select) response. Because the transcript includes the client's own ephemeral key, an active attacker substituting it is detected. This is the same construction as TLS 1.3's `Finished` messages.
 
 ## Encrypted APDUs
 
-After a successful OPEN SECURE CHANNEL command all communication between card and client is encrypted. Note that only the data fields of C-APDU are encrypted, which means that CLA, INS, P1, P2 for C-APDU are plaintext. This means no sensitive data should be sent in these parameters. Additionally a MAC is calculated for the entire APDU, including the unencrypted fields.
+After a successful OPEN SECURE CHANNEL command, every command is sent with the **SECURED APDU** instruction (INS `0x18`) and every response is encrypted. Unlike SecureChannel v1, the **entire inner APDU** — `CLA`, `INS`, `P1`, `P2`, `LC` and data — is encrypted, not just the data field. Nothing useful about the command is visible on the wire apart from the wrapper header and the payload length.
 
-Because R-APDU can only contain data if their SW is a success or warning status word (0x9000, 0x62XX, 0x63XX), when the secure channel is open all responses will have SW 0x9000. The actual SW is always appended at the end of the response data before encryption, which means the client must interpret the last two bytes of the plaintext response as the SW. An exception to this is SW 0x6982, which indicates that the SecureChannel has been aborted and as such is returned without any MAC.
+Payloads are protected with AES-128-CCM (8-byte authentication tag). The nonce is a 13-byte counter starting at zero for the session and incremented after every card response. No nonce bytes are transmitted: request and reply of a round trip share the same counter value, which is safe because the two directions use different keys. A counter overflow (2^104 round trips) tears the session down.
 
-To encrypt the data both the card and the client do the following:
+Because responses can only carry data when the ISO status word indicates success, all responses over an open secure channel have SW `0x9000`. The real status word is the last two bytes of the decrypted response payload and must be interpreted by the client. The only status word returned in the clear is `0x6982`, which signals a secure channel failure — the session is then reset and the handshake must be repeated.
 
-1. The data is padded using the ISO/IEC 9797-1 Method 2 algorithm.
-2. The data is encrypted using AES in CBC mode using the session key.
-3. An AES CBC-MAC is calculated over the entire APDU data
-4. The data field of the APDU is set to the MAC followed by the encrypted data.
-
-To decrypt the data both the card and the client do the following:
-
-1. The first 16 bytes of the APDU data are the MAC to be verified
-2. The remaining data is decrypted using AES in CBC mode using the session key.
-3. The padding is removed.
-
-The IV used for the encryption is the last seen MAC from the counterpart. This optimizes the number of transmitted bytes and guarantees protection from replay attacks. For the MAC generation, a zero IV is always used.
-
-MAC generation for C-APDUs is calculated on the concatenation of CLA INS P1 P2 LC 00 00 00 00 00 00 00 00 00 00 00 and the encrypted data field. The 11-byte long padding does not become part of the data field and does not affect LC
-
-MAC generation fo R-APDUs is calculated on the concatenation of Lr 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 and the encrypted data field. The 15-byte long padding does not become part of the response field. Lr is the length of the encrypted response data field and is not transmitted.
-
-Because AES in CBC mode requires the data field length in bytes to be a multiple of 16, the maximum effective APDU size becomes 240 bytes. Of these 16 bytes are used for the MAC and minimum of 1 byte for padding, making the maximum payload size in a single APDU 223 bytes, meaning about a 13,5% overhead.
+The maximum plaintext for a command is 247 bytes and for a response 245 bytes.
 
 ## Error conditions
 
-1. If a sensitive command is received without an active Secure Channel, the card shall respond with SW 0x6985 (SW_CONDITIONS_NOT_SATISFIED)
-2. If a MAC cannot be verified the card shall respond 0x6982 and the Secure Channel must be closed
+1. If a command other than **OPEN SECURE CHANNEL**, **SECURED APDU** or **FACTORY RESET** is sent without an open secure channel, the card responds with SW 0x6985 (SW_CONDITIONS_NOT_SATISFIED)
+2. If a CCM tag cannot be verified the card responds 0x6982 and the secure channel must be closed and re-opened
+
+## Secure Channel v1 (legacy)
+
+<Admonition type="caution">
+  Everything in this section applies to applet versions **below 4.0 only**.
+  Those cards cannot be upgraded and are still common, so clients integrating
+  directly with the protocol must implement both variants and choose based on
+  the applet version reported by **SELECT**.
+</Admonition>
+
+Version 1 relied on a shared secret established out of band by [PAIR](/developers/apdu/pair) and required an explicit [MUTUALLY AUTHENTICATE](/developers/apdu/mutuallyauthenticate) step. Its OPEN SECURE CHANNEL command has the same CLA/INS but a completely different shape:
+
+* P1 = the pairing index, P2 = 0x00
+* Data = a 256-bit client public key on secp256k1, uncompressed
+* Response = a 256-bit salt followed by a 128-bit seed IV
+
+Key derivation worked as follows:
+
+1. Both parties run EC-DH with their private key and the counterpart public key.
+2. The shared secret, the pairing key and the salt are concatenated and hashed with SHA-512.
+3. The 64-byte digest is split in two 256-bit halves: the encryption key and the MAC key.
+
+Only the data field of a C-APDU was encrypted, so `CLA`, `INS`, `P1` and `P2` travelled in clear and were covered by the MAC instead. Data was padded with ISO/IEC 9797-1 Method 2, encrypted with AES-CBC, and a AES-CBC-MAC was calculated over the whole APDU and prepended to the data field. The IV for each message was the previous MAC from the counterpart, which both chained the messages and prevented replays. Because AES-CBC requires 16-byte multiples, the effective maximum payload was 223 bytes.

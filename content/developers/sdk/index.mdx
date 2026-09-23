@@ -69,9 +69,16 @@ SDKs are available for integrating Keycard in most environments:
   This documentation uses the **Java SDK** as the reference: it is maintained
   by the Keycard team, covers the full protocol, and runs on desktop (via
   `javax.smartcardio` and a USB reader) and Android (via NFC). The concepts in
-  these pages — connection, pairing, secure channel, derivation, signing — map
-  directly onto every other SDK. If your language has no SDK yet, the [Keycard
+  these pages — connection, secure channel, derivation, signing — map directly
+  onto every other SDK. If your language has no SDK yet, the [Keycard
   API](/developers/apdu) documents the underlying protocol.
+</Admonition>
+
+<Admonition type="caution">
+  The Java, Go and Rust SDKs, the CLI and Shell all implement applet 4.0. The
+  **Swift** SDK does not yet — it speaks the 3.x protocol only, so it cannot
+  open a secure channel with a 4.0 card. Check the repository for the current
+  state before choosing one.
 </Admonition>
 
 See the sub-sections below for more details:
@@ -83,6 +90,11 @@ See the sub-sections below for more details:
 - [Authentication](/developers/sdk/authentication)
 - [Wallet Creation](/developers/sdk/create_wallet)
 - [Derivation & Signing](/developers/sdk/derivation_sign)
-- [Pinless Signing](/developers/sdk/pinless)
 - [Exporting Keys](/developers/sdk/export)
 - [Cash Applet](/developers/sdk/cash)
+
+## Removed in 4.0
+
+Applet 3.x cards cannot be upgraded and remain in wide use, so this is still documented.
+
+- [Pinless Signing](/developers/sdk/pinless)

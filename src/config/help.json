@@ -61,10 +61,6 @@
         "link": "/help/factory-reset-your-keycard-using-keycard-shell"
       },
       {
-        "title": "Change pairing password",
-        "link": "/help/change-pairing-password"
-      },
-      {
         "title": "Set a Keycard PUK",
         "link": "/help/set-a-keycard-puk"
       },

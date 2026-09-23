@@ -57,6 +57,15 @@ const canonicalizePath = (pathname: string) => {
   // Canonicalize legacy help slugs.
   nextPath = nextPath.replace(
     new RegExp(
+      `^(?:/(${SUPPORTED_LOCALES_REGEX}))?/help/change-pairing-password$`,
+    ),
+    (_match, locale: string | undefined) =>
+      locale
+        ? `/${locale}/help/about-keycard-and-keycard-shell`
+        : '/help/about-keycard-and-keycard-shell',
+  )
+  nextPath = nextPath.replace(
+    new RegExp(
       `^(?:/(${SUPPORTED_LOCALES_REGEX}))?/help/verify-your-shell-authenticity$`,
     ),
     (_match, locale: string | undefined) =>

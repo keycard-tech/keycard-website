@@ -40,3 +40,16 @@ info.getPubData();
 // the signature object contains r, s, recId and the public key associated to this signature
 RecoverableSignature signature = new RecoverableSignature(hash, cashCmdSet.sign(hash).checkOK().getData());
 ```
+
+Since applet 4.0 the Cash applet supports BIP-340 Schnorr as well, selected the same way as in the main applet — the data field is the hash followed by the 32-byte tweak:
+
+```java
+// data = hash (32 bytes) || tweak (32 bytes); use 32 zero bytes for an untweaked key
+cashCmdSet.sign(data, KeycardCommandSet.SIGN_P2_BIP340_SCHNORR).checkOK();
+```
+
+<Admonition type="note">
+  On 3.x cards the Cash applet also answered the IDENT command to prove its
+  authenticity. That command is gone in 4.0; the applet now only responds to
+  SELECT and SIGN.
+</Admonition>
