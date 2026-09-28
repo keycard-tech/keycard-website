@@ -63,7 +63,7 @@
     "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
     "@types/d3-time-format": "^4.0.3",
     "@types/mdx": "^2.0.13",
-    "@types/node": "^20",
+    "@types/node": "^24",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@types/tryghost__content-api": "^1.3.17",
@@ -93,7 +93,7 @@
     "unist-util-visit": "^5.0.0"
   },
   "engines": {
-    "node": "20.x"
+    "node": "24.x"
   },
   "lint-staged": {
     "{.env,src/config/env.{server,client}.mjs}": [
