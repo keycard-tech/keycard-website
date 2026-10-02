@@ -50,6 +50,15 @@ const WALLETS: Wallet[] = [
     websiteUrl: 'https://docs.keycard.tech/en/start/keycard',
   },
   {
+    name: 'Keycard Pal',
+    icon: { url: '/assets/wallets/keycard-pal.png', width: 512, height: 512 },
+    type: ['Keycard'],
+    blockchains: ['Ethereum', 'Bitcoin'],
+    platform: ['Mobile'],
+    setupGuideUrl: 'https://keycardpal.com',
+    websiteUrl: 'https://keycardpal.com',
+  },
+  {
     name: 'Rabby',
     icon: { url: '/assets/wallets/rabby.png', width: 146, height: 147 },
     type: ['Shell'],
