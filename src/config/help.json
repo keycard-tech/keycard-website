@@ -13,6 +13,10 @@
       {
         "title": "Set up your Keycard with Keycard Shell",
         "link": "/help/set-up-your-keycard-with-keycard-shell"
+      },
+      {
+        "title": "Move from Ledger to Keycard Shell",
+        "link": "/help/move-from-ledger-to-keycard-shell"
       }
     ]
   },
