@@ -1,0 +1,112 @@
+---
+id: move-from-ledger-to-keycard-shell
+title: Move from Ledger to Keycard Shell
+---
+
+# Move from Ledger to Keycard Shell
+
+If you used a Ledger wallet, you can import the same recovery phrase on your Keycard and keep the same Ethereum addresses. Your funds stay where they are. Your software wallet only needs to look for them on the right derivation path.
+
+Ledger used different derivation paths over time. Most software wallets look on the standard path by default, so some of your Ledger accounts may not appear at first. This article shows you how to find each of them.
+
+<Admonition type="note">
+    The Ledger options are available from Keycard Shell firmware v1.1.0. If the **Connect software wallet** menu has no **Others** entry, [update your Keycard Shell](./update-keycard-shell-online) first. You can check your version in **Information** > **Software info**.
+</Admonition>
+
+## What to expect
+
+- Your private keys stay on your Keycard. Your software wallet only receives public keys.
+- Your first Ledger Live account is already visible with the standard **Ethereum** connection.
+- Each other Ledger Live account needs its own QR code scan. You repeat the steps below once for each account.
+- Under **Addresses**, Keycard Shell shows standard Ethereum addresses only. To check a Ledger Live or Ledger Legacy address, compare it with the address your Ledger setup showed.
+
+## Before you start
+
+1. Import your Ledger recovery phrase on your Keycard. See [Import your key pair with a recovery phrase](./set-up-your-keycard-with-keycard-shell#method-2-import-your-key-pair-with-a-recovery-phrase).
+1. If you used a passphrase on your Ledger, add the same passphrase when you import. A different passphrase gives different addresses.
+1. Note the addresses of the Ledger accounts you want to find. Ledger Live shows the address of each account.
+
+## Find which path your Ledger used
+
+<Table>
+    <TableHead>
+        <TableHeader>Where your accounts were created</TableHeader>
+        <TableHeader>Derivation path</TableHeader>
+        <TableHeader>On Keycard Shell, select</TableHeader>
+    </TableHead>
+
+    <TableContent>
+        <TableRow>
+            <TableCell>**Ledger Live**</TableCell>
+            <TableCell>m/44'/60'/N'/0/0<br/>N is the account number</TableCell>
+            <TableCell>**Others** > **Ledger Live**</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>**Older Ledger setups**, for instance the Ledger Chrome app or MyEtherWallet</TableCell>
+            <TableCell>m/44'/60'/0'/N<br/>N is the address number</TableCell>
+            <TableCell>**Others** > **Ledger Legacy**</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>**Standard path**, used by MetaMask, Rabby and most software wallets</TableCell>
+            <TableCell>m/44'/60'/0'/0/N<br/>N is the address number</TableCell>
+            <TableCell>**Ethereum**</TableCell>
+        </TableRow>
+    </TableContent>
+</Table>
+
+## Connect a Ledger Live account
+
+<Admonition type="note">
+    **One scan for each account.** For instance, if you have three Ledger Live accounts:
+
+    - **Ethereum 1** is account 0. You already see it with the standard **Ethereum** connection.
+    - **Ethereum 2** is account 1. Select **Others** > **Ledger Live**, enter 1, and scan.
+    - **Ethereum 3** is account 2. Select **Others** > **Ledger Live**, enter 2, and scan.
+</Admonition>
+
+### Step 1: Find the account number
+
+Ledger Live counts accounts from 1. Keycard Shell counts them from 0. To get the number to enter on Keycard Shell, subtract 1 from the Ledger Live number. For instance, **Ethereum 2** in Ledger Live is account **1** on Keycard Shell.
+
+### Step 2: Prepare your Keycard Shell
+
+1. Insert your Keycard into Keycard Shell to power it on.
+1. Enter your Keycard PIN and press **OK**.
+1. Select **Connect software wallet**.
+1. Press **OK** to confirm the text on the screen.
+1. Select **Others** > **Ledger Live**.
+1. On the **Select account** screen, enter the account number from Step 1 and confirm.
+
+### Step 3: Scan the QR code
+
+1. In your software wallet, add a hardware wallet and choose the **QR-based** option. Some wallets list Ledger as a separate option. Keycard Shell connects as a QR-based wallet, not as a Ledger.
+1. Scan the QR code displayed on the Keycard Shell screen.
+1. Select the **first** address in the list. This is your Ledger Live account. The other addresses in the list are not Ledger Live accounts.
+1. If your software wallet offers a basic account and a smart account, select the basic account. A smart account is a new contract and does not hold your Ledger funds.
+1. Compare the address with the one Ledger Live shows for this account.
+
+Repeat Steps 2 and 3 for each Ledger Live account.
+
+## Connect Ledger Legacy addresses
+
+1. Insert your Keycard into Keycard Shell to power it on.
+1. Enter your Keycard PIN and press **OK**.
+1. Select **Connect software wallet**.
+1. Press **OK** to confirm the text on the screen.
+1. Select **Others** > **Ledger Legacy**. No account number is needed.
+1. In your software wallet, choose the **QR-based** option and scan the QR code.
+1. Select the addresses you want to use, and compare them with the addresses your Ledger setup showed.
+
+<Admonition type="note">
+    Your software wallet must support the Ledger Legacy path. Ambire supports it, for instance.
+</Admonition>
+
+## If you use Ambire
+
+In Ambire, the **Ledger Live** derivation option does not appear for QR-based wallets. This is expected. Follow the steps in [Connect a Ledger Live account](#connect-a-ledger-live-account). Ambire then lists your Ledger Live account as the first address.
+
+<Admonition type="tip">
+    For the full list of paths Keycard Shell can share with a software wallet, read [Other derivation paths](./other-derivation-path-support).
+</Admonition>
