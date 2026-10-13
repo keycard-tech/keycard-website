@@ -5,20 +5,138 @@ title: Build Your Own Keycard
 
 # Build Your Own Keycard
 
-If you have a blank JavaCard 3.0.5+ card (readily available for purchase on the web) you can build your own Keycard. This is especially useful for developers who want to contribute to the project and/or experiment with it.
+If you have a blank JavaCard 3.0.5+ card (readily available for purchase on the web) you can build your own Keycard. There are two ways to get there:
 
-Please note that cards built this way will not carry a certificate from the Keycard certification authority. Since applet 4.0 the applet refuses every command until an identity is provisioned, so you must load a self-signed or test certificate before the card will respond — see [Provisioning an identity](#provisioning-an-identity). Wallets will also warn that the card is not from a CA they trust; for a card you built yourself you can safely pin its identity instead.
+- **Installing from binaries** — download the [Keycard CLI](https://github.com/keycard-tech/keycard-cli) and the released `cap` files. This is the path to take if you just want Keycard running on a card of your own.
+- **Installing from source** — build the applet with Gradle. This is the path to take if you want to change the applet or contribute to it, since it also leaves you with a working development environment.
 
-## Compiling and installing from source
+<Admonition type="caution">
+  Cards built this way do not carry a certificate from the Keycard
+  certification authority. Since applet 4.0 the applet refuses every command
+  until an identity is provisioned, so you have to load a self-signed or test
+  certificate before the card responds. Both paths below do it for you — step 4
+  when installing from binaries, the test suite when building from source. [Card
+  identity](/developers/apdu/overview#card-identity) explains how the
+  certificate works. Wallets will also warn that the card is not from a CA they
+  trust; for a card you built yourself you can safely pin its identity instead.
+</Admonition>
 
-Compiling and installing from source is probably the best way to proceed, since this will also leave you with a working development environment for all your experiments.
+## What you need
+
+Both paths need the same hardware:
+
+- A JavaCard 3.0.5+ smartcard with T=1 and SCP02 support. Cards of the JCOP4 family are known to work well. We sell and ship this type of keycards for developers on [our shop](https://keycard.tech/products/keycard-for-developers). For detailed requirements about the card, we recommend to check the [card requirements](https://github.com/keycard-tech/status-keycard#what-kind-of-smartcards-can-i-use) in the keycard github repository.
+- A standard PCSC smartcard reader. Contact (USB) readers are more reliable than NFC ones. Make sure no other PCSC reader (or Yubikey) is plugged in while installing.
+- A card whose GlobalPlatform ISD keys are the default GlobalPlatform keys (true for most cards sold online) or the Keycard development keys (if you bought a development card from us). If you already played with the card and changed those keys yourself, reset them first with a GlobalPlatform management tool.
+
+## Installing from binaries
+
+### 1. Get the Keycard CLI
+
+Download the binary for your platform from the [Keycard CLI releases](https://github.com/keycard-tech/keycard-cli/releases/latest) page and rename it to `keycard`, dropping the platform suffix:
+
+```bash
+chmod +x keycard-darwin-arm64
+mv keycard-darwin-arm64 /usr/local/bin/keycard
+keycard version
+```
+
+Every release carries a `SHA256SUMS` file covering all the binaries — check your download with `sha256sum -c SHA256SUMS`. On Linux you also need the PC/SC runtime (`sudo apt install pcscd libpcsclite1`); macOS and Windows need nothing else. The Linux binaries are built on Ubuntu 24.04, so they need glibc 2.39 or newer.
+
+### 2. Download the cap files
+
+You need two files, both from the latest release of their repository:
+
+<Table>
+    <TableHead>
+        <TableHeader>File</TableHeader>
+        <TableHeader>Download from</TableHeader>
+        <TableHeader>What it is</TableHeader>
+    </TableHead>
+
+    <TableContent>
+        <TableRow>
+            <TableCell>`keycard_vx.y.z.cap`</TableCell>
+            <TableCell>[status-keycard releases](https://github.com/keycard-tech/status-keycard/releases/latest)</TableCell>
+            <TableCell>The Keycard package, containing the Keycard, Ident, Cash and NDEF applets.</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>`math_jcop_vx.y.z.cap` or `math_soft_vx.y.z.cap`</TableCell>
+            <TableCell>[keycard-math-soft releases](https://github.com/keycard-tech/keycard-math-soft/releases/latest)</TableCell>
+            <TableCell>The `keycard-math` library package (AID `A0000008040002`), which the Keycard package depends on since 4.0.</TableCell>
+        </TableRow>
+    </TableContent>
+</Table>
+
+Pick the math package that matches your card:
+
+<Table>
+    <TableHead>
+        <TableHeader>Card</TableHeader>
+        <TableHeader>Math cap to load</TableHeader>
+    </TableHead>
+
+    <TableContent>
+        <TableRow>
+            <TableCell>JCOP</TableCell>
+            <TableCell>`math_jcop_vx.y.z.cap`</TableCell>
+        </TableRow>
+
+        <TableRow>
+            <TableCell>Anything else</TableCell>
+            <TableCell>`math_soft_vx.y.z.cap`</TableCell>
+        </TableRow>
+    </TableContent>
+</Table>
+
+The JCOP package only forwards the big number operations to the modular arithmetic NXP ships in the JCOP environment (`com.nxp.id.jcopx.math`), which is faster than doing it in JavaCard bytecode. The soft package is the portable software implementation, and is the one to take on any card that is not a JCOP.
+
+### 3. Install the applets
+
+With the card in the reader:
+
+```bash
+keycard install --applet-file keycard_vx.y.z.cap --load-math math_soft_vx.y.z.cap
+```
+
+This loads the math package and installs the Keycard and Ident applets. `--load-math` is only needed the first time, since the library package stays on the card — leave it out on reinstallations. Use `math_jcop_vx.y.z.cap` instead if you are on a JCOP card.
+
+### 4. Provision an identity
+
+The applet refuses every command — not even SELECT is answered — until it has an identity certificate, because the secure channel authenticates the card with that key. Load one:
+
+```bash
+keycard load-ident --test
+```
+
+`--test` generates a random identity and a certificate from the Keycard test CA, which is what you want while developing. A card with a test identity has to be explicitly trusted by the client: `--test-card` (or `KEYCARD_TEST_CARD=true`) with the CLI, the test CA as an anchor or a pinned card identity in the SDKs, the equivalent option in wallets.
+
+If you are building a card you intend to use for real, generate the certificate under your own CA and load it with `keycard load-ident --hex "0x..."` instead, making sure the CA public key is the one your clients trust. Cards bought from us already carry a production identity and need none of this.
+
+### 5. Initialize the card
+
+```bash
+keycard init
+```
+
+This sets up the PIN, PUK and (on applet versions before 4.0) the pairing password, generating them randomly and showing them once — pass `--pin` / `--puk` (or the `KEYCARD_PIN` / `KEYCARD_PUK` environment variables) to choose them yourself. Check everything worked with:
+
+```bash
+keycard info
+```
+
+Done — your card is now a Keycard. Continue with the [Keycard SDK](/developers/sdk) or the [Keycard API](/developers/apdu).
+
+## Installing from source
+
+Building from source gives you the applet straight from the repository, plus a development environment you can iterate on. A single Gradle task builds the applet, installs it, and leaves the card initialized with a test identity.
 
 ### Requirements
 
 - Linux, Windows or Mac computer
 - OpenJDK 11 (this specific version is required — newer JDKs are not compatible with the JavaCard build tools)
-- A Javacard 3.0.5+ smartcard with T=1 and SCP02 support. Cards of the JCOP4 family are known to work well. We sell and ship this type of keycards for developers on [our shop](https://keycard.tech/products/keycard-for-developers). For detailed requirements about the card, we recommend to check the [card requirements](https://github.com/keycard-tech/status-keycard#what-kind-of-smartcards-can-i-use) in the keycard github repository.
-- A standard PCSC smartcard reader
+- The card and reader listed under [What you need](#what-you-need)
 
 ### Setting up OpenJDK 11
 
@@ -45,56 +163,29 @@ Download and install OpenJDK 11 from [Adoptium](https://adoptium.net/temurin/rel
 - check the option to set JAVA_HOME during installation, or 
 - Open a new terminal and run command `set JAVA_HOME=C:\Program Files\Eclipse Adoptium\jdk-11`
 
-### Installation steps
+### Build and install steps
 
 1. Plugin your PCSC reader and insert the card. Make sure no other PCSC reader (or Yubikey) is plugged in
 2. Open your terminal app of choice
 3. Clone the Keycard repo with the command `git clone --recurse-submodules https://github.com/keycard-tech/status-keycard`
 4. Enter the repository with `cd status-keycard`
-5. Build and install the applet:
-   - macOS / Linux: `./gradlew install`
-   - Windows: `gradlew.bat install`
-6. When you see `BUILD SUCCESSFUL`, the applets are installed. The install task loads both the `keycard-math` support package (required since 4.0) and the Keycard package, then installs the Keycard, NDEF, Cash and Ident applets.
-7. [Provision an identity](#provisioning-an-identity) before initializing the card, otherwise every command is rejected.
+5. Build the applet, install it on the card and run the applet test suite against it:
+   - macOS / Linux: `./gradlew test`
+   - Windows: `gradlew.bat test`
+6. When you see `BUILD SUCCESSFUL` you are done. The task loads both the `keycard-math` support package (required since 4.0) and the Keycard package, installs the Keycard, NDEF, Cash and Ident applets, then exercises them on the card
+7. The test suite also provisions and initializes the card for you: it loads an identity certificate from the Keycard test CA and runs `INIT` with PIN `000000` and PUK `024680`. So there is nothing else to do — the card answers commands right away, and clients just have to trust the test CA with `--test-card` / `KEYCARD_TEST_CARD` (or pin the card identity). Change the PIN with `keycard change-pin` if you keep using the card.
 
-This assume that the smartcard you are using uses the default GlobalPlatform keys (true for most cards sold online) or the Keycard development keys (if you bought a development card from us). In case you already played with the card and changed the ISD keys yourself, follow the below step. 
+If you do not want to run the tests, use `./gradlew install` instead. It only loads the packages and installs the applets, leaving the card without an identity and uninitialized, so you then have to [provision an identity](#4-provision-an-identity) and run `keycard init` as in the binary path above.
 
-### Provisioning an identity
+If you only want the `cap` file — for example to install the applet on a card you are not holding in a reader right now — run `./gradlew convertJavacard` and find `keycard.cap` in the `build` directory.
 
-Since 4.0 the Keycard applet will not answer anything — not even SELECT — until a valid identity certificate has been loaded, because the secure channel authenticates the card with that key. The [Keycard CLI](https://github.com/keycard-tech/keycard-cli) does this for you:
-
-```bash
-# Generate a random identity and a certificate from the test CA, then load it
-keycard load-ident --test
-```
-
-This is fine for development. The card then works with the CLI and SDKs when they are told to trust the test CA, and with wallets when they are given the card identity to pin. For a card you intend to use for real, generate the certificate under your own CA and load it with `keycard load-ident --hex`, and make sure the CA public key is the one your clients trust.
-
-Cards bought from us already carry a production identity and need none of this.
-
-### Alternative installations steps
-
-1. Follow step 1-4 above
-2. Execute `./gradlew convertJavacard`
-3. Find the file `keycard.cap` file in the `build` directory.
-4. Install the cap file using your favorite [GlobalPlatform management tool](https://github.com/martinpaljak/GlobalPlatformPro)
-5. Install the Keycard applet, making sure you assign instance AID `A00000080400010101`
-6. Optionally install the other applets in the cap file, you can find all AIDs [here](https://github.com/keycard-tech/status-keycard-java/blob/master/lib/src/main/java/im/status/keycard/applet/Identifiers.java)
-
-### Locking the card
+## Locking the card
 
 After following the installation steps above your card will still be open to changes. This is very useful during development because you can repeat the installation steps as many times as you want to test changes you made to the app. To make your card immutable, in a way similar to what we do you need to do 2 things:
 
 1. Change the ISD keys to random ones. If you store these you will still be able to reinstall the applet or update to a new version. Since only you will have the keys this is reasonably safe, however you would have to store these keys securely.
 2. Bring the card from the OP_READY lifecycle state to the SECURED one
 
-you can perform these two steps using either your favorite GlobalPlatform management tool or by following these two steps
-
-1. `cd status-keycard`
-2. `./gradlew lock`
+If you built from source, you can perform these two steps with `./gradlew lock` from the `status-keycard` directory.
 
 **NOTE: THIS PROCEDURE IS NOT REVERSIBLE. THE AUTOMATED LOCKING TOOL DOES NOT PRINT OR STORE THE RANDOMLY GENERATED KEYS ANYWHERE**
-
-## Building your own Shell
-
-If you want to build a full Keycard Shell (hardware + firmware) and use your own Keycards, see [Build Your Own Shell](/developers/diy-keycard-shell) for build notes, firmware signing, and hardware sources.
