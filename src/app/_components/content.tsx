@@ -380,6 +380,38 @@ export const baseComponents = {
 
     return <figure {...props} className="my-5" />
   },
+  // image shown narrower than the text column, with an optional caption
+  Figure: (props: {
+    src: string
+    alt: string
+    caption?: string
+    size?: 'small' | 'medium'
+  }) => {
+    const { src, alt, caption, size = 'small' } = props
+
+    return (
+      <figure
+        className={cx(
+          'mx-auto my-5 w-full',
+          size === 'small' ? 'max-w-[400px]' : 'max-w-[560px]',
+        )}
+      >
+        <Image
+          src={src}
+          alt={alt}
+          width={1200}
+          height={1600}
+          className="h-auto w-full rounded-28"
+          sizes="(min-width: 640px) 560px, 100vw"
+        />
+        {caption && (
+          <figcaption className="mt-3 text-center font-inter text-14 text-white-60">
+            {caption}
+          </figcaption>
+        )}
+      </figure>
+    )
+  },
   Admonition: (props: {
     type: 'note' | 'tip' | 'caution' | 'beta'
     status?: string
