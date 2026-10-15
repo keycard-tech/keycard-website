@@ -342,7 +342,7 @@ export const baseComponents = {
   pre: (props: ComponentProps<'pre'>) => (
     <pre
       {...props}
-      className="w-full overflow-scroll rounded-16 border border-white-12 bg-white-8 px-6 py-5 font-inter text-16 font-400 text-white-100"
+      className="w-full overflow-auto rounded-16 border border-white-12 bg-white-8 px-6 py-5 font-inter text-16 font-400 text-white-100"
     />
   ),
   div: (props: ComponentProps<'div'>) => {

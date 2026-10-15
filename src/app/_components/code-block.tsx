@@ -19,7 +19,7 @@ export function CodeBlock(props: React.ComponentProps<'figure'>) {
 
   return (
     <div>
-      <div className="relative my-5 grid scrollbar-none [&>pre]:max-h-[624px] [&>pre]:rounded-12 [&>pre]:bg-white-8 [&>pre]:p-6">
+      <div className="relative my-5 grid scrollbar-none [&>pre[data-language=text]]:whitespace-pre-wrap [&>pre[data-language=text]]:pr-12 [&>pre[data-language=text]]:[overflow-wrap:anywhere] [&>pre]:max-h-[624px] [&>pre]:rounded-12 [&>pre]:bg-white-8 [&>pre]:p-6">
         <div className="absolute right-3 top-3 block" data-theme="dark">
           <button
             onClick={() => {
