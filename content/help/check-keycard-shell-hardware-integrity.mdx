@@ -1,0 +1,111 @@
+---
+id: check-keycard-shell-hardware-integrity
+title: Check Keycard Shell hardware integrity
+---
+
+# Check Keycard Shell hardware integrity
+
+Keycard Shell is designed so you can check its hardware yourself. You don't have to take our word that your device is unmodified. You can open it, look inside, and compare what you see with the public design files.
+
+## Why Shell is built to be opened
+
+Supply chain attacks and evil maid attacks exist. Someone can add a spying component to a device between the factory and your hands, or while it is out of your sight. This is true for hardware wallets, and also for your keyboard, your home camera, and any other device. No vendor can rule it out.
+
+A common answer is to make devices hard to open: epoxy, sealed cases, or a wipe when the case is opened. We think this moves the trust to the vendor instead of removing it. You can't check a device you can't open, and you can't repair it either. A seal is a claim from the vendor, not evidence. Seals can be cloned or bypassed, and an attacker can get through most protections if the target is worth the cost.
+
+So we designed Shell to be opened easily, repaired easily, and checked easily. Inspection is evidence.
+
+## What we publish
+
+Shell hardware is open source, and we publish it to manufacturing depth:
+
+- **Schematics and bill of materials**, like most open hardware projects.
+- **PCB Gerber files**: the actual routing of every board layer. This is what a factory needs to make the boards.
+- **Pick-and-place files**: the exact position of every component on each board.
+- **Assembly drawings and 3D files** of the boards and the case.
+
+The hardware license lets anyone study, manufacture, modify, and share the design, as long as modified designs stay open. The files for production units are in the [serial_run folder on GitHub ↗](https://github.com/keycard-tech/keycard-shell/tree/master/hardware/shell/serial_run), and the main board of the first production is in the pilot_run folder (see Step 2).
+
+## Before you start
+
+<Admonition type="note">
+    This check complements the [Keycard Shell authenticity check](./verify-keycard-shell-authenticity). The authenticity check proves your Shell is a genuine device running authentic firmware. It can't detect a component added to the board. Only a look inside can. We recommend you do both.
+</Admonition>
+
+<Admonition type="caution">
+    Static electricity can damage exposed boards. Before you touch them, touch a grounded metal object, and hold the boards by their edges.
+</Admonition>
+
+## Step 1: Open your Shell
+
+Opening your Shell is easy and doesn't damage it. Watch the video for each step.
+
+<video controls preload="metadata" playsInline className="h-auto w-full rounded-28" src="/assets/docs/check-keycard-shell-hardware-integrity-open.mp4"></video>
+
+## Step 2: Check the boards
+
+<Admonition type="note">
+    Shell units from the first production (December 2025) have main board **V3.7**, printed on the back of the board. The `serial_run` folder also contains **V3.8**, a later revision that only lengthens the USB-C connector pads. Both versions have the same components in the same positions. [More about board versions ↗](https://github.com/keycard-tech/keycard-shell/blob/master/hardware/shell/serial_run/ELECTRONIC/readme.md)
+</Admonition>
+
+Take clear, well-lit photos of both sides of each board. Then choose one of these two options.
+
+### Option A: Ask your AI agent
+
+Give your photos to your AI agent, with a link to the [Shell hardware folder ↗](https://github.com/keycard-tech/keycard-shell/tree/master/hardware/shell). You can use this prompt:
+
+```text
+I opened my Keycard Shell. The attached photos show both sides of each board. Compare them with the official design files at https://github.com/keycard-tech/keycard-shell/tree/master/hardware/shell and use the main board V3.7 files (pilot_run/electronics_and_bom/gerber/KCP-2282-60x-V3.7.8.zip: assembly drawing KCP-PCBA-2282-604 V3.7.PDF, pick-and-place file and bill of materials) and the flex board files in serial_run/ELECTRONIC/FLX-2282-61x-V3.3.0 (FLX-PCBA-2282-614V3.3.PDF). List every component, wire, board or antenna in my photos that is not in the design files, and every part that looks different from them.
+```
+
+<Admonition type="note">
+    An AI agent helps you look, but it can miss things. If it reports a difference, or if you are unsure, compare your photos by eye with the reference pictures below.
+</Admonition>
+
+### Option B: Compare with the reference pictures
+
+Compare your photos with the [reference pictures](#reference-pictures) below.
+
+### What to look for
+
+- A chip, component, or small board that is not in the reference pictures.
+- Extra wires, or wires soldered onto the board.
+- An antenna, a SIM or eSIM chip, or a wireless module. Shell has no radio: no Wi-Fi, no Bluetooth, no cellular. Any of these is a red flag.
+- Fresh solder, flux residue, or glue where the reference pictures show none.
+- Anything in the screen padding or around the screen mount that is not in the [screen picture](#more-pictures).
+
+<Admonition type="caution">
+    If you find a difference, stop using your Shell and contact the Keycard team [on Discord ↗](https://discord.gg/uJAXk7jFhZ) or at [support@keycard.tech](mailto:support@keycard.tech). Send your photos.
+</Admonition>
+
+## Overview of the components
+
+This picture shows all the components inside Keycard Shell.
+
+<Figure src="/assets/docs/check-keycard-shell-hardware-integrity-overview.jpg" alt="Overview of all components inside Keycard Shell" caption="Overview of all components inside Keycard Shell" size="medium" />
+
+The PCB in this picture is version 3.3. It is not the production version (3.7). To compare your PCB, use the [reference pictures](#reference-pictures) below.
+
+## Reference pictures
+
+These pictures show a production Shell. Use them to check that your device has not been modified.
+
+<Figure src="/assets/docs/check-keycard-shell-hardware-integrity-main-board-front.jpg" alt="Front side of the main board" caption="Main board v3.7, front side" />
+
+<Figure src="/assets/docs/check-keycard-shell-hardware-integrity-main-board-back.jpg" alt="Back side of the main board" caption="Main board v3.7, back side" />
+
+<Figure src="/assets/docs/check-keycard-shell-hardware-integrity-all-parts-front.jpg" alt="Front side of all electronic parts" caption="All electronic parts v3.7, front side" />
+
+<Figure src="/assets/docs/check-keycard-shell-hardware-integrity-all-parts-back.jpg" alt="Back side of all electronic parts" caption="All electronic parts v3.7, back side" />
+
+## More pictures
+
+<Figure src="/assets/docs/check-keycard-shell-hardware-integrity-screen-mount.jpg" alt="How the screen is glued to the main board" caption="How the screen is glued to the main board" />
+
+<Figure src="/assets/docs/check-keycard-shell-hardware-integrity-daughter-board-clip.jpg" alt="How the daughter board is clipped in place" caption="How the daughter board is clipped in place" />
+
+## Step 3: Reassemble your Shell
+
+Watch the video to put your Shell back together.
+
+<video controls preload="metadata" playsInline className="h-auto w-full rounded-28" src="/assets/docs/check-keycard-shell-hardware-integrity-close.mp4"></video>

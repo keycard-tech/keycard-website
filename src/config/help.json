@@ -86,6 +86,10 @@
         "link": "/help/verify-keycard-shell-authenticity"
       },
       {
+        "title": "Check Keycard Shell hardware integrity",
+        "link": "/help/check-keycard-shell-hardware-integrity"
+      },
+      {
         "title": "Understand the Slip39 wallet backup standard",
         "link": "/help/understand-the-slip-39-wallet-backup-standard"
       },
