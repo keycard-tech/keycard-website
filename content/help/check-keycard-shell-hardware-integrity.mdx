@@ -24,7 +24,7 @@ Shell hardware is open source, and we publish it to manufacturing depth:
 - **Pick-and-place files**: the exact position of every component on each board.
 - **Assembly drawings and 3D files** of the boards and the case.
 
-The hardware license lets anyone study, manufacture, modify, and share the design, as long as modified designs stay open. The files for production units are in the [serial_run folder on GitHub ↗](https://github.com/keycard-tech/keycard-shell/tree/master/hardware/shell/serial_run).
+The hardware license lets anyone study, manufacture, modify, and share the design, as long as modified designs stay open. The files for production units are in the [serial_run folder on GitHub ↗](https://github.com/keycard-tech/keycard-shell/tree/master/hardware/shell/serial_run), and the main board of the first production is in the pilot_run folder (see Step 2).
 
 ## Before you start
 
@@ -48,14 +48,18 @@ Opening your Shell is easy and doesn't damage it. Watch the video for each step.
 
 ## Step 2: Check the boards
 
+<Admonition type="note">
+    Shell units from the first production (December 2025) have main board **V3.7**, printed on the back of the board. The `serial_run` folder also contains **V3.8**, a later revision that only lengthens the USB-C connector pads. Both versions have the same components in the same positions. [More about board versions ↗](https://github.com/keycard-tech/keycard-shell/blob/master/hardware/shell/serial_run/ELECTRONIC/readme.md)
+</Admonition>
+
 Take clear, well-lit photos of both sides of each board. Then choose one of these two options.
 
 ### Option A: Ask your AI agent
 
-Give your photos to your AI agent, with a link to the [serial_run folder ↗](https://github.com/keycard-tech/keycard-shell/tree/master/hardware/shell/serial_run). You can use this prompt:
+Give your photos to your AI agent, with a link to the [Shell hardware folder ↗](https://github.com/keycard-tech/keycard-shell/tree/master/hardware/shell). You can use this prompt:
 
 ```text
-I opened my Keycard Shell. The attached photos show both sides of each board. Compare them with the official design files at https://github.com/keycard-tech/keycard-shell/tree/master/hardware/shell/serial_run and use the assembly drawings (KCP-PCBA-2282-604V3.8.PDF and FLX-PCBA-2282-614V3.3.PDF), the pick-and-place files and the bill of materials. List every component, wire, board or antenna in my photos that is not in the design files, and every part that looks different from them.
+I opened my Keycard Shell. The attached photos show both sides of each board. Compare them with the official design files at https://github.com/keycard-tech/keycard-shell/tree/master/hardware/shell and use the main board V3.7 files (pilot_run/electronics_and_bom/gerber/KCP-2282-60x-V3.7.8.zip: assembly drawing KCP-PCBA-2282-604 V3.7.PDF, pick-and-place file and bill of materials) and the flex board files in serial_run/ELECTRONIC/FLX-2282-61x-V3.3.0 (FLX-PCBA-2282-614V3.3.PDF). List every component, wire, board or antenna in my photos that is not in the design files, and every part that looks different from them.
 ```
 
 <Admonition type="note">
