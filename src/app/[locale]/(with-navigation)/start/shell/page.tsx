@@ -176,20 +176,22 @@ const STEPS = [
     title: '4. Verify Shell (optional)',
     description: (
       <>
-        Verification checks that your Shell is authentic and runs a verified
-        firmware. You need your phone or a computer with a camera to complete
-        this process. Check out{' '}
-        <Link className="underline" href="https://shell.keycard.tech/verify/">
-          Verify your Shell Authenticity
+        Verification checks that we made your Shell, so it runs only firmware we
+        signed. You need your phone or a computer with a camera. Read{' '}
+        <Link
+          className="underline"
+          href="/help/verify-keycard-shell-authenticity"
+        >
+          Verify Keycard Shell authenticity
         </Link>{' '}
         for details.
       </>
     ),
     subSteps: [
       {
-        title: 'a. Open verification web app',
+        title: 'a. Open the verification page',
         description:
-          'On the Shell, go to Settings > Security > Verification. Open the web app with your phone or computer.',
+          'On the Shell, go to Settings > Shell > Verify. On your phone or computer, open shell.keycard.tech/verify.',
         image: {
           src: '/assets/start/part-4-a.png',
           width: 280,
@@ -197,9 +199,8 @@ const STEPS = [
         },
       },
       {
-        title: 'b. Scan QR on web app',
-        description:
-          "Use the Shell to scan the QR code from the camera. Scan the web app's QR code.",
+        title: "b. Scan the page's QR",
+        description: 'Scan the QR code on the page with your Shell.',
         image: {
           src: '/assets/start/part-4-b.png',
           width: 280,
@@ -207,9 +208,9 @@ const STEPS = [
         },
       },
       {
-        title: 'c. Scan code on Shell',
+        title: "c. Scan your Shell's QR",
         description:
-          'Scan the QR on the Shell with your phone or computer to confirm the web app is authentic.',
+          'Scan the QR code on your Shell with your phone or computer. The page shows the result.',
         image: {
           src: '/assets/start/part-4-c.png',
           width: 280,

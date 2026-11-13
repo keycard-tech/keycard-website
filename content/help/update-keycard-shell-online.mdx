@@ -13,7 +13,7 @@ Regularly updating your Keycard Shell firmware and database keeps your device cu
 
 ## Update Keycard Shell online
 
-In addition to your Keycard and Keycard Shell, you need a computer to access the [update page ↗](https://shell.keycard.tech/update) and complete the update process.
+In addition to your Keycard and Keycard Shell, you need a computer with a Chromium-based browser (Chrome, Edge or Opera) to access the [update page ↗](https://shell.keycard.tech/update). Other browsers cannot connect to USB devices. To update without one of these browsers, read [Update Keycard Shell in air gapped mode](./update-keycard-shell-in-air-gapped-mode).
 
 Make sure you [enable data transfer](./enable-or-disable-data-transfer-on-keycard-shell) on your Keycard Shell before starting the update process.
 
@@ -43,10 +43,12 @@ The update page displays the latest available firmware and database versions. Yo
 
 ### Step 3: Update your Keycard Shell
 
-You need to confirm each update individually if you selected both.
+The update page installs the firmware first, then the database. Your Keycard Shell asks you to approve each one twice: once to receive it, and once to install it.
 
-1. On the update web page, click **Transfer to device** to transfer the database update to your Keycard Shell.
-2. On your Keycard Shell, confirm the database update by pressing **OK**.
-3. Return to the update web page, click **Transfer to device** again to transfer the firmware update to your Keycard Shell.
-4. On your Keycard Shell, confirm the firmware update by pressing **OK**.
-5. Press **OK** again.
+1. On the update web page, click **Transfer to Device**.
+2. On your Keycard Shell, press **OK** to receive the firmware.
+3. When the transfer ends, press **OK** again to install it. Your Keycard Shell restarts.
+4. Enter your Keycard PIN on your Keycard Shell.
+5. If you also selected the database, click **Transfer database** on the update web page. If your browser asks again, select your Keycard Shell and click **Connect**.
+6. On your Keycard Shell, press **OK** to receive the database.
+7. When the transfer ends, press **OK** again to install it. Your Keycard Shell does not restart after the database update.
