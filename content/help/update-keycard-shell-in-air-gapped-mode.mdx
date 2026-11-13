@@ -31,20 +31,25 @@ The update page displays the latest available firmware and database versions. Yo
 
 1. Open the update page at [https://shell.keycard.tech/update ↗](https://shell.keycard.tech/update). Before you continue, confirm the URL is exactly `https://shell.keycard.tech/update`.
 1. Click **Update in air-gapped mode**.
-1. Click **Download Shell Updater**. To download for a different operating system, click **Expand ⌵** and select the preferred option.
-1. Click **Download firmware**.
-1. Click **Download database**. 
+1. Under **Download stand-alone Shell updater app**, choose your operating system in **Select OS**, then click **Download Shell Updater**.
+1. Under **Download firmware package**, choose your variant in **Select variant**, then download the firmware.
+1. Under **Download database package**, download the database.
 1. Optionally, verify the integrity of the downloaded files using the SHA256 checksums shown on the update page.
 1. Transfer the downloaded files to your air-gapped computer using a verified and secure USB drive.
 
 ## Step 2: Update your Keycard Shell
 
+<Admonition type="caution">
+    Always install the firmware before the database. Databases from 2026-11-11 on are signed with a new key, and only firmware v1.5.3 or later accepts it.
+</Admonition>
+
 1. On your air-gapped computer, unzip and run the updater application.
-2. Under **Database Update**, click **Select local file** and select the database file on your USB drive.
-3. On your Keycard Shell, confirm the database update by pressing **OK**.
-4. Return to the updater,  click **Back to home**. 
-5. Under **Firmware Update**, click **Select local file** and select the firmware file on your USB drive.
-6. On your Keycard Shell, confirm the firmware update by pressing **OK**.
+2. Under **Firmware Update**, click **Select local file** and select the firmware file on your USB drive.
+3. On your Keycard Shell, press **OK** to receive the firmware. When the transfer ends, press **OK** again to install it. Your Keycard Shell restarts.
+4. Enter your Keycard PIN on your Keycard Shell.
+5. In the updater, click **Back to home**.
+6. Under **Database Update**, click **Select local file** and select the database file on your USB drive.
+7. On your Keycard Shell, press **OK** to receive the database. When the transfer ends, press **OK** again to install it.
 
 <Admonition type="tip">
     After the update, [disable data transfer](./enable-or-disable-data-transfer-on-keycard-shell) on your Keycard Shell to ensure it remains air-gapped.

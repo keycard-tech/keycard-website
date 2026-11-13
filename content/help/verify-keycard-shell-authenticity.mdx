@@ -5,7 +5,7 @@ title: Verify Keycard Shell authenticity
 
 # Verify Keycard Shell authenticity
 
-Before using your Keycard Shell, verify its authenticity to ensure it has not been tampered with and it runs authentic firmware.
+Before you use your Keycard Shell, verify that it is genuine. A genuine Shell was made by us, so it runs only firmware that we signed.
 
 <Admonition type="note">
     Keycard Shell verification is optional, but we strongly advise verifying your device before using it. This is a security measure designed to protect you from using a fake or compromised device.
@@ -25,16 +25,20 @@ In addition to your Keycard and Keycard Shell, you need a computer or mobile dev
 
 ### Step 2: Verify your Keycard Shell
 
-1. On your computer or mobile device, open the verification page at [https://shell.keycard.tech/verify ↗](https://shell.keycard.tech/verify).
-2. Scan the QR code on the web page with the camera on your Keycard Shell.
+1. On your computer or mobile device, open the verification page at [https://shell.keycard.tech/verify ↗](https://shell.keycard.tech/verify). Before you continue, confirm the URL is exactly `https://shell.keycard.tech/verify`.
+2. When the QR code on the web page is sharp, scan it with the camera on your Keycard Shell. Your Keycard Shell then shows a QR code.
 3. Select **Continue** on the web page.
-4. Select **Enable camera** to open the camera on your computer or mobile device.
-5. Scan the QR code on your Keycard Shell with the camera on your computer or mobile device.
+4. If your browser asks for camera access, select **Enable camera**.
+5. Scan the QR code on your Keycard Shell with the camera on your computer or mobile device. The web page shows the result.
 
 <Admonition type="note">
-   During verification, the Shell signs a one-time QR challenge and includes its device certificate. The verification service validates the signature and certificate, then returns the verification result and history. You then scan a final QR code with the Shell to confirm that the result is not altered by the browser. Check out [Keycard Shell verification: How you can proof your Shell is authentic ↗](https://docs.keycard.tech/en/blog/keycard-shell-verification-what-verify-actually-proves-and-why-it-matters) to learn more.
+   The web page sends your Keycard Shell a one-time challenge. Your Keycard Shell signs it with a key unique to each device, recorded when we made it. The web page checks the signature in your browser against our signed list of produced Shells. The list holds no device IDs or keys, only hashes of them. No Keycard server takes part. A genuine Shell has our bootloader, and our bootloader runs only firmware we signed.
+</Admonition>
+
+<Admonition type="note">
+   On firmware v1.5.2 or older, your Keycard Shell waits for one more QR code after step 5. There is none: press **Back** on your Keycard Shell. Then [update your Keycard Shell](./update-keycard-shell-online).
 </Admonition>
 
 <Admonition type="caution">
-    If your Keycard Shell is not authentic, stop using it and contact the Keycard team [on Discord ↗](https://discord.gg/uJAXk7jFhZ).
+    If the web page says your Keycard Shell is not on our produced units list, stop using it and contact the Keycard team [on Discord ↗](https://discord.gg/uJAXk7jFhZ).
 </Admonition>
