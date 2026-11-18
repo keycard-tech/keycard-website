@@ -13,7 +13,7 @@ Updating your Keycard Shell in air gapped mode helps maintain the security of yo
 
 ## Update Keycard Shell in air gapped mode
 
-In addition to your Keycard and Keycard Shell, you need a computer to access the [update files ↗](https://shell.keycard.tech/update), a USB drive to transfer the files, and an air-gapped computer (a computer that is not connected to the internet).
+In addition to your Keycard and Keycard Shell, you need a computer with internet access to download the update files, a USB drive to transfer the files, and an air-gapped computer (a computer that is not connected to the internet).
 
 Make sure you [enable data transfer](./enable-or-disable-data-transfer-on-keycard-shell) on your Keycard Shell before starting the update process.
 
@@ -27,29 +27,43 @@ Make sure you [enable data transfer](./enable-or-disable-data-transfer-on-keycar
 
 ## Step 1: Download the updater and update files
 
-The update page displays the latest available firmware and database versions. Your Keycard Shell may already be up to date on one or both of these versions. Download the update you need to install.
+On your computer with internet access, download these files from GitHub. Download only the files you need: your Keycard Shell may already be up to date on the firmware, the database or both.
 
-1. Open the update page at [https://shell.keycard.tech/update ↗](https://shell.keycard.tech/update). Before you continue, confirm the URL is exactly `https://shell.keycard.tech/update`.
-1. Click **Update in air-gapped mode**.
-1. Under **Download stand-alone Shell updater app**, choose your operating system in **Select OS**, then click **Download Shell Updater**.
-1. Under **Download firmware package**, choose your variant in **Select variant**, then download the firmware.
-1. Under **Download database package**, download the database.
-1. Optionally, verify the integrity of the downloaded files using the SHA256 checksums shown on the update page.
+1. Download **Keycard Shell Updater** for your operating system from the [Keycard Shell Updater releases page ↗](https://github.com/keycard-tech/kshell-updater/releases/latest).
+1. Download the firmware from the [Keycard Shell releases page ↗](https://github.com/keycard-tech/keycard-shell/releases/latest). Choose one of the two firmware versions:
+    - `shellos-<date>-<version>.bin`: the multi-chain firmware.
+    - `shellos-<date>-<version>-btc-only.bin`: the Bitcoin-only firmware.
+
+    Do not download the `shellos-bootloader` file.
+1. Download the database file `shelldb-<date>.bin` from the [database releases page ↗](https://github.com/keycard-tech/keycard-eth-db/releases/latest). Do not download the `reproduction` zip file.
+1. On each releases page, also download the file that ends in `sha256.txt`.
 1. Transfer the downloaded files to your air-gapped computer using a verified and secure USB drive.
 
 ## Step 2: Update your Keycard Shell
 
 <Admonition type="caution">
-    Always install the firmware before the database. Databases from 2026-11-11 on are signed with a new key, and only firmware v1.5.3 or later accepts it.
+    Always install the firmware before the database. Databases from 2026-11-11 on are signed with a new key, and only firmware v1.5.3 or later accepts it. If you select both, the updater installs the firmware first.
 </Admonition>
 
-1. On your air-gapped computer, unzip and run the updater application.
-2. Under **Firmware Update**, click **Select local file** and select the firmware file on your USB drive.
-3. On your Keycard Shell, press **OK** to receive the firmware. When the transfer ends, press **OK** again to install it. Your Keycard Shell restarts.
-4. Enter your Keycard PIN on your Keycard Shell.
-5. In the updater, click **Back to home**.
-6. Under **Database Update**, click **Select local file** and select the database file on your USB drive.
-7. On your Keycard Shell, press **OK** to receive the database. When the transfer ends, press **OK** again to install it.
+1. On your air-gapped computer, install and open Keycard Shell Updater.
+1. Connect your Keycard Shell to the computer with a USB-C cable and unlock it. The updater shows **Keycard Shell connected** and the firmware and database versions on your Keycard Shell.
+1. To update the firmware, in the **Firmware** section, select the checkbox, click **From file**, then click **Choose a .bin file** and select the firmware file on your USB drive.
+1. To update the database, in the **Database** section, select the checkbox, click **From file**, then click **Choose a .bin file** and select the database file on your USB drive.
+1. Compare the **sha256** value shown in each section with the value for the same file in the `sha256.txt` file. The two values must be identical.
+1. Click **Transfer to device**.
+1. On your Keycard Shell, press **OK** to receive the firmware. When the transfer ends, press **OK** again to install it. Your Keycard Shell restarts.
+1. Enter your Keycard PIN on your Keycard Shell.
+1. If you also selected the database, the updater sends it next. On your Keycard Shell, press **OK** to receive the database. When the transfer ends, press **OK** again to install it.
+
+When the update is complete, the updater shows the firmware and database versions that your Keycard Shell now runs.
+
+<Admonition type="note">
+    Do not compare the files with a standard `sha256sum` command or with the digest shown on GitHub. These hash the whole file, signature included, so they give a different value. The values in `sha256.txt` and in the updater leave out the signature.
+</Admonition>
+
+<Admonition type="note">
+    Do not disconnect your Keycard Shell during the transfer. If you click **Cancel**, the updater stops and writes nothing more to your Keycard Shell. Click **Try again** to restart the transfer.
+</Admonition>
 
 <Admonition type="tip">
     After the update, [disable data transfer](./enable-or-disable-data-transfer-on-keycard-shell) on your Keycard Shell to ensure it remains air-gapped.
