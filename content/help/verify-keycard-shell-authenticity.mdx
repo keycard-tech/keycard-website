@@ -13,7 +13,7 @@ Before you use your Keycard Shell, verify that it is genuine. A genuine Shell wa
 
 ## Verify Keycard Shell authenticity
 
-In addition to your Keycard and Keycard Shell, you need a computer or mobile device to access the [verification page ↗](https://shell.keycard.tech/verify) to complete the verification process.
+In addition to your Keycard and Keycard Shell, you need a computer or mobile device with a camera. You can verify on the [verification page ↗](https://shell.keycard.tech/verify), or in [Keycard Shell Updater ↗](https://github.com/keycard-tech/kshell-updater/releases/latest) on a computer. Keycard Shell Updater can also verify on a computer that is not connected to the internet. You do not need a USB cable.
 
 ### Step 1: Prepare your Keycard Shell
 
@@ -25,20 +25,33 @@ In addition to your Keycard and Keycard Shell, you need a computer or mobile dev
 
 ### Step 2: Verify your Keycard Shell
 
+#### Option A: On the verification page
+
 1. On your computer or mobile device, open the verification page at [https://shell.keycard.tech/verify ↗](https://shell.keycard.tech/verify). Before you continue, confirm the URL is exactly `https://shell.keycard.tech/verify`.
 2. When the QR code on the web page is sharp, scan it with the camera on your Keycard Shell. Your Keycard Shell then shows a QR code.
 3. Select **Continue** on the web page.
 4. If your browser asks for camera access, select **Enable camera**.
 5. Scan the QR code on your Keycard Shell with the camera on your computer or mobile device. The web page shows the result.
 
+#### Option B: In Keycard Shell Updater
+
+1. Open Keycard Shell Updater and click **Verify Shell authenticity**.
+2. Load the list of produced units:
+    - If your computer is connected to the internet, click **Fetch units list**.
+    - If your computer is not connected to the internet, first download the file `shell-verification-db.bin` from the [Keycard Shell units releases page ↗](https://github.com/keycard-tech/shell-units/releases/latest) on another computer, and copy it to a USB drive. In the updater, click **From file** and select the file.
+3. Scan the QR code in the updater with the camera on your Keycard Shell. Your Keycard Shell then shows a QR code.
+4. Click **Enable camera**. If your computer has more than one camera, select one in the list under the camera view.
+5. Scan the QR code on your Keycard Shell with the camera on your computer. Hold your Keycard Shell flat and steady.
+6. The updater shows **Your Shell is authentic** when your Keycard Shell is in the list of produced units. Click **Done**.
+
 <Admonition type="note">
-   The web page sends your Keycard Shell a one-time challenge. Your Keycard Shell signs it with a key unique to each device, recorded when we made it. The web page checks the signature in your browser against our signed list of produced Shells. The list holds no device IDs or keys, only hashes of them. No Keycard server takes part. A genuine Shell has our bootloader, and our bootloader runs only firmware we signed.
+   Your Keycard Shell receives a one-time challenge. Your Keycard Shell signs it with a key unique to each device, recorded when we made it. The web page or the updater checks the signature on your device against our signed list of produced Shells. The list holds no device IDs or keys, only hashes of them. No Keycard server takes part. A genuine Shell has our bootloader, and our bootloader runs only firmware we signed.
 </Admonition>
 
 <Admonition type="note">
-   On firmware v1.5.2 or older, your Keycard Shell waits for one more QR code after step 5. There is none: press **Back** on your Keycard Shell. Then [update your Keycard Shell](./update-keycard-shell-online).
+   On firmware v1.5.2 or older, your Keycard Shell waits for one more QR code at the end. There is none: press **Back** on your Keycard Shell. Then [update your Keycard Shell](./update-keycard-shell-online).
 </Admonition>
 
 <Admonition type="caution">
-    If the web page says your Keycard Shell is not on our produced units list, stop using it and contact the Keycard team [on Discord ↗](https://discord.gg/uJAXk7jFhZ).
+    If the web page or the updater says your Keycard Shell is not in our produced units list, stop using it and contact the Keycard team [on Discord ↗](https://discord.gg/uJAXk7jFhZ).
 </Admonition>
