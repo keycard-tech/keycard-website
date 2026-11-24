@@ -41,6 +41,51 @@ type Props = {
   children: React.ReactNode
 }
 
+const GOOGLE_TAG_ID = 'G-YLHJYKZLH6'
+
+const GOOGLE_TAG_INIT_SCRIPT = `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    wait_for_update: 500
+  });
+  gtag('js', new Date());
+  gtag('config', '${GOOGLE_TAG_ID}');
+
+  (function () {
+    var update = function (analytics, marketing) {
+      gtag('consent', 'update', {
+        analytics_storage: analytics ? 'granted' : 'denied',
+        ad_storage: marketing ? 'granted' : 'denied',
+        ad_user_data: marketing ? 'granted' : 'denied',
+        ad_personalization: marketing ? 'granted' : 'denied'
+      });
+    };
+
+    // Returning visitors: read the stored choice once the Shopify API is ready.
+    var fromStoredChoice = function () {
+      var cp = window.Shopify && window.Shopify.customerPrivacy;
+      if (!cp || typeof cp.analyticsProcessingAllowed !== 'function') return;
+      update(cp.analyticsProcessingAllowed(), cp.marketingAllowed());
+    };
+
+    document.addEventListener('consentTrackingApiLoaded', fromStoredChoice);
+
+    // The visitor just used the banner.
+    document.addEventListener('visitorConsentCollected', function (event) {
+      var d = (event && event.detail) || {};
+      update(!!d.analyticsAllowed, !!d.marketingAllowed);
+    });
+
+    fromStoredChoice();
+  })();
+`
+
 export default async function RootLayout({ children }: Props) {
   const locale = await getLocale()
   const messages = await getMessages()
@@ -48,6 +93,19 @@ export default async function RootLayout({ children }: Props) {
   return (
     <html lang={locale}>
       <head>
+        {/*
+          Google tag with Consent Mode v2. Everything is denied until the
+          visitor decides in the Shopify privacy banner. That banner does not
+          talk to Google itself, so the bridge below listens to its events and
+          forwards the choice with gtag('consent', 'update', ...).
+          This must stay above the Shopify banner scripts so no event is missed.
+        */}
+        <script dangerouslySetInnerHTML={{ __html: GOOGLE_TAG_INIT_SCRIPT }} />
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_TAG_ID}`}
+        />
+
         {/* Shopify cookie banner script */}
         <Script
           id="shopify-privacy-bundle"
