@@ -43,15 +43,34 @@ type Props = {
 
 const GOOGLE_TAG_ID = 'G-YLHJYKZLH6'
 
+// ISO 3166-1 codes of the EU member states, the other EEA countries
+// (Iceland, Liechtenstein, Norway), the United Kingdom and Switzerland.
+// prettier-ignore
+const CONSENT_DENIED_REGIONS = [
+  'AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR',
+  'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK',
+  'SI', 'ES', 'SE', 'IS', 'LI', 'NO', 'GB', 'CH',
+]
+
 const GOOGLE_TAG_INIT_SCRIPT = `
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
 
+  // Outside the EEA, UK and Switzerland, visitors are measured from the start.
+  gtag('consent', 'default', {
+    ad_storage: 'granted',
+    ad_user_data: 'granted',
+    ad_personalization: 'granted',
+    analytics_storage: 'granted'
+  });
+  // Inside those regions everything stays denied until the visitor accepts the
+  // Shopify banner. Until then the tag only sends cookieless pings.
   gtag('consent', 'default', {
     ad_storage: 'denied',
     ad_user_data: 'denied',
     ad_personalization: 'denied',
     analytics_storage: 'denied',
+    region: ${JSON.stringify(CONSENT_DENIED_REGIONS)},
     wait_for_update: 500
   });
   gtag('js', new Date());
@@ -94,10 +113,11 @@ export default async function RootLayout({ children }: Props) {
     <html lang={locale}>
       <head>
         {/*
-          Google tag with Consent Mode v2. Everything is denied until the
-          visitor decides in the Shopify privacy banner. That banner does not
-          talk to Google itself, so the bridge below listens to its events and
-          forwards the choice with gtag('consent', 'update', ...).
+          Google tag with Consent Mode v2. Granted by default, denied in the
+          EEA, UK and Switzerland until the visitor decides in the Shopify
+          privacy banner. That banner does not talk to Google itself, so the
+          bridge below listens to its events and forwards the choice with
+          gtag('consent', 'update', ...).
           This must stay above the Shopify banner scripts so no event is missed.
         */}
         <script dangerouslySetInnerHTML={{ __html: GOOGLE_TAG_INIT_SCRIPT }} />
@@ -155,7 +175,7 @@ export default async function RootLayout({ children }: Props) {
 
                 const config = {
                   storefrontAccessToken: '${clientEnv.NEXT_PUBLIC_SHOPIFY_STOREFRONT_TOKEN}',
-                  checkoutRootDomain: 'getmykeycard.myshopify.com',
+                  checkoutRootDomain: 'keycard.tech',
                   storefrontRootDomain:  'keycard.tech',
                   headlessStorefront: true,
                 };
