@@ -1,3 +1,4 @@
+import { getExternalRel } from '~/app/_utils/external-rel'
 import { Link as IntlLink } from '~/i18n/navigation'
 import { forwardRef } from 'react'
 
@@ -40,7 +41,7 @@ const Link = (
         : `${href.pathname ?? ''}${href.hash ? (href.hash.startsWith('#') ? href.hash : `#${href.hash}`) : ''}`
     const target = props.target ?? '_blank'
     const rel =
-      props.rel ?? (target === '_blank' ? 'noopener noreferrer' : undefined)
+      props.rel ?? (target === '_blank' ? getExternalRel(fullHref) : undefined)
     return (
       <a {...props} href={fullHref} target={target} rel={rel} ref={ref}>
         {props.children}

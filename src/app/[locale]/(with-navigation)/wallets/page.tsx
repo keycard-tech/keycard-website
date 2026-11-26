@@ -3,6 +3,7 @@
 import { DiscordIcon, TwitterIcon } from '@status-im/icons/social'
 import { KeycardIcon } from '~/app/_icons/keycard-icon'
 import { KeycardShellIcon } from '~/app/_icons/keycard-shell-icon'
+import { getExternalRel } from '~/app/_utils/external-rel'
 import { ButtonLink } from '~components/button-link'
 import { Link } from '~components/link'
 import Image from 'next/image'
@@ -247,7 +248,7 @@ function WalletCard({ wallet }: { wallet: Wallet }) {
       <a
         href={wallet.websiteUrl}
         target="_blank"
-        rel="noopener noreferrer"
+        rel={getExternalRel(wallet.websiteUrl)}
         className="hover:opacity-80 mb-4 flex items-center justify-center transition-opacity"
       >
         {wallet.icon ? (
