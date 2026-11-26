@@ -175,6 +175,18 @@ X (Twitter) Cookies Used
   </tbody>
 </table>
 
+### (c) Google Analytics
+
+We use Google Analytics to measure visits to this Website. Google receives information about your visit, such as pages viewed, referrer, device and browser details, and your IP address. Google Analytics may set the cookies `_ga` and `_ga_YLHJYKZLH6`, which last up to 2 years.
+
+*Controller*: Status Research & Development GmbH, with address: c/o PST Consulting GmbH Baarerstrasse 10, 6300 Zug Switzerland.
+
+*Purpose and legal basis*: Website analytics. In the EU/EEA, the UK and Switzerland, Google Analytics sets no cookies until you give consent through our cookie banner. Without consent, it only sends cookieless signals to Google.
+
+*International transfers*: Google may process this data in the United States. See [Google's Privacy Policy](https://policies.google.com/privacy).
+
+*Opt-out*: You can withdraw consent at any time via our cookie banner, or use the [Google Analytics opt-out browser add-on](https://tools.google.com/dlpage/gaoptout).
+
 ## 4) Security measures we take in respect of the Website
 
 As a general approach, we take data security seriously and we have implemented a variety of security measures on the Website to maintain the safety of your personal data when you submit such information to us. 
